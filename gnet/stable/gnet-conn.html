@@ -1,0 +1,1219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Conn: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-conn-http.html" title="GConnHttp">
+<link rel="next" href="gnet-server.html" title="Server">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-conn.html#container">Go to page content</a></li><li><a href="gnet-conn.html#top_bar">Go to main menu</a></li><li><a href="gnet-conn.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-conn.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-conn.html#gnet-conn.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-conn-http.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-server.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-conn"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Conn</span></h2>
+<p>Conn — TCP connection object</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+                    <a class="link" href="gnet-conn.html#GConn">GConn</a>;
+                    <a class="link" href="gnet-conn.html#GConnEvent">GConnEvent</a>;
+enum                <a class="link" href="gnet-conn.html#GConnEventType">GConnEventType</a>;
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                (<a class="link" href="gnet-conn.html#GConnFunc">*GConnFunc</a>)                        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <a class="link" href="gnet-conn.html#GConnEvent">GConnEvent</a> *event,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);
+<a class="link" href="gnet-conn.html#GConn">GConn</a>*              <a class="link" href="gnet-conn.html#gnet-conn-new">gnet_conn_new</a>                       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *hostname,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);
+<a class="link" href="gnet-conn.html#GConn">GConn</a>*              <a class="link" href="gnet-conn.html#gnet-conn-new-inetaddr">gnet_conn_new_inetaddr</a>              (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);
+<a class="link" href="gnet-conn.html#GConn">GConn</a>*              <a class="link" href="gnet-conn.html#gnet-conn-new-socket">gnet_conn_new_socket</a>                (<a class="link" href="gnet-tcp.html#GTcpSocket">GTcpSocket</a> *socket,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-delete">gnet_conn_delete</a>                    (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-ref">gnet_conn_ref</a>                       (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-unref">gnet_conn_unref</a>                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-set-callback">gnet_conn_set_callback</a>              (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-conn.html#gnet-conn-set-main-context">gnet_conn_set_main_context</a>          (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="GMainContext">GMainContext</GTKDOCLINK> *context);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-connect">gnet_conn_connect</a>                   (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-disconnect">gnet_conn_disconnect</a>                (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-conn.html#gnet-conn-is-connected">gnet_conn_is_connected</a>              (const <a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-read">gnet_conn_read</a>                      (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-readn">gnet_conn_readn</a>                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-readline">gnet_conn_readline</a>                  (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-write">gnet_conn_write</a>                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-write-direct">gnet_conn_write_direct</a>              (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="GDestroyNotify">GDestroyNotify</GTKDOCLINK> buffer_destroy_cb);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-set-watch-error">gnet_conn_set_watch_error</a>           (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-set-watch-readable">gnet_conn_set_watch_readable</a>        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-set-watch-writable">gnet_conn_set_watch_writable</a>        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-conn.html#gnet-conn-timeout">gnet_conn_timeout</a>                   (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> timeout);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.9.4"></a><h2>Description</h2>
+<p>
+A <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> represents a TCP connection.  A <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> is usually created directly by
+the user by calling <a class="link" href="gnet-conn.html#gnet-conn-new"><code class="function">gnet_conn_new()</code></a> or <a class="link" href="gnet-conn.html#gnet-conn-new-inetaddr"><code class="function">gnet_conn_new_inetaddr()</code></a>.  To connect to
+the remote host, call <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a> and to disconnect call
+<a class="link" href="gnet-conn.html#gnet-conn-disconnect"><code class="function">gnet_conn_disconnect()</code></a>.  You may use the same <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> to connect again to the
+host after you disconnected.  Free the <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> with <a class="link" href="gnet-conn.html#gnet-conn-unref"><code class="function">gnet_conn_unref()</code></a> or
+<a class="link" href="gnet-conn.html#gnet-conn-delete"><code class="function">gnet_conn_delete()</code></a> when no longer needed.
+</p>
+<p>
+<a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>s are also created by a <a class="link" href="gnet-server.html#GServer"><span class="type">GServer</span></a> when a client connects.  You
+will need to call <a class="link" href="gnet-conn.html#gnet-conn-set-callback"><code class="function">gnet_conn_set_callback()</code></a> to set the <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> callback after
+it is created by the <a class="link" href="gnet-server.html#GServer"><span class="type">GServer</span></a>.  A <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> that has been created by a <a class="link" href="gnet-server.html#GServer"><span class="type">GServer</span></a>
+is already connect, you don't have to call <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a> in this case.
+Call <a class="link" href="gnet-conn.html#gnet-conn-unref"><code class="function">gnet_conn_unref()</code></a> or <a class="link" href="gnet-conn.html#gnet-conn-delete"><code class="function">gnet_conn_delete()</code></a> to disconnect the remote client
+and free the <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+</p>
+<p>
+The iochannel field and <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> functions can be used to read from
+or write to the socket.  <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> functions block.  To make an
+asynchronous read call <a class="link" href="gnet-conn.html#gnet-conn-read"><code class="function">gnet_conn_read()</code></a> and to make an asynchronous
+write call <a class="link" href="gnet-conn.html#gnet-conn-write"><code class="function">gnet_conn_write()</code></a>.  The callback is called whenever a read
+or write completes.
+</p>
+<p>
+Special use cases (you usually do not need this): use
+<a class="link" href="gnet-conn.html#gnet-conn-set-watch-error"><code class="function">gnet_conn_set_watch_error()</code></a> to get an event if an error occurs.
+Use <a class="link" href="gnet-conn.html#gnet-conn-set-watch-readable"><code class="function">gnet_conn_set_watch_readable()</code></a> and <a class="link" href="gnet-conn.html#gnet-conn-set-watch-writable"><code class="function">gnet_conn_set_watch_writable()</code></a>
+to get events when the connection is readable or writable.  These can
+be used to implement custom I/O handling for cases where <a class="link" href="gnet-conn.html#gnet-conn-read"><code class="function">gnet_conn_read()</code></a>,
+<a class="link" href="gnet-conn.html#gnet-conn-write"><code class="function">gnet_conn_write()</code></a> and <a class="link" href="gnet-conn.html#gnet-conn-write-direct"><code class="function">gnet_conn_write_direct()</code></a> are not suitable.  For example,
+consider writing from a <GTKDOCLINK HREF="mmap"><code class="function">mmap()</code></GTKDOCLINK>'ed file.  <a class="link" href="gnet-conn.html#gnet-conn-write"><code class="function">gnet_conn_write()</code></a> will allocate memory
+for a buffer and copy part of the file into the buffer.  To avoid the
+copy, use <a class="link" href="gnet-conn.html#gnet-conn-set-watch-writable"><code class="function">gnet_conn_set_watch_writable()</code></a> to catch the writable event
+and then write directly from memory to the socket (note: this is obsolete, you
+can now use <a class="link" href="gnet-conn.html#gnet-conn-write-direct"><code class="function">gnet_conn_write_direct()</code></a> for this).
+</p>
+<p>
+<a class="link" href="gnet-conn.html#gnet-conn-timeout"><code class="function">gnet_conn_timeout()</code></a> sets a timeout on the GConn.  The
+<a class="link" href="gnet-conn.html#GNET-CONN-TIMEOUT:CAPS"><code class="literal">GNET_CONN_TIMEOUT</code></a> event occurs when the timer expires.  For example,
+the timer may be set before connecting to the host.  If the connection
+is made, the <a class="link" href="gnet-conn.html#GNET-CONN-CONNECT:CAPS"><code class="literal">GNET_CONN_CONNECT</code></a> event occurs. The timer can then be
+reset by setting the timeout to 0.  Otherwise, the <a class="link" href="gnet-conn.html#GNET-CONN-TIMEOUT:CAPS"><code class="literal">GNET_CONN_TIMEOUT</code></a>
+event will eventually occur.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.9.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.9.5.2"></a><h3>
+<a name="GConn"></a>GConn</h3>
+<pre class="programlisting">typedef struct {
+  /* Public */
+  gchar*			hostname;
+  gint				port;
+
+  GIOChannel* 			iochannel;
+  GTcpSocket* 			socket;
+  GInetAddr*			inetaddr;
+
+
+  /* Private */
+  guint				ref_count;
+  guint				ref_count_internal;
+
+  /* Connect */
+  GTcpSocketConnectAsyncID 	connect_id;
+  GTcpSocketNewAsyncID 		new_id;
+
+  /* Write */
+  GList*			write_queue;
+  guint				bytes_written;
+
+  /* Read */
+  gchar* 			buffer;
+  guint 			length;
+  guint 			bytes_read;
+  gboolean			read_eof;
+  GList*			read_queue;
+  guint				process_buffer_timeout;
+
+  /* Readable/writable */
+  gboolean			watch_readable;
+  gboolean			watch_writable;
+
+  /* IO watch */
+  guint				watch_flags;
+  guint				watch;
+
+  /* Timer */
+  guint				timer;
+
+  /* User data */
+  GConnFunc			func;
+  gpointer			user_data;
+
+  GMainContext                * context;
+  gint                          priority;
+} GConn;
+</pre>
+<p>
+TCP Connection.  Some of the fields are public, but do not set
+ these fields.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *<em class="structfield"><code>hostname</code></em>;</span></p></td>
+<td> host name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK> <em class="structfield"><code>port</code></em>;</span></p></td>
+<td> port
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK> *<em class="structfield"><code>iochannel</code></em>;</span></p></td>
+<td> IO channel
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-tcp.html#GTcpSocket">GTcpSocket</a> *<em class="structfield"><code>socket</code></em>;</span></p></td>
+<td> socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *<em class="structfield"><code>inetaddr</code></em>;</span></p></td>
+<td> address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>ref_count</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>ref_count_internal</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-tcp.html#GTcpSocketConnectAsyncID">GTcpSocketConnectAsyncID</a> <em class="structfield"><code>connect_id</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-tcp.html#GTcpSocketNewAsyncID">GTcpSocketNewAsyncID</a> <em class="structfield"><code>new_id</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="GList">GList</GTKDOCLINK> *<em class="structfield"><code>write_queue</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>bytes_written</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *<em class="structfield"><code>buffer</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>length</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>bytes_read</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> <em class="structfield"><code>read_eof</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="GList">GList</GTKDOCLINK> *<em class="structfield"><code>read_queue</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>process_buffer_timeout</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> <em class="structfield"><code>watch_readable</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> <em class="structfield"><code>watch_writable</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>watch_flags</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>watch</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK> <em class="structfield"><code>timer</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> <em class="structfield"><code>func</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> <em class="structfield"><code>user_data</code></em>;</span></p></td>
+<td> [private]
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="GMainContext">GMainContext</GTKDOCLINK> *<em class="structfield"><code>context</code></em>;</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK> <em class="structfield"><code>priority</code></em>;</span></p></td>
+<td>
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.3"></a><h3>
+<a name="GConnEvent"></a>GConnEvent</h3>
+<pre class="programlisting">typedef struct {
+  GConnEventType type;
+  gchar*	 buffer;
+  gint		 length;
+} GConnEvent;
+</pre>
+<p>
+GConn Event.  <em class="parameter"><code>buffer</code></em> and <em class="parameter"><code>length</code></em> are set only on <a class="link" href="gnet-conn.html#GNET-CONN-READ:CAPS"><span class="type">GNET_CONN_READ</span></a>
+ events.  The buffer is caller-owned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="gnet-conn.html#GConnEventType">GConnEventType</a> <em class="structfield"><code>type</code></em>;</span></p></td>
+<td> event type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *<em class="structfield"><code>buffer</code></em>;</span></p></td>
+<td> buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK> <em class="structfield"><code>length</code></em>;</span></p></td>
+<td> buffer length
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.4"></a><h3>
+<a name="GConnEventType"></a>enum GConnEventType</h3>
+<pre class="programlisting">typedef enum {
+  GNET_CONN_ERROR,
+  GNET_CONN_CONNECT,
+  GNET_CONN_CLOSE,
+  GNET_CONN_TIMEOUT,
+  GNET_CONN_READ,
+  GNET_CONN_WRITE,
+  GNET_CONN_READABLE,
+  GNET_CONN_WRITABLE
+} GConnEventType;
+</pre>
+<p>
+Event type.  Used by <a class="link" href="gnet-conn.html#GConnEvent"><span class="type">GConnEvent</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-ERROR:CAPS"></a><code class="literal">GNET_CONN_ERROR</code></span></p></td>
+<td> Connection error
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-CONNECT:CAPS"></a><code class="literal">GNET_CONN_CONNECT</code></span></p></td>
+<td> Connection complete
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-CLOSE:CAPS"></a><code class="literal">GNET_CONN_CLOSE</code></span></p></td>
+<td> Connection closed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-TIMEOUT:CAPS"></a><code class="literal">GNET_CONN_TIMEOUT</code></span></p></td>
+<td> Timeout
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-READ:CAPS"></a><code class="literal">GNET_CONN_READ</code></span></p></td>
+<td> Read complete
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-WRITE:CAPS"></a><code class="literal">GNET_CONN_WRITE</code></span></p></td>
+<td> Write complete
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-READABLE:CAPS"></a><code class="literal">GNET_CONN_READABLE</code></span></p></td>
+<td> Connection is readable
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="GNET-CONN-WRITABLE:CAPS"></a><code class="literal">GNET_CONN_WRITABLE</code></span></p></td>
+<td> Connection is writable
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.5"></a><h3>
+<a name="GConnFunc"></a>GConnFunc ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                (*GConnFunc)                        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <a class="link" href="gnet-conn.html#GConnEvent">GConnEvent</a> *event,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
+<p>
+Callback for <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  
+</p>
+<p>
+ Possible events:
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-ERROR:CAPS"><code class="literal">GNET_CONN_ERROR</code></a>: <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> error.  The event occurs if the connection
+ fails somehow.  The connection is closed before this event occurs.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-CONNECT:CAPS"><code class="literal">GNET_CONN_CONNECT</code></a>: Completion of <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a>.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-CLOSE:CAPS"><code class="literal">GNET_CONN_CLOSE</code></a>: Connection has been closed.  The event does not
+ occur as a result of calling <a class="link" href="gnet-conn.html#gnet-conn-disconnect"><code class="function">gnet_conn_disconnect()</code></a>,
+ <a class="link" href="gnet-conn.html#gnet-conn-unref"><code class="function">gnet_conn_unref()</code></a>, or <a class="link" href="gnet-conn.html#gnet-conn-delete"><code class="function">gnet_conn_delete()</code></a>.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-TIMEOUT:CAPS"><code class="literal">GNET_CONN_TIMEOUT</code></a>: Timer set by <a class="link" href="gnet-conn.html#gnet-conn-timeout"><code class="function">gnet_conn_timeout()</code></a> expires.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-READ:CAPS"><code class="literal">GNET_CONN_READ</code></a>: Data has been read.  This event occurs as a result
+ of calling <a class="link" href="gnet-conn.html#gnet-conn-read"><code class="function">gnet_conn_read()</code></a>, <a class="link" href="gnet-conn.html#gnet-conn-readn"><code class="function">gnet_conn_readn()</code></a>, or
+ <a class="link" href="gnet-conn.html#gnet-conn-readline"><code class="function">gnet_conn_readline()</code></a>.  buffer and length are set in the event
+ object.  The buffer is caller owned.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-WRITE:CAPS"><code class="literal">GNET_CONN_WRITE</code></a>: Data has been written.  This event occurs as a
+ result of calling <a class="link" href="gnet-conn.html#gnet-conn-write"><code class="function">gnet_conn_write()</code></a> or <a class="link" href="gnet-conn.html#gnet-conn-write-direct"><code class="function">gnet_conn_write_direct()</code></a>.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-READABLE:CAPS"><code class="literal">GNET_CONN_READABLE</code></a>: The connection is readable.
+</p>
+<p>
+ <a class="link" href="gnet-conn.html#GNET-CONN-WRITABLE:CAPS"><code class="literal">GNET_CONN_WRITABLE</code></a>: The connection is writable.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td> event (caller owned)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> user data specified in <a class="link" href="gnet-conn.html#gnet-conn-new"><code class="function">gnet_conn_new()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.6"></a><h3>
+<a name="gnet-conn-new"></a>gnet_conn_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-conn.html#GConn">GConn</a>*              gnet_conn_new                       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *hostname,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
+<p>
+Creates a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  A connection is not made until
+ <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a> is called.  The callback <em class="parameter"><code>func</code></em> is called when
+ events occur.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hostname</code></em> :</span></p></td>
+<td> name of host to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em> :</span></p></td>
+<td> port to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> function to call on <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> events
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em> on callbacks
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.7"></a><h3>
+<a name="gnet-conn-new-inetaddr"></a>gnet_conn_new_inetaddr ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-conn.html#GConn">GConn</a>*              gnet_conn_new_inetaddr              (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
+<p>
+Creates a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  A connection is not made until
+ <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a> is called.  The callback <em class="parameter"><code>func</code></em> is called when
+ events occur.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inetaddr</code></em> :</span></p></td>
+<td> address of host to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> function to call on <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> events
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em> on callbacks
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.8"></a><h3>
+<a name="gnet-conn-new-socket"></a>gnet_conn_new_socket ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-conn.html#GConn">GConn</a>*              gnet_conn_new_socket                (<a class="link" href="gnet-tcp.html#GTcpSocket">GTcpSocket</a> *socket,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
+<p>
+Creates a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  The <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> is created from the <em class="parameter"><code>socket</code></em>.  The
+ socket is callee owned - do not delete it (meaning: <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> will take
+ ownership of the socket).  The callback is called when events occur.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> TCP Socket (callee owned)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> function to call on <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> events
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em> on callbacks
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.9"></a><h3>
+<a name="gnet-conn-delete"></a>gnet_conn_delete ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_delete                    (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<div class="warning"><p><code class="literal">gnet_conn_delete</code> is deprecated and should not be used in newly-written code. Use <GTKDOCLINK HREF="g-conn-unref"><code class="function">g_conn_unref()</code></GTKDOCLINK>, which does the same.</p></div>
+<p>
+Deletes a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.10"></a><h3>
+<a name="gnet-conn-ref"></a>gnet_conn_ref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_ref                       (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Adds a reference to a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.11"></a><h3>
+<a name="gnet-conn-unref"></a>gnet_conn_unref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_unref                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Removes a reference from a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  A <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> is deleted when the
+ reference count reaches 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.12"></a><h3>
+<a name="gnet-conn-set-callback"></a>gnet_conn_set_callback ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_set_callback              (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <a class="link" href="gnet-conn.html#GConnFunc">GConnFunc</a> func,
+                                                         <GTKDOCLINK HREF="gpointer">gpointer</GTKDOCLINK> user_data);</pre>
+<p>
+Sets the <a class="link" href="gnet-conn.html#GConnEvent"><span class="type">GConnEvent</span></a> callback for a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  The callback <em class="parameter"><code>func</code></em> is
+ called when events occur.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td> function to call on <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a> events
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td> data to pass to <em class="parameter"><code>func</code></em> on callbacks
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.13"></a><h3>
+<a name="gnet-conn-set-main-context"></a>gnet_conn_set_main_context ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_conn_set_main_context          (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="GMainContext">GMainContext</GTKDOCLINK> *context);</pre>
+<p>
+Sets the GLib <GTKDOCLINK HREF="GMainContext"><span class="type">GMainContext</span></GTKDOCLINK> to use for asynchronous operations. You should
+ call this function right after you create <em class="parameter"><code>conn</code></em>. You must not call this
+ function after the actual connection process has started or watches have
+ been set up (e.g. for reading, writing or errors).
+</p>
+<p>
+ You are very unlikely to ever need this function.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>context</code></em> :</span></p></td>
+<td> a <GTKDOCLINK HREF="GMainContext"><span class="type">GMainContext</span></GTKDOCLINK>, or NULL to use the default GLib main context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE on success, FALSE on failure.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  2.0.8
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.14"></a><h3>
+<a name="gnet-conn-connect"></a>gnet_conn_connect ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_connect                   (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Establishes a connection.  If the connection is pending or already
+ established, this function does nothing.  The callback is called
+ when the connection is established or an error occurs.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.15"></a><h3>
+<a name="gnet-conn-disconnect"></a>gnet_conn_disconnect ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_disconnect                (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Closes the connection.  The connection can later be reestablished
+ by calling <a class="link" href="gnet-conn.html#gnet-conn-connect"><code class="function">gnet_conn_connect()</code></a> again.  If the connection was not
+ established, this function does nothing.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.16"></a><h3>
+<a name="gnet-conn-is-connected"></a>gnet_conn_is_connected ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_conn_is_connected              (const <a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Checks if the connection is established.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the connection is established, FALSE otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.17"></a><h3>
+<a name="gnet-conn-read"></a>gnet_conn_read ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_read                      (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Begins an asynchronous read.  The connection callback is called
+ when any data has been read.  This function may be called again
+ before the asynchronous read completes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.18"></a><h3>
+<a name="gnet-conn-readn"></a>gnet_conn_readn ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_readn                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length);</pre>
+<p>
+Begins an asynchronous read of exactly <em class="parameter"><code>length</code></em> bytes.  The
+ connection callback is called when the data has been read.  This
+ function may be called again before the asynchronous read
+ completes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> Number of bytes to read
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.19"></a><h3>
+<a name="gnet-conn-readline"></a>gnet_conn_readline ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_readline                  (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn);</pre>
+<p>
+Begins an asynchronous line read.  The connection callback is
+ called when a line has been read.  Lines are terminated with \n,
+ \r, \r\n, or \0.  The terminator is \0'ed out in the buffer.  The
+ terminating \0 is accounted for in the buffer length.  This
+ function may be called again before the asynchronous read
+ completes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.20"></a><h3>
+<a name="gnet-conn-write"></a>gnet_conn_write ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_write                     (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length);</pre>
+<p>
+Sets up an asynchronous write to <em class="parameter"><code>conn</code></em> from <em class="parameter"><code>buffer</code></em>.  The buffer is
+ copied, so it may be deleted by the caller.  This function can be
+ called again before the asynchronous write completes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to write from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.21"></a><h3>
+<a name="gnet-conn-write-direct"></a>gnet_conn_write_direct ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_write_direct              (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="GDestroyNotify">GDestroyNotify</GTKDOCLINK> buffer_destroy_cb);</pre>
+<p>
+Sets up an asynchronous write to <em class="parameter"><code>conn</code></em> from <em class="parameter"><code>buffer</code></em>.  The buffer is
+ created by the caller and will not be copied.  The caller needs to
+ make sure the buffer stays valid until <em class="parameter"><code>buffer_destroy_cb</code></em> is called.
+ This function can be called again before the asynchronous write
+ completes.  <em class="parameter"><code>buffer_destroy_cb</code></em> may be <GTKDOCLINK HREF="NULL:CAPS"><code class="literal">NULL</code></GTKDOCLINK>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to write from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer_destroy_cb</code></em> :</span></p></td>
+<td> function to call when buffer is no longer needed
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.22"></a><h3>
+<a name="gnet-conn-set-watch-error"></a>gnet_conn_set_watch_error ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_set_watch_error           (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);</pre>
+<p>
+Enables (or disables) the <a class="link" href="gnet-conn.html#GNET-CONN-ERROR:CAPS"><code class="literal">GNET_CONN_ERROR</code></a> event for a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  If
+enabled, the <a class="link" href="gnet-conn.html#GNET-CONN-ERROR:CAPS"><code class="literal">GNET_CONN_ERROR</code></a> event occurs when an error occurs.
+The <em class="parameter"><code>conn</code></em> is disconnected before the callback is made.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td> enable the <a class="link" href="gnet-conn.html#GNET-CONN-READABLE:CAPS"><code class="literal">GNET_CONN_READABLE</code></a> event?
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.23"></a><h3>
+<a name="gnet-conn-set-watch-readable"></a>gnet_conn_set_watch_readable ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_set_watch_readable        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);</pre>
+<p>
+Enables (or disables) the <a class="link" href="gnet-conn.html#GNET-CONN-READABLE:CAPS"><code class="literal">GNET_CONN_READABLE</code></a> event for a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+If enabled, the <a class="link" href="gnet-conn.html#GNET-CONN-READABLE:CAPS"><code class="literal">GNET_CONN_READABLE</code></a> event occurs when data can be
+read from the socket.  Read from the iochannel member of the <em class="parameter"><code>conn</code></em>.
+Do not enable this while using <a class="link" href="gnet-conn.html#gnet-conn-read"><code class="function">gnet_conn_read()</code></a>, <a class="link" href="gnet-conn.html#gnet-conn-readn"><code class="function">gnet_conn_readn()</code></a>,
+or <a class="link" href="gnet-conn.html#gnet-conn-readline"><code class="function">gnet_conn_readline()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td> enable the <a class="link" href="gnet-conn.html#GNET-CONN-READABLE:CAPS"><code class="literal">GNET_CONN_READABLE</code></a> event?
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.24"></a><h3>
+<a name="gnet-conn-set-watch-writable"></a>gnet_conn_set_watch_writable ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_set_watch_writable        (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);</pre>
+<p>
+Enables (or disables) the <a class="link" href="gnet-conn.html#GNET-CONN-WRITABLE:CAPS"><code class="literal">GNET_CONN_WRITABLE</code></a> event for a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.
+If enabled, the <a class="link" href="gnet-conn.html#GNET-CONN-WRITABLE:CAPS"><span class="type">GNET_CONN_WRITABLE</span></a> event occurs when data can be
+written to the socket.  Write to the iochannel member of the <em class="parameter"><code>conn</code></em>.
+Do not enable this while using <a class="link" href="gnet-conn.html#gnet-conn-write"><code class="function">gnet_conn_write()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td> enable the <a class="link" href="gnet-conn.html#GNET-CONN-WRITABLE:CAPS"><span class="type">GNET_CONN_WRITABLE</span></a> event?
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.9.5.25"></a><h3>
+<a name="gnet-conn-timeout"></a>gnet_conn_timeout ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_conn_timeout                   (<a class="link" href="gnet-conn.html#GConn">GConn</a> *conn,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> timeout);</pre>
+<p>
+Sets a timeout on a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>.  When the timer expires, the
+ <GTKDOCLINK HREF="GNET-CONN-STATUS-TIMEOUT:CAPS"><code class="literal">GNET_CONN_STATUS_TIMEOUT</code></GTKDOCLINK> event occurs.  If there already is a
+ timeout set on <em class="parameter"><code>conn</code></em>, the old timeout is canceled.  Set <em class="parameter"><code>timeout</code></em>
+ to 0 to cancel the current timeout.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>conn</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-conn.html#GConn"><span class="type">GConn</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timeout</code></em> :</span></p></td>
+<td> Timeout (in milliseconds)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="id-1.5.9.6"></a><h2>See Also</h2>
+<p>
+See also GServer and the echoclient-gconn example.
+</p>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-conn.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

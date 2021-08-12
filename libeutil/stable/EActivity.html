@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EActivity</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch02.html" rel="up" title="Activities"></link><link href="ch02.html" rel="prev" title="Activities"></link><link href="EActivityBar.html" rel="next" title="EActivityBar"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EActivity.html#container">Go to page content</a></li><li><a href="EActivity.html#top_bar">Go to main menu</a></li><li><a href="EActivity.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="EActivityBar.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EActivity.html#EActivity.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EActivity.html#EActivity.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EActivity.html#EActivity.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EActivity.html#EActivity.properties">Properties</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EActivity"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EActivity.top_of_page"></a>EActivity</span></h2>
+<p>EActivity — Describe activities in progress</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EActivity.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;e-util/e-util.h&gt;
+
+struct              <a class="link" href="EActivity.html#EActivity-struct" title="struct EActivity">EActivity</a>;
+<a class="link" href="EActivity.html" title="EActivity"><span class="returnvalue">EActivity</span></a> *         <a class="link" href="EActivity.html#e-activity-new" title="e_activity_new ()">e_activity_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-cancel" title="e_activity_cancel ()">e_activity_cancel</a>                   (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()">e_activity_describe</a>                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<a class="link" href="EAlertSink.html" title="EAlertSink"><span class="returnvalue">EAlertSink</span></a> *        <a class="link" href="EActivity.html#e-activity-get-alert-sink" title="e_activity_get_alert_sink ()">e_activity_get_alert_sink</a>           (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-alert-sink" title="e_activity_set_alert_sink ()">e_activity_set_alert_sink</a>           (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a> *alert_sink</code></em>);
+<span class="returnvalue">GCancellable</span> *      <a class="link" href="EActivity.html#e-activity-get-cancellable" title="e_activity_get_cancellable ()">e_activity_get_cancellable</a>          (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-cancellable" title="e_activity_set_cancellable ()">e_activity_set_cancellable</a>          (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EActivity.html#e-activity-get-icon-name" title="e_activity_get_icon_name ()">e_activity_get_icon_name</a>            (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-icon-name" title="e_activity_set_icon_name ()">e_activity_set_icon_name</a>            (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_name</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="EActivity.html#e-activity-get-percent" title="e_activity_get_percent ()">e_activity_get_percent</a>              (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-percent" title="e_activity_set_percent ()">e_activity_set_percent</a>              (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> percent</code></em>);
+enum                <a class="link" href="EActivity.html#EActivityState" title="enum EActivityState">EActivityState</a>;
+<a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="returnvalue">EActivityState</span></a>      <a class="link" href="EActivity.html#e-activity-get-state" title="e_activity_get_state ()">e_activity_get_state</a>                (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-state" title="e_activity_set_state ()">e_activity_set_state</a>                (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a> state</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EActivity.html#e-activity-get-text" title="e_activity_get_text ()">e_activity_get_text</a>                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EActivity.html#e-activity-set-text" title="e_activity_set_text ()">e_activity_set_text</a>                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EActivity.html#e-activity-handle-cancellation" title="e_activity_handle_cancellation ()">e_activity_handle_cancellation</a>      (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GError</span> *error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EActivity.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EActivity
+</pre>
+</div>
+<div class="refsect1">
+<a name="EActivity.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EActivity.html#EActivity--alert-sink" title='The "alert-sink" property'>alert-sink</a>"               <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a>*           : Read / Write / Construct
+  "<a class="link" href="EActivity.html#EActivity--cancellable" title='The "cancellable" property'>cancellable</a>"              <span class="type">GCancellable</span>*         : Read / Write / Construct
+  "<a class="link" href="EActivity.html#EActivity--icon-name" title='The "icon-name" property'>icon-name</a>"                <span class="type">gchar</span>*                : Read / Write / Construct
+  "<a class="link" href="EActivity.html#EActivity--percent" title='The "percent" property'>percent</a>"                  <span class="type">gdouble</span>               : Read / Write / Construct
+  "<a class="link" href="EActivity.html#EActivity--state" title='The "state" property'>state</a>"                    <a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a>        : Read / Write / Construct
+  "<a class="link" href="EActivity.html#EActivity--text" title='The "text" property'>text</a>"                     <span class="type">gchar</span>*                : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="EActivity.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> is used to track and describe application activities in
+progress.  An <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> usually manifests in a user interface as a
+status bar message (see <a class="link" href="EActivityProxy.html" title="EActivityProxy"><span class="type">EActivityProxy</span></a>) or information bar message
+(see <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a>), with optional progress indication and a cancel
+button which is linked to a <span class="type">GCancellable</span>.
+</p>
+</div>
+<div class="refsect1">
+<a name="EActivity.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EActivity-struct"></a><h3>struct EActivity</h3>
+<pre class="programlisting">struct EActivity;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-new"></a><h3>e_activity_new ()</h3>
+<pre class="programlisting"><a class="link" href="EActivity.html" title="EActivity"><span class="returnvalue">EActivity</span></a> *         e_activity_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-cancel"></a><h3>e_activity_cancel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_cancel                   (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Convenience function cancels <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--cancellable" title='The "cancellable" property'><span class="type">"cancellable"</span></a>.
+</p>
+<p>
+</p>
+<p>
+  </p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+    This function will not set <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a> to
+    <em class="parameter"><code>E_ACTIVITY_CANCELLED</code></em>.  It merely requests that the associated
+    operation be cancelled.  Only after the operation finishes with
+    a <em class="parameter"><code>G_IO_ERROR_CANCELLED</code></em> should the <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a>
+    be changed (see <a class="link" href="EActivity.html#e-activity-handle-cancellation" title="e_activity_handle_cancellation ()"><code class="function">e_activity_handle_cancellation()</code></a>).  During this
+    interim period <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a> will indicate the activity
+    is "cancelling".
+  </div>
+<p>
+</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-describe"></a><h3>e_activity_describe ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_activity_describe                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns a description of the current state of the <em class="parameter"><code>activity</code></em> based on
+the <a class="link" href="EActivity.html#EActivity--text" title='The "text" property'><span class="type">"text"</span></a>, <a class="link" href="EActivity.html#EActivity--percent" title='The "percent" property'><span class="type">"percent"</span></a> and <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a> properties.
+Suitable for displaying in a status bar or similar widget.
+</p>
+<p>
+Free the returned string with <code class="function">g_free()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a description of <em class="parameter"><code>activity</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-alert-sink"></a><h3>e_activity_get_alert_sink ()</h3>
+<pre class="programlisting"><a class="link" href="EAlertSink.html" title="EAlertSink"><span class="returnvalue">EAlertSink</span></a> *        e_activity_get_alert_sink           (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns the <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a> for <em class="parameter"><code>activity</code></em>, if one was provided.
+</p>
+<p>
+The <a class="link" href="EActivity.html#EActivity--alert-sink" title='The "alert-sink" property'><span class="type">"alert-sink"</span></a> property is convenient for when the user
+should be alerted about a failed asynchronous operation.  Generally
+an <a class="link" href="EActivity.html#EActivity--alert-sink" title='The "alert-sink" property'><span class="type">"alert-sink"</span></a> is set prior to dispatching the operation,
+and retrieved by a callback function when the operation completes.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-alert-sink"></a><h3>e_activity_set_alert_sink ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_alert_sink           (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a> *alert_sink</code></em>);</pre>
+<p>
+Sets (or clears) the <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a> for <em class="parameter"><code>activity</code></em>.
+</p>
+<p>
+The <a class="link" href="EActivity.html#EActivity--alert-sink" title='The "alert-sink" property'><span class="type">"alert-sink"</span></a> property is convenient for when the user
+should be alerted about a failed asynchronous operation.  Generally
+an <a class="link" href="EActivity.html#EActivity--alert-sink" title='The "alert-sink" property'><span class="type">"alert-sink"</span></a> is set prior to dispatching the operation,
+and retrieved by a callback function when the operation completes.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alert_sink</code></em> :</span></p></td>
+<td>an <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-cancellable"></a><h3>e_activity_get_cancellable ()</h3>
+<pre class="programlisting"><span class="returnvalue">GCancellable</span> *      e_activity_get_cancellable          (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns the <span class="type">GCancellable</span> for <em class="parameter"><code>activity</code></em>, if one was provided.
+</p>
+<p>
+Generally the <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--cancellable" title='The "cancellable" property'><span class="type">"cancellable"</span></a> property holds the same
+<span class="type">GCancellable</span> instance passed to a cancellable function, so widgets like
+<a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> can bind the <span class="type">GCancellable</span> to a cancel button.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GCancellable</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-cancellable"></a><h3>e_activity_set_cancellable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_cancellable          (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>);</pre>
+<p>
+Sets (or clears) the <span class="type">GCancellable</span> for <em class="parameter"><code>activity</code></em>.
+</p>
+<p>
+Generally the <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--cancellable" title='The "cancellable" property'><span class="type">"cancellable"</span></a> property holds the same
+<span class="type">GCancellable</span> instance passed to a cancellable function, so widgets like
+<a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> can bind the <span class="type">GCancellable</span> to a cancel button.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-icon-name"></a><h3>e_activity_get_icon_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_activity_get_icon_name            (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns the themed icon name for <em class="parameter"><code>activity</code></em>, if one was provided.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will honor the <a class="link" href="EActivity.html#EActivity--icon-name" title='The "icon-name" property'><span class="type">"icon-name"</span></a>
+property while the <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a> is <em class="parameter"><code>E_ACTIVITY_RUNNING</code></em> or
+<em class="parameter"><code>E_ACTIVITY_WAITING</code></em>, but will override the icon for <em class="parameter"><code>E_ACTIVITY_CANCELLED</code></em>
+and <em class="parameter"><code>E_ACTIVITY_COMPLETED</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a themed icon name, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-icon-name"></a><h3>e_activity_set_icon_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_icon_name            (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_name</code></em>);</pre>
+<p>
+Sets (or clears) the themed icon name for <em class="parameter"><code>activity</code></em>.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will honor the <a class="link" href="EActivity.html#EActivity--icon-name" title='The "icon-name" property'><span class="type">"icon-name"</span></a>
+property while the <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a> is <em class="parameter"><code>E_ACTIVITY_RUNNING</code></em> or
+<em class="parameter"><code>E_ACTIVITY_WAITING</code></em>, but will override the icon for <em class="parameter"><code>E_ACTIVITY_CANCELLED</code></em>
+and <em class="parameter"><code>E_ACTIVITY_COMPLETED</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon_name</code></em> :</span></p></td>
+<td>a themed icon name, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-percent"></a><h3>e_activity_get_percent ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             e_activity_get_percent              (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns the percent complete for <em class="parameter"><code>activity</code></em> as a value between 0 and 100,
+or a negative value if the percent complete is unknown.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the percent complete by
+way of <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a>, but only if the value is between 0 and 100.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the percent complete, or a negative value if unknown</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-percent"></a><h3>e_activity_set_percent ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_percent              (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> percent</code></em>);</pre>
+<p>
+Sets the percent complete for <em class="parameter"><code>activity</code></em>.  The value should be between 0
+and 100, or negative if the percent complete is unknown.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the percent complete by
+way of <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a>, but only if the value is between 0 and 100.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>percent</code></em> :</span></p></td>
+<td>the percent complete, or a negative value if unknown</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivityState"></a><h3>enum EActivityState</h3>
+<pre class="programlisting">typedef enum {
+	E_ACTIVITY_RUNNING,
+	E_ACTIVITY_WAITING,
+	E_ACTIVITY_CANCELLED,
+	E_ACTIVITY_COMPLETED
+} EActivityState;
+</pre>
+<p>
+Various states of an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><a name="E-ACTIVITY-RUNNING:CAPS"></a><span class="term"><code class="literal">E_ACTIVITY_RUNNING</code></span></p></td>
+<td>  The <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> is running.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-ACTIVITY-WAITING:CAPS"></a><span class="term"><code class="literal">E_ACTIVITY_WAITING</code></span></p></td>
+<td>  The <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> is waiting to be run.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-ACTIVITY-CANCELLED:CAPS"></a><span class="term"><code class="literal">E_ACTIVITY_CANCELLED</code></span></p></td>
+<td>  The <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> has been cancelled.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-ACTIVITY-COMPLETED:CAPS"></a><span class="term"><code class="literal">E_ACTIVITY_COMPLETED</code></span></p></td>
+<td>  The <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> has completed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-state"></a><h3>e_activity_get_state ()</h3>
+<pre class="programlisting"><a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="returnvalue">EActivityState</span></a>      e_activity_get_state                (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns the state of <em class="parameter"><code>activity</code></em>.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the activity state by
+way of <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a> and possibly an icon.  The activity state is
+<em class="parameter"><code>E_ACTIVITY_RUNNING</code></em> by default, and is usually only changed once when the
+associated operation is finished.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-state"></a><h3>e_activity_set_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_state                (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a> state</code></em>);</pre>
+<p>
+Sets the state of <em class="parameter"><code>activity</code></em>.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the activity state by
+way of <a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a> and possibly an icon.  The activity state is
+<em class="parameter"><code>E_ACTIVITY_RUNNING</code></em> by default, and is usually only changed once when the
+associated operation is finished.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-get-text"></a><h3>e_activity_get_text ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_activity_get_text                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>);</pre>
+<p>
+Returns a message describing what <em class="parameter"><code>activity</code></em> is doing.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the message by way of
+<a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a descriptive message</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-set-text"></a><h3>e_activity_set_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_activity_set_text                 (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *text</code></em>);</pre>
+<p>
+Sets (or clears) a message describing what <em class="parameter"><code>activity</code></em> is doing.
+</p>
+<p>
+Generally widgets like <a class="link" href="EActivityBar.html" title="EActivityBar"><span class="type">EActivityBar</span></a> will display the message by way of
+<a class="link" href="EActivity.html#e-activity-describe" title="e_activity_describe ()"><code class="function">e_activity_describe()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em> :</span></p></td>
+<td>a descriptive message, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-activity-handle-cancellation"></a><h3>e_activity_handle_cancellation ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_activity_handle_cancellation      (<em class="parameter"><code><a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a> *activity</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GError</span> *error</code></em>);</pre>
+<p>
+Convenience function sets <em class="parameter"><code>activity</code></em>'s <a class="link" href="EActivity.html#EActivity--state" title='The "state" property'><span class="type">"state"</span></a> to
+<em class="parameter"><code>E_ACTIVITY_CANCELLED</code></em> if <em class="parameter"><code>error</code></em> is <em class="parameter"><code>G_IO_ERROR_CANCELLED</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>an <a class="link" href="EActivity.html" title="EActivity"><span class="type">EActivity</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if <em class="parameter"><code>activity</code></em> was set to <em class="parameter"><code>E_ACTIVITY_CANCELLED</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="EActivity.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EActivity--alert-sink"></a><h3>The <code class="literal">"alert-sink"</code> property</h3>
+<pre class="programlisting">  "alert-sink"               <a class="link" href="EAlertSink.html" title="EAlertSink"><span class="type">EAlertSink</span></a>*           : Read / Write / Construct</pre>
+<p></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivity--cancellable"></a><h3>The <code class="literal">"cancellable"</code> property</h3>
+<pre class="programlisting">  "cancellable"              <span class="type">GCancellable</span>*         : Read / Write / Construct</pre>
+<p></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivity--icon-name"></a><h3>The <code class="literal">"icon-name"</code> property</h3>
+<pre class="programlisting">  "icon-name"                <span class="type">gchar</span>*                : Read / Write / Construct</pre>
+<p></p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivity--percent"></a><h3>The <code class="literal">"percent"</code> property</h3>
+<pre class="programlisting">  "percent"                  <span class="type">gdouble</span>               : Read / Write / Construct</pre>
+<p></p>
+<p>Default value: -1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivity--state"></a><h3>The <code class="literal">"state"</code> property</h3>
+<pre class="programlisting">  "state"                    <a class="link" href="EActivity.html#EActivityState" title="enum EActivityState"><span class="type">EActivityState</span></a>        : Read / Write / Construct</pre>
+<p></p>
+<p>Default value: E_ACTIVITY_RUNNING</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EActivity--text"></a><h3>The <code class="literal">"text"</code> property</h3>
+<pre class="programlisting">  "text"                     <span class="type">gchar</span>*                : Read / Write / Construct</pre>
+<p></p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EActivity.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

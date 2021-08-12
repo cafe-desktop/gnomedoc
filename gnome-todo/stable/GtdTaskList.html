@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GtdTaskList: GNOME To Do - Reference Manual</title><link href="index.html" rel="home" title="GNOME To Do - Reference Manual"></link><link href="ch01.html" rel="up" title="Objects"></link><link href="GtdTask.html" rel="prev" title="GtdTask"></link><link href="GtdTaskListView.html" rel="next" title="GtdTaskListView"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GtdTaskList.html#container">Go to page content</a></li><li><a href="GtdTaskList.html#top_bar">Go to main menu</a></li><li><a href="GtdTaskList.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GtdTaskList.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdTaskList.html#GtdTaskList.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdTaskList.html#GtdTaskList.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdTaskList.html#GtdTaskList.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdTaskList.html#GtdTaskList.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GtdTask.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GtdTaskListView.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GtdTaskList"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtdTaskList.top_of_page"></a>GtdTaskList</span></h2>
+<p>GtdTaskList — a list of tasks</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GtdTaskList.stability-level"></a><h2>Stability Level</h2>
+<acronym title="Unstable interfaces are experimental or transitional. They are typically used to give outside developers early access to new or rapidly changing technology, or to provide an interim solution to a problem where a more general solution is anticipated. No claims are made about either source or binary compatibility from one minor release to the next.  The Unstable interface level is a warning that these interfaces are  subject to change without warning and should not be used in unbundled products.  Given such caveats, customer impact need not be a factor when considering incompatible changes to an Unstable interface in a major or minor release. Nonetheless, when such changes are introduced, the changes should still be mentioned in the release notes for the affected release. "><span class="acronym">Unstable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="returnvalue">GtdTaskList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-new" title="gtd_task_list_new ()">gtd_task_list_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="returnvalue">GdkRGBA</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-get-color" title="gtd_task_list_get_color ()">gtd_task_list_get_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-set-color" title="gtd_task_list_set_color ()">gtd_task_list_set_color</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-is-removable" title="gtd_task_list_is_removable ()">gtd_task_list_is_removable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-set-is-removable" title="gtd_task_list_set_is_removable ()">gtd_task_list_set_is_removable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-get-name" title="gtd_task_list_get_name ()">gtd_task_list_get_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-set-name" title="gtd_task_list_set_name ()">gtd_task_list_set_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GtdProvider.html" title="GtdProvider"><span class="returnvalue">GtdProvider</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-get-provider" title="gtd_task_list_get_provider ()">gtd_task_list_get_provider</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-set-provider" title="gtd_task_list_set_provider ()">gtd_task_list_set_provider</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-get-tasks" title="gtd_task_list_get_tasks ()">gtd_task_list_get_tasks</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-save-task" title="gtd_task_list_save_task ()">gtd_task_list_save_task</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-remove-task" title="gtd_task_list_remove_task ()">gtd_task_list_remove_task</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtdTaskList.html#gtd-task-list-contains" title="gtd_task_list_contains ()">gtd_task_list_contains</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</td>
+<td class="property_name"><a class="link" href="GtdTaskList.html#GtdTaskList--color" title="The “color” property">color</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtdTaskList.html#GtdTaskList--is-removable" title="The “is-removable” property">is-removable</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<td class="property_name"><a class="link" href="GtdTaskList.html#GtdTaskList--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a> *</td>
+<td class="property_name"><a class="link" href="GtdTaskList.html#GtdTaskList--provider" title="The “provider” property">provider</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtdTaskList.html#GtdTaskList-task-added" title="The “task-added” signal">task-added</a></td>
+<td class="signal_flags"><a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtdTaskList.html#GtdTaskList-task-removed" title="The “task-removed” signal">task-removed</a></td>
+<td class="signal_flags"><a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtdTaskList.html#GtdTaskList-task-updated" title="The “task-updated” signal">task-updated</a></td>
+<td class="signal_flags"><a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GtdTaskList.html#GTD-TYPE-TASK-LIST:CAPS" title="GTD_TYPE_TASK_LIST">GTD_TYPE_TASK_LIST</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GtdTaskList.html#GtdTaskListClass" title="struct GtdTaskListClass">GtdTaskListClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GtdTaskList.html#GtdTaskList-struct" title="GtdTaskList">GtdTaskList</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> <a class="link" href="GtdObject.html" title="GtdObject">GtdObject</a>
+        <span class="lineart">╰──</span> GtdTaskList
+</pre>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.description"></a><h2>Description</h2>
+<p>A <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> represents a task list, and contains a list of tasks, a color,
+a name and the provider who generated it.</p>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gtd-task-list-new"></a><h3>gtd_task_list_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="returnvalue">GtdTaskList</span></a> *
+gtd_task_list_new (<em class="parameter"><code><a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a> *provider</code></em>);</pre>
+<p>Creates a new list.</p>
+<div class="refsect3">
+<a name="gtd-task-list-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>provider</p></td>
+<td class="parameter_description"><p> a <a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-new.returns"></a><h4>Returns</h4>
+<p> the new <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-get-color"></a><h3>gtd_task_list_get_color ()</h3>
+<pre class="programlisting"><a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="returnvalue">GdkRGBA</span></a> *
+gtd_task_list_get_color (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>);</pre>
+<p>Retrieves the color of <code class="literal">list</code>. It is guarantee that it always returns a
+color, given a valid <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a>.</p>
+<div class="refsect3">
+<a name="gtd-task-list-get-color.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-get-color.returns"></a><h4>Returns</h4>
+<p> the color of <code class="literal">list</code>. Free with <a href="../../gdk3/stable/gdk3-RGBA-Colors.html#gdk-rgba-free"><code class="literal">gdk_rgba_free</code></a> after use. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-set-color"></a><h3>gtd_task_list_set_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_set_color (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                         <em class="parameter"><code>const <a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *color</code></em>);</pre>
+<p>sets the color of <em class="parameter"><code>list</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-task-list-set-color.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a>
+<span class="type">color</span>: a <a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-is-removable"></a><h3>gtd_task_list_is_removable ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtd_task_list_is_removable (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-set-is-removable"></a><h3>gtd_task_list_set_is_removable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_set_is_removable (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                                <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> is_removable</code></em>);</pre>
+<p>Sets whether <em class="parameter"><code>list</code></em>
+ can be deleted or not.</p>
+<div class="refsect3">
+<a name="gtd-task-list-set-is-removable.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>is_removable</p></td>
+<td class="parameter_description"><p><a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>list</code></em>
+can be deleted, <a href="../../glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-get-name"></a><h3>gtd_task_list_get_name ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gtd_task_list_get_name (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>);</pre>
+<p>Retrieves the user-visible name of <em class="parameter"><code>list</code></em>
+, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<div class="refsect3">
+<a name="gtd-task-list-get-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-get-name.returns"></a><h4>Returns</h4>
+<p> the internal name of <em class="parameter"><code>list</code></em>
+. Do not free
+after use. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-set-name"></a><h3>gtd_task_list_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_set_name (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                        <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>);</pre>
+<p>Sets the <em class="parameter"><code>list</code></em>
+ name to <em class="parameter"><code>name</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-task-list-set-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p> the name of <em class="parameter"><code>list</code></em>
+. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-get-provider"></a><h3>gtd_task_list_get_provider ()</h3>
+<pre class="programlisting"><a class="link" href="GtdProvider.html" title="GtdProvider"><span class="returnvalue">GtdProvider</span></a> *
+gtd_task_list_get_provider (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>);</pre>
+<p>Retrieves the <a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a> who owns this list.</p>
+<div class="refsect3">
+<a name="gtd-task-list-get-provider.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-get-provider.returns"></a><h4>Returns</h4>
+<p> a <a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-set-provider"></a><h3>gtd_task_list_set_provider ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_set_provider (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *self</code></em>,
+                            <em class="parameter"><code><a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a> *provider</code></em>);</pre>
+<p>Sets the provider of this tasklist.</p>
+<div class="refsect3">
+<a name="gtd-task-list-set-provider.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>self</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>provider</p></td>
+<td class="parameter_description"><p> a <a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a>, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-get-tasks"></a><h3>gtd_task_list_get_tasks ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+gtd_task_list_get_tasks (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>);</pre>
+<p>Returns the list's tasks.</p>
+<div class="refsect3">
+<a name="gtd-task-list-get-tasks.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-get-tasks.returns"></a><h4>Returns</h4>
+<p> a newly-allocated list of the list's tasks. </p>
+<p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtdTask][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-save-task"></a><h3>gtd_task_list_save_task ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_save_task (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                         <em class="parameter"><code><a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a> *task</code></em>);</pre>
+<p>Adds or updates <em class="parameter"><code>task</code></em>
+ to <em class="parameter"><code>list</code></em>
+ if it's not already present.</p>
+<div class="refsect3">
+<a name="gtd-task-list-save-task.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-remove-task"></a><h3>gtd_task_list_remove_task ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_task_list_remove_task (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                           <em class="parameter"><code><a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a> *task</code></em>);</pre>
+<p>Removes <em class="parameter"><code>task</code></em>
+ from <em class="parameter"><code>list</code></em>
+ if it's inside the list.</p>
+<div class="refsect3">
+<a name="gtd-task-list-remove-task.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-task-list-contains"></a><h3>gtd_task_list_contains ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gtd_task_list_contains (<em class="parameter"><code><a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list</code></em>,
+                        <em class="parameter"><code><a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a> *task</code></em>);</pre>
+<p>Checks if <em class="parameter"><code>task</code></em>
+ is inside <em class="parameter"><code>list</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-task-list-contains.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-task-list-contains.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>list</code></em>
+contains <em class="parameter"><code>task</code></em>
+, <a href="../../glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GTD-TYPE-TASK-LIST:CAPS"></a><h3>GTD_TYPE_TASK_LIST</h3>
+<pre class="programlisting">#define GTD_TYPE_TASK_LIST (gtd_task_list_get_type())
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskListClass"></a><h3>struct GtdTaskListClass</h3>
+<pre class="programlisting">struct GtdTaskListClass {
+  GtdObjectClass        parent;
+
+  void                  (*task_added)                           (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  void                  (*task_updated)                         (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  void                  (*task_removed)                         (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  gpointer              padding[10];
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList-struct"></a><h3>GtdTaskList</h3>
+<pre class="programlisting">typedef struct _GtdTaskList GtdTaskList;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GtdTaskList--color"></a><h3>The <code class="literal">“color”</code> property</h3>
+<pre class="programlisting">  “color”                    <a href="../../gdk3/stable/gdk3-RGBA-Colors.html#GdkRGBA"><span class="type">GdkRGBA</span></a> *</pre>
+<p>The color of the list.</p>
+<p>Flags: Read / Write</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList--is-removable"></a><h3>The <code class="literal">“is-removable”</code> property</h3>
+<pre class="programlisting">  “is-removable”             <a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether the task list can be removed from the system.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<p>The name of the list.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList--provider"></a><h3>The <code class="literal">“provider”</code> property</h3>
+<pre class="programlisting">  “provider”                 <a class="link" href="GtdProvider.html" title="GtdProvider"><span class="type">GtdProvider</span></a> *</pre>
+<p>The provider that handles the list.</p>
+<p>Flags: Read / Write</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GtdTaskList-task-added"></a><h3>The <code class="literal">“task-added”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list,
+               <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>     *task,
+               <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)</pre>
+<p>The ::task-added signal is emmited after a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>
+is added to the list.</p>
+<div class="refsect3">
+<a name="GtdTaskList-task-added.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList-task-removed"></a><h3>The <code class="literal">“task-removed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list,
+               <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>     *task,
+               <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)</pre>
+<p>The ::task-removed signal is emmited after a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>
+is removed from the list.</p>
+<div class="refsect3">
+<a name="GtdTaskList-task-removed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdTaskList-task-updated"></a><h3>The <code class="literal">“task-updated”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a> *list,
+               <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>     *task,
+               <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>     user_data)</pre>
+<p>The ::task-updated signal is emmited after a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a>
+in the list is updated.</p>
+<div class="refsect3">
+<a name="GtdTaskList-task-updated.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>list</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTaskList.html" title="GtdTaskList"><span class="type">GtdTaskList</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>task</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdTaskList.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="GtdTask.html" title="GtdTask"><span class="type">GtdTask</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GtdTaskList.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

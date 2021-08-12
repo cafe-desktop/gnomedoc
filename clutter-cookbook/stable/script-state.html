@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>4. Connecting ClutterState states in ClutterScript</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="script.html" rel="up" title="Chapter 8. Script"></link><link href="script-signals.html" rel="prev" title="3. Connecting to signals in ClutterScript"></link><link href="effects.html" rel="next" title="Chapter 9. Effects"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="script-state.html#container">Go to page content</a></li><li><a href="script-state.html#top_bar">Go to main menu</a></li><li><a href="script-state.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">4. Connecting <span class="type">ClutterState</span> states in <span class="type">ClutterScript</span></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="script-signals.html">Prev</a> </td><th align="center" width="60%">Chapter 8. Script</th><td align="right" width="20%"> <a accesskey="n" href="effects.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="script-state"></a>4. Connecting <span class="type">ClutterState</span> states in <span class="type">ClutterScript</span></h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790507631808"></a>4.1. Problem</h3></div></div></div><p>You have declared an actor using JSON, and want to connect
+      signals to <span class="type">ClutterState</span> transitions.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790507629952"></a>4.2. Solution</h3></div></div></div><p>Connect the <span class="type">ClutterState</span> states to the signals
+      using the <code class="varname">states</code> and <code class="varname">target-state</code>
+      keys of the <code class="varname">signals</code> definition, and call
+      <code class="function">clutter_script_connect_signals()</code>; for instance,
+      the following JSON declares that the <span class="emphasis"><em>enter-event</em></span>
+      signal should transition to the <span class="emphasis"><em>hover</em></span> state
+      and the <span class="emphasis"><em>leave-event</em></span> should transition to the
+      <span class="emphasis"><em>base</em></span> state:</p><div class="informalexample"><pre class="programlisting">{
+  "id" : "rectangle",
+  "type" : "ClutterRectangle",
+  "width" : 200,
+  "height" : 200,
+  "reactive" : true,
+
+  <span class="emphasis"><em>"signals" : [
+    { "name" : "enter-event", "states" : "rectangle-states", "target-state" : "hover" },
+    { "name" : "leave-event", "states" : "rectangle-states", "target-state" : "base" }
+  ]</em></span>
+}</pre></div><p>The <span class="emphasis"><em>rectangle-states</em></span> state machine holds
+      the various states.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790507621424"></a>4.3. Discussion</h3></div></div></div><p>Connecting a <span class="type">ClutterState</span> state transition to
+      a signal defined inside a <span class="type">ClutterScript</span> JSON without
+      requiring a real function to wrap <code class="function">clutter_state_set_state()</code>
+      allows to minimize the amount of code that has to be written, and
+      ties the state to the UI element being defined.</p><p>The connection between a signal and a <span class="type">ClutterState</span>
+      state is similar to the connection between a signal and a handler
+      function. Each definition must contain the name of the signal; the
+      script id of the <span class="type">ClutterState</span> object that is used to
+      store the target state definition; and the target state of the
+      transition.</p><p>The <span class="emphasis"><em>states</em></span> key can also contain a full
+      definition of the <span class="type">ClutterState</span>.</p><p>The <span class="emphasis"><em>target-state</em></span> key works exactly like
+      the argument of <code class="function">clutter_state_set_state()</code>: it
+      will transition the <span class="type">ClutterState</span> from the current state
+      to the desired state.</p><p>The <span class="type">ClutterState</span> instance that will be used to
+      resolve the target state can be defined in JSON like any other
+      object, but it is also possible to create a <span class="type">ClutterState</span>
+      in code, and associate it to a <span class="type">ClutterScript</span> instance
+      prior to parsing the signal connection JSON, through the
+      <code class="function">clutter_script_add_states()</code> function of
+      <span class="type">ClutterScript</span>.</p><p>The <span class="emphasis"><em>warp</em></span> boolean key can be used to
+      perform a transition to the target state without an animation,
+      similarly to what <code class="function">clutter_state_warp_to_state()</code>
+      does, for instance:</p><div class="informalexample"><pre class="programlisting">{
+  <span class="emphasis"><em>"signals" : [
+    {
+      "name" : "enter-event",
+      "states" : "rectangle-states",
+      "target-state" : "hover",
+      "warp" : true
+    }
+  ]</em></span>
+}</pre></div><p>will not animate the transition between the current state
+      and the target <span class="emphasis"><em>hover</em></span> state when the signal
+      is emitted.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790507605824"></a>4.4. Full examples</h3></div></div></div><div class="example"><a name="script-states-example-1"></a><p class="title"><b>Example 8.5. <span class="type">ClutterScript</span> JSON with state definitions</b></p><div class="example-contents"><pre class="programlisting">[
+  {
+    "id" : "stage",
+    "type" : "ClutterStage",
+    "width" : 300,
+    "height" : 300,
+    "color" : "#335",
+
+    "signals" : [
+      { "name" : "destroy", "handler" : "clutter_main_quit" }
+    ],
+
+    "children" : [ "rectangle" ]
+  },
+
+  {
+    "id" : "rectangle-states",
+    "type" : "ClutterState",
+    "duration" : 1000,
+
+    "transitions" : [
+      {
+        "source" : null,
+        "target" : "base",
+
+        "keys" : [
+          [ "rectangle", "scale-x", "ease-in-cubic", 0.7 ],
+          [ "rectangle", "scale-y", "ease-in-cubic", 0.7 ],
+          [ "rectangle", "rotation-angle-z", "ease-out-cubic", 0.0 ]
+        ]
+      },
+      {
+        "source" : null,
+        "target" : "hover",
+
+        "keys" : [
+          [ "rectangle", "scale-x", "ease-in-cubic", 1.2 ],
+          [ "rectangle", "scale-y", "ease-in-cubic", 1.2 ]
+        ]
+      },
+      {
+        "source" : null,
+        "target" : "clicked",
+
+        "keys" : [
+          [ "rectangle", "rotation-angle-z", "ease-out-bounce", 90.0 ]
+        ]
+      }
+    ]
+  },
+
+  {
+    "id" : "rectangle",
+    "type" : "ClutterRectangle",
+    "width" : 200,
+    "height" : 200,
+    "x" : 50,
+    "y" : 50,
+    "color" : "#a90",
+    "rotation-center-z-gravity" : "center",
+    "scale-gravity" : "center",
+    "scale-x" : 0.7,
+    "scale-y" : 0.7,
+    "reactive" : true,
+
+    "signals" : [
+      {
+        "name" : "enter-event",
+        "states" : "rectangle-states",
+        "target-state" : "hover"
+      },
+      {
+        "name" : "leave-event",
+        "states" : "rectangle-states",
+        "target-state" : "base"
+      }
+    ],
+
+    "actions" : [
+      {
+        "type" : "ClutterClickAction",
+        "signals" : [
+          {
+            "name" : "clicked",
+            "states" : "rectangle-states",
+            "target-state" : "clicked"
+          }
+        ]
+      }
+    ]
+  }
+]
+</pre></div></div><br class="example-break"></br><div class="example"><a name="script-states-examples-2"></a><p class="title"><b>Example 8.6. Loading a JSON file into a <span class="type">ClutterScript</span> and connecting states</b></p><div class="example-contents"><pre class="programlisting">#include &lt;stdlib.h&gt;
+#include &lt;clutter/clutter.h&gt;
+
+int
+main (int argc, char *argv[])
+{
+  ClutterActor *stage;
+  ClutterScript *ui;
+
+  gchar *filename = "script-states.json";
+  GError *error = NULL;
+
+  if (clutter_init (&amp;argc, &amp;argv) != CLUTTER_INIT_SUCCESS)
+    return 1;
+
+  ui = clutter_script_new ();
+
+  clutter_script_load_from_file (ui, filename, &amp;error);
+
+  if (error != NULL)
+    {
+      g_critical ("Error loading ClutterScript file %s\n%s", filename, error-&gt;message);
+      g_error_free (error);
+      exit (EXIT_FAILURE);
+    }
+
+  clutter_script_get_objects (ui,
+                              "stage", &amp;stage,
+                              NULL);
+
+  /* make the objects in the script available to all signals
+   * by passing the script as the second argument
+   * to clutter_script_connect_signals()
+   */
+  clutter_script_connect_signals (ui, ui);
+
+  clutter_actor_show (stage);
+
+  clutter_main ();
+
+  g_object_unref (ui);
+
+  return EXIT_SUCCESS;
+}
+</pre></div></div><br class="example-break"></br></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="script-signals.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="script.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="effects.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">3. Connecting to signals in <span class="type">ClutterScript</span> </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> Chapter 9. Effects</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="script-state.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

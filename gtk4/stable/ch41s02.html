@@ -1,0 +1,1805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Changes that need to be done at the time of the switch: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="gtk-migrating-3-to-4.html" rel="up" title="Migrating from GTK 3.x to GTK 4"></link><link href="gtk-migrating-3-to-4.html" rel="prev" title="Migrating from GTK 3.x to GTK 4"></link><link href="ch41s03.html" rel="next" title="Changes to consider after the switch"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ch41s02.html#container">Go to page content</a></li><li><a href="ch41s02.html#top_bar">Go to main menu</a></li><li><a href="ch41s02.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="gtk-migrating-3-to-4.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="gtk-migrating-3-to-4.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="ch41s03.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id-1.7.4.4"></a>Changes that need to be done at the time of the
+    switch</h2></div></div></div>
+<p>
+      This section outlines porting tasks that you need to tackle when
+      you get to the point that you actually build your application
+      against GTK 4. Making it possible to prepare for these in GTK 3
+      would have been either impossible or impractical.
+    </p>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.3"></a>Larger changes</h3></div></div></div>
+<p>
+        Some of the larger themes of GTK 4 development are hard to cover
+        in the form of checklist items, so we mention them separately
+        up-front.
+      </p>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.7.4.4.3.3"></a>Subclassing</h4></div></div></div>
+<p>
+          Compared to previous versions, GTK 4 emphasizes composition
+          and delegation over subclassing. As a consequence, many
+          widgets can no longer be subclassed. In most cases, you should
+          look deriving your widget directly from GtkWidget and use
+          complex widgets as child widgets instead of deriving from
+          them.
+        </p>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.7.4.4.3.4"></a>Life-cycle handling</h4></div></div></div>
+<p>
+          Widgets in GTK 4 are treated like any other objects - their
+          parent widget holds a reference on them, and GTK holds a
+          reference on toplevel windows. <a href="GtkWindow.html#gtk-window-destroy"><code class="function">gtk_window_destroy()</code></a> will drop
+          the reference on the toplevel window, and cause the whole
+          widget hierarchy to be finalized unless there are other
+          references that keep widgets alive.
+        </p>
+<p>
+          The <a href="GtkWidget.html#GtkWidget-destroy"><span class="type">“destroy”</span></a> signal is emitted when a widget is
+          disposed, and therefore can no longer be used to break
+          reference cycles. A typical sign of a reference cycle
+          involving a toplevel window is when closing the window does
+          not make the application quit.
+        </p>
+</div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.4"></a>Stop using GdkScreen</h3></div></div></div>
+<p>
+        The GdkScreen object has been removed in GTK 4. Most of its APIs
+        already had replacements in GTK 3 and were deprecated, a few
+        remaining replacements have been added to GdkDisplay.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.5"></a>Stop using the root window</h3></div></div></div>
+<p>
+        The root window is an X11-centric concept that is no longer
+        exposed in the backend-neutral GDK API. If you need to interact
+        with the X11 root window, you can use
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-X-Window-System-Interaction.html#gdk-x11-display-get-xrootwindow"><code class="function">gdk_x11_display_get_xrootwindow()</code></a> to get its XID.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.6"></a>Stop using GdkVisual</h3></div></div></div>
+<p>
+        This object is not useful with current GTK drawing APIs and has
+        been removed without replacement.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.7"></a>Stop using GdkDeviceManager</h3></div></div></div>
+<p>
+        The GdkDeviceManager object has been removed in GTK 4. Most of
+        its APIs already had replacements in GTK 3 and were deprecated
+        in favor of GdkSeat.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.8"></a>Adapt to GdkWindow API changes</h3></div></div></div>
+<p>
+        GdkWindow has been renamed to GdkSurface.
+      </p>
+<p>
+        In GTK 4, the two roles of a standalone toplevel window and of a
+        popup that is placed relative to a parent window have been
+        separated out into two interfaces, <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#GdkToplevel-struct"><span class="type">GdkToplevel</span></a> and <a href="https://developer-old.gnome.org/gtk4/html/GdkPopup.html#GdkPopup-struct"><span class="type">GdkPopup</span></a>.
+        Surfaces implementing these interfaces are created with
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkSurface.html#gdk-surface-new-toplevel"><code class="function">gdk_surface_new_toplevel()</code></a> and <a href="https://developer-old.gnome.org/gtk4/html/GdkSurface.html#gdk-surface-new-popup"><code class="function">gdk_surface_new_popup()</code></a>,
+        respectively, and they are presented on screen using
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#gdk-toplevel-present"><code class="function">gdk_toplevel_present()</code></a> and <a href="https://developer-old.gnome.org/gtk4/html/GdkPopup.html#gdk-popup-present"><code class="function">gdk_popup_present()</code></a>. The <code class="function">present()</code>
+        functions take parameters in the form of an auxiliary layout
+        struct, <a href="https://developer-old.gnome.org/gtk4/html/GdkPopupLayout.html#GdkPopupLayout-struct"><span class="type">GdkPopupLayout</span></a> or <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevelLayout.html#GdkToplevelLayout-struct"><span class="type">GdkToplevelLayout</span></a>. If your code is
+        dealing directly with surfaces, you may have to change it to
+        call the API in these interfaces, depending on whether the
+        surface you are dealing with is a toplevel or a popup.
+      </p>
+<p>
+        As part of this reorganization, X11-only concepts such as
+        sticky, keep-below, urgency, skip-taskbar or window groups have
+        either been removed or moved to X11 backend api. If you need to
+        use them on your X11 windows, you will have to use those backend
+        apis or set the corresponding X11 properties (as specified in
+        the EWMH) yourself.
+      </p>
+<p>
+        Subsurfaces are only supported with the Wayland backend, using
+        <code class="function">gdk_wayland_surface_new_subsurface()</code>. Native and foreign
+        subwindows are no longer supported. These concepts were
+        complicating the code and could not be supported across
+        backends.
+      </p>
+<p>
+        A number of GdkWindow APIs are no longer available. This
+        includes <code class="function">gdk_window_reparent()</code>, <code class="function">gdk_window_set_geometry_hints()</code>,
+        <code class="function">gdk_window_raise()</code>, <code class="function">gdk_window_restack()</code>, <code class="function">gdk_window_move()</code>,
+        <code class="function">gdk_window_resize()</code>. If you need to manually control the
+        position or stacking of your X11 windows, you you will have to
+        use Xlib apis.
+      </p>
+<p>
+        A number of minor API cleanups have happened in GdkSurface as
+        well. For example, <code class="function">gdk_surface_input_shape_combine_region()</code> has
+        been renamed to <a href="https://developer-old.gnome.org/gtk4/html/GdkSurface.html#gdk-surface-set-input-region"><code class="function">gdk_surface_set_input_region()</code></a>, and
+        <code class="function">gdk_surface_begin_resize_drag()</code> has been renamed to
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#gdk-toplevel-begin-resize"><code class="function">gdk_toplevel_begin_resize()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.9"></a>The <span class="quote">“<span class="quote">iconified</span>”</span> window state has been renamed
+      to <span class="quote">“<span class="quote">minimized</span>”</span>
+</h3></div></div></div>
+<p>
+        The <code class="literal">GDK_TOPLEVEL_STATE_ICONIFIED</code> value of the <span class="type">GdkSurfaceState</span>
+        enumeration is now <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#GDK-TOPLEVEL-STATE-MINIMIZED:CAPS"><code class="literal">GDK_TOPLEVEL_STATE_MINIMIZED</code></a> in the
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#GdkToplevelState"><span class="type">GdkToplevelState</span></a> enumeration.
+      </p>
+<p>
+        The <span class="type">GdkWindow</span> functions <code class="function">gdk_window_iconify()</code> and
+        <code class="function">gdk_window_deiconify()</code> have been renamed to
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#gdk-toplevel-minimize"><code class="function">gdk_toplevel_minimize()</code></a> and <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#gdk-toplevel-present"><code class="function">gdk_toplevel_present()</code></a>,
+        respectively.
+      </p>
+<p>
+        The behavior of the minimization and unminimization operations
+        have not been changed, and they still require support from the
+        underlying windowing system.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.10"></a>Adapt to GdkEvent API changes</h3></div></div></div>
+<p>
+        Direct access to GdkEvent structs is no longer possible in GTK
+        4. GdkEvent is now a strictly read-only type, and you can no
+        longer change any of its fields, or construct new events. All
+        event fields have accessors that you will have to use.
+      </p>
+<p>
+        Event compression is always enabled in GTK 4, for both motion
+        and scroll events. If you need to see the uncoalesced motion or
+        scroll history, use <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Events.html#gdk-event-get-history"><code class="function">gdk_event_get_history()</code></a> on the latest event.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.11"></a>Stop using grabs</h3></div></div></div>
+<p>
+        GTK 4 no longer provides the <code class="function">gdk_device_grab()</code> or
+        <code class="function">gdk_seat_grab()</code> apis. If you need to dismiss a popup when the
+        user clicks outside (the most common use for grabs), you can use
+        the GdkPopup <a href="https://developer-old.gnome.org/gtk4/html/GdkPopup.html#GdkPopup--autohide"><span class="type">“autohide”</span></a> property instead. GtkPopover
+        also has a <a href="GtkPopover.html#GtkPopover--autohide"><span class="type">“autohide”</span></a> property for this. If you need
+        to prevent the user from interacting with a window while a
+        dialog is open, use the <a href="GtkWindow.html#GtkWindow--modal"><span class="type">“modal”</span></a> property of the dialog.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.12"></a>Adapt to coordinate API changes</h3></div></div></div>
+<p>
+        A number of coordinate APIs in GTK 3 had _double variants:
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#gdk-device-get-surface-at-position"><code class="function">gdk_device_get_surface_at_position()</code></a>,
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkSurface.html#gdk-surface-get-device-position"><code class="function">gdk_surface_get_device_position()</code></a>. These have been changed to
+        use doubles, and the _double variants have been removed. Update
+        your code accordingly.
+      </p>
+<p>
+        Any APIs that deal with global (or root) coordinates have been
+        removed in GTK 4, since not all backends support them. You
+        should replace your use of such APIs with surface-relative
+        equivalents. Examples of this are <code class="function">gdk_surface_get_origin()</code>,
+        <code class="function">gdk_surface_move()</code> or <code class="function">gdk_event_get_root_coords()</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.13"></a>Adapt to GdkKeymap API changes</h3></div></div></div>
+<p>
+        GdkKeymap no longer exists as an independent object.
+      </p>
+<p>
+        If you need access to keymap state, it is now exposed as
+        properties on the <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice-struct"><span class="type">GdkDevice</span></a> representing the keyboard:
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--direction"><span class="type">“direction”</span></a>, <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--has-bidi-layouts"><span class="type">“has-bidi-layouts”</span></a>,
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--caps-lock-state"><span class="type">“caps-lock-state”</span></a>, <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--num-lock-state"><span class="type">“num-lock-state”</span></a>,
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--scroll-lock-state"><span class="type">“scroll-lock-state”</span></a> and <a href="https://developer-old.gnome.org/gtk4/html/GdkDevice.html#GdkDevice--modifier-state"><span class="type">“modifier-state”</span></a>. To
+        obtain the keyboard device, you can use
+        <code class="literal">gdk_seat_get_keyboard (gdk_display_get_default_seat (display)</code>.
+      </p>
+<p>
+        If you need access to translated keys for event handling,
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Events.html#GdkEvent-struct"><span class="type">GdkEvent</span></a> now includes all of the translated key state,
+        including consumed modifiers, group and shift level, so there
+        should be no need to manually call
+        <code class="function">gdk_keymap_translate_keyboard_state()</code> (which has been removed).
+      </p>
+<p>
+        If you need to do forward or backward mapping between key codes
+        and key values, use <a href="https://developer-old.gnome.org/gtk4/html/GdkDisplay.html#gdk-display-map-keycode"><code class="function">gdk_display_map_keycode()</code></a> and
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDisplay.html#gdk-display-map-keyval"><code class="function">gdk_display_map_keyval()</code></a>, which are the replacements for
+        <code class="function">gdk_keymap_get_entries_for_keycode()</code> and
+        <code class="function">gdk_keymap_get_entries_for_keyval()</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.14"></a>Adapt to changes in keyboard modifier handling</h3></div></div></div>
+<p>
+        GTK 3 has the idea that use of modifiers may differ between
+        different platforms, and has a <span class="type">GdkModifierIntent</span> api to let
+        platforms provide hint about how modifiers are expected to be
+        used. It also promoted the use of
+        <code class="literal">&lt;Primary&gt;</code> instead of
+        <code class="literal">&lt;Control&gt;</code> to specify accelerators that
+        adapt to platform conventions.
+      </p>
+<p>
+        In GTK 4, the meaning of modifiers has been fixed, and backends
+        are expected to map the platform conventions to the existing
+        modifiers. The expected use of modifiers in GTK 4 is:
+      </p>
+<div class="variablelist"><table border="0" class="variablelist compact">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term">
+            GDK_CONTROL_MASK
+          </span></p></td>
+<td><p>
+              Primary accelerators
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">
+            GDK_ALT_MASK
+          </span></p></td>
+<td><p>
+              Mnemonics
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">
+            GDK_SHIFT_MASK
+          </span></p></td>
+<td><p>
+              Extending selections
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">
+            GDK_CONTROL_MASK
+          </span></p></td>
+<td><p>
+              Modifying selections
+            </p></td>
+</tr>
+<tr>
+<td><p><span class="term">
+            GDK_CONTROL_MASK|GDK_ALT_MASK
+          </span></p></td>
+<td><p>
+              Prevent text input
+            </p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        Consequently, <span class="type">GdkModifierIntent</span> and related APIs have been
+        removed, and <code class="literal">&lt;Control&gt;</code> is preferred
+        over <code class="literal">&lt;Primary&gt;</code> in accelerators.
+      </p>
+<p>
+        A related change is that GTK 4 no longer supports the use of
+        archaic X11 <span class="quote">“<span class="quote">real</span>”</span> modifiers with the names Mod1,…,
+        Mod5, and <code class="literal">GDK_MOD1_MASK</code> has been renamed to <a href="https://developer-old.gnome.org/gtk4/html/GdkSurface.html#GDK-ALT-MASK:CAPS"><code class="literal">GDK_ALT_MASK</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.15"></a>Replace GtkClipboard with GdkClipboard</h3></div></div></div>
+<p>
+        The <code class="literal">GtkClipboard</code> API has been removed, and
+        replaced by <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Clipboards.html#GdkClipboard-struct"><span class="type">GdkClipboard</span></a>. There is not direct 1:1 mapping
+        between the old an the new API, so it cannot be a mechanical
+        replacement; the new API is based on object types and <span class="type">GValue</span>
+        like object properties, instead of opaque identifiers, so it
+        should be easier to use.
+      </p>
+<p>
+        For instance, the example below copies the contents of an entry
+        into the clipboard:
+      </p>
+<pre class="programlisting">static void
+copy_text (GtkWidget *widget)
+{
+  GtkEditable *editable = GTK_EDITABLE (widget);
+
+  // Initialize a GValue with the contents of the widget
+  GValue value = G_VALUE_INIT;
+  g_value_init (&amp;value, G_TYPE_STRING);
+  g_value_set_string (&amp;value, gtk_editable_get_text (editable));
+
+  // Store the value in the clipboard object
+  GdkClipboard *clipboard = gtk_widget_get_clipboard (widget);
+  gdk_clipboard_set_value (clipboard, &amp;value);
+
+  g_value_unset (&amp;value);
+}
+</pre>
+<p>
+        whereas the example below pastes the contents into the entry:
+      </p>
+<pre class="programlisting">static void
+paste_text (GtkWidget *widget)
+{
+  GtkEditable *editable = GTK_EDITABLE (widget);
+
+  // Initialize a GValue to receive text
+  GValue value = G_VALUE_INIT;
+  g_value_init (&amp;value, G_TYPE_STRING);
+
+  // Get the content provider for the clipboard, and ask it for text
+  GdkClipboard *clipboard = gtk_widget_get_clipboard (widget);
+  GdkContentProvider *provider = gdk_clipboard_get_content (clipboard);
+
+  // If the content provider does not contain text, we are not interested
+  if (!gdk_content_provider_get_value (provider, &amp;value, NULL))
+    return;
+
+  const char *str = g_value_get_string (&amp;value);
+
+  gtk_editable_set_text (editable, str);
+
+  g_value_unset (&amp;value);
+}
+</pre>
+<p>
+        The convenience API for specific target types in
+        <code class="literal">GtkClipboard</code> has been replaced by their
+        corresponding GType:
+      </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                GtkClipboard
+              </th>
+<th align="left">
+                GType
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                <code class="literal"><code class="function">gtk_clipboard_request_text()</code></code>
+              </td>
+<td align="left">
+                <code class="literal">G_TYPE_STRING</code>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                <code class="literal"><code class="function">gtk_clipboard_request_rich_text()</code></code>
+              </td>
+<td align="left">
+                <code class="literal">GTK_TYPE_TEXT_BUFFER</code>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                <code class="literal"><code class="function">gtk_clipboard_request_image()</code></code>
+              </td>
+<td align="left">
+                <code class="literal">GDK_TYPE_PIXBUF</code>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                <code class="literal"><code class="function">gtk_clipboard_request_uris()</code></code>
+              </td>
+<td align="left">
+                <code class="literal">GDK_TYPE_FILE_LIST</code>
+              </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+        <span class="strong"><strong>Note</strong></span>: Support for rich text
+        serialization across different processes for <a href="GtkTextBuffer.html#GtkTextBuffer-struct"><span class="type">GtkTextBuffer</span></a> is
+        not available any more.
+      </p>
+<p>
+        If you are copying the contents of an image, it is recommended
+        to use GDK_TYPE_PAINTABLE instead of GDK_TYPE_PIXBUF, to
+        minimize the amount of potential copies.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.16"></a>Stop using <code class="literal">gtk_get_current_...</code>
+      APIs</h3></div></div></div>
+<p>
+        The function <code class="function">gtk_get_current_event()</code> and its variants have been
+        replaced by equivalent event controller APIs:
+        <a href="GtkEventController.html#gtk-event-controller-get-current-event"><code class="function">gtk_event_controller_get_current_event()</code></a>, etc.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.17"></a>Convert your ui files</h3></div></div></div>
+<p>
+        A number of the changes outlined below affect .ui files. The
+        gtk4-builder-tool simplify command can perform many of the
+        necessary changes automatically, when called with the –3to4
+        option. You should always review the resulting changes.
+      </p>
+<p>
+        The &lt;requires&gt; tag now supports for the <span class="quote">“<span class="quote">lib</span>”</span>
+        attribute the <span class="quote">“<span class="quote">gtk</span>”</span> value only, instead of the
+        <span class="quote">“<span class="quote">gtk+</span>”</span> one previously.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.18"></a>Adapt to GtkBuilder API changes</h3></div></div></div>
+<p>
+        <code class="function">gtk_builder_connect_signals()</code> no longer exists. Instead, signals
+        are always connected automatically. If you need to add user data
+        to your signals, <a href="GtkBuilder.html#gtk-builder-set-current-object"><code class="function">gtk_builder_set_current_object()</code></a> must be
+        called. An important caveat is that you have to do this before
+        loading any XML. This means if you need to use
+        <a href="GtkBuilder.html#gtk-builder-set-current-object"><code class="function">gtk_builder_set_current_object()</code></a>, you can no longer use
+        <a href="GtkBuilder.html#gtk-builder-new-from-file"><code class="function">gtk_builder_new_from_file()</code></a>, <a href="GtkBuilder.html#gtk-builder-new-from-resource"><code class="function">gtk_builder_new_from_resource()</code></a>, or
+        <a href="GtkBuilder.html#gtk-builder-new-from-string"><code class="function">gtk_builder_new_from_string()</code></a>. Instead, you must use vanilla
+        <a href="GtkBuilder.html#gtk-builder-new"><code class="function">gtk_builder_new()</code></a>, then call <a href="GtkBuilder.html#gtk-builder-set-current-object"><code class="function">gtk_builder_set_current_object()</code></a>,
+        then load the XML using <a href="GtkBuilder.html#gtk-builder-add-from-file"><code class="function">gtk_builder_add_from_file()</code></a>,
+        <a href="GtkBuilder.html#gtk-builder-add-from-resource"><code class="function">gtk_builder_add_from_resource()</code></a>, or
+        <a href="GtkBuilder.html#gtk-builder-add-from-string"><code class="function">gtk_builder_add_from_string()</code></a>. You must check the return value
+        for failure and manually abort with <code class="function">g_error()</code> if something went
+        wrong.
+      </p>
+<p>
+        You only have to worry about this if you were previously using
+        <code class="function">gtk_builder_connect_signals()</code>. If you are using templates, then
+        <a href="GtkWidget.html#gtk-widget-init-template"><code class="function">gtk_widget_init_template()</code></a> will call
+        <a href="GtkBuilder.html#gtk-builder-set-current-object"><code class="function">gtk_builder_set_current_object()</code></a> for you, so templates work like
+        before.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.19"></a>Adapt to event controller API changes</h3></div></div></div>
+<p>
+        A few changes to the event controller and <a href="GtkGesture.html#GtkGesture-struct"><span class="type">GtkGesture</span></a> APIs did
+        not make it back to GTK 3, and have to be taken into account
+        when moving to GTK 4. One is that the
+        <a href="GtkEventControllerMotion.html#GtkEventControllerMotion-enter"><span class="type">“enter”</span></a> and
+        <a href="GtkEventControllerMotion.html#GtkEventControllerMotion-leave"><span class="type">“leave”</span></a> signals have gained new
+        arguments. Another is that <span class="type">GtkGestureMultiPress</span> has been
+        renamed to <a href="GtkGestureClick.html#GtkGestureClick-struct"><span class="type">GtkGestureClick</span></a>, and has lost its area property. A
+        <a href="GtkEventControllerFocus.html#GtkEventControllerFocus-struct"><span class="type">GtkEventControllerFocus</span></a> has been split off from
+        <span class="type">GtkEventcontrollerKey</span>.
+      </p>
+<p>
+        In GTK 3, <a href="GtkEventController.html#GtkEventController--widget"><span class="type">“widget”</span></a> was a construct-only
+        property, so a <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> was provided whenever constructing a
+        <a href="GtkEventController.html#GtkEventController-struct"><span class="type">GtkEventController</span></a>. In GTK 4, <a href="GtkEventController.html#GtkEventController--widget"><span class="type">“widget”</span></a> is now
+        read-only. Use <a href="GtkWidget.html#gtk-widget-add-controller"><code class="function">gtk_widget_add_controller()</code></a> to add an event
+        controller to a widget.
+      </p>
+<p>
+        In GTK 3, widgets did not own their event controllers, and event
+        controllers did not own their widgets, so developers were
+        responsible for manually keeping event controllers alive for the
+        lifetime of their associated widgets. In GTK 4, widgets own
+        their event controllers. <a href="GtkWidget.html#gtk-widget-add-controller"><code class="function">gtk_widget_add_controller()</code></a> takes
+        ownership of the event controller, so there is no longer any
+        need to store a reference to the event controller after it has
+        been added to a widget.
+      </p>
+<p>
+        Although not normally needed, an event controller could be
+        removed from a widget in GTK 3 by destroying the event
+        controller with <code class="function">g_object_unref()</code>. In GTK 4, you must use
+        <a href="GtkWidget.html#gtk-widget-remove-controller"><code class="function">gtk_widget_remove_controller()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.20"></a>Focus handling changes</h3></div></div></div>
+<p>
+        The semantics of the <a href="GtkWidget.html#GtkWidget--can-focus"><span class="type">“can-focus”</span></a> property have changed.
+        In GTK 3, this property only meant that the widget itself would
+        not accept keyboard input, but its children still might (in the
+        case of containers). In GTK 4, if :can-focus is <code class="literal">FALSE</code>, the
+        focus cannot enter the widget or any of its descendents, and the
+        default value has changed from <code class="literal">FALSE</code> to <code class="literal">TRUE</code>. In addition,
+        there is a <a href="GtkWidget.html#GtkWidget--focusable"><span class="type">“focusable”</span></a> property, which controls whether
+        an individual widget can receive the input focus.
+      </p>
+<p>
+        The feature to automatically keep the focus widget scrolled into
+        view with <code class="function">gtk_container_set_focus_vadjustment()</code> has been removed
+        together with GtkContainer, and is provided by scrollable
+        widgets instead. In the common case that the scrollable is a
+        <a href="GtkViewport.html#GtkViewport-struct"><span class="type">GtkViewport</span></a>, use <a href="GtkViewport.html#GtkViewport--scroll-to-focus"><span class="type">“scroll-to-focus”</span></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.21"></a>Use the new apis for keyboard shortcuts</h3></div></div></div>
+<p>
+        The APIs for keyboard shortcuts and accelerators have changed in
+        GTK 4.
+      </p>
+<p>
+        Instead of GtkAccelGroup, you now use a <a href="GtkShortcutController.html#GtkShortcutController-struct"><span class="type">GtkShortcutController</span></a>
+        with global scope, and instead of GtkBindingSet, you now use
+        <a href="GtkWidget.html#gtk-widget-class-add-shortcut"><code class="function">gtk_widget_class_add_shortcut()</code></a>, <a href="GtkWidget.html#gtk-widget-class-add-binding"><code class="function">gtk_widget_class_add_binding()</code></a>
+        and its variants. In both cases, you probably want to add
+        actions that can be triggered by your shortcuts.
+      </p>
+<p>
+        There is no direct replacement for loading and saving
+        accelerators with GtkAccelMap. But since <a href="GtkShortcutController.html#GtkShortcutController-struct"><span class="type">GtkShortcutController</span></a>
+        implements <span class="type">GListModel</span> and both <a href="GtkShortcutTrigger.html#GtkShortcutTrigger-struct"><span class="type">GtkShortcutTrigger</span></a> and
+        <a href="GtkShortcutAction.html#GtkShortcutAction-struct"><span class="type">GtkShortcutAction</span></a> can be serialized to strings, it is
+        relatively easy to implement saving and loading yourself.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.22"></a>Stop using GtkEventBox</h3></div></div></div>
+<p>
+        GtkEventBox is no longer needed and has been removed. All
+        widgets receive all events.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.23"></a>Stop using GtkButtonBox</h3></div></div></div>
+<p>
+        GtkButtonBox has been removed. Use a GtkBox instead.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.24"></a>Adapt to GtkBox API changes</h3></div></div></div>
+<p>
+        The GtkBox pack-start and -end methods have been replaced by
+        <a href="GtkBox.html#gtk-box-prepend"><code class="function">gtk_box_prepend()</code></a> and <a href="GtkBox.html#gtk-box-append"><code class="function">gtk_box_append()</code></a>. You can also reorder box
+        children as necessary.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.25"></a>Adapt to GtkWindow API changes</h3></div></div></div>
+<p>
+        Following the GdkSurface changes, a number of GtkWindow APIs
+        that were X11-specific have been removed. This includes
+        <code class="function">gtk_window_set_geometry_hints()</code>, <code class="function">gtk_window_set_gravity()</code>,
+        <code class="function">gtk_window_move()</code>, <code class="function">gtk_window_parse_geometry()</code>,
+        <code class="function">gtk_window_set_keep_above()</code>, <code class="function">gtk_window_set_keep_below()</code>,
+        <code class="function">gtk_window_begin_resize_drag()</code>, <code class="function">gtk_window_begin_move_drag()</code>.
+        Most likely, you should just stop using them. In some cases, you
+        can fall back to using the underlying <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#GdkToplevel-struct"><span class="type">GdkToplevel</span></a> APIs (for
+        example, <a href="https://developer-old.gnome.org/gtk4/html/GdkToplevel.html#gdk-toplevel-begin-resize"><code class="function">gdk_toplevel_begin_resize()</code></a>).
+      </p>
+<p>
+        The APIs for controlling GtkWindow size have changed to be
+        better aligned with the way size changes are integrated in the
+        frame cycle. <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkWindow.html#gtk-window-resize"><code class="function">gtk_window_resize()</code></a> and <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkWindow.html#gtk-window-get-size"><code class="function">gtk_window_get_size()</code></a> have
+        been removed. Instead, use <a href="GtkWindow.html#gtk-window-set-default-size"><code class="function">gtk_window_set_default_size()</code></a> and
+        <a href="GtkWindow.html#gtk-window-get-default-size"><code class="function">gtk_window_get_default_size()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.26"></a>Adapt to GtkHeaderBar and GtkActionBar API changes</h3></div></div></div>
+<p>
+        The <code class="function">gtk_header_bar_set_show_close_button()</code> function has been
+        renamed to the more accurate name
+        <a href="GtkHeaderBar.html#gtk-header-bar-set-show-title-buttons"><code class="function">gtk_header_bar_set_show_title_buttons()</code></a>. The corresponding
+        getter and the property itself have also been renamed. The
+        default value of the property is now <code class="literal">TRUE</code> instead of <code class="literal">FALSE</code>.
+      </p>
+<p>
+        The <code class="function">gtk_header_bar_set_custom_title()</code> function has been renamed
+        to the more accurate name <a href="GtkHeaderBar.html#gtk-header-bar-set-title-widget"><code class="function">gtk_header_bar_set_title_widget()</code></a>. The
+        corresponding getter and the property itself have also been
+        renamed.
+      </p>
+<p>
+        The <code class="function">gtk_header_bar_set_title()</code> function has been removed along
+        with its corresponding getter and the property. By default
+        <a href="GtkHeaderBar.html#GtkHeaderBar-struct"><span class="type">GtkHeaderBar</span></a> shows the title of the window, so if you were
+        setting the title of the header bar, consider setting the window
+        title instead. If you need to show a title that’s different from
+        the window title, use the <a href="GtkHeaderBar.html#GtkHeaderBar--title-widget"><span class="type">“title-widget”</span></a> property to
+        add a <a href="GtkLabel.html#GtkLabel-struct"><span class="type">GtkLabel</span></a> as shown in the example in the <a href="GtkHeaderBar.html#GtkHeaderBar-struct"><span class="type">GtkHeaderBar</span></a>
+        documentation.
+      </p>
+<p>
+        The <code class="function">gtk_header_bar_set_subtitle()</code> function has been removed
+        along with its corresponding getter and the property. The old
+        <span class="quote">“<span class="quote">subtitle</span>”</span> behavior can be replicated by setting
+        the <a href="GtkHeaderBar.html#GtkHeaderBar--title-widget"><span class="type">“title-widget”</span></a> property to a <a href="GtkBox.html#GtkBox-struct"><span class="type">GtkBox</span></a> with two
+        labels inside, with the title label matching the example in
+        <a href="GtkHeaderBar.html#GtkHeaderBar-struct"><span class="type">GtkHeaderBar</span></a> documentation, and the subtitle label being
+        similar, but with <span class="quote">“<span class="quote">subtitle</span>”</span> style class instead of
+        <span class="quote">“<span class="quote">title</span>”</span>.
+      </p>
+<p>
+        The <code class="function">gtk_header_bar_set_has_subtitle()</code> function has been removed
+        along with its corresponding getter and the property. Its
+        behavior can be replicated by setting the
+        <a href="GtkHeaderBar.html#GtkHeaderBar--title-widget"><span class="type">“title-widget”</span></a> property to a <a href="GtkStack.html#GtkStack-struct"><span class="type">GtkStack</span></a> with
+        <a href="GtkStack.html#GtkStack--vhomogeneous"><span class="type">“vhomogeneous”</span></a> property set to <code class="literal">TRUE</code> and two pages, each
+        with a <a href="GtkBox.html#GtkBox-struct"><span class="type">GtkBox</span></a> with title and subtitle as described above.
+      </p>
+<p>
+        Some of the internal structure of <a href="GtkHeaderBar.html#GtkHeaderBar-struct"><span class="type">GtkHeaderBar</span></a> has been made
+        available as public API: <a href="GtkWindowHandle.html#GtkWindowHandle-struct"><span class="type">GtkWindowHandle</span></a> and
+        <a href="GtkWindowControls.html#GtkWindowControls-struct"><span class="type">GtkWindowControls</span></a>. If you have unusual needs for custom
+        headerbars, these might be useful to you.
+      </p>
+<p>
+        The ::pack-type child properties of GtkHeaderBar and
+        GtkActionBar have been removed. If you need to programmatically
+        place children, use the <code class="function">pack_start()</code> and <code class="function">pack_end()</code> APIs. In ui
+        files, use the type attribute on the child element.
+      </p>
+<p>
+        gtk4-builder-tool can help with this conversion, with the –3to4
+        option of the simplify command.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.27"></a>Adapt to GtkStack, GtkAssistant and GtkNotebook API
+      changes</h3></div></div></div>
+<p>
+        The child properties of GtkStack, GtkAssistant and GtkNotebook
+        have been converted into child meta objects. Instead of
+        gtk_container_child_set (stack, child, …), you can now use
+        g_object_set (gtk_stack_get_page (stack, child), …). In .ui
+        files, the GtkStackPage objects must be created explicitly, and
+        take the child widget as property. The changes to GtkNotebook
+        and GtkAssistant are similar.
+      </p>
+<p>
+        gtk4-builder-tool can help with this conversion, with the –3to4
+        option of the simplify command.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.28"></a>Adapt to button class hierarchy changes</h3></div></div></div>
+<p>
+        <a href="GtkCheckButton.html#GtkCheckButton-struct"><span class="type">GtkCheckButton</span></a> is no longer derived from <a href="GtkToggleButton.html#GtkToggleButton-struct"><span class="type">GtkToggleButton</span></a>. Call
+        <a href="GtkCheckButton.html#gtk-check-button-set-active"><code class="function">gtk_check_button_set_active()</code></a> instead of
+        <a href="GtkToggleButton.html#gtk-toggle-button-set-active"><code class="function">gtk_toggle_button_set_active()</code></a>.
+      </p>
+<p>
+        <span class="type">GtkRadioButton</span> has been removed, and its grouping functionality
+        has been added to <a href="GtkCheckButton.html#GtkCheckButton-struct"><span class="type">GtkCheckButton</span></a> and <a href="GtkToggleButton.html#GtkToggleButton-struct"><span class="type">GtkToggleButton</span></a>. Use
+        grouped check buttons for traditional radio groups, and used
+        grouped toggle buttons for view switchers. The new API to set up
+        groups of buttons is <a href="GtkCheckButton.html#gtk-check-button-set-group"><code class="function">gtk_check_button_set_group()</code></a> and
+        <a href="GtkToggleButton.html#gtk-toggle-button-set-group"><code class="function">gtk_toggle_button_set_group()</code></a>.
+      </p>
+<p>
+        gtk4-builder-tool can help with this conversion, with the –3to4
+        option of the simplify command.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.29"></a>Adapt to GtkScrolledWindow API changes</h3></div></div></div>
+<p>
+        The constructor for GtkScrolledWindow no longer takes the
+        adjustments as arguments - these were almost always <code class="literal">NULL</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.30"></a>Adapt to GtkBin removal</h3></div></div></div>
+<p>
+        The abstract base class GtkBin for single-child containers has
+        been removed. The former subclasses are now derived directly
+        from GtkWidget, and have a <span class="quote">“<span class="quote">child</span>”</span> property for
+        their child widget. To add a child, use the setter for the
+        <span class="quote">“<span class="quote">child</span>”</span> property (e.g. <a href="GtkFrame.html#gtk-frame-set-child"><code class="function">gtk_frame_set_child()</code></a>)
+        instead of <code class="function">gtk_container_add()</code>. Adding a child in a ui file with
+        &lt;child&gt; still works.
+      </p>
+<p>
+        The affected classes are:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            GtkAspectFrame
+          </p></li>
+<li class="listitem"><p>
+            GtkButton (and subclasses)
+          </p></li>
+<li class="listitem"><p>
+            GtkComboBox
+          </p></li>
+<li class="listitem"><p>
+            GtkFlowBoxChild
+          </p></li>
+<li class="listitem"><p>
+            GtkFrame
+          </p></li>
+<li class="listitem"><p>
+            GtkListBoxRow
+          </p></li>
+<li class="listitem"><p>
+            GtkOverlay
+          </p></li>
+<li class="listitem"><p>
+            GtkPopover
+          </p></li>
+<li class="listitem"><p>
+            GtkRevealer
+          </p></li>
+<li class="listitem"><p>
+            GtkScrolledWindow
+          </p></li>
+<li class="listitem"><p>
+            GtkSearchBar
+          </p></li>
+<li class="listitem"><p>
+            GtkViewport
+          </p></li>
+<li class="listitem"><p>
+            GtkWindow (and subclasses)
+          </p></li>
+</ul></div>
+<p>
+        If you have custom widgets that were derived from GtkBin, you
+        should port them to derive from GtkWidget. Notable vfuncs that
+        you will have to implement include <code class="function">dispose()</code> (to unparent your
+        child), <code class="function">compute_expand()</code> (if you want your container to
+        propagate expand flags) and <code class="function">get_request_mode()</code> (if you want your
+        container to support height-for-width.
+      </p>
+<p>
+        You may also want to implement the GtkBuildable interface, to
+        support adding children with &lt;child&gt; in ui files.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.31"></a>Adapt to GtkContainer removal</h3></div></div></div>
+<p>
+        The abstract base class GtkContainer for general containers has
+        been removed. The former subclasses are now derived directly
+        from GtkWidget, and have class-specific <code class="function">add()</code> and <code class="function">remove()</code>
+        functions. The most noticeable change is the use of
+        <a href="GtkBox.html#gtk-box-append"><code class="function">gtk_box_append()</code></a> or <a href="GtkBox.html#gtk-box-prepend"><code class="function">gtk_box_prepend()</code></a> instead of
+        <code class="function">gtk_container_add()</code> for adding children to GtkBox, and the
+        change to use container-specific remove functions, such as
+        <a href="GtkStack.html#gtk-stack-remove"><code class="function">gtk_stack_remove()</code></a> instead of <code class="function">gtk_container_remove()</code>. Adding a
+        child in a ui file with &lt;child&gt; still works.
+      </p>
+<p>
+        The affected classes are:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            GtkActionBar
+          </p></li>
+<li class="listitem"><p>
+            GtkBox (and subclasses)
+          </p></li>
+<li class="listitem"><p>
+            GtkExpander
+          </p></li>
+<li class="listitem"><p>
+            GtkFixed
+          </p></li>
+<li class="listitem"><p>
+            GtkFlowBox
+          </p></li>
+<li class="listitem"><p>
+            GtkGrid
+          </p></li>
+<li class="listitem"><p>
+            GtkHeaderBar
+          </p></li>
+<li class="listitem"><p>
+            GtkIconView
+          </p></li>
+<li class="listitem"><p>
+            GtkInfoBar
+          </p></li>
+<li class="listitem"><p>
+            GtkListBox
+          </p></li>
+<li class="listitem"><p>
+            GtkNotebook
+          </p></li>
+<li class="listitem"><p>
+            GtkPaned
+          </p></li>
+<li class="listitem"><p>
+            GtkStack
+          </p></li>
+<li class="listitem"><p>
+            GtkTextView
+          </p></li>
+<li class="listitem"><p>
+            GtkTreeView
+          </p></li>
+</ul></div>
+<p>
+        Without GtkContainer, there are no longer facilities for
+        defining and using child properties. If you have custom widgets
+        using child properties, they will have to be converted either to
+        layout properties provided by a layout manager (if they are
+        layout-related), or handled in some other way. One possibility
+        is to use child meta objects, as seen with <a href="GtkAssistant.html#GtkAssistantPage-struct"><span class="type">GtkAssistantPage</span></a>,
+        <a href="GtkStack.html#GtkStackPage-struct"><span class="type">GtkStackPage</span></a> and the like.
+      </p>
+<p>
+        The replacements for <code class="function">gtk_container_add()</code> are:
+      </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                Widget
+              </th>
+<th align="left">
+                Replacement
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                GtkActionBar
+              </td>
+<td align="left">
+                <a href="GtkActionBar.html#gtk-action-bar-pack-start"><code class="function">gtk_action_bar_pack_start()</code></a>, <a href="GtkActionBar.html#gtk-action-bar-pack-end"><code class="function">gtk_action_bar_pack_end()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkBox
+              </td>
+<td align="left">
+                <a href="GtkBox.html#gtk-box-prepend"><code class="function">gtk_box_prepend()</code></a>, <a href="GtkBox.html#gtk-box-append"><code class="function">gtk_box_append()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkExpander
+              </td>
+<td align="left">
+                <a href="GtkExpander.html#gtk-expander-set-child"><code class="function">gtk_expander_set_child()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkFixed
+              </td>
+<td align="left">
+                <a href="GtkFixed.html#gtk-fixed-put"><code class="function">gtk_fixed_put()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkFlowBox
+              </td>
+<td align="left">
+                <a href="GtkFlowBox.html#gtk-flow-box-insert"><code class="function">gtk_flow_box_insert()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkGrid
+              </td>
+<td align="left">
+                <a href="GtkGrid.html#gtk-grid-attach"><code class="function">gtk_grid_attach()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkHeaderBar
+              </td>
+<td align="left">
+                <a href="GtkHeaderBar.html#gtk-header-bar-pack-start"><code class="function">gtk_header_bar_pack_start()</code></a>, <a href="GtkHeaderBar.html#gtk-header-bar-pack-end"><code class="function">gtk_header_bar_pack_end()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkIconView
+              </td>
+<td align="left">
+                -
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkInfoBar
+              </td>
+<td align="left">
+                <a href="GtkInfoBar.html#gtk-info-bar-add-child"><code class="function">gtk_info_bar_add_child()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkListBox
+              </td>
+<td align="left">
+                <a href="GtkListBox.html#gtk-list-box-insert"><code class="function">gtk_list_box_insert()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkNotebook
+              </td>
+<td align="left">
+                <a href="GtkNotebook.html#gtk-notebook-append-page"><code class="function">gtk_notebook_append_page()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkPaned
+              </td>
+<td align="left">
+                <a href="GtkPaned.html#gtk-paned-set-start-child"><code class="function">gtk_paned_set_start_child()</code></a>, <a href="GtkPaned.html#gtk-paned-set-end-child"><code class="function">gtk_paned_set_end_child()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkStack
+              </td>
+<td align="left">
+                <a href="GtkStack.html#gtk-stack-add-child"><code class="function">gtk_stack_add_child()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkTextView
+              </td>
+<td align="left">
+                <a href="GtkTextView.html#gtk-text-view-add-child-at-anchor"><code class="function">gtk_text_view_add_child_at_anchor()</code></a>,
+                <a href="GtkTextView.html#gtk-text-view-add-overlay"><code class="function">gtk_text_view_add_overlay()</code></a>
+              </td>
+</tr>
+<tr>
+<td align="left">
+                GtkTreeView
+              </td>
+<td align="left">
+                -
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.32"></a>Stop using GtkContainer::border-width</h3></div></div></div>
+<p>
+        GTK 4 has removed the <span class="type">“border-width”</span> property
+        (together with the rest of GtkContainer). Use other means to
+        influence the spacing of your containers, such as the CSS margin
+        and padding properties on child widgets, or the CSS
+        border-spacing property on containers.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.33"></a>Adapt to <code class="function">gtk_widget_destroy()</code> removal</h3></div></div></div>
+<p>
+        The function <code class="function">gtk_widget_destroy()</code> has been removed. To
+        explicitly destroy a toplevel window, use <a href="GtkWindow.html#gtk-window-destroy"><code class="function">gtk_window_destroy()</code></a>.
+        To destroy a widget that is part of a hierarchy, remove it from
+        its parent using a container-specific remove API, such as
+        <a href="GtkBox.html#gtk-box-remove"><code class="function">gtk_box_remove()</code></a> or <a href="GtkStack.html#gtk-stack-remove"><code class="function">gtk_stack_remove()</code></a>. To destroy a
+        freestanding non-toplevel widget, use <code class="function">g_object_unref()</code> to drop
+        your reference.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.34"></a>Adapt to coordinate API changes</h3></div></div></div>
+<p>
+        A number of APIs that are accepting or returning coordinates
+        have been changed from ints to doubles:
+        <a href="GtkWidget.html#gtk-widget-translate-coordinates"><code class="function">gtk_widget_translate_coordinates()</code></a>, <a href="GtkFixed.html#gtk-fixed-put"><code class="function">gtk_fixed_put()</code></a>,
+        <a href="GtkFixed.html#gtk-fixed-move"><code class="function">gtk_fixed_move()</code></a>. This change is mostly transparent, except for
+        cases where out parameters are involved: you need to pass
+        double* now, instead of int*.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.35"></a>Adapt to GtkStyleContext API changes</h3></div></div></div>
+<p>
+        The getters in the GtkStyleContext API, such as
+        <code class="function">gtk_style_context_get_property()</code>, <code class="function">gtk_style_context_get()</code>, or
+        <a href="GtkStyleContext.html#gtk-style-context-get-color"><code class="function">gtk_style_context_get_color()</code></a> have lost their state argument,
+        and always use the context’s current state. Update all callers
+        to omit the state argument.
+      </p>
+<p>
+        The most commonly used GtkStyleContext API,
+        <a href="GtkStyleContext.html#gtk-style-context-add-class"><code class="function">gtk_style_context_add_class()</code></a>, has been moved to GtkWidget as
+        <a href="GtkWidget.html#gtk-widget-add-css-class"><code class="function">gtk_widget_add_css_class()</code></a>, as have the corresponding
+        <a href="GtkStyleContext.html#gtk-style-context-remove-class"><code class="function">gtk_style_context_remove_class()</code></a> and
+        <a href="GtkStyleContext.html#gtk-style-context-has-class"><code class="function">gtk_style_context_has_class()</code></a> APIs.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.36"></a>Adapt to GtkCssProvider API changes</h3></div></div></div>
+<p>
+        In GTK 4, the various <a href="GtkCssProvider.html#GtkCssProvider-struct"><span class="type">GtkCssProvider</span></a> load functions have lost
+        their <span class="type">GError</span> argument. If you want to handle CSS loading
+        errors, use the <a href="GtkCssProvider.html#GtkCssProvider-parsing-error"><span class="type">“parsing-error”</span></a> signal instead.
+        <code class="function">gtk_css_provider_get_named()</code> has been replaced by
+        <a href="GtkCssProvider.html#gtk-css-provider-load-named"><code class="function">gtk_css_provider_load_named()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.37"></a>Stop using GtkShadowType and GtkRelief properties</h3></div></div></div>
+<p>
+        The shadow-type properties in GtkScrolledWindow, GtkViewport,
+        and GtkFrame, as well as the relief properties in GtkButton and
+        its subclasses have been removed. GtkScrolledWindow, GtkButton
+        and GtkMenuButton have instead gained a boolean has-frame
+        property.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.38"></a>Adapt to GtkWidget’s size request changes</h3></div></div></div>
+<p>
+        GTK 3 used five different virtual functions in GtkWidget to
+        implement size requisition, namely the
+        <code class="function">gtk_widget_get_preferred_width()</code> family of functions. To
+        simplify widget implementations, GTK 4 uses only one virtual
+        function, GtkWidgetClass::<code class="function">measure()</code> that widgets have to
+        implement. <a href="GtkWidget.html#gtk-widget-measure"><code class="function">gtk_widget_measure()</code></a> replaces the various
+        gtk_widget_get_preferred_ functions for querying sizes.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.39"></a>Adapt to GtkWidget’s size allocation changes</h3></div></div></div>
+<p>
+        The <code class="function">GtkWidget.size_allocate()</code> vfunc takes the baseline as an
+        argument now, so you no longer need to call
+        <a href="GtkWidget.html#gtk-widget-get-allocated-baseline"><code class="function">gtk_widget_get_allocated_baseline()</code></a> to get it.
+      </p>
+<p>
+        The ::size-allocate signal has been removed, since it is easy to
+        misuse. If you need to learn about sizing changes of custom
+        drawing widgets, use the <a href="GtkDrawingArea.html#GtkDrawingArea-resize"><span class="type">“resize”</span></a> or
+        <a href="GtkGLArea.html#GtkGLArea-resize"><span class="type">“resize”</span></a> signals. If you want to track the size of
+        toplevel windows, use property notification for
+        <a href="GtkWindow.html#GtkWindow--default-width"><span class="type">“default-width”</span></a> and <a href="GtkWindow.html#GtkWindow--default-height"><span class="type">“default-height”</span></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.40"></a>Switch to GtkWidget’s children APIs</h3></div></div></div>
+<p>
+        In GTK 4, any widget can have children (and GtkContainer is
+        gone). There is new API to navigate the widget tree, for use in
+        widget implementations: <a href="GtkWidget.html#gtk-widget-get-first-child"><code class="function">gtk_widget_get_first_child()</code></a>,
+        <a href="GtkWidget.html#gtk-widget-get-last-child"><code class="function">gtk_widget_get_last_child()</code></a>, <a href="GtkWidget.html#gtk-widget-get-next-sibling"><code class="function">gtk_widget_get_next_sibling()</code></a>,
+        <a href="GtkWidget.html#gtk-widget-get-prev-sibling"><code class="function">gtk_widget_get_prev_sibling()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.41"></a>Don’t use -gtk-gradient in your CSS</h3></div></div></div>
+<p>
+        GTK now supports standard CSS syntax for both linear and radial
+        gradients, just use those.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.42"></a>Don’t use -gtk-icon-effect in your CSS</h3></div></div></div>
+<p>
+        GTK now supports a more versatile -gtk-icon-filter instead.
+      </p>
+<p>
+        Replace
+      </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                Old
+              </th>
+<th align="left">
+                Replacement
+              </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                -gtk-icon-effect: dim
+              </td>
+<td align="left">
+                -gtk-icon-filter: opacity(0.5)
+              </td>
+</tr>
+<tr>
+<td align="left">
+                -gtk-icon-effect: highlight
+              </td>
+<td align="left">
+                -gtk-icon-filter: brightness(1.2)
+              </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.43"></a>Don’t use -gtk-icon-theme in your CSS</h3></div></div></div>
+<p>
+        GTK 4 always uses the current icon theme, with no way to change
+        this.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.44"></a>Don’t use -gtk-outline-…-radius in your CSS</h3></div></div></div>
+<p>
+        These non-standard properties have been removed from GTK CSS.
+        Just use regular border radius.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.45"></a>Adapt to drawing model changes</h3></div></div></div>
+<p>
+        This area has seen the most radical changes in the transition
+        from GTK 3 to GTK 4. Widgets no longer use a <code class="function">draw()</code> function to
+        render their contents to a cairo surface. Instead, they have a
+        <code class="function">snapshot()</code> function that creates one or more GskRenderNodes to
+        represent their content. Third-party widgets that use a <code class="function">draw()</code>
+        function or a <span class="type">“draw”</span> signal handler for custom drawing
+        will need to be converted to use <a href="GtkSnapshot.html#gtk-snapshot-append-cairo"><code class="function">gtk_snapshot_append_cairo()</code></a>.
+      </p>
+<p>
+        The auxiliary <a href="GtkSnapshot.html#GtkSnapshot"><span class="type">GtkSnapshot</span></a> object has APIs to help with creating
+        render nodes.
+      </p>
+<p>
+        If you are using a <a href="GtkDrawingArea.html#GtkDrawingArea-struct"><span class="type">GtkDrawingArea</span></a> for custom drawing, you need
+        to switch to using <a href="GtkDrawingArea.html#gtk-drawing-area-set-draw-func"><code class="function">gtk_drawing_area_set_draw_func()</code></a> to set a
+        draw function instead of connecting a handler to the
+        <span class="type">“draw”</span> signal.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.46"></a>Stop using APIs to query GdkSurfaces</h3></div></div></div>
+<p>
+        A number of APIs for querying special-purpose windows have been
+        removed, since these windows are no longer publicly available:
+        <code class="function">gtk_tree_view_get_bin_window()</code>, <code class="function">gtk_viewport_get_bin_window()</code>,
+        <code class="function">gtk_viewport_get_view_window()</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.47"></a>Widgets are now visible by default</h3></div></div></div>
+<p>
+        The default value of <a href="GtkWidget.html#GtkWidget--visible"><span class="type">“visible”</span></a> in GTK 4 is <code class="literal">TRUE</code>, so
+        you no longer need to explicitly show all your widgets. On the
+        flip side, you need to hide widgets that are not meant to be
+        visible from the start. The only widgets that still need to be
+        explicitly shown are toplevel windows, dialogs and popovers.
+      </p>
+<p>
+        A convenient way to remove unnecessary property assignments like
+        this from ui files it run the command
+        <code class="literal">gtk4-builder-tool simplify --replace</code> on them.
+      </p>
+<p>
+        The function <code class="function">gtk_widget_show_all()</code>, the <span class="type">“no-show-all”</span>
+        property and its getter and setter have been removed in GTK 4,
+        so you should stop using them.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.48"></a>Adapt to changes in animated hiding and showing of
+      widgets</h3></div></div></div>
+<p>
+        Widgets that appear and disappear with an animation, such as
+        GtkPopover, GtkInfoBar, GtkRevealer no longer use
+        <a href="GtkWidget.html#gtk-widget-show"><code class="function">gtk_widget_show()</code></a> and <a href="GtkWidget.html#gtk-widget-hide"><code class="function">gtk_widget_hide()</code></a> for this, but have
+        gained dedicated APIs for this purpose that you should use
+        instead.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.49"></a>Stop passing commandline arguments to gtk_init</h3></div></div></div>
+<p>
+        The <a href="gtk4-General.html#gtk-init"><code class="function">gtk_init()</code></a> and <a href="gtk4-General.html#gtk-init-check"><code class="function">gtk_init_check()</code></a> functions no longer accept
+        commandline arguments. Just call them without arguments. Other
+        initialization functions that were purely related to commandline
+        argument handling, such as <code class="function">gtk_parse_args()</code> and
+        <code class="function">gtk_get_option_group()</code>, are gone.
+      </p>
+<p>
+        The APIs to initialize GDK separately are also gone, but it is
+        very unlikely that you are affected by that.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.50"></a>GdkPixbuf is deemphasized</h3></div></div></div>
+<p>
+        A number of <span class="type">GdkPixbuf-based</span> APIs have been removed. The
+        available replacements are either using <span class="type">GIcon</span>, or the newly
+        introduced <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Textures.html#GdkTexture-struct"><span class="type">GdkTexture</span></a> or <a href="https://developer-old.gnome.org/gtk4/html/GdkPaintable.html#GdkPaintable-struct"><span class="type">GdkPaintable</span></a> classes instead. If you
+        are dealing with pixbufs, you can use
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Textures.html#gdk-texture-new-for-pixbuf"><code class="function">gdk_texture_new_for_pixbuf()</code></a> to convert them to texture objects
+        where needed.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.51"></a>GtkWidget event signals are removed</h3></div></div></div>
+<p>
+        Event controllers and <span class="type">GtkGestures</span> have already been introduced
+        in GTK 3 to handle input for many cases. In GTK 4, the
+        traditional widget signals for handling input, such as
+        <span class="type">“motion-event”</span> or <span class="type">“event”</span> have been removed.
+        All event handling is done via event controllers now.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.52"></a>Invalidation handling has changed</h3></div></div></div>
+<p>
+        Only <a href="GtkWidget.html#gtk-widget-queue-draw"><code class="function">gtk_widget_queue_draw()</code></a> is left to mark a widget as needing
+        redraw. Variations like <code class="function">gtk_widget_queue_draw_rectangle()</code> or
+        <code class="function">gtk_widget_queue_draw_region()</code> are no longer available.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.53"></a>Stop using GtkWidget::draw</h3></div></div></div>
+<p>
+        The <span class="type">“draw”</span> signal has been removed. Widgets need to
+        implement the <a href="GtkWidget.html#GtkWidgetClass.snapshot"><code class="function">GtkWidgetClass.snapshot()</code></a> function now.
+        Connecting draw signal handlers is no longer possible. If you
+        want to keep using cairo for drawing, use
+        <code class="function">gtk_snaphot_append_cairo()</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.54"></a>Window content observation has changed</h3></div></div></div>
+<p>
+        Observing widget contents and widget size is now done by using
+        the <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/gtk4-GtkWidgetPaintable.html#GtkWidgetPaintable"><span class="type">GtkWidgetPaintable</span></a> object instead of connecting to widget
+        signals.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.55"></a>Monitor handling has changed</h3></div></div></div>
+<p>
+        Instead of a monitor number, <a href="https://developer-old.gnome.org/gtk4/html/GdkMonitor.html#GdkMonitor-struct"><span class="type">GdkMonitor</span></a> is now used throughout.
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkDisplay.html#gdk-display-get-monitors"><code class="function">gdk_display_get_monitors()</code></a> returns the list of monitors that can
+        be queried or observed for monitors to pass to APIs like
+        <a href="GtkWindow.html#gtk-window-fullscreen-on-monitor"><code class="function">gtk_window_fullscreen_on_monitor()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.56"></a>Adapt to monitor API changes</h3></div></div></div>
+<p>
+        The <code class="function">gdk_monitor_get_workarea()</code> API is gone. Individual backends
+        can still provide this information, for example with
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-X-Window-System-Interaction.html#gdk-x11-monitor-get-workarea"><code class="function">gdk_x11_monitor_get_workarea()</code></a>.
+      </p>
+<p>
+        If you use this information, your code should check which
+        backend is in use and then call the appropriate backend API.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.57"></a>Adapt to cursor API changes</h3></div></div></div>
+<p>
+        Use the new <a href="GtkWidget.html#gtk-widget-set-cursor"><code class="function">gtk_widget_set_cursor()</code></a> function to set cursors,
+        instead of setting the cursor on the underlying window directly.
+        This is necessary because most widgets don’t have their own
+        window anymore, turning any such calls into global cursor
+        changes.
+      </p>
+<p>
+        For creating standard cursors, <code class="function">gdk_cursor_new_for_display()</code> has
+        been removed, you have to use cursor names instead of
+        GdkCursorType. For creating custom cursors, use
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Cursors.html#gdk-cursor-new-from-texture"><code class="function">gdk_cursor_new_from_texture()</code></a>. The ability to get cursor images
+        has been removed.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.58"></a>Adapt to icon size API changes</h3></div></div></div>
+<p>
+        Instead of the existing extensible set of symbolic icon sizes,
+        GTK now only supports normal and large icons with the
+        <a href="gtk4-Standard-Enumerations.html#GtkIconSize"><span class="type">GtkIconSize</span></a> enumeration. The actual sizes can be defined by
+        themes via the CSS property -gtk-icon-size.
+      </p>
+<p>
+        GtkImage setters like <a href="GtkImage.html#gtk-image-set-from-icon-name"><code class="function">gtk_image_set_from_icon_name()</code></a> no longer
+        take a <a href="gtk4-Standard-Enumerations.html#GtkIconSize"><span class="type">GtkIconSize</span></a> argument. You can use the separate
+        <a href="GtkImage.html#gtk-image-set-icon-size"><code class="function">gtk_image_set_icon_size()</code></a> setter if you need to override the
+        icon size.
+      </p>
+<p>
+        The :stock-size property of GtkCellRendererPixbuf has been
+        renamed to <a href="GtkCellRendererPixbuf.html#GtkCellRendererPixbuf--icon-size"><span class="type">“icon-size”</span></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.59"></a>Adapt to changes in the GtkAssistant API</h3></div></div></div>
+<p>
+        The :has-padding property is gone, and GtkAssistant no longer
+        adds padding to pages. You can easily do that yourself.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.60"></a>Adapt to changes in the API of GtkEntry, GtkSearchEntry and
+      GtkSpinButton</h3></div></div></div>
+<p>
+        The GtkEditable interface has been made more useful, and the
+        core functionality of GtkEntry has been broken out as a GtkText
+        widget. GtkEntry, GtkSearchEntry, GtkSpinButton and the new
+        GtkPasswordEntry now use a GtkText widget internally and
+        implement GtkEditable. In particular, this means that it is no
+        longer possible to use GtkEntry API such as
+        <a href="GtkEntry.html#gtk-entry-grab-focus-without-selecting"><code class="function">gtk_entry_grab_focus_without_selecting()</code></a> on a search entry.
+      </p>
+<p>
+        Use GtkEditable API for editable functionality, and
+        widget-specific APIs for things that go beyond the common
+        interface. For password entries, use GtkPasswordEntry. As an
+        example, <code class="function">gtk_spin_button_set_max_width_chars()</code> has been removed
+        in favor of <a href="GtkEditable.html#gtk-editable-set-max-width-chars"><code class="function">gtk_editable_set_max_width_chars()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.61"></a>Adapt to changes in GtkOverlay API</h3></div></div></div>
+<p>
+        The GtkOverlay :pass-through child property has been replaced by
+        the <a href="GtkWidget.html#GtkWidget--can-target"><span class="type">“can-target”</span></a> property. Note that they have the
+        opposite sense: pass-through == !can-target.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.62"></a>Use GtkFixed instead of GtkLayout</h3></div></div></div>
+<p>
+        Since GtkScrolledWindow can deal with widgets that do not
+        implement the GtkScrollable interface by automatically wrapping
+        them into a GtkViewport, GtkLayout is redundant, and has been
+        removed in favor of the existing GtkFixed container widget.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.63"></a>Adapt to search entry changes</h3></div></div></div>
+<p>
+        The way search entries are connected to global events has
+        changed; <code class="function">gtk_search_entry_handle_event()</code> has been dropped and
+        replaced by <a href="GtkSearchEntry.html#gtk-search-entry-set-key-capture-widget"><code class="function">gtk_search_entry_set_key_capture_widget()</code></a> and
+        <a href="GtkEventControllerKey.html#gtk-event-controller-key-forward"><code class="function">gtk_event_controller_key_forward()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.64"></a>Adapt to GtkScale changes</h3></div></div></div>
+<p>
+        The default value of <a href="GtkScale.html#GtkScale--draw-value"><span class="type">“draw-value”</span></a> has been changed to
+        <code class="literal">FALSE</code>. If you want your scales to draw values, you will have to
+        set this property explicitly now.
+      </p>
+<p>
+        gtk4-builder-tool can help with this conversion, with the –3to4
+        option of the simplify command.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.65"></a>Stop using <code class="function">gtk_window_activate_default()</code>
+</h3></div></div></div>
+<p>
+        The handling of default widgets has been changed, and activating
+        the default now works by calling <a href="GtkWidget.html#gtk-widget-activate-default"><code class="function">gtk_widget_activate_default()</code></a>
+        on the widget that caused the activation. If you have a custom
+        widget that wants to override the default handling, you can
+        provide an implementation of the default.activate action in your
+        widgets’ action groups.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.66"></a>Stop using <code class="function">gtk_widget_grab_default()</code>
+</h3></div></div></div>
+<p>
+        The function <code class="function">gtk_widget_grab_default()</code> has been removed. If you
+        need to mark a widget as default, use
+        <a href="GtkWindow.html#gtk-window-set-default-widget"><code class="function">gtk_window_set_default_widget()</code></a> directly.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.67"></a>Stop setting ::has-default and ::has-focus in .ui
+      files</h3></div></div></div>
+<p>
+        The special handling for the ::has-default and ::has-focus
+        properties has been removed. If you want to define the initial
+        focus or the the default widget in a .ui file, set the
+        ::default-widget or ::focus-widget properties of the toplevel
+        window.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.68"></a>Stop using the GtkWidget::display-changed signal</h3></div></div></div>
+<p>
+        To track the current display, use the <span class="type">“root”</span> property
+        instead.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.69"></a>GtkPopover::modal has been renamed to autohide</h3></div></div></div>
+<p>
+        The modal property has been renamed to autohide.
+        gtk-builder-tool can assist with the rename in ui files.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.70"></a>gtk_widget_get_surface has been removed</h3></div></div></div>
+<p>
+        <code class="function">gtk_widget_get_surface()</code> has been removed. Use
+        <a href="GtkNative.html#gtk-native-get-surface"><code class="function">gtk_native_get_surface()</code></a> in combination with
+        <a href="GtkWidget.html#gtk-widget-get-native"><code class="function">gtk_widget_get_native()</code></a> instead.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.71"></a>gtk_widget_is_toplevel has been removed</h3></div></div></div>
+<p>
+        <code class="function">gtk_widget_is_toplevel()</code> has been removed. Use GTK_IS_ROOT,
+        GTK_IS_NATIVE or GTK_IS_WINDOW instead, as appropriate.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.72"></a>gtk_widget_get_toplevel has been removed</h3></div></div></div>
+<p>
+        <code class="function">gtk_widget_get_toplevel()</code> has been removed. Use
+        <a href="GtkWidget.html#gtk-widget-get-root"><code class="function">gtk_widget_get_root()</code></a> or <a href="GtkWidget.html#gtk-widget-get-native"><code class="function">gtk_widget_get_native()</code></a> instead, as
+        appropriate.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.73"></a>GtkEntryBuffer ::deleted-text has changed</h3></div></div></div>
+<p>
+        To allow signal handlers to access the deleted text before it
+        has been deleted <a href="GtkEntryBuffer.html#GtkEntryBuffer-deleted-text"><span class="type">“deleted-text”</span></a> has changed from
+        <code class="literal">G_SIGNAL_RUN_FIRST</code> to <code class="literal">G_SIGNAL_RUN_LAST</code>. The default handler
+        removes the text from the <a href="GtkEntryBuffer.html#GtkEntryBuffer-struct"><span class="type">GtkEntryBuffer</span></a>.
+      </p>
+<p>
+        To adapt existing code, use <code class="function">g_signal_connect_after()</code> or
+        <code class="literal">G_CONNECT_AFTER</code> when using <code class="function">g_signal_connect_data()</code> or
+        <code class="function">g_signal_connect_object()</code>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.74"></a>GtkMenu, GtkMenuBar and GtkMenuItem are gone</h3></div></div></div>
+<p>
+        These widgets were heavily relying on X11-centric concepts such
+        as override-redirect windows and grabs, and were hard to adjust
+        to other windowing systems.
+      </p>
+<p>
+        Menus can already be replaced using GtkPopoverMenu in GTK 3.
+        Additionally, GTK 4 introduces GtkPopoverMenuBar to replace
+        menubars. These new widgets can only be constructed from menu
+        models, so the porting effort involves switching to menu models
+        and actions.
+      </p>
+<p>
+        Tabular menus were rarely used and complicated the menu code, so
+        they have not been brought over to <a href="GtkPopoverMenu.html#GtkPopoverMenu-struct"><span class="type">GtkPopoverMenu</span></a>. If you need
+        complex layout in menu-like popups, consider directly using a
+        <a href="GtkPopover.html#GtkPopover-struct"><span class="type">GtkPopover</span></a> instead.
+      </p>
+<p>
+        Since menus are gone, GtkMenuButton also lost its ability to
+        show menus, and needs to be used with popovers in GTK 4.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.75"></a>GtkToolbar has been removed</h3></div></div></div>
+<p>
+        Toolbars were using outdated concepts such as requiring special
+        toolitem widgets. Toolbars should be replaced by using a GtkBox
+        with regular widgets instead and the <span class="quote">“<span class="quote">toolbar</span>”</span>
+        style class.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.76"></a>GtkAspectFrame is no longer a frame</h3></div></div></div>
+<p>
+        GtkAspectFrame is no longer derived from GtkFrame and does not
+        place a label and frame around its child anymore. It still lets
+        you control the aspect ratio of its child.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.77"></a>Stop using custom tooltip windows</h3></div></div></div>
+<p>
+        Tooltips no longer use GtkWindows in GTK 4, and it is no longer
+        possible to provide a custom window for tooltips. Replacing the
+        content of the tooltip with a custom widget is still possible,
+        with <a href="GtkTooltip.html#gtk-tooltip-set-custom"><code class="function">gtk_tooltip_set_custom()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.78"></a>Switch to the new Drag-and-Drop api</h3></div></div></div>
+<p>
+        The source-side Drag-and-Drop apis in GTK 4 have been changed to
+        use an event controller, <a href="GtkDragSource.html#GtkDragSource-struct"><span class="type">GtkDragSource</span></a>. Instead of calling
+        <code class="function">gtk_drag_source_set()</code> and connecting to <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> signals, you
+        create a <a href="GtkDragSource.html#GtkDragSource-struct"><span class="type">GtkDragSource</span></a> object, attach it to the widget with
+        <a href="GtkWidget.html#gtk-widget-add-controller"><code class="function">gtk_widget_add_controller()</code></a>, and connect to <a href="GtkDragSource.html#GtkDragSource-struct"><span class="type">GtkDragSource</span></a>
+        signals. Instead of calling <code class="function">gtk_drag_begin()</code> on a widget to
+        start a drag manually, call <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Drag-and-Drop.html#gdk-drag-begin"><code class="function">gdk_drag_begin()</code></a>. The
+        ::drag-data-get signal has been replaced by the
+        <a href="GtkDragSource.html#GtkDragSource-prepare"><span class="type">“prepare”</span></a> signal, which returns a
+        <a href="https://developer-old.gnome.org/gtk4/html/GdkContentProvider.html#GdkContentProvider-struct"><span class="type">GdkContentProvider</span></a> for the drag operation.
+      </p>
+<p>
+        The destination-side Drag-and-Drop API in GTK 4 have also been
+        changed to use an event controller, <a href="GtkDropTarget.html#GtkDropTarget-struct"><span class="type">GtkDropTarget</span></a>. Instead of
+        calling <code class="function">gtk_drag_dest_set()</code> and connecting to <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a>
+        signals, you create a <a href="GtkDropTarget.html#GtkDropTarget-struct"><span class="type">GtkDropTarget</span></a> object, attach it to the
+        widget with <a href="GtkWidget.html#gtk-widget-add-controller"><code class="function">gtk_widget_add_controller()</code></a>, and connect to
+        <a href="GtkDropTarget.html#GtkDropTarget-struct"><span class="type">GtkDropTarget</span></a> signals. The ::drag-motion signal has been
+        renamed to <a href="GtkDropTarget.html#GtkDropTarget-accept"><span class="type">“accept”</span></a>, and instead of
+        ::drag-data-received, you need to use async read methods on the
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Drag-and-Drop.html#GdkDrop-struct"><span class="type">GdkDrop</span></a> object, such as <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Drag-and-Drop.html#gdk-drop-read-async"><code class="function">gdk_drop_read_async()</code></a> or
+        <a href="https://developer-old.gnome.org/gtk4/html/gdk4-Drag-and-Drop.html#gdk-drop-read-value-async"><code class="function">gdk_drop_read_value_async()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.79"></a>Adapt to GtkIconTheme API changes</h3></div></div></div>
+<p>
+        <a href="GtkIconTheme.html#gtk-icon-theme-lookup-icon"><code class="function">gtk_icon_theme_lookup_icon()</code></a> returns a <a href="GtkIconTheme.html#GtkIconPaintable"><span class="type">GtkIconPaintable</span></a> object
+        now, instead of a <span class="type">GtkIconInfo</span>. It always returns a paintable in
+        the requested size, and never fails. A number of
+        no-longer-relevant lookup flags and API variants have been
+        removed.
+      </p>
+<p>
+        Note that while GTK 4 is moving towards <a href="https://developer-old.gnome.org/gtk4/html/GdkPaintable.html#GdkPaintable-struct"><span class="type">GdkPaintable</span></a> as a
+        primary API for paintable content, it is meant to be a
+        <span class="quote">“<span class="quote">pure</span>”</span> content producer, therefore a
+        <a href="GtkIconTheme.html#GtkIconPaintable"><span class="type">GtkIconPaintable</span></a> for a symbolic icon will
+        <span class="emphasis"><em>not</em></span> get recolored depending on the context
+        it is rendered it. To properly render a symbolic icon that is
+        provided in the form of a <a href="GtkIconTheme.html#GtkIconPaintable"><span class="type">GtkIconPaintable</span></a> (this can be checked
+        with <a href="GtkIconTheme.html#gtk-icon-paintable-is-symbolic"><code class="function">gtk_icon_paintable_is_symbolic()</code></a>), you have to call
+        <a href="GtkIconTheme.html#gtk-icon-paintable-get-icon-name"><code class="function">gtk_icon_paintable_get_icon_name()</code></a> and set the icon name on a
+        <a href="GtkImage.html#GtkImage-struct"><span class="type">GtkImage</span></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.80"></a>Update to GtkFileChooser API changes</h3></div></div></div>
+<p>
+        GtkFileChooser moved to a GFile-based API. If you need to
+        convert a path or a URI, use <code class="function">g_file_new_for_path()</code>,
+        <code class="function">g_file_new_for_commandline_arg()</code>, or <code class="function">g_file_new_for_uri()</code>;
+        similarly, if you need to get a path, name or URI from a GFile,
+        use <code class="function">g_file_get_path()</code>, <code class="function">g_file_get_basename()</code> or
+        <code class="function">g_file_get_uri()</code>. With the removal or path and URI-based
+        functions, the <span class="quote">“<span class="quote">local-only</span>”</span> property has been
+        removed; GFile can be used to access non-local as well as local
+        resources.
+      </p>
+<p>
+        The GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER action has been
+        removed. Use <a href="GtkFileChooser.html#GTK-FILE-CHOOSER-ACTION-SELECT-FOLDER:CAPS"><code class="literal">GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER</code></a>, instead. If
+        a new folder is needed, the user can create one.
+      </p>
+<p>
+        The <span class="quote">“<span class="quote">confirm-overwrite</span>”</span> signal, and the
+        <span class="quote">“<span class="quote">do-overwrite-confirmation</span>”</span> property have been
+        removed from GtkFileChooser. The file chooser widgets will
+        automatically handle the confirmation of overwriting a file when
+        using GTK_FILE_CHOOSER_ACTION_SAVE.
+      </p>
+<p>
+        GtkFileChooser does not support a custom extra widget any more.
+        If you need to add extra widgets, use
+        <a href="GtkFileChooser.html#gtk-file-chooser-add-choice"><code class="function">gtk_file_chooser_add_choice()</code></a> instead.
+      </p>
+<p>
+        GtkFileChooser does not support a custom preview widget any
+        more. If you need to show a custom preview, you can create your
+        own GtkDialog with a GtkFileChooserWidget and your own preview
+        widget that you update whenever the
+        <span class="type">“selection-changed”</span> signal is emitted.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.81"></a>Stop using blocking dialog functions</h3></div></div></div>
+<p>
+        GtkDialog, GtkNativeDialog, and GtkPrintOperation removed their
+        blocking API using nested main loops. Nested main loops present
+        re-entrancy issues and other hard to debug issues when coupled
+        with other event sources (IPC, accessibility, network
+        operations) that are not under the toolkit or the application
+        developer’s control. Additionally, <span class="quote">“<span class="quote">stop-the-world</span>”</span>
+        functions do not fit the event-driven programming model of GTK.
+      </p>
+<p>
+        You can replace calls to <code class="function">gtk_dialog_run()</code> by specifying that the
+        <a href="GtkDialog.html#GtkDialog-struct"><span class="type">GtkDialog</span></a> must be modal using <a href="GtkWindow.html#gtk-window-set-modal"><code class="function">gtk_window_set_modal()</code></a> or the
+        <a href="GtkDialog.html#GTK-DIALOG-MODAL:CAPS"><code class="literal">GTK_DIALOG_MODAL</code></a> flag, and connecting to the
+        <a href="GtkDialog.html#GtkDialog-response"><span class="type">“response”</span></a> signal.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.82"></a>Stop using GtkBuildable API</h3></div></div></div>
+<p>
+        All the GtkBuildable API was made private, except for the getter
+        function to retrieve the buildable ID. If you are using
+        <code class="function">gtk_buildable_get_name()</code> you should replace it with
+        <a href="GtkBuildable.html#gtk-buildable-get-buildable-id"><code class="function">gtk_buildable_get_buildable_id()</code></a>.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.83"></a>Adapt to GtkAboutDialog API changes</h3></div></div></div>
+<p>
+        GtkAboutDialog now directly derives from GtkWindow, the
+        GtkDialog API can no longer be used on it.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.84"></a>Adapt to GtkTreeView and GtkIconView tooltip context
+      changes</h3></div></div></div>
+<p>
+        The getter functions for retrieving the data from <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a>
+        and <a href="GtkIconView.html#GtkIconView-struct"><span class="type">GtkIconView</span></a> inside a <a href="GtkWidget.html#GtkWidget-query-tooltip"><span class="type">“query-tooltip”</span></a> signal do
+        not take the pointer coordinates as inout arguments any more,
+        but as normal in ones.
+      </p>
+<p>
+        See: <a href="GtkTreeView.html#gtk-tree-view-get-tooltip-context"><code class="function">gtk_tree_view_get_tooltip_context()</code></a>,
+        <a href="GtkIconView.html#gtk-icon-view-get-tooltip-context"><code class="function">gtk_icon_view_get_tooltip_context()</code></a>
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.85"></a>Stop using GtkFileChooserButton</h3></div></div></div>
+<p>
+        The <code class="literal">GtkFileChooserButton</code> widget was removed,
+        due to its shortcomings in the user interaction. You can replace
+        it with a simple <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a> that shows a <a href="GtkFileChooserNative.html#GtkFileChooserNative-struct"><span class="type">GtkFileChooserNative</span></a>
+        dialog when clicked; once the file selection has completed, you
+        can update the label of the <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a> with the selected file.
+      </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.7.4.4.86"></a>Adapt to changed GtkSettings properties</h3></div></div></div>
+<p>
+        In GTK 3 the <a href="GtkSettings.html#GtkSettings--gtk-cursor-aspect-ratio"><span class="type">“gtk-cursor-aspect-ratio”</span></a> property of
+        <a href="GtkSettings.html#GtkSettings-struct"><span class="type">GtkSettings</span></a> was a float. In GTK 4 this has been changed to a
+        double.
+      </p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ch41s02.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

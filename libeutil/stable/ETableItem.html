@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ETableItem</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch10.html" rel="up" title="Tables and Trees"></link><link href="ETableHeader.html" rel="prev" title="ETableHeader"></link><link href="libeutil-ETableMemoryCallbacks.html" rel="next" title="ETableMemoryCallbacks"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ETableItem.html#container">Go to page content</a></li><li><a href="ETableItem.html#top_bar">Go to main menu</a></li><li><a href="ETableItem.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ETableHeader.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch10.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="libeutil-ETableMemoryCallbacks.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ETableItem.html#ETableItem.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ETableItem.html#ETableItem.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ETableItem.html#ETableItem.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ETableItem.html#ETableItem.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="ETableItem.html#ETableItem.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ETableItem"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ETableItem.top_of_page"></a>ETableItem</span></h2>
+<p>ETableItem</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ETableItem.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ETableItem.html#ETableItem-struct" title="struct ETableItem">ETableItem</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-set-cursor" title="e_table_item_set_cursor ()">e_table_item_set_cursor</a>             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETableItem.html#e-table-item-get-focused-column" title="e_table_item_get_focused_column ()">e_table_item_get_focused_column</a>     (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-leave-edit" title="e_table_item_leave_edit ()">e_table_item_leave_edit</a>             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-enter-edit" title="e_table_item_enter_edit ()">e_table_item_enter_edit</a>             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-redraw-range" title="e_table_item_redraw_range ()">e_table_item_redraw_range</a>           (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_row</code></em>);
+<a class="link" href="EPrintable.html" title="EPrintable"><span class="returnvalue">EPrintable</span></a> *        <a class="link" href="ETableItem.html#e-table-item-get-printable" title="e_table_item_get_printable ()">e_table_item_get_printable</a>          (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-compute-location" title="e_table_item_compute_location ()">e_table_item_compute_location</a>       (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-compute-mouse-over" title="e_table_item_compute_mouse_over ()">e_table_item_compute_mouse_over</a>     (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableItem.html#e-table-item-get-cell-geometry" title="e_table_item_get_cell_geometry ()">e_table_item_get_cell_geometry</a>      (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *height</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETableItem.html#e-table-item-row-diff" title="e_table_item_row_diff ()">e_table_item_row_diff</a>               (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_row</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETableItem.html#e-table-item-is-editing" title="e_table_item_is_editing ()">e_table_item_is_editing</a>             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableItem.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----GInitiallyUnowned
+         +----GnomeCanvasItem
+               +----ETableItem
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableItem.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="ETableItem.html#ETableItem--ETableHeader" title='The "ETableHeader" property'>ETableHeader</a>"             <a class="link" href="ETableHeader.html" title="ETableHeader"><span class="type">ETableHeader</span></a>*         : Write
+  "<a class="link" href="ETableItem.html#ETableItem--ETableModel" title='The "ETableModel" property'>ETableModel</a>"              <a class="link" href="ETableModel.html" title="ETableModel"><span class="type">ETableModel</span></a>*          : Write
+  "<a class="link" href="ETableItem.html#ETableItem--alternating-row-colors" title='The "alternating-row-colors" property'>alternating-row-colors</a>"   <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETableItem.html#ETableItem--cursor-mode" title='The "cursor-mode" property'>cursor-mode</a>"              <span class="type">gint</span>                  : Write
+  "<a class="link" href="ETableItem.html#ETableItem--cursor-row" title='The "cursor-row" property'>cursor-row</a>"               <span class="type">gint</span>                  : Read / Write
+  "<a class="link" href="ETableItem.html#ETableItem--drawfocus" title='The "drawfocus" property'>drawfocus</a>"                <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETableItem.html#ETableItem--height" title='The "height" property'>height</a>"                   <span class="type">gdouble</span>               : Read
+  "<a class="link" href="ETableItem.html#ETableItem--horizontal-draw-grid" title='The "horizontal-draw-grid" property'>horizontal-draw-grid</a>"     <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETableItem.html#ETableItem--is-editing" title='The "is-editing" property'>is-editing</a>"               <span class="type">gboolean</span>              : Read
+  "<a class="link" href="ETableItem.html#ETableItem--length-threshold" title='The "length-threshold" property'>length-threshold</a>"         <span class="type">gint</span>                  : Write
+  "<a class="link" href="ETableItem.html#ETableItem--minimum-width" title='The "minimum-width" property'>minimum-width</a>"            <span class="type">gdouble</span>               : Read / Write
+  "<a class="link" href="ETableItem.html#ETableItem--selection-model" title='The "selection-model" property'>selection-model</a>"          <a class="link" href="ESelectionModel.html" title="ESelectionModel"><span class="type">ESelectionModel</span></a>*      : Write
+  "<a class="link" href="ETableItem.html#ETableItem--uniform-row-height" title='The "uniform-row-height" property'>uniform-row-height</a>"       <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="ETableItem.html#ETableItem--vertical-draw-grid" title='The "vertical-draw-grid" property'>vertical-draw-grid</a>"       <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETableItem.html#ETableItem--width" title='The "width" property'>width</a>"                    <span class="type">gdouble</span>               : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableItem.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="ETableItem.html#ETableItem-click" title='The "click" signal'>click</a>"                                          : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-cursor-activated" title='The "cursor-activated" signal'>cursor-activated</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-cursor-change" title='The "cursor-change" signal'>cursor-change</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-double-click" title='The "double-click" signal'>double-click</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-key-press" title='The "key-press" signal'>key-press</a>"                                      : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-right-click" title='The "right-click" signal'>right-click</a>"                                    : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-selection-model-added" title='The "selection-model-added" signal'>selection-model-added</a>"                          : <code class="literal">Action</code>
+  "<a class="link" href="ETableItem.html#ETableItem-selection-model-removed" title='The "selection-model-removed" signal'>selection-model-removed</a>"                        : <code class="literal">Action</code>
+  "<a class="link" href="ETableItem.html#ETableItem-start-drag" title='The "start-drag" signal'>start-drag</a>"                                     : <code class="literal">Run Last</code>
+  "<a class="link" href="ETableItem.html#ETableItem-style-set" title='The "style-set" signal'>style-set</a>"                                      : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableItem.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ETableItem.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ETableItem-struct"></a><h3>struct ETableItem</h3>
+<pre class="programlisting">struct ETableItem;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-set-cursor"></a><h3>e_table_item_set_cursor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_set_cursor             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);</pre>
+<p>
+This routine sets the cursor of the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> canvas item.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> which will have the cursor set.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>Column to select.  -1 means the last column.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>Row to select.  -1 means the last row.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-get-focused-column"></a><h3>e_table_item_get_focused_column ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_table_item_get_focused_column     (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);</pre>
+<p>
+This routine gets the cursor of the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> canvas item.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> which will have the cursor retrieved.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The current cursor column.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-leave-edit"></a><h3>e_table_item_leave_edit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_leave_edit             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-enter-edit"></a><h3>e_table_item_enter_edit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_enter_edit             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);</pre>
+<p>
+This routine starts the given <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> editing at the given view
+column and row.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> which will start being edited</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>The view col to edit.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>The view row to edit.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-redraw-range"></a><h3>e_table_item_redraw_range ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_redraw_range           (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_row</code></em>);</pre>
+<p>
+This routine redraws the given <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> in the range given.  The
+range is inclusive at both ends.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> which will be redrawn</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start_col</code></em> :</span></p></td>
+<td>The first col to redraw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start_row</code></em> :</span></p></td>
+<td>The first row to redraw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_col</code></em> :</span></p></td>
+<td>The last col to redraw.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end_row</code></em> :</span></p></td>
+<td>The last row to redraw.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-get-printable"></a><h3>e_table_item_get_printable ()</h3>
+<pre class="programlisting"><a class="link" href="EPrintable.html" title="EPrintable"><span class="returnvalue">EPrintable</span></a> *        e_table_item_get_printable          (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);</pre>
+<p>
+This routine creates and returns an <a class="link" href="EPrintable.html" title="EPrintable"><code class="literal">EPrintable</code></a> that can be used to
+print the given <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> which will be printed</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="EPrintable.html" title="EPrintable"><code class="literal">EPrintable</code></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-compute-location"></a><h3>e_table_item_compute_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_compute_location       (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>);</pre>
+<p>
+This routine locates the pixel location (*x, *y) in the
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>.  If that location is in the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>, *row and *col
+are set to the view row and column where it was found.  If that
+location is not in the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>, the height of the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>
+is removed from the value y points to.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a> to look in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>A pointer to the x location to find in the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>A pointer to the y location to find in the <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>A pointer to the location to store the found row in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>A pointer to the location to store the found col in.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-compute-mouse-over"></a><h3>e_table_item_compute_mouse_over ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_compute_mouse_over     (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-get-cell-geometry"></a><h3>e_table_item_get_cell_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_item_get_cell_geometry      (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *width</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *height</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-row-diff"></a><h3>e_table_item_row_diff ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_table_item_row_diff               (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> start_row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> end_row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-item-is-editing"></a><h3>e_table_item_is_editing ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_table_item_is_editing             (<em class="parameter"><code><a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *eti</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eti</code></em> :</span></p></td>
+<td>an <a class="link" href="ETableItem.html" title="ETableItem"><code class="literal">ETableItem</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether the table item is currently editing cell content.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETableItem.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ETableItem--ETableHeader"></a><h3>The <code class="literal">"ETableHeader"</code> property</h3>
+<pre class="programlisting">  "ETableHeader"             <a class="link" href="ETableHeader.html" title="ETableHeader"><span class="type">ETableHeader</span></a>*         : Write</pre>
+<p>Table header.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--ETableModel"></a><h3>The <code class="literal">"ETableModel"</code> property</h3>
+<pre class="programlisting">  "ETableModel"              <a class="link" href="ETableModel.html" title="ETableModel"><span class="type">ETableModel</span></a>*          : Write</pre>
+<p>Table model.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--alternating-row-colors"></a><h3>The <code class="literal">"alternating-row-colors"</code> property</h3>
+<pre class="programlisting">  "alternating-row-colors"   <span class="type">gboolean</span>              : Write</pre>
+<p>Alternating Row Colors.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--cursor-mode"></a><h3>The <code class="literal">"cursor-mode"</code> property</h3>
+<pre class="programlisting">  "cursor-mode"              <span class="type">gint</span>                  : Write</pre>
+<p>Cursor mode.</p>
+<p>Allowed values: [0,2]</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--cursor-row"></a><h3>The <code class="literal">"cursor-row"</code> property</h3>
+<pre class="programlisting">  "cursor-row"               <span class="type">gint</span>                  : Read / Write</pre>
+<p>Cursor row.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--drawfocus"></a><h3>The <code class="literal">"drawfocus"</code> property</h3>
+<pre class="programlisting">  "drawfocus"                <span class="type">gboolean</span>              : Write</pre>
+<p>Draw focus.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--height"></a><h3>The <code class="literal">"height"</code> property</h3>
+<pre class="programlisting">  "height"                   <span class="type">gdouble</span>               : Read</pre>
+<p>Height.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--horizontal-draw-grid"></a><h3>The <code class="literal">"horizontal-draw-grid"</code> property</h3>
+<pre class="programlisting">  "horizontal-draw-grid"     <span class="type">gboolean</span>              : Write</pre>
+<p>Horizontal Draw Grid.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--is-editing"></a><h3>The <code class="literal">"is-editing"</code> property</h3>
+<pre class="programlisting">  "is-editing"               <span class="type">gboolean</span>              : Read</pre>
+<p>Whether is in an editing mode.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--length-threshold"></a><h3>The <code class="literal">"length-threshold"</code> property</h3>
+<pre class="programlisting">  "length-threshold"         <span class="type">gint</span>                  : Write</pre>
+<p>Length Threshold.</p>
+<p>Allowed values: &gt;= G_MAXULONG</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--minimum-width"></a><h3>The <code class="literal">"minimum-width"</code> property</h3>
+<pre class="programlisting">  "minimum-width"            <span class="type">gdouble</span>               : Read / Write</pre>
+<p>Minimum Width.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--selection-model"></a><h3>The <code class="literal">"selection-model"</code> property</h3>
+<pre class="programlisting">  "selection-model"          <a class="link" href="ESelectionModel.html" title="ESelectionModel"><span class="type">ESelectionModel</span></a>*      : Write</pre>
+<p>Selection model.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--uniform-row-height"></a><h3>The <code class="literal">"uniform-row-height"</code> property</h3>
+<pre class="programlisting">  "uniform-row-height"       <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Uniform row height.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--vertical-draw-grid"></a><h3>The <code class="literal">"vertical-draw-grid"</code> property</h3>
+<pre class="programlisting">  "vertical-draw-grid"       <span class="type">gboolean</span>              : Write</pre>
+<p>Vertical Draw Grid.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem--width"></a><h3>The <code class="literal">"width"</code> property</h3>
+<pre class="programlisting">  "width"                    <span class="type">gdouble</span>               : Read / Write</pre>
+<p>Width.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETableItem.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ETableItem-click"></a><h3>The <code class="literal">"click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">GdkEvent</span>   *arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-cursor-activated"></a><h3>The <code class="literal">"cursor-activated"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-cursor-change"></a><h3>The <code class="literal">"cursor-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-double-click"></a><h3>The <code class="literal">"double-click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">GdkEvent</span>   *arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-key-press"></a><h3>The <code class="literal">"key-press"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">GdkEvent</span>   *arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-right-click"></a><h3>The <code class="literal">"right-click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">GdkEvent</span>   *arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-selection-model-added"></a><h3>The <code class="literal">"selection-model-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Action</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-selection-model-removed"></a><h3>The <code class="literal">"selection-model-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Action</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-start-drag"></a><h3>The <code class="literal">"start-drag"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">GdkEvent</span>   *arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableItem-style-set"></a><h3>The <code class="literal">"style-set"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETableItem.html" title="ETableItem"><span class="type">ETableItem</span></a> *etableitem,
+                                                        <span class="type">GtkStyle</span>   *arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ETableItem.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

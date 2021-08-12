@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>libsoup Client SoupRequest API: libsoup Reference Manual</title><link href="index.html" rel="home" title="libsoup Reference Manual"></link><link href="ch01.html" rel="up" title="Tutorial"></link><link href="libsoup-client-howto.html" rel="prev" title="libsoup Client Basics"></link><link href="libsoup-session-porting.html" rel="next" title="Porting to the new SoupSession"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libsoup-request-howto.html#container">Go to page content</a></li><li><a href="libsoup-request-howto.html#top_bar">Go to main menu</a></li><li><a href="libsoup-request-howto.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libsoup-client-howto.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libsoup-session-porting.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libsoup-request-howto"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">libsoup Client SoupRequest API</span></h2>
+<p>libsoup Client SoupRequest API — Using
+libsoup with a mix of <code class="literal">http</code> and non-<code class="literal">http</code> URIs.</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect2">
+<a name="id-1.2.4.3"></a><h3><span class="type">SoupRequest</span></h3>
+<p>
+<a class="link" href="SoupRequest.html" title="SoupRequest"><span class="type">SoupRequest</span></a> is an
+abstract type representing a request for a particular URI. The
+<span class="type">SoupRequest</span> API is an alternative to the <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a>-based <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> APIs which may be
+useful to programs that want to deal with multiple kinds of URIs.
+</p>
+<p>
+<span class="type">SoupRequest</span> officially became part of the
+<span class="application">libsoup</span> API in 2.42 with the addition of
+<a class="link" href="SoupSession.html#soup-session-request" title="soup_session_request ()"><code class="function">soup_session_request</code></a>
+and the related functions. However, parts of it are also available as
+far back as <span class="application">libsoup</span> 2.34 via the
+(now-deprecated) <span class="type">SoupRequester</span> session feature, if you
+define <code class="literal">LIBSOUP_USE_UNSTABLE_REQUEST_API</code> before
+including the <span class="application">libsoup</span> headers.
+</p>
+<p>
+Additionally, before <span class="application">libsoup</span> 2.42, the
+<span class="type">SoupRequest</span> API was the only way to stream an HTTP
+response body via <span class="type">GInputStream</span>. As of 2.42,
+there are streaming APIs based on <span class="type">SoupMessage</span> (<a class="link" href="SoupSession.html#soup-session-send" title="soup_session_send ()"><code class="function">soup_session_send</code></a>
+and <a class="link" href="SoupSession.html#soup-session-send-async" title="soup_session_send_async ()"><code class="function">soup_session_send_async</code></a>),
+so applications that are using <span class="type">SoupRequest</span> with only
+<code class="literal">http</code> and <code class="literal">https</code> URIs can be
+ported to those APIs now.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="id-1.2.4.4"></a><h3>Creating a SoupRequest</h3>
+<p>
+There are four <span class="type">SoupSession</span> methods for creating
+<span class="type">SoupRequest</span>s:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>
+	    <a class="link" href="SoupSession.html#soup-session-request" title="soup_session_request ()"><code class="function">soup_session_request</code></a>
+	    takes an arbitrary URI as a string, and returns a <a class="link" href="SoupRequest.html" title="SoupRequest"><span class="type">SoupRequest</span></a>.
+	</p></li>
+<li class="listitem"><p>
+	    <a class="link" href="SoupSession.html#soup-session-request-uri" title="soup_session_request_uri ()"><code class="function">soup_session_request_uri</code></a>
+	    takes an arbitrary URI as a <a class="link" href="SoupURI.html" title="SoupURI"><span class="type">SoupURI</span></a>,
+	    and returns a <a class="link" href="SoupRequest.html" title="SoupRequest"><span class="type">SoupRequest</span></a>.
+	</p></li>
+<li class="listitem"><p>
+	    <a class="link" href="SoupSession.html#soup-session-request-http" title="soup_session_request_http ()"><code class="function">soup_session_request_http</code></a>
+	    takes an HTTP method and an <code class="literal">http</code> or <code class="literal">https</code> URI as a string, and returns a <a class="link" href="SoupRequestHTTP.html" title="SoupRequestHTTP"><span class="type">SoupRequestHTTP</span></a>.
+	</p></li>
+<li class="listitem"><p>
+	    <a class="link" href="SoupSession.html#soup-session-request-http-uri" title="soup_session_request_http_uri ()"><code class="function">soup_session_request_http_uri</code></a>
+	    takes an HTTP method and an <code class="literal">http</code> or <code class="literal">https</code> URI as a <a class="link" href="SoupURI.html" title="SoupURI"><span class="type">SoupURI</span></a>,
+	    and returns a <a class="link" href="SoupRequestHTTP.html" title="SoupRequestHTTP"><span class="type">SoupRequestHTTP</span></a>.
+	</p></li>
+</ul></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="id-1.2.4.5"></a><h3>Sending a SoupRequest</h3>
+<p>
+Once you have created a <span class="type">SoupRequest</span>, you can send it with
+either <a class="link" href="SoupRequest.html#soup-request-send" title="soup_request_send ()"><code class="function">soup_request_send</code></a>
+or <a class="link" href="SoupRequest.html#soup-request-send-async" title="soup_request_send_async ()"><code class="function">soup_request_send_async</code></a>.
+This will provide you with a <span class="type">GInputStream</span> which you can
+read to get the response body.
+</p>
+<p>
+After sending, you can use <a class="link" href="SoupRequest.html#soup-request-get-content-length" title="soup_request_get_content_length ()"><code class="function">soup_request_get_content_length</code></a>
+and <a class="link" href="SoupRequest.html#soup-request-get-content-type" title="soup_request_get_content_type ()"><code class="function">soup_request_get_content_type</code></a>
+to get information about the response body.
+</p>
+<p>
+As with the streaming <span class="type">SoupMessage</span>-based APIs,
+<code class="function">soup_request_send</code> and
+<code class="function">soup_request_send_async</code> only return errors if a
+transport-level problem occurs (eg, it could not connect to the host,
+or the request was cancelled). In the case of an HTTP request, use the
+message's <em class="structfield"><code>status_code</code></em> field to determine
+whether the request was successful or not at the HTTP level (ie, "<code class="literal">200
+OK</code>" vs "<code class="literal">401 Bad Request</code>"). (You can call <a class="link" href="SoupRequestHTTP.html#soup-request-http-get-message" title="soup_request_http_get_message ()"><code class="function">soup_request_http_get_message</code></a>
+to get the request's corresponding <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a>, to look at the
+status code or other HTTP metadata.)
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="id-1.2.4.6"></a><h3>Supported URI types, and adding your own</h3>
+<p>
+Different URI types are implemented by different subclasses of
+<span class="type">SoupRequest</span>. <span class="application">libsoup</span> currently
+implements three <span class="type">SoupRequest</span> classes:
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupRequestHTTP.html" title="SoupRequestHTTP"><span class="type">SoupRequestHTTP</span></a></span></p></td>
+<td><p>
+	    Handles <code class="literal">http</code> and
+	    <code class="literal">https</code> URI.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupRequestData.html" title="SoupRequestData"><span class="type">SoupRequestData</span></a></span></p></td>
+<td><p>
+	    Handles <code class="literal">data</code> URIs containing inline data.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupRequestFile.html" title="SoupRequestFile"><span class="type">SoupRequestFile</span></a></span></p></td>
+<td><p>
+	    Handles <code class="literal">file</code> and
+	    <code class="literal">resource</code> URIs.
+	    If you request a URI corresponding to a directory, this
+	    will generate an HTML listing of the directory.
+	</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+You can add additional URI types by implementing your own
+<span class="type">SoupRequest</span> subclass; set the
+<span class="type">SoupRequestClass</span>'s <em class="structfield"><code>schemes</code></em>
+field to point to a <code class="literal">NULL</code>-terminated array of scheme
+names, implement the various <span class="type">SoupRequest</span> methods, and
+then register the type with your <span class="type">SoupSession</span> by calling
+<a class="link" href="SoupSession.html#soup-session-add-feature-by-type" title="soup_session_add_feature_by_type ()"><code class="function">soup_session_add_feature_by_type</code></a>
+and passing the <span class="type">GType</span> of
+your request class.
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.26.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libsoup-request-howto.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

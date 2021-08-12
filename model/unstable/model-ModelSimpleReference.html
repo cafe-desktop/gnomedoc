@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ModelSimpleReference</title><link href="index.html" rel="home" title="Data Model API (libmodel)"></link><link href="ch04.html" rel="up" title="Implementation Helpers"></link><link href="ch04.html" rel="prev" title="Implementation Helpers"></link><link href="model-ModelReferenceHelper.html" rel="next" title="ModelReferenceHelper"></link><link href="pt01.html" rel="part" title="Part I. API Reference"></link><link href="ch01.html" rel="chapter" title="Base Abstract Types"></link><link href="ch02.html" rel="chapter" title="Simple Value Types"></link><link href="ch03.html" rel="chapter" title="Container Value Types"></link><link href="ch04.html" rel="chapter" title="Implementation Helpers"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="model-ModelSimpleReference.html#container">Go to page content</a></li><li><a href="model-ModelSimpleReference.html#top_bar">Go to main menu</a></li><li><a href="model-ModelSimpleReference.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch04.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch04.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Data Model API (libmodel)</th>
+<td><a accesskey="n" href="model-ModelReferenceHelper.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="model-ModelSimpleReference.html#model-ModelSimpleReference.synopsis">Top</a>
+                 | 
+                <a class="shortcut" href="model-ModelSimpleReference.html#model-ModelSimpleReference.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry" title="ModelSimpleReference">
+<a name="model-ModelSimpleReference"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="model-ModelSimpleReference.top_of_page"></a>ModelSimpleReference</span></h2>
+<p>ModelSimpleReference — a very simple implementation of <a class="link" href="model-ModelReference.html#ModelReference" title="ModelReference"><span class="type">ModelReference</span></a></p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="model-ModelSimpleReference.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a>;
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()">model_simple_reference_new</a>       (<a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject">ModelObject</a> *value);
+void                <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()">model_simple_reference_set</a>          (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject">ModelObject</a> *value);
+
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new-string" title="model_simple_reference_new_string ()">model_simple_reference_new_string</a>
+                                                        (const <a href="../../glib/unstable/glib-Basic-Types.html#gchar">gchar</a> *value);
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new-integer" title="model_simple_reference_new_integer ()">model_simple_reference_new_integer</a>
+                                                        (<a href="../../glib/unstable/glib-Basic-Types.html#gint">gint</a> value);
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new-float" title="model_simple_reference_new_float ()">model_simple_reference_new_float</a> (<a href="../../glib/unstable/glib-Basic-Types.html#gdouble">gdouble</a> value);
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new-boolean" title="model_simple_reference_new_boolean ()">model_simple_reference_new_boolean</a>
+                                                        (<a href="../../glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a> value);
+
+void                <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set-string" title="model_simple_reference_set_string ()">model_simple_reference_set_string</a>   (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         const <a href="../../glib/unstable/glib-Basic-Types.html#gchar">gchar</a> *value);
+void                <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set-integer" title="model_simple_reference_set_integer ()">model_simple_reference_set_integer</a>  (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gint">gint</a> value);
+void                <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set-float" title="model_simple_reference_set_float ()">model_simple_reference_set_float</a>    (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gdouble">gdouble</a> value);
+void                <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set-boolean" title="model_simple_reference_set_boolean ()">model_simple_reference_set_boolean</a>  (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a> value);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="model-ModelSimpleReference.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> is a <a class="link" href="model-ModelReference.html#ModelReference" title="ModelReference"><span class="type">ModelReference</span></a> implementation.  It stores
+a <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject"><span class="type">ModelObject</span></a> as the value of the reference.
+<a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a> can be used to change the value of the
+reference, and when the value is changed, the "changed" signal is
+emitted.
+</p>
+<p>
+The core API of <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> consists of
+<a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()"><code class="function">model_simple_reference_new()</code></a> and <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a>.
+Additionally, there are helper functions to set and construct from
+one of the basic value types without requiring the manual
+construction of a corresponding <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject"><span class="type">ModelObject</span></a> instance.</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="model-ModelSimpleReference.details"></a><h2>Details</h2>
+<div class="refsect2" title="ModelSimpleReference">
+<a name="ModelSimpleReference"></a><h3>ModelSimpleReference</h3>
+<pre class="programlisting">typedef struct _ModelSimpleReference ModelSimpleReference;</pre>
+<p>
+This is an opaque structure; it may not be accessed directly.</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_new ()">
+<a name="model-simple-reference-new"></a><h3>model_simple_reference_new ()</h3>
+<pre class="programlisting"><a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * model_simple_reference_new       (<a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject">ModelObject</a> *value);</pre>
+<p>
+Creates a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>, using <em class="parameter"><code>value</code></em> as the initial value.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject"><span class="type">ModelObject</span></a> to use as the initial value, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL--CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>returns</code></em> :</span></p></td>
+<td> a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_set ()">
+<a name="model-simple-reference-set"></a><h3>model_simple_reference_set ()</h3>
+<pre class="programlisting">void                model_simple_reference_set          (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject">ModelObject</a> *value);</pre>
+<p>
+Changes the value held by <em class="parameter"><code>simple</code></em> to <em class="parameter"><code>value</code></em> and emits the "changed"
+signal.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> the <a class="link" href="model-ModelObject.html#ModelObject" title="ModelObject"><span class="type">ModelObject</span></a> to use as the new value, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL--CAPS"><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_new_string ()">
+<a name="model-simple-reference-new-string"></a><h3>model_simple_reference_new_string ()</h3>
+<pre class="programlisting"><a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * model_simple_reference_new_string
+                                                        (const <a href="../../glib/unstable/glib-Basic-Types.html#gchar">gchar</a> *value);</pre>
+<p>
+Creates a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> holding a string.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()"><code class="function">model_simple_reference_new()</code></a> and
+<a class="link" href="model-ModelString.html#model-string-new" title="model_string_new ()"><code class="function">model_string_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>returns</code></em> :</span></p></td>
+<td> a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_new_integer ()">
+<a name="model-simple-reference-new-integer"></a><h3>model_simple_reference_new_integer ()</h3>
+<pre class="programlisting"><a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * model_simple_reference_new_integer
+                                                        (<a href="../../glib/unstable/glib-Basic-Types.html#gint">gint</a> value);</pre>
+<p>
+Creates a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> holding an integer.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()"><code class="function">model_simple_reference_new()</code></a> and
+<a class="link" href="model-ModelInteger.html#model-integer-new" title="model_integer_new ()"><code class="function">model_integer_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> an integer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>returns</code></em> :</span></p></td>
+<td> a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_new_float ()">
+<a name="model-simple-reference-new-float"></a><h3>model_simple_reference_new_float ()</h3>
+<pre class="programlisting"><a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * model_simple_reference_new_float (<a href="../../glib/unstable/glib-Basic-Types.html#gdouble">gdouble</a> value);</pre>
+<p>
+Creates a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> holding a floating point value.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()"><code class="function">model_simple_reference_new()</code></a> and
+<a class="link" href="model-ModelFloat.html#model-float-new" title="model_float_new ()"><code class="function">model_float_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a double precision floating point value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>returns</code></em> :</span></p></td>
+<td> a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_new_boolean ()">
+<a name="model-simple-reference-new-boolean"></a><h3>model_simple_reference_new_boolean ()</h3>
+<pre class="programlisting"><a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> * model_simple_reference_new_boolean
+                                                        (<a href="../../glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a> value);</pre>
+<p>
+Creates a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a> holding a boolean value.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-new" title="model_simple_reference_new ()"><code class="function">model_simple_reference_new()</code></a> and
+<a class="link" href="model-ModelBoolean.html#model-boolean-new" title="model_boolean_new ()"><code class="function">model_boolean_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a boolean value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>returns</code></em> :</span></p></td>
+<td> a new <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_set_string ()">
+<a name="model-simple-reference-set-string"></a><h3>model_simple_reference_set_string ()</h3>
+<pre class="programlisting">void                model_simple_reference_set_string   (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         const <a href="../../glib/unstable/glib-Basic-Types.html#gchar">gchar</a> *value);</pre>
+<p>
+Updates the value of <em class="parameter"><code>simple</code></em> to the given string.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a> and
+<a class="link" href="model-ModelString.html#model-string-new" title="model_string_new ()"><code class="function">model_string_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a string
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_set_integer ()">
+<a name="model-simple-reference-set-integer"></a><h3>model_simple_reference_set_integer ()</h3>
+<pre class="programlisting">void                model_simple_reference_set_integer  (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gint">gint</a> value);</pre>
+<p>
+Updates the value of <em class="parameter"><code>simple</code></em> to the given integer.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a> and
+<a class="link" href="model-ModelInteger.html#model-integer-new" title="model_integer_new ()"><code class="function">model_integer_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> an integer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_set_float ()">
+<a name="model-simple-reference-set-float"></a><h3>model_simple_reference_set_float ()</h3>
+<pre class="programlisting">void                model_simple_reference_set_float    (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gdouble">gdouble</a> value);</pre>
+<p>
+Updates the value of <em class="parameter"><code>simple</code></em> to the given floating point value.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a> and
+<a class="link" href="model-ModelFloat.html#model-float-new" title="model_float_new ()"><code class="function">model_float_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a double precision floating point value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="model_simple_reference_set_boolean ()">
+<a name="model-simple-reference-set-boolean"></a><h3>model_simple_reference_set_boolean ()</h3>
+<pre class="programlisting">void                model_simple_reference_set_boolean  (<a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference">ModelSimpleReference</a> *simple,
+                                                         <a href="../../glib/unstable/glib-Basic-Types.html#gboolean">gboolean</a> value);</pre>
+<p>
+Updates the value of <em class="parameter"><code>simple</code></em> to the given boolean value.
+</p>
+<p>
+This is a convenience wrapper around <a class="link" href="model-ModelSimpleReference.html#model-simple-reference-set" title="model_simple_reference_set ()"><code class="function">model_simple_reference_set()</code></a> and
+<a class="link" href="model-ModelBoolean.html#model-boolean-new" title="model_boolean_new ()"><code class="function">model_boolean_new()</code></a>.</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>simple</code></em> :</span></p></td>
+<td> a <a class="link" href="model-ModelSimpleReference.html#ModelSimpleReference" title="ModelSimpleReference"><span class="type">ModelSimpleReference</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> a boolean value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.11</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="model-ModelSimpleReference.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

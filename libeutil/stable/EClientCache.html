@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EClientCache</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch11.html" rel="up" title="ESource Support"></link><link href="libeutil-ESource-Utilities.html" rel="prev" title="ESource Utilities"></link><link href="EClientComboBox.html" rel="next" title="EClientComboBox"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EClientCache.html#container">Go to page content</a></li><li><a href="EClientCache.html#top_bar">Go to main menu</a></li><li><a href="EClientCache.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libeutil-ESource-Utilities.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch11.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="EClientComboBox.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EClientCache.html#EClientCache.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EClientCache.html#EClientCache.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EClientCache.html#EClientCache.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EClientCache.html#EClientCache.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="EClientCache.html#EClientCache.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="EClientCache.html#EClientCache.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EClientCache"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EClientCache.top_of_page"></a>EClientCache</span></h2>
+<p>EClientCache — Shared <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instances</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EClientCache.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;e-util/e-util.h&gt;
+
+struct              <a class="link" href="EClientCache.html#EClientCache-struct" title="struct EClientCache">EClientCache</a>;
+<a class="link" href="EClientCache.html" title="EClientCache"><span class="returnvalue">EClientCache</span></a> *      <a class="link" href="EClientCache.html#e-client-cache-new" title="e_client_cache_new ()">e_client_cache_new</a>                  (<em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);
+<a href="../../libedataserver/stable/ESourceRegistry.html"><span class="returnvalue">ESourceRegistry</span></a> *   <a class="link" href="EClientCache.html#e-client-cache-ref-registry" title="e_client_cache_ref_registry ()">e_client_cache_ref_registry</a>         (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>);
+<a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           <a class="link" href="EClientCache.html#e-client-cache-get-client-sync" title="e_client_cache_get_client_sync ()">e_client_cache_get_client_sync</a>      (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClientCache.html#e-client-cache-get-client" title="e_client_cache_get_client ()">e_client_cache_get_client</a>           (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           <a class="link" href="EClientCache.html#e-client-cache-get-client-finish" title="e_client_cache_get_client_finish ()">e_client_cache_get_client_finish</a>    (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           <a class="link" href="EClientCache.html#e-client-cache-ref-cached-client" title="e_client_cache_ref_cached_client ()">e_client_cache_ref_cached_client</a>    (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClientCache.html#e-client-cache-is-backend-dead" title="e_client_cache_is_backend_dead ()">e_client_cache_is_backend_dead</a>      (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClientCache.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EClientCache
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClientCache.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+EClientCache implements
+ <a href="../../libebackend/stable/EExtensible.html">EExtensible</a>.</p>
+</div>
+<div class="refsect1">
+<a name="EClientCache.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EClientCache.html#EClientCache--registry" title='The "registry" property'>registry</a>"                 <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>*      : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClientCache.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="EClientCache.html#EClientCache-backend-died" title='The "backend-died" signal'>backend-died</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="EClientCache.html#EClientCache-backend-error" title='The "backend-error" signal'>backend-error</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="EClientCache.html#EClientCache-client-created" title='The "client-created" signal'>client-created</a>"                                 : <code class="literal">Run First</code>
+  "<a class="link" href="EClientCache.html#EClientCache-client-notify" title='The "client-notify" signal'>client-notify</a>"                                  : <code class="literal">No Hooks</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClientCache.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> provides for application-wide sharing of <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>
+instances and centralized rebroadcasting of <a href="../../libedataserver/stable/EClient.html#EClient-backend-died"><span class="type">"backend-died"</span></a>,
+<a href="../../libedataserver/stable/EClient.html#EClient-backend-error"><span class="type">"backend-error"</span></a> and <span class="type">"notify"</span> signals from cached
+<a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instances.
+</p>
+<p>
+<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> automatically invalidates cache entries in response to
+<a href="../../libedataserver/stable/EClient.html#EClient-backend-died"><span class="type">"backend-died"</span></a> signals.  The <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance is discarded,
+and a new instance is created on the next request.
+</p>
+</div>
+<div class="refsect1">
+<a name="EClientCache.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EClientCache-struct"></a><h3>struct EClientCache</h3>
+<pre class="programlisting">struct EClientCache;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-new"></a><h3>e_client_cache_new ()</h3>
+<pre class="programlisting"><a class="link" href="EClientCache.html" title="EClientCache"><span class="returnvalue">EClientCache</span></a> *      e_client_cache_new                  (<em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> instance.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>registry</code></em> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-ref-registry"></a><h3>e_client_cache_ref_registry ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="returnvalue">ESourceRegistry</span></a> *   e_client_cache_ref_registry         (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>);</pre>
+<p>
+Returns the <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> passed to <a class="link" href="EClientCache.html#e-client-cache-new" title="e_client_cache_new ()"><code class="function">e_client_cache_new()</code></a>.
+</p>
+<p>
+The returned <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> is referenced for thread-safety and must be
+unreferenced with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-get-client-sync"></a><h3>e_client_cache_get_client_sync ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           e_client_cache_get_client_sync      (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Obtains a shared <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance for <em class="parameter"><code>source</code></em>, or else creates a new
+<a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance to be shared.
+</p>
+<p>
+The <em class="parameter"><code>extension_name</code></em> determines the type of <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> to obtain.  Valid
+<em class="parameter"><code>extension_name</code></em> values are:
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceAddressBook.html#E-SOURCE-EXTENSION-ADDRESS-BOOK:CAPS"><span class="type">E_SOURCE_EXTENSION_ADDRESS_BOOK</span></a> will obtain an <a href="../../libebook/stable/EBookClient.html"><span class="type">EBookClient</span></a>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceCalendar.html#E-SOURCE-EXTENSION-CALENDAR:CAPS"><span class="type">E_SOURCE_EXTENSION_CALENDAR</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_EVENTS</span>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceMemoList.html#E-SOURCE-EXTENSION-MEMO-LIST:CAPS"><span class="type">E_SOURCE_EXTENSION_MEMO_LIST</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_MEMOS</span>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceTaskList.html#E-SOURCE-EXTENSION-TASK-LIST:CAPS"><span class="type">E_SOURCE_EXTENSION_TASK_LIST</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_TASKS</span>.
+</p>
+<p>
+The <em class="parameter"><code>source</code></em> must already have an <a href="../../libedataserver/stable/ESourceExtension.html"><span class="type">ESourceExtension</span></a> by that name
+for this function to work.  All other <em class="parameter"><code>extension_name</code></em> values will
+result in an error.
+</p>
+<p>
+If a request for the same <em class="parameter"><code>source</code></em> and <em class="parameter"><code>extension_name</code></em> is already in
+progress when this function is called, this request will "piggyback"
+on the in-progress request such that they will both succeed or fail
+simultaneously.
+</p>
+<p>
+Unreference the returned <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> with <code class="function">g_object_unref()</code> when finished
+with it.  If an error occurs, the function will set <em class="parameter"><code>error</code></em> and return
+<code class="literal">NULL</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-get-client"></a><h3>e_client_cache_get_client ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_cache_get_client           (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously obtains a shared <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance for <em class="parameter"><code>source</code></em>, or else
+creates a new <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance to be shared.
+</p>
+<p>
+The <em class="parameter"><code>extension_name</code></em> determines the type of <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> to obtain.  Valid
+<em class="parameter"><code>extension_name</code></em> values are:
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceAddressBook.html#E-SOURCE-EXTENSION-ADDRESS-BOOK:CAPS"><span class="type">E_SOURCE_EXTENSION_ADDRESS_BOOK</span></a> will obtain an <a href="../../libebook/stable/EBookClient.html"><span class="type">EBookClient</span></a>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceCalendar.html#E-SOURCE-EXTENSION-CALENDAR:CAPS"><span class="type">E_SOURCE_EXTENSION_CALENDAR</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_EVENTS</span>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceMemoList.html#E-SOURCE-EXTENSION-MEMO-LIST:CAPS"><span class="type">E_SOURCE_EXTENSION_MEMO_LIST</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_MEMOS</span>.
+</p>
+<p>
+<a href="../../libedataserver/stable/ESourceTaskList.html#E-SOURCE-EXTENSION-TASK-LIST:CAPS"><span class="type">E_SOURCE_EXTENSION_TASK_LIST</span></a> will obtain an <a href="../../libecal/stable/ECalClient.html"><span class="type">ECalClient</span></a> with a
+<a href="../../libecal/stable/ECalClient.html#ECalClient--source-type"><span class="type">"source-type"</span></a> of <span class="type">E_CAL_CLIENT_SOURCE_TYPE_TASKS</span>.
+</p>
+<p>
+The <em class="parameter"><code>source</code></em> must already have an <a href="../../libedataserver/stable/ESourceExtension.html"><span class="type">ESourceExtension</span></a> by that name
+for this function to work.  All other <em class="parameter"><code>extension_name</code></em> values will
+result in an error.
+</p>
+<p>
+If a request for the same <em class="parameter"><code>source</code></em> and <em class="parameter"><code>extension_name</code></em> is already in
+progress when this function is called, this request will "piggyback"
+on the in-progress request such that they will both succeed or fail
+simultaneously.
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can
+then call <a class="link" href="EClientCache.html#e-client-cache-get-client-finish" title="e_client_cache_get_client_finish ()"><code class="function">e_client_cache_get_client_finish()</code></a> to get the result of the
+operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request is satisfied</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-get-client-finish"></a><h3>e_client_cache_get_client_finish ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           e_client_cache_get_client_finish    (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="EClientCache.html#e-client-cache-get-client" title="e_client_cache_get_client ()"><code class="function">e_client_cache_get_client()</code></a>.
+</p>
+<p>
+Unreference the returned <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> with <code class="function">g_object_unref()</code> when finished
+with it.  If an error occurred, the function will set <em class="parameter"><code>error</code></em> and return
+<code class="literal">NULL</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-ref-cached-client"></a><h3>e_client_cache_ref_cached_client ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/EClient.html"><span class="returnvalue">EClient</span></a> *           e_client_cache_ref_cached_client    (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);</pre>
+<p>
+Returns a shared <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance for <em class="parameter"><code>source</code></em> and <em class="parameter"><code>extension_name</code></em> if
+such an instance is already cached, or else <code class="literal">NULL</code>.  This function does
+not create a new <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance, and therefore does not block.
+</p>
+<p>
+See <a class="link" href="EClientCache.html#e-client-cache-get-client" title="e_client_cache_get_client ()"><code class="function">e_client_cache_get_client()</code></a> for valid <em class="parameter"><code>extension_name</code></em> values.
+</p>
+<p>
+The returned <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> is referenced for thread-safety and must be
+unreferenced with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cache-is-backend-dead"></a><h3>e_client_cache_is_backend_dead ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_cache_is_backend_dead      (<em class="parameter"><code><a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if an <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance for <em class="parameter"><code>source</code></em> and <em class="parameter"><code>extension_name</code></em>
+was recently discarded after having emitted a <a href="../../libedataserver/stable/EClient.html#EClient-backend-died"><span class="type">"backend-died"</span></a>
+signal, and a replacement <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance has not yet been created.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>an <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether the backend for <em class="parameter"><code>source</code></em> and <em class="parameter"><code>extension_name</code></em> died</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="EClientCache.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EClientCache--registry"></a><h3>The <code class="literal">"registry"</code> property</h3>
+<pre class="programlisting">  "registry"                 <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>*      : Read / Write / Construct Only</pre>
+<p>
+The <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> manages <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> instances.
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EClientCache.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EClientCache-backend-died"></a><h3>The <code class="literal">"backend-died"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache,
+                                                        <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>      *client,
+                                                        <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a>       *alert,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
+<p>
+Rebroadcasts a <a href="../../libedataserver/stable/EClient.html#EClient-backend-died"><span class="type">"backend-died"</span></a> signal emitted by <em class="parameter"><code>client</code></em>,
+along with a pre-formatted <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a>.
+</p>
+<p>
+As a convenience to signal handlers, this signal is always
+emitted from the <span class="type">GMainContext</span> that was thread-default when
+the <em class="parameter"><code>client_cache</code></em> was created.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>the <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> that received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>the <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> that received the D-Bus notification</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alert</code></em> :</span></p></td>
+<td>an <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a> with a user-friendly error description</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClientCache-backend-error"></a><h3>The <code class="literal">"backend-error"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache,
+                                                        <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>      *client,
+                                                        <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a>       *alert,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
+<p>
+Rebroadcasts a <a href="../../libedataserver/stable/EClient.html#EClient-backend-error"><span class="type">"backend-error"</span></a> signal emitted by <em class="parameter"><code>client</code></em>,
+along with a pre-formatted <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a>.
+</p>
+<p>
+As a convenience to signal handlers, this signal is always
+emitted from the <span class="type">GMainContext</span> that was thread-default when
+the <em class="parameter"><code>client_cache</code></em> was created.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>the <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> that received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>the <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> that received the D-Bus notification</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alert</code></em> :</span></p></td>
+<td>an <a class="link" href="EAlert.html" title="EAlert"><span class="type">EAlert</span></a> with a user-friendly error description</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClientCache-client-created"></a><h3>The <code class="literal">"client-created"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache,
+                                                        <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>      *client,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run First</code></pre>
+<p>
+This signal is emitted when a call to <a class="link" href="EClientCache.html#e-client-cache-get-client" title="e_client_cache_get_client ()"><code class="function">e_client_cache_get_client()</code></a>
+triggers the creation of a new <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> instance.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>the <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> that received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>the newly-created <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClientCache-client-notify"></a><h3>The <code class="literal">"client-notify"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> *client_cache,
+                                                        <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a>      *client,
+                                                        <span class="type">GParamSpec</span>   *pspec,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">No Hooks</code></pre>
+<p>
+Rebroadcasts a <span class="type">"notify"</span> signal emitted by <em class="parameter"><code>client</code></em>.
+</p>
+<p>
+This signal supports "::detail" appendices to the signal name
+just like the <span class="type">"notify"</span> signal, so you can connect to
+change notification signals for specific <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> properties.
+</p>
+<p>
+As a convenience to signal handlers, this signal is always
+emitted from the <span class="type">GMainContext</span> that was thread-default when
+the <em class="parameter"><code>client_cache</code></em> was created.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_cache</code></em> :</span></p></td>
+<td>the <a class="link" href="EClientCache.html" title="EClientCache"><span class="type">EClientCache</span></a> that received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>the <a href="../../libedataserver/stable/EClient.html"><span class="type">EClient</span></a> whose property changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>the <span class="type">GParamSpec</span> of the property that changed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EClientCache.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

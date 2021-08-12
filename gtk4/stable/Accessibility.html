@@ -1,0 +1,1495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Accessibility: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="gtkobjects.html" rel="up" title="Part III. GTK Widgets and Objects"></link><link href="GtkShortcutLabel.html" rel="prev" title="GtkShortcutLabel"></link><link href="GtkAccessible.html" rel="next" title="GtkAccessible"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="Accessibility.html#container">Go to page content</a></li><li><a href="Accessibility.html#top_bar">Go to main menu</a></li><li><a href="Accessibility.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc two_columns"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="gtkobjects.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GtkShortcutLabel.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GtkAccessible.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="Accessibility"></a>Accessibility</h2></div></div></div>
+<div class="toc"><dl class="toc">
+<dt><span class="sect1"><a href="Accessibility.html#gtk-accessibility">GTK Accessibility</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.2">The standard accessibility interface</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.3">Accessible roles and attributes</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.4">Application development rules</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.5">Implementations</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#authoring-practices">Authoring practices</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.7">Hiding UI elements from the accessible tree</a></span></dt>
+<dt><span class="sect2"><a href="Accessibility.html#id-1.4.25.2.8">Design patterns and custom widgets</a></span></dt>
+</dl></dd>
+<dt>
+<span class="refentrytitle"><a href="GtkAccessible.html">GtkAccessible</a></span><span class="refpurpose"> — Accessible interface</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkATContext.html">GtkATContext</a></span><span class="refpurpose"> — An object communicating to Assistive Technologies</span>
+</dt>
+</dl></div>
+      
+      <div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="gtk-accessibility"></a>GTK Accessibility</h2></div></div></div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.2"></a>The standard accessibility interface</h3></div></div></div>
+<p>
+      The <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> interface provides the accessibility
+      information about an application’s user interface elements.
+      Assistive technology (AT) applications, like Orca, convey this
+      information to users with disabilities, or reduced abilities, to
+      help them use the application.
+    </p>
+<p>
+      Standard GTK controls implement the <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> interface and
+      are thus accessible to ATs by default. This means that if you use
+      GTK controls such as <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a>, <a href="GtkEntry.html#GtkEntry-struct"><span class="type">GtkEntry</span></a>, or <a href="GtkListView.html#GtkListView-struct"><span class="type">GtkListView</span></a>, you
+      only need to supply application-specific details when the defaults
+      values are incomplete. You can do this by setting the appropriate
+      properties in your <a href="GtkBuilder.html#GtkBuilder-struct"><span class="type">GtkBuilder</span></a> template and UI definition files,
+      or by setting the properties defined by the <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+      interface.
+    </p>
+<p>
+      If you are implementing your own <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> derived type, you will
+      need to set the <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> properties yourself, and provide an
+      implementation of the <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> virtual functions.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.3"></a>Accessible roles and attributes</h3></div></div></div>
+<p>
+      The fundamental concepts of an accessible widget are
+      <span class="emphasis"><em>roles</em></span> and <span class="emphasis"><em>attributes</em></span>;
+      each GTK control has a role, while its functionality is described
+      by a set of <span class="emphasis"><em>attributes</em></span>.
+    </p>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.3.3"></a>Roles</h4></div></div></div>
+<p>
+        Roles define the taxonomy and semantics of a UI control to any
+        assistive technology application; for instance, a button will
+        have a role of <code class="literal">GTK_ACCESSIBLE_ROLE_BUTTON</code>; an
+        entry will have a role of
+        <code class="literal">GTK_ACCESSIBLE_ROLE_TEXTBOX</code>; a toggle button
+        will have a role of
+        <code class="literal">GTK_ACCESSIBLE_ROLE_CHECKBOX</code>; etc.
+      </p>
+<p>
+        Each role is part of the widget’s instance, and
+        <span class="strong"><strong>cannot</strong></span> be changed over time
+        or as the result of a user action. Roles allows assistive
+        technology applications to identify a UI control and decide how
+        to present it to a user; if a part of the application’s UI
+        changes role, the control needs to be removed and replaced with
+        another one with the appropriate role.
+      </p>
+<div class="sect4">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="id-1.4.25.2.3.3.4"></a>List of accessible roles</h5></div></div></div>
+<p>
+          Each role name is part of the <a href="GtkAccessible.html#GtkAccessibleRole"><span class="type">GtkAccessibleRole</span></a> enumeration.
+        </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                  Role name
+                </th>
+<th align="left">
+                  Description
+                </th>
+<th align="left">
+                  Related GTK widget
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                  <code class="literal">BUTTON</code>
+                </td>
+<td align="left">
+                  A control that performs an action when pressed
+                </td>
+<td align="left">
+                  <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a>, <a href="GtkLinkButton.html#GtkLinkButton-struct"><span class="type">GtkLinkButton</span></a>, <a href="GtkExpander.html#GtkExpander-struct"><span class="type">GtkExpander</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">CHECKBOX</code>
+                </td>
+<td align="left">
+                  A control that has three possible value:
+                  <code class="literal">true</code>, <code class="literal">false</code>, or
+                  <code class="literal">undefined</code>
+                </td>
+<td align="left">
+                  <a href="GtkCheckButton.html#GtkCheckButton-struct"><span class="type">GtkCheckButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">COMBOBOX</code>
+                </td>
+<td align="left">
+                  A control that can be expanded to show a list of
+                  possible values to select
+                </td>
+<td align="left">
+                  <a href="GtkComboBox.html#GtkComboBox-struct"><span class="type">GtkComboBox</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">COLUMN_HEADER</code>
+                </td>
+<td align="left">
+                  A header in a columned list
+                </td>
+<td align="left">
+                  <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">DIALOG</code>
+                </td>
+<td align="left">
+                  A dialog that prompts the user to enter information or
+                  require a response
+                </td>
+<td align="left">
+                  <a href="GtkDialog.html#GtkDialog-struct"><span class="type">GtkDialog</span></a> and subclasses
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">GRID</code>
+                </td>
+<td align="left">
+                  A grid of items
+                </td>
+<td align="left">
+                  <a href="GtkFlowBox.html#GtkFlowBox-struct"><span class="type">GtkFlowBox</span></a>, <a href="GtkGridView.html#GtkGridView-struct"><span class="type">GtkGridView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">GRID_CELL</code>
+                </td>
+<td align="left">
+                  An item in a grid
+                </td>
+<td align="left">
+                  <a href="GtkFlowBox.html#GtkFlowBoxChild-struct"><span class="type">GtkFlowBoxChild</span></a>, <a href="GtkGridView.html#GtkGridView-struct"><span class="type">GtkGridView</span></a>, <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">IMG</code>
+                </td>
+<td align="left">
+                  An image
+                </td>
+<td align="left">
+                  <a href="GtkImage.html#GtkImage-struct"><span class="type">GtkImage</span></a>, <a href="GtkPicture.html#GtkPicture-struct"><span class="type">GtkPicture</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">LABEL</code>
+                </td>
+<td align="left">
+                  A visible name or caption for a user interface
+                  component
+                </td>
+<td align="left">
+                  <a href="GtkLabel.html#GtkLabel-struct"><span class="type">GtkLabel</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">LINK</code>
+                </td>
+<td align="left">
+                  A clickable hyperlink
+                </td>
+<td align="left">
+                  <a href="GtkLinkButton.html#GtkLinkButton-struct"><span class="type">GtkLinkButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">LIST</code>
+                </td>
+<td align="left">
+                  A list of items
+                </td>
+<td align="left">
+                  <a href="GtkListBox.html#GtkListBox-struct"><span class="type">GtkListBox</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">LIST_ITEM</code>
+                </td>
+<td align="left">
+                  An item in a list
+                </td>
+<td align="left">
+                  <a href="GtkListBox.html#GtkListBoxRow-struct"><span class="type">GtkListBoxRow</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">MENU</code>
+                </td>
+<td align="left">
+                  A menu
+                </td>
+<td align="left">
+                  <a href="GtkPopoverMenu.html#GtkPopoverMenu-struct"><span class="type">GtkPopoverMenu</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">MENU_BAR</code>
+                </td>
+<td align="left">
+                  A menubar
+                </td>
+<td align="left">
+                  <a href="GtkPopoverMenuBar.html#GtkPopoverMenuBar-struct"><span class="type">GtkPopoverMenuBar</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">MENU_ITEM</code>
+                </td>
+<td align="left">
+                  A menu item
+                </td>
+<td align="left">
+                  Items in <a href="GtkPopoverMenu.html#GtkPopoverMenu-struct"><span class="type">GtkPopoverMenu</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">MENU_ITEM_CHECKBOX</code>
+                </td>
+<td align="left">
+                  Check menu item
+                </td>
+<td align="left">
+                  Items in <a href="GtkPopoverMenu.html#GtkPopoverMenu-struct"><span class="type">GtkPopoverMenu</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">MENU_ITEM_RADIO</code>
+                </td>
+<td align="left">
+                  Radio menu item
+                </td>
+<td align="left">
+                  Items in <a href="GtkPopoverMenu.html#GtkPopoverMenu-struct"><span class="type">GtkPopoverMenu</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">METER</code>
+                </td>
+<td align="left">
+                  Represents a value within a known range
+                </td>
+<td align="left">
+                  <a href="GtkLevelBar.html#GtkLevelBar-struct"><span class="type">GtkLevelBar</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">NONE</code>
+                </td>
+<td align="left">
+                  Not represented in the accessibility tree
+                </td>
+<td align="left">
+                  the slider of a <a href="GtkScale.html#GtkScale-struct"><span class="type">GtkScale</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">PROGRESS_BAR</code>
+                </td>
+<td align="left">
+                  An element that display progress
+                </td>
+<td align="left">
+                  <a href="GtkProgressBar.html#GtkProgressBar-struct"><span class="type">GtkProgressBar</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">RADIO</code>
+                </td>
+<td align="left">
+                  A checkable input in a group of radio roles
+                </td>
+<td align="left">
+                  <a href="GtkCheckButton.html#GtkCheckButton-struct"><span class="type">GtkCheckButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">ROW</code>
+                </td>
+<td align="left">
+                  A row in a columned list
+                </td>
+<td align="left">
+                  <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">SCROLLBAR</code>
+                </td>
+<td align="left">
+                  A graphical object controlling the scrolling of
+                  content
+                </td>
+<td align="left">
+                  <a href="GtkScrollbar.html#GtkScrollbar-struct"><span class="type">GtkScrollbar</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">SEARCH_BOX</code>
+                </td>
+<td align="left">
+                  A text box for entering search criteria
+                </td>
+<td align="left">
+                  <a href="GtkSearchEntry.html#GtkSearchEntry-struct"><span class="type">GtkSearchEntry</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">SEPARATOR</code>
+                </td>
+<td align="left">
+                  A divider that separates sections of content or groups
+                  of items
+                </td>
+<td align="left">
+                  <a href="GtkSeparator.html#GtkSeparator-struct"><span class="type">GtkSeparator</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">SPIN_BUTTON</code>
+                </td>
+<td align="left">
+                  A range control that allows seelcting among discrete
+                  choices
+                </td>
+<td align="left">
+                  <a href="GtkSpinButton.html#GtkSpinButton-struct"><span class="type">GtkSpinButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">SWITCH</code>
+                </td>
+<td align="left">
+                  A control that represents on/off values
+                </td>
+<td align="left">
+                  <a href="GtkSwitch.html#GtkSwitch-struct"><span class="type">GtkSwitch</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">TAB</code>
+                </td>
+<td align="left">
+                  A tab in a list of tabs for switching pages
+                </td>
+<td align="left">
+                  <a href="GtkStackSwitcher.html#GtkStackSwitcher-struct"><span class="type">GtkStackSwitcher</span></a>, <a href="GtkNotebook.html#GtkNotebook-struct"><span class="type">GtkNotebook</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">TAB_LIST</code>
+                </td>
+<td align="left">
+                  A list of tabs for switching pages
+                </td>
+<td align="left">
+                  <a href="GtkStackSwitcher.html#GtkStackSwitcher-struct"><span class="type">GtkStackSwitcher</span></a>, <a href="GtkNotebook.html#GtkNotebook-struct"><span class="type">GtkNotebook</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">TAB_PANEL</code>
+                </td>
+<td align="left">
+                  A page in a notebook or stack
+                </td>
+<td align="left">
+                  <a href="GtkStack.html#GtkStack-struct"><span class="type">GtkStack</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">TEXT_BOX</code>
+                </td>
+<td align="left">
+                  A type of input that allows free-form text as its
+                  value.
+                </td>
+<td align="left">
+                  <a href="GtkEntry.html#GtkEntry-struct"><span class="type">GtkEntry</span></a>, <a href="GtkPasswordEntry.html#GtkPasswordEntry-struct"><span class="type">GtkPasswordEntry</span></a>, <a href="GtkTextView.html#GtkTextView-struct"><span class="type">GtkTextView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">TREE_GRID</code>
+                </td>
+<td align="left">
+                  A treeview-like columned list
+                </td>
+<td align="left">
+                  <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">WINDOW</code>
+                </td>
+<td align="left">
+                  An application window
+                </td>
+<td align="left">
+                  <a href="GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <code class="literal">...</code>
+                </td>
+<td align="left">
+                  …
+                </td>
+<td align="left">
+                </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+          See the
+          <a class="ulink" href="https://www.w3.org/WAI/PF/aria/appendices#quickref" target="_top">WAI-ARIA</a>
+          list of roles for additional information.
+        </p>
+</div>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.3.4"></a>Attributes</h4></div></div></div>
+<p>
+        Attributes provide specific information about an accessible UI
+        control, and describe it for the assistive technology
+        applications. GTK divides the accessible attributes into three
+        categories:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            <span class="emphasis"><em>properties</em></span>, described by the values of
+            the <a href="GtkAccessible.html#GtkAccessibleProperty"><span class="type">GtkAccessibleProperty</span></a> enumeration
+          </p></li>
+<li class="listitem"><p>
+            <span class="emphasis"><em>relations</em></span>, described by the values of
+            the <a href="GtkAccessible.html#GtkAccessibleRelation"><span class="type">GtkAccessibleRelation</span></a> enumeration
+          </p></li>
+<li class="listitem"><p>
+            <span class="emphasis"><em>states</em></span>, described by the values of the
+            <a href="GtkAccessible.html#GtkAccessibleState"><span class="type">GtkAccessibleState</span></a> enumeration
+          </p></li>
+</ul></div>
+<p>
+        Each attribute accepts a value of a specific type.
+      </p>
+<p>
+        Unlike roles, attributes may change over time, or in response to
+        user action; for instance:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            a toggle button will change its
+            <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-CHECKED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_CHECKED</code></a> state every time it is
+            toggled, either by the user or programmatically
+          </p></li>
+<li class="listitem"><p>
+            setting the mnemonic widget on a <a href="GtkLabel.html#GtkLabel-struct"><span class="type">GtkLabel</span></a> will update the
+            <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-LABELLED-BY:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_LABELLED_BY</code></a> relation on the widget
+            with a reference to the label
+          </p></li>
+<li class="listitem"><p>
+            changing the <a href="GtkAdjustment.html#GtkAdjustment-struct"><span class="type">GtkAdjustment</span></a> instance on a <a href="GtkScrollbar.html#GtkScrollbar-struct"><span class="type">GtkScrollbar</span></a> will
+            change the <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MAX:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MAX</code></a>,
+            <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MIN:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MIN</code></a>, and
+            <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-NOW:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_NOW</code></a> properties with the
+            upper, lower, and value properties of the <a href="GtkAdjustment.html#GtkAdjustment-struct"><span class="type">GtkAdjustment</span></a>
+          </p></li>
+</ul></div>
+<p>
+        See the
+        <a class="ulink" href="https://www.w3.org/WAI/PF/aria/appendices#quickref" target="_top">WAI-ARIA</a>
+        list of attributes for additional information.
+      </p>
+<div class="sect4">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="id-1.4.25.2.3.4.8"></a>List of accessible states</h5></div></div></div>
+<p>
+          Each state name is part of the <a href="GtkAccessible.html#GtkAccessibleState"><span class="type">GtkAccessibleState</span></a>
+          enumeration.
+        </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                  State name
+                </th>
+<th align="left">
+                  ARIA attribute
+                </th>
+<th align="left">
+                  Value type
+                </th>
+<th align="left">
+                  Notes
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-BUSY:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_BUSY</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-busy</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+<td align="left">
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-CHECKED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_CHECKED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-checked</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessibleTristate"><span class="type">GtkAccessibleTristate</span></a>
+                </td>
+<td align="left">
+                  Indicates the current state of a <a href="GtkCheckButton.html#GtkCheckButton-struct"><span class="type">GtkCheckButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-DISABLED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_DISABLED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-disabled</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+<td align="left">
+                  Corresponds to the <a href="GtkWidget.html#GtkWidget--sensitive"><span class="type">“sensitive”</span></a> property on
+                  <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-EXPANDED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_EXPANDED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-expanded</span>”</span>
+                </td>
+<td align="left">
+                  boolean or undefined
+                </td>
+<td align="left">
+                  Corresponds to the <a href="GtkExpander.html#GtkExpander--expanded"><span class="type">“expanded”</span></a> property on
+                  <a href="GtkExpander.html#GtkExpander-struct"><span class="type">GtkExpander</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-HIDDEN:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_HIDDEN</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-hidden</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+<td align="left">
+                  Corresponds to the <a href="GtkWidget.html#GtkWidget--visible"><span class="type">“visible”</span></a> property on
+                  <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-INVALID:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_INVALID</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-invalid</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessibleInvalidState"><span class="type">GtkAccessibleInvalidState</span></a>
+                </td>
+<td align="left">
+                  Set when a widget is showing an error
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-PRESSED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_PRESSED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-pressed</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessibleTristate"><span class="type">GtkAccessibleTristate</span></a>
+                </td>
+<td align="left">
+                  Indicates the current state of a <a href="GtkToggleButton.html#GtkToggleButton-struct"><span class="type">GtkToggleButton</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-SELECTED:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_SELECTED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-selected</span>”</span>
+                </td>
+<td align="left">
+                  boolean or undefined
+                </td>
+<td align="left">
+                  Set when a widget is selected
+                </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="sect4">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="id-1.4.25.2.3.4.9"></a>List of accessible properties</h5></div></div></div>
+<p>
+          Each property name is part of the <a href="GtkAccessible.html#GtkAccessibleProperty"><span class="type">GtkAccessibleProperty</span></a>
+          enumeration.
+        </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                  State name
+                </th>
+<th align="left">
+                  ARIA attribute
+                </th>
+<th align="left">
+                  Value type
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-AUTOCOMPLETE:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_AUTOCOMPLETE</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-autocomplete</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessibleAutocomplete"><span class="type">GtkAccessibleAutocomplete</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-DESCRIPTION:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_DESCRIPTION</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-description</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-HAS-POPUP:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_HAS_POPUP</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-haspopup</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-KEY-SHORTCUTS:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_KEY_SHORTCUTS</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-keyshortcuts</span>”</span>
+                </td>
+<td align="left">
+                  string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-LABEL:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_LABEL</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-label</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-LEVEL:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_LEVEL</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-level</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-MODAL:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_MODAL</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-modal</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-MULTI-LINE:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_MULTI_LINE</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-multiline</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-MULTI-SELECTABLE:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_MULTI_SELECTABLE</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-multiselectable</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-ORIENTATION:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_ORIENTATION</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-orientation</span>”</span>
+                </td>
+<td align="left">
+                  <a href="gtk4-Standard-Enumerations.html#GtkOrientation"><span class="type">GtkOrientation</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-PLACEHOLDER:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_PLACEHOLDER</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-placeholder</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-READ-ONLY:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_READ_ONLY</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-readonly</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-REQUIRED:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_REQUIRED</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-required</span>”</span>
+                </td>
+<td align="left">
+                  boolean
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-ROLE-DESCRIPTION:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_ROLE_DESCRIPTION</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-roledescription</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-SORT:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_SORT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-sort</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessibleSort"><span class="type">GtkAccessibleSort</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MAX:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MAX</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-valuemax</span>”</span>
+                </td>
+<td align="left">
+                  double
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MIN:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MIN</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-valuemin</span>”</span>
+                </td>
+<td align="left">
+                  double
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-NOW:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_NOW</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-valuenow</span>”</span>
+                </td>
+<td align="left">
+                  double
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-TEXT:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_TEXT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-valuetext</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="sect4">
+<div class="titlepage"><div><div><h5 class="title">
+<a name="id-1.4.25.2.3.4.10"></a>List of accessible relations</h5></div></div></div>
+<p>
+          Each relation name is part of the <a href="GtkAccessible.html#GtkAccessibleRelation"><span class="type">GtkAccessibleRelation</span></a>
+          enumeration.
+        </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+                  State name
+                </th>
+<th align="left">
+                  ARIA attribute
+                </th>
+<th align="left">
+                  Value type
+                </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ACTIVE-DESCENDANT:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ACTIVE_DESCENDANT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-activedescendant</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-COL-COUNT:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_COL_COUNT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-colcount</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-COL-INDEX:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_COL_INDEX</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-colindex</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-COL-INDEX-TEXT:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_COL_INDEX_TEXT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-colindextext</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-COL-SPAN:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_COL_SPAN</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-colspan</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-CONTROLS:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_CONTROLS</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-controls</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-DESCRIBED-BY:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_DESCRIBED_BY</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-describedby</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-DETAILS:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_DETAILS</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-details</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ERROR-MESSAGE:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ERROR_MESSAGE</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-errormessage</span>”</span>
+                </td>
+<td align="left">
+                  <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-FLOW-TO:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_FLOW_TO</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-flowto</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-LABELLED-BY:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_LABELLED_BY</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-labelledby</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-OWNS:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_OWNS</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-owns</span>”</span>
+                </td>
+<td align="left">
+                  a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a>
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-POS-IN-SET:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_POS_IN_SET</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-posinset</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ROW-COUNT:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ROW_COUNT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-rowcount</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ROW-INDEX:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ROW_INDEX</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-rowindex</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ROW-INDEX-TEXT:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ROW_INDEX_TEXT</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-rowindextext</span>”</span>
+                </td>
+<td align="left">
+                  translatable string
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-ROW-SPAN:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_ROW_SPAN</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-rowspan</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+<tr>
+<td align="left">
+                  <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-SET-SIZE:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_SET_SIZE</code></a>
+                </td>
+<td align="left">
+                  <span class="quote">“<span class="quote">aria-setsize</span>”</span>
+                </td>
+<td align="left">
+                  integer
+                </td>
+</tr>
+</tbody>
+</table></div>
+<p>
+          <span class="emphasis"><em>Note</em></span>: When using
+          <a href="GtkAccessible.html#gtk-accessible-update-relation"><code class="function">gtk_accessible_update_relation()</code></a> with a relation that requires
+          a list of <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> instances, you should pass every
+          accessible object separately, followed by <code class="literal">NULL</code>.
+        </p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.4"></a>Application development rules</h3></div></div></div>
+<p>
+      Even if standard UI controls provided by GTK have accessibility
+      information out of the box, there are some additional properties
+      and considerations for application developers. For instance, if
+      your application presents the user with a form to fill out, you
+      should ensure that:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+          the container of the form has a
+          <code class="literal">GTK_ACCESSIBLE_ROLE_FORM</code> role
+        </p></li>
+<li class="listitem"><p>
+          each text entry widget in the form has the
+          <code class="literal">GTK_ACCESSIBLE_RELATION_LABELLED_BY</code>
+          relation pointing to the label widget that describes it
+        </p></li>
+</ul></div>
+<p>
+      Another example: if you create a toolbar containing buttons with
+      only icons, you should ensure that:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+          the container has a
+          <code class="literal">GTK_ACCESSIBLE_ROLE_TOOLBAR</code> role
+        </p></li>
+<li class="listitem"><p>
+          each button has a
+          <code class="literal">GTK_ACCESSIBLE_PROPERTY_LABEL</code> property set
+          with the user readable and localised action performed when
+          pressed; for instance <span class="quote">“<span class="quote">Copy</span>”</span>,
+          <span class="quote">“<span class="quote">Paste</span>”</span>, <span class="quote">“<span class="quote">Add layer</span>”</span>, or
+          <span class="quote">“<span class="quote">Remove</span>”</span>
+        </p></li>
+</ul></div>
+<p>
+      GTK will try to fill in some information by using ancillary UI
+      control properties, for instance the accessible label will be
+      taken from the label or placeholder text used by the UI control,
+      or from its tooltip, if the
+      <code class="literal">GTK_ACCESSIBLE_PROPERTY_LABEL</code> property or the
+      <code class="literal">GTK_ACCESSIBLE_RELATION_LABELLED_BY</code> relation
+      are unset. Nevertheless, it is good practice and project hygiene
+      to explicitly specify the accessible properties, just like it’s
+      good practice to specify tooltips and style classes.
+    </p>
+<p>
+      Application developers using GTK
+      <span class="strong"><strong>should</strong></span> ensure that their UI
+      controls are accessible as part of the development process. When
+      using <code class="literal">GtkBuilder</code> templates and UI definition
+      files, GTK provides a validation tool that verifies that each UI
+      element has a valid role and properties; this tool can be used as
+      part of the application’s test suite to avoid regressions.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.5"></a>Implementations</h3></div></div></div>
+<p>
+      Each UI control implements the <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> interface to allow
+      widget and application developers to specify the roles, state, and
+      relations between UI controls. This API is purely descriptive.
+    </p>
+<p>
+      Each <code class="literal">GtkAccessible</code> implementation must provide
+      a <a href="GtkATContext.html#GtkATContext-struct"><span class="type">GtkATContext</span></a> instance, which acts as a proxy to the specific
+      platform’s accessibility API:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+          AT-SPI on Linux/BSD
+        </p></li>
+<li class="listitem"><p>
+          NSAccessibility on macOS
+        </p></li>
+<li class="listitem"><p>
+          Active Accessibility on Windows
+        </p></li>
+</ul></div>
+<p>
+      Additionally, an ad hoc accessibility backend is available for the
+      GTK testsuite, to ensure reproducibility of issues in the CI
+      pipeline.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="authoring-practices"></a>Authoring practices</h3></div></div></div>
+<p>
+      The authoring practices are aimed at application developers, as
+      well as developers of GUI elements based on GTK.
+    </p>
+<p>
+      Functionally, <a href="GtkAccessible.html#GtkAccessible-struct"><span class="type">GtkAccessible</span></a> roles, states, properties, and
+      relations are analogous to a CSS for assistive technologies. For
+      screen reader users, for instance, the various accessible
+      attributes control the rendering of their non-visual experience.
+      Incorrect roles and attributes may result in a completely
+      inaccessible user interface.
+    </p>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.6.4"></a>A role is a promise</h4></div></div></div>
+<p>
+        The following code:
+      </p>
+<pre class="programlisting">gtk_widget_class_set_accessible_role (widget_class, GTK_ACCESSIBLE_ROLE_BUTTON);
+</pre>
+<p>
+        is a promise that the widget being created will provide the same
+        keyboard interactions expected for a button. An accessible role
+        of a button will not turn automatically any widget into a
+        <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a>; but if your widget behaves like a button, using the
+        <a href="GtkAccessible.html#GTK-ACCESSIBLE-ROLE-BUTTON:CAPS"><code class="literal">GTK_ACCESSIBLE_ROLE_BUTTON</code></a> will allow any assistive technology
+        to handle it like they would a <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a>.
+      </p>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.6.5"></a>Attributes can both hide and enhance</h4></div></div></div>
+<p>
+        Accessible attributes can be used to override the content of a
+        UI element, for instance:
+      </p>
+<pre class="programlisting">gtk_label_set_text (GTK_LABEL (label), "Some text");
+gtk_accessible_update_property (GTK_ACCESSIBLE (label),
+                GTK_ACCESSIBLE_PROPERTY_LABEL,
+                "Assistive technologies users will perceive "
+                "this text, not the contents of the label",
+                -1);
+</pre>
+<p>
+        In the example above, the <span class="quote">“<span class="quote">label</span>”</span> property will
+        override the contents of the label widget.
+      </p>
+<p>
+        The attributes can also enhance the UI:
+      </p>
+<pre class="programlisting">gtk_button_set_label (GTK_BUTTON (button), "Download");
+gtk_box_append (GTK_BOX (button), button);
+
+gtk_label_set_text (GTK_LABEL (label), "Final report.pdf");
+gtk_box_append (GTK_BOX (box), label);
+
+gtk_accessible_update_relation (GTK_ACCESSIBLE (button),
+                GTK_ACCESSIBLE_RELATION_LABELLED_BY,
+                g_list_append (NULL, label),
+                -1);
+</pre>
+<p>
+        In the example above, an assistive technology will read the
+        button’s accessible label as <span class="quote">“<span class="quote">Download Final
+        report.pdf</span>”</span>.
+      </p>
+<p>
+        The power of hiding and enhancing can be a double-edged sword,
+        as it can lead to inadvertently overriding the accessible
+        semantics of existing widgets.
+      </p>
+</div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.7"></a>Hiding UI elements from the accessible tree</h3></div></div></div>
+<p>
+      The accessibility API is mainly used to express semantics useful
+      for assistive technologies, but it can also be used to hide
+      elements. The canonical way to do so is to use the
+      <a href="GtkAccessible.html#GTK-ACCESSIBLE-ROLE-PRESENTATION:CAPS"><code class="literal">GTK_ACCESSIBLE_ROLE_PRESENTATION</code></a>, which declares that a UI
+      element is purely meant for presentation purposes, and as such it
+      has no meaningful impact on the accessibility of the interface.
+    </p>
+<p>
+      A <span class="quote">“<span class="quote">presentation</span>”</span> role should not be confused with the
+      <a href="GtkAccessible.html#GTK-ACCESSIBLE-STATE-HIDDEN:CAPS"><code class="literal">GTK_ACCESSIBLE_STATE_HIDDEN</code></a> state; the <span class="quote">“<span class="quote">hidden</span>”</span>
+      state is transient, and is typically controlled by showing and
+      hiding a widget using the <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> API.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.25.2.8"></a>Design patterns and custom widgets</h3></div></div></div>
+<p>
+      When creating custom widgets, following established patterns can
+      help ensuring that the widgets work well for users of accessible
+      technologies as well.
+    </p>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.8.3"></a>Buttons</h4></div></div></div>
+<p>
+        A button is a widget that enables users to trigger an action.
+        While it is recommended you use <a href="GtkButton.html#GtkButton-struct"><span class="type">GtkButton</span></a> for anything that
+        looks and behaves like a button, it is possible to apply a
+        button behavior to UI elements like images by using a
+        <a href="GtkGestureClick.html#GtkGestureClick-struct"><span class="type">GtkGestureClick</span></a> gesture. When doing so, you should:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            Give your widget the role <a href="GtkAccessible.html#GTK-ACCESSIBLE-ROLE-BUTTON:CAPS"><code class="literal">GTK_ACCESSIBLE_ROLE_BUTTON</code></a>
+          </p></li>
+<li class="listitem"><p>
+            Install an action with no parameters, which will activate
+            the widget
+          </p></li>
+</ul></div>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.8.4"></a>Custom entries</h4></div></div></div>
+<p>
+        For custom entries, it is highly recommended that you implement
+        the <a href="GtkEditable.html#GtkEditable-struct"><span class="type">GtkEditable</span></a> interface by using a <a href="GtkText.html#GtkText-struct"><span class="type">GtkText</span></a> widget as
+        delegate. If you do this, GTK will make your widgets text
+        editing functionality accessible in the same way as a
+        <a href="GtkSpinButton.html#GtkSpinButton-struct"><span class="type">GtkSpinButton</span></a> or <a href="GtkSearchEntry.html#GtkSearchEntry-struct"><span class="type">GtkSearchEntry</span></a>.
+      </p>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.8.5"></a>Tab-based UI</h4></div></div></div>
+<p>
+        If you make a tab-based interface, you should consider using
+        <a href="GtkStack.html#GtkStack-struct"><span class="type">GtkStack</span></a> as the core, and just make a custom tab widget to
+        control the active stack page. When doing so, the following
+        extra steps will ensure that your tabs are accessible in the
+        same way as <a href="GtkStackSwitcher.html#GtkStackSwitcher-struct"><span class="type">GtkStackSwitcher</span></a> or <a href="GtkNotebook.html#GtkNotebook-struct"><span class="type">GtkNotebook</span></a>:
+      </p>
+<div class="itemizedlist"><ul class="itemizedlist compact" style="list-style-type: disc; ">
+<li class="listitem"><p>
+            Give your tab container the role
+            <a href="GtkAccessible.html#GTK-ACCESSIBLE-ROLE-TAB-LIST:CAPS"><code class="literal">GTK_ACCESSIBLE_ROLE_TAB_LIST</code></a>
+          </p></li>
+<li class="listitem"><p>
+            Give your tab widgets the role <a href="GtkAccessible.html#GTK-ACCESSIBLE-ROLE-TAB:CAPS"><code class="literal">GTK_ACCESSIBLE_ROLE_TAB</code></a>
+          </p></li>
+<li class="listitem"><p>
+            Set up the <a href="GtkAccessible.html#GTK-ACCESSIBLE-RELATION-CONTROLS:CAPS"><code class="literal">GTK_ACCESSIBLE_RELATION_CONTROLS</code></a> relation
+            between each tab and the <a href="GtkStack.html#GtkStackPage-struct"><span class="type">GtkStackPage</span></a> object for its page
+          </p></li>
+<li class="listitem"><p>
+            Set the <code class="literal">GTK_ACCESSIBLE_PROPERTY_SELECTED</code> property on each
+            tab, with the active tab getting the value <code class="literal">TRUE</code>, all others
+            <code class="literal">FALSE</code>
+          </p></li>
+</ul></div>
+<p>
+        To allow changing the active tab via accessible technologies,
+        you can export actions. Since the accessibility interfaces only
+        support actions without parameters, you can either provide
+        <code class="literal">previous-tab</code> and <code class="literal">next-tab</code>
+        actions on the tab container that let users step through the
+        tabs one-by-one, or add a <code class="literal">activate-tab</code> action
+        on each tab.
+      </p>
+</div>
+<div class="sect3">
+<div class="titlepage"><div><div><h4 class="title">
+<a name="id-1.4.25.2.8.6"></a>Value controls</h4></div></div></div>
+<p>
+        A value control (ie a widget that controls a one-dimensional
+        quantity that can be represented by a <a href="GtkAdjustment.html#GtkAdjustment-struct"><span class="type">GtkAdjustment</span></a>) can be
+        represented to accessible technologies by setting the
+        <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MIN:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MIN</code></a>,
+        <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-MAX:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_MAX</code></a>, and
+        <a href="GtkAccessible.html#GTK-ACCESSIBLE-PROPERTY-VALUE-NOW:CAPS"><code class="literal">GTK_ACCESSIBLE_PROPERTY_VALUE_NOW</code></a> properties.
+      </p>
+<p>
+        To allow changing the value via accessible technologies, you can
+        export actions. Since the accessibility interfaces only support
+        actions without parameters, you should provide actions such as
+        <code class="literal">increase-value</code> and
+        <code class="literal">decrease-value</code>.
+      </p>
+</div>
+</div>
+</div>
+      
+      
+    </div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="Accessibility.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

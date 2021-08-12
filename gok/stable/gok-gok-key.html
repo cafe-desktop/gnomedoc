@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>gok-key</title><link href="index.html" rel="home" title="GOK - Gnome Onscreen Keyboard"></link><link href="ch01.html" rel="up" title="GOK Internal API"></link><link href="gok-gok-gconf.html" rel="prev" title="gok-gconf"></link><link href="gok-gok-keyboard.html" rel="next" title="gok-keyboard"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gok-gok-key.html#container">Go to page content</a></li><li><a href="gok-gok-key.html#top_bar">Go to main menu</a></li><li><a href="gok-gok-key.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="gok-gok-gconf.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GOK - Gnome Onscreen Keyboard</th>
+<td><a accesskey="n" href="gok-gok-keyboard.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="gok-gok-key.html#gok-gok-key.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="gok-gok-key.html#gok-gok-key.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="gok-gok-key"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gok-gok-key.top_of_page"></a>gok-key</span></h2>
+<p>gok-key</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="gok-gok-key.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="gok-gok-key.html#KeyStyles" title="enum KeyStyles">KeyStyles</a>;
+#define             <a class="link" href="gok-gok-key.html#FONT-SIZE-GROUP-UNDEFINED:CAPS" title="FONT_SIZE_GROUP_UNDEFINED">FONT_SIZE_GROUP_UNDEFINED</a>
+#define             <a class="link" href="gok-gok-key.html#FONT-SIZE-GROUP-UNIQUE:CAPS" title="FONT_SIZE_GROUP_UNIQUE">FONT_SIZE_GROUP_UNIQUE</a>
+#define             <a class="link" href="gok-gok-key.html#FONT-SIZE-GROUP-WORDCOMPLETE:CAPS" title="FONT_SIZE_GROUP_WORDCOMPLETE">FONT_SIZE_GROUP_WORDCOMPLETE</a>
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-key.html#gok-key-initialize" title="gok_key_initialize ()">gok_key_initialize</a>                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-key.html#gok-key-add-label" title="gok_key_add_label ()">gok_key_add_label</a>                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pLabelText</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> level</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *vmods</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-set-output" title="gok_key_set_output ()">gok_key_set_output</a>                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pName</code></em>,
+                                                         <em class="parameter"><code><span class="type">AccessibleKeySynthType</span> Flag</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-change-label" title="gok_key_change_label ()">gok_key_change_label</a>                (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *LabelText</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-update-label" title="gok_key_update_label ()">gok_key_update_label</a>                (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-key.html#gok-key-get-label-lengthpercell" title="gok_key_get_label_lengthpercell ()">gok_key_get_label_lengthpercell</a>     (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-key.html#gok-key-get-label-heightpercell" title="gok_key_get_label_heightpercell ()">gok_key_get_label_heightpercell</a>     (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-key.html#gok-key-calculate-font-size" title="gok_key_calculate_font_size ()">gok_key_calculate_font_size</a>         (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bHeight</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-set-font-size" title="gok_key_set_font_size ()">gok_key_set_font_size</a>               (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-set-button-name" title="gok_key_set_button_name ()">gok_key_set_button_name</a>             (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-set-button-label" title="gok_key_set_button_label ()">gok_key_set_button_label</a>            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *LabelText</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="gok-gok-key.html#gok-key-get-label" title="gok_key_get_label ()">gok_key_get_label</a>                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">GokKeyLabel</span> *       <a class="link" href="gok-gok-key.html#gok-keylabel-new" title="gok_keylabel_new ()">gok_keylabel_new</a>                    (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pLabelText</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> level</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *vmods</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-keylabel-delete" title="gok_keylabel_delete ()">gok_keylabel_delete</a>                 (<em class="parameter"><code><span class="type">GokKeyLabel</span> *pKeyLabel</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-key.html#gok-key-set-cells" title="gok_key_set_cells ()">gok_key_set_cells</a>                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> top</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> bottom</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> left</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> right</code></em>);
+<span class="returnvalue">GokKey</span> *            <a class="link" href="gok-gok-key.html#gok-key-duplicate" title="gok_key_duplicate ()">gok_key_duplicate</a>                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gok-gok-key.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gok-gok-key.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="KeyStyles"></a><h3>enum KeyStyles</h3>
+<pre class="programlisting">typedef enum {
+KEYSTYLE_NORMAL,
+KEYSTYLE_BRANCH,
+KEYSTYLE_BRANCHBACK,
+KEYSTYLE_GENERALDYNAMIC,
+KEYSTYLE_BRANCHMENUS,
+KEYSTYLE_BRANCHMENUITEMS,
+KEYSTYLE_MENUITEM,
+KEYSTYLE_BRANCHTOOLBARS,
+KEYSTYLE_TOOLBARITEM,
+KEYSTYLE_BRANCHGUI,
+KEYSTYLE_BRANCHGUIACTIONS,
+KEYSTYLE_PAGESELECTION,
+KEYSTYLE_BRANCHCOMPOSE,
+KEYSTYLE_TEXTNAV,
+KEYSTYLE_EDIT,
+KEYSTYLE_SELECT,
+KEYSTYLE_TOGGLESELECT,
+KEYSTYLE_BRANCHALPHABET,
+KEYSTYLE_SETTINGS,
+KEYSTYLE_SPELL,
+KEYSTYLE_WORDCOMPLETE,
+KEYSTYLE_POINTERCONTROL,
+KEYSTYLE_BRANCHHYPERTEXT,
+KEYSTYLE_BRANCHMODAL,
+KEYSTYLE_HTMLACTION,
+KEYSTYLE_HYPERLINK,
+KEYSTYLE_BRANCHTEXT,
+KEYSTYLE_HELP,
+KEYSTYLE_ABOUT,
+KEYSTYLE_DOCK,
+KEYSTYLE_MOUSE,
+KEYSTYLE_MOUSEBUTTON,
+KEYSTYLE_REPEATNEXT,
+KEYSTYLE_ADDWORD,
+KEYSTYLE_INSENSITIVE
+} KeyStyles;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="FONT-SIZE-GROUP-UNDEFINED:CAPS"></a><h3>FONT_SIZE_GROUP_UNDEFINED</h3>
+<pre class="programlisting">#define FONT_SIZE_GROUP_UNDEFINED 0
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="FONT-SIZE-GROUP-UNIQUE:CAPS"></a><h3>FONT_SIZE_GROUP_UNIQUE</h3>
+<pre class="programlisting">#define FONT_SIZE_GROUP_UNIQUE -1
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="FONT-SIZE-GROUP-WORDCOMPLETE:CAPS"></a><h3>FONT_SIZE_GROUP_WORDCOMPLETE</h3>
+<pre class="programlisting">#define FONT_SIZE_GROUP_WORDCOMPLETE -2
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-initialize"></a><h3>gok_key_initialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_key_initialize                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that's getting initialized.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML node that contains the key data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the key was initialized, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-add-label"></a><h3>gok_key_add_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_key_add_label                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pLabelText</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> level</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *vmods</code></em>);</pre>
+<p>
+Adds a label to the key. This allocates memory for the label that will
+be freed in gok_key_delete.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that's gets the new label.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pLabelText</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>level</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vmods</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the key was initialized, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-set-output"></a><h3>gok_key_set_output ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_set_output                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pName</code></em>,
+                                                         <em class="parameter"><code><span class="type">AccessibleKeySynthType</span> Flag</code></em>);</pre>
+<p>
+Sets the output for the key. This allocates memory for the output that will
+be freed in gok_key_delete.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that's gets the new output.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Type</code></em> :</span></p></td>
+<td>Type of output (e.g. keysym or keycode)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pName</code></em> :</span></p></td>
+<td>Pointer to the name string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Flag</code></em> :</span></p></td>
+<td>Type of key synth output (if relevant)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-change-label"></a><h3>gok_key_change_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_change_label                (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *LabelText</code></em>);</pre>
+<p>
+Changes the label displayed on the gok key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets the new label.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>LabelText</code></em> :</span></p></td>
+<td>The new label text.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-update-label"></a><h3>gok_key_update_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_update_label                (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Changes the key's label if the modifier state has changed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets an updated label.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-get-label-lengthpercell"></a><h3>gok_key_get_label_lengthpercell ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_key_get_label_lengthpercell     (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Calculates the length of the key's label. Some keys span more
+than one cell so divide the label length into the number of cells.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key you want the to find the label length per cell.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The length of the key's label per cell.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-get-label-heightpercell"></a><h3>gok_key_get_label_heightpercell ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_key_get_label_heightpercell     (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Calculates the height of the key's label. Some keys span more
+than one cell so divide the label height into the number of cells.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key you want to find the height.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The height of the key's label per cell.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-calculate-font-size"></a><h3>gok_key_calculate_font_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_key_calculate_font_size         (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> width</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bHeight</code></em>);</pre>
+<p>
+Calculates the font size needed for the key's label to fill the key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that we're getting the font size for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bHeight</code></em> :</span></p></td>
+<td>If TRUE then calculate the font size needed for the height
+of the key's label.
+Note: Both bWidth and bHeight can be TRUE.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The font size, in 1000s of a point (e.g. 9 point is 9000).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-set-font-size"></a><h3>gok_key_set_font_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_set_font_size               (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Size</code></em>);</pre>
+<p>
+Sets the font size for the key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets the new font size.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Size</code></em> :</span></p></td>
+<td>Font size you want the key's text to be.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-set-button-name"></a><h3>gok_key_set_button_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_set_button_name             (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Sets the 'name' of the key's label. The 'name' is used to determine
+the key/label colors from the .rc file. This must be called for every key
+after it's created and after the label name has been changed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets the new 'name'.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-set-button-label"></a><h3>gok_key_set_button_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_set_button_label            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *LabelText</code></em>);</pre>
+<p>
+Changes the button label displayed on the key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that will have it's button label changed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>LabelText</code></em> :</span></p></td>
+<td>Text for the button.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-get-label"></a><h3>gok_key_get_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gok_key_get_label                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that you want the label for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the label's text string, NULL if no label.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-keylabel-new"></a><h3>gok_keylabel_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokKeyLabel</span> *       gok_keylabel_new                    (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *pLabelText</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> level</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *vmods</code></em>);</pre>
+<p>
+Allocates memory for a new key label and initializes the GokKeyLabel structure.
+Returns a pointer to the new key label, NULL if it can't be created.
+Add this label to a key so it will be deleted when the key is deleted.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets the new label.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pLabelText</code></em> :</span></p></td>
+<td>Text string for this label.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>level</code></em> :</span></p></td>
+<td>the level (see XKB spec) for which this label is valid.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>group</code></em> :</span></p></td>
+<td>the group (see XKB spec) for which this label is valid.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vmods</code></em> :</span></p></td>
+<td>a delimited list of virtual modifier names which must be matched 
+        in order for this label to be valid, or NULL if no virtual 
+        modifiers are relevant to this label.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the new key label, NULL if it wasn't created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-keylabel-delete"></a><h3>gok_keylabel_delete ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_keylabel_delete                 (<em class="parameter"><code><span class="type">GokKeyLabel</span> *pKeyLabel</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKeyLabel</code></em> :</span></p></td>
+<td>Pointer to the key label that will be deleted.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-set-cells"></a><h3>gok_key_set_cells ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_key_set_cells                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> top</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> bottom</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> left</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> right</code></em>);</pre>
+<p>
+Changes the cell coordinates (used by the editor).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Key that gets it's cells changed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>top</code></em> :</span></p></td>
+<td>Top cell for the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bottom</code></em> :</span></p></td>
+<td>Bottom cell for the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>left</code></em> :</span></p></td>
+<td>Left cell for the key.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>right</code></em> :</span></p></td>
+<td>Right cell for the key.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-key-duplicate"></a><h3>gok_key_duplicate ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokKey</span> *            gok_key_duplicate                   (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Not implemented yet.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that gets duplicated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the duplicate key, NULL if it was not created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gok-gok-key.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

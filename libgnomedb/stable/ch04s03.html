@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Coding the application</title><link href="index.html" rel="start" title="Libgnomedb 3.0 Reference Manual"></link><link href="libgnomedb-example.html" rel="up" title="A small example"></link><link href="ch04s02.html" rel="prev" title="Database structure"></link><link href="ch05.html" rel="next" title="Widget Gallery"></link><link href="part_begin.html" rel="part" title="Part I. Getting started"></link><link href="introduction.html" rel="chapter" title="Introduction"></link><link href="features.html" rel="chapter" title="libgnomedb features"></link><link href="architecture.html" rel="chapter" title="libgnomedb architecture"></link><link href="libgnomedb-example.html" rel="chapter" title="A small example"></link><link href="ch05.html" rel="chapter" title="Widget Gallery"></link><link href="migration.html" rel="chapter" title="Migration from older versions"></link><link href="pt02.html" rel="part" title="Part II. libgnomedb API Reference"></link><link href="ch07.html" rel="chapter" title="Object Hierarchy"></link><link href="dsn-widgets.html" rel="chapter" title="Datasources and connection related widgets"></link><link href="databound-widgets.html" rel="chapter" title="Data bound widgets"></link><link href="ch10.html" rel="chapter" title="Individual data entry widgets"></link><link href="ch11.html" rel="chapter" title="Cell renderers"></link><link href="ch12.html" rel="chapter" title="Extra widgets"></link><link href="ch13.html" rel="chapter" title="Graph widgets"></link><link href="misc.html" rel="chapter" title="Miscellaneous"></link><link href="non-inst-widgets.html" rel="chapter" title="Non instantiable objects and widgets"></link><link href="fdl.html" rel="appendix" title="Appendix A. GNU Free Documentation License"></link><link href="libgnomedb-index.html" rel="chapter" title="Index"></link><link href="libgnomedb-index.html#id2647658" rel="index" title="Index"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ch04s03.html#container">Go to page content</a></li><li><a href="ch04s03.html#top_bar">Go to main menu</a></li><li><a href="ch04s03.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="ch04s02.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="libgnomedb-example.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Libgnomedb 3.0 Reference Manual</th>
+<td><a accesskey="n" href="ch05.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id2548073"></a>Coding the application</h2></div></div></div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548079"></a>Creating the data dictionary</h3></div></div></div>
+<p>
+      The data dictionary is necessary for <span class="application">libgnomedb</span> to operate. The generation of a data dictionary can be
+      done through the library itself, but it's easier to use the 'gnome-database-properties' utility provided in the
+      'control-center/' directory.
+    </p>
+<p>
+      To create the data dictionary, simply run 'gnome-database-properties', create or select a data source, 
+      and then choose to browse the contents of the database pointed by the data source. This application should have
+      created an XML dictionary file in '~/.libgda/DICT_&lt;data source name&gt;_default.xml'. That file can then
+      be copied or used directly. In the present case, the dictionary file is provided in the 'SampleApp.xml' file.
+    </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548112"></a>Definition of the queries</h3></div></div></div>
+<p>
+      <span class="application">libgnomedb</span> has widgets which work from SELECT queries which need to be provided and allows direct modification
+      from the users through either a grid (<a href="GnomeDbGrid.html" title="GnomeDbGrid">GnomeDbGrid</a> widget), 
+      a form (<a href="GnomeDbForm.html" title="GnomeDbForm">GnomeDbForm</a> widget) 
+      or a matrix like (GnomeDbMatrix widget).
+    </p>
+<p>
+      In this example, the first query to use is the query to get the orders when a customer is chosen; 
+      this query contains a single parameter which need to be assigned a customer Id value before it
+      can be executed. The SELECT query is (note the syntax to specify a parameter named "Customer"
+      between square brackets):
+    </p>
+<pre class="programlisting">      SELECT o.id, 
+      c.name AS "Customer name", 
+      o.creation_date AS "Creation Date", 
+      o.delivery_before AS "Deliver before", 
+      o.delivery_date AS "Delivery Date" 
+      FROM customers c INNER JOIN orders o ON (c.id=o.customer) 
+      WHERE o.customer= ## /*name:"Customer" type:"int4"*/
+    </pre>
+<p>
+      The other query which required is the query to list the products which are part of a given order:
+    </p>
+<pre class="programlisting">      SELECT p.ref AS "Item ref#", 
+      p.name AS "Item name", 
+      o.quantity AS "Quantity", 
+      o.discount AS "Discount" 
+      FROM products p INNER JOIN order_contents o ON (p.ref=o.product_ref)
+      WHERE o.order_id= ## /*name:"oid" type:"int4"*/
+    </pre>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548190"></a>Code parts: includes and defines</h3></div></div></div>
+<p>
+      The following code extract shows the global definitions:
+      </p>
+<pre class="programlisting">	#include &lt;libgnomedb/libgnomedb.h&gt;
+	#define DICT_FILE "SampleApp.xml"
+	GdaDict *dict;
+      </pre>
+<p>
+    </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548209"></a>Code parts: the main() function</h3></div></div></div>
+<p>
+      Here is the part of the code using the <span class="application">libgnomedb</span> library. 
+      The complete code is available in the 'examples/SampleApp' directory. The main()
+      function contains the following code, and basically loads the dictionary XML file 
+      (the DICT_FILE macro) and opens the connection to the
+      DBMS; the main window is built using the create_app1() (generated by Glade itself), 
+      and in the prepare_main_window() function.
+    </p>
+<p>
+      </p>
+<pre class="programlisting">      1 int
+      2 main (int argc, char *argv[])
+      3 {
+      4         GtkWidget *app1;
+      5         GError *error = NULL;
+      6         GdaConnection *server;
+      7
+      8 #ifdef ENABLE_NLS
+      9         bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+     10         bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+     11         textdomain (GETTEXT_PACKAGE);
+     12 #endif
+     13
+     14         gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE,
+     15                             argc, argv,
+     16                             GNOME_PARAM_APP_DATADIR, PACKAGE_DATA_DIR,
+     17                             NULL);
+     18
+     19         /* loading XML file into dictionary */
+     20         dict = GDA_DICT (gda_dict_new ());
+     21         if (! gda_dict_load_xml_file (dict, DICT_FILE, &amp;error)) {
+     22                 gchar *str;
+     23
+     24                 str = g_strdup_printf (_("Error loading file '%s':\n%s\n"), DICT_FILE,
+     25                                        error-&gt;message);
+     26                 display_error_and_quit (str);
+     27         }
+     28         server = gda_dict_get_server (dict);
+     29         if (! gda_connection_open_connect (server, &amp;error)) {
+     30                 gchar *str;
+     31
+     32                 str = g_strdup_printf (_("Can't open connection:\n%s\n"), error-&gt;message);
+     33                 display_error_and_quit (str);
+     34         }
+     35
+     36         app1 = create_app1 ();
+     37         prepare_main_window (app1);
+     38         gtk_widget_show (app1);
+     39
+     40         g_signal_connect (G_OBJECT (app1), "delete_event",
+     41                           G_CALLBACK (delete_event), NULL);
+     42         g_signal_connect (G_OBJECT (app1), "destroy",
+     43                           G_CALLBACK (destroy), NULL);
+     44
+     45         gtk_main ();
+     46         return 0;
+     47 }
+      </pre>
+<p>
+    </p>
+<p>
+      Among the noticeable lines of code are:
+      </p>
+<div class="orderedlist"><ol type="1">
+<li><p>Lines 20 to 27: a <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaDict.html">GdaDict</a> object is created and
+	    the dictionary file is loaded into memory; if an error occurs then the application quits;
+	  </p></li>
+<li><p>Lines 28 to 34: the <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaConnection.html">GdaConnection</a> object related to
+	    the GdaDict object is used to open the connection to the database. Again if that fails,
+	    the application quits.
+	  </p></li>
+</ol></div>
+<p>
+    </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548366"></a>Code parts: the prepare_main_window() function</h3></div></div></div>
+<p>
+      The prepare_main_window() function replaces some widgets built by Glade 
+      (as there is not yet any support in Glade for the
+      <span class="application">libgnomedb</span>'s widgets) by some widgets provided by <span class="application">libgnomedb</span> 
+      (this is why there are some gtk_table_attach() calls). 
+      Note that the GnomeDbLayout widget makes it easy to have the same result
+      without writing a single line of code.
+    </p>
+<p>
+    </p>
+<p>
+      </p>
+<pre class="programlisting">      1 static void
+      2 prepare_main_window (GtkWidget *main_window)
+      3 {
+      4         GdaQuery *qu_cust, *qu_orders, *qu_contents;
+      5         GdaParameterList *data_set;
+      6         GtkWidget *form;
+      7         GtkWidget *table = lookup_widget (main_window, "table1");
+      8         GtkWidget *grid_orders, *grid_contents;
+      9         GdaQueryTarget *target;
+     10         GdaParameter *param1, *param2;
+     11         GdaEntityField *field, *src_field, *key_field;
+     12         gint colno;
+     13
+     14 #define CUSTOMERS_SQL "SELECT id, name FROM customers"
+     15 #define ORDERS_SQL "SELECT o.id, c.name AS \"Customer name\", 
+                o.creation_date AS \"Creation Date\", o.delivery_before AS \"Deliver before\", 
+                o.delivery_date AS \"Delivery Date\" 
+                FROM customers c INNER JOIN orders o ON (c.id=o.customer) 
+                WHERE o.customer= ## /*name:\"Customer\" type:\"int4\"*/"
+     16 #define CONTENTS_SQL "SELECT p.ref AS \"Item ref#\", p.name AS \"Item name\", 
+                o.quantity AS \"Quantity\", o.discount AS \"Discount\" 
+                FROM products p INNER JOIN order_contents o ON (p.ref=o.product_ref) 
+                WHERE o.order_id= ## /*name:\"oid\" type:\"int4\"*/"
+     17
+     18         /* creating queries */
+     19         qu_cust = GDA_QUERY (gda_query_new_from_sql (dict, CUSTOMERS_SQL, NULL));
+     20         qu_orders = GDA_QUERY (gda_query_new_from_sql (dict, ORDERS_SQL, NULL));
+     21         qu_contents = GDA_QUERY (gda_query_new_from_sql (dict, CONTENTS_SQL, NULL));
+     22         /* TODO: test queries validity */
+     23
+     24         /* restrict possible values for the 'Customer' parameter */
+     25         field = gda_entity_get_field_by_name (GDA_ENTITY (qu_orders), "Customer");
+     26         src_field = gda_entity_get_field_by_name (GDA_ENTITY (qu_cust), "id");
+     27         g_object_set (G_OBJECT (field), "value-provider", src_field, NULL);
+     28         gda_query_add_param_source (qu_orders, qu_cust);
+     29
+     30         /* grid for the orders */ 
+     31         target = gda_query_get_target_by_alias (qu_orders, "o"); 
+     32         grid_orders = gnome_db_grid_new_with_select_query (qu_orders,  target);
+     33         g_object_set (G_OBJECT (grid_orders), "title-visible", FALSE, NULL);
+     34         gtk_table_attach_defaults (GTK_TABLE (table), grid_orders, 0, 1, 3, 4);
+     35         gtk_widget_show (grid_orders);
+     36
+     37         /* hide the column corresponding to the o.id field which we don't want to appear in the grid widget */
+     38         key_field = gda_entity_get_field_by_name (GDA_ENTITY (qu_orders), "o.id");
+     39         gnome_db_data_widget_column_hide (GNOME_DB_DATA_WIDGET (grid_orders), 0);
+     40
+     41         /* Form for the customer's choice */
+     42         data_set = gnome_db_data_widget_get_params (GNOME_DB_DATA_WIDGET (grid_orders));
+     43         form = gnome_db_basic_form_new (dict, data_set);
+     44         gnome_db_basic_form_show_entries_actions (GNOME_DB_BASIC_FORM (form), FALSE);
+     45         gnome_db_basic_form_set_entries_auto_default (GNOME_DB_BASIC_FORM (form), FALSE);
+     46         gtk_table_attach (GTK_TABLE (table), form, 0, 1, 1, 2, GTK_FILL | GTK_EXPAND | GTK_SHRINK , 0, 0, 0);
+     47         gtk_widget_show (form);
+     48
+     49         /* grid for the order's contents */
+     50         target = gda_query_get_target_by_alias (qu_contents, "o");
+     51         grid_contents = gnome_db_grid_new_with_select_query (qu_contents,  target);
+     52         g_object_set (G_OBJECT (grid_contents), "title-visible", FALSE, NULL);
+     53         gtk_table_attach_defaults (GTK_TABLE (table), grid_contents, 0, 1, 5, 6);
+     54         gtk_widget_show (grid_contents);
+     55
+     56         /* binding the order's choice to the order's contents */
+     57         data_set = gnome_db_data_widget_get_params (GNOME_DB_DATA_WIDGET (grid_contents));
+     58         field = gda_entity_get_field_by_name (GDA_ENTITY (qu_contents), "oid");
+     59         param1 = gda_parameter_list_find_param_for_user (data_set, field);
+     60
+     61         data_set = gnome_db_data_widget_get_data (GNOME_DB_DATA_WIDGET (grid_orders));
+     62         param2 = gda_parameter_list_find_param_for_user (data_set, key_field);
+     63
+     64         gda_parameter_bind_to_param (param1, param2);
+     65
+     66         /* free memory */
+     67         g_object_unref (qu_cust);
+     68         g_object_unref (qu_orders);
+     69         g_object_unref (qu_contents);
+     70 }
+      </pre>
+<p>
+    </p>
+<p>
+      Code parts explanations:
+      </p>
+<div class="orderedlist"><ol type="1">
+<li><p>Lines 14 to 16 define the SQL code used for each query;
+	  </p></li>
+<li><p>Lines 19 to 21 create a <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaQuery.html">GdaQuery</a> object for each query
+	    defined just above. Note that each query should be tested to make sure the SQL code is valid and
+	    the elements it contains (tables, fields, etc) are all defined within the data dictionary.
+	  </p></li>
+<li>
+<p>Line 24 to 28 make it possible to select the 'Customer' parameter among a list of defined values,
+	    which are extracted from the "SELECT id, name FROM customers" query. This way instead of having
+	    to enter the Id of a customer, the user will be prompted with a combo box to select values from, outlined
+	    in red in the following screenshot:
+	  </p>
+<p>
+	    <img src="sampleapp2.png"></img>
+	  </p>
+<p>
+	    Lines 25 and 26 retrieve <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaQueryField.html">GnomeDbQField</a> objects (handled within
+	    each query) representing the "Customer" and "id" fields in the corresponding queries.
+	  </p>
+<p>
+	    Line 27 instructs the "Customer" field which is a value 
+	    (<a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaQueryFieldValue.html">GdaQueryFieldValue</a>) field to take its values from the "id" field
+	    which represents a table field (<a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaQueryFieldField.html">GdaQueryFieldField</a>).
+	  </p>
+<p>
+	    Line 28 forces the 'qu_orders' GdaQuery object to keep a reference on the 'qu_cust' object, as
+	    the example will release all the references to all the queries it created an the end of the function
+	    (lines 66 to 69).
+	  </p>
+</li>
+<li>
+<p>Lines 30 to 35 create the <a href="GnomeDbGrid.html" title="GnomeDbGrid">GnomeDbGrid</a> widget to display
+	    the orders for the selected customer (the contents of the 'qu_orders' query).
+	  </p>
+<p>
+	    Line 31 acquires a pointer to the <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaQueryTarget.html">GdaQueryTarget</a> object 
+	    representing the 'orders' table (as alias "o") in the qu_orders query, as this is the 'orders' table
+	    wich will be modified to store user modifications.
+	  </p>
+<p>
+	    Line 32 actually creates the grid widget using the 'qu_orders' and the target pointer as argument, 
+	    which appears as outlined in red in the following screen shot:
+	  </p>
+<p>
+	    <img src="sampleapp3.png"></img>
+	  </p>
+</li>
+<li><p>Lines 39 instructs the grid widget to hide column number 0 as it corresponds to the 'orders.id'
+	    field and we don't want it to appear.
+	  </p></li>
+<li>
+<p>Lines 41 to 47 actually create the combo box to choose the customer from. The combo box could
+	    have been created using a <a href="GnomeDbCombo.html" title="GnomeDbCombo">GnomeDbCombo</a> object but it would bave
+	    been necessary to make sure any change in the combo box induced a re-run of the 'qu_orders' query.
+	  </p>
+<p>
+	    An easier solution is to ask the GnomeDbGrid widget about its list of parameters represented
+	    as a <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaParameterList.html">GdaParameterList</a> object, which contains a list of
+	    <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaParameter.html">GdaParameter</a> parameters objects.
+	  </p>
+<p>
+	    Line 42 requests the GdaParameterList representing the parameters required to execute the SELECT
+	    query which the 'grid_orders' GnomeDbGrid uses, and line 43 creates a 
+	    <a href="GnomeDbBasicForm.html" title="GnomeDbBasicForm">GnomeDbBasicForm</a> which handles the creation of any
+	    widget required for any parameter object in a data set.
+	  </p>
+<p>
+	    Lines 44 and 45 set some properties of the new widget.
+	  </p>
+</li>
+<li>
+<p>Lines 49 to 54 acutally create the GnomeDbGrid to display the contents of an order (the
+	    result of the 'qu_contents' query. This code is very similar to the one explained for the lines
+	    30 to 35. The resulting widget is outlined in red in the following figure:
+	  </p>
+<p>
+	    <img src="sampleapp4.png"></img>
+	  </p>
+</li>
+<li>
+<p>
+	    The notable exception though is that we want to 'bind' the two GnomeDbGrid widgets together:
+	    selecting an order in the orders grid must make the 'grid_contents' grid update its display.
+	    Again we use the <a href="https://developer-old.gnome.org/libgnomedb/libgda-3.0/GdaParameter.html">GdaParameter</a> parameters objects.
+	  </p>
+<p>
+	    Lines 56 to 64 actually do that job. Lines 57 to 59 retrieve the GdaParameter object for
+	    the "oid" query parameter, and lines 61 and 62 do the same for the GdaParameter object where
+	    the order.id field of the selected order will be set.
+	  </p>
+<p>
+	    Line 64 instruct the 'param1' parameter object to be 'bound' to the 'param2' parameter: any
+	    change to 'param2' will make 'param1' change for the same value (note that the reverse is not
+	    true).
+	  </p>
+</li>
+<li><p>
+	    In lines 66 to 68, we get rid of any reference to the GdaQuery objects we have created,
+	    as we won't use them (directly) anymore.
+	  </p></li>
+</ol></div>
+<p>
+    </p>
+</div>
+<div class="sect2" lang="en">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2548850"></a>Compiling</h3></div></div></div>
+<p>
+      To compile an application using <span class="application">libgnomedb</span>, proceed as with other Gnome libraries, 
+      using the pkg-config program and get
+      the CFLAGS and LDFLAGS for the '<span class="application">libgnomedb</span>' library.
+    </p>
+<p>
+      For applications using the auto* packages (as for this example), simply add the <span class="application">libgnomedb</span> 
+      library in the configure.in file along
+      with the other required libraries for the package.
+    </p>
+</div>
+</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ch04s03.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

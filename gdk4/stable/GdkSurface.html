@@ -1,0 +1,1765 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Surfaces: GDK 4 Reference Manual</title><link href="index.html" rel="home" title="GDK 4 Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="gdk4-Cursors.html" rel="prev" title="Cursors"></link><link href="GdkToplevel.html" rel="next" title="Toplevels"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdkSurface.html#container">Go to page content</a></li><li><a href="GdkSurface.html#top_bar">Go to main menu</a></li><li><a href="GdkSurface.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdkSurface.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkSurface.html#GdkSurface.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkSurface.html#GdkSurface.object-hierarchy">Object Hierarchy</a></span><span id="nav_derived_interfaces">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkSurface.html#GdkSurface.derived-interfaces">Known Derived Interfaces</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkSurface.html#GdkSurface.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkSurface.html#GdkSurface.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="gdk4-Cursors.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GdkToplevel.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdkSurface"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdkSurface.top_of_page"></a>Surfaces</span></h2>
+<p>Surfaces — Onscreen display areas in the target window system</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdkSurface.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_proto_type" width="150px"></col>
+<col class="functions_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkSurface.html" title="Surfaces"><span class="returnvalue">GdkSurface</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-new-toplevel" title="gdk_surface_new_toplevel ()">gdk_surface_new_toplevel</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkSurface.html" title="Surfaces"><span class="returnvalue">GdkSurface</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-new-popup" title="gdk_surface_new_popup ()">gdk_surface_new_popup</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-destroy" title="gdk_surface_destroy ()">gdk_surface_destroy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-is-destroyed" title="gdk_surface_is_destroyed ()">gdk_surface_is_destroyed</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="returnvalue">GdkDisplay</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-display" title="gdk_surface_get_display ()">gdk_surface_get_display</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-hide" title="gdk_surface_hide ()">gdk_surface_hide</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-mapped" title="gdk_surface_get_mapped ()">gdk_surface_get_mapped</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-translate-coordinates" title="gdk_surface_translate_coordinates ()">gdk_surface_translate_coordinates</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-beep" title="gdk_surface_beep ()">gdk_surface_beep</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-scale-factor" title="gdk_surface_get_scale_factor ()">gdk_surface_get_scale_factor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-set-opaque-region" title="gdk_surface_set_opaque_region ()">gdk_surface_set_opaque_region</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="returnvalue">GdkGLContext</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-create-gl-context" title="gdk_surface_create_gl_context ()">gdk_surface_create_gl_context</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkVulkanContext.html" title="GdkVulkanContext"><span class="returnvalue">GdkVulkanContext</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-create-vulkan-context" title="gdk_surface_create_vulkan_context ()">gdk_surface_create_vulkan_context</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="gdk4-GdkCairoContext.html#GdkCairoContext" title="GdkCairoContext"><span class="returnvalue">GdkCairoContext</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-create-cairo-context" title="gdk_surface_create_cairo_context ()">gdk_surface_create_cairo_context</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-queue-render" title="gdk_surface_queue_render ()">gdk_surface_queue_render</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkFrameClock.html" title="GdkFrameClock"><span class="returnvalue">GdkFrameClock</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-frame-clock" title="gdk_surface_get_frame_clock ()">gdk_surface_get_frame_clock</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-request-layout" title="gdk_surface_request_layout ()">gdk_surface_request_layout</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()">gdk_surface_set_cursor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-cursor" title="gdk_surface_get_cursor ()">gdk_surface_get_cursor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-set-input-region" title="gdk_surface_set_input_region ()">gdk_surface_set_input_region</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-width" title="gdk_surface_get_width ()">gdk_surface_get_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-height" title="gdk_surface_get_height ()">gdk_surface_get_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-device-position" title="gdk_surface_get_device_position ()">gdk_surface_get_device_position</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-get-device-cursor" title="gdk_surface_get_device_cursor ()">gdk_surface_get_device_cursor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkSurface.html#gdk-surface-set-device-cursor" title="gdk_surface_set_device_cursor ()">gdk_surface_set_device_cursor</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *</td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--cursor" title="The “cursor” property">cursor</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--display" title="The “display” property">display</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="GdkFrameClock.html" title="GdkFrameClock"><span class="type">GdkFrameClock</span></a> *</td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--frame-clock" title="The “frame-clock” property">frame-clock</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--height" title="The “height” property">height</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--mapped" title="The “mapped” property">mapped</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--scale-factor" title="The “scale-factor” property">scale-factor</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">int</span></td>
+<td class="property_name"><a class="link" href="GdkSurface.html#GdkSurface--width" title="The “width” property">width</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signal_proto_type" width="150px"></col>
+<col class="signal_proto_name" width="300px"></col>
+<col class="signal_proto_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdkSurface.html#GdkSurface-enter-monitor" title="The “enter-monitor” signal">enter-monitor</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
+<td class="signal_name"><a class="link" href="GdkSurface.html#GdkSurface-event" title="The “event” signal">event</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdkSurface.html#GdkSurface-layout" title="The “layout” signal">layout</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdkSurface.html#GdkSurface-leave-monitor" title="The “leave-monitor” signal">leave-monitor</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
+<td class="signal_name"><a class="link" href="GdkSurface.html#GdkSurface-render" title="The “render” signal">render</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="other_proto_type" width="150px"></col>
+<col class="other_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GdkSurface.html#GdkSurface-struct" title="GdkSurface">GdkSurface</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdkSurface.html#GdkGravity" title="enum GdkGravity">GdkGravity</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdkSurface.html#GdkModifierType" title="enum GdkModifierType">GdkModifierType</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GdkSurface.html#GDK-MODIFIER-MASK:CAPS" title="GDK_MODIFIER_MASK">GDK_MODIFIER_MASK</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GdkSurface
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.derived-interfaces"></a><h2>Known Derived Interfaces</h2>
+<p>
+GdkSurface is required by
+ <a class="link" href="gdk4-Drag-and-Drop.html#GdkDragSurface">GdkDragSurface</a>,  <a class="link" href="GdkPopup.html" title="Popups">GdkPopup</a> and  <a class="link" href="GdkToplevel.html" title="Toplevels">GdkToplevel</a>.</p>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.description"></a><h2>Description</h2>
+<p>A <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> is a (usually) rectangular region on the screen.
+It’s a low-level object, used to implement high-level objects
+such as <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkWindow.html#GtkWindow-struct"><span class="type">GtkWindow</span></a> or <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkDialog.html#GtkDialog-struct"><span class="type">GtkDialog</span></a> in GTK.</p>
+<p>The surfaces you see in practice are either <a class="link" href="GdkToplevel.html" title="Toplevels"><span class="type">GdkToplevel</span></a> or
+<a class="link" href="GdkPopup.html" title="Popups"><span class="type">GdkPopup</span></a>, and those interfaces provide much of the required
+API to interact with these surfaces. Other, more specialized
+surface types exist, but you will rarely interact with them
+directly.</p>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gdk-surface-new-toplevel"></a><h3>gdk_surface_new_toplevel ()</h3>
+<pre class="programlisting"><a class="link" href="GdkSurface.html" title="Surfaces"><span class="returnvalue">GdkSurface</span></a> *
+gdk_surface_new_toplevel (<em class="parameter"><code><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *display</code></em>);</pre>
+<p>Creates a new toplevel surface.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="gdk-surface-new-toplevel.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>display</p></td>
+<td class="parameter_description"><p>the display to create the surface on</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-new-toplevel.returns"></a><h4>Returns</h4>
+<p>the new <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-new-popup"></a><h3>gdk_surface_new_popup ()</h3>
+<pre class="programlisting"><a class="link" href="GdkSurface.html" title="Surfaces"><span class="returnvalue">GdkSurface</span></a> *
+gdk_surface_new_popup (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *parent</code></em>,
+                       <em class="parameter"><code><span class="type">gboolean</span> autohide</code></em>);</pre>
+<p>Create a new popup surface.</p>
+<p>The surface will be attached to <em class="parameter"><code>parent</code></em>
+ and can be positioned
+relative to it using <a class="link" href="GdkPopup.html#gdk-popup-present" title="gdk_popup_present ()"><code class="function">gdk_popup_present()</code></a>.</p>
+<p><span class="annotation">[<acronym title="This symbol is a constructor, not a static method."><span class="acronym">constructor</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="gdk-surface-new-popup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>parent</p></td>
+<td class="parameter_description"><p>the parent surface to attach the surface to</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>autohide</p></td>
+<td class="parameter_description"><p>whether to hide the surface on outside clicks</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-new-popup.returns"></a><h4>Returns</h4>
+<p>a new <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-destroy"></a><h3>gdk_surface_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_destroy (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Destroys the window system resources associated with <em class="parameter"><code>surface</code></em>
+ and decrements <em class="parameter"><code>surface</code></em>
+'s
+reference count. The window system resources for all children of <em class="parameter"><code>surface</code></em>
+ are also
+destroyed, but the children’s reference counts are not decremented.</p>
+<p>Note that a surface will not be destroyed automatically when its reference count
+reaches zero. You must call this function yourself before that happens.</p>
+<div class="refsect3">
+<a name="gdk-surface-destroy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-is-destroyed"></a><h3>gdk_surface_is_destroyed ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_surface_is_destroyed (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Check to see if a surface is destroyed..</p>
+<div class="refsect3">
+<a name="gdk-surface-is-destroyed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-is-destroyed.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the surface is destroyed</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-display"></a><h3>gdk_surface_get_display ()</h3>
+<pre class="programlisting"><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="returnvalue">GdkDisplay</span></a> *
+gdk_surface_get_display (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Gets the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> associated with a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>.</p>
+<div class="refsect3">
+<a name="gdk-surface-get-display.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-display.returns"></a><h4>Returns</h4>
+<p>the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> associated with <em class="parameter"><code>surface</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-hide"></a><h3>gdk_surface_hide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_hide (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>For toplevel surfaces, withdraws them, so they will no longer be
+known to the window manager; for all surfaces, unmaps them, so
+they won’t be displayed. Normally done automatically as
+part of <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkWidget.html#gtk-widget-hide"><code class="function">gtk_widget_hide()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-surface-hide.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-mapped"></a><h3>gdk_surface_get_mapped ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_surface_get_mapped (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Checks whether the surface has been mapped (with <a class="link" href="GdkToplevel.html#gdk-toplevel-present" title="gdk_toplevel_present ()"><code class="function">gdk_toplevel_present()</code></a>
+or <a class="link" href="GdkPopup.html#gdk-popup-present" title="gdk_popup_present ()"><code class="function">gdk_popup_present()</code></a>).</p>
+<div class="refsect3">
+<a name="gdk-surface-get-mapped.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-mapped.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the surface is mapped</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-translate-coordinates"></a><h3>gdk_surface_translate_coordinates ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_surface_translate_coordinates (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *from</code></em>,
+                                   <em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *to</code></em>,
+                                   <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                   <em class="parameter"><code><span class="type">double</span> *y</code></em>);</pre>
+<p>Translates the given coordinates from being
+relative to the <em class="parameter"><code>from</code></em>
+ surface to being relative
+to the <em class="parameter"><code>to</code></em>
+ surface.</p>
+<p>Note that this only works if <em class="parameter"><code>to</code></em>
+ and <em class="parameter"><code>from</code></em>
+ are
+popups or transient-for to the same toplevel
+(directly or indirectly).</p>
+<div class="refsect3">
+<a name="gdk-surface-translate-coordinates.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>from</p></td>
+<td class="parameter_description"><p>the origin surface</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>to</p></td>
+<td class="parameter_description"><p>the target surface</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>x</p></td>
+<td class="parameter_description"><p>coordinates to translate</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>y</p></td>
+<td class="parameter_description"><p>coordinates to translate</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-translate-coordinates.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the coordinates were successfully
+translated</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-beep"></a><h3>gdk_surface_beep ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_beep (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Emits a short beep associated to <em class="parameter"><code>surface</code></em>
+ in the appropriate
+display, if supported. Otherwise, emits a short beep on
+the display just as <a class="link" href="GdkDisplay.html#gdk-display-beep" title="gdk_display_beep ()"><code class="function">gdk_display_beep()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-surface-beep.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a toplevel <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-scale-factor"></a><h3>gdk_surface_get_scale_factor ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+gdk_surface_get_scale_factor (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Returns the internal scale factor that maps from surface coordinates
+to the actual device pixels. On traditional systems this is 1, but
+on very high density outputs this can be a higher value (often 2).</p>
+<p>A higher value means that drawing is automatically scaled up to
+a higher resolution, so any code doing drawing will automatically look
+nicer. However, if you are supplying pixel-based data the scale
+value can be used to determine whether to use a pixel resource
+with higher resolution data.</p>
+<p>The scale of a surface may change during runtime.</p>
+<div class="refsect3">
+<a name="gdk-surface-get-scale-factor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>surface to get scale factor for</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-scale-factor.returns"></a><h4>Returns</h4>
+<p> the scale factor</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-set-opaque-region"></a><h3>gdk_surface_set_opaque_region ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_set_opaque_region (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                               <em class="parameter"><code><a href="../../cairo/stable/cairo-Regions.html#cairo-region-t"><span class="type">cairo_region_t</span></a> *region</code></em>);</pre>
+<p>For optimisation purposes, compositing window managers may
+like to not draw obscured regions of surfaces, or turn off blending
+during for these regions. With RGB windows with no transparency,
+this is just the shape of the window, but with ARGB32 windows, the
+compositor does not know what regions of the window are transparent
+or not.</p>
+<p>This function only works for toplevel surfaces.</p>
+<p>GTK will update this property automatically if
+the <em class="parameter"><code>surface</code></em>
+ background is opaque, as we know where the opaque regions
+are. If your surface background is not opaque, please update this
+property in your <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkWidget.html#GtkWidgetClass.css-changed"><code class="function">GtkWidgetClass.css_changed()</code></a> handler.</p>
+<div class="refsect3">
+<a name="gdk-surface-set-opaque-region.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a top-level or non-native <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>region</p></td>
+<td class="parameter_description"><p>a region, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-create-gl-context"></a><h3>gdk_surface_create_gl_context ()</h3>
+<pre class="programlisting"><a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="returnvalue">GdkGLContext</span></a> *
+gdk_surface_create_gl_context (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Creates a new <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> matching the
+framebuffer format to the visual of the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>. The context
+is disconnected from any particular surface or surface.</p>
+<p>If the creation of the <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a> failed, <em class="parameter"><code>error</code></em>
+ will be set.</p>
+<p>Before using the returned <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a>, you will need to
+call <a class="link" href="GdkGLContext.html#gdk-gl-context-make-current" title="gdk_gl_context_make_current ()"><code class="function">gdk_gl_context_make_current()</code></a> or <a class="link" href="GdkGLContext.html#gdk-gl-context-realize" title="gdk_gl_context_realize ()"><code class="function">gdk_gl_context_realize()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-surface-create-gl-context.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for an error</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-create-gl-context.returns"></a><h4>Returns</h4>
+<p>the newly created <a class="link" href="GdkGLContext.html" title="GdkGLContext"><span class="type">GdkGLContext</span></a>, or
+<code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-create-vulkan-context"></a><h3>gdk_surface_create_vulkan_context ()</h3>
+<pre class="programlisting"><a class="link" href="GdkVulkanContext.html" title="GdkVulkanContext"><span class="returnvalue">GdkVulkanContext</span></a> *
+gdk_surface_create_vulkan_context (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                                   <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Creates a new <a class="link" href="GdkVulkanContext.html" title="GdkVulkanContext"><span class="type">GdkVulkanContext</span></a> for rendering on <em class="parameter"><code>surface</code></em>
+.</p>
+<p>If the creation of the <a class="link" href="GdkVulkanContext.html" title="GdkVulkanContext"><span class="type">GdkVulkanContext</span></a> failed, <em class="parameter"><code>error</code></em>
+ will be set.</p>
+<div class="refsect3">
+<a name="gdk-surface-create-vulkan-context.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for an error</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-create-vulkan-context.returns"></a><h4>Returns</h4>
+<p>the newly created <a class="link" href="GdkVulkanContext.html" title="GdkVulkanContext"><span class="type">GdkVulkanContext</span></a>, or
+<code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-create-cairo-context"></a><h3>gdk_surface_create_cairo_context ()</h3>
+<pre class="programlisting"><a class="link" href="gdk4-GdkCairoContext.html#GdkCairoContext" title="GdkCairoContext"><span class="returnvalue">GdkCairoContext</span></a> *
+gdk_surface_create_cairo_context (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Creates a new <a class="link" href="gdk4-GdkCairoContext.html#GdkCairoContext" title="GdkCairoContext"><span class="type">GdkCairoContext</span></a> for rendering on <em class="parameter"><code>surface</code></em>
+.</p>
+<div class="refsect3">
+<a name="gdk-surface-create-cairo-context.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-create-cairo-context.returns"></a><h4>Returns</h4>
+<p>the newly created <a class="link" href="gdk4-GdkCairoContext.html#GdkCairoContext" title="GdkCairoContext"><span class="type">GdkCairoContext</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-queue-render"></a><h3>gdk_surface_queue_render ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_queue_render (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Forces a <a class="link" href="GdkSurface.html#GdkSurface-render" title="The “render” signal"><span class="type">“render”</span></a> signal emission for <em class="parameter"><code>surface</code></em>
+
+to be scheduled.</p>
+<p>This function is useful for implementations that track invalid
+regions on their own.</p>
+<div class="refsect3">
+<a name="gdk-surface-queue-render.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-frame-clock"></a><h3>gdk_surface_get_frame_clock ()</h3>
+<pre class="programlisting"><a class="link" href="GdkFrameClock.html" title="GdkFrameClock"><span class="returnvalue">GdkFrameClock</span></a> *
+gdk_surface_get_frame_clock (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Gets the frame clock for the surface. The frame clock for a surface
+never changes unless the surface is reparented to a new toplevel
+surface.</p>
+<div class="refsect3">
+<a name="gdk-surface-get-frame-clock.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>surface to get frame clock for</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-frame-clock.returns"></a><h4>Returns</h4>
+<p>the frame clock. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-request-layout"></a><h3>gdk_surface_request_layout ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_request_layout (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Request a <a class="link" href="GdkFrameClock.html#GDK-FRAME-CLOCK-PHASE-LAYOUT:CAPS"><code class="literal">GDK_FRAME_CLOCK_PHASE_LAYOUT</code></a> from the surface's
+frame clock. See <a class="link" href="GdkFrameClock.html#gdk-frame-clock-request-phase" title="gdk_frame_clock_request_phase ()"><code class="function">gdk_frame_clock_request_phase()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-surface-request-layout.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-set-cursor"></a><h3>gdk_surface_set_cursor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_set_cursor (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                        <em class="parameter"><code><a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);</pre>
+<p>Sets the default mouse pointer for a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>.</p>
+<p>Note that <em class="parameter"><code>cursor</code></em>
+ must be for the same display as <em class="parameter"><code>surface</code></em>
+.</p>
+<p>Use <a class="link" href="gdk4-Cursors.html#gdk-cursor-new-from-name" title="gdk_cursor_new_from_name ()"><code class="function">gdk_cursor_new_from_name()</code></a> or <a class="link" href="gdk4-Cursors.html#gdk-cursor-new-from-texture" title="gdk_cursor_new_from_texture ()"><code class="function">gdk_cursor_new_from_texture()</code></a> to
+create the cursor. To make the cursor invisible, use <code class="literal">GDK_BLANK_CURSOR</code>.
+Passing <code class="literal">NULL</code> for the <em class="parameter"><code>cursor</code></em>
+ argument to <a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()"><code class="function">gdk_surface_set_cursor()</code></a> means
+that <em class="parameter"><code>surface</code></em>
+ will use the cursor of its parent surface. Most surfaces
+should use this default.</p>
+<div class="refsect3">
+<a name="gdk-surface-set-cursor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cursor</p></td>
+<td class="parameter_description"><p>a cursor. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-cursor"></a><h3>gdk_surface_get_cursor ()</h3>
+<pre class="programlisting"><a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
+gdk_surface_get_cursor (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Retrieves a <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> pointer for the cursor currently set on the
+specified <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>, or <code class="literal">NULL</code>.  If the return value is <code class="literal">NULL</code> then
+there is no custom cursor set on the specified surface, and it is
+using the cursor for its parent surface.</p>
+<div class="refsect3">
+<a name="gdk-surface-get-cursor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-cursor.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>, or <code class="literal">NULL</code>. The
+returned object is owned by the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> and should not be
+unreferenced directly. Use <a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()"><code class="function">gdk_surface_set_cursor()</code></a> to unset the
+cursor of the surface. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-set-input-region"></a><h3>gdk_surface_set_input_region ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_set_input_region (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                              <em class="parameter"><code><a href="../../cairo/stable/cairo-Regions.html#cairo-region-t"><span class="type">cairo_region_t</span></a> *region</code></em>);</pre>
+<p>Apply the region to the surface for the purpose of event
+handling. Mouse events which happen while the pointer position
+corresponds to an unset bit in the mask will be passed on the
+surface below <em class="parameter"><code>surface</code></em>
+.</p>
+<p>An input region is typically used with RGBA surfaces.
+The alpha channel of the surface defines which pixels are
+invisible and allows for nicely antialiased borders,
+and the input region controls where the surface is
+“clickable”.</p>
+<p>Use <a class="link" href="GdkDisplay.html#gdk-display-supports-input-shapes" title="gdk_display_supports_input_shapes ()"><code class="function">gdk_display_supports_input_shapes()</code></a> to find out if
+a particular backend supports input regions.</p>
+<div class="refsect3">
+<a name="gdk-surface-set-input-region.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>region</p></td>
+<td class="parameter_description"><p>region of surface to be reactive</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-width"></a><h3>gdk_surface_get_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+gdk_surface_get_width (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Returns the width of the given <em class="parameter"><code>surface</code></em>
+.</p>
+<p>Surface size is reported in ”application pixels”, not
+”device pixels” (see <a class="link" href="GdkSurface.html#gdk-surface-get-scale-factor" title="gdk_surface_get_scale_factor ()"><code class="function">gdk_surface_get_scale_factor()</code></a>).</p>
+<div class="refsect3">
+<a name="gdk-surface-get-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-width.returns"></a><h4>Returns</h4>
+<p> The width of <em class="parameter"><code>surface</code></em>
+</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-height"></a><h3>gdk_surface_get_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+gdk_surface_get_height (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>);</pre>
+<p>Returns the height of the given <em class="parameter"><code>surface</code></em>
+.</p>
+<p>Surface size is reported in ”application pixels”, not
+”device pixels” (see <a class="link" href="GdkSurface.html#gdk-surface-get-scale-factor" title="gdk_surface_get_scale_factor ()"><code class="function">gdk_surface_get_scale_factor()</code></a>).</p>
+<div class="refsect3">
+<a name="gdk-surface-get-height.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-height.returns"></a><h4>Returns</h4>
+<p> The height of <em class="parameter"><code>surface</code></em>
+</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-device-position"></a><h3>gdk_surface_get_device_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_surface_get_device_position (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                                 <em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>,
+                                 <em class="parameter"><code><span class="type">double</span> *x</code></em>,
+                                 <em class="parameter"><code><span class="type">double</span> *y</code></em>,
+                                 <em class="parameter"><code><a class="link" href="GdkSurface.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a> *mask</code></em>);</pre>
+<p>Obtains the current device position in doubles and modifier state.
+The position is given in coordinates relative to the upper left
+corner of <em class="parameter"><code>surface</code></em>
+.</p>
+<p>Return: <code class="literal">TRUE</code> if the device is over the surface</p>
+<div class="refsect3">
+<a name="gdk-surface-get-device-position.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>pointer <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> to query to.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>x</p></td>
+<td class="parameter_description"><p>return location for the X coordinate of <em class="parameter"><code>device</code></em>
+, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>y</p></td>
+<td class="parameter_description"><p>return location for the Y coordinate of <em class="parameter"><code>device</code></em>
+, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>mask</p></td>
+<td class="parameter_description"><p>return location for the modifier mask, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-get-device-cursor"></a><h3>gdk_surface_get_device_cursor ()</h3>
+<pre class="programlisting"><a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="returnvalue">GdkCursor</span></a> *
+gdk_surface_get_device_cursor (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                               <em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>);</pre>
+<p>Retrieves a <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> pointer for the <em class="parameter"><code>device</code></em>
+ currently set on the
+specified <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>, or <code class="literal">NULL</code>.  If the return value is <code class="literal">NULL</code> then
+there is no custom cursor set on the specified surface, and it is
+using the cursor for its parent surface.</p>
+<div class="refsect3">
+<a name="gdk-surface-get-device-cursor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>a logical, pointer <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-surface-get-device-cursor.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a>, or <code class="literal">NULL</code>. The
+returned object is owned by the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> and should not be
+unreferenced directly. Use <a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()"><code class="function">gdk_surface_set_cursor()</code></a> to unset the
+cursor of the surface. </p>
+<p><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-surface-set-device-cursor"></a><h3>gdk_surface_set_device_cursor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_surface_set_device_cursor (<em class="parameter"><code><a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface</code></em>,
+                               <em class="parameter"><code><a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a> *device</code></em>,
+                               <em class="parameter"><code><a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *cursor</code></em>);</pre>
+<p>Sets a specific <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> for a given device when it gets inside <em class="parameter"><code>surface</code></em>
+.
+Use <a class="link" href="gdk4-Cursors.html#gdk-cursor-new-from-name" title="gdk_cursor_new_from_name ()"><code class="function">gdk_cursor_new_from_name()</code></a> or <a class="link" href="gdk4-Cursors.html#gdk-cursor-new-from-texture" title="gdk_cursor_new_from_texture ()"><code class="function">gdk_cursor_new_from_texture()</code></a> to create
+the cursor. To make the cursor invisible, use <code class="literal">GDK_BLANK_CURSOR</code>. Passing
+<code class="literal">NULL</code> for the <em class="parameter"><code>cursor</code></em>
+ argument to <a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()"><code class="function">gdk_surface_set_cursor()</code></a> means that
+<em class="parameter"><code>surface</code></em>
+ will use the cursor of its parent surface. Most surfaces should
+use this default.</p>
+<div class="refsect3">
+<a name="gdk-surface-set-device-cursor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>device</p></td>
+<td class="parameter_description"><p>a logical, pointer <a class="link" href="GdkDevice.html" title="GdkDevice"><span class="type">GdkDevice</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cursor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GdkSurface-struct"></a><h3>GdkSurface</h3>
+<pre class="programlisting">typedef struct _GdkSurface GdkSurface;</pre>
+<p>The GdkSurface struct contains only private fields and
+should not be accessed directly.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkGravity"></a><h3>enum GdkGravity</h3>
+<p>Defines the reference point of a surface and is used in <a class="link" href="GdkPopupLayout.html" title="GdkPopupLayout"><span class="type">GdkPopupLayout</span></a>.</p>
+<div class="refsect3">
+<a name="GdkGravity.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-NORTH-WEST:CAPS"></a>GDK_GRAVITY_NORTH_WEST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the top left corner.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-NORTH:CAPS"></a>GDK_GRAVITY_NORTH</p></td>
+<td class="enum_member_description">
+<p>the reference point is in the middle of the top edge.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-NORTH-EAST:CAPS"></a>GDK_GRAVITY_NORTH_EAST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the top right corner.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-WEST:CAPS"></a>GDK_GRAVITY_WEST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the middle of the left edge.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-CENTER:CAPS"></a>GDK_GRAVITY_CENTER</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the center of the surface.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-EAST:CAPS"></a>GDK_GRAVITY_EAST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the middle of the right edge.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-SOUTH-WEST:CAPS"></a>GDK_GRAVITY_SOUTH_WEST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the lower left corner.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-SOUTH:CAPS"></a>GDK_GRAVITY_SOUTH</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the middle of the lower edge.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-SOUTH-EAST:CAPS"></a>GDK_GRAVITY_SOUTH_EAST</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the lower right corner.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-GRAVITY-STATIC:CAPS"></a>GDK_GRAVITY_STATIC</p></td>
+<td class="enum_member_description">
+<p>the reference point is at the top left corner of the
+surface itself, ignoring window manager decorations.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkModifierType"></a><h3>enum GdkModifierType</h3>
+<p>A set of bit-flags to indicate the state of modifier keys and mouse buttons
+in various event types. Typical modifier keys are Shift, Control, Meta,
+Super, Hyper, Alt, Compose, Apple, CapsLock or ShiftLock.</p>
+<p>Note that GDK may add internal values to events which include values outside
+of this enumeration. Your code should preserve and ignore them.  You can use
+<a class="link" href="GdkSurface.html#GDK-MODIFIER-MASK:CAPS" title="GDK_MODIFIER_MASK"><code class="literal">GDK_MODIFIER_MASK</code></a> to remove all private values.</p>
+<div class="refsect3">
+<a name="GdkModifierType.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-SHIFT-MASK:CAPS"></a>GDK_SHIFT_MASK</p></td>
+<td class="enum_member_description">
+<p>the Shift key.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-LOCK-MASK:CAPS"></a>GDK_LOCK_MASK</p></td>
+<td class="enum_member_description">
+<p>a Lock key (depending on the modifier mapping of the
+X server this may either be CapsLock or ShiftLock).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-CONTROL-MASK:CAPS"></a>GDK_CONTROL_MASK</p></td>
+<td class="enum_member_description">
+<p>the Control key.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-ALT-MASK:CAPS"></a>GDK_ALT_MASK</p></td>
+<td class="enum_member_description">
+<p>the fourth modifier key (it depends on the modifier
+mapping of the X server which key is interpreted as this modifier, but
+normally it is the Alt key).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-BUTTON1-MASK:CAPS"></a>GDK_BUTTON1_MASK</p></td>
+<td class="enum_member_description">
+<p>the first mouse button.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-BUTTON2-MASK:CAPS"></a>GDK_BUTTON2_MASK</p></td>
+<td class="enum_member_description">
+<p>the second mouse button.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-BUTTON3-MASK:CAPS"></a>GDK_BUTTON3_MASK</p></td>
+<td class="enum_member_description">
+<p>the third mouse button.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-BUTTON4-MASK:CAPS"></a>GDK_BUTTON4_MASK</p></td>
+<td class="enum_member_description">
+<p>the fourth mouse button.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-BUTTON5-MASK:CAPS"></a>GDK_BUTTON5_MASK</p></td>
+<td class="enum_member_description">
+<p>the fifth mouse button.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-SUPER-MASK:CAPS"></a>GDK_SUPER_MASK</p></td>
+<td class="enum_member_description">
+<p>the Super modifier</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-HYPER-MASK:CAPS"></a>GDK_HYPER_MASK</p></td>
+<td class="enum_member_description">
+<p>the Hyper modifier</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-META-MASK:CAPS"></a>GDK_META_MASK</p></td>
+<td class="enum_member_description">
+<p>the Meta modifier</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GDK-MODIFIER-MASK:CAPS"></a><h3>GDK_MODIFIER_MASK</h3>
+<pre class="programlisting">#define             GDK_MODIFIER_MASK</pre>
+<p>A mask covering all entries in <a class="link" href="GdkSurface.html#GdkModifierType" title="enum GdkModifierType"><span class="type">GdkModifierType</span></a>.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GdkSurface--cursor"></a><h3>The <code class="literal">“cursor”</code> property</h3>
+<pre class="programlisting">  “cursor”                   <a class="link" href="gdk4-Cursors.html#GdkCursor"><span class="type">GdkCursor</span></a> *</pre>
+<p>The mouse pointer for a <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>. See <a class="link" href="GdkSurface.html#gdk-surface-set-cursor" title="gdk_surface_set_cursor ()"><code class="function">gdk_surface_set_cursor()</code></a> and
+<a class="link" href="GdkSurface.html#gdk-surface-get-cursor" title="gdk_surface_get_cursor ()"><code class="function">gdk_surface_get_cursor()</code></a> for details.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read / Write</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--display"></a><h3>The <code class="literal">“display”</code> property</h3>
+<pre class="programlisting">  “display”                  <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</pre>
+<p>The <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> connection of the surface. See <a class="link" href="GdkSurface.html#gdk-surface-get-display" title="gdk_surface_get_display ()"><code class="function">gdk_surface_get_display()</code></a>
+for details.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--frame-clock"></a><h3>The <code class="literal">“frame-clock”</code> property</h3>
+<pre class="programlisting">  “frame-clock”              <a class="link" href="GdkFrameClock.html" title="GdkFrameClock"><span class="type">GdkFrameClock</span></a> *</pre>
+<p>Frame Clock.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--height"></a><h3>The <code class="literal">“height”</code> property</h3>
+<pre class="programlisting">  “height”                   <span class="type">int</span></pre>
+<p>Height.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--mapped"></a><h3>The <code class="literal">“mapped”</code> property</h3>
+<pre class="programlisting">  “mapped”                   <span class="type">gboolean</span></pre>
+<p>Mapped.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--scale-factor"></a><h3>The <code class="literal">“scale-factor”</code> property</h3>
+<pre class="programlisting">  “scale-factor”             <span class="type">int</span></pre>
+<p>Scale factor.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface--width"></a><h3>The <code class="literal">“width”</code> property</h3>
+<pre class="programlisting">  “width”                    <span class="type">int</span></pre>
+<p>Width.</p>
+<p>Owner: GdkSurface</p>
+<p>Flags: Read</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GdkSurface-enter-monitor"></a><h3>The <code class="literal">“enter-monitor”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface,
+               <a class="link" href="GdkMonitor.html" title="GdkMonitor"><span class="type">GdkMonitor</span></a> *monitor,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when <em class="parameter"><code>surface</code></em>
+ starts being present on the monitor.</p>
+<div class="refsect3">
+<a name="GdkSurface-enter-monitor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>the monitor</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface-event"></a><h3>The <code class="literal">“event”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+user_function (<a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface,
+               <span class="type">gpointer</span>    event,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when GDK receives an input event for <em class="parameter"><code>surface</code></em>
+.</p>
+<div class="refsect3">
+<a name="GdkSurface-event.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>event</p></td>
+<td class="parameter_description"><p>an input event. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> Gdk.Event]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdkSurface-event.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> to indicate that the event has been handled</p>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface-layout"></a><h3>The <code class="literal">“layout”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface,
+               <span class="type">int</span>         width,
+               <span class="type">int</span>         height,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when the size of <em class="parameter"><code>surface</code></em>
+ is changed, or when relayout should
+be performed.</p>
+<p>Surface size is reported in ”application pixels”, not
+”device pixels” (see <a class="link" href="GdkSurface.html#gdk-surface-get-scale-factor" title="gdk_surface_get_scale_factor ()"><code class="function">gdk_surface_get_scale_factor()</code></a>).</p>
+<div class="refsect3">
+<a name="GdkSurface-layout.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width</p></td>
+<td class="parameter_description"><p>the current width</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>height</p></td>
+<td class="parameter_description"><p>the current height</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface-leave-monitor"></a><h3>The <code class="literal">“leave-monitor”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a> *surface,
+               <a class="link" href="GdkMonitor.html" title="GdkMonitor"><span class="type">GdkMonitor</span></a> *monitor,
+               <span class="type">gpointer</span>    user_data)</pre>
+<p>Emitted when <em class="parameter"><code>surface</code></em>
+ stops being present on the monitor.</p>
+<div class="refsect3">
+<a name="GdkSurface-leave-monitor.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>the monitor</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSurface-render"></a><h3>The <code class="literal">“render”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+user_function (<a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a>  *surface,
+               <span class="type">CairoRegion</span> *region,
+               <span class="type">gpointer</span>     user_data)</pre>
+<p>Emitted when part of the surface needs to be redrawn.</p>
+<div class="refsect3">
+<a name="GdkSurface-render.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>surface</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdkSurface.html" title="Surfaces"><span class="type">GdkSurface</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>region</p></td>
+<td class="parameter_description"><p>the region that needs to be redrawn</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdkSurface-render.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> to indicate that the signal has been handled</p>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkSurface.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="GdkToplevel.html" title="Toplevels"><span class="type">GdkToplevel</span></a>, <a class="link" href="GdkPopup.html" title="Popups"><span class="type">GdkPopup</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdkSurface.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

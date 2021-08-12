@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Anjuta Developers Reference Manual: Object Hierarchy</title><link href="index.html" rel="home" title="Anjuta Developers Reference Manual"></link><link href="index.html" rel="up" title="Anjuta Developers Reference Manual"></link><link href="libanjuta-libanjuta-iface-marshallers.html" rel="prev" title="libanjuta-iface-marshallers"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="object-hierarchy.html#container">Go to page content</a></li><li><a href="object-hierarchy.html#top_bar">Go to main menu</a></li><li><a href="object-hierarchy.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><img border="0" height="16" src="up-insensitive.png" width="16"></img></td>
+<td><a accesskey="p" href="libanjuta-libanjuta-iface-marshallers.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><img border="0" height="16" src="right-insensitive.png" width="16"></img></td>
+</tr></tbody></table><div class="chapter">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="object-hierarchy"></a>Object Hierarchy</h1></div></div></div>
+<pre class="screen">    GObject
+    <span class="lineart">├──</span> <a class="link" href="AnjutaCommand.html" title="AnjutaCommand">AnjutaCommand</a>
+    <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaAsyncCommand.html" title="AnjutaAsyncCommand">AnjutaAsyncCommand</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaPkgScanner.html" title="AnjutaPkgScanner">AnjutaPkgScanner</a>
+    <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaSyncCommand.html" title="AnjutaSyncCommand">AnjutaSyncCommand</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaAsyncNotify.html" title="AnjutaAsyncNotify">AnjutaAsyncNotify</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaAutogen.html" title="AnjutaAutogen">AnjutaAutogen</a>
+    <span class="lineart">├──</span> GTypeModule
+    <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaCModule.html" title="AnjutaCModule">AnjutaCModule</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaCPluginFactory.html" title="AnjutaCPluginFactory">AnjutaCPluginFactory</a>
+    <span class="lineart">├──</span> GInitiallyUnowned
+    <span class="lineart">│</span>   <span class="lineart">├──</span> GtkCellRenderer
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaCellRendererCaptionedImage.html" title="AnjutaCellRendererCaptionedImage">AnjutaCellRendererCaptionedImage</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> AnjutaCellRendererDiff
+    <span class="lineart">│</span>   <span class="lineart">├──</span> GtkWidget
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkContainer
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkBin
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkButton
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaCloseButton.html" title="AnjutaCloseButton">AnjutaCloseButton</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> GtkToggleButton
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">╰──</span> <a class="link" href="AnjutaTreeComboBox.html" title="AnjutaTreeComboBox">AnjutaTreeComboBox</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaEnvironmentEditor.html" title="AnjutaEnvironmentEditor">AnjutaEnvironmentEditor</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> GtkWindow
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">├──</span> GtkDialog
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaPreferencesDialog.html" title="AnjutaPreferencesDialog">AnjutaPreferencesDialog</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">│</span>   <span class="lineart">╰──</span> GtkMessageDialog
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">│</span>       <span class="lineart">╰──</span> <a class="link" href="AnjutaSavePrompt.html" title="AnjutaSavePrompt">AnjutaSavePrompt</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">╰──</span> <a class="link" href="ESplash.html" title="ESplash">ESplash</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkBox
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaColumnTextView.html" title="AnjutaColumnTextView">AnjutaColumnTextView</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaFileList.html" title="AnjutaFileList">AnjutaFileList</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaStatus.html" title="AnjutaStatus">AnjutaStatus</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkNotebook
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaCommandBar.html" title="AnjutaCommandBar">AnjutaCommandBar</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a href="https://developer-old.gnome.org/libanjuta/gdl/GdlDockObject.html">GdlDockObject</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a href="https://developer-old.gnome.org/libanjuta/gdl/GdlDock.html">GdlDock</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">╰──</span> <a class="link" href="AnjutaDock.html" title="AnjutaDock">AnjutaDock</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> GtkTreeView
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">├──</span> <a class="link" href="AnjutaPkgConfigChooser.html" title="AnjutaPkgConfigChooser">AnjutaPkgConfigChooser</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaVcsStatusTreeView.html" title="AnjutaVcsStatusTreeView">AnjutaVcsStatusTreeView</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaTabber.html" title="AnjutaTabber">AnjutaTabber</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>   <span class="lineart">╰──</span> GtkEntry
+    <span class="lineart">│</span>   <span class="lineart">│</span>       <span class="lineart">╰──</span> <a class="link" href="AnjutaEntry.html" title="AnjutaEntry">AnjutaEntry</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>           <span class="lineart">╰──</span> <a class="link" href="AnjutaDropEntry.html" title="AnjutaDropEntry">AnjutaDropEntry</a>
+    <span class="lineart">│</span>   <span class="lineart">│</span>               <span class="lineart">╰──</span> <a class="link" href="AnjutaFileDropEntry.html" title="AnjutaFileDropEntry">AnjutaFileDropEntry</a>
+    <span class="lineart">│</span>   <span class="lineart">╰──</span> <a class="link" href="AnjutaProjectNode.html" title="Anjuta project">AnjutaProjectNode</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaCommandQueue.html" title="AnjutaCommandQueue">AnjutaCommandQueue</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaCompletion.html" title="AnjutaCompletion">AnjutaCompletion</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaDockPane.html" title="AnjutaDockPane">AnjutaDockPane</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaLanguageProvider.html" title="AnjutaLanguageProvider">AnjutaLanguageProvider</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaLauncher.html" title="AnjutaLauncher">AnjutaLauncher</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaPlugin.html" title="AnjutaPlugin">AnjutaPlugin</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaPluginHandle.html" title="AnjutaPluginHandle">AnjutaPluginHandle</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaPluginManager.html" title="AnjutaPluginManager">AnjutaPluginManager</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaPreferences.html" title="AnjutaPreferences">AnjutaPreferences</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaProfile.html" title="AnjutaProfile">AnjutaProfile</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaProfileManager.html" title="AnjutaProfileManager">AnjutaProfileManager</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaSerializer.html" title="AnjutaSerializer">AnjutaSerializer</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaSession.html" title="AnjutaSession">AnjutaSession</a>
+    <span class="lineart">├──</span> <a class="link" href="libanjuta-anjuta-token-file.html#AnjutaTokenFile">AnjutaTokenFile</a>
+    <span class="lineart">╰──</span> GtkUIManager
+        <span class="lineart">╰──</span> <a class="link" href="AnjutaUI.html" title="AnjutaUI">AnjutaUI</a>
+    GInterface
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaPluginFactory.html" title="IAnjutaPluginFactory">IAnjutaPluginFactory</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaShell.html" title="AnjutaShell">AnjutaShell</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaBuildable.html" title="IAnjutaBuildable">IAnjutaBuildable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaBuilder.html" title="IAnjutaBuilder">IAnjutaBuilder</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebugManager.html" title="IAnjutaDebugManager">IAnjutaDebugManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerBreakpoint.html" title="IAnjutaDebuggerBreakpoint">IAnjutaDebuggerBreakpoint</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebugger.html" title="IAnjutaDebugger">IAnjutaDebugger</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerInstruction.html" title="IAnjutaDebuggerInstruction">IAnjutaDebuggerInstruction</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerMemory.html" title="IAnjutaDebuggerMemory">IAnjutaDebuggerMemory</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerRegister.html" title="IAnjutaDebuggerRegister">IAnjutaDebuggerRegister</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerVariable.html" title="IAnjutaDebuggerVariable">IAnjutaDebuggerVariable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDocument.html" title="IAnjutaDocument">IAnjutaDocument</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDocumentManager.html" title="IAnjutaDocumentManager">IAnjutaDocumentManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorAssist.html" title="IAnjutaEditorAssist">IAnjutaEditorAssist</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditor.html" title="IAnjutaEditor">IAnjutaEditor</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorCell.html" title="IAnjutaEditorCell">IAnjutaEditorCell</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorCellStyle.html" title="IAnjutaEditorCellStyle">IAnjutaEditorCellStyle</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorComment.html" title="IAnjutaEditorComment">IAnjutaEditorComment</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorConvert.html" title="IAnjutaEditorConvert">IAnjutaEditorConvert</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorFactory.html" title="IAnjutaEditorFactory">IAnjutaEditorFactory</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorFolds.html" title="IAnjutaEditorFolds">IAnjutaEditorFolds</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorGladeSignal.html" title="IAnjutaEditorGladeSignal">IAnjutaEditorGladeSignal</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorGoto.html" title="IAnjutaEditorGoto">IAnjutaEditorGoto</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorHover.html" title="IAnjutaEditorHover">IAnjutaEditorHover</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorLanguage.html" title="IAnjutaEditorLanguage">IAnjutaEditorLanguage</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorLineMode.html" title="IAnjutaEditorLineMode">IAnjutaEditorLineMode</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorSearch.html" title="IAnjutaEditorSearch">IAnjutaEditorSearch</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorSelection.html" title="IAnjutaEditorSelection">IAnjutaEditorSelection</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorTip.html" title="IAnjutaEditorTip">IAnjutaEditorTip</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorView.html" title="IAnjutaEditorView">IAnjutaEditorView</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorZoom.html" title="IAnjutaEditorZoom">IAnjutaEditorZoom</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEnvironment.html" title="IAnjutaEnvironment">IAnjutaEnvironment</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaFile.html" title="IAnjutaFile">IAnjutaFile</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaFileLoader.html" title="IAnjutaFileLoader">IAnjutaFileLoader</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaLoader.html" title="IAnjutaLoader">IAnjutaLoader</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaFileManager.html" title="IAnjutaFileManager">IAnjutaFileManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaFileSavable.html" title="IAnjutaFileSavable">IAnjutaFileSavable</a>
+    <span class="lineart">├──</span> IAnjutaGlade
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaHelp.html" title="IAnjutaHelp">IAnjutaHelp</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaIndenter.html" title="IAnjutaIndenter">IAnjutaIndenter</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaIndicable.html" title="IAnjutaIndicable">IAnjutaIndicable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable">IAnjutaIterable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaIterableTree.html" title="IAnjutaIterableTree">IAnjutaIterableTree</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaLanguage.html" title="IAnjutaLanguage">IAnjutaLanguage</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaLanguageProvider.html" title="IAnjutaLanguageProvider">IAnjutaLanguageProvider</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaProvider.html" title="IAnjutaProvider">IAnjutaProvider</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaMarkable.html" title="IAnjutaMarkable">IAnjutaMarkable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaMessageManager.html" title="IAnjutaMessageManager">IAnjutaMessageManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaMessageView.html" title="IAnjutaMessageView">IAnjutaMessageView</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaPreferences.html" title="IAnjutaPreferences">IAnjutaPreferences</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaPrint.html" title="IAnjutaPrint">IAnjutaPrint</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaProjectBackend.html" title="IAnjutaProjectBackend">IAnjutaProjectBackend</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaProjectChooser.html" title="IAnjutaProjectChooser">IAnjutaProjectChooser</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaProject.html" title="IAnjutaProject">IAnjutaProject</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaProjectManager.html" title="IAnjutaProjectManager">IAnjutaProjectManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSnippetsManager.html" title="IAnjutaSnippetsManager">IAnjutaSnippetsManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaStream.html" title="IAnjutaStream">IAnjutaStream</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaStreamLoader.html" title="IAnjutaStreamLoader">IAnjutaStreamLoader</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaStreamSavable.html" title="IAnjutaStreamSavable">IAnjutaStreamSavable</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbol.html" title="IAnjutaSymbol">IAnjutaSymbol</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolManager.html" title="IAnjutaSymbolManager">IAnjutaSymbolManager</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolQuery.html" title="IAnjutaSymbolQuery">IAnjutaSymbolQuery</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaTerminal.html" title="IAnjutaTerminal">IAnjutaTerminal</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaTodo.html" title="IAnjutaTodo">IAnjutaTodo</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaVcs.html" title="IAnjutaVcs">IAnjutaVcs</a>
+    <span class="lineart">╰──</span> <a class="link" href="IAnjutaWizard.html" title="IAnjutaWizard">IAnjutaWizard</a>
+    GBoxed
+    <span class="lineart">├──</span> <a class="link" href="libanjuta-anjuta-encodings.html#AnjutaEncoding">AnjutaEncoding</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaLanguageProvider.html#AnjutaLanguageProposalData">AnjutaLanguageProposalData</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaPluginDescription.html" title="AnjutaPluginDescription">AnjutaPluginDescription</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaProjectNode.html#AnjutaProjectNodeInfo">AnjutaProjectNodeInfo</a>
+    <span class="lineart">├──</span> <a class="link" href="AnjutaProjectNode.html#AnjutaProjectProperty">AnjutaProjectProperty</a>
+    <span class="lineart">╰──</span> <a class="link" href="AnjutaProjectNode.html#AnjutaProjectPropertyInfo">AnjutaProjectPropertyInfo</a>
+    GEnum
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaBuildable.html#IAnjutaBuildableCommand" title="enum IAnjutaBuildableCommand">IAnjutaBuildableCommand</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaBuilder.html#IAnjutaBuilderError" title="enum IAnjutaBuilderError">IAnjutaBuilderError</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointMethod" title="enum IAnjutaDebuggerBreakpointMethod">IAnjutaDebuggerBreakpointMethod</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebuggerBreakpoint.html#IAnjutaDebuggerBreakpointType" title="enum IAnjutaDebuggerBreakpointType">IAnjutaDebuggerBreakpointType</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebugger.html#IAnjutaDebuggerError" title="enum IAnjutaDebuggerError">IAnjutaDebuggerError</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebugger.html#IAnjutaDebuggerOutputType" title="enum IAnjutaDebuggerOutputType">IAnjutaDebuggerOutputType</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaDebugger.html#IAnjutaDebuggerState" title="enum IAnjutaDebuggerState">IAnjutaDebuggerState</a>
+    <span class="lineart">├──</span> IAnjutaDocumentManagerError
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditor.html#IAnjutaEditorAttribute" title="enum IAnjutaEditorAttribute">IAnjutaEditorAttribute</a>
+    <span class="lineart">├──</span> IAnjutaEditorError
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEditorLineMode.html#IAnjutaEditorLineModeType" title="enum IAnjutaEditorLineModeType">IAnjutaEditorLineModeType</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaEnvironment.html#IAnjutaEnvironmentError" title="enum IAnjutaEnvironmentError">IAnjutaEnvironmentError</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaIndicable.html#IAnjutaIndicableIndicator" title="enum IAnjutaIndicableIndicator">IAnjutaIndicableIndicator</a>
+    <span class="lineart">├──</span> IAnjutaMarkableError
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaMarkable.html#IAnjutaMarkableMarker" title="enum IAnjutaMarkableMarker">IAnjutaMarkableMarker</a>
+    <span class="lineart">├──</span> IAnjutaMessageManagerError
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaMessageView.html#IAnjutaMessageViewType" title="enum IAnjutaMessageViewType">IAnjutaMessageViewType</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaPluginFactory.html#IAnjutaPluginFactoryError" title="enum IAnjutaPluginFactoryError">IAnjutaPluginFactoryError</a>
+    <span class="lineart">├──</span> IAnjutaProjectError
+    <span class="lineart">├──</span> IAnjutaProjectProbe
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbol.html#IAnjutaSymbolField" title="enum IAnjutaSymbolField">IAnjutaSymbolField</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolQuery.html#IAnjutaSymbolQueryDb" title="enum IAnjutaSymbolQueryDb">IAnjutaSymbolQueryDb</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolQuery.html#IAnjutaSymbolQueryFileScope" title="enum IAnjutaSymbolQueryFileScope">IAnjutaSymbolQueryFileScope</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolQuery.html#IAnjutaSymbolQueryMode" title="enum IAnjutaSymbolQueryMode">IAnjutaSymbolQueryMode</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbolQuery.html#IAnjutaSymbolQueryName" title="enum IAnjutaSymbolQueryName">IAnjutaSymbolQueryName</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaSymbol.html#IAnjutaSymbolType" title="enum IAnjutaSymbolType">IAnjutaSymbolType</a>
+    <span class="lineart">├──</span> <a class="link" href="IAnjutaVcs.html#IAnjutaVcsError" title="enum IAnjutaVcsError">IAnjutaVcsError</a>
+    <span class="lineart">╰──</span> <a class="link" href="AnjutaSerializer.html#AnjutaSerializerMode" title="enum AnjutaSerializerMode">AnjutaSerializerMode</a>
+</pre>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.21</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="object-hierarchy.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

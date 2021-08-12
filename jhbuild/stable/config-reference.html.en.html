@@ -1,0 +1,1442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Configuration File Reference</title>
+<link rel="previous" href="command-reference.html.en.html" title="Command Reference">
+<link rel="next" href="moduleset-syntax.html.en.html" title="Module Set File Syntax">
+<link rel="top" href="index.html.en.html" title="JHBuild Manual">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/jhbuild/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="config-reference.html.en.html#container">Go to page content</a></li>
+<li><a href="config-reference.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="config-reference.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division section">
+<a name="config-reference"><!--config-reference--></a><div class="header"><h1 class="section title"><span class="title">Configuration File Reference</span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a></li></ul>
+<p class="para block block-first">The <span class="filename" dir="ltr">~/.config/jhbuildrc</span> file uses standard
+      Python syntax. The file is run, and the resulting variables defined in the
+      namespace are used to control how JHBuild acts. A set of default values
+      are inserted into the namespace before running the user's configuration
+      file.</p>
+<p class="para block">Boolean configuration variables are set using syntax as demonstrated
+      in the following example:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">use_local_modulesets = True</pre></div>
+<p class="para block">String configuration variables are set using syntax as demonstrated
+      in the following example:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">autogenargs = '--disable-static --disable-gtk-doc'</pre></div>
+<p class="para block">List configuration variables are set using syntax as demonstrated in
+      the following example:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">skip = ['mozilla', 'pulseaudio']</pre></div>
+<p class="para block">Dictionary configuration variables are set using syntax as
+      demonstrated in the following example:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">repos['git.gnome.org'] = 'ssh://username@git.gnome.org/git/'</pre></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">5.1. </span><a class="xref" href="config-reference.html.en.html#config-reference-variables" title="Configuration Variables">Configuration Variables</a>
+</li>
+<li>
+<span class="label">5.2. </span><a class="xref" href="config-reference.html.en.html#config-reference-other" title="Other Configuration File Structures">Other Configuration File Structures</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="config-reference-variables"><!--config-reference-variables--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">5.1. </span>Configuration Variables</span></h2></div>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+<a name="cfg-alwaysautogen"><!--cfg-alwaysautogen--></a>
+            <span class="varname" dir="ltr">alwaysautogen</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value if set to <span class="constant" dir="ltr">True</span>,
+              always run <span class="command" dir="ltr">autogen.sh</span>. This is equivalent to
+              passing <span class="option" dir="ltr">--autogen</span> option to JHBuild. Defaults to
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-autogenargs"><!--cfg-autogenargs--></a>
+            <span class="varname" dir="ltr">autogenargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string containing arguments passed to the
+              <span class="command" dir="ltr">autogen.sh</span> script of all modules. Can be
+              overridden for particular modules using the
+              <span class="varname" dir="ltr">module_autogenargs</span> dictionary.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-branches"><!--cfg-branches--></a>
+            <span class="varname" dir="ltr">branches</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary specifying which branch to use for specific
+              modules. This is useful if you are making some changes on a branch
+              of a module and want JHBuild to build that branch instead of the
+              one listed in the module set.</p>
+
+            <p class="simpara block">The definition of branches depends on the module VCS:
+            </p>
+
+            <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+                <p class="simpara block block-first">CVS: revision. E.g.
+                  <span class="literal" dir="ltr">'BRANCH-PROJECT-0_8'</span></p>
+              </li>
+<li>
+                <p class="simpara block block-first">Bazaar: URI of module branch. E.g.
+                  <span class="literal" dir="ltr">'http://bzr.example.net/project/gnome-2-28'</span>
+                </p>
+              </li>
+<li>
+                <p class="simpara block block-first">Git: tuple, with first part being an optional
+                  repository (or the None value) and the second part the name of
+                  the branch. E.g. <span class="literal" dir="ltr">('git://git.example.net/project',
+                  'gnome-2-28')</span></p>
+
+                <div class=" block example block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 2</span> </span>Simple example</span></div>
+<div class="example-inner">
+                  
+<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">branches['modulename'] = (None, 'branchname')</pre></div>
+                </div>
+</div>
+              </li>
+<li>
+                <p class="simpara block block-first">Subversion: URI of module branch. E.g.
+                  <span class="literal" dir="ltr">'svn://svn.example.net/project/gnome-2-28'</span>
+                </p>
+              </li>
+</ul></div>
+          </dd>
+<dt class="term">
+<a name="cfg-builddir-pattern"><!--cfg-builddir-pattern--></a>
+            <span class="varname" dir="ltr">builddir_pattern</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A <span class="function">printf</span> style formatting pattern
+              used to generate build directory names. This is only used when
+              using separate source and build trees. The <span class="literal" dir="ltr">%s</span>
+              in the format string will be replaced with
+              <span class="varname" dir="ltr">checkoutdir</span>. Defaults to
+              <span class="literal" dir="ltr">'%s'</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-buildroot"><!--cfg-buildroot--></a>
+            <span class="varname" dir="ltr">buildroot</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the parent directory to place build
+              trees. Defaults to <span class="filename" dir="ltr">~/.cache/jhbuild/build</span>.
+              Setting the value to <span class="constant" dir="ltr">None</span> causes builds
+              to be performed within the source trees.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-buildscript"><!--cfg-buildscript--></a>
+            <span class="varname" dir="ltr">buildscript</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying which buildscript to use. The
+              recommended setting is the default, <span class="literal" dir="ltr">terminal</span>.
+              In particular, do not set to <span class="literal" dir="ltr">gtk</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-build-policy"><!--cfg-build-policy--></a>
+            <span class="varname" dir="ltr">build_policy</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying which modules to build. The three
+              possible options are <span class="literal" dir="ltr">all</span>, to build all modules
+              requested, <span class="literal" dir="ltr">updated</span> to build only modules which
+              have changed, or <span class="literal" dir="ltr">updated-deps</span> to build modules
+              which have changed or which have dependencies which have changed.
+              Defaults to <span class="literal" dir="ltr">updated-deps</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-checkoutroot"><!--cfg-checkoutroot--></a>
+            <span class="varname" dir="ltr">checkoutroot</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the directory to unpack source trees
+              to. Unless <span class="varname" dir="ltr">buildroot</span> is set, builds will occur
+              in this directory too. Defaults to
+              <span class="filename" dir="ltr">~/checkout/gnome</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-checkout-mode"><!--cfg-checkout-mode--></a>
+            <span class="varname" dir="ltr">checkout_mode</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying how the checkout is performed for
+              directories in version control. Defaults to
+              <span class="literal" dir="ltr">update</span>. This can be set per module using
+              <span class="varname" dir="ltr">module_checkout_mode</span>. Possible values are
+              <span class="literal" dir="ltr">update</span> (update checkout directory),
+              <span class="literal" dir="ltr">clobber</span> (wipe out directory before checking out
+              the sources), <span class="literal" dir="ltr">export</span> (wipe out directory then
+              create a tarball of the sources containing any patches) and
+              <span class="literal" dir="ltr">copy</span> (checkout in a directory different from
+              the one it will build).</p>
+          </dd>
+<dt class="term">
+<a name="cfg-cmakeargs"><!--cfg-cmakeargs--></a>
+            <span class="varname" dir="ltr">cmakeargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string containing arguments passed to the
+              <span class="command" dir="ltr">cmake</span> invocation of all modules. Can be
+              overridden for particular modules using the
+              <span class="varname" dir="ltr">module_cmakeargs</span> dictionary.
+              Defaults to <span class="literal" dir="ltr">''</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-copy-dir"><!--cfg-copy-dir--></a>
+            <span class="varname" dir="ltr">copy_dir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the directory to copy to, if the copy
+              <a class="link" href="config-reference.html.en.html#cfg-checkout-mode" title="">
+              <span class="varname" dir="ltr">checkout_mode</span></a> is in use. Defaults to the
+              checkout directory.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-export-dir"><!--cfg-export-dir--></a>
+            <span class="varname" dir="ltr">export_dir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the directory to export to, if the export
+              <a class="link" href="config-reference.html.en.html#cfg-checkout-mode" title="">
+              <span class="varname" dir="ltr">checkout_mode</span></a> is in use. Defaults to the
+              checkout directory.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-cvs-program"><!--cfg-cvs-program--></a>
+            <span class="varname" dir="ltr">cvs_program</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying which program to use for CVS support.
+              This can be <span class="literal" dir="ltr">git-cvsimport</span>, or
+              <span class="literal" dir="ltr">cvs</span>. Defaults to <span class="literal" dir="ltr">cvs</span>.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-disable-Werror"><!--cfg-disable-Werror--></a>
+            <span class="varname" dir="ltr">disable_Werror</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">
+              A boolean value (default <span class="literal" dir="ltr">True</span>) which controls if
+              <span class="literal" dir="ltr">--disable-Werror</span> will be passed to automake builds.  Many packages use this
+              flag as a way to disable fatal compiler warnings.  The value of <span class="literal" dir="ltr">True</span> is
+              selected as a reasonable default for those using jhbuild as a means to get an up-to-date version of
+              software packages without being side-tracked by build failures in other people's modules.
+              Setting this value to <span class="literal" dir="ltr">False</span> may make sense for those using jhbuild as part of
+              a continuous integration or testing system.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-dvcs-mirror-dir"><!--cfg-dvcs-mirror-dir--></a>
+            <span class="varname" dir="ltr">dvcs_mirror_dir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying a local mirror directory. JHBuild
+              will create local mirrors of repositories at the specified
+              directory. The mirrors can be shared by multiple repository
+              groups, saving space and time because hard-links will be used for
+              local clones. The commands <span class="command" dir="ltr">update</span> and
+              <span class="command" dir="ltr">updateone</span> will create the mirrors and fetch new
+              commits from the online repositories. This option is only
+              supported by Git and Bazaar repositories.</p>
+          </dd>
+<dt class="term">
+<a name="exit-on-error"><!--exit-on-error--></a>
+            <span class="varname" dir="ltr">exit_on_error</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to exit immediately when a
+              module fails to build. This is primarily useful in noninteractive
+              mode, in order to prevent additional modules from building after
+              one fails. Setting this value to <span class="constant" dir="ltr">True</span> is
+              equivalent to passing the <span class="option" dir="ltr">--exit-on-error</span> option.
+              Defaults to <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-extra-prefixes"><!--cfg-extra-prefixes--></a>
+            <span class="varname" dir="ltr">extra_prefixes</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A list of strings specifying, in precedence order, the list
+              of extra prefixes.  JHBuild sets many environment variables (such
+              as <span class="envar" dir="ltr">LD_LIBRARY_PATH</span>, <span class="envar" dir="ltr">PKG_CONFIG_PATH</span>
+              and <span class="envar" dir="ltr">XDG_DATA_DIRS</span>) based on the
+              <span class="varname" dir="ltr">prefix</span> variable.  Adding directories to
+              <span class="varname" dir="ltr">extra_prefixes</span> will cause these prefixes to be
+              included as well, at a lower precedence than the JHBuild
+              <span class="varname" dir="ltr">prefix</span>, but at a higher precedence than system
+              directories.  This variable is empty by default except on systems
+              that install software in <span class="filename" dir="ltr">/usr/local</span>, in which
+              case it contains this directory.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-help-website"><!--cfg-help-website--></a>
+            <span class="varname" dir="ltr">help_website</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A tuple specifying a help website name and URL. The
+              website is displayed in the tinderbox html for failed modules.
+              <span class="varname" dir="ltr">%(module)s</span> in the URL will be replaced with the
+              module name. To disable, set <span class="varname" dir="ltr">help_website</span> to
+              <span class="literal" dir="ltr">None</span>. Defaults to <span class="literal" dir="ltr">('Gnome Live!',
+              'http://live.gnome.org/JhbuildIssues/%(module)s')</span>.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-installprog"><!--cfg-installprog--></a>
+            <span class="varname" dir="ltr">installprog</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying a program to use as replacement for
+              <span class="literal" dir="ltr">/usr/bin/install</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-ignore-suggests"><!--cfg-ignore-suggests--></a>
+            <span class="varname" dir="ltr">ignore_suggests</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to ignore soft
+              dependencies when calculating the dependency tree. Defaults to
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-interact"><!--cfg-interact--></a>
+            <span class="varname" dir="ltr">interact</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to interact with the
+              user. Setting this value to <span class="constant" dir="ltr">False</span> is
+              equivalent to passing the <span class="option" dir="ltr">--no-interact</span> option.
+              Defaults to <span class="constant" dir="ltr">True</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-makeargs"><!--cfg-makeargs--></a>
+            <span class="varname" dir="ltr">makeargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string listing additional arguments to be passed to
+              <span class="command" dir="ltr">make</span>. JHBuild will automatically append the
+              parallel execution option (<span class="option" dir="ltr">-j</span>) based upon
+              available CPU cores. Defaults to <span class="literal" dir="ltr">''</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-makecheck"><!--cfg-makecheck--></a>
+            <span class="varname" dir="ltr">makecheck</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to run <span class="command" dir="ltr">make
+              check</span> after <span class="command" dir="ltr">make</span>. Defaults to
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-makecheck-advistory"><!--cfg-makecheck-advistory--></a>
+            <span class="varname" dir="ltr">makecheck_advisory</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether failures when running
+              <span class="command" dir="ltr">make check</span> should be advisory only and not
+              cause a build failure. Defaults to <span class="constant" dir="ltr">False</span>.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-makeclean"><!--cfg-makeclean--></a>
+            <span class="varname" dir="ltr">makeclean</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to run <span class="command" dir="ltr">make
+              clean</span> before <span class="command" dir="ltr">make</span>. Defaults to
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-makedist"><!--cfg-makedist--></a>
+            <span class="varname" dir="ltr">makedist</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to run <span class="command" dir="ltr">make
+              dist</span> after <span class="command" dir="ltr">make</span>. Defaults to
+              <span class="constant" dir="ltr">False</span>. This setting is equivalent to passing
+              the <span class="option" dir="ltr">--dist</span> option.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-makedistcheck"><!--cfg-makedistcheck--></a>
+            <span class="varname" dir="ltr">makedistcheck</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to run <span class="command" dir="ltr">make
+              distcheck</span> after <span class="command" dir="ltr">make</span>. Defaults to
+              <span class="constant" dir="ltr">False</span>. This setting is equivalent to passing
+              the <span class="option" dir="ltr">--distcheck</span> option.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-mesonargs"><!--cfg-mesonargs--></a>
+            <span class="varname" dir="ltr">mesonargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string containing arguments passed to the
+              <span class="command" dir="ltr">meson</span> invocation of all modules. Can be
+              overridden for particular modules using the
+              <span class="varname" dir="ltr">module_mesonargs</span> dictionary. Defaults
+              to <span class="literal" dir="ltr">''</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-autogenargs"><!--cfg-module-autogenargs--></a>
+            <span class="varname" dir="ltr">module_autogenargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to strings specifying
+              the arguments to be passed to <span class="command" dir="ltr">autogen.sh</span>. The
+              setting in <span class="varname" dir="ltr">module_autogenargs</span> is used instead
+              of the global <span class="varname" dir="ltr">autogenargs</span> setting. If a
+              particular module isn't listed in the dictionary, the global
+              <span class="varname" dir="ltr">autogenargs</span> will be used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-checkout-mode"><!--cfg-module-checkout-mode--></a>
+            <span class="varname" dir="ltr">module_checkout_mode</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary specifying which checkout mode to use for
+              modules. This overrides the global
+              <span class="varname" dir="ltr">checkout_mode</span> setting.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-cmakeargs"><!--cfg-module-cmakeargs--></a>
+            <span class="varname" dir="ltr">module_cmakeargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to strings specifying
+              the arguments to be passed to <span class="command" dir="ltr">cmake</span>. The
+              setting in <span class="varname" dir="ltr">module_cmakeargs</span> is used instead
+              of the global <span class="varname" dir="ltr">cmakeargs</span> setting. If a
+              particular module isn’t listed in the dictionary, the global
+              <span class="varname" dir="ltr">cmakeargs</span> will be used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-makeargs"><!--cfg-module-makeargs--></a>
+            <span class="varname" dir="ltr">module_makeargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to strings specifying
+              the arguments to pass to <span class="command" dir="ltr">make</span>. The setting in
+              <span class="varname" dir="ltr">module_makeargs</span> replaces the value of
+              <span class="varname" dir="ltr">makeargs</span>. If a particular module isn't listed
+              in the dictionary, the global <span class="varname" dir="ltr">makeargs</span> will be
+              used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-makecheck"><!--cfg-module-makecheck--></a>
+            <span class="varname" dir="ltr">module_makecheck</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to boolean values
+              specifying whether to run <span class="command" dir="ltr">make check</span> after
+              <span class="command" dir="ltr">make</span>. The setting in
+              <span class="varname" dir="ltr">module_makecheck</span> replaces the value of
+              <span class="varname" dir="ltr">makecheck</span>. If a particular module isn't listed
+              in the dictionary, the global <span class="varname" dir="ltr">makecheck</span> will be
+              used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-mesonargs"><!--cfg-module-mesonargs--></a>
+            <span class="varname" dir="ltr">module_mesonargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to strings specifying
+              the arguments to be passed to <span class="command" dir="ltr">meson</span>. The
+              setting in <span class="varname" dir="ltr">module_mesonargs</span> is used instead
+              of the global <span class="varname" dir="ltr">mesonargs</span> setting. If a
+              particular module isn’t listed in the dictionary, the global
+              <span class="varname" dir="ltr">mesonargs</span> will be used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-ninjaargs"><!--cfg-module-ninjaargs--></a>
+            <span class="varname" dir="ltr">module_ninjaargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to strings specifying
+              the arguments to pass to <span class="command" dir="ltr">ninja</span>. The setting in
+              <span class="varname" dir="ltr">module_ninjaargs</span> replaces the value of
+              <span class="varname" dir="ltr">ninjaargs</span>. If a particular module isn't listed
+              in the dictionary, the global <span class="varname" dir="ltr">ninjaargs</span> will be
+              used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-nopoison"><!--cfg-module-nopoison--></a>
+            <span class="varname" dir="ltr">module_nopoison</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to boolean values. If a
+              module is set to <span class="constant" dir="ltr">True</span>, JHBuild will attempt
+              to build dependent modules even if the specified module failed.
+              The setting in <span class="varname" dir="ltr">module_nopoison</span> replaces the
+              value of <span class="varname" dir="ltr">nopoison</span>. If a particular module isn't
+              listed in the dictionary, the global <span class="varname" dir="ltr">nopoison</span>
+              will be used.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-extra-env"><!--cfg-module-extra-env--></a>
+            <span class="varname" dir="ltr">module_extra_env</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary mapping module names to dictionaries with
+              extra environment variables to pass when executing commands for
+              the module.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-module-static-analyzer"><!--cfg-module-static-analyzer--></a>
+            <span class="varname" dir="ltr">module_static_analyzer</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Dictionary mapping module names to boolean values
+              indicating whether static analysis should be performed while
+              building that module. This allows the global
+              <span class="varname" dir="ltr">static_analyzer</span> configuration option to be
+              overridden.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-modules"><!--cfg-modules--></a>
+            <span class="varname" dir="ltr">modules</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A list of strings specifying the modules to build. The
+              list of modules actually built will be recursively expanded to
+              include all the dependencies unless the
+              <a class="link" href="command-reference.html.en.html#command-reference-buildone" title="buildone">
+              <span class="command" dir="ltr">buildone</span></a> command is used. Defaults to
+              <span class="literal" dir="ltr">['meta-gnome-desktop']</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-moduleset"><!--cfg-moduleset--></a>
+            <span class="varname" dir="ltr">moduleset</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string or list of strings specifying the name(s) of the
+              module set(s) to use. This can either be the filename of a
+              moduleset included with JHBuild (excluding the path and
+              extension), or a full HTTP URL to an externally managed moduleset.
+              HTTP URL modulesets are cached locally. If a module with the same
+              name is present in more than one moduleset, the last set listed
+              takes priority. Modulesets provided with JHBuild are updated to
+              match the current GNOME development release.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-modulesets-dir"><!--cfg-modulesets-dir--></a>
+            <span class="varname" dir="ltr">modulesets_dir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the directory containing the
+              modulesets to use. Defaults to the
+              <span class="filename" dir="ltr">modulesets/</span> directory in JHBuild sources.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-nice-build"><!--cfg-nice-build--></a>
+            <span class="varname" dir="ltr">nice_build</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run builds under the <span class="constant" dir="ltr">SCHED_IDLE</span>
+              priority on Linux, <span class="command" dir="ltr">nice</span> on other Unix. This can
+              dramatically improve desktop interactivity for parallel builds
+              while having only a negligible impact on build throughput.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-ninjaargs"><!--cfg-ninjaargs--></a>
+            <span class="varname" dir="ltr">ninjaargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string listing additional arguments to be passed to
+              <span class="command" dir="ltr">ninja</span>. Defaults to <span class="literal" dir="ltr">''</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-nobuild"><!--cfg-nobuild--></a>
+            <span class="varname" dir="ltr">nobuild</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              JHBuild will not build modules, but just download and unpack the
+              sources. The default value is <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-nonetwork"><!--cfg-nonetwork--></a>
+            <span class="varname" dir="ltr">nonetwork</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to access the network.
+              This affects checking out or updating CVS modules, downloading
+              tarballs and updating module sets. Setting this to
+              <span class="constant" dir="ltr">True</span> is equivalent to passing the
+              <span class="option" dir="ltr">--no-network</span> option. Defaults to
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-nonotify"><!--cfg-nonotify--></a>
+            <span class="varname" dir="ltr">nonotify</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to emit notifications
+              using the notification daemon. If set to
+              <span class="constant" dir="ltr">False</span>, notifications are emitted. Defaults to
+              <span class="constant" dir="ltr">True</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-nopoison"><!--cfg-nopoison--></a>
+            <span class="varname" dir="ltr">nopoison</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              JHBuild attempts to build modules even if one or more of the
+              module's dependencies failed to build. This option is equivalent
+              to the <span class="option" dir="ltr">--no-poison</span> argument. The default value is
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-notrayicon"><!--cfg-notrayicon--></a>
+            <span class="varname" dir="ltr">notrayicon</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to show an icon in the
+              system tray using Zenity. If set to <span class="constant" dir="ltr">False</span>,
+              an icon is shown. Defaults to <span class="constant" dir="ltr">True</span>.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-noxvfb"><!--cfg-noxvfb--></a>
+            <span class="varname" dir="ltr">noxvfb</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              JHBuild will run any graphical tests on the real X server, rather
+              than using <span class="command" dir="ltr">Xvfb</span>. This option is equivalent to
+              passing <span class="option" dir="ltr">--no-xvfb</span>. The default value is
+              <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-partial-build"><!--cfg-partial-build--></a>
+            <span class="varname" dir="ltr">partial_build</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              JHBuild will not build dependency modules if corresponding system
+              packages are installed and sufficient version. Defaults to
+              <span class="constant" dir="ltr">True</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-prefix"><!--cfg-prefix--></a>
+            <span class="varname" dir="ltr">prefix</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the prefix to install modules to.
+              <span class="varname" dir="ltr">prefix</span> must be an absolute path. This directory
+              must be writable. Defaults to <span class="literal" dir="ltr">'~/jhbuild/install/'</span>.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-pretty-print"><!--cfg-pretty-print--></a>
+            <span class="varname" dir="ltr">pretty_print</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to pretty format the
+              subprocess output. Only CVS output supports pretty printing.
+              Disable if the pretty printing causes problems. Defaults to
+              <span class="literal" dir="ltr">True</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-print-command-pattern"><!--cfg-print-command-pattern--></a>
+            <span class="varname" dir="ltr">print_command_pattern</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string displayed before JHBuild executes a command.
+              <span class="varname" dir="ltr">%(command)s</span> in the string will be replaced with
+              the command about to be executed. <span class="varname" dir="ltr">%(cwd)s</span> in
+              the string will be replaced with the current working directory.
+              Defaults to <span class="literal" dir="ltr">'%(command)s'</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-progress-bar"><!--cfg-progress-bar--></a>
+            <span class="varname" dir="ltr">progress_bar</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value specifying whether to display a progress
+              bar during <a class="link" href="config-reference.html.en.html#cfg-quiet-mode" title="">quiet mode </a>.
+              Defaults to <span class="literal" dir="ltr">True</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-quiet-mode"><!--cfg-quiet-mode--></a>
+            <span class="varname" dir="ltr">quiet_mode</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              disables the output of running commands. Defaults to
+              <span class="literal" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-repos"><!--cfg-repos--></a>
+            <span class="varname" dir="ltr">repos</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A dictionary specifying an alternative repository
+              location for a particular repository. This configuration variable
+              is useful to a module developer. By default, JHBuild will check
+              out code from repositories using an anonymous repository location.
+              The dictionary keys are short repository names and the values are
+              the alternative repository location strings. For example:
+            </p>
+
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">repos['git.gnome.org'] = 'ssh://username@git.gnome.org/git/'</pre></div>
+          </dd>
+<dt class="term">
+<a name="cfg-shallow-clone"><!--cfg-shallow-clone--></a>
+            <span class="varname" dir="ltr">shallow_clone</span>
+          </dt>
+<dd>
+              <p class="simpara block block-first">A boolean value specifying if JHBuild should prefer
+                smaller version control downloads. Equivalent to
+                <span class="command" dir="ltr">git clone --depth 1</span> or
+                <span class="command" dir="ltr">bzr co --light</span>.
+                Defaults to <span class="constant" dir="ltr">False</span>.
+             </p>
+          </dd>
+<dt class="term">
+<a name="cfg-skip"><!--cfg-skip--></a>
+            <span class="varname" dir="ltr">skip</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A list of modules to skip. This <span class="option" dir="ltr">--skip</span>
+              command line option extends the list. This list is empty by
+              default. If the list contains the special value <span class="literal" dir="ltr">'*'</span>,
+              JHBuild will skip all modules not explicitly listed in
+              the <span class="varname" dir="ltr">modules</span> variable.  This may be useful if
+              you want to build modules without their implicit dependencies.
+             </p>
+          </dd>
+<dt class="term">
+<a name="cfg-static-analyzer"><!--cfg-static-analyzer--></a>
+            <span class="varname" dir="ltr">static_analyzer</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value: if set to <span class="constant" dir="ltr">True</span>,
+              run a static analysis tool on each module as it’s being built.
+              Defaults to <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-static-analyzer-outputdir"><!--cfg-static-analyzer-outputdir--></a>
+            <span class="varname" dir="ltr">static_analyzer_outputdir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Root directory below which static analysis reports will
+              be saved (if <span class="varname" dir="ltr">static_analyzer</span> is
+              <span class="constant" dir="ltr">True</span>). Defaults to
+              <span class="filename" dir="ltr">/tmp/jhbuild_static_analyzer</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-static-analyzer-template"><!--cfg-static-analyzer-template--></a>
+            <span class="varname" dir="ltr">static_analyzer_template</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Command template for the static analyzer. This has the
+              parameters <span class="varname" dir="ltr">outputdir</span> (the value of the
+              <span class="varname" dir="ltr">static_analyzer_outputdir</span> configuration
+              variable) and <span class="varname" dir="ltr">module</span> (the name of the module
+              currently being built) substituted into it
+              <span class="function">printf</span>-style. The resulting command is
+              used as a prefix to <span class="command" dir="ltr">make</span> when building a
+              module. Defaults to <span class="command" dir="ltr">scan-build</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-sticky-date"><!--cfg-sticky-date--></a>
+            <span class="varname" dir="ltr">sticky_date</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string if set, and if supported by the underlying
+              version control system, JHBuild will update the source tree to the
+              specified date before building. An ISO date format is required,
+              e.g.
+              <span class="literal" dir="ltr">'<span class="replaceable">yyyy</span>-<span class="replaceable">mm</span>-<span class="replaceable">dd</span>'</span>.
+              Defaults to <span class="constant" dir="ltr">None</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-svn-program"><!--cfg-svn-program--></a>
+            <span class="varname" dir="ltr">svn_program</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying which program to use for subversion
+              support. This can be <span class="literal" dir="ltr">svn</span>,
+              <span class="literal" dir="ltr">git-svn</span> or <span class="literal" dir="ltr">bzr</span>. Defaults to
+              <span class="literal" dir="ltr">svn</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-system-libdirs"><!--cfg-system-libdirs--></a>
+            <span class="varname" dir="ltr">system_libdirs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A list of strings specifying the system library paths.
+              This is used when setting the default values of some environment
+              variables, such as <span class="envar" dir="ltr">PKG_CONFIG_PATH</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-tarballdir"><!--cfg-tarballdir--></a>
+            <span class="varname" dir="ltr">tarballdir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string if set, tarballs will be downloaded to the
+              specified directory instead of <span class="varname" dir="ltr">checkoutroot</span>.
+              This is useful if you have multiple JHBuild environments or
+              regularly clear out <span class="varname" dir="ltr">checkoutroot</span> and want to
+              reduce bandwidth usage.  Defaults to
+              <span class="literal" dir="ltr">'~/.cache/jhbuild/downloads'</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-tinderbox-outputdir"><!--cfg-tinderbox-outputdir--></a>
+            <span class="varname" dir="ltr">tinderbox_outputdir</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string specifying the directory to store
+              <span class="command" dir="ltr">jhbuild tinderbox</span> output. This string can be
+              overridden by the <span class="option" dir="ltr">--output</span> option. Defaults to
+              <span class="constant" dir="ltr">None</span>, so either the command line option must
+              be used or this variable must be set in the configuration file.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-trycheckout"><!--cfg-trycheckout--></a>
+            <span class="varname" dir="ltr">trycheckout</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value, if set to <span class="constant" dir="ltr">True</span>
+              JHBuild will automatically try to solve failures by 1) running
+              <span class="command" dir="ltr">autogen.sh</span> again, and 2) checking out a newer
+              version of a module from version control. This setting is
+              equivalent to passing the <span class="option" dir="ltr">--try-checkout</span> option.
+            </p>
+          </dd>
+<dt class="term">
+<a name="cfg-use-local-modulesets"><!--cfg-use-local-modulesets--></a>
+            <span class="varname" dir="ltr">use_local_modulesets</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A boolean value that specifies to use modulesets that
+              were checked out along the JHBuild source code; instead of
+              downloading them on-the-fly from GNOME version control system.
+              Defaults to <span class="constant" dir="ltr">False</span>.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-xvfbargs"><!--cfg-xvfbargs--></a>
+            <span class="varname" dir="ltr">xvfbargs</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A string listing arguments to pass to
+              <span class="command" dir="ltr">Xvfb</span> if running graphical tests.</p>
+          </dd>
+<dt class="term">
+<a name="cfg-conditions"><!--cfg-conditions--></a>
+            <span class="varname" dir="ltr">conditions</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">A set of condition (strings) that can influence the modules that are built and the options
+              that are used for building them.  You should use <span class="literal" dir="ltr">conditions.add()</span> and
+              <span class="literal" dir="ltr">conditions.discard()</span> to modify the list if you want to make changes.</p>
+            <p class="simpara block">The original set of conditions is determined on a per-OS basis and can be modified using
+              the <span class="option" dir="ltr">--conditions=</span> commandline argument.  The changes made by
+              <span class="option" dir="ltr">--conditions</span> are visible at the time that jhbuildrc is sourced, so you can set
+              other variables based on the current value of the set, but <span class="option" dir="ltr">--conditions</span> will be
+              applied again after any changes made by jhbuildrc.</p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="config-reference-other"><!--config-reference-other--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">5.2. </span>Other Configuration File Structures</span></h2></div>
+<p class="para block block-first">In addition to the above variables, there are other settings that
+        can be set in the configuration file:</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+<a name="cfg-os-environ"><!--cfg-os-environ--></a>
+            <span class="varname" dir="ltr">os.environ</span>
+          </dt>
+<dd>
+            <p class="para block block-first">A dictionary representing the environment. This environment
+              is passed to processes that JHBuild spawns.</p>
+
+            <p class="para block">Some influential environment variables include
+              <span class="envar" dir="ltr">CPPFLAGS</span>, <span class="envar" dir="ltr">CFLAGS</span>,
+              <span class="envar" dir="ltr">INSTALL</span> and <span class="envar" dir="ltr">LDFLAGS</span>. For example:
+            </p>
+
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">os.environ['CFLAGS'] = '-O0 -g'</pre></div>
+          </dd>
+<dt class="term">
+            <span class="function">addpath</span>(<span class="parameter" dir="ltr">envvar</span>,
+            <span class="parameter" dir="ltr">pathname</span>)
+          </dt>
+<dd>
+            <p class="para block block-first">This will add a directory to the <span class="envar" dir="ltr">PATH</span>
+              environment variable. <span class="function">addpath</span> will correctly
+              handle the case when the environment variable is initially empty
+              (having a stray colon at the beginning or end of an environment
+              variable can have unexpected consequences).</p>
+          </dd>
+<dt class="term">
+            <span class="function">prependpath</span>(<span class="parameter" dir="ltr">envvar</span>,
+            <span class="parameter" dir="ltr">pathname</span>)
+          </dt>
+<dd>
+            <p class="para block block-first">After processing the configuration file, JHBuild will alter
+              some paths based on variables such as <span class="varname" dir="ltr">prefix</span>
+              (e.g. adding <span class="literal" dir="ltr">$prefix/bin</span> to the start of
+              <span class="envar" dir="ltr">PATH</span>).</p>
+
+            <p class="para block">The <span class="function">prependpath</span> function works like
+              <span class="function">addpath</span>, except that the environment variable
+              is modified after JHBuild has made its changes to the environment.
+            </p>
+          </dd>
+</dl></div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="command-reference.html.en.html" title="Command Reference">Command Reference</a></td>
+<td class="navbar-next"><a class="navbar-next" href="moduleset-syntax.html.en.html" title="Module Set File Syntax">Module Set File Syntax</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"><div class="division">
+<h2 class="title copyright">Copyright</h2>
+<div class="block block-first"><dl class="dl-compact"><dt class="copyright">Copyright © <span class="year">2004, 2008</span>  <span class="holder">James Henstridge</span>
+</dt></dl></div>
+</div></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a><div class="autotoc"><ul>
+<li><a class="xref" href="introduction.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="getting-started.html.en.html" title="Getting Started">Getting Started</a></li>
+<li><a class="xref" href="jhbuild-and-gnome.html.en.html" title="JHBuild and GNOME">JHBuild and GNOME</a></li>
+<li><a class="xref" href="command-reference.html.en.html" title="Command Reference">Command Reference</a></li>
+<li>Configuration File Reference</li>
+<li><a class="xref" href="moduleset-syntax.html.en.html" title="Module Set File Syntax">Module Set File Syntax</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="config-reference.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EpcPublisher: Easy Publish and Consume Reference Manual</title><link href="index.html" rel="home" title="Easy Publish and Consume Reference Manual"></link><link href="publishing.html" rel="up" title="Publishing"></link><link href="libepc-1.0-contents.html" rel="prev" title="EpcContents"></link><link href="dns-sd-support.html" rel="next" title="DNS-SD Support"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libepc-1.0-publisher.html#container">Go to page content</a></li><li><a href="libepc-1.0-publisher.html#top_bar">Go to main menu</a></li><li><a href="libepc-1.0-publisher.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="libepc-1.0-publisher.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-publisher.html#libepc-1.0-publisher.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-publisher.html#libepc-1.0-publisher.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-publisher.html#libepc-1.0-publisher.properties">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="publishing.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libepc-1.0-contents.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="dns-sd-support.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libepc-1.0-publisher"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libepc-1.0-publisher.top_of_page"></a>EpcPublisher</span></h2>
+<p>EpcPublisher — easily publish values</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.stability-level"></a><h2>Stability Level</h2>
+<a href="http://foldoc.org/Unstable"><span class="acronym">Unstable</span></a>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-contents.html#EpcContents" title="EpcContents"><span class="returnvalue">EpcContents</span></a> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()">*EpcContentsHandler</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="returnvalue">EpcPublisher</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-new" title="epc_publisher_new ()">epc_publisher_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-add" title="epc_publisher_add ()">epc_publisher_add</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-file" title="epc_publisher_add_file ()">epc_publisher_add_file</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-handler" title="epc_publisher_add_handler ()">epc_publisher_add_handler</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-bookmark" title="epc_publisher_add_bookmark ()">epc_publisher_add_bookmark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-path" title="epc_publisher_get_path ()">epc_publisher_get_path</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-uri" title="epc_publisher_get_uri ()">epc_publisher_get_uri</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-has-key" title="epc_publisher_has_key ()">epc_publisher_has_key</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gpointer</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-lookup" title="epc_publisher_lookup ()">epc_publisher_lookup</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-remove" title="epc_publisher_remove ()">epc_publisher_remove</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-list" title="epc_publisher_list ()">epc_publisher_list</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-run" title="epc_publisher_run ()">epc_publisher_run</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-run-async" title="epc_publisher_run_async ()">epc_publisher_run_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-quit" title="epc_publisher_quit ()">epc_publisher_quit</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-expand-name" title="epc_publisher_expand_name ()">epc_publisher_expand_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-auth-flags" title="epc_publisher_set_auth_flags ()">epc_publisher_set_auth_flags</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-auth-handler" title="epc_publisher_set_auth_handler ()">epc_publisher_set_auth_handler</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-collision-handling" title="epc_publisher_set_collision_handling ()">epc_publisher_set_collision_handling</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-contents-path" title="epc_publisher_set_contents_path ()">epc_publisher_set_contents_path</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-credentials" title="epc_publisher_set_credentials ()">epc_publisher_set_credentials</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-protocol" title="epc_publisher_set_protocol ()">epc_publisher_set_protocol</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-service-cookie" title="epc_publisher_set_service_cookie ()">epc_publisher_set_service_cookie</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-service-name" title="epc_publisher_set_service_name ()">epc_publisher_set_service_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-auth-context.html#EpcAuthFlags" title="enum EpcAuthFlags"><span class="returnvalue">EpcAuthFlags</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-auth-flags" title="epc_publisher_get_auth_flags ()">epc_publisher_get_auth_flags</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-certificate-file" title="epc_publisher_get_certificate_file ()">epc_publisher_get_certificate_file</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-dispatcher.html#EpcCollisionHandling" title="enum EpcCollisionHandling"><span class="returnvalue">EpcCollisionHandling</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-collision-handling" title="epc_publisher_get_collision_handling ()">epc_publisher_get_collision_handling</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-contents-path" title="epc_publisher_get_contents_path ()">epc_publisher_get_contents_path</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-private-key-file" title="epc_publisher_get_private_key_file ()">epc_publisher_get_private_key_file</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="returnvalue">EpcProtocol</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-protocol" title="epc_publisher_get_protocol ()">epc_publisher_get_protocol</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-service-cookie" title="epc_publisher_get_service_cookie ()">epc_publisher_get_service_cookie</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-service-domain" title="epc_publisher_get_service_domain ()">epc_publisher_get_service_domain</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-get-service-name" title="epc_publisher_get_service_name ()">epc_publisher_get_service_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--application" title="The “application” property">application</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="libepc-1.0-auth-context.html#EpcAuthFlags" title="enum EpcAuthFlags"><span class="type">EpcAuthFlags</span></a></td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--auth-flags" title="The “auth-flags” property">auth-flags</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--certificate-file" title="The “certificate-file” property">certificate-file</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="libepc-1.0-dispatcher.html#EpcCollisionHandling" title="enum EpcCollisionHandling"><span class="type">EpcCollisionHandling</span></a></td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--collision-handling" title="The “collision-handling” property">collision-handling</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--contents-path" title="The “contents-path” property">contents-path</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--private-key-file" title="The “private-key-file” property">private-key-file</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a></td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--protocol" title="The “protocol” property">protocol</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-cookie" title="The “service-cookie” property">service-cookie</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-domain" title="The “service-domain” property">service-domain</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-name" title="The “service-name” property">service-name</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="EpcPublisher"></a><div class="refsect1">
+<a name="libepc-1.0-publisher.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisherPrivate" title="EpcPublisherPrivate">EpcPublisherPrivate</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisherClass" title="struct EpcPublisherClass">EpcPublisherClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher-struct" title="struct EpcPublisher">EpcPublisher</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> EpcPublisher
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libepc/publish.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.description"></a><h2>Description</h2>
+<p>The <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> starts a HTTP server to publish information.
+To allow <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> to find the publisher it automatically publishes
+its contact information (host name, TCP/IP port) per DNS-SD.</p>
+<p>In future it might use DNS-DS to notify <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> of changes.</p>
+<div class="example">
+<a name="publish-value"></a><p class="title"><b>Example 6. Publish a value</b></p>
+<div class="example-contents">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6</pre></td>
+        <td class="listing_code"><pre class="programlisting">publisher = epc_publisher_new (<span class="number">"Easy Publisher Example"</span>, <span class="number">NULL</span>, <span class="number">NULL</span>);
+
+epc_publisher_add (publisher, <span class="number">"maman"</span>, <span class="number">"bar"</span>, -<span class="number">1</span>);
+epc_publisher_add_file (publisher, <span class="number">"source-code"</span>, <span class="number">__FILE__</span>);
+
+epc_publisher_run (<span class="number">NULL</span>);</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break"></br><p><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> doesn't provide a way to explicitly publish <code class="literal">NULL</code> values, as
+publishing <code class="literal">NULL</code> values doesn't seem very valueable in our scenario: Usually
+you want to "publish" <code class="literal">NULL</code> values to express, that your application doesn't
+have any meaningful information for the requested identifier. By "publishing"
+a <code class="literal">NULL</code> value essentially you say "this information does not exist". So
+publishing <code class="literal">NULL</code> values is not different from not publishing any value at
+all or rejected access to some values. Without explicitly inspecting the
+details for not receiving a value, a consumer calling <a class="link" href="libepc-1.0-consumer.html#epc-consumer-lookup" title="epc_consumer_lookup ()"><code class="function">epc_consumer_lookup()</code></a>
+has no chance to distinguish between the cases "never published", "network
+problem", "authorization rejected", "no meaningful value available".</p>
+<p>So if  feel like publishing a <code class="literal">NULL</code> value, just remove the key in question
+from the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> by calling <a class="link" href="libepc-1.0-publisher.html#epc-publisher-remove" title="epc_publisher_remove ()"><code class="function">epc_publisher_remove()</code></a>. When using a
+custom <a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()"><span class="type">EpcContentsHandler</span></a> an alternate approach is returning <code class="literal">NULL</code> from
+that handler. In that case the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> will behave exactly the same,
+as if the value has been removed.</p>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="EpcContentsHandler"></a><h3>EpcContentsHandler ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-contents.html#EpcContents" title="EpcContents"><span class="returnvalue">EpcContents</span></a> *
+<span class="c_punctuation">(</span>*EpcContentsHandler<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                       <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                       <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>This callback is used to generate custom contents published with the
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-handler" title="epc_publisher_add_handler ()"><span class="type">epc_publisher_add_handler</span></a> function. The arguments passed are the same as
+passed to <a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-handler" title="epc_publisher_add_handler ()"><span class="type">epc_publisher_add_handler</span></a>. The <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> will decrease the
+reference count of the returned buffer after deliving it. It's valid to
+return <code class="literal">NULL</code> in situations were no contents can be generated.</p>
+<div class="refsect3">
+<a name="EpcContentsHandler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the unique key</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was installed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="EpcContentsHandler.returns"></a><h4>Returns</h4>
+<p> The <a class="link" href="libepc-1.0-contents.html#EpcContents" title="EpcContents"><span class="type">EpcContents</span></a> buffer for this publication, or <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-new"></a><h3>epc_publisher_new ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="returnvalue">EpcPublisher</span></a> *
+epc_publisher_new (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *application</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);</pre>
+<p>Creates a new <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> object. The publisher announces its service
+per DNS-SD to the DNS domain specified by <em class="parameter"><code>domain</code></em>
+, using <em class="parameter"><code>name</code></em>
+ as service
+name. The service type is derived from <em class="parameter"><code>application</code></em>
+. When <code class="literal">NULL</code> is passed
+for <em class="parameter"><code>application</code></em>
+ the value returned by <code class="function">g_get_prgname()</code> is used. See
+<a class="link" href="libepc-1.0-EpcServiceType.html#epc-service-type-new" title="epc_service_type_new ()"><code class="function">epc_service_type_new()</code></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>the human friendly service name, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>application</p></td>
+<td class="parameter_description"><p>application name used for DNS-SD service type, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>the DNS domain for announcing the service, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-new.returns"></a><h4>Returns</h4>
+<p> The newly created <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> object.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-add"></a><h3>epc_publisher_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_add (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                   <em class="parameter"><code><span class="type">gconstpointer</span> data</code></em>,
+                   <em class="parameter"><code><span class="type">gssize</span> length</code></em>);</pre>
+<p>Publishes a new value on the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> using the unique <em class="parameter"><code>key</code></em>
+ for
+addressing. When -1 is passed for <em class="parameter"><code>length</code></em>
+, <em class="parameter"><code>data</code></em>
+ is expected to be a
+null-terminated string and its length in bytes is determined automatically
+using <code class="function">strlen</code>.</p>
+<div class="note"><p>
+ Values published by the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> can be arbitrary data, possibly
+ including null characters in the middle. The kind of data associated
+ with a <em class="parameter"><code>key</code></em> is chosen by the application providing values and should 
+ be specified separately.
+
+ However, when publishing plain text it is strongly recommended
+ to use UTF-8 encoding to avoid internationalization issues.
+</p></div>
+<div class="refsect3">
+<a name="epc-publisher-add.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing the value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>the value to publish</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>length</p></td>
+<td class="parameter_description"><p>the length of <em class="parameter"><code>data</code></em>
+in bytes, or -1 if <em class="parameter"><code>data</code></em>
+is a null-terminated string.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-add-file"></a><h3>epc_publisher_add_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_add_file (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>Publishes a local file on the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> using the unique
+<em class="parameter"><code>key</code></em>
+ for addressing. The publisher delivers the current contents
+of the file at the time of access.</p>
+<div class="refsect3">
+<a name="epc-publisher-add-file.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing the file</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>filename</p></td>
+<td class="parameter_description"><p>the name of the file to publish</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-add-handler"></a><h3>epc_publisher_add_handler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_add_handler (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                           <em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()"><span class="type">EpcContentsHandler</span></a> handler</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                           <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy_data</code></em>);</pre>
+<p>Publishes contents on the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> which are generated by a custom
+<a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()"><span class="type">EpcContentsHandler</span></a> callback. This is the most flexible method for publishing
+information.</p>
+<p>The <em class="parameter"><code>handler</code></em>
+ is called on every request matching <em class="parameter"><code>key</code></em>
+.
+When called, <em class="parameter"><code>publisher</code></em>
+, <em class="parameter"><code>key</code></em>
+ and <em class="parameter"><code>user_data</code></em>
+ are passed to the <em class="parameter"><code>handler</code></em>
+.
+When replacing or deleting the resource referenced by <em class="parameter"><code>key</code></em>
+,
+or when the the Publisher is destroyed, the function
+described by <em class="parameter"><code>destroy_data</code></em>
+ is called with <em class="parameter"><code>user_data</code></em>
+ as argument.</p>
+<div class="refsect3">
+<a name="epc-publisher-add-handler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing the contents</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>handler</p></td>
+<td class="parameter_description"><p>the <a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()"><span class="type">EpcContentsHandler</span></a> for handling this contents</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>data to pass on <em class="parameter"><code>handler</code></em>
+calls</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>destroy_data</p></td>
+<td class="parameter_description"><p>a function for releasing <em class="parameter"><code>user_data</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-add-bookmark"></a><h3>epc_publisher_add_bookmark ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_add_bookmark (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                            <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                            <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>);</pre>
+<p>Installs a dynamic HTTP (respectively HTTPS) bookmark for <em class="parameter"><code>key</code></em>
+.
+This allows consumption of <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> resources by foreign
+applications that support ZeroConf bookmarks, but not libepc.
+This is useful for instance for publishing media playlists.</p>
+<p>Passing <code class="literal">NULL</code> as <em class="parameter"><code>key</code></em>
+ installs a bookmark for the root context of the
+builtin web server. When passing <code class="literal">NULL</code> as <em class="parameter"><code>label</code></em>
+ the publisher's name
+is used as bookmark label.</p>
+<div class="note"><p>
+ Dynamic bookmarks must be unique within the service domain.
+ Therefore the <em class="parameter"><code>label</code></em> will get modified on name collisions.
+</p></div>
+<div class="note"><p>
+ This should be called after adding the resource identified by <em class="parameter"><code>key</code></em>,
+ not before. For instance, after calling <a class="link" href="libepc-1.0-publisher.html#epc-publisher-add" title="epc_publisher_add ()"><code class="function">epc_publisher_add()</code></a>.
+</p></div>
+<div class="refsect3">
+<a name="epc-publisher-add-bookmark.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <span class="type">EpcResource</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key of the resource to publish, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>label</p></td>
+<td class="parameter_description"><p>the bookmark's label, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-path"></a><h3>epc_publisher_get_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+epc_publisher_get_path (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                        <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>Queries the path component of the URI used to publish the resource
+associated with <em class="parameter"><code>key</code></em>
+. This is useful when referencing keys in published
+resources. Passing <code class="literal">NULL</code> as <em class="parameter"><code>key</code></em>
+ retrieve the path of the root context.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-path.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the resource key to inspect, or <code class="literal">NULL</code>.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-path.returns"></a><h4>Returns</h4>
+<p> The resource path for <em class="parameter"><code>key</code></em>
+.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-uri"></a><h3>epc_publisher_get_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+epc_publisher_get_uri (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                       <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Queries the URI used to publish the resource associated with <em class="parameter"><code>key</code></em>
+.
+This is useful when referencing keys in published resources. When
+passing <code class="literal">NULL</code> the publisher's base URI is returned.</p>
+<p>The function fails if the publisher's host name cannot be retrieved.
+In that case <code class="literal">NULL</code> is returned and <em class="parameter"><code>error</code></em>
+ is set. The error domain is
+<a class="link" href="libepc-1.0-EpcShell.html#EPC-AVAHI-ERROR:CAPS" title="EPC_AVAHI_ERROR"><span class="type">EPC_AVAHI_ERROR</span></a>. Possible error codes are those of the</p>
+<em class="citetitle">Avahi</em> library.
+<div class="refsect3">
+<a name="epc-publisher-get-uri.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the resource key to inspect, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-uri.returns"></a><h4>Returns</h4>
+<p> The fully qualified URI for <em class="parameter"><code>key</code></em>
+, or <code class="literal">NULL</code> on error.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-has-key"></a><h3>epc_publisher_has_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_publisher_has_key (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                       <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>Checks if information is published for <em class="parameter"><code>key</code></em>
+.</p>
+<p>This function allows to use the publisher as local key/value store,
+which is useful for instance to prevent accidental key collisions.</p>
+<p>See also: epc_publisher_lookup.</p>
+<div class="refsect3">
+<a name="epc-publisher-has-key.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <span class="type">EcpPublisher</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing contents</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-has-key.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the publisher has information for <em class="parameter"><code>key</code></em>
+,
+and <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-lookup"></a><h3>epc_publisher_lookup ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>
+epc_publisher_lookup (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>Looks up the user_data passed to <a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-handler" title="epc_publisher_add_handler ()"><code class="function">epc_publisher_add_handler()</code></a> for <em class="parameter"><code>key</code></em>
+.
+Returns <code class="literal">NULL</code> if the specified <em class="parameter"><code>key</code></em>
+ doesn't exist or wasn't published
+with <a class="link" href="libepc-1.0-publisher.html#epc-publisher-add-handler" title="epc_publisher_add_handler ()"><code class="function">epc_publisher_add_handler()</code></a>.</p>
+<p>This function allows to use the publisher as local key/value store,
+which is useful for instance to prevent accidental key collisions.</p>
+<p>See also: epc_publisher_has_key.</p>
+<div class="refsect3">
+<a name="epc-publisher-lookup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <span class="type">EcpPublisher</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing contents</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-lookup.returns"></a><h4>Returns</h4>
+<p> The user_data associated with <em class="parameter"><code>key</code></em>
+, or <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-remove"></a><h3>epc_publisher_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_publisher_remove (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                      <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>Removes a key and its associated contents from a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>.</p>
+<div class="refsect3">
+<a name="epc-publisher-remove.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key for addressing the contents</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-remove.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the key was found and removed from the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-list"></a><h3>epc_publisher_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+epc_publisher_list (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                    <em class="parameter"><code>const <span class="type">gchar</span> *pattern</code></em>);</pre>
+<p>Matches published keys against patterns containing '*' (wildcard) and '?'
+(joker). Passing <code class="literal">NULL</code> as <em class="parameter"><code>pattern</code></em>
+ is equivalent to passing "*" and returns
+all published keys. This function is useful for generating dynamic resource
+listings in other formats than libepc's specific format. See <span class="type">GPatternSpec</span>
+for information about glob-style patterns.</p>
+<p>If the call was successful, a list of keys matching <em class="parameter"><code>pattern</code></em>
+ is returned.
+If the call was not successful, it returns <code class="literal">NULL</code>.</p>
+<p>The returned list should be freed when no longer needed:</p>
+<pre class="programlisting"> g_list_foreach (keys, (GFunc) g_free, NULL);
+ g_list_free (keys);
+</pre>
+<p>See also <a class="link" href="libepc-1.0-consumer.html#epc-consumer-list" title="epc_consumer_list ()"><code class="function">epc_consumer_list()</code></a> for builtin listing capabilities.</p>
+<div class="refsect3">
+<a name="epc-publisher-list.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>pattern</p></td>
+<td class="parameter_description"><p>a glob-style pattern, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-list.returns"></a><h4>Returns</h4>
+<p> A newly allocated list of keys, or <code class="literal">NULL</code> when an error occurred.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-run"></a><h3>epc_publisher_run ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_publisher_run (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                   <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Starts the server component of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> and blocks until it is
+shutdown using <a class="link" href="libepc-1.0-publisher.html#epc-publisher-quit" title="epc_publisher_quit ()"><code class="function">epc_publisher_quit()</code></a>. If the server could not be started, the
+function returns <code class="literal">FALSE</code> and sets <em class="parameter"><code>error</code></em>
+. The error domain is
+<a class="link" href="libepc-1.0-EpcShell.html#EPC-AVAHI-ERROR:CAPS" title="EPC_AVAHI_ERROR"><span class="type">EPC_AVAHI_ERROR</span></a>. Possible error codes are those of the</p>
+<em class="citetitle">Avahi</em> library.
+<p>When starting the publisher in HTTPS mode for the first time self-signed
+keys must be generated. Generating secure keys needs some time,
+so it is recommended to call <a class="link" href="libepc-1.0-progress-window.html#epc-progress-window-install" title="epc_progress_window_install ()"><code class="function">epc_progress_window_install()</code></a>, or
+<a class="link" href="libepc-1.0-EpcShell.html#epc-shell-set-progress-hooks" title="epc_shell_set_progress_hooks ()"><code class="function">epc_shell_set_progress_hooks()</code></a> to provide visual feedback during that
+operation. Key generation takes place in a separate background thread and
+the calling thread waits in a GMainLoop. Therefore the UI can remain
+responsive when generating keys.</p>
+<p>To start the server without blocking call <a class="link" href="libepc-1.0-publisher.html#epc-publisher-run-async" title="epc_publisher_run_async ()"><code class="function">epc_publisher_run_async()</code></a>.</p>
+<div class="refsect3">
+<a name="epc-publisher-run.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-run.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the publisher was successfully started,
+<code class="literal">FALSE</code> if an error occurred.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-run-async"></a><h3>epc_publisher_run_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_publisher_run_async (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Starts the server component of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> without blocking. If the
+server could not be started then the function returns <code class="literal">FALSE</code> and sets <em class="parameter"><code>error</code></em>
+. The
+error domain is <a class="link" href="libepc-1.0-EpcShell.html#EPC-AVAHI-ERROR:CAPS" title="EPC_AVAHI_ERROR"><span class="type">EPC_AVAHI_ERROR</span></a>. Possible error codes are those of the</p>
+<em class="citetitle">Avahi</em> library.
+<p>To stop the server component call <a class="link" href="libepc-1.0-publisher.html#epc-publisher-quit" title="epc_publisher_quit ()"><code class="function">epc_publisher_quit()</code></a>.
+See <a class="link" href="libepc-1.0-publisher.html#epc-publisher-run" title="epc_publisher_run ()"><code class="function">epc_publisher_run()</code></a> for additional information.</p>
+<div class="refsect3">
+<a name="epc-publisher-run-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-run-async.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the publisher was successfully started,
+<code class="literal">FALSE</code> if an error occurred.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-quit"></a><h3>epc_publisher_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_publisher_quit (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Stops the server component of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> started with
+<a class="link" href="libepc-1.0-publisher.html#epc-publisher-run" title="epc_publisher_run ()"><code class="function">epc_publisher_run()</code></a> or <a class="link" href="libepc-1.0-publisher.html#epc-publisher-run-async" title="epc_publisher_run_async ()"><span class="type">epc_publisher_run_async</span></a>. The functions
+returns <code class="literal">TRUE</code> when the built-in server was running and had to
+be stopped. If the server wasn't running the function returns
+<code class="literal">FALSE</code>.</p>
+<div class="refsect3">
+<a name="epc-publisher-quit.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-quit.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the server had to be stopped, and <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-expand-name"></a><h3>epc_publisher_expand_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *
+epc_publisher_expand_name (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Expands all known placeholders in <em class="parameter"><code>name</code></em>
+. Supported placeholders are:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">%<code class="literal">a</code>: the program name as returned by <code class="function">g_get_application_name()</code>
+</li>
+<li class="listitem">%<code class="literal">h</code>: the machine's host name in title case</li>
+<li class="listitem">%<code class="literal">u</code>: the user's login name in title case</li>
+<li class="listitem">%<code class="literal">U</code>: the user's real name</li>
+<li class="listitem">%%: the percent sign</li>
+</ul></div>
+<p>The function fails when the host name cannot looked up. In that case <code class="literal">NULL</code>
+is returned and <em class="parameter"><code>error</code></em>
+ is set. The error domain is <a class="link" href="libepc-1.0-EpcShell.html#EPC-AVAHI-ERROR:CAPS" title="EPC_AVAHI_ERROR"><span class="type">EPC_AVAHI_ERROR</span></a>.
+Possible error codes are those of the <em class="citetitle">Avahi</em> library.</p>
+<div class="refsect3">
+<a name="epc-publisher-expand-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>a service name with placeholders</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-expand-name.returns"></a><h4>Returns</h4>
+<p> The <em class="parameter"><code>name</code></em>
+with all known placeholders expanded, or <code class="literal">NULL</code> on error.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-auth-flags"></a><h3>epc_publisher_set_auth_flags ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_auth_flags (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                              <em class="parameter"><code><a class="link" href="libepc-1.0-auth-context.html#EpcAuthFlags" title="enum EpcAuthFlags"><span class="type">EpcAuthFlags</span></a> flags</code></em>);</pre>
+<p>Changes the authentication settings the publisher uses 
+when <a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-auth-handler" title="epc_publisher_set_auth_handler ()"><code class="function">epc_publisher_set_auth_handler()</code></a> is used.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--auth-flags" title="The “auth-flags” property"><span class="type">“auth-flags”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-auth-flags.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>flags</p></td>
+<td class="parameter_description"><p>new authentication settings</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-auth-handler"></a><h3>epc_publisher_set_auth_handler ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_auth_handler (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                <em class="parameter"><code><a class="link" href="libepc-1.0-auth-context.html#EpcAuthHandler" title="EpcAuthHandler ()"><span class="type">EpcAuthHandler</span></a> handler</code></em>,
+                                <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy_data</code></em>);</pre>
+<p>Installs an authentication handler for the specified <em class="parameter"><code>key</code></em>
+.
+Passing <code class="literal">NULL</code> as <em class="parameter"><code>key</code></em>
+ installs a fallback handler for all resources.</p>
+<p>The <em class="parameter"><code>handler</code></em>
+ is called on every request matching <em class="parameter"><code>key</code></em>
+. On this call
+a temporary <a class="link" href="libepc-1.0-auth-context.html#EpcAuthContext" title="EpcAuthContext"><span class="type">EpcAuthContext</span></a> and <em class="parameter"><code>user_data</code></em>
+ are passed to the <em class="parameter"><code>handler</code></em>
+.
+The <a class="link" href="libepc-1.0-auth-context.html#EpcAuthContext" title="EpcAuthContext"><span class="type">EpcAuthContext</span></a> references the <em class="parameter"><code>publisher</code></em>
+ and <em class="parameter"><code>key</code></em>
+ passed here.
+When replacing or deleting the resource referenced by <em class="parameter"><code>key</code></em>
+, or when
+the publisher is destroyed, the function
+described by <em class="parameter"><code>destroy_data</code></em>
+ is called with <em class="parameter"><code>user_data</code></em>
+ as argument.</p>
+<div class="note"><p>
+ This should be called after adding the resource identified by <em class="parameter"><code>key</code></em>,
+ not before. For instance, after calling <a class="link" href="libepc-1.0-publisher.html#epc-publisher-add" title="epc_publisher_add ()"><code class="function">epc_publisher_add()</code></a>.
+</p></div>
+<p>See also <a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-auth-flags" title="epc_publisher_set_auth_flags ()"><code class="function">epc_publisher_set_auth_flags()</code></a>.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-auth-handler.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>the key of the resource to protect, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>handler</p></td>
+<td class="parameter_description"><p>the <a class="link" href="libepc-1.0-auth-context.html#EpcAuthHandler" title="EpcAuthHandler ()"><span class="type">EpcAuthHandler</span></a> to connect</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>data to pass on <em class="parameter"><code>handler</code></em>
+calls</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>destroy_data</p></td>
+<td class="parameter_description"><p>a function for releasing <em class="parameter"><code>user_data</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-collision-handling"></a><h3>epc_publisher_set_collision_handling ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_collision_handling (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                                      <em class="parameter"><code><a class="link" href="libepc-1.0-dispatcher.html#EpcCollisionHandling" title="enum EpcCollisionHandling"><span class="type">EpcCollisionHandling</span></a> method</code></em>);</pre>
+<p>Changes the collision handling strategy the publisher uses.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--collision-handling" title="The “collision-handling” property"><span class="type">“collision-handling”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-collision-handling.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>method</p></td>
+<td class="parameter_description"><p>the new strategy</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-contents-path"></a><h3>epc_publisher_set_contents_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_contents_path (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                                 <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+<p>Changes the server path used for publishing contents.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--contents-path" title="The “contents-path” property"><span class="type">“contents-path”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-contents-path.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>path</p></td>
+<td class="parameter_description"><p>the new contents path</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-credentials"></a><h3>epc_publisher_set_credentials ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_credentials (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *certfile</code></em>,
+                               <em class="parameter"><code>const <span class="type">gchar</span> *keyfile</code></em>);</pre>
+<p>Changes the file names of the PEM encoded TLS credentials the publisher use
+for its services, when the transport <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--protocol" title="The “protocol” property"><span class="type">“protocol”</span></a> is
+<a class="link" href="libepc-1.0-EpcProtocol.html#EPC-PROTOCOL-HTTPS:CAPS"><span class="type">EPC_PROTOCOL_HTTPS</span></a>.</p>
+<p>See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--certificate-file" title="The “certificate-file” property"><span class="type">“certificate-file”</span></a> and
+<a class="link" href="libepc-1.0-publisher.html#EpcPublisher--private-key-file" title="The “private-key-file” property"><span class="type">“private-key-file”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-credentials.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>certfile</p></td>
+<td class="parameter_description"><p>file name of the server certificate</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>keyfile</p></td>
+<td class="parameter_description"><p>file name of the private key</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-protocol"></a><h3>epc_publisher_set_protocol ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_protocol (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                            <em class="parameter"><code><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a> protocol</code></em>);</pre>
+<p>Changes the transport protocol the publisher uses.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--protocol" title="The “protocol” property"><span class="type">“protocol”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-protocol.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>protocol</p></td>
+<td class="parameter_description"><p>the transport protocol</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-service-cookie"></a><h3>epc_publisher_set_service_cookie ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_service_cookie (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                                  <em class="parameter"><code>const <span class="type">gchar</span> *cookie</code></em>);</pre>
+<p>Changes the unique identifier of the service.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-cookie" title="The “service-cookie” property"><span class="type">“service-cookie”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-service-cookie.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cookie</p></td>
+<td class="parameter_description"><p>the new service identifier, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-set-service-name"></a><h3>epc_publisher_set_service_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_publisher_set_service_name (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>Changes the human friendly name this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> uses to announce its
+service. See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-name" title="The “service-name” property"><span class="type">“service-name”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-set-service-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>the new name of this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-auth-flags"></a><h3>epc_publisher_get_auth_flags ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-auth-context.html#EpcAuthFlags" title="enum EpcAuthFlags"><span class="returnvalue">EpcAuthFlags</span></a>
+epc_publisher_get_auth_flags (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the current authentication settings of the publisher.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--auth-flags" title="The “auth-flags” property"><span class="type">“auth-flags”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-auth-flags.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-auth-flags.returns"></a><h4>Returns</h4>
+<p> The authentication settings of the publisher,
+or <a class="link" href="libepc-1.0-auth-context.html#EPC-AUTH-DEFAULT:CAPS"><span class="type">EPC_AUTH_DEFAULT</span></a> on error.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-certificate-file"></a><h3>epc_publisher_get_certificate_file ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_certificate_file (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the file name of the PEM encoded server certificate.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--certificate-file" title="The “certificate-file” property"><span class="type">“certificate-file”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-certificate-file.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-certificate-file.returns"></a><h4>Returns</h4>
+<p> The certificate's file name, or <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-collision-handling"></a><h3>epc_publisher_get_collision_handling ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-dispatcher.html#EpcCollisionHandling" title="enum EpcCollisionHandling"><span class="returnvalue">EpcCollisionHandling</span></a>
+epc_publisher_get_collision_handling (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the collision handling strategy the publisher uses.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--collision-handling" title="The “collision-handling” property"><span class="type">“collision-handling”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-collision-handling.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-collision-handling.returns"></a><h4>Returns</h4>
+<p> The publisher's collision handling strategy,
+or <a class="link" href="libepc-1.0-dispatcher.html#EPC-COLLISIONS-IGNORE:CAPS"><span class="type">EPC_COLLISIONS_IGNORE</span></a> on error.</p>
+</div>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-contents-path"></a><h3>epc_publisher_get_contents_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_contents_path (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the server path used for publishing contents.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--contents-path" title="The “contents-path” property"><span class="type">“contents-path”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-contents-path.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-contents-path.returns"></a><h4>Returns</h4>
+<p> The server's contents path.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-private-key-file"></a><h3>epc_publisher_get_private_key_file ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_private_key_file (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the file name of the PEM encoded private server key.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--private-key-file" title="The “private-key-file” property"><span class="type">“private-key-file”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-private-key-file.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-private-key-file.returns"></a><h4>Returns</h4>
+<p> The private key's file name, or <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-protocol"></a><h3>epc_publisher_get_protocol ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="returnvalue">EpcProtocol</span></a>
+epc_publisher_get_protocol (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the transport protocol the publisher uses.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--protocol" title="The “protocol” property"><span class="type">“protocol”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-protocol.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-protocol.returns"></a><h4>Returns</h4>
+<p> The transport protocol the publisher uses,
+or <a class="link" href="libepc-1.0-EpcProtocol.html#EPC-PROTOCOL-UNKNOWN:CAPS"><span class="type">EPC_PROTOCOL_UNKNOWN</span></a> on error.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-service-cookie"></a><h3>epc_publisher_get_service_cookie ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_service_cookie (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the unique identifier of the service.
+See <a class="link" href="libepc-1.0-publisher.html#EpcPublisher--service-cookie" title="The “service-cookie” property"><span class="type">“service-cookie”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-service-cookie.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-service-cookie.returns"></a><h4>Returns</h4>
+<p> The unique identifier of the service, or <code class="literal">NULL</code> on error.</p>
+</div>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-service-domain"></a><h3>epc_publisher_get_service_domain ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_service_domain (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the DNS domain for which this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> announces its service.
+See <span class="type">“domain”</span> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-service-domain.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-service-domain.returns"></a><h4>Returns</h4>
+<p> The DNS-SD domain of this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>, or <code class="literal">NULL</code>.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-publisher-get-service-name"></a><h3>epc_publisher_get_service_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_publisher_get_service_name (<em class="parameter"><code><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> *publisher</code></em>);</pre>
+<p>Queries the human friendly name this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> uses
+to announce its service. See <span class="type">“name”</span> for details.</p>
+<div class="refsect3">
+<a name="epc-publisher-get-service-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>publisher</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-publisher-get-service-name.returns"></a><h4>Returns</h4>
+<p> The human friendly name of this <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="EpcPublisherPrivate"></a><h3>EpcPublisherPrivate</h3>
+<pre class="programlisting">typedef struct _EpcPublisherPrivate EpcPublisherPrivate;</pre>
+<p>Private fields of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> class.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisherClass"></a><h3>struct EpcPublisherClass</h3>
+<pre class="programlisting">struct EpcPublisherClass {
+};
+</pre>
+<p>Virtual methods of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> class.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher-struct"></a><h3>struct EpcPublisher</h3>
+<pre class="programlisting">struct EpcPublisher;</pre>
+<p>Public fields of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> class.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EpcPublisher--application"></a><h3>The <code class="literal">“application”</code> property</h3>
+<pre class="programlisting">  “application”              <span class="type">gchar</span> *</pre>
+<p>Program name for deriving the service type.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--auth-flags"></a><h3>The <code class="literal">“auth-flags”</code> property</h3>
+<pre class="programlisting">  “auth-flags”               <a class="link" href="libepc-1.0-auth-context.html#EpcAuthFlags" title="enum EpcAuthFlags"><span class="type">EpcAuthFlags</span></a></pre>
+<p>The authentication settings to use.</p>
+<p>Flags: Read / Write / Construct</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--certificate-file"></a><h3>The <code class="literal">“certificate-file”</code> property</h3>
+<pre class="programlisting">  “certificate-file”         <span class="type">gchar</span> *</pre>
+<p>File name for the PEM encoded server certificate.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--collision-handling"></a><h3>The <code class="literal">“collision-handling”</code> property</h3>
+<pre class="programlisting">  “collision-handling”       <a class="link" href="libepc-1.0-dispatcher.html#EpcCollisionHandling" title="enum EpcCollisionHandling"><span class="type">EpcCollisionHandling</span></a></pre>
+<p>The collision handling strategy the publisher uses.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: EPC_COLLISIONS_CHANGE_NAME</p>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--contents-path"></a><h3>The <code class="literal">“contents-path”</code> property</h3>
+<pre class="programlisting">  “contents-path”            <span class="type">gchar</span> *</pre>
+<p>The built-in server path for publishing resources.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: "/contents"</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--private-key-file"></a><h3>The <code class="literal">“private-key-file”</code> property</h3>
+<pre class="programlisting">  “private-key-file”         <span class="type">gchar</span> *</pre>
+<p>File name for the PEM encoded private server key.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--protocol"></a><h3>The <code class="literal">“protocol”</code> property</h3>
+<pre class="programlisting">  “protocol”                 <a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a></pre>
+<p>The transport protocol the publisher uses.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: EPC_PROTOCOL_HTTPS</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--service-cookie"></a><h3>The <code class="literal">“service-cookie”</code> property</h3>
+<pre class="programlisting">  “service-cookie”           <span class="type">gchar</span> *</pre>
+<p>Unique identifier of the service. This cookie is used for implementing
+<a class="link" href="libepc-1.0-dispatcher.html#EPC-COLLISIONS-UNIQUE-SERVICE:CAPS"><span class="type">EPC_COLLISIONS_UNIQUE_SERVICE</span></a>, and usually is a UUID or the MD5/SHA1/...
+checksum of a central document. When passing <code class="literal">NULL</code>, but using the
+<a class="link" href="libepc-1.0-dispatcher.html#EPC-COLLISIONS-UNIQUE-SERVICE:CAPS"><span class="type">EPC_COLLISIONS_UNIQUE_SERVICE</span></a> strategy a time based UUID is
+generated and used as service identifier.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--service-domain"></a><h3>The <code class="literal">“service-domain”</code> property</h3>
+<pre class="programlisting">  “service-domain”           <span class="type">gchar</span> *</pre>
+<p>Internet domain for publishing the service.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcPublisher--service-name"></a><h3>The <code class="literal">“service-name”</code> property</h3>
+<pre class="programlisting">  “service-name”             <span class="type">gchar</span> *</pre>
+<p>User friendly name for the service.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-publisher.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a>, <a class="link" href="libepc-1.0-auth-context.html#EpcAuthContext" title="EpcAuthContext"><span class="type">EpcAuthContext</span></a>, <a class="link" href="libepc-1.0-publisher.html#EpcContentsHandler" title="EpcContentsHandler ()"><span class="type">EpcContentsHandler</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libepc-1.0-publisher.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

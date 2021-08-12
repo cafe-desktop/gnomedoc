@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ERuleContext</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch07.html" rel="up" title="Filtering and Searching"></link><link href="ch07.html" rel="prev" title="Filtering and Searching"></link><link href="ERuleEditor.html" rel="next" title="ERuleEditor"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ERuleContext.html#container">Go to page content</a></li><li><a href="ERuleContext.html#top_bar">Go to main menu</a></li><li><a href="ERuleContext.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch07.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch07.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="ERuleEditor.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ERuleContext.html#ERuleContext.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ERuleContext.html#ERuleContext.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ERuleContext.html#ERuleContext.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ERuleContext.html#ERuleContext.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ERuleContext"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ERuleContext.top_of_page"></a>ERuleContext</span></h2>
+<p>ERuleContext</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ERuleContext.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ERuleContext.html#part-set-map" title="struct part_set_map">part_set_map</a>;
+struct              <a class="link" href="ERuleContext.html#rule-set-map" title="struct rule_set_map">rule_set_map</a>;
+struct              <a class="link" href="ERuleContext.html#ERuleContext-struct" title="struct ERuleContext">ERuleContext</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="ERuleContext.html#ERuleContextRegisterFunc" title="ERuleContextRegisterFunc ()">*ERuleContextRegisterFunc</a>)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="ERuleContext.html#ERuleContextPartFunc" title="ERuleContextPartFunc ()">*ERuleContextPartFunc</a>)             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="ERuleContext.html#ERuleContextRuleFunc" title="ERuleContextRuleFunc ()">*ERuleContextRuleFunc</a>)             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *part</code></em>);
+<a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a>         (<a class="link" href="ERuleContext.html#ERuleContextNextPartFunc" title="ERuleContextNextPartFunc ()">*ERuleContextNextPartFunc</a>)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);
+<a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a>         (<a class="link" href="ERuleContext.html#ERuleContextNextRuleFunc" title="ERuleContextNextRuleFunc ()">*ERuleContextNextRuleFunc</a>)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);
+<a class="link" href="ERuleContext.html" title="ERuleContext"><span class="returnvalue">ERuleContext</span></a> *      <a class="link" href="ERuleContext.html#e-rule-context-new" title="e_rule_context_new ()">e_rule_context_new</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ERuleContext.html#e-rule-context-load" title="e_rule_context_load ()">e_rule_context_load</a>                 (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *system</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ERuleContext.html#e-rule-context-save" title="e_rule_context_save ()">e_rule_context_save</a>                 (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ERuleContext.html#e-rule-context-revert" title="e_rule_context_revert ()">e_rule_context_revert</a>               (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-add-part" title="e_rule_context_add_part ()">e_rule_context_add_part</a>             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);
+<a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-find-part" title="e_rule_context_find_part ()">e_rule_context_find_part</a>            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-create-part" title="e_rule_context_create_part ()">e_rule_context_create_part</a>          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-next-part" title="e_rule_context_next_part ()">e_rule_context_next_part</a>            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *last</code></em>);
+<a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-next-rule" title="e_rule_context_next_rule ()">e_rule_context_next_rule</a>            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *last</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);
+<a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-find-rule" title="e_rule_context_find_rule ()">e_rule_context_find_rule</a>            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);
+<a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       <a class="link" href="ERuleContext.html#e-rule-context-find-rank-rule" title="e_rule_context_find_rank_rule ()">e_rule_context_find_rank_rule</a>       (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> rank</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-add-rule" title="e_rule_context_add_rule ()">e_rule_context_add_rule</a>             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-add-rule-gui" title="e_rule_context_add_rule_gui ()">e_rule_context_add_rule_gui</a>         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-remove-rule" title="e_rule_context_remove_rule ()">e_rule_context_remove_rule</a>          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-rank-rule" title="e_rule_context_rank_rule ()">e_rule_context_rank_rule</a>            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> rank</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ERuleContext.html#e-rule-context-get-rank-rule" title="e_rule_context_get_rank_rule ()">e_rule_context_get_rank_rule</a>        (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-add-part-set" title="e_rule_context_add_part_set ()">e_rule_context_add_part_set</a>         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *setname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> part_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextPartFunc" title="ERuleContextPartFunc ()"><span class="type">ERuleContextPartFunc</span></a> append</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextNextPartFunc" title="ERuleContextNextPartFunc ()"><span class="type">ERuleContextNextPartFunc</span></a> next</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-add-rule-set" title="e_rule_context_add_rule_set ()">e_rule_context_add_rule_set</a>         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *setname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> rule_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextRuleFunc" title="ERuleContextRuleFunc ()"><span class="type">ERuleContextRuleFunc</span></a> append</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextNextRuleFunc" title="ERuleContextNextRuleFunc ()"><span class="type">ERuleContextNextRuleFunc</span></a> next</code></em>);
+<a class="link" href="EFilterElement.html" title="EFilterElement"><span class="returnvalue">EFilterElement</span></a> *    <a class="link" href="ERuleContext.html#e-rule-context-new-element" title="e_rule_context_new_element ()">e_rule_context_new_element</a>          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="ERuleContext.html#e-rule-context-delete-uri" title="e_rule_context_delete_uri ()">e_rule_context_delete_uri</a>           (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCompareFunc</span> compare</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="ERuleContext.html#e-rule-context-rename-uri" title="e_rule_context_rename_uri ()">e_rule_context_rename_uri</a>           (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *old_uri</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *new_uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCompareFunc</span> compare</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ERuleContext.html#e-rule-context-free-uri-list" title="e_rule_context_free_uri_list ()">e_rule_context_free_uri_list</a>        (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GList</span> *uris</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ERuleContext.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----ERuleContext
+</pre>
+</div>
+<div class="refsect1">
+<a name="ERuleContext.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="ERuleContext.html#ERuleContext-changed" title='The "changed" signal'>changed</a>"                                        : <code class="literal">Run Last</code>
+  "<a class="link" href="ERuleContext.html#ERuleContext-rule-added" title='The "rule-added" signal'>rule-added</a>"                                     : <code class="literal">Run Last</code>
+  "<a class="link" href="ERuleContext.html#ERuleContext-rule-removed" title='The "rule-removed" signal'>rule-removed</a>"                                   : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ERuleContext.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ERuleContext.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="part-set-map"></a><h3>struct part_set_map</h3>
+<pre class="programlisting">struct part_set_map {
+	gchar *name;
+	GType type;
+	ERuleContextPartFunc append;
+	ERuleContextNextPartFunc next;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="rule-set-map"></a><h3>struct rule_set_map</h3>
+<pre class="programlisting">struct rule_set_map {
+	gchar *name;
+	GType type;
+	ERuleContextRuleFunc append;
+	ERuleContextNextRuleFunc next;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContext-struct"></a><h3>struct ERuleContext</h3>
+<pre class="programlisting">struct ERuleContext;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContextRegisterFunc"></a><h3>ERuleContextRegisterFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ERuleContextRegisterFunc)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContextPartFunc"></a><h3>ERuleContextPartFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ERuleContextPartFunc)             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContextRuleFunc"></a><h3>ERuleContextRuleFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*ERuleContextRuleFunc)             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *part</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContextNextPartFunc"></a><h3>ERuleContextNextPartFunc ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a>         (*ERuleContextNextPartFunc)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContextNextRuleFunc"></a><h3>ERuleContextNextRuleFunc ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a>         (*ERuleContextNextRuleFunc)         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-new"></a><h3>e_rule_context_new ()</h3>
+<pre class="programlisting"><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="returnvalue">ERuleContext</span></a> *      e_rule_context_new                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new ERuleContext object.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-load"></a><h3>e_rule_context_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_rule_context_load                 (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *system</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);</pre>
+<p>
+Load a rule context from a system and user description file.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-save"></a><h3>e_rule_context_save ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_rule_context_save                 (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);</pre>
+<p>
+Save a rule context to disk.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-revert"></a><h3>e_rule_context_revert ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_rule_context_revert               (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *user</code></em>);</pre>
+<p>
+Reverts a rule context from a user description file.  Assumes the
+system description file is unchanged from when it was loaded.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-add-part"></a><h3>e_rule_context_add_part ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_add_part             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *part</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-find-part"></a><h3>e_rule_context_find_part ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       e_rule_context_find_part            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-create-part"></a><h3>e_rule_context_create_part ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       e_rule_context_create_part          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-next-part"></a><h3>e_rule_context_next_part ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="returnvalue">EFilterPart</span></a> *       e_rule_context_next_part            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterPart.html" title="EFilterPart"><span class="type">EFilterPart</span></a> *last</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-next-rule"></a><h3>e_rule_context_next_rule ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       e_rule_context_next_rule            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *last</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-find-rule"></a><h3>e_rule_context_find_rule ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       e_rule_context_find_rule            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-find-rank-rule"></a><h3>e_rule_context_find_rank_rule ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="returnvalue">EFilterRule</span></a> *       e_rule_context_find_rank_rule       (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> rank</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-add-rule"></a><h3>e_rule_context_add_rule ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_add_rule             (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-add-rule-gui"></a><h3>e_rule_context_add_rule_gui ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_add_rule_gui         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-remove-rule"></a><h3>e_rule_context_remove_rule ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_remove_rule          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-rank-rule"></a><h3>e_rule_context_rank_rule ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_rank_rule            (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> rank</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-get-rank-rule"></a><h3>e_rule_context_get_rank_rule ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_rule_context_get_rank_rule        (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EFilterRule.html" title="EFilterRule"><span class="type">EFilterRule</span></a> *rule</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-add-part-set"></a><h3>e_rule_context_add_part_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_add_part_set         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *setname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> part_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextPartFunc" title="ERuleContextPartFunc ()"><span class="type">ERuleContextPartFunc</span></a> append</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextNextPartFunc" title="ERuleContextNextPartFunc ()"><span class="type">ERuleContextNextPartFunc</span></a> next</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-add-rule-set"></a><h3>e_rule_context_add_rule_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_add_rule_set         (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *setname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> rule_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextRuleFunc" title="ERuleContextRuleFunc ()"><span class="type">ERuleContextRuleFunc</span></a> append</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ERuleContext.html#ERuleContextNextRuleFunc" title="ERuleContextNextRuleFunc ()"><span class="type">ERuleContextNextRuleFunc</span></a> next</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-new-element"></a><h3>e_rule_context_new_element ()</h3>
+<pre class="programlisting"><a class="link" href="EFilterElement.html" title="EFilterElement"><span class="returnvalue">EFilterElement</span></a> *    e_rule_context_new_element          (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+create a new filter element based on name.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-delete-uri"></a><h3>e_rule_context_delete_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             e_rule_context_delete_uri           (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCompareFunc</span> compare</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-rename-uri"></a><h3>e_rule_context_rename_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             e_rule_context_rename_uri           (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *old_uri</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *new_uri</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCompareFunc</span> compare</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-rule-context-free-uri-list"></a><h3>e_rule_context_free_uri_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_rule_context_free_uri_list        (<em class="parameter"><code><a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GList</span> *uris</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="ERuleContext.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ERuleContext-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *erulecontext,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContext-rule-added"></a><h3>The <code class="literal">"rule-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *erulecontext,
+                                                        <span class="type">gpointer</span>      arg1,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ERuleContext-rule-removed"></a><h3>The <code class="literal">"rule-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ERuleContext.html" title="ERuleContext"><span class="type">ERuleContext</span></a> *erulecontext,
+                                                        <span class="type">gpointer</span>      arg1,
+                                                        <span class="type">gpointer</span>      user_data)         : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ERuleContext.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

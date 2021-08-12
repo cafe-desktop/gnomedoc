@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>OobsSession</title><link href="index.html" rel="home" title="Liboobs (System configuration management) Reference Manual"></link><link href="ch01.html" rel="up" title="Common API"></link><link href="ch01.html" rel="prev" title="Common API"></link><link href="OobsObject.html" rel="next" title="OobsObject"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="OobsSession.html#container">Go to page content</a></li><li><a href="OobsSession.html#top_bar">Go to main menu</a></li><li><a href="OobsSession.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Liboobs (System configuration management) Reference Manual</th>
+<td><a accesskey="n" href="OobsObject.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="OobsSession.html#OobsSession.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="OobsSession.html#OobsSession.description">Description</a>
+                   | 
+                  <a class="shortcut" href="OobsSession.html#OobsSession.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="OobsSession.html#OobsSession.properties">Properties</a>
+</td></tr>
+</tbody></table><div class="refentry" title="OobsSession">
+<a name="OobsSession"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="OobsSession.top_of_page"></a>OobsSession</span></h2>
+<p>OobsSession — Manager of the connection to the backends</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="OobsSession.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="OobsSession.html#OobsPlatform" title="OobsPlatform">OobsPlatform</a>;
+                    <a class="link" href="OobsSession.html#OobsSession-struct" title="OobsSession">OobsSession</a>;
+                    <a class="link" href="OobsSession.html#OobsSessionClass" title="OobsSessionClass">OobsSessionClass</a>;
+<a class="link" href="OobsSession.html" title="OobsSession"><span class="returnvalue">OobsSession</span></a> *       <a class="link" href="OobsSession.html#oobs-session-get" title="oobs_session_get ()">oobs_session_get</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsSession.html#oobs-session-commit" title="oobs_session_commit ()">oobs_session_commit</a>                 (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="OobsSession.html#oobs-session-get-connected" title="oobs_session_get_connected ()">oobs_session_get_connected</a>          (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsSession.html#oobs-session-get-supported-platforms" title="oobs_session_get_supported_platforms ()">oobs_session_get_supported_platforms</a>
+                                                        (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **platforms</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsSession.html#oobs-session-get-platform" title="oobs_session_get_platform ()">oobs_session_get_platform</a>           (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **platform</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsSession.html#oobs-session-set-platform" title="oobs_session_set_platform ()">oobs_session_set_platform</a>           (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *platform</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="OobsSession.html#oobs-session-process-requests" title="oobs_session_process_requests ()">oobs_session_process_requests</a>       (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);
+const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       <a class="link" href="OobsSession.html#oobs-session-get-authentication-action" title="oobs_session_get_authentication_action ()">oobs_session_get_authentication_action</a>
+                                                        (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="OobsSession.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  <a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----OobsSession
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="OobsSession.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="OobsSession.html#OobsSession--platform" title='The "platform" property'>platform</a>"                 <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="OobsSession.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1" title="Details">
+<a name="OobsSession.details"></a><h2>Details</h2>
+<div class="refsect2" title="OobsPlatform">
+<a name="OobsPlatform"></a><h3>OobsPlatform</h3>
+<pre class="programlisting">typedef struct {
+  const gchar *id;
+  const gchar *name;
+  const gchar *version;
+  const gchar *codename;
+} OobsPlatform;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="OobsSession">
+<a name="OobsSession-struct"></a><h3>OobsSession</h3>
+<pre class="programlisting">typedef struct _OobsSession OobsSession;</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="OobsSessionClass">
+<a name="OobsSessionClass"></a><h3>OobsSessionClass</h3>
+<pre class="programlisting">typedef struct {
+  GObjectClass parent_class;
+
+  void (*_oobs_padding1) (void);
+  void (*_oobs_padding2) (void);
+} OobsSessionClass;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_get ()">
+<a name="oobs-session-get"></a><h3>oobs_session_get ()</h3>
+<pre class="programlisting"><a class="link" href="OobsSession.html" title="OobsSession"><span class="returnvalue">OobsSession</span></a> *       oobs_session_get                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> singleton, which represents
+the session with the system tools backends.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the singleton <span class="type">OobSession</span> object.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_commit ()">
+<a name="oobs-session-commit"></a><h3>oobs_session_commit ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_session_commit                 (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);</pre>
+<p>
+Commits inmediately all the changes to the configuration
+objects that have been requested through this <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>.
+Note that it will stop if it finds any error.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>an <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An <span class="type">OobsResult</span> representing the error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_get_connected ()">
+<a name="oobs-session-get-connected"></a><h3>oobs_session_get_connected ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            oobs_session_get_connected          (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);</pre>
+<p>
+Returns whether the connection with the backends is established.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><span class="type">TRUE</span></a> if there's connection with the backends.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_get_supported_platforms ()">
+<a name="oobs-session-get-supported-platforms"></a><h3>oobs_session_get_supported_platforms ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_session_get_supported_platforms
+                                                        (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> **platforms</code></em>);</pre>
+<p>
+Retrieves the list of supported platforms, this is only necessary when
+ + <a class="link" href="OobsSession.html#oobs-session-get-platform" title="oobs_session_get_platform ()"><code class="function">oobs_session_get_platform()</code></a> has returned <span class="type">OOBS_RESULT_NO_PLATFORM</span>. To
+specify a platform, you must use <a class="link" href="OobsSession.html#oobs-session-set-platform" title="oobs_session_set_platform ()"><code class="function">oobs_session_set_platform()</code></a>, being
+the platform string in that function the platform-&gt;id value inside
+the <a class="link" href="OobsSession.html#OobsPlatform" title="OobsPlatform"><span class="type">OobsPlatform</span></a> struct.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>platforms</code></em> :</span></p></td>
+<td>return location for the list of platforms. It's a
+            <a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of <a class="link" href="OobsSession.html#OobsPlatform" title="OobsPlatform"><span class="type">OobsPlatform</span></a> structs. You must free
+            this list with <a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"><code class="function">g_list_free()</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An <span class="type">OobsResult</span> representing the error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_get_platform ()">
+<a name="oobs-session-get-platform"></a><h3>oobs_session_get_platform ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_session_get_platform           (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **platform</code></em>);</pre>
+<p>
+Retrieves the platform your system has been identified with, or
+<a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a> in case your platform is not recognized or other error happens.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>platform</code></em> :</span></p></td>
+<td>location to store the current platform, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><span class="type">NULL</span></a>. This
+           string is of internal use, and must not be freed or modified.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An <span class="type">OobsResult</span> representing the error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_set_platform ()">
+<a name="oobs-session-set-platform"></a><h3>oobs_session_set_platform ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_session_set_platform           (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *platform</code></em>);</pre>
+<p>
+Identifies your platform as the one set in <em class="parameter"><code>platform</code></em>. This is only necessary if
+your platform could not be guessed (and thus <a class="link" href="OobsSession.html#oobs-session-get-platform" title="oobs_session_get_platform ()"><code class="function">oobs_session_get_platform()</code></a> would
+return <span class="type">OOBS_RESULT_NO_PLATFORM</span> in this case).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>platform</code></em> :</span></p></td>
+<td>A string defining the platform. see
+           <code class="function">oobs_session_get_platforms_list()</code> to know where to get this string.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An <span class="type">OobsResult</span> representing the error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_process_requests ()">
+<a name="oobs-session-process-requests"></a><h3>oobs_session_process_requests ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                oobs_session_process_requests       (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);</pre>
+<p>
+Blocks until all pending asynchronous requests have been processed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_session_get_authentication_action ()">
+<a name="oobs-session-get-authentication-action"></a><h3>oobs_session_get_authentication_action ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *       oobs_session_get_authentication_action
+                                                        (<em class="parameter"><code><a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a> *session</code></em>);</pre>
+<p>
+Returns the PolicyKit action the user has to be authenticated to in order to
+commit changes to configuration objects in this session. If the user has not
+the required permissions, any attempt to commit will return <span class="type">OOBS_RESULT_ACCESS_DENIED</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsSession.html" title="OobsSession"><span class="type">OobsSession</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> string defining the PolicyKit action
+              required to modify objects in the session.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="OobsSession.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "platform" property'>
+<a name="OobsSession--platform"></a><h3>The <code class="literal">"platform"</code> property</h3>
+<pre class="programlisting">  "platform"                 <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Read / Write</pre>
+<p>Name of the platform the session is running on.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="OobsSession.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

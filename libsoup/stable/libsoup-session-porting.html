@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Porting to the new SoupSession: libsoup Reference Manual</title><link href="index.html" rel="home" title="libsoup Reference Manual"></link><link href="ch01.html" rel="up" title="Tutorial"></link><link href="libsoup-request-howto.html" rel="prev" title="libsoup Client SoupRequest API"></link><link href="libsoup-server-howto.html" rel="next" title="libsoup Server Basics"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libsoup-session-porting.html#container">Go to page content</a></li><li><a href="libsoup-session-porting.html#top_bar">Go to main menu</a></li><li><a href="libsoup-session-porting.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libsoup-request-howto.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libsoup-server-howto.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libsoup-session-porting"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Porting to the new SoupSession</span></h2>
+<p>Porting to the new SoupSession — Notes on
+porting from SoupSessionAsync and SoupSessionSync to SoupSession</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect2">
+<a name="intro"></a><h3>Introduction</h3>
+<p>
+As of libsoup 2.42, <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> is no longer an
+abstract class, and the base <span class="type">SoupSession</span> class is now
+preferred over its traditional subclasses, <a class="link" href="SoupSessionAsync.html" title="SoupSessionAsync"><span class="type">SoupSessionAsync</span></a> and
+<a class="link" href="SoupSessionSync.html" title="SoupSessionSync"><span class="type">SoupSessionSync</span></a>.
+</p>
+<p>
+There are several changes in behavior between the old and new sessions
+to be aware of.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="defaults"></a><h3>Different defaults</h3>
+<p>
+The new <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a>
+has different (and hopefully better) defaults than <a class="link" href="SoupSessionAsync.html" title="SoupSessionAsync"><span class="type">SoupSessionAsync</span></a> and
+<a class="link" href="SoupSessionSync.html" title="SoupSessionSync"><span class="type">SoupSessionSync</span></a>:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem">
+<p>
+      The system TLS/SSL certificate database is used by default to
+      validate https certificates, and sites with invalid certificates
+      will refuse to load with a
+      <a class="link" href="libsoup-2.4-soup-status.html#SOUP-STATUS-SSL-FAILED:CAPS"><code class="literal">SOUP_STATUS_SSL_FAILED</code></a>
+      error.
+    </p>
+<p>
+      You can still override the CA database as before, by setting the
+      <a class="link" href="SoupSession.html#SoupSession--ssl-ca-file" title="The “ssl-ca-file” property"><span class="type">"ssl-ca-file"</span></a>
+      property, although the
+      <a class="link" href="SoupSession.html#SoupSession--tls-database" title="The “tls-database” property"><span class="type">"tls-database"</span></a>
+      property is preferred, since it allows you to do proper error
+      handling.
+    </p>
+<p>
+      If you want to accept all certificates, set
+      <a class="link" href="SoupSession.html#SoupSession--ssl-strict" title="The “ssl-strict” property"><span class="type">"ssl-strict"</span></a> to
+      <code class="literal">FALSE</code>. Note that libsoup will still check
+      certificates, it will just continue with the HTTP request even
+      if the certificate fails to validate. You can use
+      <a class="link" href="SoupMessage.html#soup-message-get-https-status" title="soup_message_get_https_status ()"><code class="function">soup_message_get_https_status()</code></a>
+      to look at the certificate after the fact.
+    </p>
+</li>
+<li class="listitem"><p>
+      The
+      <a class="link" href="SoupSession.html#SoupSession--timeout" title="The “timeout” property"><span class="type">"timeout"</span></a>
+      and
+      <a class="link" href="SoupSession.html#SoupSession--idle-timeout" title="The “idle-timeout” property"><span class="type">"idle-timeout"</span></a>
+      properties both default to 60 seconds.
+    </p></li>
+<li class="listitem"><p>
+      The
+      <a class="link" href="SoupSession.html#SoupSession--http-aliases" title="The “http-aliases” property"><span class="type">"http-aliases"</span></a>
+      property defaults to <code class="literal">NULL</code>, meaning that URI
+      schemes like "<code class="literal">webcal</code>" and
+      "<code class="literal">dav</code>" (and "<code class="literal">ftp</code>") are not
+      considered to be aliases for "<code class="literal">http</code>", and so
+      libsoup will not accept requests for such URIs, and will not
+      follow redirects to such URIs.
+    </p></li>
+<li class="listitem"><p>
+      The new
+      <a class="link" href="SoupSession.html#SoupSession--proxy-resolver" title="The “proxy-resolver” property"><span class="type">"proxy-resolver"</span></a>
+      property is now initialized to the default
+      <span class="type">GProxyResolver</span>,
+      meaning that it will automatically use the user's system proxy
+      configuration. This replaces the use of the
+      <a class="link" href="SoupProxyResolverDefault.html" title="SoupProxyResolverDefault"><span class="type">SoupProxyResolverDefault</span></a>,
+      session feature in earlier releases. You can set this property to
+      <code class="literal">NULL</code> if you don't want to use proxies, and the
+      <a class="link" href="SoupSession.html#SoupSession--proxy-uri" title="The “proxy-uri” property"><span class="type">"proxy-uri"</span></a>
+      property still works if you want to use a single proxy for all requests.
+    </p></li>
+<li class="listitem"><p>
+      Every session gets a
+      <a class="link" href="SoupContentDecoder.html" title="SoupContentDecoder"><span class="type">SoupContentDecoder</span></a>
+      attached to it by default, meaning that it will automatically
+      handle (and request) "gzip"- and "deflate"-encoded response
+      bodies.
+    </p></li>
+</ul></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="behavior"></a><h3>Differences in feature behavior</h3>
+<p>
+If you are using NTLM authentication, the new <span class="type">SoupSession</span>
+behaves slightly differently from the old session types.
+</p>
+<p>
+First, the deprecated <code class="literal">SOUP_SESSION_USE_NTLM</code>
+property is no longer supported. If you want to add support for NTLM
+to a session, call <a class="link" href="SoupSession.html#soup-session-add-feature-by-type" title="soup_session_add_feature_by_type ()"><code class="function">soup_session_add_feature_by_type()</code></a>,
+passing <a class="link" href="SoupAuth.html#SOUP-TYPE-AUTH-NTLM:CAPS" title="SOUP_TYPE_AUTH_NTLM"><code class="literal">SOUP_TYPE_AUTH_NTLM</code></a>.
+</p>
+<p>
+Second, with the old session types, enabling NTLM would cause all
+(otherwise-unauthenticated) requests to be sent with an NTLM request
+in the <code class="literal">Authorization</code> header. That is, libsoup would
+assume that all servers supported NTLM, and would attempt to begin
+negotiating NTLM authentication before the server ever returned a 401
+response. With the plain <span class="type">SoupSession</span>, this no longer
+happens. If you want the old behavior, you need to call <a class="link" href="SoupAuthManager.html#soup-auth-manager-use-auth" title="soup_auth_manager_use_auth ()"><code class="function">soup_auth_manager_use_auth()</code></a>
+for each host to "preload" the NTLM authentication:
+</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td>
+        <td class="listing_code"><pre class="programlisting">SoupAuthManager <span class="gtkdoc opt">*</span>auth_manager<span class="gtkdoc opt">;</span>
+SoupAuth <span class="gtkdoc opt">*</span>auth<span class="gtkdoc opt">;</span>
+SoupURI <span class="gtkdoc opt">*</span>uri<span class="gtkdoc opt">;</span>
+
+auth_manager <span class="gtkdoc opt">=</span> <span class="function">SOUP_AUTH_MANAGER</span> <span class="gtkdoc opt">(</span><span class="function"><a href="SoupSession.html#soup-session-get-feature">soup_session_get_feature</a></span> <span class="gtkdoc opt">(</span>session<span class="gtkdoc opt">,</span> SOUP_TYPE_AUTH_MANAGER<span class="gtkdoc opt">));</span>
+auth <span class="gtkdoc opt">=</span> <span class="function">g_object_new</span> <span class="gtkdoc opt">(</span>SOUP_TYPE_AUTH_NTLM<span class="gtkdoc opt">,</span> NULL<span class="gtkdoc opt">);</span>
+uri <span class="gtkdoc opt">=</span> <span class="function"><a href="SoupURI.html#soup-uri-new">soup_uri_new</a></span> <span class="gtkdoc opt">(</span><span class="string">"http://ntlm-using-host.example.com/"</span><span class="gtkdoc opt">);</span>
+<span class="function"><a href="SoupAuthManager.html#soup-auth-manager-use-auth">soup_auth_manager_use_auth</a></span> <span class="gtkdoc opt">(</span>auth_manager<span class="gtkdoc opt">,</span> uri<span class="gtkdoc opt">,</span> auth<span class="gtkdoc opt">);</span>
+<span class="function">g_object_unref</span> <span class="gtkdoc opt">(</span>auth<span class="gtkdoc opt">);</span>
+<span class="function"><a href="SoupURI.html#soup-uri-free">soup_uri_free</a></span> <span class="gtkdoc opt">(</span>auth<span class="gtkdoc opt">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="apis"></a><h3>Differences in SoupMessage-sending APIs</h3>
+<p>
+<span class="type">SoupSessionAsync</span> always uses asynchronous I/O, and
+<span class="type">SoupSessionSync</span> always uses blocking I/O, regardless of
+the operation. In the new <span class="type">SoupSession</span>, <a class="link" href="SoupSession.html#soup-session-queue-message" title="soup_session_queue_message ()"><code class="function">soup_session_queue_message()</code></a>
+uses asynchronous I/O (like <span class="type">SoupSessionAsync</span>), and <a class="link" href="SoupSession.html#soup-session-send-message" title="soup_session_send_message ()"><code class="function">soup_session_send_message()</code></a>
+uses blocking I/O (like <span class="type">SoupSessionSync</span>). There is no API
+on the plain <span class="type">SoupSession</span> that simulates the effect of
+calling <code class="function">soup_session_send_message()</code> on a
+<span class="type">SoupSessionAsync</span> (ie, running the main loop internally),
+or of calling <code class="function">soup_session_queue_message()</code> on a
+<span class="type">SoupSessionSync</span> (ie, automatically sending the request in
+another thread).
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="async"></a><h3>Differences in Asynchronous I/O</h3>
+<p>
+As compared to <a class="link" href="SoupSessionAsync.html" title="SoupSessionAsync"><span class="type">SoupSessionAsync</span></a>, <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> behaves more
+like gio with respect to asynchronous I/O.
+</p>
+<p>
+In particular, the <a class="link" href="SoupSession.html#SoupSession--async-context" title="The “async-context” property"><span class="type">"async-context"</span></a>
+and <a class="link" href="SoupSession.html#SoupSession--use-thread-context" title="The “use-thread-context” property"><span class="type">"use-thread-context"</span></a>
+properties are now effectively unused, and the session always queues
+asynchronous requests in the <span class="type">GMainContext</span> that was is
+the thread default when the asynchronous operation is started. Session
+bookkeeping tasks (like closing idle connections) happen in the
+context that was thread default when the session was created.
+</p>
+<p>
+Additionally, <a class="link" href="SoupSession.html#soup-session-cancel-message" title="soup_session_cancel_message ()"><code class="function">soup_session_cancel_message()</code></a>
+now acts asynchronously when you cancel an asynchronous request;
+rather than having the request's callback be called from inside
+<code class="function">soup_session_cancel_message()</code>, it just gets called
+when you need return to the main loop.
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.26.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libsoup-session-porting.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

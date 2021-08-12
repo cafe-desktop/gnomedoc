@@ -1,0 +1,1800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ESource</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Utilities (libedataserver)"></link><link href="ch01.html" rel="up" title="Data Sources"></link><link href="ch01.html" rel="prev" title="Data Sources"></link><link href="ESourceRegistry.html" rel="next" title="ESourceRegistry"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ESource.html#container">Go to page content</a></li><li><a href="ESource.html#top_bar">Go to main menu</a></li><li><a href="ESource.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Utilities (libedataserver)</th>
+<td><a accesskey="n" href="ESourceRegistry.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ESource.html#ESource.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ESource.html#ESource.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ESource.html#ESource.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ESource.html#ESource.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="ESource.html#ESource.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="ESource.html#ESource.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ESource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ESource.top_of_page"></a>ESource</span></h2>
+<p>ESource — Hierarchical data sources</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ESource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;libedataserver/libedataserver.h&gt;
+
+struct              <a class="link" href="ESource.html#ESource-struct" title="struct ESource">ESource</a>;
+<a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           <a class="link" href="ESource.html#e-source-new" title="e_source_new ()">e_source_new</a>                        (<em class="parameter"><code><span class="type">GDBusObject</span> *dbus_object</code></em>,
+                                                         <em class="parameter"><code><span class="type">GMainContext</span> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           <a class="link" href="ESource.html#e-source-new-with-uid" title="e_source_new_with_uid ()">e_source_new_with_uid</a>               (<em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GMainContext</span> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="ESource.html#e-source-hash" title="e_source_hash ()">e_source_hash</a>                       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-equal" title="e_source_equal ()">e_source_equal</a>                      (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-changed" title="e_source_changed ()">e_source_changed</a>                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ESource.html#e-source-get-uid" title="e_source_get_uid ()">e_source_get_uid</a>                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ESource.html#e-source-dup-uid" title="e_source_dup_uid ()">e_source_dup_uid</a>                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ESource.html#e-source-get-parent" title="e_source_get_parent ()">e_source_get_parent</a>                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ESource.html#e-source-dup-parent" title="e_source_dup_parent ()">e_source_dup_parent</a>                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-set-parent" title="e_source_set_parent ()">e_source_set_parent</a>                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *parent</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-enabled" title="e_source_get_enabled ()">e_source_get_enabled</a>                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-set-enabled" title="e_source_set_enabled ()">e_source_set_enabled</a>                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> enabled</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-writable" title="e_source_get_writable ()">e_source_get_writable</a>               (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-removable" title="e_source_get_removable ()">e_source_get_removable</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-remote-creatable" title="e_source_get_remote_creatable ()">e_source_get_remote_creatable</a>       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-remote-deletable" title="e_source_get_remote_deletable ()">e_source_get_remote_deletable</a>       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="ESource.html#e-source-get-extension" title="e_source_get_extension ()">e_source_get_extension</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-has-extension" title="e_source_has_extension ()">e_source_has_extension</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);
+<span class="returnvalue">GDBusObject</span> *       <a class="link" href="ESource.html#e-source-ref-dbus-object" title="e_source_ref_dbus_object ()">e_source_ref_dbus_object</a>            (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">GMainContext</span> *      <a class="link" href="ESource.html#e-source-ref-main-context" title="e_source_ref_main_context ()">e_source_ref_main_context</a>           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ESource.html#e-source-get-display-name" title="e_source_get_display_name ()">e_source_get_display_name</a>           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ESource.html#e-source-dup-display-name" title="e_source_dup_display_name ()">e_source_dup_display_name</a>           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-set-display-name" title="e_source_set_display_name ()">e_source_set_display_name</a>           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *display_name</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ESource.html#e-source-compare-by-display-name" title="e_source_compare_by_display_name ()">e_source_compare_by_display_name</a>    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source2</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ESource.html#e-source-to-string" title="e_source_to_string ()">e_source_to_string</a>                  (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *length</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ESource.html#e-source-parameter-to-key" title="e_source_parameter_to_key ()">e_source_parameter_to_key</a>           (<em class="parameter"><code>const <span class="type">gchar</span> *param_name</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remove-sync" title="e_source_remove_sync ()">e_source_remove_sync</a>                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-remove" title="e_source_remove ()">e_source_remove</a>                     (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remove-finish" title="e_source_remove_finish ()">e_source_remove_finish</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-write-sync" title="e_source_write_sync ()">e_source_write_sync</a>                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-write" title="e_source_write ()">e_source_write</a>                      (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-write-finish" title="e_source_write_finish ()">e_source_write_finish</a>               (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remote-create-sync" title="e_source_remote_create_sync ()">e_source_remote_create_sync</a>         (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *scratch_source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-remote-create" title="e_source_remote_create ()">e_source_remote_create</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *scratch_source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remote-create-finish" title="e_source_remote_create_finish ()">e_source_remote_create_finish</a>       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remote-delete-sync" title="e_source_remote_delete_sync ()">e_source_remote_delete_sync</a>         (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-remote-delete" title="e_source_remote_delete ()">e_source_remote_delete</a>              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-remote-delete-finish" title="e_source_remote_delete_finish ()">e_source_remote_delete_finish</a>       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-oauth2-access-token-sync" title="e_source_get_oauth2_access_token_sync ()">e_source_get_oauth2_access_token_sync</a>
+                                                        (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **out_access_token</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *out_expires_in</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ESource.html#e-source-get-oauth2-access-token" title="e_source_get_oauth2_access_token ()">e_source_get_oauth2_access_token</a>    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ESource.html#e-source-get-oauth2-access-token-finish" title="e_source_get_oauth2_access_token_finish ()">e_source_get_oauth2_access_token_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **out_access_token</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *out_expires_in</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ESource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----ESource
+</pre>
+</div>
+<div class="refsect1">
+<a name="ESource.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+ESource implements
+ GInitable.</p>
+</div>
+<div class="refsect1">
+<a name="ESource.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="ESource.html#ESource--dbus-object" title='The "dbus-object" property'>dbus-object</a>"              <a href="https://developer-old.gnome.org/libedataserver/libedbus-private/EDBusObject.html"><span class="type">EDBusObject</span></a>*          : Read / Write / Construct Only
+  "<a class="link" href="ESource.html#ESource--display-name" title='The "display-name" property'>display-name</a>"             <span class="type">gchar</span>*                : Read / Write / Construct
+  "<a class="link" href="ESource.html#ESource--enabled" title='The "enabled" property'>enabled</a>"                  <span class="type">gboolean</span>              : Read / Write / Construct
+  "<a class="link" href="ESource.html#ESource--main-context" title='The "main-context" property'>main-context</a>"             <span class="type">GMainContext</span>*         : Read / Write / Construct Only
+  "<a class="link" href="ESource.html#ESource--parent" title='The "parent" property'>parent</a>"                   <span class="type">gchar</span>*                : Read / Write
+  "<a class="link" href="ESource.html#ESource--remote-creatable" title='The "remote-creatable" property'>remote-creatable</a>"         <span class="type">gboolean</span>              : Read
+  "<a class="link" href="ESource.html#ESource--remote-deletable" title='The "remote-deletable" property'>remote-deletable</a>"         <span class="type">gboolean</span>              : Read
+  "<a class="link" href="ESource.html#ESource--removable" title='The "removable" property'>removable</a>"                <span class="type">gboolean</span>              : Read
+  "<a class="link" href="ESource.html#ESource--uid" title='The "uid" property'>uid</a>"                      <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="ESource.html#ESource--writable" title='The "writable" property'>writable</a>"                 <span class="type">gboolean</span>              : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="ESource.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="ESource.html#ESource-changed" title='The "changed" signal'>changed</a>"                                        : <code class="literal">No Recursion</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ESource.description"></a><h2>Description</h2>
+<p>
+An <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> (or "data source") is a description of a file or network
+location where data can be obtained (such as a mail account), or a
+description of a resource at that location (such as a mail folder).
+</p>
+<p>
+In more concrete terms, it's an interface for a key file.  All such
+key files have a main group named [Data Source].  The keys in a
+[Data Source] group map to <span class="type">GObject</span> properties in an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>.
+</p>
+<p>
+Additional groups in the key file are referred to as "extensions".
+<a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a> serves as the base class for writing interfaces
+for these additional key file groups.  The keys in one of these
+key file groups map to <span class="type">GObject</span> properties in some custom subclass
+of <a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a> which was written specifically for that key
+file group.  For example, a key file might include a group named
+[Calendar], whose keys map to <span class="type">GObject</span> properties in an extension
+class named <a class="link" href="ESourceCalendar.html" title="ESourceCalendar"><span class="type">ESourceCalendar</span></a>.
+</p>
+<p>
+Each <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> contains an internal dictionary of extension objects,
+accessible by their key file group name.  <a class="link" href="ESource.html#e-source-get-extension" title="e_source_get_extension ()"><code class="function">e_source_get_extension()</code></a>
+can look up extension objects by name.
+</p>
+<p>
+An <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> is identified by a unique identifier string, or "UID",
+which is also the basename of the corresponding key file.  Additional
+files related to the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>, such as cache files, are usually kept
+in a directory named after the UID of the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>.  Similarly, the
+password for an account described by an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> is kept in GNOME
+Keyring under the UID of the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>.  This makes finding these
+additional resources simple.
+</p>
+<p>
+Several extensions for common information such as authentication
+details are built into libedataserver (<a class="link" href="ESourceAuthentication.html" title="ESourceAuthentication"><span class="type">ESourceAuthentication</span></a>, for
+example).  Backend modules may also define their own extensions for
+information and settings unique to the backend.  <a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a>
+subclasses written for specific backends are generally not available
+to applications and shared libraries.  This is by design, to try and
+keep backend-specific knowledge from creeping into places it doesn't
+belong.
+</p>
+</div>
+<div class="refsect1">
+<a name="ESource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ESource-struct"></a><h3>struct ESource</h3>
+<pre class="programlisting">struct ESource;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-new"></a><h3>e_source_new ()</h3>
+<pre class="programlisting"><a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           e_source_new                        (<em class="parameter"><code><span class="type">GDBusObject</span> *dbus_object</code></em>,
+                                                         <em class="parameter"><code><span class="type">GMainContext</span> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> instance.
+</p>
+<p>
+The <a class="link" href="ESource.html#ESource-changed" title='The "changed" signal'><span class="type">"changed"</span></a> signal will be emitted from <em class="parameter"><code>main_context</code></em> if given,
+or else from the thread-default <span class="type">GMainContext</span> at the time this function is
+called.
+</p>
+<p>
+The only time the function should be called outside of <a class="link" href="ESourceRegistry.html" title="ESourceRegistry"><span class="type">ESourceRegistry</span></a>
+is to create a so-called "scratch" <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> for editing in a Properties
+window or an account setup assistant.
+</p>
+<p>
+FIXME: Elaborate on scratch sources.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbus_object</code></em> :</span></p></td>
+<td>a <span class="type">GDBusObject</span> or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>main_context</code></em> :</span></p></td>
+<td>a <span class="type">GMainContext</span> or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>, or <code class="literal">NULL</code> on error</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-new-with-uid"></a><h3>e_source_new_with_uid ()</h3>
+<pre class="programlisting"><a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           e_source_new_with_uid               (<em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GMainContext</span> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Creates a new "scratch" <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> with a predetermined unique identifier.
+</p>
+<p>
+The <a class="link" href="ESource.html#ESource-changed" title='The "changed" signal'><span class="type">"changed"</span></a> signal will be emitted from <em class="parameter"><code>main_context</code></em> if given,
+or else from the thread-default <span class="type">GMainContext</span> at the time this function is
+called.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>a new unique identifier string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>main_context</code></em> :</span></p></td>
+<td>a <span class="type">GMainContext</span> or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new scratch <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>, or <code class="literal">NULL</code> on error</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-hash"></a><h3>e_source_hash ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e_source_hash                       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Generates a hash value for <em class="parameter"><code>source</code></em>.  This function is intended for
+easily hashing an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> to add to a <span class="type">GHashTable</span> or similar data
+structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a hash value for <em class="parameter"><code>source</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-equal"></a><h3>e_source_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_equal                      (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source2</code></em>);</pre>
+<p>
+Checks two <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> instances for equality.  <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> instances are
+equal if their unique identifier strings are equal.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source1</code></em> :</span></p></td>
+<td>the first <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source2</code></em> :</span></p></td>
+<td>the second <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if <em class="parameter"><code>source1</code></em> and <em class="parameter"><code>source2</code></em> are equal</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-changed"></a><h3>e_source_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_changed                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Emits the <a class="link" href="ESource.html#ESource-changed" title='The "changed" signal'><span class="type">"changed"</span></a> signal from an idle callback in
+<em class="parameter"><code>source</code></em>'s <a class="link" href="ESource.html#ESource--main-context" title='The "main-context" property'><span class="type">"main-context"</span></a>.
+</p>
+<p>
+This function is primarily intended for use by <a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a>
+when emitting a <span class="type">"notify"</span> signal on one of its properties.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-uid"></a><h3>e_source_get_uid ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_source_get_uid                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns the unique identifier string for <em class="parameter"><code>source</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the UID for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-dup-uid"></a><h3>e_source_dup_uid ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_source_dup_uid                    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Thread-safe variation of <a class="link" href="ESource.html#e-source-get-uid" title="e_source_get_uid ()"><code class="function">e_source_get_uid()</code></a>.
+Use this function when accessing <em class="parameter"><code>source</code></em> from multiple threads.
+</p>
+<p>
+The returned string should be freed with <code class="function">g_free()</code> when no longer needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated copy of <a class="link" href="ESource.html#ESource--uid" title='The "uid" property'><span class="type">"uid"</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-parent"></a><h3>e_source_get_parent ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_source_get_parent                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns the unique identifier string of the parent <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the UID of the parent <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-dup-parent"></a><h3>e_source_dup_parent ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_source_dup_parent                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Thread-safe variation of <a class="link" href="ESource.html#e-source-get-parent" title="e_source_get_parent ()"><code class="function">e_source_get_parent()</code></a>.
+Use this function when accessing <em class="parameter"><code>source</code></em> from multiple threads.
+</p>
+<p>
+The returned string should be freed with <code class="function">g_free()</code> when no longer needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated copy of <a class="link" href="ESource.html#ESource--parent" title='The "parent" property'><span class="type">"parent"</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-set-parent"></a><h3>e_source_set_parent ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_set_parent                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *parent</code></em>);</pre>
+<p>
+Identifies the parent of <em class="parameter"><code>source</code></em> by its unique identifier string.
+This can only be set prior to adding <em class="parameter"><code>source</code></em> to an <a class="link" href="ESourceRegistry.html" title="ESourceRegistry"><span class="type">ESourceRegistry</span></a>.
+</p>
+<p>
+The internal copy of <a class="link" href="ESource.html#ESource--parent" title='The "parent" property'><span class="type">"parent"</span></a> is automatically stripped of leading
+and trailing whitespace.  If the resulting string is empty, <code class="literal">NULL</code> is set
+instead.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>the UID of the parent <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-enabled"></a><h3>e_source_get_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_enabled                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if <em class="parameter"><code>source</code></em> is enabled.
+</p>
+<p>
+An application should try to honor this setting if at all possible,
+even if it does not provide a way to change the setting through its
+user interface.  Disabled data sources should generally be hidden.
+</p>
+<p>
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>
+  This function does not take into account <em class="parameter"><code>source</code></em>'s ancestors in the
+  <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> hierarchy, each of which have their own enabled state.  If
+  any of <em class="parameter"><code>source</code></em>'s ancestors are disabled, then <em class="parameter"><code>source</code></em> itself should
+  be treated as disabled.  Use <a class="link" href="ESourceRegistry.html#e-source-registry-check-enabled" title="e_source_registry_check_enabled ()"><code class="function">e_source_registry_check_enabled()</code></a> to
+  easily check for this.
+</p>
+</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> is enabled</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-set-enabled"></a><h3>e_source_set_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_set_enabled                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> enabled</code></em>);</pre>
+<p>
+Enables or disables <em class="parameter"><code>source</code></em>.
+</p>
+<p>
+An application should try to honor this setting if at all possible,
+even if it does not provide a way to change the setting through its
+user interface.  Disabled data sources should generally be hidden.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enabled</code></em> :</span></p></td>
+<td>whether to enable <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-writable"></a><h3>e_source_get_writable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_writable               (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether the D-Bus service will accept changes to <em class="parameter"><code>source</code></em>.
+If <em class="parameter"><code>source</code></em> is not writable, calls to <a class="link" href="ESource.html#e-source-write" title="e_source_write ()"><code class="function">e_source_write()</code></a> will fail.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> is writable</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-removable"></a><h3>e_source_get_removable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_removable              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether the D-Bus service will allow <em class="parameter"><code>source</code></em> to be removed.
+If <em class="parameter"><code>source</code></em> is not writable, calls to <a class="link" href="ESource.html#e-source-remove" title="e_source_remove ()"><code class="function">e_source_remove()</code></a> will fail.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> is removable</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-remote-creatable"></a><h3>e_source_get_remote_creatable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_remote_creatable       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether new resources can be created on a remote server by
+calling <a class="link" href="ESource.html#e-source-remote-create" title="e_source_remote_create ()"><code class="function">e_source_remote_create()</code></a> on <em class="parameter"><code>source</code></em>.
+</p>
+<p>
+Generally this is only <code class="literal">TRUE</code> if <em class="parameter"><code>source</code></em> has an <a class="link" href="ESourceCollection.html" title="ESourceCollection"><span class="type">ESourceCollection</span></a>
+extension, which means there is an <a href="../../libebackend/stable/ECollectionBackend.html"><span class="type">ECollectionBackend</span></a> in the D-Bus
+service that can handle create requests.  If <em class="parameter"><code>source</code></em> does not have
+this capability, calls to <a class="link" href="ESource.html#e-source-remote-create" title="e_source_remote_create ()"><code class="function">e_source_remote_create()</code></a> will fail.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> can create remote resources</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-remote-deletable"></a><h3>e_source_get_remote_deletable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_remote_deletable       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether the resource represented by <em class="parameter"><code>source</code></em> can be deleted
+from a remote server by calling <a class="link" href="ESource.html#e-source-remote-delete" title="e_source_remote_delete ()"><code class="function">e_source_remote_delete()</code></a>.
+</p>
+<p>
+Generally this is only <code class="literal">TRUE</code> if <em class="parameter"><code>source</code></em> is a child of an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+which has an <a class="link" href="ESourceCollection.html" title="ESourceCollection"><span class="type">ESourceCollection</span></a> extension, which means there is an
+<a href="../../libebackend/stable/ECollectionBackend.html"><span class="type">ECollectionBackend</span></a> in the D-Bus service that can handle delete
+requests.  If <em class="parameter"><code>source</code></em> does not have this capability, calls to
+<a class="link" href="ESource.html#e-source-remote-delete" title="e_source_remote_delete ()"><code class="function">e_source_remote_delete()</code></a> will fail.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> can delete remote resources</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-extension"></a><h3>e_source_get_extension ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_source_get_extension              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);</pre>
+<p>
+Returns an instance of some <a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a> subclass which registered
+itself under <em class="parameter"><code>extension_name</code></em>.  If no such instance exists within <em class="parameter"><code>source</code></em>,
+one will be created.  It is the caller's responsibility to know which
+subclass is being returned.
+</p>
+<p>
+If you just want to test for the existence of an extension within <em class="parameter"><code>source</code></em>
+without creating it, use <a class="link" href="ESource.html#e-source-has-extension" title="e_source_has_extension ()"><code class="function">e_source_has_extension()</code></a>.
+</p>
+<p>
+Extension instances are owned by their <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> and should not be
+referenced directly.  Instead, reference the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> instance and
+use this function to fetch the extension instance as needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an instance of some
+<a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a> subclass. <span class="annotation">[<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> ESourceExtension][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-has-extension"></a><h3>e_source_has_extension ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_has_extension              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *extension_name</code></em>);</pre>
+<p>
+Checks whether <em class="parameter"><code>source</code></em> has an <a class="link" href="ESourceExtension.html" title="ESourceExtension"><span class="type">ESourceExtension</span></a> with the given name.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension_name</code></em> :</span></p></td>
+<td>an extension name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if <em class="parameter"><code>source</code></em> has such an extension, <code class="literal">FALSE</code> if not</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-ref-dbus-object"></a><h3>e_source_ref_dbus_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">GDBusObject</span> *       e_source_ref_dbus_object            (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns the <span class="type">GDBusObject</span> that was passed to <a class="link" href="ESource.html#e-source-new" title="e_source_new ()"><code class="function">e_source_new()</code></a>.
+</p>
+<p>
+The returned <span class="type">GDBusObject</span> is referenced for thread-safety and must be
+unreferenced with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GDBusObject</span> for <em class="parameter"><code>source</code></em>, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-ref-main-context"></a><h3>e_source_ref_main_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">GMainContext</span> *      e_source_ref_main_context           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns the <span class="type">GMainContext</span> on which event sources for <em class="parameter"><code>source</code></em> are to
+be attached.
+</p>
+<p>
+The returned <span class="type">GMainContext</span> is referenced for thread-safety and must be
+unreferenced with <code class="function">g_main_context_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GMainContext</span>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-display-name"></a><h3>e_source_get_display_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_source_get_display_name           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Returns the display name for <em class="parameter"><code>source</code></em>.  Use the display name to
+represent the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> in a user interface.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the display name for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-dup-display-name"></a><h3>e_source_dup_display_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_source_dup_display_name           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>);</pre>
+<p>
+Thread-safe variation of <a class="link" href="ESource.html#e-source-get-display-name" title="e_source_get_display_name ()"><code class="function">e_source_get_display_name()</code></a>.
+Use this function when accessing <em class="parameter"><code>source</code></em> from multiple threads.
+</p>
+<p>
+The returned string should be freed with <code class="function">g_free()</code> when no longer needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated copy of <a class="link" href="ESource.html#ESource--display-name" title='The "display-name" property'><span class="type">"display-name"</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-set-display-name"></a><h3>e_source_set_display_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_set_display_name           (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *display_name</code></em>);</pre>
+<p>
+Sets the display name for <em class="parameter"><code>source</code></em>.  The <em class="parameter"><code>display_name</code></em> argument must be a
+valid UTF-8 string.  Use the display name to represent the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> in a
+user interface.
+</p>
+<p>
+The internal copy of <em class="parameter"><code>display_name</code></em> is automatically stripped of leading
+and trailing whitespace.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display_name</code></em> :</span></p></td>
+<td>a display name</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-compare-by-display-name"></a><h3>e_source_compare_by_display_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_source_compare_by_display_name    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source1</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source2</code></em>);</pre>
+<p>
+Compares two <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> instances by their display names.  Useful for
+ordering sources in a user interface.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source1</code></em> :</span></p></td>
+<td>the first <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source2</code></em> :</span></p></td>
+<td>the second <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a negative value if <em class="parameter"><code>source1</code></em> compares before <em class="parameter"><code>source2</code></em>, zero if
+they compare equal, or a positive value if <em class="parameter"><code>source1</code></em> compares
+after <em class="parameter"><code>source2</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-to-string"></a><h3>e_source_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_source_to_string                  (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *length</code></em>);</pre>
+<p>
+Outputs the current contents of <em class="parameter"><code>source</code></em> as a key file string.
+Free the returned string with <code class="function">g_free()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td>return location for the length of the returned
+string, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated string</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-parameter-to-key"></a><h3>e_source_parameter_to_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_source_parameter_to_key           (<em class="parameter"><code>const <span class="type">gchar</span> *param_name</code></em>);</pre>
+<p>
+Converts a <span class="type">GParamSpec</span> name (e.g. "foo-bar" or "foo_bar")
+to "CamelCase" for use as a <span class="type">GKeyFile</span> key (e.g. "FooBar").
+</p>
+<p>
+This function is made public only to aid in account migration.
+Applications should not need to use this.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>param_name</code></em> :</span></p></td>
+<td>a <span class="type">GParamSpec</span> name</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remove-sync"></a><h3>e_source_remove_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remove_sync                (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Requests the D-Bus service to delete the key files for <em class="parameter"><code>source</code></em> and all of
+its descendants and broadcast their removal to all clients.  The <em class="parameter"><code>source</code></em>
+must be <a class="link" href="ESource.html#ESource--removable" title='The "removable" property'><span class="type">"removable"</span></a>.
+</p>
+<p>
+If an error occurs, the functon will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> to be removed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remove"></a><h3>e_source_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_remove                     (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously requests the D-Bus service to delete the key files for
+<em class="parameter"><code>source</code></em> and all of its descendants and broadcast their removal to all
+clients.  The <em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--removable" title='The "removable" property'><span class="type">"removable"</span></a>.
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can then
+call <a class="link" href="ESource.html#e-source-remove-finish" title="e_source_remove_finish ()"><code class="function">e_source_remove_finish()</code></a> to get the result of the operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> to be removed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request
+is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remove-finish"></a><h3>e_source_remove_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remove_finish              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="ESource.html#e-source-remove" title="e_source_remove ()"><code class="function">e_source_remove()</code></a>.  If an
+error occurred, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> to be removed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> of failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-write-sync"></a><h3>e_source_write_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_write_sync                 (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Submits the current contents of <em class="parameter"><code>source</code></em> to the D-Bus service to be
+written to disk and broadcast to other clients.  The <em class="parameter"><code>source</code></em> must
+be <a class="link" href="ESource.html#ESource--writable" title='The "writable" property'><span class="type">"writable"</span></a>.
+</p>
+<p>
+If an error occurs, the functon will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a writable <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-write"></a><h3>e_source_write ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_write                      (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously submits the current contents of <em class="parameter"><code>source</code></em> to the D-Bus
+service to be written to disk and broadcast to other clients.  The
+<em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--writable" title='The "writable" property'><span class="type">"writable"</span></a>.
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can then
+call <a class="link" href="ESource.html#e-source-write-finish" title="e_source_write_finish ()"><code class="function">e_source_write_finish()</code></a> to get the result of the operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a writable <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request
+is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-write-finish"></a><h3>e_source_write_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_write_finish               (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="ESource.html#e-source-write" title="e_source_write ()"><code class="function">e_source_write()</code></a>.  If an
+error occurred, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a writable <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-create-sync"></a><h3>e_source_remote_create_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remote_create_sync         (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *scratch_source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Creates a new remote resource by picking out relevant details from
+<em class="parameter"><code>scratch_source</code></em>.  The <em class="parameter"><code>scratch_source</code></em> must be an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> with no
+<span class="type">GDBusObject</span>.  The <em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--remote-creatable" title='The "remote-creatable" property'><span class="type">"remote-creatable"</span></a>.
+</p>
+<p>
+The details required to create the resource vary by <a href="../../libebackend/stable/ECollectionBackend.html"><span class="type">ECollectionBackend</span></a>,
+but in most cases the <em class="parameter"><code>scratch_source</code></em> need only define the resource type
+(address book, calendar, etc.), a display name for the resource, and
+possibly a server-side path or ID for the resource.
+</p>
+<p>
+If an error occurs, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scratch_source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> describing the resource to create</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-create"></a><h3>e_source_remote_create ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_remote_create              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *scratch_source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously creates a new remote resource by picking out relevant
+details from <em class="parameter"><code>scratch_source</code></em>.  The <em class="parameter"><code>scratch_source</code></em> must be an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+with no <span class="type">GDBusObject</span>.  The <em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--remote-creatable" title='The "remote-creatable" property'><span class="type">"remote-creatable"</span></a>.
+</p>
+<p>
+The details required to create the resource vary by <a href="../../libebackend/stable/ECollectionBackend.html"><span class="type">ECollectionBackend</span></a>,
+but in most cases the <em class="parameter"><code>scratch_source</code></em> need only define the resource type
+(address book, calendar, etc.), a display name for the resource, and
+possibly a server-side path or ID for the resource.
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can then
+call <a class="link" href="ESource.html#e-source-remote-create-finish" title="e_source_remote_create_finish ()"><code class="function">e_source_remote_create_finish()</code></a> to get the result of the operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scratch_source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> describing the resource to create</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request
+is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-create-finish"></a><h3>e_source_remote_create_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remote_create_finish       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="ESource.html#e-source-remote-create" title="e_source_remote_create ()"><code class="function">e_source_remote_create()</code></a>.  If
+an error occurred, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-delete-sync"></a><h3>e_source_remote_delete_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remote_delete_sync         (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Deletes the resource represented by <em class="parameter"><code>source</code></em> from a remote server.
+The <em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--remote-deletable" title='The "remote-deletable" property'><span class="type">"remote-deletable"</span></a>.  This will also delete
+the key file for <em class="parameter"><code>source</code></em> and broadcast its removal to all clients,
+similar to <a class="link" href="ESource.html#e-source-remove-sync" title="e_source_remove_sync ()"><code class="function">e_source_remove_sync()</code></a>.
+</p>
+<p>
+If an error occurs, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-delete"></a><h3>e_source_remote_delete ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_remote_delete              (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously deletes the resource represented by <em class="parameter"><code>source</code></em> from a remote
+server.  The <em class="parameter"><code>source</code></em> must be <a class="link" href="ESource.html#ESource--remote-deletable" title='The "remote-deletable" property'><span class="type">"remote-deletable"</span></a>.  This will also
+delete the key file for <em class="parameter"><code>source</code></em> and broadcast its removal to all clients,
+similar to <a class="link" href="ESource.html#e-source-remove" title="e_source_remove ()"><code class="function">e_source_remove()</code></a>.
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can then
+call <a class="link" href="ESource.html#e-source-remote-delete-finish" title="e_source_remote_delete_finish ()"><code class="function">e_source_remote_delete_finish()</code></a> to get the result of the operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request
+is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-remote-delete-finish"></a><h3>e_source_remote_delete_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_remote_delete_finish       (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="ESource.html#e-source-remote-delete" title="e_source_remote_delete ()"><code class="function">e_source_remote_delete()</code></a>.  If
+an error occurred, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-oauth2-access-token-sync"></a><h3>e_source_get_oauth2_access_token_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_oauth2_access_token_sync
+                                                        (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **out_access_token</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *out_expires_in</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Obtains the OAuth 2.0 access token for <em class="parameter"><code>source</code></em> along with its expiry
+in seconds from the current time (or 0 if unknown).
+</p>
+<p>
+Free the returned access token with <code class="function">g_free()</code> when finished with it.
+If an error occurs, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_access_token</code></em> :</span></p></td>
+<td>return location for the access token,
+or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_expires_in</code></em> :</span></p></td>
+<td>return location for the token expiry,
+or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-oauth2-access-token"></a><h3>e_source_get_oauth2_access_token ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_source_get_oauth2_access_token    (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Asynchronously obtains the OAuth 2.0 access token for <em class="parameter"><code>source</code></em> along
+with its expiry in seconds from the current time (or 0 if unknown).
+</p>
+<p>
+When the operation is finished, <em class="parameter"><code>callback</code></em> will be called.  You can then
+call <a class="link" href="ESource.html#e-source-get-oauth2-access-token-finish" title="e_source_get_oauth2_access_token_finish ()"><code class="function">e_source_get_oauth2_access_token_finish()</code></a> to get the result of the
+operation.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncReadyCallback</span> to call when the request
+is satisfied. <span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to pass to the callback function. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-source-get-oauth2-access-token-finish"></a><h3>e_source_get_oauth2_access_token_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_source_get_oauth2_access_token_finish
+                                                        (<em class="parameter"><code><a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **out_access_token</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *out_expires_in</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes the operation started with <a class="link" href="ESource.html#e-source-get-oauth2-access-token" title="e_source_get_oauth2_access_token ()"><code class="function">e_source_get_oauth2_access_token()</code></a>.
+</p>
+<p>
+Free the returned access token with <code class="function">g_free()</code> when finished with it.
+If an error occurred, the function will set <em class="parameter"><code>error</code></em> and return <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_access_token</code></em> :</span></p></td>
+<td>return location for the access token,
+or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_expires_in</code></em> :</span></p></td>
+<td>return location for the token expiry,
+or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ESource.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ESource--dbus-object"></a><h3>The <code class="literal">"dbus-object"</code> property</h3>
+<pre class="programlisting">  "dbus-object"              <a href="https://developer-old.gnome.org/libedataserver/libedbus-private/EDBusObject.html"><span class="type">EDBusObject</span></a>*          : Read / Write / Construct Only</pre>
+<p>The D-Bus object for the data source.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--display-name"></a><h3>The <code class="literal">"display-name"</code> property</h3>
+<pre class="programlisting">  "display-name"             <span class="type">gchar</span>*                : Read / Write / Construct</pre>
+<p>The human-readable name of the data source.</p>
+<p>Default value: "Unnamed"</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--enabled"></a><h3>The <code class="literal">"enabled"</code> property</h3>
+<pre class="programlisting">  "enabled"                  <span class="type">gboolean</span>              : Read / Write / Construct</pre>
+<p>Whether the data source is enabled.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--main-context"></a><h3>The <code class="literal">"main-context"</code> property</h3>
+<pre class="programlisting">  "main-context"             <span class="type">GMainContext</span>*         : Read / Write / Construct Only</pre>
+<p>The main loop context on which to attach event sources.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--parent"></a><h3>The <code class="literal">"parent"</code> property</h3>
+<pre class="programlisting">  "parent"                   <span class="type">gchar</span>*                : Read / Write</pre>
+<p>The unique identity of the parent data source.</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--remote-creatable"></a><h3>The <code class="literal">"remote-creatable"</code> property</h3>
+<pre class="programlisting">  "remote-creatable"         <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the data source can create remote resources.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--remote-deletable"></a><h3>The <code class="literal">"remote-deletable"</code> property</h3>
+<pre class="programlisting">  "remote-deletable"         <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the data source can delete remote resources.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--removable"></a><h3>The <code class="literal">"removable"</code> property</h3>
+<pre class="programlisting">  "removable"                <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the data source is removable.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--uid"></a><h3>The <code class="literal">"uid"</code> property</h3>
+<pre class="programlisting">  "uid"                      <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>The unique identity of the data source.</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESource--writable"></a><h3>The <code class="literal">"writable"</code> property</h3>
+<pre class="programlisting">  "writable"                 <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the data source is writable.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ESource.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ESource-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> *source,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">No Recursion</code></pre>
+<p>
+The ::changed signal is emitted when a property in <em class="parameter"><code>source</code></em> or
+one of its extension objects changes.  A common use for this
+signal is to notify a <span class="type">GtkTreeModel</span> containing data collected
+from <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>s that it needs to update a row.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> that received the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ESource.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

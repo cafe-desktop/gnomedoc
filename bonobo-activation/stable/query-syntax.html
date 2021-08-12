@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Syntax</title><link href="index.html" rel="home" title="Bonobo Activation API Reference Manual"></link><link href="query-langage.html" rel="up" title="Bonobo Activation Query Langage"></link><link href="query-langage.html" rel="prev" title="Bonobo Activation Query Langage"></link><link href="server-xml-reference.html" rel="next" title=".server file format reference"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="query-syntax.html#container">Go to page content</a></li><li><a href="query-syntax.html#top_bar">Go to main menu</a></li><li><a href="query-syntax.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="query-langage.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="query-langage.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Bonobo Activation API Reference Manual</th>
+<td><a accesskey="n" href="server-xml-reference.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="query-syntax"></a>Syntax</h2></div></div></div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="oaf-query-ref-types"></a>Constants</h3></div></div></div>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>'string': As in SQL, delimited by single quotes. Example: 'mystring'
+</p></li>
+<li class="listitem"><p>'stringv' (string arrays): A comma-separated list of strings, surrounded 
+by square brackets. Example: ['red','blue']
+</p></li>
+<li class="listitem"><p>'number': Floating point decimals. (aka "whatever atof() accepts" :)
+</p></li>
+<li class="listitem"><p>'boolean': TRUE or FALSE (other common boolean value identifiers also 
+accepted, but not encouraged).
+</p></li>
+</ul></div>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2763994"></a>Field identifiers</h3></div></div></div>
+<p>
+Names of fields are attributes of a ServerInfo record. These include
+'server_type', 'location_info', and 'iid', even though these are explicitly
+stored instead of just other attributes.
+</p>
+<p>
+Some pseudo-fields are also available - they are all prefaced with an underscore:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+_active : Whether the server is currently running (boolean)
+</p></li></ul></div>
+<p>
+</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2764020"></a>Variables</h3></div></div></div>
+<p>
+Variables are various miscellaneous data items that are part of the
+environment. The syntax for referring to a variable is a '$' sign
+followed by the variable name. The following variables are available:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>$hostname : the hostname that the requesting client is running on.
+</p></li>
+<li class="listitem"><p>$domain : the "domain" that the client is requesting activation in.
+</p></li>
+</ul></div>
+<p>
+</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2764048"></a>Functions</h3></div></div></div>
+<p>Functions perform transformations on data and return a result. There are 
+two possible syntaxes for a function call:
+</p>
+<pre class="programlisting">	funcname(field, other-arguments)
+	field.funcname(other-arguments...)
+</pre>
+<p>
+Internally, 'field.funcname(other-arguments...)' is translated to be
+exactly the same as 'funcname(field, other-arguments)', so
+'priority.max()' is exactly the same as 'max(priority)'. Function names are 
+case insensitive. The following functions are available:
+</p>
+<p>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>
+defined(expression) : 
+   Returns a boolean value that indicates whether the given expression is defined for the current
+   record. For example, using a field name would indicate whether that field is defined for the
+   record.
+</p></li>
+<li class="listitem"><p>
+has_one(stringv1, stringv2) : 
+   Returns a boolean value that indicates whether any of the strings
+   in the 'stringv2' array are contained in the 'stringv1' array.
+</p></li>
+<li class="listitem"><p>
+has_all(stringv1, stringv2) : 
+   Returns a boolean value that indicates whether all of the strings
+   in the 'stringv2' array are contained in the 'stringv1' array.
+</p></li>
+<li class="listitem"><p>
+has(stringv, string)
+   Returns a boolean value that indicates whether 'string' is contained in the 'stringv' array.
+</p></li>
+<li class="listitem"><p>
+prefer_by_list_order(string, stringv) 
+   This function is intended to use as a sort condition when you have a prioritized list of 
+   preferred values. It returns -1 if the 'string' is not in the 'stringv' array, otherwise 
+   it's position measured from the end of 'stringv'. The result is that the first item is 
+   most preferred, items after that are next most preferred, and items not in the list are 
+   lowest priority.
+</p></li>
+<li class="listitem"><p>
+max(expr)
+   Evaluates 'expr' over all the available server information records in the database, and returns
+   the maximum value as dictated by the normal sort order for the data type of 'expr'.
+   This function is not valid for string vectors.
+</p></li>
+<li class="listitem"><p>
+min(expr)
+   As with the 'max' function, but finds the minimum value.
+</p></li>
+</ul></div>
+<p>
+</p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id2764132"></a>Operators</h3></div></div></div>
+<p>
+	More complex queries can be built using the various operators described below. </p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>When building complex expressions, make sure they are fully parenthized or your query will fail in weird ways.</div>
+<p>
+
+	</p>
+<div class="table">
+<a name="id2764146"></a><p class="title"><b>Table 1. Binary relational operators.</b></p>
+<div class="table-contents"><table border="1" summary="Binary relational operators.">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">Operator</th>
+<th align="left">Signification</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">==</td>
+<td align="left">equal</td>
+</tr>
+<tr>
+<td align="left">!=</td>
+<td align="left">not equal</td>
+</tr>
+<tr>
+<td align="left">&lt;</td>
+<td align="left">less than</td>
+</tr>
+<tr>
+<td align="left">&gt;</td>
+<td align="left">greater than</td>
+</tr>
+<tr>
+<td align="left">&lt;=</td>
+<td align="left">less than or equal</td>
+</tr>
+<tr>
+<td align="left">&gt;=</td>
+<td align="left">greater than or equal</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><br class="table-break"></br>
+
+	</p>
+<div class="table">
+<a name="id2764250"></a><p class="title"><b>Table 2. Binary boolean operators.</b></p>
+<div class="table-contents"><table border="1" summary="Binary boolean operators.">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">Operator</th>
+<th align="left">Signification</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">&amp;&amp; or AND</td>
+<td align="left">and</td>
+</tr>
+<tr>
+<td align="left">|| or OR</td>
+<td align="left">or</td>
+</tr>
+<tr>
+<td align="left">^^ or XOR</td>
+<td align="left">exclusive or</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><br class="table-break"></br>
+
+	</p>
+<div class="table">
+<a name="id2764325"></a><p class="title"><b>Table 3. Unary boolean operators.</b></p>
+<div class="table-contents"><table border="1" summary="Unary boolean operators.">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">Operator</th>
+<th align="left">Signification</th>
+</tr></thead>
+<tbody><tr>
+<td align="left">~ or NOT</td>
+<td align="left">not</td>
+</tr></tbody>
+</table></div>
+</div>
+<p><br class="table-break"></br>
+
+	</p>
+<div class="table">
+<a name="id2764380"></a><p class="title"><b>Table 4. Binary arithmetic operators.</b></p>
+<div class="table-contents"><table border="1" summary="Binary arithmetic operators.">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">Operator</th>
+<th align="left">Signification</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">/</td>
+<td align="left">divided by</td>
+</tr>
+<tr>
+<td align="left">+</td>
+<td align="left">plus</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">minus</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="left">times</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><br class="table-break"></br>
+
+	</p>
+<div class="table">
+<a name="id2764465"></a><p class="title"><b>Table 5. Unary arithmetic operators.</b></p>
+<div class="table-contents"><table border="1" summary="Unary arithmetic operators.">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">Operator</th>
+<th align="left">Signification</th>
+</tr></thead>
+<tbody><tr>
+<td align="left">-</td>
+<td align="left">negate</td>
+</tr></tbody>
+</table></div>
+</div>
+<p><br class="table-break"></br>
+
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="query-syntax.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

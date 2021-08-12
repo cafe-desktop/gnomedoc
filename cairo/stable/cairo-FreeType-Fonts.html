@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FreeType Fonts: Cairo: A Vector Graphics Library</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Cairo: A Vector Graphics Library">
+<link rel="up" href="cairo-fonts.html" title="Fonts">
+<link rel="prev" href="cairo-cairo-font-options-t.html" title="cairo_font_options_t">
+<link rel="next" href="cairo-Win32-Fonts.html" title="Win32 Fonts">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-drawing.html" title="Drawing"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-fonts.html" title="Fonts"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-surfaces.html" title="Surfaces"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-support.html" title="Utilities"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-all.html" title="Index"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.2.html" title="Index of new symbols in 1.2"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.4.html" title="Index of new symbols in 1.4"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.6.html" title="Index of new symbols in 1.6"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.8.html" title="Index of new symbols in 1.8"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.10.html" title="Index of new symbols in 1.10"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="appendix" href="language-bindings.html" title="Appendix A. Creating a language binding for cairo"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="cairo-FreeType-Fonts.html#container">Go to page content</a></li><li><a href="cairo-FreeType-Fonts.html#top_bar">Go to main menu</a></li><li><a href="cairo-FreeType-Fonts.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="cairo-FreeType-Fonts.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="cairo-FreeType-Fonts.html#cairo-FreeType-Fonts.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="cairo-fonts.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="cairo-cairo-font-options-t.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="cairo-Win32-Fonts.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="cairo-FreeType-Fonts"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="cairo-FreeType-Fonts.top_of_page"></a>FreeType Fonts</span></h2>
+<p>FreeType Fonts — Font support for FreeType</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="cairo-FreeType-Fonts.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="cairo-FreeType-Fonts.html#CAIRO-HAS-FT-FONT:CAPS" title="CAIRO_HAS_FT_FONT">CAIRO_HAS_FT_FONT</a>
+#define             <a class="link" href="cairo-FreeType-Fonts.html#CAIRO-HAS-FC-FONT:CAPS" title="CAIRO_HAS_FC_FONT">CAIRO_HAS_FC_FONT</a>
+<a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="returnvalue">cairo_font_face_t</span></a> * <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-ft-face" title="cairo_ft_font_face_create_for_ft_face ()">cairo_ft_font_face_create_for_ft_face</a>
+                                                        (<em class="parameter"><code><GTKDOCLINK HREF="FT-Face"><span class="type">FT_Face</span></GTKDOCLINK> face</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> load_flags</code></em>);
+<a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="returnvalue">cairo_font_face_t</span></a> * <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-pattern" title="cairo_ft_font_face_create_for_pattern ()">cairo_ft_font_face_create_for_pattern</a>
+                                                        (<em class="parameter"><code><GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> *pattern</code></em>);
+<GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-options-substitute" title="cairo_ft_font_options_substitute ()">cairo_ft_font_options_substitute</a>    (<em class="parameter"><code>const <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a> *options</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> *pattern</code></em>);
+<GTKDOCLINK HREF="FT-Face"><span class="returnvalue">FT_Face</span></GTKDOCLINK>             <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()">cairo_ft_scaled_font_lock_face</a>      (<em class="parameter"><code><a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> *scaled_font</code></em>);
+<GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-unlock-face" title="cairo_ft_scaled_font_unlock_face ()">cairo_ft_scaled_font_unlock_face</a>    (<em class="parameter"><code><a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> *scaled_font</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="cairo-FreeType-Fonts.description"></a><h2>Description</h2>
+<p>
+The FreeType font backend is primarily used to render text on GNU/Linux
+systems, but can be used on other platforms too.
+</p>
+</div>
+<div class="refsect1">
+<a name="cairo-FreeType-Fonts.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CAIRO-HAS-FT-FONT:CAPS"></a><h3>CAIRO_HAS_FT_FONT</h3>
+<pre class="programlisting">#define CAIRO_HAS_FT_FONT 1
+</pre>
+<p>
+Defined if the FreeType font backend is available.
+This macro can be used to conditionally compile backend-specific code.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CAIRO-HAS-FC-FONT:CAPS"></a><h3>CAIRO_HAS_FC_FONT</h3>
+<pre class="programlisting">#define CAIRO_HAS_FC_FONT 1
+</pre>
+<p>
+Defined if the Fontconfig-specific functions of the FreeType font backend
+are available.
+This macro can be used to conditionally compile backend-specific code.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="cairo-ft-font-face-create-for-ft-face"></a><h3>cairo_ft_font_face_create_for_ft_face ()</h3>
+<pre class="programlisting"><a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="returnvalue">cairo_font_face_t</span></a> * cairo_ft_font_face_create_for_ft_face
+                                                        (<em class="parameter"><code><GTKDOCLINK HREF="FT-Face"><span class="type">FT_Face</span></GTKDOCLINK> face</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="int"><span class="type">int</span></GTKDOCLINK> load_flags</code></em>);</pre>
+<p>
+Creates a new font face for the FreeType font backend from a
+pre-opened FreeType face. This font can then be used with
+<a class="link" href="cairo-text.html#cairo-set-font-face" title="cairo_set_font_face ()"><code class="function">cairo_set_font_face()</code></a> or <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a>. The
+<a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> returned from <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a> is
+also for the FreeType backend and can be used with functions such
+as <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()"><code class="function">cairo_ft_scaled_font_lock_face()</code></a>. Note that Cairo may keep a reference
+to the FT_Face alive in a font-cache and the exact lifetime of the reference
+depends highly upon the exact usage pattern and is subject to external
+factors. You must not call <GTKDOCLINK HREF="FT-Done-Face"><code class="function">FT_Done_Face()</code></GTKDOCLINK> before the last reference to the
+<a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a> has been dropped.
+</p>
+<p>
+As an example, below is how one might correctly couple the lifetime of
+the FreeType face object to the <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a>.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+static const cairo_user_data_key_t key;
+
+font_face = cairo_ft_font_face_create_for_ft_face (ft_face, 0);
+status = cairo_font_face_set_user_data (font_face, &amp;key,
+                               ft_face, (cairo_destroy_func_t) FT_Done_Face);
+if (status) {
+   cairo_font_face_destroy (font_face);
+   FT_Done_Face (ft_face);
+   return ERROR;
+}
+</pre></div>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>face</code></em> :</span></p></td>
+<td>A FreeType face object, already opened. This must
+  be kept around until the face's ref_count drops to
+  zero and it is freed. Since the face may be referenced
+  internally to Cairo, the best way to determine when it
+  is safe to free the face is to pass a
+  <a class="link" href="cairo-Types.html#cairo-destroy-func-t" title="cairo_destroy_func_t ()"><span class="type">cairo_destroy_func_t</span></a> to <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-set-user-data" title="cairo_font_face_set_user_data ()"><code class="function">cairo_font_face_set_user_data()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>load_flags</code></em> :</span></p></td>
+<td>flags to pass to FT_Load_Glyph when loading
+  glyphs from the font. These flags are OR'ed together with
+  the flags derived from the <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a> passed
+  to <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a>, so only a few values such
+  as <GTKDOCLINK HREF="FT-LOAD-VERTICAL-LAYOUT:CAPS"><code class="literal">FT_LOAD_VERTICAL_LAYOUT</code></GTKDOCLINK>, and <GTKDOCLINK HREF="FT-LOAD-FORCE-AUTOHINT:CAPS"><code class="literal">FT_LOAD_FORCE_AUTOHINT</code></GTKDOCLINK>
+  are useful. You should not pass any of the flags affecting
+  the load target, such as <GTKDOCLINK HREF="FT-LOAD-TARGET-LIGHT:CAPS"><code class="literal">FT_LOAD_TARGET_LIGHT</code></GTKDOCLINK>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly created <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a>. Free with
+ <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-destroy" title="cairo_font_face_destroy ()"><code class="function">cairo_font_face_destroy()</code></a> when you are done using it.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="cairo-ft-font-face-create-for-pattern"></a><h3>cairo_ft_font_face_create_for_pattern ()</h3>
+<pre class="programlisting"><a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="returnvalue">cairo_font_face_t</span></a> * cairo_ft_font_face_create_for_pattern
+                                                        (<em class="parameter"><code><GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> *pattern</code></em>);</pre>
+<p>
+Creates a new font face for the FreeType font backend based on a
+fontconfig pattern. This font can then be used with
+<a class="link" href="cairo-text.html#cairo-set-font-face" title="cairo_set_font_face ()"><code class="function">cairo_set_font_face()</code></a> or <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a>. The
+<a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> returned from <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a> is
+also for the FreeType backend and can be used with functions such
+as <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()"><code class="function">cairo_ft_scaled_font_lock_face()</code></a>.
+</p>
+<p>
+Font rendering options are represented both here and when you
+call <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a>. Font options that have a representation
+in a <GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> must be passed in here; to modify <GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK>
+appropriately to reflect the options in a <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a>, call
+<a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-options-substitute" title="cairo_ft_font_options_substitute ()"><code class="function">cairo_ft_font_options_substitute()</code></a>.
+</p>
+<p>
+The pattern's FC_FT_FACE element is inspected first and if that is set,
+that will be the FreeType font face associated with the returned cairo
+font face.  Otherwise the FC_FILE element is checked.  If it's set,
+that and the value of the FC_INDEX element (defaults to zero) of <em class="parameter"><code>pattern</code></em>
+are used to load a font face from file.
+</p>
+<p>
+If both steps from the previous paragraph fails, <em class="parameter"><code>pattern</code></em> will be passed
+to FcConfigSubstitute, FcDefaultSubstitute, and finally FcFontMatch,
+and the resulting font pattern is used.
+</p>
+<p>
+If the FC_FT_FACE element of <em class="parameter"><code>pattern</code></em> is set, the user is responsible
+for making sure that the referenced FT_Face remains valid for the life
+time of the returned <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a>.  See
+<a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-ft-face" title="cairo_ft_font_face_create_for_ft_face ()"><code class="function">cairo_ft_font_face_create_for_ft_face()</code></a> for an exmaple of how to couple
+the life time of the FT_Face to that of the cairo font-face.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>A fontconfig pattern.  Cairo makes a copy of the pattern
+if it needs to.  You are free to modify or free <em class="parameter"><code>pattern</code></em> after this call.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly created <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a>. Free with
+ <a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-destroy" title="cairo_font_face_destroy ()"><code class="function">cairo_font_face_destroy()</code></a> when you are done using it.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="cairo-ft-font-options-substitute"></a><h3>cairo_ft_font_options_substitute ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                cairo_ft_font_options_substitute    (<em class="parameter"><code>const <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a> *options</code></em>,
+                                                         <em class="parameter"><code><GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> *pattern</code></em>);</pre>
+<p>
+Add options to a <GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK> based on a <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a> font
+options object. Options that are already in the pattern, are not overridden,
+so you should call this function after calling <GTKDOCLINK HREF="FcConfigSubstitute"><code class="function">FcConfigSubstitute()</code></GTKDOCLINK> (the
+user's settings should override options based on the surface type), but
+before calling <GTKDOCLINK HREF="FcDefaultSubstitute"><code class="function">FcDefaultSubstitute()</code></GTKDOCLINK>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>options</code></em> :</span></p></td>
+<td>a <a class="link" href="cairo-cairo-font-options-t.html#cairo-font-options-t" title="cairo_font_options_t"><span class="type">cairo_font_options_t</span></a> object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pattern</code></em> :</span></p></td>
+<td>an existing <GTKDOCLINK HREF="FcPattern"><span class="type">FcPattern</span></GTKDOCLINK>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="cairo-ft-scaled-font-lock-face"></a><h3>cairo_ft_scaled_font_lock_face ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="FT-Face"><span class="returnvalue">FT_Face</span></GTKDOCLINK>             cairo_ft_scaled_font_lock_face      (<em class="parameter"><code><a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> *scaled_font</code></em>);</pre>
+<p>
+<a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()"><code class="function">cairo_ft_scaled_font_lock_face()</code></a> gets the <GTKDOCLINK HREF="FT-Face"><span class="type">FT_Face</span></GTKDOCLINK> object from a FreeType
+backend font and scales it appropriately for the font. You must
+release the face with <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-unlock-face" title="cairo_ft_scaled_font_unlock_face ()"><code class="function">cairo_ft_scaled_font_unlock_face()</code></a>
+when you are done using it.  Since the <GTKDOCLINK HREF="FT-Face"><span class="type">FT_Face</span></GTKDOCLINK> object can be
+shared between multiple <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> objects, you must not
+lock any other font objects until you unlock this one. A count is
+kept of the number of times <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()"><code class="function">cairo_ft_scaled_font_lock_face()</code></a> is
+called. <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-unlock-face" title="cairo_ft_scaled_font_unlock_face ()"><code class="function">cairo_ft_scaled_font_unlock_face()</code></a> must be called the same number
+of times.
+</p>
+<p>
+You must be careful when using this function in a library or in a
+threaded application, because freetype's design makes it unsafe to
+call freetype functions simultaneously from multiple threads, (even
+if using distinct FT_Face objects). Because of this, application
+code that acquires an FT_Face object with this call must add its
+own locking to protect any use of that object, (and which also must
+protect any other calls into cairo as almost any cairo function
+might result in a call into the freetype library).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scaled_font</code></em> :</span></p></td>
+<td>A <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> from the FreeType font backend. Such an
+  object can be created by calling <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a> on a
+  FreeType backend font face (see <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-pattern" title="cairo_ft_font_face_create_for_pattern ()"><code class="function">cairo_ft_font_face_create_for_pattern()</code></a>,
+  <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-ft-face" title="cairo_ft_font_face_create_for_ft_face ()"><code class="function">cairo_ft_font_face_create_for_ft_face()</code></a>).
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The <GTKDOCLINK HREF="FT-Face"><span class="type">FT_Face</span></GTKDOCLINK> object for <em class="parameter"><code>font</code></em>, scaled appropriately,
+or <GTKDOCLINK HREF="NULL:CAPS"><code class="literal">NULL</code></GTKDOCLINK> if <em class="parameter"><code>scaled_font</code></em> is in an error state (see
+<a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-status" title="cairo_scaled_font_status ()"><code class="function">cairo_scaled_font_status()</code></a>) or there is insufficient memory.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="cairo-ft-scaled-font-unlock-face"></a><h3>cairo_ft_scaled_font_unlock_face ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void"><span class="returnvalue">void</span></GTKDOCLINK>                cairo_ft_scaled_font_unlock_face    (<em class="parameter"><code><a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> *scaled_font</code></em>);</pre>
+<p>
+Releases a face obtained with <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-scaled-font-lock-face" title="cairo_ft_scaled_font_lock_face ()"><code class="function">cairo_ft_scaled_font_lock_face()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>scaled_font</code></em> :</span></p></td>
+<td>A <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-t" title="cairo_scaled_font_t"><span class="type">cairo_scaled_font_t</span></a> from the FreeType font backend. Such an
+  object can be created by calling <a class="link" href="cairo-cairo-scaled-font-t.html#cairo-scaled-font-create" title="cairo_scaled_font_create ()"><code class="function">cairo_scaled_font_create()</code></a> on a
+  FreeType backend font face (see <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-pattern" title="cairo_ft_font_face_create_for_pattern ()"><code class="function">cairo_ft_font_face_create_for_pattern()</code></a>,
+  <a class="link" href="cairo-FreeType-Fonts.html#cairo-ft-font-face-create-for-ft-face" title="cairo_ft_font_face_create_for_ft_face ()"><code class="function">cairo_ft_font_face_create_for_ft_face()</code></a>).
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="cairo-FreeType-Fonts.see-also"></a><h2>See Also</h2>
+<a class="link" href="cairo-cairo-font-face-t.html#cairo-font-face-t" title="cairo_font_face_t"><span class="type">cairo_font_face_t</span></a>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="cairo-FreeType-Fonts.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

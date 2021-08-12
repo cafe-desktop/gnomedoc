@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Coordinate Spaces and Limits: GooCanvas Reference Manual</title><link href="index.html" rel="home" title="GooCanvas Reference Manual"></link><link href="ch01.html" rel="up" title="Introduction"></link><link href="goocanvas-architecture.html" rel="prev" title="Underlying Architecture"></link><link href="goocanvas-creating-items.html" rel="next" title="Creating New Items"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="goocanvas-coordinates.html#container">Go to page content</a></li><li><a href="goocanvas-coordinates.html#top_bar">Go to main menu</a></li><li><a href="goocanvas-coordinates.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="goocanvas-architecture.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="goocanvas-creating-items.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="goocanvas-coordinates"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Coordinate Spaces and Limits</span></h2>
+<p>Coordinate Spaces and Limits — how coordinates are used.</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="coordinates"></a><h2>Coordinate Spaces</h2>
+<p>
+      Items in the canvas typically have a number of properties specifying
+      their location and size. For example the <a class="link" href="GooCanvasRect.html" title="GooCanvasRect"><span class="type">GooCanvasRect</span></a> item has
+      <a class="link" href="GooCanvasRect.html#GooCanvasRect--x" title="The “x” property"><span class="type">“x”</span></a>, <a class="link" href="GooCanvasRect.html#GooCanvasRect--y" title="The “y” property"><span class="type">“y”</span></a>, <a class="link" href="GooCanvasRect.html#GooCanvasRect--width" title="The “width” property"><span class="type">“width”</span></a> and
+      <a class="link" href="GooCanvasRect.html#GooCanvasRect--height" title="The “height” property"><span class="type">“height”</span></a> properties.
+    </p>
+<p>
+      However, items can also have a transformation matrix (e.g. the
+      <a class="link" href="GooCanvasItem.html#GooCanvasItem--transform" title="The “transform” property"><span class="type">“transform”</span></a> property).
+      Transformation matrices modify the item's coordinate space in some
+      way. Modifications include translation (moving the origin), rotation,
+      scaling, and skewing, or combinations of these. Thus the final
+      position of the item on the canvas can be altered dramatically.
+    </p>
+<p>
+      The simple animation features in <a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a> are accomplished by
+      modifying the item's transformation matrix over time.
+      (See <a class="link" href="GooCanvasItem.html#goo-canvas-item-animate" title="goo_canvas_item_animate ()"><code class="function">goo_canvas_item_animate()</code></a>.)
+    </p>
+<p>
+      Since items are in a hierarchy it is possible to move or rotate an
+      entire group of items by simply changing the transformation matrix
+      of the group containing them.
+    </p>
+<p>
+      The coordinate space used within the item itself (e.g. where the
+      <a class="link" href="GooCanvasRect.html#GooCanvasRect--x" title="The “x” property"><span class="type">“x”</span></a> and <a class="link" href="GooCanvasRect.html#GooCanvasRect--y" title="The “y” property"><span class="type">“y”</span></a> properties of a <a class="link" href="GooCanvasRect.html" title="GooCanvasRect"><span class="type">GooCanvasRect</span></a>
+      are specified)
+      is referred to as "Item Space". The coordinate space used by
+      the entire canvas is referred to as "Canvas Space" (or "Device Space").
+      "Item Space" and "Canvas Space" may or may not be the same, depending
+      on whether
+      the item or any of its ancestors have a transformation matrix set.
+      (Note that the entire canvas may also be scrolled and/or zoomed,
+      which means that there may be additional transformations above
+      "Canvas Space".)
+    </p>
+<p>
+      Functions are provided to convert between coordinate spaces,
+      e.g. <a class="link" href="GooCanvas.html#goo-canvas-convert-to-item-space" title="goo_canvas_convert_to_item_space ()"><code class="function">goo_canvas_convert_to_item_space()</code></a> and
+      <a class="link" href="GooCanvas.html#goo-canvas-convert-from-item-space" title="goo_canvas_convert_from_item_space ()"><code class="function">goo_canvas_convert_from_item_space()</code></a> convert canvas space coordinates
+      to item space and vice versa.
+    </p>
+<div class="refsect2">
+<a name="coordinate-limits"></a><h3>Coordinate Limits</h3>
+<p>
+	GooCanvas uses the Cairo graphics library to render canvas items.
+	For performance reasons Cairo uses 32-bit fixed point integers
+	internally when rendering graphics, with 24 bits used for the integer
+	part of values and 8 bits used for the fractional part.
+	This means that values are limited to roughly +/- 8,388,608.
+	(Prior to Cairo 1.6 16 bits were used for the integer part and 16 bits
+	for the	fractional part, meaning values were limited to +/- 32,768.)
+      </p>
+<p>
+	GooCanvas includes code to work around the Cairo limits to some extent.
+	Subclasses of GooCanvasItemSimple (including all builtin items) can
+	use any desired translation using a transformation matrix.
+	But item space coordinates (modified by any scale, rotation or skew)
+	must be within the Cairo limits.
+      </p>
+<p>
+	It is possible to create new canvas items that avoid the Cairo
+	limits completely. For an example of this see the "Large Items" page
+	in the GooCanvas demo application, and the corresponding code.
+      </p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.26</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="goocanvas-coordinates.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

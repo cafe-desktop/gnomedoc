@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" href="../skin/moinmoin.css" type="text/css"></link><title>HowDoI/SaveWindowState - GNOME Wiki!</title><link href="https://wiki.gnome.org/action/rss_rc/HowDoI/SaveWindowState?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=HowDoI%2FSaveWindowState&amp;ddiffs=1" rel="alternate" title="GNOME Wiki!: HowDoI/SaveWindowState" type="application/rss+xml"></link><link href="https://wiki.gnome.org/Home" rel="Start"></link><link href="https://wiki.gnome.org/action/raw/HowDoI/SaveWindowState?action=raw" rel="Alternate" title="Wiki Markup"></link><link href="https://wiki.gnome.org/action/print/HowDoI/SaveWindowState?action=print" media="print" rel="Alternate" title="Print View"></link><link href="https://wiki.gnome.org/HowDoI" rel="Up"></link><link href="https://wiki.gnome.org/FindPage" rel="Search"></link><link href="https://wiki.gnome.org/TitleIndex" rel="Index"></link><link href="https://wiki.gnome.org/WordIndex" rel="Glossary"></link><link href="https://wiki.gnome.org/HelpOnFormatting" rel="Help"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/960_24_col.css"></link><script type="text/javascript" src="../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="index.html#container">Go to page content</a></li><li><a href="index.html#top_bar">Go to main menu</a></li><li><a href="index.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/search"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form></div></div></div><div class="clearfix"></div><div id="container" class="content-id"><div class="content"><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="Saving_and_Loading_Window_State">Saving and Loading Window State</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867">
+</p><h2 id="Use_cases">Use cases</h2>
+<span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span><p class="line874">Saving and restoring the window state across sessions is a useful feature for some applications. <span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span></p><p class="line874">Since applications know best what their state and geometry are – and whether, or how, those should be applied once the application is launched – it’s better to have this function near the code that creates the application window itself. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line867">
+</p><h2 id="Where_should_the_state_be_stored">Where should the state be stored</h2>
+<span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><p class="line874">The are two options for storing the window state: <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><ul><li><p class="line862">a file under <tt class="backtick">$XDG_CACHE_HOME/your.application.id</tt> <span class="anchor" id="line-14"></span></p></li><li><p class="line891"><tt class="backtick">GSettings</tt> <span class="anchor" id="line-15"></span><span class="anchor" id="line-16"></span></p></li></ul><p class="line874">Both options have their own advantages and trade offs. <span class="anchor" id="line-17"></span><span class="anchor" id="line-18"></span></p><p class="line862">The first option requires you to write the serialization and deserialization code, but it's portable and does not require ancillary files, like a <tt class="backtick">GSettings</tt> schema. This means that you need to write more code, but it allows, for instance, to run your application uninstalled. <span class="anchor" id="line-19"></span><span class="anchor" id="line-20"></span></p><p class="line874">The second option gives you the serialization and deserialization code, but it requires you to define the setting keys schema and install it in a known location. This means that you will keep your code to a minimum, but it will also require installation. <span class="anchor" id="line-21"></span><span class="anchor" id="line-22"></span></p><p class="line862">It is generally preferred, everything being equal, to use <tt class="backtick">GSettings</tt> over a custom file. The <tt class="backtick">GSettings</tt> API is nicer, more reliable, and faster. <span class="anchor" id="line-23"></span><span class="anchor" id="line-24"></span></p><p class="line862">For more information on <tt class="backtick">GSettings</tt> and how to use it in your project, read <a href="https://wiki.gnome.org/HowDoI/GSettings">HowDoI/GSettings</a>. <span class="anchor" id="line-25"></span><span class="anchor" id="line-26"></span></p><p class="line867">
+</p><h2 id="Saving_the_window_state">Saving the window state</h2>
+<span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span><p class="line874">There are few window states that should generally be saved: <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span></p><ul><li>the window size <span class="anchor" id="line-31"></span></li><li>whether the window is maximized, if the window supports it <span class="anchor" id="line-32"></span></li><li>whether the window is full screen, if the window supports it <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span></li></ul><p class="line874">The position of the window is best left to the window manager. Other states can be saved along with the ones above, using the same technique, so they will be left as an  <span class="anchor" id="line-35"></span>exercise for the reader. <span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span></p><p class="line862">The best practice is to create a <tt class="backtick">GtkApplicationWindow</tt> class containing the states you wish to save: <span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span></p><p class="line867"><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span></p><pre><span class="anchor" id="line-1"></span>  typedef struct {
+<span class="anchor" id="line-2"></span>    GtkApplicationWindow parent_instance;
+<span class="anchor" id="line-3"></span>
+<span class="anchor" id="line-4"></span>    int current_width;
+<span class="anchor" id="line-5"></span>    int current_height;
+<span class="anchor" id="line-6"></span>    gboolean is_maximized;
+<span class="anchor" id="line-7"></span>    gboolean is_fullscreen;
+<span class="anchor" id="line-8"></span>  } MyApplicationWindow;</pre><span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span><p class="line867">
+</p><h3 id="GTK_4">GTK 4</h3>
+<span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><p class="line862">The window geometry should be updated by getting notifications from the <tt class="backtick">GtkWindow:default-width</tt> and <tt class="backtick">GtkWindow:default-height</tt> properties; window states, like "maximized" and "fullscreen", are also mapped to <tt class="backtick">GtkWindow</tt> properties. You can use the <tt class="backtick">GObject::notify</tt> signal: <span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span></p><p class="line867"><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span></p><pre><span class="anchor" id="line-1-1"></span>static void
+<span class="anchor" id="line-2-1"></span>on_window_state_notify (GObject *gobject,
+<span class="anchor" id="line-3-1"></span>                        GParamSpec *pspec,
+<span class="anchor" id="line-4-1"></span>                        gpointer user_data)
+<span class="anchor" id="line-5-1"></span>{
+<span class="anchor" id="line-6-1"></span>  MyApplicationWindow *self = MY_APPLICATION_WINDOW (gobject);
+<span class="anchor" id="line-7-1"></span>
+<span class="anchor" id="line-8-1"></span>  if (g_str_equal (pspec-&gt;name, "default-width"))
+<span class="anchor" id="line-9"></span>    g_object_get (gobject, "default-width", &amp;(self-&gt;current_width), NULL);
+<span class="anchor" id="line-10"></span>  else if (g_str_equal (pspec-&gt;name, "default-height"))
+<span class="anchor" id="line-11"></span>    g_object_get (gobject, "default-height", &amp;(self-&gt;current_height), NULL);
+<span class="anchor" id="line-12"></span>  else if (g_str_equal (pspec-&gt;name, "maximized"))
+<span class="anchor" id="line-13"></span>    g_object_get (gobject, "maximized", &amp;(self-&gt;is_maximized), NULL);
+<span class="anchor" id="line-14"></span>  else if (g_str_equal (pspec-&gt;name, "fullscreened"))
+<span class="anchor" id="line-15"></span>    g_object_get (gobject, "fullscreened", &amp;(self-&gt;is_fullscreen), NULL);
+<span class="anchor" id="line-16"></span>}</pre><span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span><p class="line867">
+</p><h4 id="Saving_state_into_GSettings">Saving state into GSettings</h4>
+<span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><p class="line862">If you are using <tt class="backtick">GSettings</tt>, you can map those properties to keys: <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span></p><p class="line867"><span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span></p><pre><span class="anchor" id="line-1-2"></span>static void
+<span class="anchor" id="line-2-2"></span>my_application_window_init (MyApplicationWindow *self)
+<span class="anchor" id="line-3-2"></span>{
+<span class="anchor" id="line-4-2"></span>  GSettings *settings = g_settings_new ("your.application.id.window-state");
+<span class="anchor" id="line-5-2"></span>
+<span class="anchor" id="line-6-2"></span>  // update the settings when the properties change and vice versa
+<span class="anchor" id="line-7-2"></span>  g_settings_bind (settings, "width",
+<span class="anchor" id="line-8-2"></span>                   self, "default-width",
+<span class="anchor" id="line-9-1"></span>                   G_SETTINGS_BIND_DEFAULT);
+<span class="anchor" id="line-10-1"></span>  g_settings_bind (settings, "height",
+<span class="anchor" id="line-11-1"></span>                   self, "default-height",
+<span class="anchor" id="line-12-1"></span>                   G_SETTINGS_BIND_DEFAULT);
+<span class="anchor" id="line-13-1"></span>  g_settings_bind (settings, "is-maximized",
+<span class="anchor" id="line-14-1"></span>                   self, "maximized",
+<span class="anchor" id="line-15-1"></span>                   G_SETTINGS_BIND_DEFAULT);
+<span class="anchor" id="line-16-1"></span>  g_settings_bind (settings, "is-fullscreen",
+<span class="anchor" id="line-17"></span>                   self, "fullscreened",
+<span class="anchor" id="line-18"></span>                   G_SETTINGS_BIND_DEFAULT);
+<span class="anchor" id="line-19"></span>}</pre><span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><p class="line867">
+</p><h4 id="Loading_window_state">Loading window state</h4>
+<span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><p class="line867">
+</p><h2 id="Loading_the_window_state">Loading the window state</h2>
+<span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><p class="line874">The window state can be loaded and applied when the application window instance is constructed: <span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span></p><p class="line867"><span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span></p><pre><span class="anchor" id="line-1-3"></span>static void
+<span class="anchor" id="line-2-3"></span>on_window_constructed (GObject *object)
+<span class="anchor" id="line-3-3"></span>{
+<span class="anchor" id="line-4-3"></span>  MyApplicationWindow *app_window = MY_APPLICATION_WINDOW (object);
+<span class="anchor" id="line-5-3"></span>
+<span class="anchor" id="line-6-3"></span>  // set up the initial state; these are our fallback values
+<span class="anchor" id="line-7-3"></span>  app_window-&gt;current_width = -1;
+<span class="anchor" id="line-8-3"></span>  app_window-&gt;current_height = -1;
+<span class="anchor" id="line-9-2"></span>  app_window-&gt;is_maximized = FALSE;
+<span class="anchor" id="line-10-2"></span>  app_window-&gt;is_fullscreen = FALSE;
+<span class="anchor" id="line-11-2"></span>
+<span class="anchor" id="line-12-2"></span>  // load the saved state, if any
+<span class="anchor" id="line-13-2"></span>  my_application_window_load_state (app_window);
+<span class="anchor" id="line-14-2"></span>
+<span class="anchor" id="line-15-2"></span>  // apply the loaded state
+<span class="anchor" id="line-16-2"></span>  gtk_window_set_default_size (GTK_WINDOW (app_window),
+<span class="anchor" id="line-17-1"></span>                               app_window-&gt;current_width,
+<span class="anchor" id="line-18-1"></span>                               app_window-&gt;current_height);
+<span class="anchor" id="line-19-1"></span>
+<span class="anchor" id="line-20"></span>  if (app_window-&gt;is_maximized)
+<span class="anchor" id="line-21"></span>    gtk_window_maximize (GTK_WINDOW (app_window));
+<span class="anchor" id="line-22"></span>
+<span class="anchor" id="line-23"></span>  if (app_window-&gt;is_fullscreen)
+<span class="anchor" id="line-24"></span>    gtk_window_fullscreen (GTK_WINDOW (app_window));
+<span class="anchor" id="line-25"></span>
+<span class="anchor" id="line-26"></span>  G_OBJECT_CLASS (my_application_window_parent_class)-&gt;constructed (object);
+<span class="anchor" id="line-27"></span>}</pre><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><p class="line874">If you are using GSettings to store the window state, it will be restored as soon as the GSettings bindings have been created. <span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span></p><p class="line867">
+</p><h3 id="GTK_3">GTK 3</h3>
+<span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span><p class="line867"><img alt="/!\" height="16" src="https://wiki.gnome.org/gnome/gnome-responsive/img/dialog-warning-symbolic.png" title="/!\" width="16"></img> It is important to note that you should <strong>not</strong> use the <tt class="backtick">GtkWidget::destroy</tt> signal to retrieve the state of a <tt class="backtick">GtkWindow</tt> in order to store it somewhere. The <tt class="backtick">GtkWidget::destroy</tt> signal is meant to be used to release external references, which means that the widget is not guaranteed to be in the same state as to when the window's close button was pressed, or the "Quit" action was called. You can still use the <tt class="backtick">GtkWidget::destroy</tt> signal to <em>save</em> the state, but you should update the state to be saved only in response to state changes, like new size allocations or window state changes. <img alt="/!\" height="16" src="https://wiki.gnome.org/gnome/gnome-responsive/img/dialog-warning-symbolic.png" title="/!\" width="16"></img> <span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span></p><p class="line862">The window geometry should be updated inside a <tt class="backtick">GtkWidget::size-allocate</tt> signal handler: <span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span></p><p class="line867"><span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span><span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span><span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span></p><pre><span class="anchor" id="line-1-4"></span>static void
+<span class="anchor" id="line-2-4"></span>on_window_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
+<span class="anchor" id="line-3-4"></span>{
+<span class="anchor" id="line-4-4"></span>  MyApplicationWindow *app_window = MY_APPLICATION_WINDOW (widget);
+<span class="anchor" id="line-5-4"></span>
+<span class="anchor" id="line-6-4"></span>  // chain up to the parent's implementation
+<span class="anchor" id="line-7-4"></span>  GTK_WIDGET_CLASS (my_application_window_parent_class)-&gt;size_allocate (widget,
+<span class="anchor" id="line-8-4"></span>                                                                        allocation);
+<span class="anchor" id="line-9-3"></span>
+<span class="anchor" id="line-10-3"></span>  // save the window geometry only if we are not maximized of fullscreen
+<span class="anchor" id="line-11-3"></span>  if (!(app_window-&gt;is_maximized || app_window-&gt;is_fullscreen)) {
+<span class="anchor" id="line-12-3"></span>    gtk_window_get_size (GTK_WINDOW (widget),
+<span class="anchor" id="line-13-3"></span>                         &amp;app_window-&gt;current_width,
+<span class="anchor" id="line-14-3"></span>                         &amp;app_window-&gt;current_height);
+<span class="anchor" id="line-15-3"></span>  }
+<span class="anchor" id="line-16-3"></span>}</pre><span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><p class="line867"><img alt="/!\" height="16" src="https://wiki.gnome.org/gnome/gnome-responsive/img/dialog-warning-symbolic.png" title="/!\" width="16"></img> It is important to note that you have to use gtk_window_get_size() to obtain the size. Using the allocation <span class="anchor" id="line-163"></span>directly can lead to growing windows with client-side decorations. <span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span></p><p class="line862">The window state should be updated inside a <tt class="backtick">GtkWidget::window-state-event</tt> signal handler: <span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span></p><p class="line867"><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span><span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span><span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span></p><pre><span class="anchor" id="line-1-5"></span>static gboolean
+<span class="anchor" id="line-2-5"></span>on_window_state_event (GtkWidget *widget, GdkEventWindowState *event)
+<span class="anchor" id="line-3-5"></span>{
+<span class="anchor" id="line-4-5"></span>  MyApplicationWindow *app_window = MY_APPLICATION_WINDOW (widget);
+<span class="anchor" id="line-5-5"></span>  gboolean res = GDK_EVENT_PROPAGATE;
+<span class="anchor" id="line-6-5"></span>
+<span class="anchor" id="line-7-5"></span>  // chain up to the parent's implementation, if any
+<span class="anchor" id="line-8-5"></span>  if (GTK_WIDGET_CLASS (my_application_window_parent_class)-&gt;window_state_event != NULL) {
+<span class="anchor" id="line-9-4"></span>    res =
+<span class="anchor" id="line-10-4"></span>      GTK_WIDGET_CLASS (my_application_window_parent_class)-&gt;window_state_event (widget,
+<span class="anchor" id="line-11-4"></span>                                                                                 event);
+<span class="anchor" id="line-12-4"></span>  }
+<span class="anchor" id="line-13-4"></span>
+<span class="anchor" id="line-14-4"></span>  app_window-&gt;is_maximized =
+<span class="anchor" id="line-15-4"></span>    (event-&gt;new_window_state &amp; GDK_WINDOW_STATE_MAXIMIZED) != 0;
+<span class="anchor" id="line-16-4"></span>  app_window-&gt;is_fullscreen =
+<span class="anchor" id="line-17-2"></span>    (event-&gt;new_window_state &amp; GDK_WINDOW_STATE_FULLSCREEN) != 0;
+<span class="anchor" id="line-18-2"></span>
+<span class="anchor" id="line-19-2"></span>  return res;
+<span class="anchor" id="line-20-1"></span>}</pre><span class="anchor" id="line-189"></span><span class="anchor" id="line-190"></span><p class="line862">The window state should be saved inside a <tt class="backtick">GtkWidget::destroy</tt> signal handler: <span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span></p><p class="line867"><span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span><span class="anchor" id="line-195"></span><span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span><span class="anchor" id="line-198"></span><span class="anchor" id="line-199"></span><span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span><span class="anchor" id="line-202"></span><span class="anchor" id="line-203"></span><span class="anchor" id="line-204"></span></p><pre><span class="anchor" id="line-1-6"></span>static void
+<span class="anchor" id="line-2-6"></span>on_window_destroy (GtkWidget *widget)
+<span class="anchor" id="line-3-6"></span>{
+<span class="anchor" id="line-4-6"></span>  MyApplicationWindow *app_window = MY_APPLICATION_WINDOW (widget);
+<span class="anchor" id="line-5-6"></span>
+<span class="anchor" id="line-6-6"></span>  // store the state here
+<span class="anchor" id="line-7-6"></span>  my_application_window_store_state (app_window);
+<span class="anchor" id="line-8-6"></span>
+<span class="anchor" id="line-9-5"></span>  // chain up to the parent's implementation
+<span class="anchor" id="line-10-5"></span>  GTK_WIDGET_CLASS (my_application_window_parent_class)-&gt;destroy (widget);
+<span class="anchor" id="line-11-5"></span>}</pre><span class="anchor" id="line-205"></span><span class="anchor" id="line-206"></span><p class="line867">
+</p><h4 id="Saving_the_window_state_in_a_file">Saving the window state in a file</h4>
+<span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><p class="line862">A trivial way to save the window state in a location on the file system is to use a <a class="https" href="https://developer.gnome.org/glib/stable/glib-Key-value-file-parser.html">GKeyFile</a>, as provided by GLib. There are other choices for a file format — like <a class="https" href="https://developer.gnome.org/glib/stable/glib-Simple-XML-Subset-Parser.html">XML</a> or <a class="https" href="https://developer.gnome.org/json-glib/stable/">JSON</a> — but key/value files are probably the simplest and less invasive choice. <span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span></p><p class="line867"><span class="anchor" id="line-211"></span><span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span><span class="anchor" id="line-214"></span><span class="anchor" id="line-215"></span><span class="anchor" id="line-216"></span><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span><span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span><span class="anchor" id="line-222"></span><span class="anchor" id="line-223"></span><span class="anchor" id="line-224"></span><span class="anchor" id="line-225"></span><span class="anchor" id="line-226"></span><span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span><span class="anchor" id="line-229"></span><span class="anchor" id="line-230"></span><span class="anchor" id="line-231"></span><span class="anchor" id="line-232"></span><span class="anchor" id="line-233"></span><span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span><span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span><span class="anchor" id="line-238"></span><span class="anchor" id="line-239"></span><span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span><span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><span class="anchor" id="line-244"></span><span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span><span class="anchor" id="line-247"></span><span class="anchor" id="line-248"></span></p><pre><span class="anchor" id="line-1-7"></span>static void
+<span class="anchor" id="line-2-7"></span>my_application_window_store_state (MyApplicationWindow *self)
+<span class="anchor" id="line-3-7"></span>{
+<span class="anchor" id="line-4-7"></span>  GKeyFile *keyfile = g_key_file_new ();
+<span class="anchor" id="line-5-7"></span>
+<span class="anchor" id="line-6-7"></span>  g_key_file_set_integer (keyfile, "WindowState", "Width", self-&gt;current_width);
+<span class="anchor" id="line-7-7"></span>  g_key_file_set_integer (keyfile, "WindowState", "Height", self-&gt;current_height);
+<span class="anchor" id="line-8-7"></span>  g_key_file_set_boolean (keyfile, "WindowState", "IsMaximized", self-&gt;is_maximized);
+<span class="anchor" id="line-9-6"></span>  g_key_file_set_boolean (keyfile, "WindowState", "IsFullscreen", self-&gt;is_fullscreen);
+<span class="anchor" id="line-10-6"></span>
+<span class="anchor" id="line-11-6"></span>  // we want a file under the $XDG_CACHE_HOME directory; we use the
+<span class="anchor" id="line-12-5"></span>  // application id to namespace the file.
+<span class="anchor" id="line-13-5"></span>  //
+<span class="anchor" id="line-14-5"></span>  // in this example, our application only has one window; if we had
+<span class="anchor" id="line-15-5"></span>  // more than one then we'd need to generate a UUID for each window
+<span class="anchor" id="line-16-5"></span>  // and use the UUID to create a unique file.
+<span class="anchor" id="line-17-3"></span>
+<span class="anchor" id="line-18-3"></span>  const char *appid = g_application_get_application_id (g_application_get_default ());
+<span class="anchor" id="line-19-3"></span>  char *path = g_build_filename (g_get_user_cache_dir (), appid, NULL);
+<span class="anchor" id="line-20-2"></span>
+<span class="anchor" id="line-21-1"></span>  // we don't really care about error handling; the ancillary file is
+<span class="anchor" id="line-22-1"></span>  // optional, and the application *must* work without it
+<span class="anchor" id="line-23-1"></span>  if (g_mkdir_with_parents (path, 0700) &lt; 0) {
+<span class="anchor" id="line-24-1"></span>    goto out;
+<span class="anchor" id="line-25-1"></span>  }
+<span class="anchor" id="line-26-1"></span>
+<span class="anchor" id="line-27-1"></span>  char *file = g_build_filename (path, "state.ini", NULL);
+<span class="anchor" id="line-28"></span>
+<span class="anchor" id="line-29"></span>  // same as above, we don't do error handling
+<span class="anchor" id="line-30"></span>  g_key_file_save_to_file (keyfile, file, NULL);
+<span class="anchor" id="line-31"></span>
+<span class="anchor" id="line-32"></span>  g_free (file);
+<span class="anchor" id="line-33"></span>
+<span class="anchor" id="line-34"></span>out:
+<span class="anchor" id="line-35"></span>  g_key_file_unref (file);
+<span class="anchor" id="line-36"></span>  g_free (path);
+<span class="anchor" id="line-37"></span>}</pre><span class="anchor" id="line-249"></span><span class="anchor" id="line-250"></span><p class="line867">
+</p><h4 id="Saving_the_window_state_in_GSettings">Saving the window state in GSettings</h4>
+<span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span><p class="line862">Assuming you created a <tt class="backtick">GSettings</tt> schema with the proper keys, the code for saving the window state is remarkably similar to the file case, except we don't have to care about saving the data ourselves: <span class="anchor" id="line-253"></span><span class="anchor" id="line-254"></span></p><p class="line867"><span class="anchor" id="line-255"></span><span class="anchor" id="line-256"></span><span class="anchor" id="line-257"></span><span class="anchor" id="line-258"></span><span class="anchor" id="line-259"></span><span class="anchor" id="line-260"></span><span class="anchor" id="line-261"></span><span class="anchor" id="line-262"></span><span class="anchor" id="line-263"></span><span class="anchor" id="line-264"></span><span class="anchor" id="line-265"></span></p><pre><span class="anchor" id="line-1-8"></span>static void
+<span class="anchor" id="line-2-8"></span>my_application_window_store_state (MyApplicationWindow *self)
+<span class="anchor" id="line-3-8"></span>{
+<span class="anchor" id="line-4-8"></span>  GSettings *settings = g_settings_new ("your.application.id.window-state");
+<span class="anchor" id="line-5-8"></span>
+<span class="anchor" id="line-6-8"></span>  g_settings_set_int (settings, "width", self-&gt;current_width);
+<span class="anchor" id="line-7-8"></span>  g_settings_set_int (settings, "height", self-&gt;current_height);
+<span class="anchor" id="line-8-8"></span>  g_settings_set_boolean (settings, "is-maximized", self-&gt;is_maximized);
+<span class="anchor" id="line-9-7"></span>  g_settings_set_boolean (settings, "is-fullscreen", self-&gt;is_fullscreen);
+<span class="anchor" id="line-10-7"></span>}</pre><span class="anchor" id="line-266"></span><span class="anchor" id="line-267"></span><p class="line867">
+</p><h4 id="Loading_the_window_state-1">Loading the window state</h4>
+<span class="anchor" id="line-268"></span><span class="anchor" id="line-269"></span><p class="line874">Loading window state in GTK3 works just like in GTK4: <span class="anchor" id="line-270"></span><span class="anchor" id="line-271"></span></p><p class="line867"><span class="anchor" id="line-272"></span><span class="anchor" id="line-273"></span><span class="anchor" id="line-274"></span><span class="anchor" id="line-275"></span><span class="anchor" id="line-276"></span><span class="anchor" id="line-277"></span><span class="anchor" id="line-278"></span><span class="anchor" id="line-279"></span><span class="anchor" id="line-280"></span><span class="anchor" id="line-281"></span><span class="anchor" id="line-282"></span><span class="anchor" id="line-283"></span><span class="anchor" id="line-284"></span><span class="anchor" id="line-285"></span><span class="anchor" id="line-286"></span><span class="anchor" id="line-287"></span><span class="anchor" id="line-288"></span><span class="anchor" id="line-289"></span><span class="anchor" id="line-290"></span><span class="anchor" id="line-291"></span><span class="anchor" id="line-292"></span><span class="anchor" id="line-293"></span><span class="anchor" id="line-294"></span><span class="anchor" id="line-295"></span><span class="anchor" id="line-296"></span><span class="anchor" id="line-297"></span><span class="anchor" id="line-298"></span><span class="anchor" id="line-299"></span></p><pre><span class="anchor" id="line-1-9"></span>static void
+<span class="anchor" id="line-2-9"></span>on_window_constructed (GObject *object)
+<span class="anchor" id="line-3-9"></span>{
+<span class="anchor" id="line-4-9"></span>  MyApplicationWindow *app_window = MY_APPLICATION_WINDOW (object);
+<span class="anchor" id="line-5-9"></span>
+<span class="anchor" id="line-6-9"></span>  // set up the initial state; these are our fallback values
+<span class="anchor" id="line-7-9"></span>  app_window-&gt;current_width = -1;
+<span class="anchor" id="line-8-9"></span>  app_window-&gt;current_height = -1;
+<span class="anchor" id="line-9-8"></span>  app_window-&gt;is_maximized = FALSE;
+<span class="anchor" id="line-10-8"></span>  app_window-&gt;is_fullscreen = FALSE;
+<span class="anchor" id="line-11-7"></span>
+<span class="anchor" id="line-12-6"></span>  // load the saved state, if any
+<span class="anchor" id="line-13-6"></span>  my_application_window_load_state (app_window);
+<span class="anchor" id="line-14-6"></span>
+<span class="anchor" id="line-15-6"></span>  // apply the loaded state
+<span class="anchor" id="line-16-6"></span>  gtk_window_set_default_size (GTK_WINDOW (app_window),
+<span class="anchor" id="line-17-4"></span>                               app_window-&gt;current_width,
+<span class="anchor" id="line-18-4"></span>                               app_window-&gt;current_height);
+<span class="anchor" id="line-19-4"></span>
+<span class="anchor" id="line-20-3"></span>  if (app_window-&gt;is_maximized)
+<span class="anchor" id="line-21-2"></span>    gtk_window_maximize (GTK_WINDOW (app_window));
+<span class="anchor" id="line-22-2"></span>
+<span class="anchor" id="line-23-2"></span>  if (app_window-&gt;is_fullscreen)
+<span class="anchor" id="line-24-2"></span>    gtk_window_fullscreen (GTK_WINDOW (app_window));
+<span class="anchor" id="line-25-2"></span>
+<span class="anchor" id="line-26-2"></span>  G_OBJECT_CLASS (my_application_window_parent_class)-&gt;constructed (object);
+<span class="anchor" id="line-27-2"></span>}</pre><span class="anchor" id="line-300"></span><span class="anchor" id="line-301"></span><p class="line867">
+</p><h4 id="Loading_the_window_state_from_a_file">Loading the window state from a file</h4>
+<span class="anchor" id="line-302"></span><span class="anchor" id="line-303"></span><p class="line874">The main difference between the file-based approach and the GSettings-based approach is that the format must be more resilient against missing values. The window state file may not exist, or may be an older version, if you decided to add more states to it. <span class="anchor" id="line-304"></span><span class="anchor" id="line-305"></span></p><p class="line867"><span class="anchor" id="line-306"></span><span class="anchor" id="line-307"></span><span class="anchor" id="line-308"></span><span class="anchor" id="line-309"></span><span class="anchor" id="line-310"></span><span class="anchor" id="line-311"></span><span class="anchor" id="line-312"></span><span class="anchor" id="line-313"></span><span class="anchor" id="line-314"></span><span class="anchor" id="line-315"></span><span class="anchor" id="line-316"></span><span class="anchor" id="line-317"></span><span class="anchor" id="line-318"></span><span class="anchor" id="line-319"></span><span class="anchor" id="line-320"></span><span class="anchor" id="line-321"></span><span class="anchor" id="line-322"></span><span class="anchor" id="line-323"></span><span class="anchor" id="line-324"></span><span class="anchor" id="line-325"></span><span class="anchor" id="line-326"></span><span class="anchor" id="line-327"></span><span class="anchor" id="line-328"></span><span class="anchor" id="line-329"></span><span class="anchor" id="line-330"></span><span class="anchor" id="line-331"></span><span class="anchor" id="line-332"></span><span class="anchor" id="line-333"></span><span class="anchor" id="line-334"></span><span class="anchor" id="line-335"></span><span class="anchor" id="line-336"></span><span class="anchor" id="line-337"></span><span class="anchor" id="line-338"></span><span class="anchor" id="line-339"></span><span class="anchor" id="line-340"></span><span class="anchor" id="line-341"></span><span class="anchor" id="line-342"></span><span class="anchor" id="line-343"></span><span class="anchor" id="line-344"></span><span class="anchor" id="line-345"></span><span class="anchor" id="line-346"></span><span class="anchor" id="line-347"></span><span class="anchor" id="line-348"></span></p><pre><span class="anchor" id="line-1-10"></span>static void
+<span class="anchor" id="line-2-10"></span>my_application_window_load_state (MyApplicationWindow *self)
+<span class="anchor" id="line-3-10"></span>{
+<span class="anchor" id="line-4-10"></span>  const char *appid = g_application_get_application_id (g_application_get_default ());
+<span class="anchor" id="line-5-10"></span>  char *file = g_build_filename (g_get_user_cache_dir (), appid, "state.ini", NULL);
+<span class="anchor" id="line-6-10"></span>  GKeyFile *keyfile = g_key_file_new ();
+<span class="anchor" id="line-7-10"></span>
+<span class="anchor" id="line-8-10"></span>  if (!g_key_file_load_from_file (keyfile, file, NULL)) {
+<span class="anchor" id="line-9-9"></span>    goto out;
+<span class="anchor" id="line-10-9"></span>  }
+<span class="anchor" id="line-11-8"></span>
+<span class="anchor" id="line-12-7"></span>  GError *error;
+<span class="anchor" id="line-13-7"></span>
+<span class="anchor" id="line-14-7"></span>  error = NULL;
+<span class="anchor" id="line-15-7"></span>  self-&gt;current_width = g_key_file_get_integer (keyfile, "WindowState", "Width", &amp;error);
+<span class="anchor" id="line-16-7"></span>  if (error != NULL) {
+<span class="anchor" id="line-17-5"></span>    g_clear_error (&amp;error);
+<span class="anchor" id="line-18-5"></span>    self-&gt;current_width = -1;
+<span class="anchor" id="line-19-5"></span>  }
+<span class="anchor" id="line-20-4"></span>
+<span class="anchor" id="line-21-3"></span>  self-&gt;current_height = g_key_file_get_integer (keyfile, "WindowState", "Height", &amp;error);
+<span class="anchor" id="line-22-3"></span>  if (error != NULL) {
+<span class="anchor" id="line-23-3"></span>    g_clear_error (&amp;error);
+<span class="anchor" id="line-24-3"></span>    self-&gt;current_height = -1;
+<span class="anchor" id="line-25-3"></span>  }
+<span class="anchor" id="line-26-3"></span>
+<span class="anchor" id="line-27-3"></span>  self-&gt;is_maximized = g_key_file_get_boolean (keyfile, "WindowState", "IsMaximized", &amp;error);
+<span class="anchor" id="line-28-1"></span>  if (error != NULL) {
+<span class="anchor" id="line-29-1"></span>    g_clear_error (&amp;error);
+<span class="anchor" id="line-30-1"></span>    self-&gt;is_maximized = FALSE;
+<span class="anchor" id="line-31-1"></span>  }
+<span class="anchor" id="line-32-1"></span>
+<span class="anchor" id="line-33-1"></span>  self-&gt;is_fullscreen = g_key_file_get_boolean (keyfile, "WindowState", "IsFullscreen", &amp;error);
+<span class="anchor" id="line-34-1"></span>  if (error != NULL) {
+<span class="anchor" id="line-35-1"></span>    g_clear_error (&amp;error);
+<span class="anchor" id="line-36-1"></span>    self-&gt;is_fullscreen = FALSE;
+<span class="anchor" id="line-37-1"></span>  }
+<span class="anchor" id="line-38"></span>
+<span class="anchor" id="line-39"></span>out:
+<span class="anchor" id="line-40"></span>  g_key_file_unref (keyfile);
+<span class="anchor" id="line-41"></span>  g_free (file);
+<span class="anchor" id="line-42"></span>}</pre><span class="anchor" id="line-349"></span><span class="anchor" id="line-350"></span><p class="line867">
+</p><h4 id="Loading_the_window_state_from_GSettings">Loading the window state from GSettings</h4>
+<span class="anchor" id="line-351"></span><span class="anchor" id="line-352"></span><p class="line862">As with saving the window state, loading the window state is generally easier to do with <tt class="backtick">GSettings</tt>: <span class="anchor" id="line-353"></span><span class="anchor" id="line-354"></span></p><p class="line867"><span class="anchor" id="line-355"></span><span class="anchor" id="line-356"></span><span class="anchor" id="line-357"></span><span class="anchor" id="line-358"></span><span class="anchor" id="line-359"></span><span class="anchor" id="line-360"></span><span class="anchor" id="line-361"></span><span class="anchor" id="line-362"></span><span class="anchor" id="line-363"></span><span class="anchor" id="line-364"></span><span class="anchor" id="line-365"></span></p><pre><span class="anchor" id="line-1-11"></span>static void
+<span class="anchor" id="line-2-11"></span>my_application_window_load_state (MyApplicationWindow *self)
+<span class="anchor" id="line-3-11"></span>{
+<span class="anchor" id="line-4-11"></span>  GSettings *settings = g_settings_new ("your.application.id.window-state");
+<span class="anchor" id="line-5-11"></span>
+<span class="anchor" id="line-6-11"></span>  self-&gt;current_width = g_settings_get_int (settings, "width");
+<span class="anchor" id="line-7-11"></span>  self-&gt;current_height = g_settings_get_int (settings, "height");
+<span class="anchor" id="line-8-11"></span>  self-&gt;is_maximized = g_settings_get_boolean (settings, "is-maximized");
+<span class="anchor" id="line-9-10"></span>  self-&gt;is_fullscreen = g_settings_get_boolean (settings, "is-fullscreen);
+<span class="anchor" id="line-10-10"></span>}</pre><span class="anchor" id="line-366"></span><span class="anchor" id="line-367"></span><p class="line867">
+</p><h2 id="Examples">Examples</h2>
+<span class="anchor" id="line-368"></span><span class="anchor" id="line-369"></span><p class="line874">The Application Class example in the GTK Demo application (available in both GTK3 and GTK4) shows this code in action. <span class="anchor" id="line-370"></span><span class="anchor" id="bottom"></span></p></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="index.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

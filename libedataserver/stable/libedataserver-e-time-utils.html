@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>e-time-utils</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Utilities (libedataserver)"></link><link href="ch03.html" rel="up" title="Miscellaneous Utilities"></link><link href="libedataserver-ESExp.html" rel="prev" title="ESExp"></link><link href="libedataserver-e-uid.html" rel="next" title="e-uid"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libedataserver-e-time-utils.html#container">Go to page content</a></li><li><a href="libedataserver-e-time-utils.html#top_bar">Go to main menu</a></li><li><a href="libedataserver-e-time-utils.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libedataserver-ESExp.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch03.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Utilities (libedataserver)</th>
+<td><a accesskey="n" href="libedataserver-e-uid.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="libedataserver-e-time-utils.html#libedataserver-e-time-utils.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="libedataserver-e-time-utils.html#libedataserver-e-time-utils.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="libedataserver-e-time-utils"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libedataserver-e-time-utils.top_of_page"></a>e-time-utils</span></h2>
+<p>e-time-utils</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="libedataserver-e-time-utils.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus">ETimeParseStatus</a>;
+<a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    <a class="link" href="libedataserver-e-time-utils.html#e-time-parse-date-and-time" title="e_time_parse_date_and_time ()">e_time_parse_date_and_time</a>          (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);
+<a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    <a class="link" href="libedataserver-e-time-utils.html#e-time-parse-date" title="e_time_parse_date ()">e_time_parse_date</a>                   (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);
+<a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    <a class="link" href="libedataserver-e-time-utils.html#e-time-parse-date-and-time-ex" title="e_time_parse_date_and_time_ex ()">e_time_parse_date_and_time_ex</a>       (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *two_digit_year</code></em>);
+<a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    <a class="link" href="libedataserver-e-time-utils.html#e-time-parse-date-ex" title="e_time_parse_date_ex ()">e_time_parse_date_ex</a>                (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *two_digit_year</code></em>);
+<a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    <a class="link" href="libedataserver-e-time-utils.html#e-time-parse-time" title="e_time_parse_time ()">e_time_parse_time</a>                   (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libedataserver-e-time-utils.html#e-time-format-date-and-time" title="e_time_format_date_and_time ()">e_time_format_date_and_time</a>         (<em class="parameter"><code><span class="type">struct tm</span> *date_tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_24_hour_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_midnight</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_zero_seconds</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buffer_size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libedataserver-e-time-utils.html#e-time-format-time" title="e_time_format_time ()">e_time_format_time</a>                  (<em class="parameter"><code><span class="type">struct tm</span> *date_tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_24_hour_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_zero_seconds</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buffer_size</code></em>);
+<span class="returnvalue">time_t</span>              <a class="link" href="libedataserver-e-time-utils.html#e-mktime-utc" title="e_mktime_utc ()">e_mktime_utc</a>                        (<em class="parameter"><code><span class="type">struct tm</span> *tm</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libedataserver-e-time-utils.html#e-localtime-with-offset" title="e_localtime_with_offset ()">e_localtime_with_offset</a>             (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *offset</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libedataserver-e-time-utils.html#e-time-get-d-fmt-with-4digit-year" title="e_time_get_d_fmt_with_4digit_year ()">e_time_get_d_fmt_with_4digit_year</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libedataserver-e-time-utils.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libedataserver-e-time-utils.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ETimeParseStatus"></a><h3>enum ETimeParseStatus</h3>
+<pre class="programlisting">typedef enum {
+	E_TIME_PARSE_OK,
+	E_TIME_PARSE_NONE,
+	E_TIME_PARSE_INVALID
+} ETimeParseStatus;
+</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><a name="E-TIME-PARSE-OK:CAPS"></a><span class="term"><code class="literal">E_TIME_PARSE_OK</code></span></p></td>
+<td>The time string was parsed successfully.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-TIME-PARSE-NONE:CAPS"></a><span class="term"><code class="literal">E_TIME_PARSE_NONE</code></span></p></td>
+<td>The time string was empty.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-TIME-PARSE-INVALID:CAPS"></a><span class="term"><code class="literal">E_TIME_PARSE_INVALID</code></span></p></td>
+<td>The time string was not formatted correctly.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-parse-date-and-time"></a><h3>e_time_parse_date_and_time ()</h3>
+<pre class="programlisting"><a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    e_time_parse_date_and_time          (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);</pre>
+<p>
+Parses a string <em class="parameter"><code>value</code></em> containing a date and a time and stores the
+result in <em class="parameter"><code>result</code></em>. The date in <em class="parameter"><code>value</code></em> is expected to be in a format
+like "Wed 3/13/00 14:20:00", though <code class="function">gettext()</code> is used to support the
+appropriate local formats. There is also some leniency on the
+format of the string, e.g. the weekday can be skipped or 12-hour
+formats with am/pm can be used.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>the string to parse a date and time from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to store the result in</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>E_TIME_PARSE_OK if the string was successfully parsed,
+E_TIME_PARSE_NONE if the string was empty, or
+E_TIME_PARSE_INVALID if the string could not be parsed.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-parse-date"></a><h3>e_time_parse_date ()</h3>
+<pre class="programlisting"><a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    e_time_parse_date                   (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);</pre>
+<p>
+Takes in a date string entered by the user and tries to convert it to
+a struct <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>A date string.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>Return value for the parsed date.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An <a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="type">ETimeParseStatus</span></a> result code indicating whether
+<em class="parameter"><code>value</code></em> was an empty string, a valid date, or an invalid date.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-parse-date-and-time-ex"></a><h3>e_time_parse_date_and_time_ex ()</h3>
+<pre class="programlisting"><a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    e_time_parse_date_and_time_ex       (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *two_digit_year</code></em>);</pre>
+<p>
+Parses a string <em class="parameter"><code>value</code></em> containing a date and a time and stores the
+result in <em class="parameter"><code>result</code></em>. The date in <em class="parameter"><code>value</code></em> is expected to be in a format
+like "Wed 3/13/00 14:20:00", though <code class="function">gettext()</code> is used to support the
+appropriate local formats. There is also some leniency on the
+format of the string, e.g. the weekday can be skipped or 12-hour
+formats with am/pm can be used.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The string to parse a date and time from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>A <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to store the result in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>two_digit_year</code></em> :</span></p></td>
+<td>set to TRUE, is parsing with two-digit year, else FALSE,
+but only when not NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>E_TIME_PARSE_OK if the string was successfully parsed,
+E_TIME_PARSE_NONE if the string was empty, or
+E_TIME_PARSE_INVALID if the string could not be parsed.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.22</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-parse-date-ex"></a><h3>e_time_parse_date_ex ()</h3>
+<pre class="programlisting"><a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    e_time_parse_date_ex                (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *two_digit_year</code></em>);</pre>
+<p>
+Takes in a date string entered by the user and tries to convert it to
+a struct <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>A date string.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>Return value for the parsed date.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>two_digit_year</code></em> :</span></p></td>
+<td>set to TRUE, is parsing with two-digit year, else FALSE,
+but only when not NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An <a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="type">ETimeParseStatus</span></a> result code indicating whether
+<em class="parameter"><code>value</code></em> was an empty string, a valid date, or an invalid date.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.22</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-parse-time"></a><h3>e_time_parse_time ()</h3>
+<pre class="programlisting"><a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="returnvalue">ETimeParseStatus</span></a>    e_time_parse_time                   (<em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *result</code></em>);</pre>
+<p>
+Parses <em class="parameter"><code>value</code></em>, a string containing a time. <em class="parameter"><code>value</code></em> is expected to be
+in a format like "14:20:00". <code class="function">gettext()</code> is used to
+support the appropriate local formats and slightly
+different formats, such as 12-hour formats with am/pm,
+are accepted as well.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>The string to parse a time from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>A <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to store the result in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An <a class="link" href="libedataserver-e-time-utils.html#ETimeParseStatus" title="enum ETimeParseStatus"><span class="type">ETimeParseStatus</span></a> result code indicating whether
+<em class="parameter"><code>value</code></em> was an empty string, a valid date, or an invalid date.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-format-date-and-time"></a><h3>e_time_format_date_and_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_time_format_date_and_time         (<em class="parameter"><code><span class="type">struct tm</span> *date_tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_24_hour_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_midnight</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_zero_seconds</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buffer_size</code></em>);</pre>
+<p>
+Creates a string representation of the time value <em class="parameter"><code>date_tm</code></em> and
+stores it in <em class="parameter"><code>buffer</code></em>.  <em class="parameter"><code>buffer_size</code></em> should be at least 64 to be
+safe. If <em class="parameter"><code>show_midnight</code></em> is <code class="literal">FALSE</code>, and the time is midnight, then
+only the date is stored in <em class="parameter"><code>buffer</code></em>. If <em class="parameter"><code>show_zero_seconds</code></em> is
+<code class="literal">FALSE</code>, then if the time has zero seconds only the hour and minute
+of the time are stored in <em class="parameter"><code>buffer</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>date_tm</code></em> :</span></p></td>
+<td>The <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to convert to a string.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_24_hour_format</code></em> :</span></p></td>
+<td>A <span class="type">gboolean</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>show_midnight</code></em> :</span></p></td>
+<td>A <span class="type">gboolean</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>show_zero_seconds</code></em> :</span></p></td>
+<td>A <span class="type">gboolean</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td>A <span class="type">char</span> buffer to store the time string in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer_size</code></em> :</span></p></td>
+<td>The length of <em class="parameter"><code>buffer</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-format-time"></a><h3>e_time_format_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_time_format_time                  (<em class="parameter"><code><span class="type">struct tm</span> *date_tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_24_hour_format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> show_zero_seconds</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buffer_size</code></em>);</pre>
+<p>
+Creates a string representation of a time value in <em class="parameter"><code>date_tm</code></em> and
+stores it in <em class="parameter"><code>buffer</code></em>. <em class="parameter"><code>buffer_size</code></em> should be at least 64.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>date_tm</code></em> :</span></p></td>
+<td>The <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to convert to a string.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>use_24_hour_format</code></em> :</span></p></td>
+<td>A <span class="type">gboolean</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>show_zero_seconds</code></em> :</span></p></td>
+<td>A <span class="type">gboolean</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td>The <span class="type">char</span> buffer to store the result in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer_size</code></em> :</span></p></td>
+<td>The length of <em class="parameter"><code>buffer</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-mktime-utc"></a><h3>e_mktime_utc ()</h3>
+<pre class="programlisting"><span class="returnvalue">time_t</span>              e_mktime_utc                        (<em class="parameter"><code><span class="type">struct tm</span> *tm</code></em>);</pre>
+<p>
+Like mktime(3), but assumes UTC instead of local timezone.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tm</code></em> :</span></p></td>
+<td>The <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to convert to a calendar time representation.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The calendar time representation of <em class="parameter"><code>tm</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-localtime-with-offset"></a><h3>e_localtime_with_offset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_localtime_with_offset             (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct tm</span> *tm</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *offset</code></em>);</pre>
+<p>
+Converts the calendar time time representation <em class="parameter"><code>tt</code></em> to a broken-down
+time representation, store in <em class="parameter"><code>tm</code></em>, and provides the offset in
+seconds from UTC time, stored in <em class="parameter"><code>offset</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tt</code></em> :</span></p></td>
+<td>The <span class="type">time_t</span> to convert.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tm</code></em> :</span></p></td>
+<td>The <a class="link" href="libedataserver-e-util.html#tm" title="struct tm"><span class="type">tm</span></a> to store the result in.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td>The <span class="type">int</span> to store the offset in.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-time-get-d-fmt-with-4digit-year"></a><h3>e_time_get_d_fmt_with_4digit_year ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_time_get_d_fmt_with_4digit_year   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Retrieves a date format string with a 4-digit year (D_FMT on systems with
+<code class="function">nl_langinfo()</code> available).  Free the returned string with <code class="function">g_free()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly-allocated date format string</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 2.22</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libedataserver-e-time-utils.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

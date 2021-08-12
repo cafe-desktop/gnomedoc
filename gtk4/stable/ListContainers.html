@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>List-based Widgets: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="gtkobjects.html" rel="up" title="Part III. GTK Widgets and Objects"></link><link href="GtkStringList.html" rel="prev" title="GtkStringList"></link><link href="GtkListItem.html" rel="next" title="GtkListItem"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ListContainers.html#container">Go to page content</a></li><li><a href="ListContainers.html#top_bar">Go to main menu</a></li><li><a href="ListContainers.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc two_columns"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="gtkobjects.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GtkStringList.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GtkListItem.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="chapter">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="ListContainers"></a>List-based Widgets</h2></div></div></div>
+<div class="toc"><dl class="toc">
+<dt><span class="sect1"><a href="ListContainers.html#ListWidget">List Widget Overview</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="ListContainers.html#id-1.4.5.2.6">Terminology</a></span></dt>
+<dt><span class="sect2"><a href="ListContainers.html#id-1.4.5.2.7">Behind the scenes</a></span></dt>
+<dt><span class="sect2"><a href="ListContainers.html#model-choosing">Choosing the right model</a></span></dt>
+<dt><span class="sect2"><a href="ListContainers.html#displaying-trees">Displaying trees</a></span></dt>
+<dt><span class="sect2"><a href="ListContainers.html#list-styles">List styles</a></span></dt>
+<dt><span class="sect2"><a href="ListContainers.html#id-1.4.5.2.11">Comparison to GtkTreeView</a></span></dt>
+</dl></dd>
+<dt>
+<span class="refentrytitle"><a href="GtkListItem.html">GtkListItem</a></span><span class="refpurpose"> — Object used to represent items of a list model</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkListItemFactory.html">GtkListItemFactory</a></span><span class="refpurpose"> — Mapping list items to widgets</span>
+</dt>
+<dt><span class="section"><a href="ListContainers.html#id-1.4.5.5"></a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="GtkSignalListItemFactory.html">GtkSignalListItemFactory</a></span><span class="refpurpose"> — A listitem factory providing signals</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkBuilderListItemFactory.html">GtkBuilderListItemFactory</a></span><span class="refpurpose"> — A listitem factory using ui files</span>
+</dt>
+</dl></dd>
+<dt>
+<span class="refentrytitle"><a href="GtkListView.html">GtkListView</a></span><span class="refpurpose"> — A widget for displaying lists</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkGridView.html">GtkGridView</a></span><span class="refpurpose"> — A widget for displaying grids</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="GtkColumnView.html">GtkColumnView</a></span><span class="refpurpose"> — A widget for displaying lists in multiple columns</span>
+</dt>
+<dt><span class="section"><a href="ch10s02.html"></a></span></dt>
+<dd><dl><dt>
+<span class="refentrytitle"><a href="GtkColumnViewColumn.html">GtkColumnViewColumn</a></span><span class="refpurpose"> — The column added to GtkColumnView</span>
+</dt></dl></dd>
+<dt>
+<span class="refentrytitle"><a href="GtkDropDown.html">GtkDropDown</a></span><span class="refpurpose"> — Choose an item from a list</span>
+</dt>
+</dl></div>
+      
+      <div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="ListWidget"></a>List Widget Overview</h2></div></div></div>
+<p>
+    GTK provides powerful widgets to display and edit lists of data.
+    This document gives an overview over the concepts and how they work
+    together to allow developers to implement lists.
+  </p>
+<p>
+    Lists are intended to be used whenever developers want to display
+    many objects in roughly the same way.
+  </p>
+<p>
+    Lists are perfectly fine to be used for very short list of only 2 or
+    3 elements, but generally scale fine to millions of items. Of
+    course, the larger the list grows, the more care needs to be taken
+    to choose the right data structures to keep things running well.
+  </p>
+<p>
+    Lists are meant to be used with changing data, both with the items
+    itself changing as well as the list adding and removing items. Of
+    course, they work just as well with static data.
+  </p>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.5.2.6"></a>Terminology</h3></div></div></div>
+<p>
+      These terms are used throughout the documentation when talking
+      about lists and you should be aware of what they refer to. These
+      are often generic terms that have a specific meaning in this
+      context.
+    </p>
+<p>
+      <span class="strong"><strong><span class="emphasis"><em>Views</em></span></strong></span> or
+      <span class="strong"><strong><span class="emphasis"><em>list
+      widgets</em></span></strong></span> are the widgets that hold and manage
+      the lists. Examples of these widgets would be <a href="GtkListView.html#GtkListView-struct"><span class="type">GtkListView</span></a> or
+      <a href="GtkGridView.html#GtkGridView-struct"><span class="type">GtkGridView</span></a>.
+    </p>
+<p>
+      Views display data from a
+      <span class="strong"><strong><span class="emphasis"><em>model</em></span></strong></span>. A
+      model is a <span class="type">GListModel</span> and models can be provided in 3 ways or
+      combinations thereof:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>
+          Many list models implementations already exist. There are
+          models that provide specific data, like <a href="GtkDirectoryList.html#GtkDirectoryList-struct"><span class="type">GtkDirectoryList</span></a>. And
+          there are models like <span class="type">GListStore</span> that allow building lists
+          manually.
+        </p></li>
+<li class="listitem"><p>
+          Wrapping list models like <a href="GtkFilterListModel.html#GtkFilterListModel-struct"><span class="type">GtkFilterListModel</span></a> or
+          <a href="GtkSortListModel.html#GtkSortListModel-struct"><span class="type">GtkSortListModel</span></a> modify, adapt or combine other models.
+        </p></li>
+<li class="listitem"><p>
+          Last but not least, developers are encouraged to create their
+          own <span class="type">GListModel</span> implementations. The interface is kept
+          deliberately small to make this easy.
+        </p></li>
+</ul></div>
+<p>
+      The same model can be used in multiple different views and wrapped
+      with multiple different models at once.
+    </p>
+<p>
+      The elements in a model are called
+      <span class="strong"><strong><span class="emphasis"><em>items</em></span></strong></span>. All
+      items are <span class="type">GObjects</span>.
+    </p>
+<p>
+      Every item in a model has a
+      <span class="strong"><strong><span class="emphasis"><em>position</em></span></strong></span>
+      which is the unsigned integer that describes where in the model
+      the item is located. The first item in a model is at position 0.
+      The position of an item can of course change as other items are
+      added or removed from the model.
+    </p>
+<p>
+      It is important to be aware of the difference between items and
+      positions because the mapping from position to item is not
+      permanent, so developers should think about whether they want to
+      track items or positions when working with models. Oftentimes some
+      things are really hard to do one way but very easy the other way.
+    </p>
+<p>
+      The other important part of a view is a
+      <span class="strong"><strong><span class="emphasis"><em>factory</em></span></strong></span>.
+      Each factory is a <a href="GtkListItemFactory.html#GtkListItemFactory-struct"><span class="type">GtkListItemFactory</span></a> implementation that takes
+      care of mapping the items of the model to widgets that can be
+      shown in the view.
+    </p>
+<p>
+      The way factories do this is by creating a
+      <span class="strong"><strong><span class="emphasis"><em>listitem</em></span></strong></span>
+      for each item that is currently in use. Listitems are always
+      <a href="GtkListItem.html#GtkListItem-struct"><span class="type">GtkListItem</span></a> objects. They are only ever created by GTK and
+      provide information about what item they are meant to display.
+    </p>
+<p>
+      Different factory implementations use various different methods to
+      allow developers to add the right widgets to listitems and to link
+      those widgets with the item managed by the listitem. Finding a
+      suitable factory implementation for the data displayed, the
+      programming language and development environment is an important
+      task that can simplify setting up the view tremendously.
+    </p>
+<p>
+      Views support selections via a
+      <span class="strong"><strong><span class="emphasis"><em>selection
+      model</em></span></strong></span>. A selection model is an
+      implementation of the <a href="GtkSelectionModel.html#GtkSelectionModel-struct"><span class="type">GtkSelectionModel</span></a> interface on top of the
+      <span class="type">GListModel</span> interface that allows marking each item in a model as
+      either selected or not selected. Just like regular models, this
+      can be implemented either by implementing <a href="GtkSelectionModel.html#GtkSelectionModel-struct"><span class="type">GtkSelectionModel</span></a>
+      directly or by wrapping a model with one of the GTK models
+      provided for this purposes, such as <a href="GtkNoSelection.html#GtkNoSelection-struct"><span class="type">GtkNoSelection</span></a> or
+      <a href="GtkSingleSelection.html#GtkSingleSelection-struct"><span class="type">GtkSingleSelection</span></a>.
+    </p>
+<p>
+      The behavior of selection models - ie which items they allow
+      selecting and what effect this has on other items - is completely
+      up to the selection model. As such, single-selections,
+      multi-selections or sharing selection state between different
+      selection models and/or views is possible. The selection state of
+      an item is exposed in the listitem via the <a href="GtkListItem.html#GtkListItem--selected"><span class="type">“selected”</span></a>
+      property.
+    </p>
+<p>
+      Views and listitems also support activation. Activation means that
+      double clicking or pressing enter while inside a focused row will
+      cause the view to emit and activation signal such as
+      <a href="GtkListView.html#GtkListView-activate"><span class="type">“activate”</span></a>. This provides an easy way to set up lists,
+      but can also be turned off on listitems if undesired.
+    </p>
+<p>
+      Both selections and activation are supported among other things
+      via widget actions. This
+      allows developers to add widgets to their lists that cause
+      selections to change or to trigger activation via the
+      <a href="GtkActionable.html#GtkActionable-struct"><span class="type">GtkActionable</span></a> interface. For a list of all supported actions see
+      the relevant documentation.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.5.2.7"></a>Behind the scenes</h3></div></div></div>
+<p>
+      While for short lists it is not a problem to instantiate widgets
+      for every item in the model, once lists grow to thousands or
+      millions of elements, this gets less feasible. Because of this,
+      the views only create a limited amount of listitems and recycle
+      them by binding them to new items. In general, views try to keep
+      listitems available only for the items that can actually be seen
+      on screen.
+    </p>
+<p>
+      While this behavior allows views to scale effortlessly to huge
+      lists, it has a few implication on what can be done with views.
+      For example, it is not possible to query a view for a listitem
+      used for a certain position - there might not be one and even if
+      there is, that listitem might soon be recycled for a new position.
+    </p>
+<p>
+      It is also important that developers save state they care about in
+      the item and do not rely on the widgets they created as those
+      widgets can be recycled for a new position at any time causing any
+      state to be lost.
+    </p>
+<p>
+      Another important requirement for views is that they need to know
+      which items are not visible so they can be recycled. Views achieve
+      that by implementing the <a href="GtkScrollable.html#GtkScrollable-struct"><span class="type">GtkScrollable</span></a> interface and expecting to
+      be placed directly into a <a href="GtkScrolledWindow.html#GtkScrolledWindow-struct"><span class="type">GtkScrolledWindow</span></a>.
+    </p>
+<p>
+      Of course, if you are only using models with few items, this is
+      not important and you can treat views like any other widget. But
+      if you use large lists and your performance suffers, you should be
+      aware of this. Views also allow tuning the number of listitems
+      they create such as with <a href="GtkGridView.html#gtk-grid-view-set-max-columns"><code class="function">gtk_grid_view_set_max_columns()</code></a>, and
+      developers running into performance problems should definitely
+      study the tradeoffs of those and experiment with them.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="model-choosing"></a>Choosing the right model</h3></div></div></div>
+<p>
+      GTK offers a wide variety of wrapping models which change or
+      supplement an existing model (or models) in some way. But when it
+      comes to storing your actual data, there are only a few ready-made
+      choices available: <span class="type">GListStore</span> and <a href="GtkStringList.html#GtkStringList-struct"><span class="type">GtkStringList</span></a>.
+    </p>
+<p>
+      GListStore is backed by a balanced tree and has performance
+      characteristics that are expected for that data structure. It
+      works reasonably well for dataset sizes in the 1,000,000 range,
+      and can handle insertions and deletions. It uses a cached iter to
+      make linear access to the items fast.
+    </p>
+<p>
+      GtkStringList is not a general store - it can only handle strings.
+      It is backed by an dynamically allocated array and has performance
+      characteristics that are expected for that data structure.
+      GtkStringList is a good fit for any place where you would
+      otherwise use <code class="literal">char*[]</code> and works best if the
+      dataset is not very dynamic.
+    </p>
+<p>
+      If these models don’t fit your use case or scalability
+      requirements, you should make a custom <span class="type">GListModel</span>. It is a small
+      interface and not very hard to implement.
+    </p>
+<p>
+      For asymptotic performance comparisons between tree- and
+      array-based implementations, see this
+      <a class="ulink" href="https://en.wikipedia.org/wiki/Dynamic_array#Performance" target="_top">article</a>.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="displaying-trees"></a>Displaying trees</h3></div></div></div>
+<p>
+      While <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a> provided built-in support for trees, the list
+      widgets, and in particular <span class="type">GListModel</span> do not. This was a design
+      choice because the common use case is displaying lists and not
+      trees and it greatly simplifies the API interface provided.
+    </p>
+<p>
+      However, GTK provides functionality to make trees look and behave
+      like lists for the people who still want to display lists. This is
+      achieved by using the <a href="GtkTreeListModel.html#GtkTreeListModel-struct"><span class="type">GtkTreeListModel</span></a> model to flatten a tree
+      into a list. The <a href="GtkTreeExpander.html#GtkTreeExpander-struct"><span class="type">GtkTreeExpander</span></a> widget can then be used inside a
+      listitem to allow users to expand and collapse rows and provide a
+      similar experience to <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a>.
+    </p>
+<p>
+      Developers should refer to those objects’ API reference for more
+      discussion on the topic.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="list-styles"></a>List styles</h3></div></div></div>
+<p>
+      One of the advantages of the new list widgets over <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeViews</span></a>
+      and cell renderers is that they are fully themable using GTK CSS.
+      This provides a lot of flexibility. The themes that ship with GTK
+      provide a few predefined list styles that can be used in many
+      situations:
+    </p>
+<div class="figure">
+<a name="id-1.4.5.2.10.3"></a><p class="title"><b>Figure 15. Rich list</b></p>
+<div class="figure-contents"><div class="mediaobject"><img alt="Rich list" src="rich-list.png"></img></div></div>
+</div>
+<br class="figure-break"></br><p>
+      This style of list is low density, spacious and uses an outline
+      focus ring. It is suitable for lists of controls, e.g. in
+      preference dialogs or settings panels. Use the .rich-list style
+      class.
+    </p>
+<div class="figure">
+<a name="id-1.4.5.2.10.5"></a><p class="title"><b>Figure 16. Navigation sidebar</b></p>
+<div class="figure-contents"><div class="mediaobject"><img alt="Navigation sidebar" src="navigation-sidebar.png"></img></div></div>
+</div>
+<br class="figure-break"></br><p>
+      This style of list is medium density, using a full background to
+      indicate focus and selection. Use the .navigation-sidebar style
+      class.
+    </p>
+<div class="figure">
+<a name="id-1.4.5.2.10.7"></a><p class="title"><b>Figure 17. Data table</b></p>
+<div class="figure-contents"><div class="mediaobject"><img alt="Data table" src="data-table.png"></img></div></div>
+</div>
+<br class="figure-break"></br><p>
+      This style of list is a high density table, similar in style to a
+      traditional treeview. Individual cells can be selectable and
+      editable. Use the .data-table style class.
+    </p>
+</div>
+<div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="id-1.4.5.2.11"></a>Comparison to GtkTreeView</h3></div></div></div>
+<p>
+      Developers familiar with <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a> may wonder how this way of
+      doing lists compares to the way they know. This section will try
+      to outline the similarities and differences between the two.
+    </p>
+<p>
+      This new approach tries to provide roughly the same functionality
+      as the old approach but often uses a very different approach to
+      achieve these goals.
+    </p>
+<p>
+      The main difference and one of the primary reasons for this new
+      development is that items can be displayed using regular widgets
+      and <a href="GtkCellRenderer.html#GtkCellRenderer-struct"><span class="type">GtkCellRenderer</span></a> is no longer necessary. This allows all
+      benefits that widgets provide, such as complex layout and
+      animating widgets and not only makes cell renderers obsolete, but
+      also <a href="GtkCellArea.html#GtkCellArea-struct"><span class="type">GtkCellArea</span></a>.
+    </p>
+<p>
+      The other big difference is the massive change to the data model.
+      <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a> was a rather complex interface for a tree data
+      structure and <span class="type">GListModel</span> was deliberately designed to be a simple
+      data structure for lists only. (See
+      above) for how to still do
+      trees with this new model.) Another big change is that the new
+      model allows for bulk changes via the <span class="type">“items-changed”</span>
+      signal while <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a> only allows a single item to change at
+      once. The goal here is of course to encourage implementation of
+      custom list models.
+    </p>
+<p>
+      Another consequence of the new model is that it is now easily
+      possible to refer to the contents of a row in the model directly
+      by keeping the item, while <a href="GtkTreeModel.html#GtkTreeRowReference"><span class="type">GtkTreeRowReference</span></a> was a very slow
+      mechanism to achieve the same. And because the items are real
+      objects, developers can make them emit change signals causing
+      listitems and their children to update, which wasn’t possible with
+      <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a>.
+    </p>
+<p>
+      The selection handling is also different. While selections used to
+      be managed via custom code in each widget, selection state is now
+      meant to be managed by the selection models. In particular this
+      allows for complex use cases with specialized requirements.
+    </p>
+<p>
+      Finally here’s a quick list of equivalent functionality to look
+      for when transitioning code for easy lookup:
+    </p>
+<div class="informaltable"><table border="1" class="informaltable">
+<colgroup>
+<col align="left"></col>
+<col align="left"></col>
+</colgroup>
+<thead><tr>
+<th align="left">
+              Old
+            </th>
+<th align="left">
+              New
+            </th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">
+              <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a>
+            </td>
+<td align="left">
+              <span class="type">GListModel</span>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeModel.html#GtkTreePath-struct"><span class="type">GtkTreePath</span></a>
+            </td>
+<td align="left">
+              <span class="type">guint</span> position, <a href="GtkTreeListModel.html#GtkTreeListRow-struct"><span class="type">GtkTreeListRow</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeModel.html#GtkTreeIter-struct"><span class="type">GtkTreeIter</span></a>
+            </td>
+<td align="left">
+              <span class="type">guint</span> position
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeModel.html#GtkTreeRowReference"><span class="type">GtkTreeRowReference</span></a>
+            </td>
+<td align="left">
+              <span class="type">GObject</span> item
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkListStore.html#GtkListStore-struct"><span class="type">GtkListStore</span></a>
+            </td>
+<td align="left">
+              <span class="type">GListStore</span>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeStore.html#GtkTreeStore-struct"><span class="type">GtkTreeStore</span></a>
+            </td>
+<td align="left">
+              <a href="GtkTreeListModel.html#GtkTreeListModel-struct"><span class="type">GtkTreeListModel</span></a>, <a href="GtkTreeExpander.html#GtkTreeExpander-struct"><span class="type">GtkTreeExpander</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeSelection.html#GtkTreeSelection-struct"><span class="type">GtkTreeSelection</span></a>
+            </td>
+<td align="left">
+              <a href="GtkSelectionModel.html#GtkSelectionModel-struct"><span class="type">GtkSelectionModel</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeViewColumn.html#GtkTreeViewColumn-struct"><span class="type">GtkTreeViewColumn</span></a>
+            </td>
+<td align="left">
+              <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a>
+            </td>
+<td align="left">
+              <a href="GtkListView.html#GtkListView-struct"><span class="type">GtkListView</span></a>, <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkCellView.html#GtkCellView-struct"><span class="type">GtkCellView</span></a>
+            </td>
+<td align="left">
+              <span class="type">GtkListItemWidget</span>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkComboBox.html#GtkComboBox-struct"><span class="type">GtkComboBox</span></a>
+            </td>
+<td align="left">
+              <a href="GtkDropDown.html#GtkDropDown-struct"><span class="type">GtkDropDown</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkIconView.html#GtkIconView-struct"><span class="type">GtkIconView</span></a>
+            </td>
+<td align="left">
+              <a href="GtkGridView.html#GtkGridView-struct"><span class="type">GtkGridView</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeSortable.html#GtkTreeSortable-struct"><span class="type">GtkTreeSortable</span></a>
+            </td>
+<td align="left">
+              <a href="GtkColumnView.html#GtkColumnView-struct"><span class="type">GtkColumnView</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeModelSort.html#GtkTreeModelSort-struct"><span class="type">GtkTreeModelSort</span></a>
+            </td>
+<td align="left">
+              <a href="GtkSortListModel.html#GtkSortListModel-struct"><span class="type">GtkSortListModel</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkTreeModelFilter.html#GtkTreeModelFilter-struct"><span class="type">GtkTreeModelFilter</span></a>
+            </td>
+<td align="left">
+              <a href="GtkFilterListModel.html#GtkFilterListModel-struct"><span class="type">GtkFilterListModel</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkCellLayout.html#GtkCellLayout-struct"><span class="type">GtkCellLayout</span></a>
+            </td>
+<td align="left">
+              <a href="GtkListItemFactory.html#GtkListItemFactory-struct"><span class="type">GtkListItemFactory</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkCellArea.html#GtkCellArea-struct"><span class="type">GtkCellArea</span></a>
+            </td>
+<td align="left">
+              <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a>
+            </td>
+</tr>
+<tr>
+<td align="left">
+              <a href="GtkCellRenderer.html#GtkCellRenderer-struct"><span class="type">GtkCellRenderer</span></a>
+            </td>
+<td align="left">
+              <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a>
+            </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+      
+      
+      <div class="section">
+<div class="titlepage"></div>
+        
+        
+      </div>
+      
+      
+      
+      
+      
+    </div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ListContainers.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

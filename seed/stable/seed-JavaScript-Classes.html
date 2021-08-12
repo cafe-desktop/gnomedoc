@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Creating JavaScript classes</title><link href="index.html" rel="home" title="Seed Reference Manual"></link><link href="api.html" rel="up" title="Part III. Seed API Reference"></link><link href="seed-Native-Functions.html" rel="prev" title="Creating native functions"></link><link href="seed-SeedClosure.html" rel="next" title="Using JavaScript closures"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="seed-JavaScript-Classes.html#container">Go to page content</a></li><li><a href="seed-JavaScript-Classes.html#top_bar">Go to main menu</a></li><li><a href="seed-JavaScript-Classes.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="seed-Native-Functions.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="api.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Seed Reference Manual</th>
+<td><a accesskey="n" href="seed-SeedClosure.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="seed-JavaScript-Classes.html#seed-JavaScript-Classes.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="seed-JavaScript-Classes.html#seed-JavaScript-Classes.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="seed-JavaScript-Classes"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="seed-JavaScript-Classes.top_of_page"></a>Creating JavaScript classes</span></h2>
+<p>Creating JavaScript classes — Dealing with Seed class definitions and constructors</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="seed-JavaScript-Classes.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;seed/seed.h&gt;
+
+enum                <a class="link" href="seed-JavaScript-Classes.html#SeedPropertyAttributes" title="enum SeedPropertyAttributes">SeedPropertyAttributes</a>;
+enum                <a class="link" href="seed-JavaScript-Classes.html#SeedClassAttributes" title="enum SeedClassAttributes">SeedClassAttributes</a>;
+typedef             <a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass">SeedClass</a>;
+#define             <a class="link" href="seed-JavaScript-Classes.html#seed-empty-class" title="seed_empty_class">seed_empty_class</a>
+<a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass"><span class="returnvalue">SeedClass</span></a>           <a class="link" href="seed-JavaScript-Classes.html#seed-create-class" title="seed_create_class ()">seed_create_class</a>                   (<em class="parameter"><code><span class="type">seed_class_definition</span> *def</code></em>);
+<a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="returnvalue">SeedObject</span></a>          <a class="link" href="seed-JavaScript-Classes.html#seed-make-constructor" title="seed_make_constructor ()">seed_make_constructor</a>               (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass"><span class="type">SeedClass</span></a> klass</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObjectCallAsConstructorCallback" title="SeedObjectCallAsConstructorCallback ()"><span class="type">SeedObjectCallAsConstructorCallback</span></a> constructor</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="seed-JavaScript-Classes.description"></a><h2>Description</h2>
+<p>
+Defining new Seed classes allows for implementing more complex
+behavior than possible with the traditional JavaScript object system
+and default class.
+When writing Seed modules, it is often the best pattern to define many
+of your types through classes and static functions/value.
+Please note that inside the finalize callback of a class, it is not
+legal to call any method requiring a <a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> (with the exception
+of protect/unprotect, though it is not guaranteed this will continue
+to work with future versions of JSCore).
+</p>
+</div>
+<div class="refsect1">
+<a name="seed-JavaScript-Classes.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="SeedPropertyAttributes"></a><h3>enum SeedPropertyAttributes</h3>
+<pre class="programlisting">typedef enum {
+  SEED_PROPERTY_ATTRIBUTE_NONE = 0,
+  SEED_PROPERTY_ATTRIBUTE_READ_ONLY = 1 &lt;&lt; 1,
+  SEED_PROPERTY_ATTRIBUTE_DONT_ENUM = 1 &lt;&lt; 2,
+  SEED_PROPERTY_ATTRIBUTE_DONT_DELETE = 1 &lt;&lt; 3
+} SeedPropertyAttributes;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SeedClassAttributes"></a><h3>enum SeedClassAttributes</h3>
+<pre class="programlisting">typedef enum {
+  SEED_CLASS_ATTRIBUTE_NONE = 0,
+  SEED_CLASS_ATTRIBUTE_NO_SHARED_PROTOTYPE = 1 &lt;&lt; 1
+} SeedClassAttributes;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SeedClass"></a><h3>SeedClass</h3>
+<pre class="programlisting">typedef gpointer SeedClass;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seed-empty-class"></a><h3>seed_empty_class</h3>
+<pre class="programlisting">#define seed_empty_class { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,};
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seed-create-class"></a><h3>seed_create_class ()</h3>
+<pre class="programlisting"><a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass"><span class="returnvalue">SeedClass</span></a>           seed_create_class                   (<em class="parameter"><code><span class="type">seed_class_definition</span> *def</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>def</code></em> :</span></p></td>
+<td>A <span class="type">JSClassDefinition</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass"><span class="type">SeedClass</span></a>, described by <em class="parameter"><code>def</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seed-make-constructor"></a><h3>seed_make_constructor ()</h3>
+<pre class="programlisting"><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="returnvalue">SeedObject</span></a>          seed_make_constructor               (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JavaScript-Classes.html#SeedClass" title="SeedClass"><span class="type">SeedClass</span></a> klass</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObjectCallAsConstructorCallback" title="SeedObjectCallAsConstructorCallback ()"><span class="type">SeedObjectCallAsConstructorCallback</span></a> constructor</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>A <a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>constructor</code></em> :</span></p></td>
+<td>The <span class="type">JSObjectCallAsConstructorCallback</span> function to call when
+the constructor is invoked with 'new'.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a>, which is a constructor function.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="seed-JavaScript-Classes.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

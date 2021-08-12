@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>OobsObject</title><link href="index.html" rel="home" title="Liboobs (System configuration management) Reference Manual"></link><link href="ch01.html" rel="up" title="Common API"></link><link href="OobsSession.html" rel="prev" title="OobsSession"></link><link href="OobsList.html" rel="next" title="OobsList"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="OobsObject.html#container">Go to page content</a></li><li><a href="OobsObject.html#top_bar">Go to main menu</a></li><li><a href="OobsObject.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="OobsSession.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Liboobs (System configuration management) Reference Manual</th>
+<td><a accesskey="n" href="OobsList.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="OobsObject.html#OobsObject.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="OobsObject.html#OobsObject.description">Description</a>
+                   | 
+                  <a class="shortcut" href="OobsObject.html#OobsObject.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="OobsObject.html#OobsObject.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="OobsObject.html#OobsObject.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry" title="OobsObject">
+<a name="OobsObject"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="OobsObject.top_of_page"></a>OobsObject</span></h2>
+<p>OobsObject — Base object for all configuration objects</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="OobsObject.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="OobsObject.html#OobsObject-struct" title="OobsObject">OobsObject</a>;
+                    <a class="link" href="OobsObject.html#OobsObjectClass" title="OobsObjectClass">OobsObjectClass</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()">*OobsObjectAsyncFunc</a>)              (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">OobsResult</span> result</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-commit" title="oobs_object_commit ()">oobs_object_commit</a>                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-commit-async" title="oobs_object_commit_async ()">oobs_object_commit_async</a>            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-add" title="oobs_object_add ()">oobs_object_add</a>                     (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-add-async" title="oobs_object_add_async ()">oobs_object_add_async</a>               (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-delete" title="oobs_object_delete ()">oobs_object_delete</a>                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-delete-async" title="oobs_object_delete_async ()">oobs_object_delete_async</a>            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-update" title="oobs_object_update ()">oobs_object_update</a>                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<span class="returnvalue">OobsResult</span>          <a class="link" href="OobsObject.html#oobs-object-update-async" title="oobs_object_update_async ()">oobs_object_update_async</a>            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="OobsObject.html#oobs-object-process-requests" title="oobs_object_process_requests ()">oobs_object_process_requests</a>        (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="OobsObject.html#oobs-object-has-updated" title="oobs_object_has_updated ()">oobs_object_has_updated</a>             (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="OobsObject.html#oobs-object-ensure-update" title="oobs_object_ensure_update ()">oobs_object_ensure_update</a>           (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="OobsObject.html#oobs-object-authenticate" title="oobs_object_authenticate ()">oobs_object_authenticate</a>            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="OobsObject.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  <a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>
+   +----OobsObject
+         +----<a class="link" href="OobsGroup.html" title="OobsGroup">OobsGroup</a>
+         +----<a class="link" href="OobsGroupsConfig.html" title="OobsGroupsConfig">OobsGroupsConfig</a>
+         +----<a class="link" href="OobsHostsConfig.html" title="OobsHostsConfig">OobsHostsConfig</a>
+         +----<a class="link" href="OobsIfacesConfig.html" title="OobsIfacesConfig">OobsIfacesConfig</a>
+         +----<a class="link" href="OobsNFSConfig.html" title="OobsNFSConfig">OobsNFSConfig</a>
+         +----<a class="link" href="OobsNTPConfig.html" title="OobsNTPConfig">OobsNTPConfig</a>
+         +----<a class="link" href="OobsSelfConfig.html" title="OobsSelfConfig">OobsSelfConfig</a>
+         +----<a class="link" href="OobsService.html" title="OobsService">OobsService</a>
+         +----<a class="link" href="OobsServicesConfig.html" title="OobsServicesConfig">OobsServicesConfig</a>
+         +----<a class="link" href="OobsSMBConfig.html" title="OobsSMBConfig">OobsSMBConfig</a>
+         +----<a class="link" href="OobsTimeConfig.html" title="OobsTimeConfig">OobsTimeConfig</a>
+         +----<a class="link" href="OobsUser.html" title="OobsUser">OobsUser</a>
+         +----<a class="link" href="OobsUsersConfig.html" title="OobsUsersConfig">OobsUsersConfig</a>
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="OobsObject.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="OobsObject.html#OobsObject--remote-object" title='The "remote-object" property'>remote-object</a>"            <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Write / Construct Only
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="OobsObject.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="OobsObject.html#OobsObject-changed" title='The "changed" signal'>changed</a>"                                        : Run Last
+  "<a class="link" href="OobsObject.html#OobsObject-committed" title='The "committed" signal'>committed</a>"                                      : Run Last
+  "<a class="link" href="OobsObject.html#OobsObject-updated" title='The "updated" signal'>updated</a>"                                        : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="OobsObject.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1" title="Details">
+<a name="OobsObject.details"></a><h2>Details</h2>
+<div class="refsect2" title="OobsObject">
+<a name="OobsObject-struct"></a><h3>OobsObject</h3>
+<pre class="programlisting">typedef struct _OobsObject OobsObject;</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="OobsObjectClass">
+<a name="OobsObjectClass"></a><h3>OobsObjectClass</h3>
+<pre class="programlisting">typedef struct {
+  GObjectClass parent_class;
+
+  /* virtual methods */
+  void (*commit)             (OobsObject *object);
+  void (*get_update_message) (OobsObject *object);
+  void (*update)             (OobsObject *object);
+
+  /* signals */
+  void (*updated)   (OobsObject *object);
+  void (*committed) (OobsObject *object);
+  void (*changed)   (OobsObject *object);
+
+  void (*_oobs_padding1) (void);
+  void (*_oobs_padding2) (void);
+} OobsObjectClass;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="OobsObjectAsyncFunc ()">
+<a name="OobsObjectAsyncFunc"></a><h3>OobsObjectAsyncFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*OobsObjectAsyncFunc)              (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">OobsResult</span> result</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_commit ()">
+<a name="oobs-object-commit"></a><h3>oobs_object_commit ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_commit                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Commits to the system all the changes done
+to the configuration held by an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_commit_async ()">
+<a name="oobs-object-commit-async"></a><h3>oobs_object_commit_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_commit_async            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Commits to the system all the changes done to the configuration held by an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+This change will be asynchronous, being run the function <em class="parameter"><code>func</code></em> when the change has been done.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> that will be called when the asynchronous operation has ended.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Additional data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code. Due to the asynchronous nature
+of the function, only OOBS_RESULT_MALFORMED and OOBS_RESULT_OK can be returned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_add ()">
+<a name="oobs-object-add"></a><h3>oobs_object_add ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_add                     (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Add an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> to the system's configuration. This is only
+supported by certain individual objects, others are added by committing
+a modified objects list.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_add_async ()">
+<a name="oobs-object-add-async"></a><h3>oobs_object_add_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_add_async               (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Add an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> to the system's configuration.
+This change will be asynchronous, being run the function <em class="parameter"><code>func</code></em> when the change has been done.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> that will be called when the asynchronous operation has ended.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Additional data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code. Due to the asynchronous nature
+of the function, only OOBS_RESULT_MALFORMED and OOBS_RESULT_OK can be returned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_delete ()">
+<a name="oobs-object-delete"></a><h3>oobs_object_delete ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_delete                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Delete an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> from the system's configuration. This is only
+supported by certain individual objects, others are added by committing
+a modified objects list.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_delete_async ()">
+<a name="oobs-object-delete-async"></a><h3>oobs_object_delete_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_delete_async            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Delete an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> from the system's configuration.
+This change will be asynchronous, being run the function <em class="parameter"><code>func</code></em> when the change has been done.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> that will be called when the asynchronous operation has ended.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Additional data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code. Due to the asynchronous nature
+of the function, only OOBS_RESULT_MALFORMED and OOBS_RESULT_OK can be returned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_update ()">
+<a name="oobs-object-update"></a><h3>oobs_object_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_update                  (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Synchronizes the configuration held by the <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+with the actual system configuration. All the changes done
+to the configuration held by the <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> will be forgotten.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>an <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_update_async ()">
+<a name="oobs-object-update-async"></a><h3>oobs_object_update_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">OobsResult</span>          oobs_object_update_async            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>
+Synchronizes the configuration held by the <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+with the actual system configuration. All the changes done
+to the configuration held by the <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> will be forgotten.
+The update operation will be asynchronous, being run the
+function <em class="parameter"><code>func</code></em> when the update has been done.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html#OobsObjectAsyncFunc" title="OobsObjectAsyncFunc ()"><span class="type">OobsObjectAsyncFunc</span></a> that will be called when the asynchronous operation has ended.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Aditional data to pass to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> an <span class="type">OobsResult</span> enum with the error code. Due to the asynchronous nature
+of the function, only OOBS_RESULT_MALFORMED and OOBS_RESULT_OK can be returned.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_process_requests ()">
+<a name="oobs-object-process-requests"></a><h3>oobs_object_process_requests ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                oobs_object_process_requests        (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Blocks until all pending asynchronous requests to this object have been processed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_has_updated ()">
+<a name="oobs-object-has-updated"></a><h3>oobs_object_has_updated ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            oobs_object_has_updated             (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Returns whether the object has been updated since its creation.
+see <a class="link" href="OobsObject.html#oobs-object-update" title="oobs_object_update ()"><code class="function">oobs_object_update()</code></a> and <a class="link" href="OobsObject.html#oobs-object-update-async" title="oobs_object_update_async ()"><code class="function">oobs_object_update_async()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><span class="type">TRUE</span></a> if the object has been updated.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_ensure_update ()">
+<a name="oobs-object-ensure-update"></a><h3>oobs_object_ensure_update ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                oobs_object_ensure_update           (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>);</pre>
+<p>
+Ensures that the given object has been updated. If not
+it either blocks until any update request sent is
+dispatched or updates synchronously.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="oobs_object_authenticate ()">
+<a name="oobs-object-authenticate"></a><h3>oobs_object_authenticate ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            oobs_object_authenticate            (<em class="parameter"><code><a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *object</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Performs a PolicyKit authentication via the backends for the action
+required by the given object. User interaction will occur synchronously
+if needed.
+</p>
+<p>
+You may want to check the returned error for <a class="link" href="liboobs-OobsError.html#OOBS-ERROR-AUTHENTICATION-CANCELLED:CAPS"><code class="literal">OOBS_ERROR_AUTHENTICATION_CANCELLED</code></a>,
+in which case you should avoid showing an error dialog to the user.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>An <a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Return location for error or NULL.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if allowed to commit <em class="parameter"><code>object</code></em>, <a href="../../glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="OobsObject.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "remote-object" property'>
+<a name="OobsObject--remote-object"></a><h3>The <code class="literal">"remote-object"</code> property</h3>
+<pre class="programlisting">  "remote-object"            <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>*                : Write / Construct Only</pre>
+<p>Name of the remote object at the other side of the connection.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="OobsObject.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "changed" signal'>
+<a name="OobsObject-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *oobsobject,
+                                                        <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oobsobject</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title='The "committed" signal'>
+<a name="OobsObject-committed"></a><h3>The <code class="literal">"committed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *oobsobject,
+                                                        <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oobsobject</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title='The "updated" signal'>
+<a name="OobsObject-updated"></a><h3>The <code class="literal">"updated"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="OobsObject.html" title="OobsObject"><span class="type">OobsObject</span></a> *oobsobject,
+                                                        <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>    user_data)       : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oobsobject</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="See Also">
+<a name="OobsObject.see-also"></a><h2>See Also</h2>
+<a class="link" href="OobsList.html" title="OobsList"><span class="type">OobsList</span></a>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="OobsObject.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

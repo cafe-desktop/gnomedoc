@@ -1,0 +1,1941 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EClient</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Utilities (libedataserver)"></link><link href="ch03.html" rel="up" title="Miscellaneous Utilities"></link><link href="libedataserver-e-categories.html" rel="prev" title="e-categories"></link><link href="libedataserver-e-debug-log.html" rel="next" title="e-debug-log"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EClient.html#container">Go to page content</a></li><li><a href="EClient.html#top_bar">Go to main menu</a></li><li><a href="EClient.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libedataserver-e-categories.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch03.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Utilities (libedataserver)</th>
+<td><a accesskey="n" href="libedataserver-e-debug-log.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EClient.html#EClient.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EClient.html#EClient.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EClient.html#EClient.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EClient.html#EClient.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="EClient.html#EClient.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EClient"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EClient.top_of_page"></a>EClient</span></h2>
+<p>EClient</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EClient.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="EClient.html#E-CLIENT-ERROR:CAPS" title="E_CLIENT_ERROR">E_CLIENT_ERROR</a>
+enum                <a class="link" href="EClient.html#EClientError" title="enum EClientError">EClientError</a>;
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EClient.html#e-client-error-to-string" title="e_client_error_to_string ()">e_client_error_to_string</a>            (<em class="parameter"><code><a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> code</code></em>);
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-ONLINE:CAPS" title="CLIENT_BACKEND_PROPERTY_ONLINE">CLIENT_BACKEND_PROPERTY_ONLINE</a>
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-READONLY:CAPS" title="CLIENT_BACKEND_PROPERTY_READONLY">CLIENT_BACKEND_PROPERTY_READONLY</a>
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-CACHE-DIR:CAPS" title="CLIENT_BACKEND_PROPERTY_CACHE_DIR">CLIENT_BACKEND_PROPERTY_CACHE_DIR</a>
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-CAPABILITIES:CAPS" title="CLIENT_BACKEND_PROPERTY_CAPABILITIES">CLIENT_BACKEND_PROPERTY_CAPABILITIES</a>
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-REVISION:CAPS" title="CLIENT_BACKEND_PROPERTY_REVISION">CLIENT_BACKEND_PROPERTY_REVISION</a>
+struct              <a class="link" href="EClient.html#EClient-struct" title="struct EClient">EClient</a>;
+<a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           <a class="link" href="EClient.html#e-client-get-source" title="e_client_get_source ()">e_client_get_source</a>                 (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+const <span class="returnvalue">GSList</span> *      <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()">e_client_get_capabilities</a>           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">GMainContext</span> *      <a class="link" href="EClient.html#e-client-ref-main-context" title="e_client_ref_main_context ()">e_client_ref_main_context</a>           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-check-capability" title="e_client_check_capability ()">e_client_check_capability</a>           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *capability</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-check-refresh-supported" title="e_client_check_refresh_supported ()">e_client_check_refresh_supported</a>    (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-is-readonly" title="e_client_is_readonly ()">e_client_is_readonly</a>                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-is-online" title="e_client_is_online ()">e_client_is_online</a>                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-get-backend-property" title="e_client_get_backend_property ()">e_client_get_backend_property</a>       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-get-backend-property-finish" title="e_client_get_backend_property_finish ()">e_client_get_backend_property_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-get-backend-property-sync" title="e_client_get_backend_property_sync ()">e_client_get_backend_property_sync</a>  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-refresh" title="e_client_refresh ()">e_client_refresh</a>                    (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-refresh-finish" title="e_client_refresh_finish ()">e_client_refresh_finish</a>             (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-refresh-sync" title="e_client_refresh_sync ()">e_client_refresh_sync</a>               (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EClient.html#e-client-util-parse-comma-strings" title="e_client_util_parse_comma_strings ()">e_client_util_parse_comma_strings</a>   (<em class="parameter"><code>const <span class="type">gchar</span> *strings</code></em>);
+
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-OPENED:CAPS" title="CLIENT_BACKEND_PROPERTY_OPENED">CLIENT_BACKEND_PROPERTY_OPENED</a>
+#define             <a class="link" href="EClient.html#CLIENT-BACKEND-PROPERTY-OPENING:CAPS" title="CLIENT_BACKEND_PROPERTY_OPENING">CLIENT_BACKEND_PROPERTY_OPENING</a>
+<span class="returnvalue">GError</span> *            <a class="link" href="EClient.html#e-client-error-create" title="e_client_error_create ()">e_client_error_create</a>               (<em class="parameter"><code><a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> code</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *custom_msg</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-is-opened" title="e_client_is_opened ()">e_client_is_opened</a>                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-cancel-all" title="e_client_cancel_all ()">e_client_cancel_all</a>                 (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-unwrap-dbus-error" title="e_client_unwrap_dbus_error ()">e_client_unwrap_dbus_error</a>          (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *dbus_error</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **out_error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-retrieve-capabilities" title="e_client_retrieve_capabilities ()">e_client_retrieve_capabilities</a>      (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-retrieve-capabilities-finish" title="e_client_retrieve_capabilities_finish ()">e_client_retrieve_capabilities_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **capabilities</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-retrieve-capabilities-sync" title="e_client_retrieve_capabilities_sync ()">e_client_retrieve_capabilities_sync</a> (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **capabilities</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-set-backend-property" title="e_client_set_backend_property ()">e_client_set_backend_property</a>       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-set-backend-property-finish" title="e_client_set_backend_property_finish ()">e_client_set_backend_property_finish</a>
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-set-backend-property-sync" title="e_client_set_backend_property_sync ()">e_client_set_backend_property_sync</a>  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-open" title="e_client_open ()">e_client_open</a>                       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> only_if_exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-open-finish" title="e_client_open_finish ()">e_client_open_finish</a>                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-open-sync" title="e_client_open_sync ()">e_client_open_sync</a>                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> only_if_exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-remove" title="e_client_remove ()">e_client_remove</a>                     (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-remove-finish" title="e_client_remove_finish ()">e_client_remove_finish</a>              (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-remove-sync" title="e_client_remove_sync ()">e_client_remove_sync</a>                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="EClient.html#e-client-util-slist-to-strv" title="e_client_util_slist_to_strv ()">e_client_util_slist_to_strv</a>         (<em class="parameter"><code>const <span class="type">GSList</span> *strings</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EClient.html#e-client-util-strv-to-slist" title="e_client_util_strv_to_slist ()">e_client_util_strv_to_slist</a>         (<em class="parameter"><code>const <span class="type">gchar</span> * const *strv</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EClient.html#e-client-util-copy-string-slist" title="e_client_util_copy_string_slist ()">e_client_util_copy_string_slist</a>     (<em class="parameter"><code><span class="type">GSList</span> *copy_to</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *strings</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EClient.html#e-client-util-copy-object-slist" title="e_client_util_copy_object_slist ()">e_client_util_copy_object_slist</a>     (<em class="parameter"><code><span class="type">GSList</span> *copy_to</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *objects</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-util-free-string-slist" title="e_client_util_free_string_slist ()">e_client_util_free_string_slist</a>     (<em class="parameter"><code><span class="type">GSList</span> *strings</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EClient.html#e-client-util-free-object-slist" title="e_client_util_free_object_slist ()">e_client_util_free_object_slist</a>     (<em class="parameter"><code><span class="type">GSList</span> *objects</code></em>);
+struct              <a class="link" href="EClient.html#EClientErrorsList" title="struct EClientErrorsList">EClientErrorsList</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="EClient.html#e-client-util-unwrap-dbus-error" title="e_client_util_unwrap_dbus_error ()">e_client_util_unwrap_dbus_error</a>     (<em class="parameter"><code><span class="type">GError</span> *dbus_error</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **client_error</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EClient.html#EClientErrorsList" title="struct EClientErrorsList"><span class="type">EClientErrorsList</span></a> *known_errors</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> known_errors_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">GQuark</span> known_errors_domain</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> fail_when_none_matched</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClient.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EClient
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClient.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EClient.html#EClient--capabilities" title='The "capabilities" property'>capabilities</a>"             <span class="type">gpointer</span>              : Read
+  "<a class="link" href="EClient.html#EClient--main-context" title='The "main-context" property'>main-context</a>"             <span class="type">GMainContext</span>*         : Read
+  "<a class="link" href="EClient.html#EClient--online" title='The "online" property'>online</a>"                   <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EClient.html#EClient--opened" title='The "opened" property'>opened</a>"                   <span class="type">gboolean</span>              : Read
+  "<a class="link" href="EClient.html#EClient--readonly" title='The "readonly" property'>readonly</a>"                 <span class="type">gboolean</span>              : Read
+  "<a class="link" href="EClient.html#EClient--source" title='The "source" property'>source</a>"                   <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>*              : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClient.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="EClient.html#EClient-backend-died" title='The "backend-died" signal'>backend-died</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="EClient.html#EClient-backend-error" title='The "backend-error" signal'>backend-error</a>"                                  : <code class="literal">Run First</code>
+  "<a class="link" href="EClient.html#EClient-backend-property-changed" title='The "backend-property-changed" signal'>backend-property-changed</a>"                       : <code class="literal">Run Last</code>
+  "<a class="link" href="EClient.html#EClient-opened" title='The "opened" signal'>opened</a>"                                         : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EClient.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EClient.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="E-CLIENT-ERROR:CAPS"></a><h3>E_CLIENT_ERROR</h3>
+<pre class="programlisting">#define E_CLIENT_ERROR		e_client_error_quark ()
+</pre>
+<p>
+Error domain for <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> operations.  Errors in this domain will be
+from the <a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> enumeration.  See <span class="type">GError</span> for more information
+on error domains.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClientError"></a><h3>enum EClientError</h3>
+<pre class="programlisting">typedef enum {
+	E_CLIENT_ERROR_INVALID_ARG,
+	E_CLIENT_ERROR_BUSY,
+	E_CLIENT_ERROR_SOURCE_NOT_LOADED,
+	E_CLIENT_ERROR_SOURCE_ALREADY_LOADED,
+	E_CLIENT_ERROR_AUTHENTICATION_FAILED,
+	E_CLIENT_ERROR_AUTHENTICATION_REQUIRED,
+	E_CLIENT_ERROR_REPOSITORY_OFFLINE,
+	E_CLIENT_ERROR_OFFLINE_UNAVAILABLE,
+	E_CLIENT_ERROR_PERMISSION_DENIED,
+	E_CLIENT_ERROR_CANCELLED,
+	E_CLIENT_ERROR_COULD_NOT_CANCEL,
+	E_CLIENT_ERROR_NOT_SUPPORTED,
+	E_CLIENT_ERROR_TLS_NOT_AVAILABLE,
+	E_CLIENT_ERROR_UNSUPPORTED_AUTHENTICATION_METHOD,
+	E_CLIENT_ERROR_SEARCH_SIZE_LIMIT_EXCEEDED,
+	E_CLIENT_ERROR_SEARCH_TIME_LIMIT_EXCEEDED,
+	E_CLIENT_ERROR_INVALID_QUERY,
+	E_CLIENT_ERROR_QUERY_REFUSED,
+	E_CLIENT_ERROR_DBUS_ERROR,
+	E_CLIENT_ERROR_OTHER_ERROR,
+	E_CLIENT_ERROR_NOT_OPENED,
+	E_CLIENT_ERROR_OUT_OF_SYNC
+} EClientError;
+</pre>
+<p>
+FIXME Document each code.
+</p>
+<p>
+Error codes for <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> operations.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-INVALID-ARG:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_INVALID_ARG</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-BUSY:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_BUSY</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-SOURCE-NOT-LOADED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_SOURCE_NOT_LOADED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-SOURCE-ALREADY-LOADED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_SOURCE_ALREADY_LOADED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-AUTHENTICATION-FAILED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_AUTHENTICATION_FAILED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-AUTHENTICATION-REQUIRED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_AUTHENTICATION_REQUIRED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-REPOSITORY-OFFLINE:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_REPOSITORY_OFFLINE</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-OFFLINE-UNAVAILABLE:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_OFFLINE_UNAVAILABLE</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-PERMISSION-DENIED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_PERMISSION_DENIED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-CANCELLED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_CANCELLED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-COULD-NOT-CANCEL:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_COULD_NOT_CANCEL</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-NOT-SUPPORTED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_NOT_SUPPORTED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-TLS-NOT-AVAILABLE:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_TLS_NOT_AVAILABLE</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-UNSUPPORTED-AUTHENTICATION-METHOD:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_UNSUPPORTED_AUTHENTICATION_METHOD</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-SEARCH-SIZE-LIMIT-EXCEEDED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_SEARCH_SIZE_LIMIT_EXCEEDED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-SEARCH-TIME-LIMIT-EXCEEDED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_SEARCH_TIME_LIMIT_EXCEEDED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-INVALID-QUERY:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_INVALID_QUERY</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-QUERY-REFUSED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_QUERY_REFUSED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-DBUS-ERROR:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_DBUS_ERROR</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-OTHER-ERROR:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_OTHER_ERROR</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-NOT-OPENED:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_NOT_OPENED</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="E-CLIENT-ERROR-OUT-OF-SYNC:CAPS"></a><span class="term"><code class="literal">E_CLIENT_ERROR_OUT_OF_SYNC</code></span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-error-to-string"></a><h3>e_client_error_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_client_error_to_string            (<em class="parameter"><code><a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> code</code></em>);</pre>
+<p>
+FIXME: Document me.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-ONLINE:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_ONLINE</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_ONLINE			"online"
+</pre>
+<p>
+The "online" property is "TRUE" when the client is fully opened and
+online, "FALSE" at all other times.  See also <a class="link" href="EClient.html#e-client-is-online" title="e_client_is_online ()"><code class="function">e_client_is_online()</code></a>.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-READONLY:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_READONLY</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_READONLY		"readonly"
+</pre>
+<p>
+The "online" property is "TRUE" if the backend has only read access
+to its data, "FALSE" if the backend can modify its data.  See also
+<a class="link" href="EClient.html#e-client-is-readonly" title="e_client_is_readonly ()"><code class="function">e_client_is_readonly()</code></a>.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-CACHE-DIR:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_CACHE_DIR</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_CACHE_DIR		"cache-dir"
+</pre>
+<p>
+The "cache-dir" property indicates the backend's local directory for
+cached data.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-CAPABILITIES:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_CAPABILITIES</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_CAPABILITIES		"capabilities"
+</pre>
+<p>
+The "capabilities" property is a comma-separated list of capabilities
+supported by the backend.  The preferred method of retrieving and working
+with capabilities is <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> and
+<a class="link" href="EClient.html#e-client-check-capability" title="e_client_check_capability ()"><code class="function">e_client_check_capability()</code></a>.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-REVISION:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_REVISION</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_REVISION		"revision"
+</pre>
+<p>
+The current overall revision string, this can be used as
+a quick check to see if data has changed at all since the
+last time the revision was observed.
+</p>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient-struct"></a><h3>struct EClient</h3>
+<pre class="programlisting">struct EClient;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-get-source"></a><h3>e_client_get_source ()</h3>
+<pre class="programlisting"><a class="link" href="ESource.html" title="ESource"><span class="returnvalue">ESource</span></a> *           e_client_get_source                 (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Get the <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a> that this client has assigned.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The source. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-get-capabilities"></a><h3>e_client_get_capabilities ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GSList</span> *      e_client_get_capabilities           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Get list of strings with capabilities advertised by a backend.
+This list, together with inner strings, is owned by the <em class="parameter"><code>client</code></em>.
+To check for individual capabilities use <a class="link" href="EClient.html#e-client-check-capability" title="e_client_check_capability ()"><code class="function">e_client_check_capability()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<span class="type">GSList</span> of const strings
+of capabilities. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-ref-main-context"></a><h3>e_client_ref_main_context ()</h3>
+<pre class="programlisting"><span class="returnvalue">GMainContext</span> *      e_client_ref_main_context           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Returns the <span class="type">GMainContext</span> on which event sources for <em class="parameter"><code>client</code></em> are to
+be attached.
+</p>
+<p>
+The returned <span class="type">GMainContext</span> is referenced for thread-safety and must be
+unreferenced with <code class="function">g_main_context_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GMainContext</span>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-check-capability"></a><h3>e_client_check_capability ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_check_capability           (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *capability</code></em>);</pre>
+<p>
+Check if backend supports particular capability.
+To get all capabilities use <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>capability</code></em> :</span></p></td>
+<td>a capability</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<span class="type">GSList</span> of const strings of capabilities</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-check-refresh-supported"></a><h3>e_client_check_refresh_supported ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_check_refresh_supported    (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Checks whether a client supports explicit refreshing
+(see <a class="link" href="EClient.html#e-client-refresh" title="e_client_refresh ()"><code class="function">e_client_refresh()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>A client.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the client supports refreshing, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-is-readonly"></a><h3>e_client_is_readonly ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_is_readonly                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Check if this <em class="parameter"><code>client</code></em> is read-only.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if this <em class="parameter"><code>client</code></em> is read-only, otherwise <code class="literal">FALSE</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-is-online"></a><h3>e_client_is_online ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_is_online                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<p>
+Check if this <em class="parameter"><code>client</code></em> is connected.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if this <em class="parameter"><code>client</code></em> is connected, otherwise <code class="literal">FALSE</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-get-backend-property"></a><h3>e_client_get_backend_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_get_backend_property       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Queries <em class="parameter"><code>client</code></em>'s backend for a property of name <em class="parameter"><code>prop_name</code></em>.
+The call is finished by <a class="link" href="EClient.html#e-client-get-backend-property-finish" title="e_client_get_backend_property_finish ()"><code class="function">e_client_get_backend_property_finish()</code></a>
+from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_name</code></em> :</span></p></td>
+<td>property name, whose value to retrieve; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-get-backend-property-finish"></a><h3>e_client_get_backend_property_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_get_backend_property_finish
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-get-backend-property" title="e_client_get_backend_property ()"><code class="function">e_client_get_backend_property()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_value</code></em> :</span></p></td>
+<td>Retrieved backend property value; cannot be <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-get-backend-property-sync"></a><h3>e_client_get_backend_property_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_get_backend_property_sync  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Queries <em class="parameter"><code>client</code></em>'s backend for a property of name <em class="parameter"><code>prop_name</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_name</code></em> :</span></p></td>
+<td>property name, whose value to retrieve; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_value</code></em> :</span></p></td>
+<td>Retrieved backend property value; cannot be <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-refresh"></a><h3>e_client_refresh ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_refresh                    (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Initiates refresh on the <em class="parameter"><code>client</code></em>. Finishing the method doesn't mean
+that the refresh is done, backend only notifies whether it started
+refreshing or not. Use <a class="link" href="EClient.html#e-client-check-refresh-supported" title="e_client_check_refresh_supported ()"><code class="function">e_client_check_refresh_supported()</code></a> to check
+whether the backend supports this method.
+The call is finished by <a class="link" href="EClient.html#e-client-refresh-finish" title="e_client_refresh_finish ()"><code class="function">e_client_refresh_finish()</code></a> from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-refresh-finish"></a><h3>e_client_refresh_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_refresh_finish             (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-refresh" title="e_client_refresh ()"><code class="function">e_client_refresh()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-refresh-sync"></a><h3>e_client_refresh_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_refresh_sync               (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Initiates refresh on the <em class="parameter"><code>client</code></em>. Finishing the method doesn't mean
+that the refresh is done, backend only notifies whether it started
+refreshing or not. Use <a class="link" href="EClient.html#e-client-check-refresh-supported" title="e_client_check_refresh_supported ()"><code class="function">e_client_check_refresh_supported()</code></a> to check
+whether the backend supports this method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-parse-comma-strings"></a><h3>e_client_util_parse_comma_strings ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_client_util_parse_comma_strings   (<em class="parameter"><code>const <span class="type">gchar</span> *strings</code></em>);</pre>
+<p>
+Parses comma-separated list of values into <span class="type">GSList</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>string of comma-separated values</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly allocated <span class="type">GSList</span> of
+newly allocated strings corresponding to values parsed from <em class="parameter"><code>strings</code></em>.
+Free the returned pointer with <a class="link" href="EClient.html#e-client-util-free-string-slist" title="e_client_util_free_string_slist ()"><code class="function">e_client_util_free_string_slist()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-OPENED:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_OPENED</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_OPENED			"opened"
+</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">CLIENT_BACKEND_PROPERTY_OPENED</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients don't need to care if they're fully opened
+                 anymore.  This property will always return <code class="literal">TRUE</code>.</p>
+</div>
+<p>
+The "opened" property is "TRUE" when the client is fully opened,
+"FALSE" at all other times.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="CLIENT-BACKEND-PROPERTY-OPENING:CAPS"></a><h3>CLIENT_BACKEND_PROPERTY_OPENING</h3>
+<pre class="programlisting">#define CLIENT_BACKEND_PROPERTY_OPENING			"opening"
+</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">CLIENT_BACKEND_PROPERTY_OPENING</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients don't need to care if they're fully opened
+                 anymore.  This property will always return <code class="literal">FALSE</code>.</p>
+</div>
+<p>
+The "opening" property is "TRUE" when the client is in the process of
+opening, "FALSE" at all other times.
+</p>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-error-create"></a><h3>e_client_error_create ()</h3>
+<pre class="programlisting"><span class="returnvalue">GError</span> *            e_client_error_create               (<em class="parameter"><code><a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> code</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *custom_msg</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_error_create</code> has been deprecated since version 3.8 and should not be used in newly-written code. Just use the <span class="type">GError</span> API directly.</p>
+</div>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>code</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html#EClientError" title="enum EClientError"><span class="type">EClientError</span></a> code to create</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>custom_msg</code></em> :</span></p></td>
+<td>custom message to use for the error; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <span class="type">GError</span> containing an E_CLIENT_ERROR of the given
+<em class="parameter"><code>code</code></em>. If the <em class="parameter"><code>custom_msg</code></em> is NULL, then the error message is
+the one returned from <a class="link" href="EClient.html#e-client-error-to-string" title="e_client_error_to_string ()"><code class="function">e_client_error_to_string()</code></a> for the <em class="parameter"><code>code</code></em>,
+otherwise the given message is used.
+Returned pointer should be freed with <code class="function">g_error_free()</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-is-opened"></a><h3>e_client_is_opened ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_is_opened                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_is_opened</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients don't need to care if they're fully opened
+                 anymore.  This function always returns <code class="literal">TRUE</code>.</p>
+</div>
+<p>
+Check if this <em class="parameter"><code>client</code></em> is fully opened. This includes
+everything from <a class="link" href="EClient.html#e-client-open" title="e_client_open ()"><code class="function">e_client_open()</code></a> call up to the authentication,
+if required by a backend. Client cannot do any other operation
+during the opening phase except of authenticate or cancel it.
+Every other operation results in an <a class="link" href="EClient.html#E-CLIENT-ERROR-BUSY:CAPS"><code class="literal">E_CLIENT_ERROR_BUSY</code></a> error.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>always <code class="literal">TRUE</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-cancel-all"></a><h3>e_client_cancel_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_cancel_all                 (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_cancel_all</code> has been deprecated since version 3.8 and should not be used in newly-written code. The function no longer does anything.</p>
+</div>
+<p>
+Cancels all pending operations started on <em class="parameter"><code>client</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-unwrap-dbus-error"></a><h3>e_client_unwrap_dbus_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_unwrap_dbus_error          (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *dbus_error</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **out_error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_unwrap_dbus_error</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <code class="function">g_dbus_error_strip_remote_error()</code> instead.</p>
+</div>
+<p>
+Unwraps D-Bus error to local error. <em class="parameter"><code>dbus_error</code></em> is automatically freed.
+<em class="parameter"><code>dbus_erorr</code></em> and <em class="parameter"><code>out_error</code></em> can point to the same variable.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbus_error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> returned bu D-Bus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> variable where to store the result</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-retrieve-capabilities"></a><h3>e_client_retrieve_capabilities ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_retrieve_capabilities      (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_retrieve_capabilities</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> instead.</p>
+</div>
+<p>
+Initiates retrieval of capabilities on the <em class="parameter"><code>client</code></em>. This is usually
+required only once, after the <em class="parameter"><code>client</code></em> is opened. The returned value
+is cached and any subsequent call of <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> and
+<a class="link" href="EClient.html#e-client-check-capability" title="e_client_check_capability ()"><code class="function">e_client_check_capability()</code></a> is using the cached value.
+The call is finished by <a class="link" href="EClient.html#e-client-retrieve-capabilities-finish" title="e_client_retrieve_capabilities_finish ()"><code class="function">e_client_retrieve_capabilities_finish()</code></a>
+from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-retrieve-capabilities-finish"></a><h3>e_client_retrieve_capabilities_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_retrieve_capabilities_finish
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **capabilities</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_retrieve_capabilities_finish</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> instead.</p>
+</div>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-retrieve-capabilities" title="e_client_retrieve_capabilities ()"><code class="function">e_client_retrieve_capabilities()</code></a>.
+Returned value of <em class="parameter"><code>capabilities</code></em> should be freed with <code class="function">g_free()</code>,
+when no longer needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>capabilities</code></em> :</span></p></td>
+<td>Comma-separated list of capabilities of the <em class="parameter"><code>client</code></em>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-retrieve-capabilities-sync"></a><h3>e_client_retrieve_capabilities_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_retrieve_capabilities_sync (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **capabilities</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_retrieve_capabilities_sync</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> instead.</p>
+</div>
+<p>
+Initiates retrieval of capabilities on the <em class="parameter"><code>client</code></em>. This is usually
+required only once, after the <em class="parameter"><code>client</code></em> is opened. The returned value
+is cached and any subsequent call of <a class="link" href="EClient.html#e-client-get-capabilities" title="e_client_get_capabilities ()"><code class="function">e_client_get_capabilities()</code></a> and
+<a class="link" href="EClient.html#e-client-check-capability" title="e_client_check_capability ()"><code class="function">e_client_check_capability()</code></a> is using the cached value. Returned value
+of <em class="parameter"><code>capabilities</code></em> should be freed with <code class="function">g_free()</code>, when no longer needed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>capabilities</code></em> :</span></p></td>
+<td>Comma-separated list of capabilities of the <em class="parameter"><code>client</code></em>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-set-backend-property"></a><h3>e_client_set_backend_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_set_backend_property       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_set_backend_property</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients cannot set backend properties.  Any attempt
+                 will fail with an <a class="link" href="EClient.html#E-CLIENT-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">E_CLIENT_ERROR_NOT_SUPPORTED</code></a> error.</p>
+</div>
+<p>
+Sets <em class="parameter"><code>client</code></em>'s backend property of name <em class="parameter"><code>prop_name</code></em>
+to value <em class="parameter"><code>prop_value</code></em>. The call is finished
+by <a class="link" href="EClient.html#e-client-set-backend-property-finish" title="e_client_set_backend_property_finish ()"><code class="function">e_client_set_backend_property_finish()</code></a> from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_name</code></em> :</span></p></td>
+<td>property name, whose value to change; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_value</code></em> :</span></p></td>
+<td>property value, to set; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-set-backend-property-finish"></a><h3>e_client_set_backend_property_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_set_backend_property_finish
+                                                        (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_set_backend_property_finish</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients cannot set backend properties.  Any attempt
+                 will fail with an <a class="link" href="EClient.html#E-CLIENT-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">E_CLIENT_ERROR_NOT_SUPPORTED</code></a> error.</p>
+</div>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-set-backend-property" title="e_client_set_backend_property ()"><code class="function">e_client_set_backend_property()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-set-backend-property-sync"></a><h3>e_client_set_backend_property_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_set_backend_property_sync  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_set_backend_property_sync</code> has been deprecated since version 3.8 and should not be used in newly-written code. Clients cannot set backend properties.  Any attempt
+                 will fail with an <a class="link" href="EClient.html#E-CLIENT-ERROR-NOT-SUPPORTED:CAPS"><code class="literal">E_CLIENT_ERROR_NOT_SUPPORTED</code></a> error.</p>
+</div>
+<p>
+Sets <em class="parameter"><code>client</code></em>'s backend property of name <em class="parameter"><code>prop_name</code></em>
+to value <em class="parameter"><code>prop_value</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_name</code></em> :</span></p></td>
+<td>property name, whose value to change; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_value</code></em> :</span></p></td>
+<td>property value, to set; cannot be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-open"></a><h3>e_client_open ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_open                       (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> only_if_exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_open</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a href="../../libebook/stable/EBookClient.html#e-book-client-connect"><code class="function">e_book_client_connect()</code></a> and
+                 <a href="../../libebook/stable/EBookClient.html#e-book-client-connect-finish"><code class="function">e_book_client_connect_finish()</code></a> or
+                 <a href="../../libecal/stable/ECalClient.html#e-cal-client-connect"><code class="function">e_cal_client_connect()</code></a> and
+                 <a href="../../libecal/stable/ECalClient.html#e-cal-client-connect-finish"><code class="function">e_cal_client_connect_finish()</code></a> instead.</p>
+</div>
+<p>
+Opens the <em class="parameter"><code>client</code></em>, making it ready for queries and other operations.
+The call is finished by <a class="link" href="EClient.html#e-client-open-finish" title="e_client_open_finish ()"><code class="function">e_client_open_finish()</code></a> from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_if_exists</code></em> :</span></p></td>
+<td>if <code class="literal">TRUE</code>, fail if this book doesn't already exist,
+otherwise create it first</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-open-finish"></a><h3>e_client_open_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_open_finish                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_open_finish</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a href="../../libebook/stable/EBookClient.html#e-book-client-connect"><code class="function">e_book_client_connect()</code></a> and
+                 <a href="../../libebook/stable/EBookClient.html#e-book-client-connect-finish"><code class="function">e_book_client_connect_finish()</code></a> or
+                 <a href="../../libecal/stable/ECalClient.html#e-cal-client-connect"><code class="function">e_cal_client_connect()</code></a> and
+                 <a href="../../libecal/stable/ECalClient.html#e-cal-client-connect-finish"><code class="function">e_cal_client_connect_finish()</code></a> instead.</p>
+</div>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-open" title="e_client_open ()"><code class="function">e_client_open()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-open-sync"></a><h3>e_client_open_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_open_sync                  (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> only_if_exists</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_open_sync</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a href="../../libebook/stable/EBookClient.html#e-book-client-connect-sync"><code class="function">e_book_client_connect_sync()</code></a> or
+                 <a href="../../libecal/stable/ECalClient.html#e-cal-client-connect-sync"><code class="function">e_cal_client_connect_sync()</code></a> instead.</p>
+</div>
+<p>
+Opens the <em class="parameter"><code>client</code></em>, making it ready for queries and other operations.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>only_if_exists</code></em> :</span></p></td>
+<td>if <code class="literal">TRUE</code>, fail if this book doesn't already exist,
+otherwise create it first</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-remove"></a><h3>e_client_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_remove                     (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_remove</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="ESource.html#e-source-remove" title="e_source_remove ()"><code class="function">e_source_remove()</code></a> instead.</p>
+</div>
+<p>
+Removes the backing data for this <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>. For example, with the file
+backend this deletes the database file. You cannot get it back!
+The call is finished by <a class="link" href="EClient.html#e-client-remove-finish" title="e_client_remove_finish ()"><code class="function">e_client_remove_finish()</code></a> from the <em class="parameter"><code>callback</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>callback to call when a result is ready</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data for the <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-remove-finish"></a><h3>e_client_remove_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_remove_finish              (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_remove_finish</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="ESource.html#e-source-remove-finish" title="e_source_remove_finish ()"><code class="function">e_source_remove_finish()</code></a> instead.</p>
+</div>
+<p>
+Finishes previous call of <a class="link" href="EClient.html#e-client-remove" title="e_client_remove ()"><code class="function">e_client_remove()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>a <span class="type">GAsyncResult</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-remove-sync"></a><h3>e_client_remove_sync ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_remove_sync                (<em class="parameter"><code><a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *client</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_remove_sync</code> has been deprecated since version 3.6 and should not be used in newly-written code. Use <a class="link" href="ESource.html#e-source-remove-sync" title="e_source_remove_sync ()"><code class="function">e_source_remove_sync()</code></a> instead.</p>
+</div>
+<p>
+Removes the backing data for this <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>. For example, with the file
+backend this deletes the database file. You cannot get it back!
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client</code></em> :</span></p></td>
+<td>an <a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>a <span class="type">GCancellable</span>; can be <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>a <span class="type">GError</span> to set an error, if any. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if successful, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-slist-to-strv"></a><h3>e_client_util_slist_to_strv ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            e_client_util_slist_to_strv         (<em class="parameter"><code>const <span class="type">GSList</span> *strings</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_slist_to_strv</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="libedataserver-e-util.html#e-util-slist-to-strv" title="e_util_slist_to_strv ()"><code class="function">e_util_slist_to_strv()</code></a> instead.</p>
+</div>
+<p>
+Convert a list of strings into a <code class="literal">NULL</code>-terminated array of strings.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>a <span class="type">GSList</span> of strings (const gchar *). <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly allocated <code class="literal">NULL</code>-terminated array of strings.
+The returned pointer should be freed with <code class="function">g_strfreev()</code>.
+Note: Paired function for this is <a class="link" href="EClient.html#e-client-util-strv-to-slist" title="e_client_util_strv_to_slist ()"><code class="function">e_client_util_strv_to_slist()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-strv-to-slist"></a><h3>e_client_util_strv_to_slist ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_client_util_strv_to_slist         (<em class="parameter"><code>const <span class="type">gchar</span> * const *strv</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_strv_to_slist</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="libedataserver-e-util.html#e-util-strv-to-slist" title="e_util_strv_to_slist ()"><code class="function">e_util_strv_to_slist()</code></a> instead.</p>
+</div>
+<p>
+Convert a <code class="literal">NULL</code>-terminated array of strings to a list of strings.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strv</code></em> :</span></p></td>
+<td>a <code class="literal">NULL</code>-terminated array of strings (const gchar *)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly allocated <span class="type">GSList</span> of
+newly allocated strings. The returned pointer should be freed with
+<a class="link" href="EClient.html#e-client-util-free-string-slist" title="e_client_util_free_string_slist ()"><code class="function">e_client_util_free_string_slist()</code></a>.
+Note: Paired function for this is <a class="link" href="EClient.html#e-client-util-slist-to-strv" title="e_client_util_slist_to_strv ()"><code class="function">e_client_util_slist_to_strv()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-copy-string-slist"></a><h3>e_client_util_copy_string_slist ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_client_util_copy_string_slist     (<em class="parameter"><code><span class="type">GSList</span> *copy_to</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *strings</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_copy_string_slist</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="libedataserver-e-util.html#e-util-copy-string-slist" title="e_util_copy_string_slist ()"><code class="function">e_util_copy_string_slist()</code></a> instead.</p>
+</div>
+<p>
+Copies the <span class="type">GSList</span> of strings to the end of <em class="parameter"><code>copy_to</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>copy_to</code></em> :</span></p></td>
+<td>Where to copy; may be <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>
+<span class="type">GSList</span> of strings to be copied. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>New head of <em class="parameter"><code>copy_to</code></em>.
+The returned pointer can be freed with <a class="link" href="EClient.html#e-client-util-free-string-slist" title="e_client_util_free_string_slist ()"><code class="function">e_client_util_free_string_slist()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-copy-object-slist"></a><h3>e_client_util_copy_object_slist ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_client_util_copy_object_slist     (<em class="parameter"><code><span class="type">GSList</span> *copy_to</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GSList</span> *objects</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_copy_object_slist</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <a class="link" href="libedataserver-e-util.html#e-util-copy-object-slist" title="e_util_copy_object_slist ()"><code class="function">e_util_copy_object_slist()</code></a> instead.</p>
+</div>
+<p>
+Copies a <span class="type">GSList</span> of <span class="type">GObject</span>s to the end of <em class="parameter"><code>copy_to</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>copy_to</code></em> :</span></p></td>
+<td>Where to copy; may be <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objects</code></em> :</span></p></td>
+<td>
+<span class="type">GSList</span> of <span class="type">GObject</span>s to be copied. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>New head of <em class="parameter"><code>copy_to</code></em>.
+The returned pointer can be freed with <a class="link" href="EClient.html#e-client-util-free-object-slist" title="e_client_util_free_object_slist ()"><code class="function">e_client_util_free_object_slist()</code></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-free-string-slist"></a><h3>e_client_util_free_string_slist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_util_free_string_slist     (<em class="parameter"><code><span class="type">GSList</span> *strings</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_free_string_slist</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <code class="function">g_slist_free_full()</code> instead.</p>
+</div>
+<p>
+Frees memory previously allocated by <a class="link" href="EClient.html#e-client-util-strv-to-slist" title="e_client_util_strv_to_slist ()"><code class="function">e_client_util_strv_to_slist()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>a <span class="type">GSList</span> of strings (gchar *). <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-free-object-slist"></a><h3>e_client_util_free_object_slist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_client_util_free_object_slist     (<em class="parameter"><code><span class="type">GSList</span> *objects</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_free_object_slist</code> has been deprecated since version 3.8 and should not be used in newly-written code. Use <code class="function">g_slist_free_full()</code> instead.</p>
+</div>
+<p>
+Calls <code class="function">g_object_unref()</code> on each member of <em class="parameter"><code>objects</code></em> and then frees <em class="parameter"><code>objects</code></em>
+itself.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>objects</code></em> :</span></p></td>
+<td>a <span class="type">GSList</span> of <span class="type">GObject</span>s. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GObject]</span>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClientErrorsList"></a><h3>struct EClientErrorsList</h3>
+<pre class="programlisting">struct EClientErrorsList {
+	const gchar *name;
+	gint err_code;
+};
+</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">EClientErrorsList</code> has been deprecated since version 3.8 and should not be used in newly-written code. This structure is no longer used.</p>
+</div>
+<p class="since">Since 3.2</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-client-util-unwrap-dbus-error"></a><h3>e_client_util_unwrap_dbus_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_client_util_unwrap_dbus_error     (<em class="parameter"><code><span class="type">GError</span> *dbus_error</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **client_error</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EClient.html#EClientErrorsList" title="struct EClientErrorsList"><span class="type">EClientErrorsList</span></a> *known_errors</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> known_errors_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">GQuark</span> known_errors_domain</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> fail_when_none_matched</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">e_client_util_unwrap_dbus_error</code> has been deprecated since version 3.8 and should not be used in newly-written code. This function is no longer used.</p>
+</div>
+<p>
+The function takes a <em class="parameter"><code>dbus_error</code></em> and tries to find a match in <em class="parameter"><code>known_errors</code></em>
+for it, if it is a G_IO_ERROR, G_IO_ERROR_DBUS_ERROR. If it is anything else
+then the <em class="parameter"><code>dbus_error</code></em> is moved to <em class="parameter"><code>client_error</code></em>.
+</p>
+<p>
+The <em class="parameter"><code>fail_when_none_matched</code></em> influences behaviour. If it's <code class="literal">TRUE</code>, and none of
+<em class="parameter"><code>known_errors</code></em> matches, or this is not a G_IO_ERROR_DBUS_ERROR, then <code class="literal">FALSE</code>
+is returned and the <em class="parameter"><code>client_error</code></em> is left without change. Otherwise, the
+<em class="parameter"><code>fail_when_none_matched</code></em> is <code class="literal">FALSE</code>, the error is always processed and will
+result in E_CLIENT_ERROR, E_CLIENT_ERROR_OTHER_ERROR if none of <em class="parameter"><code>known_error</code></em>
+matches.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbus_error</code></em> :</span></p></td>
+<td>DBus <span class="type">GError</span> to unwrap</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>client_error</code></em> :</span></p></td>
+<td>Resulting <span class="type">GError</span>; can be <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>known_errors</code></em> :</span></p></td>
+<td>List of known errors against which try to match</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>known_errors_count</code></em> :</span></p></td>
+<td>How many items are stored in <em class="parameter"><code>known_errors</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>known_errors_domain</code></em> :</span></p></td>
+<td>Error domain for <em class="parameter"><code>known_errors</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fail_when_none_matched</code></em> :</span></p></td>
+<td>Whether to fail when none of <em class="parameter"><code>known_errors</code></em> matches</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether was <em class="parameter"><code>dbus_error</code></em> processed into <em class="parameter"><code>client_error</code></em>.
+Note: The <em class="parameter"><code>dbus_error</code></em> is automatically freed if returned <code class="literal">TRUE</code>.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.2</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EClient.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EClient--capabilities"></a><h3>The <code class="literal">"capabilities"</code> property</h3>
+<pre class="programlisting">  "capabilities"             <span class="type">gpointer</span>              : Read</pre>
+<p></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient--main-context"></a><h3>The <code class="literal">"main-context"</code> property</h3>
+<pre class="programlisting">  "main-context"             <span class="type">GMainContext</span>*         : Read</pre>
+<p>The main loop context on which to attach event sources.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient--online"></a><h3>The <code class="literal">"online"</code> property</h3>
+<pre class="programlisting">  "online"                   <span class="type">gboolean</span>              : Read / Write</pre>
+<p></p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient--opened"></a><h3>The <code class="literal">"opened"</code> property</h3>
+<pre class="programlisting">  "opened"                   <span class="type">gboolean</span>              : Read</pre>
+<p></p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient--readonly"></a><h3>The <code class="literal">"readonly"</code> property</h3>
+<pre class="programlisting">  "readonly"                 <span class="type">gboolean</span>              : Read</pre>
+<p></p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient--source"></a><h3>The <code class="literal">"source"</code> property</h3>
+<pre class="programlisting">  "source"                   <a class="link" href="ESource.html" title="ESource"><span class="type">ESource</span></a>*              : Read / Write / Construct Only</pre>
+<p></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EClient.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EClient-backend-died"></a><h3>The <code class="literal">"backend-died"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *eclient,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient-backend-error"></a><h3>The <code class="literal">"backend-error"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *eclient,
+                                                        <span class="type">gchar</span>   *arg1,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run First</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient-backend-property-changed"></a><h3>The <code class="literal">"backend-property-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *eclient,
+                                                        <span class="type">gchar</span>   *arg1,
+                                                        <span class="type">gchar</span>   *arg2,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EClient-opened"></a><h3>The <code class="literal">"opened"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EClient.html" title="EClient"><span class="type">EClient</span></a> *arg0,
+                                                        <span class="type">GError</span>  *arg1,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">EClient::opened</code> has been deprecated since version 3.8 and should not be used in newly-written code. This signal is no longer emitted.</p>
+</div>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EClient.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Creating native functions</title><link href="index.html" rel="home" title="Seed Reference Manual"></link><link href="api.html" rel="up" title="Part III. Seed API Reference"></link><link href="seed-JS-Objects.html" rel="prev" title="Working with JavaScript objects"></link><link href="seed-JavaScript-Classes.html" rel="next" title="Creating JavaScript classes"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="seed-Native-Functions.html#container">Go to page content</a></li><li><a href="seed-Native-Functions.html#top_bar">Go to main menu</a></li><li><a href="seed-Native-Functions.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="seed-JS-Objects.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="api.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Seed Reference Manual</th>
+<td><a accesskey="n" href="seed-JavaScript-Classes.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="seed-Native-Functions.html#seed-Native-Functions.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="seed-Native-Functions.html#seed-Native-Functions.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="seed-Native-Functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="seed-Native-Functions.top_of_page"></a>Creating native functions</span></h2>
+<p>Creating native functions — C functions as first-class JavaScript objects</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="seed-Native-Functions.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;seed/seed.h&gt;
+
+<a class="link" href="seed-Native-Type-Conversion.html#SeedValue" title="SeedValue"><span class="returnvalue">SeedValue</span></a>           (<a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()">*SeedFunctionCallback</a>)             (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> function</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> this_object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> argument_count</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="seed-Native-Type-Conversion.html#SeedValue" title="SeedValue"><span class="type">SeedValue</span></a> arguments[]</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Exceptions.html#SeedException" title="SeedException"><span class="type">SeedException</span></a> *exception</code></em>);
+<a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="returnvalue">SeedObject</span></a>          <a class="link" href="seed-Native-Functions.html#seed-make-function" title="seed_make_function ()">seed_make_function</a>                  (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> func</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="seed-Native-Functions.html#seed-create-function" title="seed_create_function ()">seed_create_function</a>                (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> obj</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="seed-Native-Functions.description"></a><h2>Description</h2>
+<p>
+Exposing native C functions to JavaScript is one of the fundamental use cases for libseed when used in an embedding environment; if your application cannot be introspected, or you only have a small number of functions to expose, this is the simplest way to do that.
+</p>
+<p>
+All native C callbacks should have the prototype of <a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><code class="function">SeedFunctionCallback()</code></a>.
+</p>
+<div class="example">
+<a name="idp9574864"></a><p class="title"><b>Example 10. Simple C program which embeds Seed with one exposed function</b></p>
+<div class="example-contents"><pre class="programlisting">#include &lt;glib.h&gt;
+#include &lt;seed.h&gt;
+ 
+/* Our function, with the signature of SeedFunctionCallback(); say hello! */
+SeedValue hello_world(SeedContext ctx,
+                      SeedObject function,
+                      SeedObject this_object,
+                      gsize argument_count,
+                      const SeedValue arguments[],
+                      SeedException *exception)
+{
+    g_print("Hello, World!\n");
+    return seed_make_null(ctx);
+}
+ 
+int main(gint argc, gchar ** argv)
+{
+    SeedEngine * eng;
+ 
+    /* Initialize the Seed engine */
+    eng = seed_init(&amp;argc, &amp;argv);
+ 
+    /* Expose a C function to JavaScript */
+    seed_create_function(eng-&gt;context, "hello_world",
+                         (SeedFunctionCallback)hello_world,
+                         eng-&gt;global);
+ 
+    /* Call the newly created JavaScript function */
+    seed_simple_evaluate(eng-&gt;context, "hello_world()", NULL);
+ 
+    return 0;
+}
+</pre></div>
+</div>
+<br class="example-break"></br>
+</div>
+<div class="refsect1">
+<a name="seed-Native-Functions.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="SeedFunctionCallback"></a><h3>SeedFunctionCallback ()</h3>
+<pre class="programlisting"><a class="link" href="seed-Native-Type-Conversion.html#SeedValue" title="SeedValue"><span class="returnvalue">SeedValue</span></a>           (*SeedFunctionCallback)             (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> function</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> this_object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> argument_count</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="seed-Native-Type-Conversion.html#SeedValue" title="SeedValue"><span class="type">SeedValue</span></a> arguments[]</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Exceptions.html#SeedException" title="SeedException"><span class="type">SeedException</span></a> *exception</code></em>);</pre>
+<p>
+All native C function callbacks should use the prototype of
+SeedFunctionCallback.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>A <a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function</code></em> :</span></p></td>
+<td>The <a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> representing the function</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>this_object</code></em> :</span></p></td>
+<td>The <a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> representing the "this" object in the caller</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argument_count</code></em> :</span></p></td>
+<td>The number of arguments passed into the callback</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arguments</code></em> :</span></p></td>
+<td>An array of <a href="seed-Native-Type-Conversion.html#SeedValue"><span class="type">SeedValues</span></a>; the value of the arguments passed in</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exception</code></em> :</span></p></td>
+<td>A reference to a <a class="link" href="seed-Exceptions.html#SeedException" title="SeedException"><span class="type">SeedException</span></a>; use <a class="link" href="seed-Exceptions.html#seed-make-exception" title="seed_make_exception ()"><code class="function">seed_make_exception()</code></a> in order
+to throw a JavaScript exception from the callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="seed-Native-Type-Conversion.html#SeedValue" title="SeedValue"><span class="type">SeedValue</span></a> to return to the caller</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seed-make-function"></a><h3>seed_make_function ()</h3>
+<pre class="programlisting"><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="returnvalue">SeedObject</span></a>          seed_make_function                  (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> func</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Creates a JavaScript object representing a first-class function; when
+the function is called from JavaScript, <em class="parameter"><code>func</code></em> will be called.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>A valid <a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>A <a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> to implement the function.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name of the function (used in exceptions).</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> representing the function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seed-create-function"></a><h3>seed_create_function ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seed_create_function                (<em class="parameter"><code><a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a> ctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> obj</code></em>);</pre>
+<p>
+Creates a JavaScript object representing a first-class function; when
+the function is called from JavaScript, <em class="parameter"><code>func</code></em> will be called. Places
+the created function as the property <em class="parameter"><code>name</code></em> on <em class="parameter"><code>obj</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
+<td>A valid <a class="link" href="seed-Contexts.html#SeedContext" title="SeedContext"><span class="type">SeedContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name of the function (used in exceptions).</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>A <a class="link" href="seed-Native-Functions.html#SeedFunctionCallback" title="SeedFunctionCallback ()"><span class="type">SeedFunctionCallback</span></a> to implement the function.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obj</code></em> :</span></p></td>
+<td>The <a class="link" href="seed-JS-Objects.html#SeedObject" title="SeedObject"><span class="type">SeedObject</span></a> on which to put the function.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="seed-Native-Functions.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

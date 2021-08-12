@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Unix: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-sha.html" title="SHA">
+<link rel="next" href="gnet-ipv6.html" title="IPv6">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-unix.html#container">Go to page content</a></li><li><a href="gnet-unix.html#top_bar">Go to main menu</a></li><li><a href="gnet-unix.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-unix.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-unix.html#gnet-unix.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-sha.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-ipv6.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-unix"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Unix</span></h2>
+<p>Unix — Unix socket</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+                    <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>;
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-new">gnet_unix_socket_new</a>                (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-new-abstract">gnet_unix_socket_new_abstract</a>       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-unix.html#gnet-unix-socket-delete">gnet_unix_socket_delete</a>             (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-unix.html#gnet-unix-socket-ref">gnet_unix_socket_ref</a>                (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-unix.html#gnet-unix-socket-unref">gnet_unix_socket_unref</a>              (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         <a class="link" href="gnet-unix.html#gnet-unix-socket-get-io-channel">gnet_unix_socket_get_io_channel</a>     (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              <a class="link" href="gnet-unix.html#gnet-unix-socket-get-path">gnet_unix_socket_get_path</a>           (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-server-new">gnet_unix_socket_server_new</a>         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-server-new-abstract">gnet_unix_socket_server_new_abstract</a>
+                                                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-server-accept">gnet_unix_socket_server_accept</a>      (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        <a class="link" href="gnet-unix.html#gnet-unix-socket-server-accept-nonblock">gnet_unix_socket_server_accept_nonblock</a>
+                                                        (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.17.4"></a><h2>Description</h2>
+<p>
+The Unix module provides support for Unix sockets.  Unix sockets are
+used to communicate between processes.  Unix sockets are for Unix
+operating systems only and are not supported in Windows.  GNet's Unix
+sockets are stream-based (like TCP), not datagram-based (like UDP).
+Unix socket addresses are file names, like "/tmp/my_unix_socket".
+</p>
+<p>
+To connect to a existing Unix socket, call <a class="link" href="gnet-unix.html#gnet-unix-socket-new"><code class="function">gnet_unix_socket_new()</code></a>.  To
+create a new Unix socket other processes will connect to, call
+<a class="link" href="gnet-unix.html#gnet-unix-socket-server-new"><code class="function">gnet_unix_socket_server_new()</code></a>.
+</p>
+<p>
+The functions in this module are similar to those in the TCP module.
+See the documentation on TCP sockets for more information.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.17.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.17.5.2"></a><h3>
+<a name="GUnixSocket"></a>GUnixSocket</h3>
+<pre class="programlisting">typedef struct _GUnixSocket GUnixSocket;</pre>
+<p>
+A <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> structure represents a Unix socket.  The
+ implementation is hidden.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.3"></a><h3>
+<a name="gnet-unix-socket-new"></a>gnet_unix_socket_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_new                (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
+<p>
+Creates a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> and connects to <em class="parameter"><code>path</code></em>.  This function will
+ block to connect.  Use this constructor to create a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+ for a client.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>; NULL on failure.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.4"></a><h3>
+<a name="gnet-unix-socket-new-abstract"></a>gnet_unix_socket_new_abstract ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_new_abstract       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
+<p>
+Creates a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> and connects to <em class="parameter"><code>path</code></em> in the abstract
+ unix socket domain. This function will block to connect.  Use this
+ constructor to create a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> for a client.
+</p>
+<p>
+ If the abstract unix sockets are not available on the platform in use,
+ this function will behave like <a class="link" href="gnet-unix.html#gnet-unix-socket-new"><code class="function">gnet_unix_socket_new()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>, or NULL on failure.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  2.0.8
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.5"></a><h3>
+<a name="gnet-unix-socket-delete"></a>gnet_unix_socket_delete ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_unix_socket_delete             (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Deletes a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.6"></a><h3>
+<a name="gnet-unix-socket-ref"></a>gnet_unix_socket_ref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_unix_socket_ref                (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Adds a reference to a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.7"></a><h3>
+<a name="gnet-unix-socket-unref"></a>gnet_unix_socket_unref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_unix_socket_unref              (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Removes a reference from a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.  A <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> is
+ deleted when the reference count reaches 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.8"></a><h3>
+<a name="gnet-unix-socket-get-io-channel"></a>gnet_unix_socket_get_io_channel ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         gnet_unix_socket_get_io_channel     (<a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Gets the <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> of a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.
+</p>
+<p>
+ For a client socket, the <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> represents the data stream.
+ Use it like you would any other <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.
+</p>
+<p>
+ For a server socket, however, the <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> represents the
+ listening socket.  When it's readable, there's a connection
+ waiting to be accepted.
+</p>
+<p>
+ Every <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> has one and only one <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.  If you ref
+ the channel, then you must unref it eventually.  Do not close the
+ channel.  The channel is closed by GNet when the socket is
+ deleted.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.9"></a><h3>
+<a name="gnet-unix-socket-get-path"></a>gnet_unix_socket_get_path ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              gnet_unix_socket_get_path           (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Gets the path of a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the path.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.10"></a><h3>
+<a name="gnet-unix-socket-server-new"></a>gnet_unix_socket_server_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_server_new         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
+<p>
+Creates a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> bound to <em class="parameter"><code>path</code></em>.  Use this constructor to
+ create a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> for a server.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>; NULL on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.11"></a><h3>
+<a name="gnet-unix-socket-server-new-abstract"></a>gnet_unix_socket_server_new_abstract ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_server_new_abstract
+                                                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *path);</pre>
+<p>
+Creates a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> bound to <em class="parameter"><code>path</code></em> in the abstract unix socket
+ domain.  Use this constructor to create a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> for a
+ server.
+</p>
+<p>
+ If the abstract unix sockets are not available on the platform in use,
+ this function will behave the same as <a class="link" href="gnet-unix.html#gnet-unix-socket-server-new"><code class="function">gnet_unix_socket_server_new()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td> path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>, or NULL on error.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since  2.0.8
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.12"></a><h3>
+<a name="gnet-unix-socket-server-accept"></a>gnet_unix_socket_server_accept ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_server_accept      (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Accepts a connection from a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>.  The socket must have
+ been created using <a class="link" href="gnet-unix.html#gnet-unix-socket-server-new"><code class="function">gnet_unix_socket_server_new()</code></a>. This function
+ will block.  Even if the socket's <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> is readable, the
+ function may still block.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> representing a new connection; NULL on
+ error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.17.5.13"></a><h3>
+<a name="gnet-unix-socket-server-accept-nonblock"></a>gnet_unix_socket_server_accept_nonblock ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a>*        gnet_unix_socket_server_accept_nonblock
+                                                        (const <a class="link" href="gnet-unix.html#GUnixSocket">GUnixSocket</a> *socket);</pre>
+<p>
+Accepts a connection from a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> without blocking.  The
+ socket must have been created using <a class="link" href="gnet-unix.html#gnet-unix-socket-server-new"><code class="function">gnet_unix_socket_server_new()</code></a>.
+</p>
+<p>
+ Note that if the socket's <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> is readable, then there is
+ PROBABLY a new connection.  It is possible for the connection
+ to close by the time this function is called, so it may return
+ NULL.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-unix.html#GUnixSocket"><span class="type">GUnixSocket</span></a> representing a new connection; NULL
+ otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-unix.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

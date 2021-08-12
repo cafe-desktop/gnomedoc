@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>gok-scanner</title><link href="index.html" rel="home" title="GOK - Gnome Onscreen Keyboard"></link><link href="ch01.html" rel="up" title="GOK Internal API"></link><link href="gok-gok-output.html" rel="prev" title="gok-output"></link><link href="gok-gok-settings-dialog.html" rel="next" title="gok-settings-dialog"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gok-gok-scanner.html#container">Go to page content</a></li><li><a href="gok-gok-scanner.html#top_bar">Go to main menu</a></li><li><a href="gok-gok-scanner.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="gok-gok-output.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GOK - Gnome Onscreen Keyboard</th>
+<td><a accesskey="n" href="gok-gok-settings-dialog.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="gok-gok-scanner.html#gok-gok-scanner.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="gok-gok-scanner.html#gok-gok-scanner.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="gok-gok-scanner"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gok-gok-scanner.top_of_page"></a>gok-scanner</span></h2>
+<p>gok-scanner</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="gok-gok-scanner.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="gok-gok-scanner.html#CallIds" title="enum CallIds">CallIds</a>;
+enum                <a class="link" href="gok-gok-scanner.html#RateType" title="enum RateType">RateType</a>;
+#define             <a class="link" href="gok-gok-scanner.html#MAX-DESCRIPTION-TEXT:CAPS" title="MAX_DESCRIPTION_TEXT">MAX_DESCRIPTION_TEXT</a>
+#define             <a class="link" href="gok-gok-scanner.html#MAX-RATE-NAME:CAPS" title="MAX_RATE_NAME">MAX_RATE_NAME</a>
+#define             <a class="link" href="gok-gok-scanner.html#MAX-DISPLAY-RATE-NAME:CAPS" title="MAX_DISPLAY_RATE_NAME">MAX_DISPLAY_RATE_NAME</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-NO:CAPS" title="COMPARE_NO">COMPARE_NO</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-EQUAL:CAPS" title="COMPARE_EQUAL">COMPARE_EQUAL</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-LESSTHAN:CAPS" title="COMPARE_LESSTHAN">COMPARE_LESSTHAN</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-GREATERTHAN:CAPS" title="COMPARE_GREATERTHAN">COMPARE_GREATERTHAN</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-EQUALORLESSTHAN:CAPS" title="COMPARE_EQUALORLESSTHAN">COMPARE_EQUALORLESSTHAN</a>
+#define             <a class="link" href="gok-gok-scanner.html#COMPARE-EQUALORGREATERTHAN:CAPS" title="COMPARE_EQUALORGREATERTHAN">COMPARE_EQUALORGREATERTHAN</a>
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-initialize" title="gok_scanner_initialize ()">gok_scanner_initialize</a>              (<em class="parameter"><code>const <span class="type">gchar</span> *directory</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *accessmethod</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *selectaction</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *scanaction</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-close" title="gok_scanner_close ()">gok_scanner_close</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-stop" title="gok_scanner_stop ()">gok_scanner_stop</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-start" title="gok_scanner_start ()">gok_scanner_start</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-change-method" title="gok_scanner_change_method ()">gok_scanner_change_method</a>           (<em class="parameter"><code><span class="type">gchar</span> *NameAccessMethod</code></em>);
+<span class="returnvalue">GokAccessMethod</span> *   <a class="link" href="gok-gok-scanner.html#gok-scanner-create-access-method" title="gok_scanner_create_access_method ()">gok_scanner_create_access_method</a>    (<em class="parameter"><code><span class="type">gchar</span> *Name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-reset-access-method" title="gok_scanner_reset_access_method ()">gok_scanner_reset_access_method</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-change-state" title="gok_scanner_change_state ()">gok_scanner_change_state</a>            (<em class="parameter"><code><span class="type">GokScannerState</span> *pState</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *NameAccessMethod</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-next-state" title="gok_scanner_next_state ()">gok_scanner_next_state</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-set-handlers-null" title="gok_scanner_set_handlers_null ()">gok_scanner_set_handlers_null</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-access-method" title="gok_scanner_read_access_method ()">gok_scanner_read_access_method</a>      (<em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);
+<span class="returnvalue">GokScannerState</span> *   <a class="link" href="gok-gok-scanner.html#gok-scanner-construct-state" title="gok_scanner_construct_state ()">gok_scanner_construct_state</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GokAccessMethodRate</span> *  <a class="link" href="gok-gok-scanner.html#gok-scanner-construct-rate" title="gok_scanner_construct_rate ()">gok_scanner_construct_rate</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GokScannerHandler</span> *  <a class="link" href="gok-gok-scanner.html#gok-scanner-construct-handler" title="gok_scanner_construct_handler ()">gok_scanner_construct_handler</a>      (<em class="parameter"><code><span class="type">gchar</span> *pHandlerName</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-rates" title="gok_scanner_read_rates ()">gok_scanner_read_rates</a>              (<em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-description" title="gok_scanner_read_description ()">gok_scanner_read_description</a>        (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-operation" title="gok_scanner_read_operation ()">gok_scanner_read_operation</a>          (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-read-ui-loop" title="gok_scanner_read_ui_loop ()">gok_scanner_read_ui_loop</a>            (<em class="parameter"><code><span class="type">GokControl</span> *pControl</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-feedback" title="gok_scanner_read_feedback ()">gok_scanner_read_feedback</a>           (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-read-options" title="gok_scanner_read_options ()">gok_scanner_read_options</a>            (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-update-rates" title="gok_scanner_update_rates ()">gok_scanner_update_rates</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GokAccessMethod</span> *   <a class="link" href="gok-gok-scanner.html#gok-scanner-get-current-access-method" title="gok_scanner_get_current_access_method ()">gok_scanner_get_current_access_method</a>
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GokAccessMethod</span> *   <a class="link" href="gok-gok-scanner.html#gok-scanner-get-first-access-method" title="gok_scanner_get_first_access_method ()">gok_scanner_get_first_access_method</a> (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GokScannerState</span> *   <a class="link" href="gok-gok-scanner.html#gok-scanner-get-current-state" title="gok_scanner_get_current_state ()">gok_scanner_get_current_state</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-get-pointer-location" title="gok_scanner_get_pointer_location ()">gok_scanner_get_pointer_location</a>    (<em class="parameter"><code><span class="type">gint</span> *pX</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *pY</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-set" title="gok_scanner_timer_set ()">gok_scanner_timer_set</a>               (<em class="parameter"><code><span class="type">gint</span> Rate</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> ID</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-stop" title="gok_scanner_timer_stop ()">gok_scanner_timer_stop</a>              (<em class="parameter"><code><span class="type">gint</span> TimerId</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-make-type-from-string" title="gok_scanner_make_type_from_string ()">gok_scanner_make_type_from_string</a>   (<em class="parameter"><code><span class="type">gchar</span> *pString</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-set-dwell-rate" title="gok_scanner_timer_set_dwell_rate ()">gok_scanner_timer_set_dwell_rate</a>    (<em class="parameter"><code><span class="type">gint</span> rate</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-start-dwell" title="gok_scanner_timer_start_dwell ()">gok_scanner_timer_start_dwell</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-stop-dwell" title="gok_scanner_timer_stop_dwell ()">gok_scanner_timer_stop_dwell</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-timer-on-dwell" title="gok_scanner_timer_on_dwell ()">gok_scanner_timer_on_dwell</a>          (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-left-button-down" title="gok_scanner_left_button_down ()">gok_scanner_left_button_down</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-left-button-up" title="gok_scanner_left_button_up ()">gok_scanner_left_button_up</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-right-button-down" title="gok_scanner_right_button_down ()">gok_scanner_right_button_down</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-right-button-up" title="gok_scanner_right_button_up ()">gok_scanner_right_button_up</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-middle-button-down" title="gok_scanner_middle_button_down ()">gok_scanner_middle_button_down</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-middle-button-up" title="gok_scanner_middle_button_up ()">gok_scanner_middle_button_up</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-mouse-movement" title="gok_scanner_mouse_movement ()">gok_scanner_mouse_movement</a>          (<em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-on-timer1" title="gok_scanner_on_timer1 ()">gok_scanner_on_timer1</a>               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-on-timer2" title="gok_scanner_on_timer2 ()">gok_scanner_on_timer2</a>               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-on-timer3" title="gok_scanner_on_timer3 ()">gok_scanner_on_timer3</a>               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-on-timer4" title="gok_scanner_on_timer4 ()">gok_scanner_on_timer4</a>               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-scanner.html#gok-scanner-on-timer5" title="gok_scanner_on_timer5 ()">gok_scanner_on_timer5</a>               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-key-enter" title="gok_scanner_on_key_enter ()">gok_scanner_on_key_enter</a>            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-key-leave" title="gok_scanner_on_key_leave ()">gok_scanner_on_key_leave</a>            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch1-down" title="gok_scanner_on_switch1_down ()">gok_scanner_on_switch1_down</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch1-up" title="gok_scanner_on_switch1_up ()">gok_scanner_on_switch1_up</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch2-down" title="gok_scanner_on_switch2_down ()">gok_scanner_on_switch2_down</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch2-up" title="gok_scanner_on_switch2_up ()">gok_scanner_on_switch2_up</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch3-down" title="gok_scanner_on_switch3_down ()">gok_scanner_on_switch3_down</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch3-up" title="gok_scanner_on_switch3_up ()">gok_scanner_on_switch3_up</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch4-down" title="gok_scanner_on_switch4_down ()">gok_scanner_on_switch4_down</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch4-up" title="gok_scanner_on_switch4_up ()">gok_scanner_on_switch4_up</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch5-down" title="gok_scanner_on_switch5_down ()">gok_scanner_on_switch5_down</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-scanner.html#gok-scanner-on-switch5-up" title="gok_scanner_on_switch5_up ()">gok_scanner_on_switch5_up</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gok-gok-scanner.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gok-gok-scanner.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CallIds"></a><h3>enum CallIds</h3>
+<pre class="programlisting">typedef enum {
+CALL_CHUNKER_RESET,
+CALL_CHUNKER_CHUNK_NONE,
+CALL_CHUNKER_CHUNK_KEYS,
+CALL_CHUNKER_CHUNK_ROWS,
+CALL_CHUNKER_CHUNK_COLUMNS,
+CALL_CHUNKER_NEXT_CHUNK,
+CALL_CHUNKER_PREVIOUS_CHUNK,
+CALL_CHUNKER_NEXT_KEY,
+CALL_CHUNKER_PREVIOUS_KEY,
+CALL_CHUNKER_KEY_UP,
+CALL_CHUNKER_KEY_DOWN,
+CALL_CHUNKER_KEY_LEFT,
+CALL_CHUNKER_KEY_RIGHT,
+CALL_CHUNKER_KEY_HIGHLIGHT,
+CALL_CHUNKER_KEY_UNHIGHLIGHT,
+CALL_CHUNKER_WRAP_TOFIRST_CHUNK,
+CALL_CHUNKER_WRAP_TOLAST_CHUNK,
+CALL_CHUNKER_WRAP_TOFIRST_KEY,
+CALL_CHUNKER_WRAP_TOLAST_KEY,
+CALL_CHUNKER_WRAP_TOBOTTOM,
+CALL_CHUNKER_WRAP_TOTOP,
+CALL_CHUNKER_WRAP_TOLEFT,
+CALL_CHUNKER_WRAP_TORIGHT,
+CALL_CHUNKER_MOVE_LEFTRIGHT,
+CALL_CHUNKER_MOVE_TOPBOTTOM,
+CALL_CHUNKER_IF_NEXT_CHUNK,
+CALL_CHUNKER_IF_PREVIOUS_CHUNK,
+CALL_CHUNKER_IF_NEXT_KEY,
+CALL_CHUNKER_IF_PREVIOUS_KEY,
+CALL_CHUNKER_IF_TOP,
+CALL_CHUNKER_IF_BOTTOM,
+CALL_CHUNKER_IF_LEFT,
+CALL_CHUNKER_IF_RIGHT,
+CALL_CHUNKER_IF_KEY_SELECTED,
+CALL_CHUNKER_HIGHLIGHT_CENTER,
+CALL_CHUNKER_HIGHLIGHT_FIRST_CHUNK,
+CALL_CHUNKER_HIGHLIGHT_FIRST_KEY,
+CALL_CHUNKER_SELECT_CHUNK,
+CALL_CHUNKER_HIGHLIGHT_CHUNK,
+CALL_CHUNKER_UNHIGHLIGHT_ALL,
+
+
+CALL_SCANNER_REPEAT_ON,
+/* CALL_SCANNER_REPEAT_OFF,  use CALL_STATE_RESTART */
+
+CALL_TIMER1_SET,
+CALL_TIMER1_STOP,
+CALL_TIMER2_SET,
+CALL_TIMER2_STOP,
+CALL_TIMER3_SET,
+CALL_TIMER3_STOP,
+CALL_TIMER4_SET,
+CALL_TIMER4_STOP,
+CALL_TIMER5_SET,
+CALL_TIMER5_STOP,
+
+CALL_COUNTER_SET,
+CALL_COUNTER_INCREMENT,
+CALL_COUNTER_DECREMENT,
+CALL_COUNTER_GET,
+
+CALL_STATE_RESTART,
+CALL_STATE_NEXT,
+CALL_STATE_JUMP,
+
+CALL_OUTPUT_SELECTEDKEY,
+CALL_SET_SELECTEDKEY,
+
+CALL_FEEDBACK,
+
+CALL_GET_RATE
+} CallIds;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="RateType"></a><h3>enum RateType</h3>
+<pre class="programlisting">typedef enum {
+RATE_TYPE_UNDEFINED,
+RATE_TYPE_EFFECT
+} RateType;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="MAX-DESCRIPTION-TEXT:CAPS"></a><h3>MAX_DESCRIPTION_TEXT</h3>
+<pre class="programlisting">#define MAX_DESCRIPTION_TEXT 200
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="MAX-RATE-NAME:CAPS"></a><h3>MAX_RATE_NAME</h3>
+<pre class="programlisting">#define MAX_RATE_NAME 20
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="MAX-DISPLAY-RATE-NAME:CAPS"></a><h3>MAX_DISPLAY_RATE_NAME</h3>
+<pre class="programlisting">#define MAX_DISPLAY_RATE_NAME 30
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-NO:CAPS"></a><h3>COMPARE_NO</h3>
+<pre class="programlisting">#define COMPARE_NO 0
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-EQUAL:CAPS"></a><h3>COMPARE_EQUAL</h3>
+<pre class="programlisting">#define COMPARE_EQUAL 1
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-LESSTHAN:CAPS"></a><h3>COMPARE_LESSTHAN</h3>
+<pre class="programlisting">#define COMPARE_LESSTHAN 2
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-GREATERTHAN:CAPS"></a><h3>COMPARE_GREATERTHAN</h3>
+<pre class="programlisting">#define COMPARE_GREATERTHAN 3
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-EQUALORLESSTHAN:CAPS"></a><h3>COMPARE_EQUALORLESSTHAN</h3>
+<pre class="programlisting">#define COMPARE_EQUALORLESSTHAN 4
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="COMPARE-EQUALORGREATERTHAN:CAPS"></a><h3>COMPARE_EQUALORGREATERTHAN</h3>
+<pre class="programlisting">#define COMPARE_EQUALORGREATERTHAN 5
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-initialize"></a><h3>gok_scanner_initialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_initialize              (<em class="parameter"><code>const <span class="type">gchar</span> *directory</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *accessmethod</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *selectaction</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *scanaction</code></em>);</pre>
+<p>
+Reads all the access methods from the given directory
+and gets them ready to go.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>directory</code></em> :</span></p></td>
+<td>The name of the directory to read the access method files from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>accessmethod</code></em> :</span></p></td>
+<td>If non-NULL, overrides access method name in gconf configuration data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>selectaction</code></em> :</span></p></td>
+<td>If non-NULL, overrides action associated with 'select' for 
+               the current access method in gconf configuration data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scanaction</code></em> :</span></p></td>
+<td>If non-NULL, overrides access method associated with 'select' for 
+               the current access method in gconf configuration data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the access methods were initialized, FALSE if not. Don't use the 
+access methods if this fails.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-close"></a><h3>gok_scanner_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_close                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Stops the current access method and frees any memory allocated for the
+access methods. This must be called at the end of the program.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-stop"></a><h3>gok_scanner_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_stop                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Stops the current access method.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-start"></a><h3>gok_scanner_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_start                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Starts the current access method.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-change-method"></a><h3>gok_scanner_change_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_change_method           (<em class="parameter"><code><span class="type">gchar</span> *NameAccessMethod</code></em>);</pre>
+<p>
+Changes the type of access method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>NameAccessMethod</code></em> :</span></p></td>
+<td>Name of the desired access method.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the access method was changed, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-create-access-method"></a><h3>gok_scanner_create_access_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokAccessMethod</span> *   gok_scanner_create_access_method    (<em class="parameter"><code><span class="type">gchar</span> *Name</code></em>);</pre>
+<p>
+Creates a new access method structure and adds it to the list of access methods.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Name</code></em> :</span></p></td>
+<td>Name of the access method.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the new access method, NULL if if can't be created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-reset-access-method"></a><h3>gok_scanner_reset_access_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_reset_access_method     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Resets the current access method so it's ready for use.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-change-state"></a><h3>gok_scanner_change_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_change_state            (<em class="parameter"><code><span class="type">GokScannerState</span> *pState</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *NameAccessMethod</code></em>);</pre>
+<p>
+Maps event handlers to effects..
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pState</code></em> :</span></p></td>
+<td>Pointer to the new state.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>NameAccessMethod</code></em> :</span></p></td>
+<td>Name of the access method that contains the state.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-next-state"></a><h3>gok_scanner_next_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_next_state              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-set-handlers-null"></a><h3>gok_scanner_set_handlers_null ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_set_handlers_null       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Sets all the event handlers to NULL.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-access-method"></a><h3>gok_scanner_read_access_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_access_method      (<em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);</pre>
+<p>
+Read an access method file from disk and create a new access method.
+The new access method is added to the list of access methods.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Filename</code></em> :</span></p></td>
+<td>Name of the access method file.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the acces method was created, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-construct-state"></a><h3>gok_scanner_construct_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokScannerState</span> *   gok_scanner_construct_state         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new handler state.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the new state, NULL if it was not created.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-construct-rate"></a><h3>gok_scanner_construct_rate ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokAccessMethodRate</span> *  gok_scanner_construct_rate       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new access method rate.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the new rate, NULL if it was not created.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-construct-handler"></a><h3>gok_scanner_construct_handler ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokScannerHandler</span> *  gok_scanner_construct_handler      (<em class="parameter"><code><span class="type">gchar</span> *pHandlerName</code></em>);</pre>
+<p>
+Creates a new access method handler.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pHandlerName</code></em> :</span></p></td>
+<td>Name of the handler.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the new handler, NULL if it was not created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-rates"></a><h3>gok_scanner_read_rates ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_rates              (<em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);</pre>
+<p>
+Reads the rates for the given access method and add them to the list of rates
+stored on the access method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML node that contains the first rate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pAccessMethod</code></em> :</span></p></td>
+<td>Pointer to the access method that is associated with the rates.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the rates were read, FALSE if there were 1 or more errors  reading the rates.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-description"></a><h3>gok_scanner_read_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_description        (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);</pre>
+<p>
+Reads the description of the access method and stores it on the structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pDoc</code></em> :</span></p></td>
+<td>Pointer to the XML document that contains the node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML root node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pAccessMethod</code></em> :</span></p></td>
+<td>Pointer to the access method that is associated with the description.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the description was read, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-operation"></a><h3>gok_scanner_read_operation ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_operation          (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);</pre>
+<p>
+Reads the UI 'operation' of the access method and stores it on the structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pDoc</code></em> :</span></p></td>
+<td>Pointer to the XML document that contains the node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML root node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pAccessMethod</code></em> :</span></p></td>
+<td>Pointer to the access method that is associated with the operation.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the operation was read, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-ui-loop"></a><h3>gok_scanner_read_ui_loop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_read_ui_loop            (<em class="parameter"><code><span class="type">GokControl</span> *pControl</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>);</pre>
+<p>
+Reads the UI 'operation' of the access method and stores it on the structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pControl</code></em> :</span></p></td>
+<td>Pointer to the parent control that will contain any new controls
+found in the node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML root node.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-feedback"></a><h3>gok_scanner_read_feedback ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_feedback           (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);</pre>
+<p>
+Reads the UI 'feedback' of the access method and stores it on the structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pDoc</code></em> :</span></p></td>
+<td>Pointer to the XML doc that contains the feedbacks.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML root node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pAccessMethod</code></em> :</span></p></td>
+<td>Pointer to the access method that is associated with the feedback.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the feedback was read, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-read-options"></a><h3>gok_scanner_read_options ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_read_options            (<em class="parameter"><code><span class="type">xmlDoc</span> *pDoc</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNode</span> *pNode</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokAccessMethod</span> *pAccessMethod</code></em>);</pre>
+<p>
+Reads the UI 'options' of the access method and stores it on the structure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pDoc</code></em> :</span></p></td>
+<td>Pointer to the XML document that contains the node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pNode</code></em> :</span></p></td>
+<td>Pointer to the XML root node.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pAccessMethod</code></em> :</span></p></td>
+<td>Pointer to the access method that is associated with the options.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the options were read, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-update-rates"></a><h3>gok_scanner_update_rates ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_update_rates            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Updates all the rates in all access methods from the GokData.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-get-current-access-method"></a><h3>gok_scanner_get_current_access_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokAccessMethod</span> *   gok_scanner_get_current_access_method
+                                                        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Accessor function to get the current access method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the current access method.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-get-first-access-method"></a><h3>gok_scanner_get_first_access_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokAccessMethod</span> *   gok_scanner_get_first_access_method (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-get-current-state"></a><h3>gok_scanner_get_current_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokScannerState</span> *   gok_scanner_get_current_state       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Accessor function to get the current handler state.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the current handler state.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-get-pointer-location"></a><h3>gok_scanner_get_pointer_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_get_pointer_location    (<em class="parameter"><code><span class="type">gint</span> *pX</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *pY</code></em>);</pre>
+<p>
+Gets the current location of the mouse pointer.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pX</code></em> :</span></p></td>
+<td>Pointer to the integer that receives the mouse pointer X coordinate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pY</code></em> :</span></p></td>
+<td>Pointer to the integer that receives the mouse pointer Y coordinate.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-set"></a><h3>gok_scanner_timer_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_scanner_timer_set               (<em class="parameter"><code><span class="type">gint</span> Rate</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> ID</code></em>);</pre>
+<p>
+Starts a timer.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Rate</code></em> :</span></p></td>
+<td>Time in 100s of a second.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ID</code></em> :</span></p></td>
+<td>Timer identifier
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Always 0.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-stop"></a><h3>gok_scanner_timer_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_scanner_timer_stop              (<em class="parameter"><code><span class="type">gint</span> TimerId</code></em>);</pre>
+<p>
+Stops a timer.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>TimerId</code></em> :</span></p></td>
+<td>Id of the timer that will be stopped.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Always 0.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-make-type-from-string"></a><h3>gok_scanner_make_type_from_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_scanner_make_type_from_string   (<em class="parameter"><code><span class="type">gchar</span> *pString</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pString</code></em> :</span></p></td>
+<td>Pointer to the string that describes one or more effect types.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An int that describes all the effect types in the string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-set-dwell-rate"></a><h3>gok_scanner_timer_set_dwell_rate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_timer_set_dwell_rate    (<em class="parameter"><code><span class="type">gint</span> rate</code></em>);</pre>
+<p>
+Sets the dwell rate.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>rate</code></em> :</span></p></td>
+<td>Dwell rate in 100s of a second.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-start-dwell"></a><h3>gok_scanner_timer_start_dwell ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_timer_start_dwell       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Starts the dwell timer.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-stop-dwell"></a><h3>gok_scanner_timer_stop_dwell ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_timer_stop_dwell        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Stops the dwell timer
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-timer-on-dwell"></a><h3>gok_scanner_timer_on_dwell ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_timer_on_dwell          (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+This will be called when the dwell timer counts down.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Passed from the event. Ignored.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Always FALSE.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-left-button-down"></a><h3>gok_scanner_left_button_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_left_button_down        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the left mouse button down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-left-button-up"></a><h3>gok_scanner_left_button_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_left_button_up          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the left mouse button up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-right-button-down"></a><h3>gok_scanner_right_button_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_right_button_down       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the right mouse button down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-right-button-up"></a><h3>gok_scanner_right_button_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_right_button_up         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the right mouse button up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-middle-button-down"></a><h3>gok_scanner_middle_button_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_middle_button_down      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the middle mouse button down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-middle-button-up"></a><h3>gok_scanner_middle_button_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_middle_button_up        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the mouse middle button up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-mouse-movement"></a><h3>gok_scanner_mouse_movement ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_mouse_movement          (<em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>);</pre>
+<p>
+Handler for the mouse movement event. Stores the location of the mouse pointer.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>Horizontal location of the mouse pointer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>Vertical location of the mouse pointer.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-timer1"></a><h3>gok_scanner_on_timer1 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_on_timer1               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Handler for the timer1 event (timer 1 has counted down).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Pointer to the user data associated with the timer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE always. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-timer2"></a><h3>gok_scanner_on_timer2 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_on_timer2               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Handler for the timer2 event (timer 2 has counted down).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Pointer to the user data associated with the timer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE always. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-timer3"></a><h3>gok_scanner_on_timer3 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_on_timer3               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Handler for the timer3 event (timer 3 has counted down).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Pointer to the user data associated with the timer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE always. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-timer4"></a><h3>gok_scanner_on_timer4 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_on_timer4               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Handler for the timer4 event (timer 4 has counted down).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Pointer to the user data associated with the timer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE always. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-timer5"></a><h3>gok_scanner_on_timer5 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_scanner_on_timer5               (<em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Handler for the timer5 event (timer 5 has counted down).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Pointer to the user data associated with the timer.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> FALSE always. 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-key-enter"></a><h3>gok_scanner_on_key_enter ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_key_enter            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Handler for the key enter notify.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that the mouse pointer has entered.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-key-leave"></a><h3>gok_scanner_on_key_leave ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_key_leave            (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Handler for the key leave notify.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that the mouse pointer has left.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch1-down"></a><h3>gok_scanner_on_switch1_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch1_down         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 1 down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch1-up"></a><h3>gok_scanner_on_switch1_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch1_up           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 1 up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch2-down"></a><h3>gok_scanner_on_switch2_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch2_down         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 2 down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch2-up"></a><h3>gok_scanner_on_switch2_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch2_up           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 2 up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch3-down"></a><h3>gok_scanner_on_switch3_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch3_down         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 3 down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch3-up"></a><h3>gok_scanner_on_switch3_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch3_up           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 3 up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch4-down"></a><h3>gok_scanner_on_switch4_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch4_down         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 4 down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch4-up"></a><h3>gok_scanner_on_switch4_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch4_up           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 4 up event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch5-down"></a><h3>gok_scanner_on_switch5_down ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch5_down         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 5 down event.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-scanner-on-switch5-up"></a><h3>gok_scanner_on_switch5_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_scanner_on_switch5_up           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Handler for the switch 5 up event.
+</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gok-gok-scanner.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

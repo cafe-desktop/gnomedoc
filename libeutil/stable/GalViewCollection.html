@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GalViewCollection</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch13.html" rel="up" title="View Management"></link><link href="GalViewInstance.html" rel="prev" title="GalViewInstance"></link><link href="GalViewEtable.html" rel="next" title="GalViewEtable"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GalViewCollection.html#container">Go to page content</a></li><li><a href="GalViewCollection.html#top_bar">Go to main menu</a></li><li><a href="GalViewCollection.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="GalViewInstance.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch13.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="GalViewEtable.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="GalViewCollection.html#GalViewCollection.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="GalViewCollection.html#GalViewCollection.description">Description</a>
+                   | 
+                  <a class="shortcut" href="GalViewCollection.html#GalViewCollection.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="GalViewCollection.html#GalViewCollection.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="GalViewCollection"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GalViewCollection.top_of_page"></a>GalViewCollection</span></h2>
+<p>GalViewCollection</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="GalViewCollection.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GalViewCollection.html#GalViewCollectionItem" title="struct GalViewCollectionItem">GalViewCollectionItem</a>;
+struct              <a class="link" href="GalViewCollection.html#GalViewCollection-struct" title="struct GalViewCollection">GalViewCollection</a>;
+<a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="returnvalue">GalViewCollection</span></a> * <a class="link" href="GalViewCollection.html#gal-view-collection-new" title="gal_view_collection_new ()">gal_view_collection_new</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-set-title" title="gal_view_collection_set_title ()">gal_view_collection_set_title</a>       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-set-storage-directories" title="gal_view_collection_set_storage_directories ()">gal_view_collection_set_storage_directories</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *system_dir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *local_dir</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-add-factory" title="gal_view_collection_add_factory ()">gal_view_collection_add_factory</a>     (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalViewFactory.html" title="GalViewFactory"><span class="type">GalViewFactory</span></a> *factory</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-display-view" title="gal_view_collection_display_view ()">gal_view_collection_display_view</a>    (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-get-count" title="gal_view_collection_get_count ()">gal_view_collection_get_count</a>       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);
+<a class="link" href="GalView.html" title="GalView"><span class="returnvalue">GalView</span></a> *           <a class="link" href="GalViewCollection.html#gal-view-collection-get-view" title="gal_view_collection_get_view ()">gal_view_collection_get_view</a>        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);
+<a class="link" href="GalViewCollection.html#GalViewCollectionItem" title="struct GalViewCollectionItem"><span class="returnvalue">GalViewCollectionItem</span></a> * <a class="link" href="GalViewCollection.html#gal-view-collection-get-view-item" title="gal_view_collection_get_view_item ()">gal_view_collection_get_view_item</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-get-view-index-by-id" title="gal_view_collection_get_view_index_by_id ()">gal_view_collection_get_view_index_by_id</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view_id</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="GalViewCollection.html#gal-view-collection-get-view-id-by-index" title="gal_view_collection_get_view_id_by_index ()">gal_view_collection_get_view_id_by_index</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-append" title="gal_view_collection_append ()">gal_view_collection_append</a>          (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-delete-view" title="gal_view_collection_delete_view ()">gal_view_collection_delete_view</a>     (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-copy-view" title="gal_view_collection_copy_view ()">gal_view_collection_copy_view</a>       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-load" title="gal_view_collection_load ()">gal_view_collection_load</a>            (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-save" title="gal_view_collection_save ()">gal_view_collection_save</a>            (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="GalViewCollection.html#gal-view-collection-loaded" title="gal_view_collection_loaded ()">gal_view_collection_loaded</a>          (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);
+<a class="link" href="GalView.html" title="GalView"><span class="returnvalue">GalView</span></a> *           <a class="link" href="GalViewCollection.html#gal-view-collection-load-view-from-file" title="gal_view_collection_load_view_from_file ()">gal_view_collection_load_view_from_file</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="GalViewCollection.html#gal-view-collection-append-with-title" title="gal_view_collection_append_with_title ()">gal_view_collection_append_with_title</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="GalViewCollection.html#gal-view-collection-set-nth-view" title="gal_view_collection_set_nth_view ()">gal_view_collection_set_nth_view</a>    (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="GalViewCollection.html#gal-view-collection-get-default-view" title="gal_view_collection_get_default_view ()">gal_view_collection_get_default_view</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GalViewCollection.html#gal-view-collection-set-default-view" title="gal_view_collection_set_default_view ()">gal_view_collection_set_default_view</a>
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GalViewCollection.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----GalViewCollection
+</pre>
+</div>
+<div class="refsect1">
+<a name="GalViewCollection.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="GalViewCollection.html#GalViewCollection-changed" title='The "changed" signal'>changed</a>"                                        : <code class="literal">Run Last</code>
+  "<a class="link" href="GalViewCollection.html#GalViewCollection-display-view" title='The "display-view" signal'>display-view</a>"                                   : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GalViewCollection.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="GalViewCollection.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GalViewCollectionItem"></a><h3>struct GalViewCollectionItem</h3>
+<pre class="programlisting">struct GalViewCollectionItem {
+	GalView *view;
+	gchar *id;
+	guint changed : 1;
+	guint ever_changed : 1;
+	guint built_in : 1;
+	gchar *filename;
+	gchar *title;
+	gchar *type;
+	GalViewCollection *collection;
+	guint view_changed_id;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GalViewCollection-struct"></a><h3>struct GalViewCollection</h3>
+<pre class="programlisting">struct GalViewCollection;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-new"></a><h3>gal_view_collection_new ()</h3>
+<pre class="programlisting"><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="returnvalue">GalViewCollection</span></a> * gal_view_collection_new             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+A collection of views and view factories.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-set-title"></a><h3>gal_view_collection_set_title ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_set_title       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-set-storage-directories"></a><h3>gal_view_collection_set_storage_directories ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_set_storage_directories
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *system_dir</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *local_dir</code></em>);</pre>
+<p>
+Sets up the GalViewCollection.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to initialize</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>system_dir</code></em> :</span></p></td>
+<td>The location of the system built in views</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>local_dir</code></em> :</span></p></td>
+<td>The location to store the users set up views</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-add-factory"></a><h3>gal_view_collection_add_factory ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_add_factory     (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalViewFactory.html" title="GalViewFactory"><span class="type">GalViewFactory</span></a> *factory</code></em>);</pre>
+<p>
+Adds the given factory to this collection.  This list is used both
+when loading views from their xml description as well as when the
+user tries to create a new view.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to add a factory to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>factory</code></em> :</span></p></td>
+<td>The factory to add.  The <em class="parameter"><code>collection</code></em> will add a reference
+to the factory object, so you should unref it after calling this
+function if you no longer need it.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-display-view"></a><h3>gal_view_collection_display_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_display_view    (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The GalViewCollection to send the signal on.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>The view to display.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-count"></a><h3>gal_view_collection_get_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gal_view_collection_get_count       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);</pre>
+<p>
+Calculates the number of views in the given collection.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to count</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The number of views in the collection.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-view"></a><h3>gal_view_collection_get_view ()</h3>
+<pre class="programlisting"><a class="link" href="GalView.html" title="GalView"><span class="returnvalue">GalView</span></a> *           gal_view_collection_get_view        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to query</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>The view to get.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The nth view in the collection</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-view-item"></a><h3>gal_view_collection_get_view_item ()</h3>
+<pre class="programlisting"><a class="link" href="GalViewCollection.html#GalViewCollectionItem" title="struct GalViewCollectionItem"><span class="returnvalue">GalViewCollectionItem</span></a> * gal_view_collection_get_view_item
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to query</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n</code></em> :</span></p></td>
+<td>The view item to get.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The nth view item in the collection</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-view-index-by-id"></a><h3>gal_view_collection_get_view_index_by_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gal_view_collection_get_view_index_by_id
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view_id</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-view-id-by-index"></a><h3>gal_view_collection_get_view_id_by_index ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             gal_view_collection_get_view_id_by_index
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-append"></a><h3>gal_view_collection_append ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_append          (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-delete-view"></a><h3>gal_view_collection_delete_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_delete_view     (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-copy-view"></a><h3>gal_view_collection_copy_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_copy_view       (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-load"></a><h3>gal_view_collection_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_load            (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);</pre>
+<p>
+Loads the data from the system and user directories specified in
+set storage directories.  This is primarily for internal use by
+other parts of gal_view.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to load information for</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-save"></a><h3>gal_view_collection_save ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_save            (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);</pre>
+<p>
+Saves the data to the user directory specified in set storage
+directories.  This is primarily for internal use by other parts of
+gal_view.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>collection</code></em> :</span></p></td>
+<td>The view collection to save information for</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-loaded"></a><h3>gal_view_collection_loaded ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gal_view_collection_loaded          (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-load-view-from-file"></a><h3>gal_view_collection_load_view_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="GalView.html" title="GalView"><span class="returnvalue">GalView</span></a> *           gal_view_collection_load_view_from_file
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *type</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-append-with-title"></a><h3>gal_view_collection_append_with_title ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       gal_view_collection_append_with_title
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-set-nth-view"></a><h3>gal_view_collection_set_nth_view ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       gal_view_collection_set_nth_view    (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> i</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a> *view</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-get-default-view"></a><h3>gal_view_collection_get_default_view ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       gal_view_collection_get_default_view
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gal-view-collection-set-default-view"></a><h3>gal_view_collection_set_default_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gal_view_collection_set_default_view
+                                                        (<em class="parameter"><code><a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *collection</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="GalViewCollection.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GalViewCollection-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *galviewcollection,
+                                                        <span class="type">gpointer</span>           user_data)              : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GalViewCollection-display-view"></a><h3>The <code class="literal">"display-view"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GalViewCollection.html" title="GalViewCollection"><span class="type">GalViewCollection</span></a> *galviewcollection,
+                                                        <a class="link" href="GalView.html" title="GalView"><span class="type">GalView</span></a>           *arg1,
+                                                        <span class="type">gpointer</span>           user_data)              : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GalViewCollection.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GtdNotification: GNOME To Do - Reference Manual</title><link href="index.html" rel="home" title="GNOME To Do - Reference Manual"></link><link href="ch01.html" rel="up" title="Objects"></link><link href="GtdManager.html" rel="prev" title="GtdManager"></link><link href="GtdObject.html" rel="next" title="GtdObject"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GtdNotification.html#container">Go to page content</a></li><li><a href="GtdNotification.html#top_bar">Go to main menu</a></li><li><a href="GtdNotification.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GtdNotification.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdNotification.html#GtdNotification.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdNotification.html#GtdNotification.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdNotification.html#GtdNotification.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtdNotification.html#GtdNotification.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GtdManager.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GtdObject.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GtdNotification"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtdNotification.top_of_page"></a>GtdNotification</span></h2>
+<p>GtdNotification — a notification with actions</p>
+</td>
+<td align="right" class="gallery_image" valign="top"><img src="notification.png"></img></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GtdNotification.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to develop applications to these interfaces, release them, and have confidence that they will run on all minor releases of the product (after the one in which the interface was introduced, and within the same major release). Even at a major release, incompatible changes are expected to be rare, and to have strong justifications. "><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GtdNotification.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GtdNotification.html#GtdNotificationActionFunc" title="GtdNotificationActionFunc ()">*GtdNotificationActionFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GtdNotification.html" title="GtdNotification"><span class="returnvalue">GtdNotification</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-new" title="gtd_notification_new ()">gtd_notification_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-execute-primary-action" title="gtd_notification_execute_primary_action ()">gtd_notification_execute_primary_action</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-execute-secondary-action" title="gtd_notification_execute_secondary_action ()">gtd_notification_execute_secondary_action</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-start" title="gtd_notification_start ()">gtd_notification_start</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-stop" title="gtd_notification_stop ()">gtd_notification_stop</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-set-primary-action" title="gtd_notification_set_primary_action ()">gtd_notification_set_primary_action</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-set-secondary-action" title="gtd_notification_set_secondary_action ()">gtd_notification_set_secondary_action</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-get-text" title="gtd_notification_get_text ()">gtd_notification_get_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-set-text" title="gtd_notification_set_text ()">gtd_notification_set_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-get-timeout" title="gtd_notification_get_timeout ()">gtd_notification_get_timeout</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GtdNotification.html#gtd-notification-set-timeout" title="gtd_notification_set_timeout ()">gtd_notification_set_timeout</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtdNotification.html#GtdNotification--has-primary-action" title="The “has-primary-action” property">has-primary-action</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></td>
+<td class="property_name"><a class="link" href="GtdNotification.html#GtdNotification--has-secondary-action" title="The “has-secondary-action” property">has-secondary-action</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<td class="property_name"><a class="link" href="GtdNotification.html#GtdNotification--secondary-action-name" title="The “secondary-action-name” property">secondary-action-name</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<td class="property_name"><a class="link" href="GtdNotification.html#GtdNotification--text" title="The “text” property">text</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a></td>
+<td class="property_name"><a class="link" href="GtdNotification.html#GtdNotification--timeout" title="The “timeout” property">timeout</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GtdNotification.html#GtdNotification-executed" title="The “executed” signal">executed</a></td>
+<td class="signal_flags"><a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GtdNotification.html#GTD-TYPE-NOTIFICATION:CAPS" title="GTD_TYPE_NOTIFICATION">GTD_TYPE_NOTIFICATION</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GtdNotification.html#GtdNotification-struct" title="GtdNotification">GtdNotification</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> <a class="link" href="GtdObject.html" title="GtdObject">GtdObject</a>
+        <span class="lineart">╰──</span> GtdNotification
+</pre>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.description"></a><h2>Description</h2>
+<p>The <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> represents a notification shown at the top of
+the window. The action can have a primary action that is called when
+the notification is gone.</p>
+<p>Optionally, the notification may have a secondary action (see <a class="link" href="GtdNotification.html#gtd-notification-set-secondary-action" title="gtd_notification_set_secondary_action ()"><code class="function">gtd_notification_set_secondary_action()</code></a>)
+shown as a button.</p>
+<p>The notification may also have a timeout, which is how long the notification
+is displayed. By default, the timeout is 7.5 seconds.</p>
+<p>Example:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GtdNotification</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">notification</span><span class="symbol">;</span>
+
+<span class="normal">notification </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="GtdNotification.html#gtd-notification-new">gtd_notification_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"Something happened!"</span><span class="symbol">,</span><span class="normal"> </span><span class="number">7500</span><span class="symbol">);</span>
+
+<span class="function"><a href="GtdNotification.html#gtd-notification-set-primary-action">gtd_notification_set_primary_action</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">notification</span><span class="symbol">,</span>
+<span class="normal">                                     called_when_notification_is_closed</span><span class="symbol">,</span>
+<span class="normal">                                     self</span><span class="symbol">);</span>
+
+<span class="function"><a href="GtdNotification.html#gtd-notification-set-secondary-action">gtd_notification_set_secondary_action</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">notification</span><span class="symbol">,</span>
+<span class="normal">                                       </span><span class="string">"Details"</span><span class="symbol">,</span>
+<span class="normal">                                       show_details</span><span class="symbol">,</span>
+<span class="normal">                                       self</span><span class="symbol">);</span>
+<span class="symbol">[...]</span>
+
+<span class="function">gtd_window_send_notification</span><span class="normal"> </span><span class="symbol">(</span><span class="normal">window</span><span class="symbol">,</span><span class="normal"> notification</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="GtdNotificationActionFunc"></a><h3>GtdNotificationActionFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*GtdNotificationActionFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>,
+                              <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>Will be called when the primary or secondary action of <em class="parameter"><code>notification</code></em>
+
+is executed.</p>
+<div class="refsect3">
+<a name="GtdNotificationActionFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> running the function</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p> user data. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-new"></a><h3>gtd_notification_new ()</h3>
+<pre class="programlisting"><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="returnvalue">GtdNotification</span></a> *
+gtd_notification_new (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                      <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> timeout</code></em>);</pre>
+<p>Creates a new notification with <em class="parameter"><code>text</code></em>
+ and <em class="parameter"><code>timeout</code></em>
+. If <em class="parameter"><code>timeout</code></em>
+ is
+0, the notification is indefinitely displayed.</p>
+<div class="refsect3">
+<a name="gtd-notification-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p> text of the notification. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>timeout</p></td>
+<td class="parameter_description"><p>time for the notification to stay visible</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-notification-new.returns"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-execute-primary-action"></a><h3>gtd_notification_execute_primary_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_execute_primary_action
+                               (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Executes the primary action of <em class="parameter"><code>notification</code></em>
+ if set.</p>
+<div class="refsect3">
+<a name="gtd-notification-execute-primary-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-execute-secondary-action"></a><h3>gtd_notification_execute_secondary_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_execute_secondary_action
+                               (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Executes the secondary action of <em class="parameter"><code>notification</code></em>
+ if any.</p>
+<div class="refsect3">
+<a name="gtd-notification-execute-secondary-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-start"></a><h3>gtd_notification_start ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_start (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Starts the timeout of notification. Use <a class="link" href="GtdNotification.html#gtd-notification-stop" title="gtd_notification_stop ()"><code class="function">gtd_notification_stop()</code></a>
+to stop it.</p>
+<div class="refsect3">
+<a name="gtd-notification-start.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-stop"></a><h3>gtd_notification_stop ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_stop (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Stops the timeout of notification. Use <a class="link" href="GtdNotification.html#gtd-notification-start" title="gtd_notification_start ()"><code class="function">gtd_notification_start()</code></a>
+to start it.</p>
+<div class="refsect3">
+<a name="gtd-notification-stop.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-set-primary-action"></a><h3>gtd_notification_set_primary_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_set_primary_action (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>,
+                                     <em class="parameter"><code><a class="link" href="GtdNotification.html#GtdNotificationActionFunc" title="GtdNotificationActionFunc ()"><span class="type">GtdNotificationActionFunc</span></a> func</code></em>,
+                                     <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>Sets the primary action of <em class="parameter"><code>notification</code></em>
+, which is triggered
+on dismiss or timeout.</p>
+<div class="refsect3">
+<a name="gtd-notification-set-primary-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p> the primary action function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym> user_data][<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>data passed to <em class="parameter"><code>func</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-set-secondary-action"></a><h3>gtd_notification_set_secondary_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_set_secondary_action (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>,
+                                       <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *name</code></em>,
+                                       <em class="parameter"><code><a class="link" href="GtdNotification.html#GtdNotificationActionFunc" title="GtdNotificationActionFunc ()"><span class="type">GtdNotificationActionFunc</span></a> func</code></em>,
+                                       <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>Sets the secondary action of <em class="parameter"><code>notification</code></em>
+, which is triggered
+only on user explicit input.</p>
+<div class="refsect3">
+<a name="gtd-notification-set-secondary-action.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>the name of the secondary action</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p> the secondary action function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym> user_data][<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>data passed to <em class="parameter"><code>func</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-get-text"></a><h3>gtd_notification_get_text ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gtd_notification_get_text (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Gets the text of <em class="parameter"><code>notification</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-notification-get-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtd-notification-get-text.returns"></a><h4>Returns</h4>
+<p> the text of <em class="parameter"><code>notification</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-set-text"></a><h3>gtd_notification_set_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_set_text (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>,
+                           <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>);</pre>
+<p>Sets the text of <em class="parameter"><code>notification</code></em>
+ to <em class="parameter"><code>text</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-notification-set-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p>the user-visible text of <em class="parameter"><code>notification</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-get-timeout"></a><h3>gtd_notification_get_timeout ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="returnvalue">gdouble</span></a>
+gtd_notification_get_timeout (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>);</pre>
+<p>Retrieves the timeout of <em class="parameter"><code>notification</code></em>
+.</p>
+<div class="refsect3">
+<a name="gtd-notification-get-timeout.returns"></a><h4>Returns</h4>
+<p> the timeout of <em class="parameter"><code>notification</code></em>
+.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtd-notification-set-timeout"></a><h3>gtd_notification_set_timeout ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtd_notification_set_timeout (<em class="parameter"><code><a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *notification</code></em>,
+                              <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> timeout</code></em>);</pre>
+<p>Sets the timeout of <em class="parameter"><code>notification</code></em>
+ to <em class="parameter"><code>timeout</code></em>
+. Set it to <code class="literal">0</code> to disable
+the timeout.</p>
+<div class="refsect3">
+<a name="gtd-notification-set-timeout.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>notification</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>timeout</p></td>
+<td class="parameter_description"><p>the time to wait before running <em class="parameter"><code>notification</code></em>
+, in miliseconds</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GTD-TYPE-NOTIFICATION:CAPS"></a><h3>GTD_TYPE_NOTIFICATION</h3>
+<pre class="programlisting">#define GTD_TYPE_NOTIFICATION (gtd_notification_get_type())
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdNotification-struct"></a><h3>GtdNotification</h3>
+<pre class="programlisting">typedef struct _GtdNotification GtdNotification;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GtdNotification--has-primary-action"></a><h3>The <code class="literal">“has-primary-action”</code> property</h3>
+<pre class="programlisting">  “has-primary-action”       <a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether the notification has the primary action, activated on timeout or dismiss.</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdNotification--has-secondary-action"></a><h3>The <code class="literal">“has-secondary-action”</code> property</h3>
+<pre class="programlisting">  “has-secondary-action”     <a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a></pre>
+<p>Whether the notification has the secondary action, activated by the user.</p>
+<p>Flags: Read</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdNotification--secondary-action-name"></a><h3>The <code class="literal">“secondary-action-name”</code> property</h3>
+<pre class="programlisting">  “secondary-action-name”    <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<p>The text of the secondary action button.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: ""</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdNotification--text"></a><h3>The <code class="literal">“text”</code> property</h3>
+<pre class="programlisting">  “text”                     <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<p>The main message of the notification.</p>
+<p>Flags: Read / Write</p>
+<p>Default value: ""</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtdNotification--timeout"></a><h3>The <code class="literal">“timeout”</code> property</h3>
+<pre class="programlisting">  “timeout”                  <a href="../../glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a></pre>
+<p>The time the notification is displayed.</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: [0,30000]</p>
+<p>Default value: 7500</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtdNotification.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GtdNotification-executed"></a><h3>The <code class="literal">“executed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> *arg0,
+               <a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>         user_data)</pre>
+<p>The ::executed signal is emmited after the primary or secondary
+<a class="link" href="GtdNotification.html" title="GtdNotification"><span class="type">GtdNotification</span></a> action is executed.</p>
+<div class="refsect3">
+<a name="GtdNotification-executed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GtdNotification.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

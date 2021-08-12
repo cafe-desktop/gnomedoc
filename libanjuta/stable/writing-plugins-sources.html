@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Anjuta Developers Reference Manual: Hello world advanced plugin</title><link href="index.html" rel="home" title="Anjuta Developers Reference Manual"></link><link href="writing-plugins.html" rel="up" title="Writing plugins"></link><link href="writing-plugins-simple.html" rel="prev" title="Hello world plugin"></link><link href="writing-plugins-build-setup.html" rel="next" title="Build setup"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="writing-plugins-sources.html#container">Go to page content</a></li><li><a href="writing-plugins-sources.html#top_bar">Go to main menu</a></li><li><a href="writing-plugins-sources.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="writing-plugins.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="writing-plugins-simple.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="writing-plugins-build-setup.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="writing-plugins-sources"></a>Hello world advanced plugin</h2></div></div></div>
+<p>
+			We begin by writing the header file hello-world.h. It is a
+			standard <span class="type">GObject</span>
+			class definition, minus
+			the standard macro definitions. You can define the macros if
+			you want, but for our hello-world plugin, we don't need it and
+			have been removed for simplicity. Notice that our HelloWorldPlugin
+			class is derived from abstract <gtkdoclink href="">
+			<span class="type">AnjutaPlugin</span></gtkdoclink>
+			class. All Anjuta plugins derive from this base class.
+
+			</p>
+<pre class="programlisting">#ifndef _HELLO_WORLD_PLUGIN_
+#define _HELLO_WORLD_PLUGIN_
+
+#include &lt;libanjuta/anjuta-plugin.h&gt;
+
+typedef struct {
+	AnjutaPlugin parent;
+	
+	/* Hello world widget */
+	GtkWidget *widget;
+	
+	/* Action group */
+	GObject* action_group;
+	
+	/* UI merge ID. Required to unmerge it later */
+	gint uiid;
+	
+} HelloWorldPlugin;
+
+typedef struct {
+	AnjutaPluginClass parent_class;
+} HelloWorldPluginClass;
+
+#endif
+			</pre>
+<p>
+		</p>
+<p>
+			Next implement our plugin in hello-world.c file. We
+			will be accessing a Document Manager plugin using
+			<a class="link" href="IAnjutaDocumentManager.html" title="IAnjutaDocumentManager"><span class="type">IAnjutaDocumentManager</span></a>
+			interface, because
+			all document manager plugins implement and expose this interface.
+			If you use other interfaces, you can include their respective
+			<a class="xref" href="plugin-interfaces.html" title="Plugin interfaces"><i>Plugin interfaces</i></a>. For our hello-world plugin
+			we begin by including following header files.
+			</p>
+<pre class="programlisting">/* Project configuration file */
+#include &lt;config.h&gt;
+
+/* Document manager interface */
+#include &lt;libanjuta/interfaces/ianjuta-document-manager.h&gt;
+
+/* plugin header file */
+#include "hello-world.h"
+
+/* Parent class. Part of standard class definition */
+static gpointer parent_class;
+			</pre>
+<p>
+		</p>
+<p>
+			We have one action in our plugin and here is the callback for that.
+			In this function, we are querying
+			<a class="link" href="AnjutaShell.html" title="AnjutaShell"><span class="type">AnjutaShell</span></a>
+			for a plugin implementing
+			<a class="link" href="IAnjutaDocumentManager.html" title="IAnjutaDocumentManager"><span class="type">IAnjutaDocumentManager</span></a>
+			interface and getting the current Editor. Editor is then checked
+			to see if it implements
+			<a class="link" href="IAnjutaFile.html" title="IAnjutaFile"><span class="type">IAnjutaFile</span></a>
+			interface,
+			using which we determine filename of currently active editor. If
+			the editor doesn't support
+			<a class="link" href="IAnjutaFile.html" title="IAnjutaFile"><span class="type">IAnjutaFile</span></a>
+			interface, we show an error dialog.
+			</p>
+<pre class="programlisting">static void
+on_hello_action_activate (GtkAction *action, HelloWorldPlugin *plugin)
+{
+	IAnjutaDocument *doc;
+	IAnjutaDocumentManager *docman;
+	GtkWindow *parent_win;
+	gchar *filename;
+	
+	/* We are using Anjuta widow as parent for displaying the dialog */
+	parent_win = GTK_WINDOW (ANJUTA_PLUGIN (plugin)-&gt;shell);
+	
+	/* Query for object implementing IAnjutaDocumentManager interface */
+	docman = anjuta_shell_get_interface (ANJUTA_PLUGIN (plugin)-&gt;shell,
+	                                     IAnjutaDocumentManager, NULL);
+	                                     
+	/* Get current document */
+	doc = ianjuta_document_manager_get_current_document (docman, NULL);
+	filename = ianjuta_document_get_filename (doc, NULL);
+		
+	/* Display the filename */
+	anjuta_util_dialog_info (parent_win,
+	                         "Current filename is: %s", filename);
+	g_free (filename);
+}
+			</pre>
+<p>
+		</p>
+<p>
+			We then define our action entry. This is required for registering
+			actions and UI merging. If your plugin doesn't have UI, they are
+			not required. We have only one action, so there is only one entry
+			defined. Read <a class="link" href="AnjutaUI.html" title="AnjutaUI"><span class="type">AnjutaUI</span></a>
+			and <span class="type">GtkUIManager</span>
+			for more details.
+			</p>
+<pre class="programlisting">static GtkActionEntry actions[] = {
+	{
+		"ActionFileHelloWorld",                   /* Action name */
+		GTK_STOCK_NEW,                            /* Stock icon, if any */
+		N_("_Hello world action"),                /* Display label */
+		NULL,                                     /* short-cut */
+		N_("This is hello world action"),         /* Tooltip */
+		G_CALLBACK (on_hello_action_activate)    /* action callback */
+	}
+};
+			</pre>
+<p>
+		</p>
+<p>
+			We then implement <span class="emphasis"><em>activate()</em></span> and <span class="emphasis"><em>
+			deactivate()</em></span> virtual methods of <a class="link" href="AnjutaPlugin.html" title="AnjutaPlugin">
+			<span class="type">AnjutaPlugin</span></a>
+			class. They are called when plugin is activated and deactivated
+			respectively. We put our UI merging, action registration and
+			widgets additions in activate() method and undo them in deactivate()
+			method.
+			</p>
+<pre class="programlisting">#define UI_FILE PACKAGE_DATA_DIR"/ui/anjuta-hello-world.ui"
+
+static void
+activate_plugin (AnjutaPlugin *plugin)
+{
+	GtkWidget *wid;
+	AnjutaUI *ui;
+	HelloWorldPlugin *hello_plugin;
+	GtkActionGroup* action_group;
+	
+	hello_plugin = (HelloWorldPlugin*) plugin;
+	ui = anjuta_shell_get_ui (plugin-&gt;shell, NULL);
+	
+	/* Create hello plugin widget */
+	wid = gtk_label_new ("Hello World Plugin!!");
+	hello_plugin-&gt;widget = wid;
+	
+	/* Add our actions */
+	action_group =
+	    anjuta_ui_add_action_group_entries (ui, "ActionGroupHello",
+	                                        _("Hello world"),
+	                                        actions,
+	                                        G_N_ELEMENTS (actions),
+	                                        plugin);
+	hello_plugin-&gt;action_group = action_group;
+	
+	/* Merge UI */
+	hello_plugin-&gt;uiid = anjuta_ui_merge (ui, UI_FILE);
+	
+	/* Add widget in Shell. Any number of widgets can be added */
+	anjuta_shell_add_widget (plugin-&gt;shell, wid,
+	                         "AnjutaHelloWorldPlugin",
+	                         _("HelloWorldPlugin"),
+	                         GTK_STOCK_ABOUT,
+	                         ANJUTA_SHELL_PLACEMENT_CENTER,
+	                         NULL);
+	
+	return TRUE; /* FALSE if activation failed */
+}
+
+static gboolean
+deactivate_plugin (AnjutaPlugin *plugin)
+{
+	AnjutaUI *ui;
+	HelloWorldPlugin *hello_plugin;
+	
+	hello_plugin = (HelloWorldPlugin*) plugin;
+	ui = anjuta_shell_get_ui (plugin-&gt;shell, NULL);
+	
+	/* Remove widgets from Shell */
+	anjuta_shell_remove_widget (plugin-&gt;shell,
+	                            hello_plugin-&gt;widget,
+	                            NULL);
+	/* Unmerge UI */
+	anjuta_ui_unmerge (ui, hello_plugin-&gt;uiid);
+	
+	/* Remove Action groups */
+	anjuta_ui_remove_action_group (ui, hello_plugin-&gt;action_group);
+	
+	/* FALSE if plugin doesn't want to deactivate */
+	return TRUE;
+}
+			</pre>
+<p>
+		</p>
+<p>
+			Followed by standard class definition. Notice that activate()
+			and deactivate() methods are overridden in class_init() function.
+			</p>
+<pre class="programlisting">static void
+hello_world_plugin_instance_init (GObject *obj)
+{
+	HelloWorldPlugin *plugin = (HelloWorldPlugin*) obj;
+	plugin-&gt;uiid = 0;
+	plugin-&gt;widget = NULL;
+	plugin-&gt;action_group = NULL;
+}
+
+static void
+hello_world_plugin_class_init (GObjectClass *klass) 
+{
+	AnjutaPluginClass *plugin_class = ANJUTA_PLUGIN_CLASS (klass);
+
+	parent_class = g_type_class_peek_parent (klass);
+
+	plugin_class-&gt;activate = activate_plugin;
+	plugin_class-&gt;deactivate = deactivate_plugin;
+}
+
+/* This line will change when we implement interfaces */
+ANJUTA_PLUGIN_BOILERPLATE (HelloWorldPlugin, hello_world_plugin);
+
+/* This sets up codes to register our plugin */
+ANJUTA_SIMPLE_PLUGIN (HelloWorldPlugin, hello_world_plugin);
+			</pre>
+<p>
+			That's it. We can now create the build structure to build it.
+		</p>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.21</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="writing-plugins-sources.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

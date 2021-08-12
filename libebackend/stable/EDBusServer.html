@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EDBusServer</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Backend Utilities (libebackend)"></link><link href="ch01.html" rel="up" title="Base Classes for Backends"></link><link href="EDataFactory.html" rel="prev" title="EDataFactory"></link><link href="EExtensible.html" rel="next" title="EExtensible"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EDBusServer.html#container">Go to page content</a></li><li><a href="EDBusServer.html#top_bar">Go to main menu</a></li><li><a href="EDBusServer.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="EDataFactory.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Backend Utilities (libebackend)</th>
+<td><a accesskey="n" href="EExtensible.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EDBusServer.html#EDBusServer.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EDBusServer.html#EDBusServer.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EDBusServer.html#EDBusServer.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EDBusServer.html#EDBusServer.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="EDBusServer.html#EDBusServer.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EDBusServer"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EDBusServer.top_of_page"></a>EDBusServer</span></h2>
+<p>EDBusServer — An abstract base class for a D-Bus server</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EDBusServer.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;libebackend/libebackend.h&gt;
+
+struct              <a class="link" href="EDBusServer.html#EDBusServer-struct" title="struct EDBusServer">EDBusServer</a>;
+enum                <a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode">EDBusServerExitCode</a>;
+<a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="returnvalue">EDBusServerExitCode</span></a> <a class="link" href="EDBusServer.html#e-dbus-server-run" title="e_dbus_server_run ()">e_dbus_server_run</a>                   (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> wait_for_client</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EDBusServer.html#e-dbus-server-quit" title="e_dbus_server_quit ()">e_dbus_server_quit</a>                  (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a> code</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EDBusServer.html#e-dbus-server-hold" title="e_dbus_server_hold ()">e_dbus_server_hold</a>                  (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EDBusServer.html#e-dbus-server-release" title="e_dbus_server_release ()">e_dbus_server_release</a>               (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EDBusServer.html#e-dbus-server-load-modules" title="e_dbus_server_load_modules ()">e_dbus_server_load_modules</a>          (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EDBusServer
+         +----<a class="link" href="EDataFactory.html" title="EDataFactory">EDataFactory</a>
+         +----<a class="link" href="EUserPrompterServer.html" title="EUserPrompterServer">EUserPrompterServer</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+EDBusServer implements
+ <a class="link" href="EExtensible.html" title="EExtensible">EExtensible</a>.</p>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="EDBusServer.html#EDBusServer-bus-acquired" title='The "bus-acquired" signal'>bus-acquired</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="EDBusServer.html#EDBusServer-bus-name-acquired" title='The "bus-name-acquired" signal'>bus-name-acquired</a>"                              : <code class="literal">Run Last</code>
+  "<a class="link" href="EDBusServer.html#EDBusServer-bus-name-lost" title='The "bus-name-lost" signal'>bus-name-lost</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="EDBusServer.html#EDBusServer-quit-server" title='The "quit-server" signal'>quit-server</a>"                                    : <code class="literal">Run Last</code>
+  "<a class="link" href="EDBusServer.html#EDBusServer-run-server" title='The "run-server" signal'>run-server</a>"                                     : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EDBusServer-struct"></a><h3>struct EDBusServer</h3>
+<pre class="programlisting">struct EDBusServer;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EDBusServerExitCode"></a><h3>enum EDBusServerExitCode</h3>
+<pre class="programlisting">typedef enum {
+	E_DBUS_SERVER_EXIT_NONE,
+	E_DBUS_SERVER_EXIT_NORMAL,
+	E_DBUS_SERVER_EXIT_RELOAD
+} EDBusServerExitCode;
+</pre>
+<p>
+Exit codes submitted to <a class="link" href="EDBusServer.html#e-dbus-server-quit" title="e_dbus_server_quit ()"><code class="function">e_dbus_server_quit()</code></a> and returned by
+<a class="link" href="EDBusServer.html#e-dbus-server-run" title="e_dbus_server_run ()"><code class="function">e_dbus_server_run()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><a name="E-DBUS-SERVER-EXIT-NONE:CAPS"></a><span class="term"><code class="literal">E_DBUS_SERVER_EXIT_NONE</code></span></p></td>
+<td>  The server's run state is unchanged.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-DBUS-SERVER-EXIT-NORMAL:CAPS"></a><span class="term"><code class="literal">E_DBUS_SERVER_EXIT_NORMAL</code></span></p></td>
+<td>  Normal termination.  The process itself may now terminate.
+</td>
+</tr>
+<tr>
+<td><p><a name="E-DBUS-SERVER-EXIT-RELOAD:CAPS"></a><span class="term"><code class="literal">E_DBUS_SERVER_EXIT_RELOAD</code></span></p></td>
+<td>  The server should reload its configuration and start again.
+  Servers that do not support reloading may wish to intercept
+  this exit code and stop the <a class="link" href="EDBusServer.html#EDBusServer-quit-server" title='The "quit-server" signal'><span class="type">"quit-server"</span></a> emission.
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-dbus-server-run"></a><h3>e_dbus_server_run ()</h3>
+<pre class="programlisting"><a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="returnvalue">EDBusServerExitCode</span></a> e_dbus_server_run                   (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> wait_for_client</code></em>);</pre>
+<p>
+Emits the <span class="type">"run"</span> signal.
+</p>
+<p>
+By default the <em class="parameter"><code>server</code></em> will start its main loop and attempt to acquire
+its well-known session bus name.  If the <em class="parameter"><code>server</code></em>'s main loop is already
+running, the function will immediately return <a class="link" href="EDBusServer.html#E-DBUS-SERVER-EXIT-NONE:CAPS"><span class="type">E_DBUS_SERVER_EXIT_NONE</span></a>.
+Otherwise the function blocks until <a class="link" href="EDBusServer.html#e-dbus-server-quit" title="e_dbus_server_quit ()"><code class="function">e_dbus_server_quit()</code></a> is called.
+</p>
+<p>
+If <em class="parameter"><code>wait_for_client</code></em> is <code class="literal">TRUE</code>, the <em class="parameter"><code>server</code></em> will continue running until
+the first client connection is made instead of quitting on its own if
+no client connection is made within the first few seconds.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wait_for_client</code></em> :</span></p></td>
+<td>continue running until a client connects</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the exit code passed to <a class="link" href="EDBusServer.html#e-dbus-server-quit" title="e_dbus_server_quit ()"><code class="function">e_dbus_server_quit()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-dbus-server-quit"></a><h3>e_dbus_server_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_dbus_server_quit                  (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a> code</code></em>);</pre>
+<p>
+Emits the <span class="type">"quit"</span> signal with the given <em class="parameter"><code>code</code></em>.
+</p>
+<p>
+By default the <em class="parameter"><code>server</code></em> will quit its main loop and cause
+<a class="link" href="EDBusServer.html#e-dbus-server-run" title="e_dbus_server_run ()"><code class="function">e_dbus_server_run()</code></a> to return <em class="parameter"><code>code</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>code</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-dbus-server-hold"></a><h3>e_dbus_server_hold ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_dbus_server_hold                  (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);</pre>
+<p>
+Increases the use count of <em class="parameter"><code>server</code></em>.
+</p>
+<p>
+Use this function to indicate that the server has a reason to continue
+to run.  To cancel the hold, call <a class="link" href="EDBusServer.html#e-dbus-server-release" title="e_dbus_server_release ()"><code class="function">e_dbus_server_release()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-dbus-server-release"></a><h3>e_dbus_server_release ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_dbus_server_release               (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);</pre>
+<p>
+Decreates the use count of <em class="parameter"><code>server</code></em>.
+</p>
+<p>
+When the use count reaches zero, the server will stop running.
+</p>
+<p>
+Never call this function except to cancel the effect of a previous call
+to <a class="link" href="EDBusServer.html#e-dbus-server-hold" title="e_dbus_server_hold ()"><code class="function">e_dbus_server_hold()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-dbus-server-load-modules"></a><h3>e_dbus_server_load_modules ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_dbus_server_load_modules          (<em class="parameter"><code><a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server</code></em>);</pre>
+<p>
+This function should be called once during <em class="parameter"><code>server</code></em> initialization to
+load all available library modules to extend the <em class="parameter"><code>server</code></em>'s functionality.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>
+</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.4</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EDBusServer.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EDBusServer-bus-acquired"></a><h3>The <code class="literal">"bus-acquired"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>     *server,
+                                                        <span class="type">GDBusConnection</span> *connection,
+                                                        <span class="type">gpointer</span>         user_data)       : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when <em class="parameter"><code>server</code></em> acquires a connection to the session bus.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>the <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>the <span class="type">GDBusConnection</span> to the session bus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EDBusServer-bus-name-acquired"></a><h3>The <code class="literal">"bus-name-acquired"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>     *server,
+                                                        <span class="type">GDBusConnection</span> *connection,
+                                                        <span class="type">gpointer</span>         user_data)       : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when <em class="parameter"><code>server</code></em> acquires its well-known session bus name.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>the <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>the <span class="type">GDBusConnection</span> to the session bus</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EDBusServer-bus-name-lost"></a><h3>The <code class="literal">"bus-name-lost"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>     *server,
+                                                        <span class="type">GDBusConnection</span> *connection,
+                                                        <span class="type">gpointer</span>         user_data)       : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when <em class="parameter"><code>server</code></em> loses its well-known session bus name
+or the session bus connection has been closed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>the <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
+<td>the <span class="type">GDBusconnection</span> to the session bus,
+or <code class="literal">NULL</code> if the connection has been closed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EDBusServer-quit-server"></a><h3>The <code class="literal">"quit-server"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a>        *server,
+                                                        <a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a> code,
+                                                        <span class="type">gpointer</span>            user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted to request that <em class="parameter"><code>server</code></em> quit its main loop.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>the <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>code</code></em> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EDBusServer-run-server"></a><h3>The <code class="literal">"run-server"</code> signal</h3>
+<pre class="programlisting"><a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="returnvalue">EDBusServerExitCode</span></a> user_function                      (<a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> *server,
+                                                        <span class="type">gpointer</span>     user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted to request that <em class="parameter"><code>server</code></em> start its main loop and
+attempt to acquire its well-known session bus name.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>the <a class="link" href="EDBusServer.html" title="EDBusServer"><span class="type">EDBusServer</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EDBusServer.html#EDBusServerExitCode" title="enum EDBusServerExitCode"><span class="type">EDBusServerExitCode</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EDBusServer.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

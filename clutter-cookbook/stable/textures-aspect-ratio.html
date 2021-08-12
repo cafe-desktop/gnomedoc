@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>3. Maintaining the aspect ratio when loading an image into a texture</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="textures.html" rel="up" title="Chapter 4. Textures"></link><link href="textures-drawing-with-cairo.html" rel="prev" title="2. Drawing 2D graphics onto a texture"></link><link href="textures-image-loading.html" rel="next" title="4. Loading image data into a texture"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="textures-aspect-ratio.html#container">Go to page content</a></li><li><a href="textures-aspect-ratio.html#top_bar">Go to main menu</a></li><li><a href="textures-aspect-ratio.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">3. Maintaining the aspect ratio when loading an
+    image into a texture</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="textures-drawing-with-cairo.html">Prev</a> </td><th align="center" width="60%">Chapter 4. Textures</th><td align="right" width="20%"> <a accesskey="n" href="textures-image-loading.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="textures-aspect-ratio"></a>3. Maintaining the aspect ratio when loading an
+    image into a texture</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790506998432"></a>3.1. Problem</h3></div></div></div><p>You want want to load an image into a texture
+      and scale it, while retaining the underlying image's aspect ratio.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790506996992"></a>3.2. Solution</h3></div></div></div><p>Set the texture to keep the aspect ratio of the
+      underlying image (so it doesn't distort when it's scaled); use
+      the actor's <span class="property">request-mode</span> property to set
+      the correct geometry management (see the discussion section); then
+      resize the texture along one dimension (height or width).
+      Now, when an image is loaded into the texture, the image is
+      scaled to fit the set height or width; the other dimension
+      is automatically scaled by the same factor so the image fits
+      the texture:</p><div class="informalexample"><pre class="programlisting">ClutterActor *texture;
+texture = clutter_texture_new ();
+
+clutter_texture_set_keep_aspect_ratio (CLUTTER_TEXTURE (texture), TRUE);
+
+/*
+ * this setting means the height of the scaled image is based on its width;
+ * it's not strictly necessary to set this, as this is the default
+ */
+clutter_actor_set_request_mode (texture, CLUTTER_REQUEST_HEIGHT_FOR_WIDTH);
+
+/* set the width, which causes height to be scaled by the same factor */
+clutter_actor_set_width (texture, 300);
+
+clutter_texture_set_from_file (CLUTTER_TEXTURE (texture),
+                               "/path/to/image.jpg",
+                               NULL);</pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790506992672"></a>3.3. Discussion</h3></div></div></div><p>The <span class="property">request-mode</span> for an actor
+      determines how geometry requisition is performed; in this case, this
+      includes how scaling is applied if you change the actor's
+      width or height. There are two possible values for
+      request-mode:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>If set to <code class="constant">CLUTTER_REQUEST_HEIGHT_FOR_WIDTH</code>
+          (the default), changing the width causes the height
+          to be scaled by the same factor as the width.</p></li><li class="listitem"><p>If set to <code class="constant">CLUTTER_REQUEST_WIDTH_FOR_HEIGHT</code>,
+          changing the height causes the width to be scaled by the
+          same factor as the height.</p></li></ol></div><p>In the example above, the texture is set to keep its
+      aspect ratio then fixed to a width of 300 pixels; the
+      request-mode is set to <code class="constant">CLUTTER_REQUEST_HEIGHT_FOR_WIDTH</code>.
+      If a standard, photo-sized image in landscape orientation were
+      loaded into it (2848 pixels wide x 2136 high), it would be scaled
+      down to 300 pixels wide; then, its height would be scaled by the
+      same factor as the width (i.e. scaled down to 225 pixels).</p><p>With request-mode set to
+      <code class="constant">CLUTTER_REQUEST_WIDTH_FOR_HEIGHT</code>,
+      you would get the same effect by setting the height first;
+      then, computation of the width for the scaled image would be
+      based on the scaling factor applied to its height instead.</p><p>You can work out which side of the source image is longest using
+      <code class="function">clutter_texture_base_size()</code> to get its
+      width and height. This can be useful when trying to scale images
+      with different orientations to fit into uniform rows or columns:</p><div class="informalexample"><pre class="programlisting">gint width;
+gint height;
+
+clutter_texture_get_base_size (CLUTTER_TEXTURE (texture), &amp;width, &amp;height);</pre></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If you explicitly set the size (both width and height)
+      of a texture with <code class="function">clutter_actor_set_size()</code> (or
+      with <code class="function">clutter_actor_set_width()</code> and
+      <code class="function">clutter_actor_set_height()</code>), any
+      image loaded into the texture is automatically stretched/shrunk to
+      fit the texture. This is the case regardless of any other settings
+      (like whether to keep aspect ratio).</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Since a texture can scale down its contents, its minimum
+      preferred size is 0.</p></div></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="textures-drawing-with-cairo.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="textures.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="textures-image-loading.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">2. Drawing 2D graphics onto a texture </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 4. Loading image data into a texture</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="textures-aspect-ratio.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

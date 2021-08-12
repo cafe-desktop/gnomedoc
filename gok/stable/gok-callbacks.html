@@ -1,0 +1,2314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>callbacks</title><link href="index.html" rel="home" title="GOK - Gnome Onscreen Keyboard"></link><link href="ch01.html" rel="up" title="GOK Internal API"></link><link href="ch01.html" rel="prev" title="GOK Internal API"></link><link href="gok-gok-action.html" rel="next" title="gok-action"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gok-callbacks.html#container">Go to page content</a></li><li><a href="gok-callbacks.html#top_bar">Go to main menu</a></li><li><a href="gok-callbacks.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GOK - Gnome Onscreen Keyboard</th>
+<td><a accesskey="n" href="gok-gok-action.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="gok-callbacks.html#gok-callbacks.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="gok-callbacks.html#gok-callbacks.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="gok-callbacks"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gok-callbacks.top_of_page"></a>callbacks</span></h2>
+<p>callbacks</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="gok-callbacks.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-window1-realize" title="on_window1_realize ()">on_window1_realize</a>                  (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-window1-remove" title="on_window1_remove ()">on_window1_remove</a>                   (<em class="parameter"><code><span class="type">GtkContainer</span> *container</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-delete-event" title="on_window1_delete_event ()">on_window1_delete_event</a>             (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-window1-size-allocate" title="on_window1_size_allocate ()">on_window1_size_allocate</a>            (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkAllocation</span> *allocation</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-window1-unrealize" title="on_window1_unrealize ()">on_window1_unrealize</a>                (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-window1-destroy" title="on_window1_destroy ()">on_window1_destroy</a>                  (<em class="parameter"><code><span class="type">GtkObject</span> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-button-press-event" title="on_window1_button_press_event ()">on_window1_button_press_event</a>       (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-editor-button-press-event" title="on_editor_button_press_event ()">on_editor_button_press_event</a>        (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-client-event" title="on_window1_client_event ()">on_window1_client_event</a>             (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventClient</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-drag-motion" title="on_window1_drag_motion ()">on_window1_drag_motion</a>              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragContext</span> *drag_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> time</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-button-release-event" title="on_window1_button_release_event ()">on_window1_button_release_event</a>     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-configure-event" title="on_window1_configure_event ()">on_window1_configure_event</a>          (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventConfigure</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-window1-motion-notify-event" title="on_window1_motion_notify_event ()">on_window1_motion_notify_event</a>      (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventMotion</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-dialogSettings-delete-event" title="on_dialogSettings_delete_event ()">on_dialogSettings_delete_event</a>      (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-dialogSettings-destroy-event" title="on_dialogSettings_destroy_event ()">on_dialogSettings_destroy_event</a>     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-dialogSettings-destroy" title="on_dialogSettings_destroy ()">on_dialogSettings_destroy</a>           (<em class="parameter"><code><span class="type">GtkObject</span> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonKeySize-clicked" title="on_buttonKeySize_clicked ()">on_buttonKeySize_clicked</a>            (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinSpacing-changed" title="on_spinSpacing_changed ()">on_spinSpacing_changed</a>              (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinWidth-changed" title="on_spinWidth_changed ()">on_spinWidth_changed</a>                (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinHeight-changed" title="on_spinHeight_changed ()">on_spinHeight_changed</a>               (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonTypeSwitch-toggled" title="on_radiobuttonTypeSwitch_toggled ()">on_radiobuttonTypeSwitch_toggled</a>    (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonTypeMouseButton-toggled" title="on_radiobuttonTypeMouseButton_toggled ()">on_radiobuttonTypeMouseButton_toggled</a>
+                                                        (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonTypeDwell-toggled" title="on_radiobuttonTypeDwell_toggled ()">on_radiobuttonTypeDwell_toggled</a>     (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonTypeMousePointer-toggled" title="on_radiobuttonTypeMousePointer_toggled ()">on_radiobuttonTypeMousePointer_toggled</a>
+                                                        (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonNewAction-clicked" title="on_buttonNewAction_clicked ()">on_buttonNewAction_clicked</a>          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-checkWordCompletion-toggled" title="on_checkWordCompletion_toggled ()">on_checkWordCompletion_toggled</a>      (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonSaveAction-clicked" title="on_buttonSaveAction_clicked ()">on_buttonSaveAction_clicked</a>         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonDeleteAction-clicked" title="on_buttonDeleteAction_clicked ()">on_buttonDeleteAction_clicked</a>       (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinSwitchDelay-changed" title="on_spinSwitchDelay_changed ()">on_spinSwitchDelay_changed</a>          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonAccessMethodWizard-clicked" title="on_buttonAccessMethodWizard_clicked ()">on_buttonAccessMethodWizard_clicked</a> (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonChangeName-clicked" title="on_buttonChangeName_clicked ()">on_buttonChangeName_clicked</a>         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitch1-toggled" title="on_radiobuttonSwitch1_toggled ()">on_radiobuttonSwitch1_toggled</a>       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitch2-toggled" title="on_radiobuttonSwitch2_toggled ()">on_radiobuttonSwitch2_toggled</a>       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitch3-toggled" title="on_radiobuttonSwitch3_toggled ()">on_radiobuttonSwitch3_toggled</a>       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitch4-toggled" title="on_radiobuttonSwitch4_toggled ()">on_radiobuttonSwitch4_toggled</a>       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitch5-toggled" title="on_radiobuttonSwitch5_toggled ()">on_radiobuttonSwitch5_toggled</a>       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitchPress-toggled" title="on_radiobuttonSwitchPress_toggled ()">on_radiobuttonSwitchPress_toggled</a>   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonSwitchRelease-toggled" title="on_radiobuttonSwitchRelease_toggled ()">on_radiobuttonSwitchRelease_toggled</a> (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonMouseButton0-toggled" title="on_radiobuttonMouseButton0_toggled ()">on_radiobuttonMouseButton0_toggled</a>  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonMouseButton1-toggled" title="on_radiobuttonMouseButton1_toggled ()">on_radiobuttonMouseButton1_toggled</a>  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonMouseButton2-toggled" title="on_radiobuttonMouseButton2_toggled ()">on_radiobuttonMouseButton2_toggled</a>  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonMouseButton3-toggled" title="on_radiobuttonMouseButton3_toggled ()">on_radiobuttonMouseButton3_toggled</a>  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonMouseButton4-toggled" title="on_radiobuttonMouseButton4_toggled ()">on_radiobuttonMouseButton4_toggled</a>  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonButtonPress-toggled" title="on_radiobuttonButtonPress_toggled ()">on_radiobuttonButtonPress_toggled</a>   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonButtonRelease-toggled" title="on_radiobuttonButtonRelease_toggled ()">on_radiobuttonButtonRelease_toggled</a> (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-radiobuttonButtonClick-toggled" title="on_radiobuttonButtonClick_toggled ()">on_radiobuttonButtonClick_toggled</a>   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinButtonDelay-changed" title="on_spinButtonDelay_changed ()">on_spinButtonDelay_changed</a>          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinDwellRate-changed" title="on_spinDwellRate_changed ()">on_spinDwellRate_changed</a>            (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-checkKeyAverage-toggled" title="on_checkKeyAverage_toggled ()">on_checkKeyAverage_toggled</a>          (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinKeyAverage-changed" title="on_spinKeyAverage_changed ()">on_spinKeyAverage_changed</a>           (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-file1-activate" title="on_file1_activate ()">on_file1_activate</a>                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-new1-activate" title="on_new1_activate ()">on_new1_activate</a>                    (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-open1-activate" title="on_open1_activate ()">on_open1_activate</a>                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-save1-activate" title="on_save1_activate ()">on_save1_activate</a>                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-save-as1-activate" title="on_save_as1_activate ()">on_save_as1_activate</a>                (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-exit1-activate" title="on_exit1_activate ()">on_exit1_activate</a>                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-help1-activate" title="on_help1_activate ()">on_help1_activate</a>                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-gok-editor-help1-activate" title="on_gok_editor_help1_activate ()">on_gok_editor_help1_activate</a>        (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-about1-activate" title="on_about1_activate ()">on_about1_activate</a>                  (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-windowEditor-destroy-event" title="on_windowEditor_destroy_event ()">on_windowEditor_destroy_event</a>       (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-callbacks.html#on-windowEditor-delete-event" title="on_windowEditor_delete_event ()">on_windowEditor_delete_event</a>        (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinbutton47-changed" title="on_spinbutton47_changed ()">on_spinbutton47_changed</a>             (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonNext-clicked" title="on_buttonNext_clicked ()">on_buttonNext_clicked</a>               (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonPrevious-clicked" title="on_buttonPrevious_clicked ()">on_buttonPrevious_clicked</a>           (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonAddNewKey-clicked" title="on_buttonAddNewKey_clicked ()">on_buttonAddNewKey_clicked</a>          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonDeleteKey-clicked" title="on_buttonDeleteKey_clicked ()">on_buttonDeleteKey_clicked</a>          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonDuplicate-clicked" title="on_buttonDuplicate_clicked ()">on_buttonDuplicate_clicked</a>          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinLeft-changed" title="on_spinLeft_changed ()">on_spinLeft_changed</a>                 (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinLeft-insert-text" title="on_spinLeft_insert_text ()">on_spinLeft_insert_text</a>             (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinRight-insert-text" title="on_spinRight_insert_text ()">on_spinRight_insert_text</a>            (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinTop-insert-text" title="on_spinTop_insert_text ()">on_spinTop_insert_text</a>              (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinBottom-insert-text" title="on_spinBottom_insert_text ()">on_spinBottom_insert_text</a>           (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-dialogSettings-show" title="on_dialogSettings_show ()">on_dialogSettings_show</a>              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonAddFeedback-clicked" title="on_buttonAddFeedback_clicked ()">on_buttonAddFeedback_clicked</a>        (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonDeleteFeedback-clicked" title="on_buttonDeleteFeedback_clicked ()">on_buttonDeleteFeedback_clicked</a>     (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonChangeFeedbackName-clicked" title="on_buttonChangeFeedbackName_clicked ()">on_buttonChangeFeedbackName_clicked</a> (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-buttonFeedbackSoundFile-clicked" title="on_buttonFeedbackSoundFile_clicked ()">on_buttonFeedbackSoundFile_clicked</a>  (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-checkKeyFlashing-clicked" title="on_checkKeyFlashing_clicked ()">on_checkKeyFlashing_clicked</a>         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-callbacks.html#on-spinKeyFlashing-changed" title="on_spinKeyFlashing_changed ()">on_spinKeyFlashing_changed</a>          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gok-callbacks.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gok-callbacks.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="on-window1-realize"></a><h3>on_window1_realize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_window1_realize                  (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-remove"></a><h3>on_window1_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_window1_remove                   (<em class="parameter"><code><span class="type">GtkContainer</span> *container</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-delete-event"></a><h3>on_window1_delete_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_delete_event             (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-size-allocate"></a><h3>on_window1_size_allocate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_window1_size_allocate            (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkAllocation</span> *allocation</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>allocation</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-unrealize"></a><h3>on_window1_unrealize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_window1_unrealize                (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-destroy"></a><h3>on_window1_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_window1_destroy                  (<em class="parameter"><code><span class="type">GtkObject</span> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-button-press-event"></a><h3>on_window1_button_press_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_button_press_event       (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-editor-button-press-event"></a><h3>on_editor_button_press_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_editor_button_press_event        (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-client-event"></a><h3>on_window1_client_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_client_event             (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventClient</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-drag-motion"></a><h3>on_window1_drag_motion ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_drag_motion              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragContext</span> *drag_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> time</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>drag_context</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-button-release-event"></a><h3>on_window1_button_release_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_button_release_event     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventButton</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-configure-event"></a><h3>on_window1_configure_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_configure_event          (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventConfigure</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-window1-motion-notify-event"></a><h3>on_window1_motion_notify_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_window1_motion_notify_event      (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEventMotion</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-dialogSettings-delete-event"></a><h3>on_dialogSettings_delete_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_dialogSettings_delete_event      (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-dialogSettings-destroy-event"></a><h3>on_dialogSettings_destroy_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_dialogSettings_destroy_event     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-dialogSettings-destroy"></a><h3>on_dialogSettings_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_dialogSettings_destroy           (<em class="parameter"><code><span class="type">GtkObject</span> *object</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>object</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonKeySize-clicked"></a><h3>on_buttonKeySize_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonKeySize_clicked            (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinSpacing-changed"></a><h3>on_spinSpacing_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinSpacing_changed              (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinWidth-changed"></a><h3>on_spinWidth_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinWidth_changed                (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinHeight-changed"></a><h3>on_spinHeight_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinHeight_changed               (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonTypeSwitch-toggled"></a><h3>on_radiobuttonTypeSwitch_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonTypeSwitch_toggled    (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonTypeMouseButton-toggled"></a><h3>on_radiobuttonTypeMouseButton_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonTypeMouseButton_toggled
+                                                        (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonTypeDwell-toggled"></a><h3>on_radiobuttonTypeDwell_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonTypeDwell_toggled     (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonTypeMousePointer-toggled"></a><h3>on_radiobuttonTypeMousePointer_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonTypeMousePointer_toggled
+                                                        (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonNewAction-clicked"></a><h3>on_buttonNewAction_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonNewAction_clicked          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-checkWordCompletion-toggled"></a><h3>on_checkWordCompletion_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_checkWordCompletion_toggled      (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonSaveAction-clicked"></a><h3>on_buttonSaveAction_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonSaveAction_clicked         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonDeleteAction-clicked"></a><h3>on_buttonDeleteAction_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonDeleteAction_clicked       (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinSwitchDelay-changed"></a><h3>on_spinSwitchDelay_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinSwitchDelay_changed          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonAccessMethodWizard-clicked"></a><h3>on_buttonAccessMethodWizard_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonAccessMethodWizard_clicked (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonChangeName-clicked"></a><h3>on_buttonChangeName_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonChangeName_clicked         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitch1-toggled"></a><h3>on_radiobuttonSwitch1_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitch1_toggled       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitch2-toggled"></a><h3>on_radiobuttonSwitch2_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitch2_toggled       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitch3-toggled"></a><h3>on_radiobuttonSwitch3_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitch3_toggled       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitch4-toggled"></a><h3>on_radiobuttonSwitch4_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitch4_toggled       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitch5-toggled"></a><h3>on_radiobuttonSwitch5_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitch5_toggled       (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitchPress-toggled"></a><h3>on_radiobuttonSwitchPress_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitchPress_toggled   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonSwitchRelease-toggled"></a><h3>on_radiobuttonSwitchRelease_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonSwitchRelease_toggled (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonMouseButton0-toggled"></a><h3>on_radiobuttonMouseButton0_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonMouseButton0_toggled  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonMouseButton1-toggled"></a><h3>on_radiobuttonMouseButton1_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonMouseButton1_toggled  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonMouseButton2-toggled"></a><h3>on_radiobuttonMouseButton2_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonMouseButton2_toggled  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonMouseButton3-toggled"></a><h3>on_radiobuttonMouseButton3_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonMouseButton3_toggled  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonMouseButton4-toggled"></a><h3>on_radiobuttonMouseButton4_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonMouseButton4_toggled  (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonButtonPress-toggled"></a><h3>on_radiobuttonButtonPress_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonButtonPress_toggled   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonButtonRelease-toggled"></a><h3>on_radiobuttonButtonRelease_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonButtonRelease_toggled (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-radiobuttonButtonClick-toggled"></a><h3>on_radiobuttonButtonClick_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_radiobuttonButtonClick_toggled   (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinButtonDelay-changed"></a><h3>on_spinButtonDelay_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinButtonDelay_changed          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinDwellRate-changed"></a><h3>on_spinDwellRate_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinDwellRate_changed            (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-checkKeyAverage-toggled"></a><h3>on_checkKeyAverage_toggled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_checkKeyAverage_toggled          (<em class="parameter"><code><span class="type">GtkToggleButton</span> *togglebutton</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>togglebutton</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinKeyAverage-changed"></a><h3>on_spinKeyAverage_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinKeyAverage_changed           (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-file1-activate"></a><h3>on_file1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_file1_activate                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-new1-activate"></a><h3>on_new1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_new1_activate                    (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-open1-activate"></a><h3>on_open1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_open1_activate                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-save1-activate"></a><h3>on_save1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_save1_activate                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-save-as1-activate"></a><h3>on_save_as1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_save_as1_activate                (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-exit1-activate"></a><h3>on_exit1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_exit1_activate                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-help1-activate"></a><h3>on_help1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_help1_activate                   (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-gok-editor-help1-activate"></a><h3>on_gok_editor_help1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_gok_editor_help1_activate        (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-about1-activate"></a><h3>on_about1_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_about1_activate                  (<em class="parameter"><code><span class="type">GtkMenuItem</span> *menuitem</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menuitem</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-windowEditor-destroy-event"></a><h3>on_windowEditor_destroy_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_windowEditor_destroy_event       (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-windowEditor-delete-event"></a><h3>on_windowEditor_delete_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_windowEditor_delete_event        (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinbutton47-changed"></a><h3>on_spinbutton47_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinbutton47_changed             (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonNext-clicked"></a><h3>on_buttonNext_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonNext_clicked               (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonPrevious-clicked"></a><h3>on_buttonPrevious_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonPrevious_clicked           (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonAddNewKey-clicked"></a><h3>on_buttonAddNewKey_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonAddNewKey_clicked          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonDeleteKey-clicked"></a><h3>on_buttonDeleteKey_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonDeleteKey_clicked          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonDuplicate-clicked"></a><h3>on_buttonDuplicate_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonDuplicate_clicked          (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinLeft-changed"></a><h3>on_spinLeft_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinLeft_changed                 (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinLeft-insert-text"></a><h3>on_spinLeft_insert_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinLeft_insert_text             (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text_length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinRight-insert-text"></a><h3>on_spinRight_insert_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinRight_insert_text            (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text_length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinTop-insert-text"></a><h3>on_spinTop_insert_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinTop_insert_text              (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text_length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinBottom-insert-text"></a><h3>on_spinBottom_insert_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinBottom_insert_text           (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *new_text</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> new_text_length</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new_text_length</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>position</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-dialogSettings-show"></a><h3>on_dialogSettings_show ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_dialogSettings_show              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonAddFeedback-clicked"></a><h3>on_buttonAddFeedback_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonAddFeedback_clicked        (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonDeleteFeedback-clicked"></a><h3>on_buttonDeleteFeedback_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonDeleteFeedback_clicked     (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonChangeFeedbackName-clicked"></a><h3>on_buttonChangeFeedbackName_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonChangeFeedbackName_clicked (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-buttonFeedbackSoundFile-clicked"></a><h3>on_buttonFeedbackSoundFile_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_buttonFeedbackSoundFile_clicked  (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-checkKeyFlashing-clicked"></a><h3>on_checkKeyFlashing_clicked ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_checkKeyFlashing_clicked         (<em class="parameter"><code><span class="type">GtkButton</span> *button</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>button</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-spinKeyFlashing-changed"></a><h3>on_spinKeyFlashing_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                on_spinKeyFlashing_changed          (<em class="parameter"><code><span class="type">GtkEditable</span> *editable</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>editable</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gok-callbacks.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

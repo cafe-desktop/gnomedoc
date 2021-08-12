@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Pack: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-base64.html" title="Base64">
+<link rel="next" href="gnet-md5.html" title="MD5">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-pack.html#container">Go to page content</a></li><li><a href="gnet-pack.html#top_bar">Go to main menu</a></li><li><a href="gnet-pack.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-pack.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-pack.html#gnet-pack.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-base64.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-md5.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-pack"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Pack</span></h2>
+<p>Pack — Byte packing and unpacking functions</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html" title="Pack">gnet_pack</a>                           (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         const <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         ...);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-pack-strdup">gnet_pack_strdup</a>                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> **bufferp,
+                                                         ...);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-vpack">gnet_vpack</a>                          (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         const <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-calcsize">gnet_calcsize</a>                       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         ...);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-vcalcsize">gnet_vcalcsize</a>                      (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-unpack">gnet_unpack</a>                         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         ...);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-pack.html#gnet-vunpack">gnet_vunpack</a>                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.14.4"></a><h2>Description</h2>
+<p>
+The pack module provides functions for converting data into bytes
+("packing") and converting bytes to data ("unpacking").  For example,
+two integers and a string may be packed into a buffer to be transfered
+over the network.  These functions are similar to the ones in Python
+and Perl.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.14.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.14.5.2"></a><h3>
+<a name="gnet-pack"></a>gnet_pack ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_pack                           (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         const <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         ...);</pre>
+<p>
+Writes <em class="parameter"><code>Varargs</code></em> to <em class="parameter"><code>buffer</code></em>.  <em class="parameter"><code>format</code></em> is a string that describes
+ the <em class="parameter"><code>Varargs</code></em> and how they are to be packed.  This string is a list
+ of characters, each describing the type of an argument in
+ <em class="parameter"><code>Varargs</code></em>.
+</p>
+<p>
+ An example:
+</p>
+<p>
+ </p>
+<div class="informalexample"><pre class="programlisting">
+ char buf[5];
+ int myint = 42;
+ int mybyte = 23;
+  
+ gnet_pack("!ib", buf, sizeof(buf), myint, mybyte);
+ /* Now buf is { 42, 0, 0, 0, 23 }; */
+ </pre></div>
+<p>
+</p>
+<p>
+ As a shortcut, most types can be prefixed by an integer to specify
+ how many times the type is repeated.  For example, "4i2b" is
+ equivalent to "iiiibb".  This repeat argument is refered below to
+ as REPEAT.
+</p>
+<p>
+ Native byte order and sizes are used by default.  If the first
+ character of <em class="parameter"><code>format</code></em> is &lt; then little endian order and standard
+ sizes are used.  If the first character is &gt; or !, then big endian
+ (or network) order and standard size are used.  Standard sizes are
+ 1 byte for chars, 2 bytes for shorts, and 4 bytes for ints and
+ longs.
+</p>
+<p>
+ The types:
+</p>
+<p>
+ x is a NULL character.  It can be used for padding.  It does not
+ correspond to an argument in <em class="parameter"><code>Varargs</code></em>.
+</p>
+<p>
+ b/B is a signed/unsigned char.
+</p>
+<p>
+ h/H is a signed/unsigned short.
+</p>
+<p>
+ i/I is a signed/unsigned int.
+</p>
+<p>
+ l/L is a signed/unsigned long.
+</p>
+<p>
+ f/D is a float/double (always native order/size).
+</p>
+<p>
+ v is a void pointer (always native size).
+</p>
+<p>
+ s is a zero-terminated string.
+</p>
+<p>
+ S is a zero-padded string of maximum length REPEAT.  We write
+ up-to a NULL character or REPEAT characters, whichever comes
+ first.  We then write NULL characters up to a total of REPEAT
+ characters.  Special case: if REPEAT is not specified, we write
+ the string as a non-NULL-terminated string (note that it can't be
+ unpacked easily then).
+</p>
+<p>
+ r is a byte array of NEXT bytes.  NEXT is the next argument passed
+ to <a class="link" href="gnet-pack.html" title="Pack"><code class="function">gnet_pack()</code></a> and is a gint.
+</p>
+<p>
+ R is a byte array of REPEAT bytes.  REPEAT must be specified.
+</p>
+<p>
+ p is a Pascal string.  The string passed is a NULL-termiated
+ string of less than 256 character.  The string writen is a
+ non-NULL-terminated string with a byte before the string storing
+ the string length.  REPEAT is repeat.
+</p>
+<p>
+ Mnemonics: (B)yte, s(H)ort, (I)nteger, (F)loat, (D)ouble, (V)oid
+ pointer, (S)tring, (R)aw
+</p>
+<p>
+ Pack was inspired by Python's and Perl's pack.  It is more like
+ Python's than Perl's.  Note that in GNet, a repeat of 0 does not
+ align the data (as in Python).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> pack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to pack to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> variables to pack from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of bytes packed; -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.3"></a><h3>
+<a name="gnet-pack-strdup"></a>gnet_pack_strdup ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_pack_strdup                    (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> **bufferp,
+                                                         ...);</pre>
+<p>
+Writes <em class="parameter"><code>Varargs</code></em> into a buffer pointed to by <em class="parameter"><code>bufferp</code></em>.  The buffer
+ is allocated by the function and is caller owned.  See <a class="link" href="gnet-pack.html" title="Pack"><code class="function">gnet_pack()</code></a>
+ for more information.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> pack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bufferp</code></em> :</span></p></td>
+<td> pointer to a buffer (buffer is caller owned)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> variables to pack from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> bytes packed; -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.4"></a><h3>
+<a name="gnet-vpack"></a>gnet_vpack ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_vpack                          (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         const <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);</pre>
+<p>
+Var arg interface to <a class="link" href="gnet-pack.html" title="Pack"><code class="function">gnet_pack()</code></a>.  See <a class="link" href="gnet-pack.html" title="Pack"><code class="function">gnet_pack()</code></a> for more
+ information.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> pack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to pack to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td> var args
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> bytes packed; -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.5"></a><h3>
+<a name="gnet-calcsize"></a>gnet_calcsize ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_calcsize                       (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         ...);</pre>
+<p>
+Calculates the size of the buffer needed to pack <em class="parameter"><code>Varargs</code></em> by the
+ given format.  See <a class="link" href="gnet-pack.html" title="Pack"><code class="function">gnet_pack()</code></a> for more information.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> pack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> variables
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of bytes required to pack; -1 on error.
+ 
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.6"></a><h3>
+<a name="gnet-vcalcsize"></a>gnet_vcalcsize ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_vcalcsize                      (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);</pre>
+<p>
+Var arg interface to <a class="link" href="gnet-pack.html#gnet-calcsize"><code class="function">gnet_calcsize()</code></a>.  See <a class="link" href="gnet-pack.html#gnet-calcsize"><code class="function">gnet_calcsize()</code></a> for
+ additional information.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> pack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td> var args
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of bytes required to pack; -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.7"></a><h3>
+<a name="gnet-unpack"></a>gnet_unpack ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_unpack                         (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         ...);</pre>
+<p>
+Reads the data in <em class="parameter"><code>buffer</code></em> into <em class="parameter"><code>Varargs</code></em>.  <em class="parameter"><code>format</code></em> is a string that
+ describes the <em class="parameter"><code>Varargs</code></em> and how they are to be packed.  This string
+ is a list of characters, each describing the type of an argument
+ in <em class="parameter"><code>Varargs</code></em>.
+</p>
+<p>
+ An example:
+</p>
+<p>
+ </p>
+<div class="informalexample"><pre class="programlisting">
+ char buf[5] = { 42, 0, 0, 0, 23 };
+ int myint;
+ int mybyte;
+  
+ gnet_unpack("!ib", buf, sizeof(buf), &amp;myint, &amp;mybyte);
+ /* Now myint is 42 and mybyte is 23 */
+ </pre></div>
+<p>
+</p>
+<p>
+ In unpack, the arguments must be pointers to the appropriate type.
+ Strings and byte arrays are allocated dynamicly (by <GTKDOCLINK HREF="g-new"><code class="function">g_new()</code></GTKDOCLINK>).  The
+ caller is responsible for <GTKDOCLINK HREF="g-free"><code class="function">g_free()</code></GTKDOCLINK>-ing it.
+</p>
+<p>
+ As a shortcut, most types can be prefixed by an integer to specify
+ how many times the type is repeated.  For example, "4i2b" is
+ equivalent to "iiiibb".  This repeat argument is refered below to
+ as REPEAT.
+</p>
+<p>
+ The types:
+</p>
+<p>
+ x is a pad byte.  The byte is skipped and not stored.  We do not
+ check its value.
+</p>
+<p>
+ b/B is a signed/unsigned char.
+</p>
+<p>
+ h/H is a signed/unsigned short.
+</p>
+<p>
+ i/I is a signed/unsigned int.
+</p>
+<p>
+ l/L is a signed/unsigned long.
+</p>
+<p>
+ f/D is a float/double (always native order/size).
+ 
+ v is a void pointer (always native size).
+</p>
+<p>
+ s is a zero-terminated string.
+</p>
+<p>
+ S is a zero-padded string of length REPEAT.  We read REPEAT
+ characters or until a NULL character.  Any remaining characters
+ are filled in with 0's.  REPEAT must be specified.
+</p>
+<p>
+ r is a byte array of NEXT bytes.  NEXT is the next argument and is
+ a gint.  REPEAT is repeat.
+</p>
+<p>
+ R is a byte array of REPEAT bytes.  REPEAT must be specified.
+</p>
+<p>
+ p is a Pascal string.  The first byte read is the length of the
+ string and the string follows.  The unpacked string will be a
+ normal, NULL-terminated string.  REPEAT is repeat.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> unpack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to unpack from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> addresses of variables to unpack to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of bytes unpacked; -1 on error.  The bytes are
+ unpacked to the variables pointed to by the <em class="parameter"><code>Varargs</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.14.5.8"></a><h3>
+<a name="gnet-vunpack"></a>gnet_vunpack ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_vunpack                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *format,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <GTKDOCLINK HREF="va-list">va_list</GTKDOCLINK> args);</pre>
+<p>
+Var arg interface to <a class="link" href="gnet-pack.html#gnet-unpack"><code class="function">gnet_unpack()</code></a>.  See <a class="link" href="gnet-pack.html#gnet-unpack"><code class="function">gnet_unpack()</code></a> for more
+ information.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td> unpack data format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to unpack from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td> var args
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> number of bytes packed; -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-pack.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

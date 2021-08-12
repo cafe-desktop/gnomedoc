@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GdaWorker: GNU Data Access Reference Manual</title><link href="index.html" rel="home" title="GNU Data Access Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="GdaVproviderHub.html" rel="prev" title="GdaVproviderHub"></link><link href="GdaXaTransaction.html" rel="next" title="GdaXaTransaction"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdaWorker.html#container">Go to page content</a></li><li><a href="GdaWorker.html#top_bar">Go to main menu</a></li><li><a href="GdaWorker.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdaWorker.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaWorker.html#GdaWorker.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaWorker.html#GdaWorker.object-hierarchy">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GdaVproviderHub.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GdaXaTransaction.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdaWorker"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdaWorker.top_of_page"></a>GdaWorker</span></h2>
+<p>GdaWorker — Execute functions in a sub thread</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdaWorker.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to develop applications to these interfaces, release them, and have confidence that they will run on all minor releases of the product (after the one in which the interface was introduced, and within the same major release). Even at a major release, incompatible changes are expected to be rare, and to have strong justifications. "><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GdaWorker.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-error-quark" title="gda_worker_error_quark ()">gda_worker_error_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-new" title="gda_worker_new ()">gda_worker_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-new-unique" title="gda_worker_new_unique ()">gda_worker_new_unique</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-ref" title="gda_worker_ref ()">gda_worker_ref</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-unref" title="gda_worker_unref ()">gda_worker_unref</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaWorker.html#GdaWorkerFunc" title="GdaWorkerFunc ()">*GdaWorkerFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()">gda_worker_submit_job</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-fetch-job-result" title="gda_worker_fetch_job_result ()">gda_worker_fetch_job_result</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-cancel-job" title="gda_worker_cancel_job ()">gda_worker_cancel_job</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-forget-job" title="gda_worker_forget_job ()">gda_worker_forget_job</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-do-job" title="gda_worker_do_job ()">gda_worker_do_job</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-wait-job" title="gda_worker_wait_job ()">gda_worker_wait_job</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaWorker.html#GdaWorkerCallback" title="GdaWorkerCallback ()">*GdaWorkerCallback</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-set-callback" title="gda_worker_set_callback ()">gda_worker_set_callback</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-thread-is-worker" title="gda_worker_thread_is_worker ()">gda_worker_thread_is_worker</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Threads.html#GThread"><span class="returnvalue">GThread</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaWorker.html#gda-worker-get-worker-thread" title="gda_worker_get_worker_thread ()">gda_worker_get_worker_thread</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaWorker.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GdaWorker.html#GDA-WORKER-ERROR:CAPS" title="GDA_WORKER_ERROR">GDA_WORKER_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdaWorker.html#GdaWorkerError" title="enum GdaWorkerError">GdaWorkerError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaWorker.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/stable/gobject-Boxed-Types.html">GBoxed</a>
+    <span class="lineart">╰──</span> GdaWorker
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdaWorker.description"></a><h2>Description</h2>
+<p>The purpose of the <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object is to execute "jobs" (functions with arguments) within a worker thread, using
+<a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>.</p>
+<p>Any code executing in any thread context can submit jobs to <em class="parameter"><code>worker</code></em>
+ and is guaranted not to be blocked (except if using
+<a class="link" href="GdaWorker.html#gda-worker-wait-job" title="gda_worker_wait_job ()"><code class="function">gda_worker_wait_job()</code></a> or if the
+jobs are submitted within the worker thread itself). Once jobs have been submitted, it's up to the caller to regularly
+check if a job has completed using <a class="link" href="GdaWorker.html#gda-worker-fetch-job-result" title="gda_worker_fetch_job_result ()"><code class="function">gda_worker_fetch_job_result()</code></a>. If you don't want to have to check regularly (which is
+like some polling operation), then you can use <a class="link" href="GdaWorker.html#gda-worker-set-callback" title="gda_worker_set_callback ()"><code class="function">gda_worker_set_callback()</code></a> which adds a callback when any job has completed.</p>
+<p>gda_worker_wait_job() allows you to execute a job in the worker thread while blocking the calling thread.</p>
+<p>Before fetching a jobs's result, it is also possible to request the cancellation of the job using <a class="link" href="GdaWorker.html#gda-worker-cancel-job" title="gda_worker_cancel_job ()"><code class="function">gda_worker_cancel_job()</code></a>, or
+completely discard the job using <a class="link" href="GdaWorker.html#gda-worker-forget-job" title="gda_worker_forget_job ()"><code class="function">gda_worker_forget_job()</code></a>.</p>
+<p>Jobs can also be submitted using <a class="link" href="GdaWorker.html#gda-worker-do-job" title="gda_worker_do_job ()"><code class="function">gda_worker_do_job()</code></a>, which internally runs a <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainLoop"><span class="type">GMainLoop</span></a> and allows you to execute a job
+while at the same time processing events for the specified <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a>.</p>
+<p>The <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> implements its own locking mechanism and can safely be used from multiple
+threads at once without needing further locking.</p>
+</div>
+<div class="refsect1">
+<a name="GdaWorker.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gda-worker-error-quark"></a><h3>gda_worker_error_quark ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+gda_worker_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-new"></a><h3>gda_worker_new ()</h3>
+<pre class="programlisting"><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+gda_worker_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Creates a new <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object.</p>
+<div class="refsect3">
+<a name="gda-worker-new.returns"></a><h4>Returns</h4>
+<p>a new <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if an error occurred. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-new-unique"></a><h3>gda_worker_new_unique ()</h3>
+<pre class="programlisting"><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+gda_worker_new_unique (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> **location</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> allow_destroy</code></em>);</pre>
+<p>This function creates a new <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>, or reuses the one at <em class="parameter"><code>location</code></em>
+. Specifically:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>if *<em class="parameter"><code>location</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then a new <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> is created. In this case if <em class="parameter"><code>allow_destroy</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>, then the returned 
+    <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>'s reference count is 2, thus preventing it form ever being destroyed (unless <a class="link" href="GdaWorker.html#gda-worker-unref" title="gda_worker_unref ()"><code class="function">gda_worker_unref()</code></a> is called somewhere else)</p></li>
+<li class="listitem"><p>if *<em class="parameter"><code>location</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, the the <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> it points to is returned, its reference count increased by 1</p></li>
+</ol></div>
+<p>When the returned <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>'s reference count reaches 0, then it is destroyed, and *<em class="parameter"><code>location</code></em>
+ is set to <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p>In any case, the returned value is the same as *<em class="parameter"><code>location</code></em>
+.</p>
+<div class="refsect3">
+<a name="gda-worker-new-unique.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>location</p></td>
+<td class="parameter_description"><p>a place to store and test for existence, not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>allow_destroy</p></td>
+<td class="parameter_description"><p>defines if the created <em class="parameter"><code>GdaWorker</code></em>
+(see case 1 below) will allow its reference to drop to 0 and be destroyed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-new-unique.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-ref"></a><h3>gda_worker_ref ()</h3>
+<pre class="programlisting"><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="returnvalue">GdaWorker</span></a> *
+gda_worker_ref (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>);</pre>
+<p>Increases <em class="parameter"><code>worker</code></em>
+'s reference count.</p>
+<div class="refsect3">
+<a name="gda-worker-ref.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-ref.returns"></a><h4>Returns</h4>
+<p><em class="parameter"><code>worker</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-unref"></a><h3>gda_worker_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_worker_unref (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>);</pre>
+<p>Decreases <em class="parameter"><code>worker</code></em>
+'s reference count. When reference count reaches <code class="literal">0</code>, then the
+object is destroyed, note that in this case this function only returns when the
+worker thread actually has terminated, which can take some time if it's busy.</p>
+<p>If <em class="parameter"><code>worker</code></em>
+ is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then nothing happens.</p>
+<div class="refsect3">
+<a name="gda-worker-unref.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr></tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaWorkerFunc"></a><h3>GdaWorkerFunc ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>
+<span class="c_punctuation">(</span>*GdaWorkerFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                  <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Specifies the type of function to be passed to <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>, <a class="link" href="GdaWorker.html#gda-worker-do-job" title="gda_worker_do_job ()"><code class="function">gda_worker_do_job()</code></a> and <a class="link" href="GdaWorker.html#gda-worker-wait-job" title="gda_worker_wait_job ()"><code class="function">gda_worker_wait_job()</code></a>.</p>
+<div class="refsect3">
+<a name="GdaWorkerFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>pointer to the data (which is the argument passed to <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>)</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdaWorkerFunc.returns"></a><h4>Returns</h4>
+<p>a pointer to some data which will be returned by <a class="link" href="GdaWorker.html#gda-worker-fetch-job-result" title="gda_worker_fetch_job_result ()"><code class="function">gda_worker_fetch_job_result()</code></a></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-submit-job"></a><h3>gda_worker_submit_job ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>
+gda_worker_submit_job (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> *callback_context</code></em>,
+                       <em class="parameter"><code><a class="link" href="GdaWorker.html#GdaWorkerFunc" title="GdaWorkerFunc ()"><span class="type">GdaWorkerFunc</span></a> func</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> data_destroy_func</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> result_destroy_func</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Request that the worker thread call <em class="parameter"><code>func</code></em>
+ with the <em class="parameter"><code>data</code></em>
+ argument.</p>
+<p>Notes:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>if <em class="parameter"><code>data_destroy_func</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then it will be called to destroy <em class="parameter"><code>data</code></em> when the job is removed,
+   which can occur within the context of the worker thread, or within the context of any thread using <em class="parameter"><code>worker</code></em>.</p></li>
+<li class="listitem"><p>if <em class="parameter"><code>result_destroy_func</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then it will be called to destroy the result produced by <em class="parameter"><code>func</code></em>.
+   Similarly to <em class="parameter"><code>data_destroy_func</code></em>, if it is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (and if there is a non <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> result), then that function can be
+   called in the context of any thread.</p></li>
+<li class="listitem"><p>the error here can only report failures while executing <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>, not any error which may occur
+   while executing <em class="parameter"><code>func</code></em> from the worker thread.</p></li>
+<li class="listitem"><p>when this function returns, the job may already have been completed, so you should not assume that the job
+   is in any specific state.</p></li>
+<li class="listitem"><p>passing <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for <em class="parameter"><code>callback_context</code></em> is similar to passing the result of <a href="../../glib/stable/glib-The-Main-Event-Loop.html#g-main-context-ref-thread-default"><code class="function">g_main_context_ref_thread_default()</code></a></p></li>
+</ul></div>
+<div class="refsect3">
+<a name="gda-worker-submit-job.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback_context</p></td>
+<td class="parameter_description"><p>a <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (ignored if no setting has been defined with <a class="link" href="GdaWorker.html#gda-worker-set-callback" title="gda_worker_set_callback ()"><code class="function">gda_worker_set_callback()</code></a>). </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>the function to call from the worker thread</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>the data to pass to <em class="parameter"><code>func</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data_destroy_func</p></td>
+<td class="parameter_description"><p>a function to destroy <em class="parameter"><code>data</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result_destroy_func</p></td>
+<td class="parameter_description"><p>a function to destroy the result, if any, of the execution of <em class="parameter"><code>func</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-submit-job.returns"></a><h4>Returns</h4>
+<p> a job ID, or <code class="literal">0</code> if an error occurred</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-fetch-job-result"></a><h3>gda_worker_fetch_job_result ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_worker_fetch_job_result (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                             <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> job_id</code></em>,
+                             <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *out_result</code></em>,
+                             <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Fetch the value returned by execution the <em class="parameter"><code>job_id</code></em>
+ job.</p>
+<p>Warning: if an error occurred during the
+execution of the requested function within the worker thread, then it will show as <em class="parameter"><code>error</code></em>
+, while the return value
+of this function will be <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>.</p>
+<p>Note: if there is a result, it will be stored in <em class="parameter"><code>out_result</code></em>
+, and it's up to the caller to free
+the result, the <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object will not do it (ownership of the result is transfered to the caller).</p>
+<div class="refsect3">
+<a name="gda-worker-fetch-job-result.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>job_id</p></td>
+<td class="parameter_description"><p>the ID of the job, as returned by <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_result</p></td>
+<td class="parameter_description"><p>a place to store the value returned by the execution of the requested function within the worker thread, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-fetch-job-result.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the jobs has completed</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-cancel-job"></a><h3>gda_worker_cancel_job ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_worker_cancel_job (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> job_id</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Cancels a job which has not yet been processed. If the job cannot be found, is being processed or has already been processed,
+then this function returns <a href="../../glib/stable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>.</p>
+<p>This function can be called on already cancelled jobs, and simply returns <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> in that case.</p>
+<div class="refsect3">
+<a name="gda-worker-cancel-job.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>job_id</p></td>
+<td class="parameter_description"><p>the ID of the job, as returned by <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-cancel-job.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if the job was cancelled</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-forget-job"></a><h3>gda_worker_forget_job ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_worker_forget_job (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                       <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> job_id</code></em>);</pre>
+<p>Forget all about the job with ID <em class="parameter"><code>job_id</code></em>
+. As opposed to <a class="link" href="GdaWorker.html#gda-worker-cancel-job" title="gda_worker_cancel_job ()"><code class="function">gda_worker_cancel_job()</code></a>, this function can be used to tell
+<em class="parameter"><code>worker</code></em>
+ that whatever happens to the specific job, you are not interrested anymore (i.e. that <em class="parameter"><code>worker</code></em>
+ can
+do whatever is possible to simple discard everything related to that job).</p>
+<div class="refsect3">
+<a name="gda-worker-forget-job.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>job_id</p></td>
+<td class="parameter_description"><p>the ID of the job, as returned by <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-do-job"></a><h3>gda_worker_do_job ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_worker_do_job (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> *context</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> timeout_ms</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> *out_result</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *out_job_id</code></em>,
+                   <em class="parameter"><code><a class="link" href="GdaWorker.html#GdaWorkerFunc" title="GdaWorkerFunc ()"><span class="type">GdaWorkerFunc</span></a> func</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> data_destroy_func</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> result_destroy_func</code></em>,
+                   <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Request that the worker thread call <em class="parameter"><code>func</code></em>
+ with the <em class="parameter"><code>data</code></em>
+ argument, much like <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>,
+but waits (starting a <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainLoop"><span class="type">GMainLoop</span></a>) for a maximum of <em class="parameter"><code>timeout_ms</code></em>
+ miliseconds for <em class="parameter"><code>func</code></em>
+ to be executed.</p>
+<p>If this function is called from within <em class="parameter"><code>worker</code></em>
+'s worker thread, then this function simply calls <em class="parameter"><code>func</code></em>
+ with <em class="parameter"><code>data</code></em>
+ and does not
+use <em class="parameter"><code>context</code></em>
+.</p>
+<p>The following cases are possible if this function is not called from within <em class="parameter"><code>worker</code></em>
+'s worker thread:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>the call to <em class="parameter"><code>func</code></em> took less than <em class="parameter"><code>timeout_ms</code></em> miliseconds: the return value is <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and 
+   <em class="parameter"><code>out_result</code></em> contains the result of the <em class="parameter"><code>func</code></em>'s execution, and <em class="parameter"><code>out_job_id</code></em> contains <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. Note in this
+   case that <em class="parameter"><code>error</code></em> may still contain an error code if <em class="parameter"><code>func</code></em>'s execution produced an error. Also note that in this case
+   any setting defined by <a class="link" href="GdaWorker.html#gda-worker-set-callback" title="gda_worker_set_callback ()"><code class="function">gda_worker_set_callback()</code></a> is not applied (as the result is immediately returned)</p></li>
+<li class="listitem"><p>The call to <em class="parameter"><code>func</code></em> takes more then <em class="parameter"><code>timeout_ms</code></em> miliseconds: the return value is <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> and
+   <em class="parameter"><code>out_result</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and <em class="parameter"><code>out_job_id</code></em> contains the ID of the job as if it had been submitted using <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>.
+   If <em class="parameter"><code>out_job_id</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, and if no setting has been defined using <a class="link" href="GdaWorker.html#gda-worker-set-callback" title="gda_worker_set_callback ()"><code class="function">gda_worker_set_callback()</code></a>, then the job will be discarded
+   (as if <a class="link" href="GdaWorker.html#gda-worker-forget-job" title="gda_worker_forget_job ()"><code class="function">gda_worker_forget_job()</code></a> had been called).
+   </p></li>
+<li class="listitem"><p>The call to <em class="parameter"><code>func</code></em> could not be done (some kind of plumbing error for instance): the returned value is <a href="../../glib/stable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a>
+   and <em class="parameter"><code>out_result</code></em> and <em class="parameter"><code>out_job_id</code></em> are set to <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (if they are not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>)</p></li>
+</ul></div>
+<p>Notes:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p><em class="parameter"><code>result_destroy_func</code></em> is needed in case <em class="parameter"><code>out_result</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> (to avoid memory leaks)</p></li>
+<li class="listitem"><p>passing <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for <em class="parameter"><code>context</code></em> is similar to passing the result of <a href="../../glib/stable/glib-The-Main-Event-Loop.html#g-main-context-ref-thread-default"><code class="function">g_main_context_ref_thread_default()</code></a></p></li>
+</ul></div>
+<div class="refsect3">
+<a name="gda-worker-do-job.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>context</p></td>
+<td class="parameter_description"><p>a <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> to execute a main loop in (while waiting), or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>timeout_ms</p></td>
+<td class="parameter_description"><p>the maximum number of milisecons to wait before returning, or <code class="literal">0</code> for unlimited wait</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_result</p></td>
+<td class="parameter_description"><p>a place to store the result, if any, of <em class="parameter"><code>func</code></em>
+'s execution, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_job_id</p></td>
+<td class="parameter_description"><p>a place to store the ID of the job having been submitted, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>the function to call from the worker thread</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>the data to pass to <em class="parameter"><code>func</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data_destroy_func</p></td>
+<td class="parameter_description"><p>a function to destroy <em class="parameter"><code>data</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result_destroy_func</p></td>
+<td class="parameter_description"><p>a function to destroy the result, if any, of <em class="parameter"><code>func</code></em>
+'s execution, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-do-job.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-wait-job"></a><h3>gda_worker_wait_job ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>
+gda_worker_wait_job (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                     <em class="parameter"><code><a class="link" href="GdaWorker.html#GdaWorkerFunc" title="GdaWorkerFunc ()"><span class="type">GdaWorkerFunc</span></a> func</code></em>,
+                     <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                     <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> data_destroy_func</code></em>,
+                     <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Request that the worker thread call <em class="parameter"><code>func</code></em>
+ with the <em class="parameter"><code>data</code></em>
+ argument, much like <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a>,
+but waits (blocks) until <em class="parameter"><code>func</code></em>
+ has been executed.</p>
+<p>Note: it's up to the caller to free the result, the <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object will not do it (ownership of the result is
+transfered to the caller).</p>
+<div class="refsect3">
+<a name="gda-worker-wait-job.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>the function to call from the worker thread</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>the data to pass to <em class="parameter"><code>func</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data_destroy_func</p></td>
+<td class="parameter_description"><p>a function to destroy <em class="parameter"><code>data</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-wait-job.returns"></a><h4>Returns</h4>
+<p>the result of <em class="parameter"><code>func</code></em>
+'s execution. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaWorkerCallback"></a><h3>GdaWorkerCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*GdaWorkerCallback<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                      <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> job_id</code></em>,
+                      <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> result_data</code></em>,
+                      <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> *error</code></em>,
+                      <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-set-callback"></a><h3>gda_worker_set_callback ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_worker_set_callback (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>,
+                         <em class="parameter"><code><a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> *context</code></em>,
+                         <em class="parameter"><code><a class="link" href="GdaWorker.html#GdaWorkerCallback" title="GdaWorkerCallback ()"><span class="type">GdaWorkerCallback</span></a> callback</code></em>,
+                         <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>,
+                         <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Declare a callback function to be called when a job has been processed. If <em class="parameter"><code>callback</code></em>
+ is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, then any previously
+effect of this function is removed. If the same function is called with a different <em class="parameter"><code>callback</code></em>
+ value, then the previous one
+is simply replaced.</p>
+<p>Since this function adds a new source of events to the specified <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a> (or the default one if <em class="parameter"><code>context</code></em>
+ is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>),</p>
+<p>Notes:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>before calling this function, <em class="parameter"><code>worker</code></em> internally gets rid of the job, so the <em class="parameter"><code>jib_id</code></em> passed
+  to <em class="parameter"><code>callback</code></em> does not actually designate a known job ID, and so calling <a class="link" href="GdaWorker.html#gda-worker-fetch-job-result" title="gda_worker_fetch_job_result ()"><code class="function">gda_worker_fetch_job_result()</code></a> for that
+  job ID will fail</p></li>
+<li class="listitem"><p>the job's result, if any, has to be freed by <em class="parameter"><code>callback</code></em> (<em class="parameter"><code>worker</code></em> does not do it)</p></li>
+<li class="listitem"><p>any call to this function will only be honored for the jobs submitted _after_ calling it, the ones
+  submitted before are not affected</p></li>
+<li class="listitem"><p>passing <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for <em class="parameter"><code>context</code></em> is similar to passing the result of <a href="../../glib/stable/glib-The-Main-Event-Loop.html#g-main-context-ref-thread-default"><code class="function">g_main_context_ref_thread_default()</code></a></p></li>
+</ul></div>
+<div class="refsect3">
+<a name="gda-worker-set-callback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>context</p></td>
+<td class="parameter_description"><p>a <a href="../../glib/stable/glib-The-Main-Event-Loop.html#GMainContext"><span class="type">GMainContext</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>the function to call when a job submitted from within the calling thread using <a class="link" href="GdaWorker.html#gda-worker-submit-job" title="gda_worker_submit_job ()"><code class="function">gda_worker_submit_job()</code></a> has finished being processed. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>][<acronym title="The callback is valid only during the call to the method."><span class="acronym">scope call</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>argument passed to <em class="parameter"><code>callback</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-set-callback.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred.</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-thread-is-worker"></a><h3>gda_worker_thread_is_worker ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_worker_thread_is_worker (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>);</pre>
+<p>Tells if the thread from which this function is called is <em class="parameter"><code>worker</code></em>
+'s worker thread.</p>
+<div class="refsect3">
+<a name="gda-worker-thread-is-worker.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-thread-is-worker.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if this function is called is <em class="parameter"><code>worker</code></em>
+'s worker thread</p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-worker-get-worker-thread"></a><h3>gda_worker_get_worker_thread ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Threads.html#GThread"><span class="returnvalue">GThread</span></a> *
+gda_worker_get_worker_thread (<em class="parameter"><code><a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a> *worker</code></em>);</pre>
+<p>Get a pointer to <em class="parameter"><code>worker</code></em>
+'s inner worker thread</p>
+<div class="refsect3">
+<a name="gda-worker-get-worker-thread.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>worker</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaWorker.html" title="GdaWorker"><span class="type">GdaWorker</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-worker-get-worker-thread.returns"></a><h4>Returns</h4>
+<p>the <a href="../../glib/stable/glib-Threads.html#GThread"><span class="type">GThread</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-6-0.html#api-index-6.0">6.0</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaWorker.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GDA-WORKER-ERROR:CAPS"></a><h3>GDA_WORKER_ERROR</h3>
+<pre class="programlisting">#define GDA_WORKER_ERROR gda_worker_error_quark ()
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaWorkerError"></a><h3>enum GdaWorkerError</h3>
+<div class="refsect3">
+<a name="GdaWorkerError.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-INTER-THREAD-ERROR:CAPS"></a>GDA_WORKER_INTER_THREAD_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-JOB-NOT-FOUND-ERROR:CAPS"></a>GDA_WORKER_JOB_NOT_FOUND_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-JOB-QUEUED-ERROR:CAPS"></a>GDA_WORKER_JOB_QUEUED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-JOB-BEING-PROCESSED-ERROR:CAPS"></a>GDA_WORKER_JOB_BEING_PROCESSED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-JOB-PROCESSED-ERROR:CAPS"></a>GDA_WORKER_JOB_PROCESSED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-JOB-CANCELLED-ERROR:CAPS"></a>GDA_WORKER_JOB_CANCELLED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-WORKER-THREAD-KILLED:CAPS"></a>GDA_WORKER_THREAD_KILLED</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.27</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdaWorker.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,939 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ClutterFlowLayout: Clutter Reference Manual</title><link href="index.html" rel="home" title="Clutter Reference Manual"></link><link href="ch03.html" rel="up" title="Layout managers"></link><link href="ClutterBinLayout.html" rel="prev" title="ClutterBinLayout"></link><link href="ClutterBoxLayout.html" rel="next" title="ClutterBoxLayout"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ClutterFlowLayout.html#container">Go to page content</a></li><li><a href="ClutterFlowLayout.html#top_bar">Go to main menu</a></li><li><a href="ClutterFlowLayout.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="ClutterFlowLayout.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="ClutterFlowLayout.html#ClutterFlowLayout.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="ClutterFlowLayout.html#ClutterFlowLayout.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="ClutterFlowLayout.html#ClutterFlowLayout.properties">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch03.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="ClutterBinLayout.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="ClutterBoxLayout.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="ClutterFlowLayout"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ClutterFlowLayout.top_of_page"></a>ClutterFlowLayout</span></h2>
+<p>ClutterFlowLayout — A reflowing layout manager</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="ClutterLayoutManager.html" title="ClutterLayoutManager"><span class="returnvalue">ClutterLayoutManager</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-new" title="clutter_flow_layout_new ()">clutter_flow_layout_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-homogeneous" title="clutter_flow_layout_set_homogeneous ()">clutter_flow_layout_set_homogeneous</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-homogeneous" title="clutter_flow_layout_get_homogeneous ()">clutter_flow_layout_get_homogeneous</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-orientation" title="clutter_flow_layout_set_orientation ()">clutter_flow_layout_set_orientation</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="returnvalue">ClutterFlowOrientation</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-orientation" title="clutter_flow_layout_get_orientation ()">clutter_flow_layout_get_orientation</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-snap-to-grid" title="clutter_flow_layout_set_snap_to_grid ()">clutter_flow_layout_set_snap_to_grid</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-snap-to-grid" title="clutter_flow_layout_get_snap_to_grid ()">clutter_flow_layout_get_snap_to_grid</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-column-spacing" title="clutter_flow_layout_set_column_spacing ()">clutter_flow_layout_set_column_spacing</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gfloat</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-column-spacing" title="clutter_flow_layout_get_column_spacing ()">clutter_flow_layout_get_column_spacing</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-row-spacing" title="clutter_flow_layout_set_row_spacing ()">clutter_flow_layout_set_row_spacing</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gfloat</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-row-spacing" title="clutter_flow_layout_get_row_spacing ()">clutter_flow_layout_get_row_spacing</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-column-width" title="clutter_flow_layout_set_column_width ()">clutter_flow_layout_set_column_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-column-width" title="clutter_flow_layout_get_column_width ()">clutter_flow_layout_get_column_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-set-row-height" title="clutter_flow_layout_set_row_height ()">clutter_flow_layout_set_row_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="ClutterFlowLayout.html#clutter-flow-layout-get-row-height" title="clutter_flow_layout_get_row_height ()">clutter_flow_layout_get_row_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--column-spacing" title="The “column-spacing” property">column-spacing</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--homogeneous" title="The “homogeneous” property">homogeneous</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--max-column-width" title="The “max-column-width” property">max-column-width</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--max-row-height" title="The “max-row-height” property">max-row-height</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--min-column-width" title="The “min-column-width” property">min-column-width</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--min-row-height" title="The “min-row-height” property">min-row-height</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="type">ClutterFlowOrientation</span></a></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--orientation" title="The “orientation” property">orientation</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gfloat</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--row-spacing" title="The “row-spacing” property">row-spacing</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--snap-to-grid" title="The “snap-to-grid” property">snap-to-grid</a></td>
+<td class="property_flags">Read / Write</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation">ClutterFlowOrientation</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout-struct" title="struct ClutterFlowLayout">ClutterFlowLayout</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="ClutterFlowLayout.html#ClutterFlowLayoutClass" title="struct ClutterFlowLayoutClass">ClutterFlowLayoutClass</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GInitiallyUnowned
+        <span class="lineart">╰──</span> <a class="link" href="ClutterLayoutManager.html" title="ClutterLayoutManager">ClutterLayoutManager</a>
+            <span class="lineart">╰──</span> ClutterFlowLayout
+</pre>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.description"></a><h2>Description</h2>
+<p><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> is a layout manager which implements the following
+policy:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>the preferred natural size depends on the value
+of the <a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--orientation" title="The “orientation” property"><span class="type">“orientation”</span></a> property; the layout will try
+to maintain all its children on a single row or
+column;</p></li>
+<li class="listitem"><p>if either the width or the height allocated are
+smaller than the preferred ones, the layout will wrap; in this case,
+the preferred height or width, respectively, will take into account
+the amount of columns and rows;</p></li>
+<li class="listitem"><p>each line (either column or row) in reflowing will
+have the size of the biggest cell on that line; if the
+<a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--homogeneous" title="The “homogeneous” property"><span class="type">“homogeneous”</span></a> property is set to <code class="literal">FALSE</code> the actor
+will be allocated within that area, and if set to <code class="literal">TRUE</code> instead the
+actor will be given exactly that area;</p></li>
+<li class="listitem"><p>the size of the columns or rows can be controlled
+for both minimum and maximum; the spacing can also be controlled
+in both columns and rows.</p></li>
+</ul></div>
+<p>The <a class="ulink" href="https://git.gnome.org/browse/clutter/tree/examples/flow-layout.c?h=clutter-1.18" target="_top">flow-layout example</a>
+shows how to use the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a>.</p>
+<p><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> is available since Clutter 1.2</p>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="clutter-flow-layout-new"></a><h3>clutter_flow_layout_new ()</h3>
+<pre class="programlisting"><a class="link" href="ClutterLayoutManager.html" title="ClutterLayoutManager"><span class="returnvalue">ClutterLayoutManager</span></a> *
+clutter_flow_layout_new (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="type">ClutterFlowOrientation</span></a> orientation</code></em>);</pre>
+<p>Creates a new <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> with the given <em class="parameter"><code>orientation</code></em>
+</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.2.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>orientation</p></td>
+<td class="parameter_description"><p>the orientation of the flow layout</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.2.6"></a><h4>Returns</h4>
+<p> the newly created <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-homogeneous"></a><h3>clutter_flow_layout_set_homogeneous ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_homogeneous (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                     <em class="parameter"><code><span class="type">gboolean</span> homogeneous</code></em>);</pre>
+<p>Sets whether the <em class="parameter"><code>layout</code></em>
+ should allocate the same space for
+each child</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>homogeneous</p></td>
+<td class="parameter_description"><p>whether the layout should be homogeneous or not</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-homogeneous"></a><h3>clutter_flow_layout_get_homogeneous ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+clutter_flow_layout_get_homogeneous (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>);</pre>
+<p>Retrieves whether the <em class="parameter"><code>layout</code></em>
+ is homogeneous</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.4.6"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> is homogeneous</p>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-orientation"></a><h3>clutter_flow_layout_set_orientation ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_orientation (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                     <em class="parameter"><code><a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="type">ClutterFlowOrientation</span></a> orientation</code></em>);</pre>
+<p>Sets the orientation of the flow layout</p>
+<p>The orientation controls the direction used to allocate
+the children: either horizontally or vertically. The
+orientation also controls the direction of the overflowing</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.5.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>orientation</p></td>
+<td class="parameter_description"><p>the orientation of the layout</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-orientation"></a><h3>clutter_flow_layout_get_orientation ()</h3>
+<pre class="programlisting"><a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="returnvalue">ClutterFlowOrientation</span></a>
+clutter_flow_layout_get_orientation (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>);</pre>
+<p>Retrieves the orientation of the <em class="parameter"><code>layout</code></em>
+</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.6.6"></a><h4>Returns</h4>
+<p> the orientation of the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-snap-to-grid"></a><h3>clutter_flow_layout_set_snap_to_grid ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_snap_to_grid (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                      <em class="parameter"><code><span class="type">gboolean</span> snap_to_grid</code></em>);</pre>
+<p>Whether the <em class="parameter"><code>layout</code></em>
+ should place its children on a grid.</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>snap_to_grid</p></td>
+<td class="parameter_description"><p><code class="literal">TRUE</code> if <em class="parameter"><code>layout</code></em>
+should place its children on a grid</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix15.html#api-index-1.16">1.16</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-snap-to-grid"></a><h3>clutter_flow_layout_get_snap_to_grid ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+clutter_flow_layout_get_snap_to_grid (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>);</pre>
+<p>Retrieves the value of <a class="link" href="ClutterFlowLayout.html#ClutterFlowLayout--snap-to-grid" title="The “snap-to-grid” property"><span class="type">“snap-to-grid”</span></a> property</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.8.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.8.6"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the <em class="parameter"><code>layout</code></em>
+is placing its children on a grid</p>
+</div>
+<p class="since">Since: <a class="link" href="ix15.html#api-index-1.16">1.16</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-column-spacing"></a><h3>clutter_flow_layout_set_column_spacing ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_column_spacing
+                               (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                <em class="parameter"><code><span class="type">gfloat</span> spacing</code></em>);</pre>
+<p>Sets the space between columns, in pixels</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spacing</p></td>
+<td class="parameter_description"><p>the space between columns</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-column-spacing"></a><h3>clutter_flow_layout_get_column_spacing ()</h3>
+<pre class="programlisting"><span class="returnvalue">gfloat</span>
+clutter_flow_layout_get_column_spacing
+                               (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>);</pre>
+<p>Retrieves the spacing between columns</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.10.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.10.6"></a><h4>Returns</h4>
+<p> the spacing between columns of the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a>,
+in pixels</p>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-row-spacing"></a><h3>clutter_flow_layout_set_row_spacing ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_row_spacing (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                     <em class="parameter"><code><span class="type">gfloat</span> spacing</code></em>);</pre>
+<p>Sets the spacing between rows, in pixels</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.11.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spacing</p></td>
+<td class="parameter_description"><p>the space between rows</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-row-spacing"></a><h3>clutter_flow_layout_get_row_spacing ()</h3>
+<pre class="programlisting"><span class="returnvalue">gfloat</span>
+clutter_flow_layout_get_row_spacing (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>);</pre>
+<p>Retrieves the spacing between rows</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.12.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.12.6"></a><h4>Returns</h4>
+<p> the spacing between rows of the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a>,
+in pixels</p>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-column-width"></a><h3>clutter_flow_layout_set_column_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_column_width (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                      <em class="parameter"><code><span class="type">gfloat</span> min_width</code></em>,
+                                      <em class="parameter"><code><span class="type">gfloat</span> max_width</code></em>);</pre>
+<p>Sets the minimum and maximum widths that a column can have</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.13.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>min_width</p></td>
+<td class="parameter_description"><p>minimum width of a column</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_width</p></td>
+<td class="parameter_description"><p>maximum width of a column</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-column-width"></a><h3>clutter_flow_layout_get_column_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_get_column_width (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                      <em class="parameter"><code><span class="type">gfloat</span> *min_width</code></em>,
+                                      <em class="parameter"><code><span class="type">gfloat</span> *max_width</code></em>);</pre>
+<p>Retrieves the minimum and maximum column widths</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.14.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>min_width</p></td>
+<td class="parameter_description"><p> return location for the minimum column width, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_width</p></td>
+<td class="parameter_description"><p> return location for the maximum column width, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-set-row-height"></a><h3>clutter_flow_layout_set_row_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_set_row_height (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                    <em class="parameter"><code><span class="type">gfloat</span> min_height</code></em>,
+                                    <em class="parameter"><code><span class="type">gfloat</span> max_height</code></em>);</pre>
+<p>Sets the minimum and maximum heights that a row can have</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.15.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>min_height</p></td>
+<td class="parameter_description"><p>the minimum height of a row</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_height</p></td>
+<td class="parameter_description"><p>the maximum height of a row</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="clutter-flow-layout-get-row-height"></a><h3>clutter_flow_layout_get_row_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+clutter_flow_layout_get_row_height (<em class="parameter"><code><a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> *layout</code></em>,
+                                    <em class="parameter"><code><span class="type">gfloat</span> *min_height</code></em>,
+                                    <em class="parameter"><code><span class="type">gfloat</span> *max_height</code></em>);</pre>
+<p>Retrieves the minimum and maximum row heights</p>
+<div class="refsect3">
+<a name="id-1.5.4.4.8.16.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>min_height</p></td>
+<td class="parameter_description"><p> return location for the minimum row height, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_height</p></td>
+<td class="parameter_description"><p> return location for the maximum row height, or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="ClutterFlowOrientation"></a><h3>enum ClutterFlowOrientation</h3>
+<p>The direction of the arrangement of the children inside
+a <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a></p>
+<div class="refsect3">
+<a name="id-1.5.4.4.9.2.4"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="CLUTTER-FLOW-HORIZONTAL:CAPS"></a>CLUTTER_FLOW_HORIZONTAL</p></td>
+<td class="enum_member_description">
+<p>Arrange the children of the flow layout
+  horizontally first</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="CLUTTER-FLOW-VERTICAL:CAPS"></a>CLUTTER_FLOW_VERTICAL</p></td>
+<td class="enum_member_description">
+<p>Arrange the children of the flow layout
+  vertically first</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout-struct"></a><h3>struct ClutterFlowLayout</h3>
+<pre class="programlisting">struct ClutterFlowLayout;</pre>
+<p>The <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> structure contains only private data
+and should be accessed using the provided API</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayoutClass"></a><h3>struct ClutterFlowLayoutClass</h3>
+<pre class="programlisting">struct ClutterFlowLayoutClass {
+};
+</pre>
+<p>The <a class="link" href="ClutterFlowLayout.html#ClutterFlowLayoutClass" title="struct ClutterFlowLayoutClass"><span class="type">ClutterFlowLayoutClass</span></a> structure contains only private data
+and should be accessed using the provided API</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ClutterFlowLayout.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ClutterFlowLayout--column-spacing"></a><h3>The <code class="literal">“column-spacing”</code> property</h3>
+<pre class="programlisting">  “column-spacing”           <span class="type">gfloat</span></pre>
+<p>The spacing between columns, in pixels; the value of this
+property is honoured by horizontal non-overflowing layouts
+and by vertical overflowing layouts</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--homogeneous"></a><h3>The <code class="literal">“homogeneous”</code> property</h3>
+<pre class="programlisting">  “homogeneous”              <span class="type">gboolean</span></pre>
+<p>Whether each child inside the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> should receive
+the same allocation</p>
+<p>Flags: Read / Write</p>
+<p>Default value: FALSE</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--max-column-width"></a><h3>The <code class="literal">“max-column-width”</code> property</h3>
+<pre class="programlisting">  “max-column-width”         <span class="type">gfloat</span></pre>
+<p>Maximum width for each column in the layout, in pixels. If
+set to -1 the width will be the maximum child width</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: -1</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--max-row-height"></a><h3>The <code class="literal">“max-row-height”</code> property</h3>
+<pre class="programlisting">  “max-row-height”           <span class="type">gfloat</span></pre>
+<p>Maximum height for each row in the layout, in pixels. If
+set to -1 the width will be the maximum child height</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= -1</p>
+<p>Default value: -1</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--min-column-width"></a><h3>The <code class="literal">“min-column-width”</code> property</h3>
+<pre class="programlisting">  “min-column-width”         <span class="type">gfloat</span></pre>
+<p>Minimum width for each column in the layout, in pixels</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--min-row-height"></a><h3>The <code class="literal">“min-row-height”</code> property</h3>
+<pre class="programlisting">  “min-row-height”           <span class="type">gfloat</span></pre>
+<p>Minimum height for each row in the layout, in pixels</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--orientation"></a><h3>The <code class="literal">“orientation”</code> property</h3>
+<pre class="programlisting">  “orientation”              <a class="link" href="ClutterFlowLayout.html#ClutterFlowOrientation" title="enum ClutterFlowOrientation"><span class="type">ClutterFlowOrientation</span></a></pre>
+<p>The orientation of the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a>. The children
+of the layout will be layed out following the orientation.</p>
+<p>This property also controls the overflowing directions</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: CLUTTER_FLOW_HORIZONTAL</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--row-spacing"></a><h3>The <code class="literal">“row-spacing”</code> property</h3>
+<pre class="programlisting">  “row-spacing”              <span class="type">gfloat</span></pre>
+<p>The spacing between rows, in pixels; the value of this
+property is honoured by vertical non-overflowing layouts and
+by horizontal overflowing layouts</p>
+<p>Flags: Read / Write</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+<p class="since">Since: <a class="link" href="ix08.html#api-index-1.2">1.2</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ClutterFlowLayout--snap-to-grid"></a><h3>The <code class="literal">“snap-to-grid”</code> property</h3>
+<pre class="programlisting">  “snap-to-grid”             <span class="type">gboolean</span></pre>
+<p>Whether the <a class="link" href="ClutterFlowLayout.html" title="ClutterFlowLayout"><span class="type">ClutterFlowLayout</span></a> should arrange its children
+on a grid</p>
+<p>Flags: Read / Write</p>
+<p>Default value: TRUE</p>
+<p class="since">Since: <a class="link" href="ix15.html#api-index-1.16">1.16</a></p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.24</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ClutterFlowLayout.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

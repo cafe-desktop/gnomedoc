@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" href="../skin/moinmoin.css" type="text/css"></link><title>HowDoI/GSettings - GNOME Wiki!</title><link href="https://wiki.gnome.org/action/rss_rc/HowDoI/GSettings?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=HowDoI%2FGSettings&amp;ddiffs=1" rel="alternate" title="GNOME Wiki!: HowDoI/GSettings" type="application/rss+xml"></link><link href="https://wiki.gnome.org/Home" rel="Start"></link><link href="https://wiki.gnome.org/action/raw/HowDoI/GSettings?action=raw" rel="Alternate" title="Wiki Markup"></link><link href="https://wiki.gnome.org/action/print/HowDoI/GSettings?action=print" media="print" rel="Alternate" title="Print View"></link><link href="https://wiki.gnome.org/HowDoI" rel="Up"></link><link href="https://wiki.gnome.org/FindPage" rel="Search"></link><link href="https://wiki.gnome.org/TitleIndex" rel="Index"></link><link href="https://wiki.gnome.org/WordIndex" rel="Glossary"></link><link href="https://wiki.gnome.org/HelpOnFormatting" rel="Help"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/960_24_col.css"></link><script type="text/javascript" src="../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="index.html#container">Go to page content</a></li><li><a href="index.html#top_bar">Go to main menu</a></li><li><a href="index.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/search"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form></div></div></div><div class="clearfix"></div><div id="container" class="content-id"><div class="content"><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="Using_GSettings">Using GSettings</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line862">This page describes how to manage your application settings with <a class="https" href="https://developer.gnome.org/gio/stable/GSettings.html">GSettings</a>. For information on how to use GSettings when developing an application, look at the <a class="https" href="https://developer.gnome.org/gio/stable/GSettings.html">GSettings documentation</a>. For information on migrating to GSettings from GConf, see the <a class="https" href="https://developer.gnome.org/gio/stable/ch32.html">migration guide</a>. <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><p class="line867">
+</p><h2 id="Concepts">Concepts</h2>
+<span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line874">GSettings are a nice way to manage your application’s settings. Those settings are stored in binary form for fast retrieval, and can be manipulated outside of your application as well using specific tools. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line862">This system can be seen as a database, whose schema is described in an XML file (conventionally named <tt class="backtick">.gschema.xml</tt>) which is then compiled to improve runtime performance. <span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span></p><p class="line874">GSettings is actually an interface with multiple possible storage backends. The typical and recommended one is dconf, but a key file backend can also be used. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><p class="line867">
+</p><h2 id="Using_GSettings_in_your_project">Using GSettings in your project</h2>
+<span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span><p class="line874">If the build system of your project is based on autotools then it is very easy to integrate GSettings support into your application. <span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span></p><p class="line862">As an example, we're going to set up GSettings for a project with an application ID of "<tt class="backtick">org.example.myapp</tt>".  See <a href="https://wiki.gnome.org/HowDoI/ChooseApplicationID">HowDoI/ChooseApplicationID</a> for information about choosing an application ID. <span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span></p><p class="line874">We start by writing a schema for the settings that our project needs to store.  For now, let's start small. <span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span></p><p class="line862">Name the schema file according to the name of the schema found inside of it, and ending with "<tt class="backtick">.gschema.xml</tt>". You can put multiple schemas inside of one file, but typically there will be a "top level" schema that you can use to name the file.  Although the filename itself has no particular meaning, it is a very strong convention that you must choose a name that correctly indicates the contents and avoids conflicts with other installed applications. <span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span></p><p class="line862">Typically, you will place this file in the toplevel <tt class="backtick">data/</tt> directory in your project's source, but you can put it anywhere you like, according to the conventions used in your project. <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><p class="line867"><img alt="/!\" height="16" src="https://wiki.gnome.org/gnome/gnome-responsive/img/dialog-warning-symbolic.png" title="/!\" width="16"></img> There are several examples in the wild of projects that use <strong>.gschema.xml.in</strong> files.  This is <strong>almost always wrong</strong>.  You should absolutely never use intltool or itstool-based XML "translation merging" functionality with schema files.  It is also typically unnecessary to use expansions such as <tt class="backtick">@GETTEXT_PACKAGE@</tt>, as these things are not configurable by the user (and shouldn't be). <span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></p><p class="line862">For our example, we will create a file named "<tt class="backtick">org.example.myapp.gschema.xml</tt>": <span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span></p><p class="line867"><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><span class="anchor" id="line-1-1"></span></p><div class="highlight xml"><div class="codearea" dir="ltr" lang="en">
+<script type="text/javascript">
+function isnumbered(obj) {
+  return obj.childNodes.length && obj.firstChild.childNodes.length && obj.firstChild.firstChild.className == 'LineNumber';
+}
+function nformat(num,chrs,add) {
+  var nlen = Math.max(0,chrs-(''+num).length), res = '';
+  while (nlen>0) { res += ' '; nlen-- }
+  return res+num+add;
+}
+function addnumber(did, nstart, nstep) {
+  var c = document.getElementById(did), l = c.firstChild, n = 1;
+  if (!isnumbered(c)) {
+    if (typeof nstart == 'undefined') nstart = 1;
+    if (typeof nstep  == 'undefined') nstep = 1;
+    var n = nstart;
+    while (l != null) {
+      if (l.tagName == 'SPAN') {
+        var s = document.createElement('SPAN');
+        var a = document.createElement('A');
+        s.className = 'LineNumber';
+        a.appendChild(document.createTextNode(nformat(n,4,'')));
+        a.href = '#' + did + '_' + n;
+        s.appendChild(a);
+        s.appendChild(document.createTextNode(' '));
+        n += nstep;
+        if (l.childNodes.length) {
+          l.insertBefore(s, l.firstChild);
+        }
+        else {
+          l.appendChild(s);
+        }
+      }
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function remnumber(did) {
+  var c = document.getElementById(did), l = c.firstChild;
+  if (isnumbered(c)) {
+    while (l != null) {
+      if (l.tagName == 'SPAN' && l.firstChild.className == 'LineNumber') l.removeChild(l.firstChild);
+      l = l.nextSibling;
+    }
+  }
+  return false;
+}
+function togglenumber(did, nstart, nstep) {
+  var c = document.getElementById(did);
+  if (isnumbered(c)) {
+    remnumber(did);
+  } else {
+    addnumber(did,nstart,nstep);
+  }
+  return false;
+}
+</script>
+
+<script type="text/javascript">
+document.write('<a href="index.html#" onclick="return togglenumber(\'CA-7607bb91e81f517415b2a3ef43c4885f81e79183\', 1, 1);" \
+                class="codenumbers">Toggle line numbers<\/a>');
+</script>
+<pre dir="ltr" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183" lang="en"><span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_1">   1</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_1"></span><span class="anchor" id="line-1-2"></span><span class="Preprc">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_2">   2</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_2"></span><span class="anchor" id="line-2-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_3">   3</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_3"></span><span class="anchor" id="line-3-1"></span><span class="ID">&lt;schemalist</span><span class="ID">&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_4">   4</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_4"></span><span class="anchor" id="line-4-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_5">   5</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_5"></span><span class="anchor" id="line-5-1"></span>  <span class="ID">&lt;schema</span> <span class="ID">path=</span><span class="String">"/org/example/myapp/"</span> <span class="ID">id=</span><span class="String">"org.example.myapp"</span><span class="ID">&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_6">   6</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_6"></span><span class="anchor" id="line-6-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_7">   7</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_7"></span><span class="anchor" id="line-7-1"></span>    <span class="ID">&lt;key</span> <span class="ID">name=</span><span class="String">'automatic-updates'</span> <span class="ID">type=</span><span class="String">'b'</span><span class="ID">&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_8">   8</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_8"></span><span class="anchor" id="line-8-1"></span>      <span class="ID">&lt;default</span><span class="ID">&gt;</span>true<span class="ID">&lt;/default&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_9">   9</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_9"></span><span class="anchor" id="line-9-1"></span>      <span class="ID">&lt;summary</span><span class="ID">&gt;</span>Automatically install updates<span class="ID">&lt;/summary&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_10">  10</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_10"></span><span class="anchor" id="line-10-1"></span>      <span class="ID">&lt;description</span><span class="ID">&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_11">  11</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_11"></span><span class="anchor" id="line-11-1"></span>        If enabled, updates will automatically be downlaoded and installed.</span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_12">  12</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_12"></span><span class="anchor" id="line-12-1"></span>        If disabled, updates will still be downloaded, but the user will be</span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_13">  13</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_13"></span><span class="anchor" id="line-13-1"></span>        asked to install them manually.</span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_14">  14</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_14"></span><span class="anchor" id="line-14-1"></span>      <span class="ID">&lt;/description&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_15">  15</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_15"></span><span class="anchor" id="line-15-1"></span>    <span class="ID">&lt;/key&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_16">  16</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_16"></span><span class="anchor" id="line-16-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_17">  17</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_17"></span><span class="anchor" id="line-17-1"></span>  <span class="ID">&lt;/schema&gt;</span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_18">  18</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_18"></span><span class="anchor" id="line-18-1"></span></span>
+<span class="line"><span class="LineNumber"><a href="index.html#CA-7607bb91e81f517415b2a3ef43c4885f81e79183_19">  19</a> </span><span class="LineAnchor" id="CA-7607bb91e81f517415b2a3ef43c4885f81e79183_19"></span><span class="anchor" id="line-19-1"></span><span class="ID">&lt;/schemalist&gt;</span></span>
+</pre></div></div><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><p class="line874">Once the file is created, you need to enable GSettings support in your project and tell the rules about your schema files. <span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span></p><p class="line867">
+</p><h3 id="Meson">Meson</h3>
+<span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><p class="line862">Edit the appropriate <tt class="backtick">meson.build</tt> file, and tell it to install the schema file in the schemas directory: <span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span></p><p class="line867"><span class="anchor" id="line-58"></span><span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span><span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span></p><pre><span class="anchor" id="line-1"></span>schemas_dir = get_option('prefix') / get_option('datadir') / 'glib-2.0' / 'schemas'
+<span class="anchor" id="line-2"></span>settings_schemas = [ 'org.example.myapp.gschema.xml' ]
+<span class="anchor" id="line-3"></span>
+<span class="anchor" id="line-4"></span>install_data(settings_schemas, install_dir: schemas_dir)
+<span class="anchor" id="line-5"></span>
+<span class="anchor" id="line-6"></span># Compile the schemas in the current directory; this is only
+<span class="anchor" id="line-7"></span># useful for testing
+<span class="anchor" id="line-8"></span>gnome = import('gnome')
+<span class="anchor" id="line-9"></span>gnome.compile_schemas(depend_files: files(settings_schemas))</pre><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span><p class="line874">In order to compile the settings schemas when installing, you will need a post-install script: <span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span></p><p class="line867"><span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span></p><pre><span class="anchor" id="line-1-1"></span>meson.add_install_script('glib-compile-schemas', schemas_dir)</pre><span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><p class="line867">
+</p><h3 id="Autotools">Autotools</h3>
+<span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><p class="line862">Edit the <tt class="backtick">Makefile.am</tt> in the same directory as the schema file that you just created and add the following lines: <span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span></p><p class="line867"><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span></p><pre><span class="anchor" id="line-1-2"></span>gsettings_SCHEMAS = org.example.myapp.gschema.xml
+<span class="anchor" id="line-2-1"></span>
+<span class="anchor" id="line-3-1"></span>@GSETTINGS_RULES@</pre><span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><p class="line862">You will also need to update your automake setup in order to make the GSettings makefile rules available.  Add this line to your <tt class="backtick">configure.ac</tt> file: <span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span></p><p class="line867"><span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span></p><pre><span class="anchor" id="line-1-3"></span>GLIB_GSETTINGS</pre><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><p class="line862">You may now need to re-run <tt class="backtick">autoregen</tt> on your project in order to make sure everything is properly updated. <span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span></p><p class="line867">
+</p><h2 id="Tools">Tools</h2>
+<span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><p class="line874">These tools are typically helpful for debugging. <span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span></p><p class="line867">
+</p><h3 id="glib-compile-schemas">glib-compile-schemas</h3>
+<span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><p class="line862">This is used to compile GSettings schema XML files to a cached binary form. It should typically be used via the <tt class="backtick">GLIB_GSETTINGS</tt> macro in an automake build system; not directly. <span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span></p><p class="line867">
+</p><h3 id="dconf-editor">dconf-editor</h3>
+<span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><p class="line874">Running this command will open a graphical interface which will allow you to browse and modify settings trees. <span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span></p><p class="line867">
+</p><h3 id="gsettings">gsettings</h3>
+<span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><p class="line862">This is a command line tool for viewing and modifying GSettings, and works regardless of the GSettings backend in use. For modifying the dconf backend storage itself, use the <tt class="backtick">dconf</tt> tool; but <tt class="backtick">gsettings</tt> should be used by preference. <span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span></p><p class="line862">See the <tt class="backtick">--help</tt> output from the two tools for information on how to use them. <span class="anchor" id="line-110"></span><span class="anchor" id="bottom"></span></p></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="index.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

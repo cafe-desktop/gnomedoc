@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GtkTreeView questions: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="gtk-question-index.html" rel="up" title="Common Questions"></link><link href="ch03s04.html" rel="prev" title="GtkTextView questions"></link><link href="ch03s06.html" rel="next" title="Using cairo with GTK"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ch03s05.html#container">Go to page content</a></li><li><a href="ch03s05.html#top_bar">Go to main menu</a></li><li><a href="ch03s05.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="gtk-question-index.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="ch03s04.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="ch03s06.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id-1.2.5.7"></a>GtkTreeView questions</h2></div></div></div>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem" value="26">
+<p>
+          How do I associate some data with a row in the tree?
+        </p>
+<p>
+          Remember that the <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a> columns don’t necessarily have
+          to be displayed. So you can put non-user-visible data in your
+          model just like any other data, and retrieve it with
+          <a href="GtkTreeModel.html#gtk-tree-model-get"><code class="function">gtk_tree_model_get()</code></a>. See the <gtkdoclink href="TreeWidget">tree
+          widget overview</gtkdoclink>.
+        </p>
+</li>
+<li class="listitem">
+<p>
+          How do I put an image and some text in the same column?
+        </p>
+<p>
+          You can pack more than one <a href="GtkCellRenderer.html#GtkCellRenderer-struct"><span class="type">GtkCellRenderer</span></a> into a single
+          <a href="GtkTreeViewColumn.html#GtkTreeViewColumn-struct"><span class="type">GtkTreeViewColumn</span></a> using <a href="GtkTreeViewColumn.html#gtk-tree-view-column-pack-start"><code class="function">gtk_tree_view_column_pack_start()</code></a> or
+          <a href="GtkTreeViewColumn.html#gtk-tree-view-column-pack-end"><code class="function">gtk_tree_view_column_pack_end()</code></a>. So pack both a
+          <a href="GtkCellRendererPixbuf.html#GtkCellRendererPixbuf-struct"><span class="type">GtkCellRendererPixbuf</span></a> and a <a href="GtkCellRendererText.html#GtkCellRendererText-struct"><span class="type">GtkCellRendererText</span></a> into the
+          column.
+        </p>
+</li>
+<li class="listitem">
+<p>
+          I can set data easily on my <a href="GtkTreeStore.html#GtkTreeStore-struct"><span class="type">GtkTreeStore</span></a> or <a href="GtkListStore.html#GtkListStore-struct"><span class="type">GtkListStore</span></a>
+          models using <a href="GtkListStore.html#gtk-list-store-set"><code class="function">gtk_list_store_set()</code></a> and <a href="GtkTreeStore.html#gtk-tree-store-set"><code class="function">gtk_tree_store_set()</code></a>,
+          but can’t read it back?
+        </p>
+<p>
+          Both the <a href="GtkTreeStore.html#GtkTreeStore-struct"><span class="type">GtkTreeStore</span></a> and the <a href="GtkListStore.html#GtkListStore-struct"><span class="type">GtkListStore</span></a> implement the
+          <a href="GtkTreeModel.html#GtkTreeModel-struct"><span class="type">GtkTreeModel</span></a> interface. As a consequence, you can use any
+          function this interface implements. The easiest way to read a
+          set of data back is to use <a href="GtkTreeModel.html#gtk-tree-model-get"><code class="function">gtk_tree_model_get()</code></a>.
+        </p>
+</li>
+<li class="listitem">
+<p>
+          How do I change the way that numbers are formatted by
+          <a href="GtkTreeView.html#GtkTreeView-struct"><span class="type">GtkTreeView</span></a>?
+        </p>
+<p>
+          Use <a href="GtkTreeView.html#gtk-tree-view-insert-column-with-data-func"><code class="function">gtk_tree_view_insert_column_with_data_func()</code></a> or
+          <a href="GtkTreeViewColumn.html#gtk-tree-view-column-set-cell-data-func"><code class="function">gtk_tree_view_column_set_cell_data_func()</code></a> and do the
+          conversion from number to string yourself (with, say,
+          <code class="function">g_strdup_printf()</code>).
+        </p>
+<p>
+          The following example demonstrates this:
+        </p>
+<pre class="programlisting">enum
+{
+  DOUBLE_COLUMN,
+  N_COLUMNS
+};
+
+GtkListStore *mycolumns;
+
+GtkTreeView *treeview;
+
+void
+my_cell_double_to_text (GtkTreeViewColumn *tree_column,
+                        GtkCellRenderer   *cell,
+                        GtkTreeModel      *tree_model,
+                        GtkTreeIter       *iter,
+                        gpointer           data)
+{
+  GtkCellRendererText *cell_text = (GtkCellRendererText *)cell;
+  double d;
+  char *text;
+
+  /* Get the double value from the model. */
+  gtk_tree_model_get (tree_model, iter, (int)data, &amp;d, -1);
+  /* Now we can format the value ourselves. */
+  text = g_strdup_printf ("%.2f", d);
+  g_object_set (cell, "text", text, NULL);
+  g_free (text);
+}
+
+void
+set_up_new_columns (GtkTreeView *myview)
+{
+  GtkCellRendererText *renderer;
+  GtkTreeViewColumn *column;
+  GtkListStore *mycolumns;
+
+  /* Create the data model and associate it with the given TreeView */
+  mycolumns = gtk_list_store_new (N_COLUMNS, G_TYPE_DOUBLE);
+  gtk_tree_view_set_model (myview, GTK_TREE_MODEL (mycolumns));
+
+  /* Create a GtkCellRendererText */
+  renderer = <a href="GtkCellRendererText.html#gtk-cell-renderer-text-new"><code class="function">gtk_cell_renderer_text_new()</code></a>;
+
+  /* Create a new column that has a title ("Example column"),
+   * uses the above created renderer that will render the double
+   * value into text from the associated model's rows.
+   */
+  column = <a href="GtkTreeViewColumn.html#gtk-tree-view-column-new"><code class="function">gtk_tree_view_column_new()</code></a>;
+  gtk_tree_view_column_set_title  (column, "Example column");
+  renderer = <a href="GtkCellRendererText.html#gtk-cell-renderer-text-new"><code class="function">gtk_cell_renderer_text_new()</code></a>;
+  gtk_tree_view_column_pack_start (column, renderer, TRUE);
+
+  /* Append the new column after the GtkTreeView's previous columns. */
+  gtk_tree_view_append_column (GTK_TREE_VIEW (myview), column);
+  /* Since we created the column by hand, we can set it up for our
+   * needs, e.g. set its minimum and maximum width, etc.
+   */
+  /* Set up a custom function that will be called when the column content
+   * is rendered. We use the func_data pointer as an index into our
+   * model. This is convenient when using multi column lists.
+   */
+  gtk_tree_view_column_set_cell_data_func (column, renderer,
+                                           my_cell_double_to_text,
+                                           (gpointer)DOUBLE_COLUMN, NULL);
+}
+</pre>
+</li>
+<li class="listitem">
+<p>
+          How do I hide the expander arrows in my tree view?
+        </p>
+<p>
+          Set the expander-column property of the tree view to a hidden
+          column. See <a href="GtkTreeView.html#gtk-tree-view-set-expander-column"><code class="function">gtk_tree_view_set_expander_column()</code></a> and
+          <a href="GtkTreeViewColumn.html#gtk-tree-view-column-set-visible"><code class="function">gtk_tree_view_column_set_visible()</code></a>.
+        </p>
+</li>
+</ol></div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ch03s05.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

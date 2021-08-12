@@ -1,0 +1,1857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The .hg and .ccg files</title>
+<link rel="previous" href="sec-wrapping-defs-files.html.en.html" title="Generating the .defs files.">
+<link rel="next" href="sec-wrapping-hand-coded-files.html.en.html" title="Hand-coded source files">
+<link rel="top" href="index.html.en.html" title="Programming with gtkmm 4">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gtkmm-tutorial/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="sec-wrapping-hg-files.html.en.html#container">Go to page content</a></li>
+<li><a href="sec-wrapping-hg-files.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="sec-wrapping-hg-files.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="sec-wrapping-hg-files"><!--sec-wrapping-hg-files--></a><div class="header"><h1 class="sect1 title"><span class="title">The .hg and .ccg files</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html.en.html" title="Programming with gtkmm 4">Programming with <span class="application">gtkmm</span> 4</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="chapter-wrapping-c-libraries.html.en.html" title="Wrapping C Libraries with gmmproc">Wrapping C Libraries with gmmproc</a></li>
+</ul>
+<p class="para block block-first">The .hg and .ccg source files are very much like
+        .h and .cc C++ source files, but they contain extra macros, such as
+        <span class="function">_CLASS_GOBJECT()</span> and
+        <span class="function">_WRAP_METHOD()</span>, from which
+        <span class="command" dir="ltr">gmmproc</span> generates appropriate C++ source code,
+        usually at the same position in the header. Any additional C++ source
+        code will be copied verbatim into the corresponding
+        .h or .cc file.</p>
+<p class="para block">A .hg file will typically include some headers
+        and then declare a class, using some macros to add API or behaviour to
+        this class. For instance, <span class="application">gtkmm</span>'s <span class="filename" dir="ltr">button.hg</span> looks
+        roughly like this:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include &lt;gtkmm/widget.h&gt;
+#include &lt;gtkmm/actionable.h&gt;
+_DEFS(gtkmm,gtk)
+_PINCLUDE(gtkmm/private/widget_p.h)
+
+namespace Gtk
+{
+
+class Button
+  : public Widget,
+    public Actionable
+{
+  _CLASS_GTKOBJECT(Button, GtkButton, GTK_BUTTON, Gtk::Widget, GtkWidget)
+  _IMPLEMENTS_INTERFACE(Actionable)
+public:
+
+  _CTOR_DEFAULT
+  explicit Button(const Glib::ustring&amp; label, bool mnemonic = false);
+
+  _WRAP_METHOD(void set_label(const Glib::ustring&amp; label), gtk_button_set_label)
+
+  ...
+
+  _WRAP_SIGNAL(void clicked(), "clicked")
+
+  ...
+
+  _WRAP_PROPERTY("label", Glib::ustring)
+};
+
+} // namespace Gtk
+</pre></div>
+<p class="para block">The macros in this example do the following:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first"><span class="function">_DEFS()</span></dt>
+<dd><p class="para block block-first">Specifies the destination directory for generated sources, and the name of the main .defs file that <span class="command" dir="ltr">gmmproc</span> should parse.</p></dd>
+<dt class="term"><span class="function">_PINCLUDE()</span></dt>
+<dd><p class="para block block-first">Tells <span class="command" dir="ltr">gmmproc</span> to include a header in the generated <span class="filename" dir="ltr">private/button_p.h</span> file.</p></dd>
+<dt class="term"><span class="function">_CLASS_GTKOBJECT()</span></dt>
+<dd><p class="para block block-first">Tells <span class="command" dir="ltr">gmmproc</span> to add some typedefs, constructors, and standard methods to this class, as appropriate when wrapping a widget.</p></dd>
+<dt class="term"><span class="function">_IMPLEMENTS_INTERFACE()</span></dt>
+<dd><p class="para block block-first">Tells <span class="command" dir="ltr">gmmproc</span> to add initialization code for the interface.</p></dd>
+<dt class="term"><span class="function">_CTOR_DEFAULT</span></dt>
+<dd><p class="para block block-first">Adds a default constructor.</p></dd>
+<dt class="term">
+<span class="function">_WRAP_METHOD()</span>,
+            <span class="function">_WRAP_SIGNAL()</span>, and
+            <span class="function">_WRAP_PROPERTY()</span>
+</dt>
+<dd><p class="para block block-first">Add methods to wrap parts of the C API.</p></dd>
+</dl></div>
+</p>
+<p class="para block">The .h and .cc files will be generated from the .hg and .ccg files by
+    processing them with <span class="command" dir="ltr">gmmproc</span> like so, though this happens
+    automatically when using the above build structure:
+</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">$ cd gtk/src
+$ /usr/lib/glibmm-2.68/proc/gmmproc -I ../../tools/m4 --defs . button . ./../gtkmm
+</pre></div>
+<p class="para block">Notice that we provided <span class="command" dir="ltr">gmmproc</span> with the path to the
+    .m4 convert files, the path to the .defs file, the name of a .hg file, the
+    source directory, and the destination directory.</p>
+<p class="para block">You should avoid including the C header from your C++ header, to avoid
+    polluting the global namespace, and to avoid exporting unnecessary public
+    API. But you will need to include the necessary C headers from your
+    .ccg file.</p>
+<p class="para block">The macros are explained in more detail in the following sections.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-m4-conversions" title="m4 Conversions">m4 Conversions</a>
+</li>
+<li>
+<span class="label">G.3.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-m4-initializations" title="m4 Initializations">m4 Initializations</a>
+</li>
+<li>
+<span class="label">G.3.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-macros" title="Class macros">Class macros</a>
+</li>
+<li>
+<span class="label">G.3.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-constructor-macros" title="Constructor macros">Constructor macros</a>
+</li>
+<li>
+<span class="label">G.3.5. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-suppressing-macros" title="Macros that suppress generation of some code">Macros that suppress generation of some code</a>
+</li>
+<li>
+<span class="label">G.3.6. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-method-macros" title="Method macros">Method macros</a>
+</li>
+<li>
+<span class="label">G.3.7. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-other-macros" title="Other macros">Other macros</a>
+</li>
+<li>
+<span class="label">G.3.8. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-parameter-processing" title="gmmproc Parameter Processing">gmmproc Parameter Processing</a>
+</li>
+<li>
+<span class="label">G.3.9. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-basic-types" title="Basic Types">Basic Types</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="gmmproc-m4-conversions"><!--gmmproc-m4-conversions--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.1. </span>m4 Conversions</span></h2></div>
+<p class="para block block-first">The macros that you use in the .hg and .ccg files often need to know how
+to convert a C++ type to a C type, or vice-versa. <span class="command" dir="ltr">gmmproc</span> takes this information
+from an .m4 file in your <span class="literal" dir="ltr">tools/m4/</span> or <span class="literal" dir="ltr">codegen/m4/</span> directory.
+This allows it to call a C function in the implementation of your C++ method,
+passing the appropriate parameters to that C functon. For instance, this
+tells <span class="command" dir="ltr">gmmproc</span> how to convert a <span class="classname" dir="ltr">GtkTreeView</span>
+pointer to a <span class="classname" dir="ltr">Gtk::TreeView</span> pointer:
+</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CONVERSION(`GtkTreeView*',`TreeView*',`Glib::wrap($3)')
+</pre></div>
+<p class="para block"><span class="literal" dir="ltr">$3</span> will be replaced by the parameter name when this
+conversion is used by <span class="command" dir="ltr">gmmproc</span>.
+</p>
+<p class="para block">
+Some extra macros make this easier and consistent. Look in <span class="application">gtkmm</span>'s .m4 files
+for examples. For instance:
+</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CONVERSION(`PrintSettings&amp;',`GtkPrintSettings*',__FR2P)
+_CONVERSION(`const PrintSettings&amp;',`GtkPrintSettings*',__FCR2P)
+_CONVERSION(`const Glib::RefPtr&lt;Printer&gt;&amp;',`GtkPrinter*',__CONVERT_REFPTR_TO_P($3))
+</pre></div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-m4-initializations"><!--gmmproc-m4-initializations--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.2. </span>m4 Initializations</span></h2></div>
+<p class="para block block-first">
+  Often when wrapping methods, it is desirable to store the return of the C
+  function in what is called an output parameter.  In this case, the C++ method
+  returns <span class="type" dir="ltr">void</span> but an output parameter in which to store the value
+  of the C function is included in the argument list of the C++ method.
+  <span class="command" dir="ltr">gmmproc</span> allows such functionality, but appropriate initialization macros must
+  be included to tell <span class="command" dir="ltr">gmmproc</span> how to initialize the C++ parameter from the
+  return of the C function.
+</p>
+<p class="para block">
+  For example, if there was a C function that returned a
+  <span class="type" dir="ltr">GtkWidget*</span> and for some reason, instead of having the C++ method
+  also return the widget, it was desirable to have the C++ method place the
+  widget in a specified output parameter, an initialization macro such as the
+  following would be necessary:
+</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_INITIALIZATION(`Gtk::Widget&amp;',`GtkWidget*',`$3 = Glib::wrap($4)')
+</pre></div>
+<p class="para block">
+  <span class="literal" dir="ltr">$3</span> will be replaced by the output parameter name of the
+  C++ method and <span class="literal" dir="ltr">$4</span> will be replaced by the return of the C
+  function when this initialization is used by <span class="command" dir="ltr">gmmproc</span>.  For convenience,
+  <span class="literal" dir="ltr">$1</span> will also be replaced by the C++ type without the
+  ampersand (&amp;) and <span class="literal" dir="ltr">$2</span> will be replaced by the C type.
+</p>
+</div>
+<div class="division sect2">
+<a name="gmmproc-class-macros"><!--gmmproc-class-macros--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.3. </span>Class macros</span></h2></div>
+<p class="para block block-first">The class macro declares the class itself and its relationship with the
+    underlying C type. It generates some internal constructors, the member
+    <span class="varname" dir="ltr">gobject_</span>, typedefs, the <span class="function">gobj()</span>
+    accessors, type registration, and the <span class="function">Glib::wrap()</span>
+    method, among other things.</p>
+<p class="para block">Other macros, such as <span class="function">_WRAP_METHOD()</span> and
+    <span class="function">_WRAP_SIGNAL()</span> may only be used after a call to a
+    <span class="function">_CLASS_*</span> macro.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.3.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-gobject" title="_CLASS_GOBJECT">_CLASS_GOBJECT</a>
+</li>
+<li>
+<span class="label">G.3.3.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-gtkobject" title="_CLASS_GTKOBJECT">_CLASS_GTKOBJECT</a>
+</li>
+<li>
+<span class="label">G.3.3.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-boxedtype" title="_CLASS_BOXEDTYPE">_CLASS_BOXEDTYPE</a>
+</li>
+<li>
+<span class="label">G.3.3.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-boxedtype-static" title="_CLASS_BOXEDTYPE_STATIC">_CLASS_BOXEDTYPE_STATIC</a>
+</li>
+<li>
+<span class="label">G.3.3.5. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-opaque-copyable" title="_CLASS_OPAQUE_COPYABLE">_CLASS_OPAQUE_COPYABLE</a>
+</li>
+<li>
+<span class="label">G.3.3.6. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-opaque-refcounted" title="_CLASS_OPAQUE_REFCOUNTED">_CLASS_OPAQUE_REFCOUNTED</a>
+</li>
+<li>
+<span class="label">G.3.3.7. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-generic" title="_CLASS_GENERIC">_CLASS_GENERIC</a>
+</li>
+<li>
+<span class="label">G.3.3.8. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-class-interface" title="_CLASS_INTERFACE">_CLASS_INTERFACE</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-class-gobject"><!--gmmproc-class-gobject--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.1. </span>_CLASS_GOBJECT</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a type that is derived from
+    <span class="classname" dir="ltr">GObject</span>, but whose wrapper is not derived from
+    <span class="classname" dir="ltr">Gtk::Object</span>.</p>
+<p class="para block"><span class="function">_CLASS_GOBJECT( C++ class, C class, C casting macro, C++ base class, C base class )</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">adjustment.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_GOBJECT(Adjustment, GtkAdjustment, GTK_ADJUSTMENT, Glib::Object, GObject)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-gtkobject"><!--gmmproc-class-gtkobject--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.2. </span>_CLASS_GTKOBJECT</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a type whose wrapper is derived from
+    <span class="classname" dir="ltr">Gtk::Object</span>, such as a widget or dialog.</p>
+<p class="para block"><span class="function">_CLASS_GTKOBJECT( C++ class, C class, C casting macro, C++ base class, C base class )</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">button.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_GTKOBJECT(Button, GtkButton, GTK_BUTTON, Gtk::Widget, GtkWidget)
+</pre></div>
+<p class="para block">You will typically use this macro when the class already derives from
+    <span class="classname" dir="ltr">Gtk::Object</span>. For instance, you will use it when wrapping
+    a GTK Widget, because <span class="classname" dir="ltr">Gtk::Widget</span> derives from
+    <span class="classname" dir="ltr">Gtk::Object</span>.</p>
+<p class="para block">You might also derive non-widget classes from
+    <span class="classname" dir="ltr">Gtk::Object</span> so they can be used without
+    <span class="classname" dir="ltr">Glib::RefPtr</span>. For instance, they could then be
+    instantiated with <span class="function">Gtk::make_managed()</span> or on the stack
+    as a member variable. This is convenient, but you should use this only when
+    you are sure that true reference-counting is not needed. We consider it
+    useful for widgets.</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-boxedtype"><!--gmmproc-class-boxedtype--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.3. </span>_CLASS_BOXEDTYPE</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a non-<span class="classname" dir="ltr">GObject</span>
+    struct, registered with
+    <span class="function">g_boxed_type_register_static()</span>.</p>
+<p class="para block"><span class="function">_CLASS_BOXEDTYPE( C++ class, C class, new function, copy function, free function )</span></p>
+<p class="para block">For instance, from <span class="classname" dir="ltr">Gdk::RGBA</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_BOXEDTYPE(RGBA, GdkRGBA, NONE, gdk_rgba_copy, gdk_rgba_free)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-boxedtype-static"><!--gmmproc-class-boxedtype-static--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.4. </span>_CLASS_BOXEDTYPE_STATIC</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a simple assignable struct such as
+    <span class="classname" dir="ltr">GdkRectangle</span>. It is similar to
+    <span class="function">_CLASS_BOXEDTYPE</span>, but the C struct is not allocated
+    dynamically.</p>
+<p class="para block"><span class="function">_CLASS_BOXEDTYPE_STATIC( C++ class, C class )</span></p>
+<p class="para block">For instance, for <span class="classname" dir="ltr">Gdk::Rectangle</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_BOXEDTYPE_STATIC(Rectangle, GdkRectangle)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-opaque-copyable"><!--gmmproc-class-opaque-copyable--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.5. </span>_CLASS_OPAQUE_COPYABLE</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for an opaque struct that has copy and free
+    functions. The new, copy and free functions will be used to instantiate the
+    default constructor, copy constructor and destructor.</p>
+<p class="para block"><span class="function">_CLASS_OPAQUE_COPYABLE( C++ class, C class, new function, copy function, free function )</span></p>
+<p class="para block">For instance, from <span class="classname" dir="ltr">Glib::VariantType</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_OPAQUE_COPYABLE(VariantType, GVariantType, NONE, g_variant_type_copy, g_variant_type_free)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-opaque-refcounted"><!--gmmproc-class-opaque-refcounted--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.6. </span>_CLASS_OPAQUE_REFCOUNTED</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a reference-counted opaque struct. The
+    C++ wrapper cannot be directly instantiated and can only be used with
+    <span class="classname" dir="ltr">Glib::RefPtr</span>.</p>
+<p class="para block"><span class="function">_CLASS_OPAQUE_REFCOUNTED( C++ class, C class, new function, ref function, unref function )</span></p>
+<p class="para block">For instance, for <span class="classname" dir="ltr">Gtk::CssSection</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_OPAQUE_REFCOUNTED(CssSection, GtkCssSection, NONE, gtk_css_section_ref, gtk_css_section_unref)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-generic"><!--gmmproc-class-generic--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.7. </span>_CLASS_GENERIC</span></h3></div>
+<p class="para block block-first">This macro can be used to wrap structs which don't fit into any
+    specialized category.</p>
+<p class="para block"><span class="function">_CLASS_GENERIC( C++ class, C class )</span></p>
+<p class="para block">For instance, for <span class="classname" dir="ltr">Gdk::TimeCoord</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_GENERIC(TimeCoord, GdkTimeCoord)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-class-interface"><!--gmmproc-class-interface--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.3.8. </span>_CLASS_INTERFACE</span></h3></div>
+<p class="para block block-first">This macro declares a wrapper for a type that is derived from
+    <span class="classname" dir="ltr">GTypeInterface</span>.
+</p>
+<p class="para block"><span class="function">_CLASS_INTERFACE( C++ class, C class, C casting macro, C interface struct, Base C++ class (optional), Base C class (optional) )</span></p>
+<p class="para block">
+For instance, from <span class="filename" dir="ltr">celleditable.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_INTERFACE(CellEditable, GtkCellEditable, GTK_CELL_EDITABLE, GtkCellEditableIface)
+</pre></div>
+<p class="para block">Two extra optional parameters were once added, for the case that the interface derives
+from another interface, which was believed to be the case when the GInterface has another
+GInterface as a prerequisite. This is a misunderstanding, though.
+When GInterface A has GInterface B as a prerequisite, it means that every class
+that implements A shall also implement B.
+For instance, from <span class="filename" dir="ltr">loadableicon.hg</span> in glibmm-2.4:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_CLASS_INTERFACE(LoadableIcon, GLoadableIcon, G_LOADABLE_ICON, GLoadableIconIface, Icon, GIcon)
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-constructor-macros"><!--gmmproc-constructor-macros--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.4. </span>Constructor macros</span></h2></div>
+<p class="para block block-first">The <span class="function">_CTOR_DEFAULT()</span> and
+    <span class="function">_WRAP_CTOR()</span> macros add constructors, wrapping the
+    specified <span class="function">*_new()</span> C functions. These macros assume that
+    the C object has properties with the same names as the function parameters,
+    as is usually the case, so that it can supply the parameters directly to a
+    <span class="function">g_object_new()</span> call. These constructors never actually
+    call the <span class="function">*_new()</span> C functions,
+    because <span class="application">gtkmm</span> must actually instantiate derived GTypes, and the
+    <span class="function">*_new()</span> C functions are meant only as convenience
+    functions for C programmers.</p>
+<p class="para block">When using <span class="function">_CLASS_GOBJECT()</span>, the constructors should
+    be protected (rather than public) and each constructor should have a
+    corresponding <span class="function">_WRAP_CREATE()</span> in the public section.
+    This prevents the class from being instantiated without using a
+    <span class="classname" dir="ltr">RefPtr</span>. For instance:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">class TextMark : public Glib::Object
+{
+  _CLASS_GOBJECT(TextMark, GtkTextMark, GTK_TEXT_MARK, Glib::Object, GObject)
+
+protected:
+  _WRAP_CTOR(TextMark(const Glib::ustring&amp; name, bool left_gravity = true), gtk_text_mark_new)
+
+public:
+  _WRAP_CREATE(const Glib::ustring&amp; name, bool left_gravity = true)
+</pre></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.4.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-ctor-default" title="_CTOR_DEFAULT">_CTOR_DEFAULT</a>
+</li>
+<li>
+<span class="label">G.3.4.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-ctor" title="_WRAP_CTOR">_WRAP_CTOR</a>
+</li>
+<li>
+<span class="label">G.3.4.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-ctor-manual" title="Hand-coding constructors">Hand-coding constructors</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-ctor-default"><!--gmmproc-ctor-default--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.4.1. </span>_CTOR_DEFAULT</span></h3></div>
+<p class="para block block-first">This macro creates a default constructor with no arguments.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-ctor"><!--gmmproc-wrap-ctor--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.4.2. </span>_WRAP_CTOR</span></h3></div>
+<p class="para block block-first">This macro creates a constructor with arguments, equivalent to a
+  <span class="function">*_new()</span> C function. It won't actually call the
+  <span class="function">*_new()</span> function, but will simply create an equivalent
+  constructor with the same argument types. It takes a C++ constructor
+  signature, and a C function name.
+</p>
+<p class="para block">It also takes an optional extra argument:
+  <div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">errthrow</dt>
+<dd>
+          <p class="para block block-first">This tells <span class="command" dir="ltr">gmmproc</span> that the C <span class="function">*_new()</span> has
+            a final <span class="type" dir="ltr">GError**</span> parameter which should be ignored.</p>
+        </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-ctor-manual"><!--gmmproc-ctor-manual--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.4.3. </span>Hand-coding constructors</span></h3></div>
+<p class="para block block-first">When a constructor must be partly hand written because, for instance, the
+    <span class="function">*_new()</span> C function's parameters do not correspond
+    directly to object properties, or because the <span class="function">*_new()</span> C
+    function does more than call <span class="function">g_object_new()</span>, the
+    <span class="function">_CONSTRUCT()</span> macro may be used in the
+    .ccg file to save some work. The <span class="function">_CONSTRUCT</span> macro takes
+    a series of property names and values. For instance, from
+    <span class="filename" dir="ltr">button.ccg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">Button::Button(const Glib::ustring&amp; label, bool mnemonic)
+:
+  _CONSTRUCT("label", label.c_str(), "use_underline", gboolean(mnemonic))
+{}
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-suppressing-macros"><!--gmmproc-suppressing-macros--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.5. </span>Macros that suppress generation of some code</span></h2></div>
+<p class="para block block-first">Some macros suppress the generation of some code when they are used after
+a <span class="function">_CLASS_*</span> macro. Some suppress the definition in the
+generated .cc file, others suppress both the declaration in the .h file and
+the definition in the .cc file.
+</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.5.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-default-ctor" title="_CUSTOM_DEFAULT_CTOR">_CUSTOM_DEFAULT_CTOR</a>
+</li>
+<li>
+<span class="label">G.3.5.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-ctor-cast" title="_CUSTOM_CTOR_CAST">_CUSTOM_CTOR_CAST</a>
+</li>
+<li>
+<span class="label">G.3.5.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-dtor" title="_CUSTOM_DTOR">_CUSTOM_DTOR</a>
+</li>
+<li>
+<span class="label">G.3.5.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-move-operations" title="_CUSTOM_MOVE_OPERATIONS">_CUSTOM_MOVE_OPERATIONS</a>
+</li>
+<li>
+<span class="label">G.3.5.5. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-wrap-new" title="_CUSTOM_WRAP_NEW">_CUSTOM_WRAP_NEW</a>
+</li>
+<li>
+<span class="label">G.3.5.6. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-custom-wrap-function" title="_CUSTOM_WRAP_FUNCTION">_CUSTOM_WRAP_FUNCTION</a>
+</li>
+<li>
+<span class="label">G.3.5.7. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-no-wrap-function" title="_NO_WRAP_FUNCTION">_NO_WRAP_FUNCTION</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-custom-default-ctor"><!--gmmproc-custom-default-ctor--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.1. </span>_CUSTOM_DEFAULT_CTOR</span></h3></div>
+<p class="para block block-first">Suppresses declaration and definition of default constructor in
+<span class="function">_CLASS_BOXEDTYPE</span>, <span class="function">_CLASS_BOXEDTYPE_STATIC</span>
+and <span class="function">_CLASS_OPAQUE_COPYABLE</span>.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-custom-ctor-cast"><!--gmmproc-custom-ctor-cast--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.2. </span>_CUSTOM_CTOR_CAST</span></h3></div>
+<p class="para block block-first">Suppresses declaration and definition of the constructor that takes a pointer
+to the wrapped C object in <span class="function">_CLASS_BOXEDTYPE</span> and
+<span class="function">_CLASS_BOXEDTYPE_STATIC</span>.
+</p>
+<p class="para block">Suppresses definition of the constructor that takes a pointer to the
+wrapped C object in <span class="function">_CLASS_INTERFACE</span> and
+<span class="function">_CLASS_OPAQUE_COPYABLE</span>.
+</p>
+<p class="para block">Suppresses definition of the constructor that takes a pointer to the
+wrapped C object and the constructor that takes construct_params in
+<span class="function">_CLASS_GOBJECT</span> and <span class="function">_CLASS_GTKOBJECT</span>.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-custom-dtor"><!--gmmproc-custom-dtor--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.3. </span>_CUSTOM_DTOR</span></h3></div>
+<p class="para block block-first">Suppresses definition of destructor in
+<span class="function">_CLASS_GOBJECT</span> and <span class="function">_CLASS_GTKOBJECT</span>.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-custom-move-operations"><!--gmmproc-custom-move-operations--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.4. </span>_CUSTOM_MOVE_OPERATIONS</span></h3></div>
+<p class="para block block-first">Suppresses declaration and definition of move constructor and move
+assignment operator in <span class="function">_CLASS_GOBJECT</span> and
+<span class="function">_CLASS_GTKOBJECT</span>.
+</p>
+<p class="para block">For example:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">class Derived : public Glib::Object
+{
+  _CLASS_GOBJECT(Derived, GDerived, G_DERIVED, Glib::Object, GObject)
+
+  _CUSTOM_MOVE_OPERATIONS
+
+public:
+  Derived(Derived&amp;&amp; src) noexcept;
+  Derived&amp; operator=(Derived&amp;&amp; src) noexcept;
+  // ...
+};
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-custom-wrap-new"><!--gmmproc-custom-wrap-new--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.5. </span>_CUSTOM_WRAP_NEW</span></h3></div>
+<p class="para block block-first">Suppresses definition of <span class="function">Glib::wrap_new()</span> function in
+<span class="function">_CLASS_GOBJECT</span>.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-custom-wrap-function"><!--gmmproc-custom-wrap-function--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.6. </span>_CUSTOM_WRAP_FUNCTION</span></h3></div>
+<p class="para block block-first">Suppresses definition of <span class="function">Glib::wrap()</span> function in
+<span class="function">_CLASS_GOBJECT</span> and <span class="function">_CLASS_GTKOBJECT</span>.
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-no-wrap-function"><!--gmmproc-no-wrap-function--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.5.7. </span>_NO_WRAP_FUNCTION</span></h3></div>
+<p class="para block block-first">Suppresses declaration and definition of <span class="function">Glib::wrap()</span>
+function in <span class="function">_CLASS_GOBJECT</span>, <span class="function">_CLASS_BOXEDTYPE</span>,
+<span class="function">_CLASS_BOXEDTYPE_STATIC</span>, <span class="function">_CLASS_OPAQUE_COPYABLE</span>,
+<span class="function">_CLASS_INTERFACE</span> and <span class="function">_CLASS_GTKOBJECT</span>.
+</p>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-method-macros"><!--gmmproc-method-macros--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.6. </span>Method macros</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.6.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-method" title="_WRAP_METHOD">_WRAP_METHOD</a>
+</li>
+<li>
+<span class="label">G.3.6.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-method-docs-only" title="_WRAP_METHOD_DOCS_ONLY">_WRAP_METHOD_DOCS_ONLY</a>
+</li>
+<li>
+<span class="label">G.3.6.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-ignore" title="_IGNORE, _IGNORE_SIGNAL, _IGNORE_PROPERTY">_IGNORE, _IGNORE_SIGNAL, _IGNORE_PROPERTY</a>
+</li>
+<li>
+<span class="label">G.3.6.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-signal" title="_WRAP_SIGNAL">_WRAP_SIGNAL</a>
+</li>
+<li>
+<span class="label">G.3.6.5. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-property" title="_WRAP_PROPERTY">_WRAP_PROPERTY</a>
+</li>
+<li>
+<span class="label">G.3.6.6. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-vfunc" title="_WRAP_VFUNC">_WRAP_VFUNC</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-wrap-method"><!--gmmproc-wrap-method--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.1. </span>_WRAP_METHOD</span></h3></div>
+<p class="para block block-first">This macro generates the C++ method to wrap a C function.</p>
+<p class="para block"><span class="function">_WRAP_METHOD( C++ method signature, C function name)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">entry.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD(void set_text(const Glib::ustring&amp; text), gtk_entry_set_text)
+</pre></div>
+<p class="para block">The C function (e.g. <span class="function">gtk_entry_set_text</span>) is described
+    more fully in the .defs file, and the <span class="filename" dir="ltr">convert*.m4</span> files
+    contain the necessary conversion from the C++ parameter type to the C
+    parameter type. This macro also generates doxygen documentation comments
+    based on the <span class="filename" dir="ltr">*_docs.xml</span> and
+    <span class="filename" dir="ltr">*_docs_override.xml</span> files.</p>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">refreturn</dt>
+<dd>
+            <p class="para block block-first">Do an extra <span class="function">reference()</span> on the return value,
+                in case the C function does not provide a reference.</p>
+        </dd>
+<dt class="term">errthrow ["&lt;exceptions&gt;"]</dt>
+<dd>
+            <p class="para block block-first">Use the last GError** parameter of the C function to
+                throw an exception.
+                The optional "&lt;exceptions&gt;" is a comma-separated list
+                of exceptions that can be thrown. It determines which @throws
+                Doxygen commands are added to the documentation. Default value
+                is <span class="classname" dir="ltr">Glib::Error</span>. If you want a comma in
+                the description of an exception, precede it by a backslash. Example:
+                <span class="code" dir="ltr">errthrow "Glib::OptionError Hello\, world, Glib::ConvertError"</span></p>
+        </dd>
+<dt class="term">deprecated ["&lt;text&gt;"]</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks. Text about the
+                deprecation can be specified as an optional
+                parameter.</p>
+        </dd>
+<dt class="term">constversion</dt>
+<dd>
+            <p class="para block block-first">Just call the non-const version of the same function,
+                instead of generating almost duplicate code.</p>
+        </dd>
+<dt class="term">newin "&lt;version&gt;"</dt>
+<dd>
+            <p class="para block block-first">Adds a @newin Doxygen command to the documentation, or replaces
+                the @newin command generated from the C documentation.</p>
+        </dd>
+<dt class="term">ifdef &lt;identifier&gt;</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks.</p>
+        </dd>
+<dt class="term">slot_name &lt;parameter_name&gt;</dt>
+<dd>
+          <p class="para block block-first">Specifies the name of the slot parameter of the method, if it
+            has one.  This enables <span class="command" dir="ltr">gmmproc</span> to generate code
+            to copy the slot and pass the copy on to the C function in its
+            final <span class="literal" dir="ltr">gpointer user_data</span> parameter.  The
+            <span class="literal" dir="ltr">slot_callback</span> option must also be used to
+            specify the name of the glue callback function to also pass on to
+            the C function.</p>
+        </dd>
+<dt class="term">slot_callback &lt;function_name&gt;</dt>
+<dd>
+          <p class="para block block-first">Used in conjunction with the <span class="literal" dir="ltr">slot_name</span>
+            option to specify the name of the glue callback function that
+            handles extracting the slot and then calling it.  The address of
+            this callback is also passed on to the C function that the method
+            wraps.</p>
+        </dd>
+<dt class="term">no_slot_copy</dt>
+<dd>
+          <p class="para block block-first">Tells <span class="command" dir="ltr">gmmproc</span> not to pass a copy of the slot
+            to the C function, if the method has one.  Instead the slot itself
+            is passed.  The slot parameter name and the glue callback function
+            must have been specified with the <span class="literal" dir="ltr">slot_name</span> and
+            <span class="literal" dir="ltr">slot_callback</span> options respectively.</p>
+        </dd>
+</dl></div>
+</p>
+<p class="para block">Selecting which C++ types should be used is also important when wrapping
+  C API.  Though it's usually obvious what C++ types should be used in the C++
+  method, here are some hints:
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">Objects used via <span class="classname" dir="ltr">RefPtr</span>: Pass the
+            <span class="classname" dir="ltr">RefPtr</span> as a const reference. For instance,
+            <span class="code" dir="ltr">const Glib::RefPtr&lt;Gtk::FileFilter&gt;&amp;
+                filter</span>.</span></li>
+<li><span class="para">Const Objects used via <span class="classname" dir="ltr">RefPtr</span>: If the
+            object should not be changed by the function, then make sure that
+            the object is const, even if the <span class="classname" dir="ltr">RefPtr</span> is
+            already const. For instance, <span class="code" dir="ltr">const Glib::RefPtr&lt;const
+            Gtk::FileFilter&gt;&amp; filter</span>.</span></li>
+<li><span class="para">Wrapping <span class="classname" dir="ltr">GList*</span> and
+        <span class="classname" dir="ltr">GSList*</span> parameters: First, you need to discover
+        what objects are contained in the list's data field for each item,
+        usually by reading the documentation for the C function. The list can
+        then be wrapped by a <span class="classname" dir="ltr">std::vector</span> type.
+        For instance, <span class="code" dir="ltr">std::vector&lt;Glib::RefPtr&lt;Gdk::Pixbuf&gt;&gt;</span>.
+        You may need to define a Traits type to specify how the C
+        and C++ types should be converted.</span></li>
+<li><span class="para">Wrapping <span class="classname" dir="ltr">GList*</span> and
+        <span class="classname" dir="ltr">GSList*</span> return types: You must discover whether
+        the caller should free the list and whether it should release the items
+        in the list, again by reading the documentation of the C function. With
+        this information you can choose the ownership (none, shallow or deep)
+        for the m4 conversion rule, which you should probably put directly into
+        the .hg file because the ownership depends on the
+        function rather than the type. For instance:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#m4 _CONVERSION(`GSList*',`std::vector&lt;Widget*&gt;',`Glib::SListHandler&lt;Widget*&gt;::slist_to_vector($3, Glib::OWNERSHIP_SHALLOW)')</pre></div></span></li>
+</ul></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-method-docs-only"><!--gmmproc-wrap-method-docs-only--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.2. </span>_WRAP_METHOD_DOCS_ONLY</span></h3></div>
+<p class="para block block-first">This macro is like <span class="function">_WRAP_METHOD()</span>, but it generates
+    only the documentation for a  C++ method that wraps a C function. Use this
+    when you must hand-code the method, but you want to use the documentation
+    that would be generated if the method was generated.</p>
+<p class="para block"><span class="function">_WRAP_METHOD_DOCS_ONLY(C function name)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">recentinfo.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD_DOCS_ONLY(gtk_recent_info_get_applications)
+</pre></div>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">errthrow ["&lt;exceptions&gt;"]</dt>
+<dd>
+            <p class="para block block-first">Excludes documentation of the last GError** parameter of
+                the C function.
+                The optional "&lt;exceptions&gt;" is a comma-separated list
+                of exceptions that can be thrown. It determines which @throws
+                Doxygen commands are added to the documentation. Default value
+                is <span class="classname" dir="ltr">Glib::Error</span>. If you want a comma in
+                the description of an exception, precede it by a backslash. Example:
+                <span class="code" dir="ltr">errthrow "Glib::OptionError Hello\, world, Glib::ConvertError"</span></p>
+        </dd>
+<dt class="term">newin "&lt;version&gt;"</dt>
+<dd>
+            <p class="para block block-first">Adds a @newin Doxygen command to the documentation, or replaces
+                the @newin command generated from the C documentation.</p>
+        </dd>
+<dt class="term">voidreturn</dt>
+<dd>
+            <p class="para block block-first">Don't include a @return Doxygen command in the documentation.
+                Useful if the wrapped C function returns a value, but the corresponding
+                C++ method returns <span class="type" dir="ltr">void</span>.</p>
+        </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-ignore"><!--gmmproc-ignore--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.3. </span>_IGNORE, _IGNORE_SIGNAL, _IGNORE_PROPERTY</span></h3></div>
+<p class="para block block-first"><span class="command" dir="ltr">gmmproc</span> will warn you on stdout about functions, signals,
+    properties and child properties that you have forgotten to wrap, helping to
+    ensure that you are wrapping the complete API. But if you don't want to wrap
+    some functions, signals, properties or child properties, or if you chose
+    to hand-code some methods then you can use the _IGNORE(), _IGNORE_SIGNAL()
+    or _IGNORE_PROPERTY() macro to make <span class="command" dir="ltr">gmmproc</span> stop complaining.
+</p>
+<p class="para block">
+<div class=" block literallayout block-first block-verbatim"><span class="function">_IGNORE(C function name 1, C function name 2, etc)
+_IGNORE_SIGNAL(C signal name 1, C signal name 2, etc)
+_IGNORE_PROPERTY(C property name 1, C property name 2, etc)</span></div>
+</p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">flowbox.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_IGNORE(gtk_flow_box_set_filter_func, gtk_flow_box_set_sort_func)
+_IGNORE_SIGNAL(activate-cursor-child, toggle-cursor-child, move-cursor)
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-signal"><!--gmmproc-wrap-signal--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.4. </span>_WRAP_SIGNAL</span></h3></div>
+<p class="para block block-first">This macro generates the C++ libsigc++-style signal to wrap a C GObject
+    signal. It actually generates a public accessor method, such as
+    <span class="function">signal_clicked()</span>, which returns a proxy object.
+    <span class="command" dir="ltr">gmmproc</span> uses the .defs file to discover the C parameter
+    types and the .m4 convert files to discover appropriate type
+    conversions.</p>
+<p class="para block"><span class="function">_WRAP_SIGNAL( C++ signal handler signature, C signal name)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">button.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_SIGNAL(void clicked(),"clicked")
+</pre></div>
+<p class="para block">Signals usually have function pointers in the GTK struct, with a
+    corresponding enum value and a <span class="function">g_signal_new()</span> in the
+    .c file.</p>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">no_default_handler</dt>
+<dd>
+            <p class="para block block-first">Do not generate an <span class="function">on_something()</span> virtual
+                method to allow easy overriding of the default signal handler.
+                Use this when adding a signal with a default signal handler
+                would break the ABI by increasing the size of the class's
+                virtual function table, and when adding a signal without a public
+                C default handler.</p>
+        </dd>
+<dt class="term">custom_default_handler</dt>
+<dd>
+            <p class="para block block-first">Generate a declaration of the <span class="function">on_something()</span>
+                virtual method in the <span class="filename" dir="ltr">.h</span> file, but do not
+                generate a definition in the <span class="filename" dir="ltr">.cc</span> file.
+                Use this when you must generate the definition by hand.</p>
+        </dd>
+<dt class="term">custom_c_callback</dt>
+<dd>
+            <p class="para block block-first">Do not generate a C callback function for the signal.
+                Use this when you must generate the callback function by hand.</p>
+        </dd>
+<dt class="term">refreturn</dt>
+<dd>
+            <p class="para block block-first">Do an extra <span class="function">reference()</span> on the return value
+                of the <span class="function">on_something()</span> virtual method, in
+                case the C function does not provide a reference.</p>
+        </dd>
+<dt class="term">deprecated ["&lt;text&gt;"]</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks. Text about the
+                deprecation can be specified as an optional parameter.</p>
+        </dd>
+<dt class="term">newin "&lt;version&gt;"</dt>
+<dd>
+            <p class="para block block-first">Adds a @newin Doxygen command to the documentation, or replaces
+                the @newin command generated from the C documentation.</p>
+        </dd>
+<dt class="term">ifdef &lt;identifier&gt;</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks.</p>
+        </dd>
+<dt class="term">exception_handler &lt;method_name&gt;</dt>
+<dd>
+	        <p class="para block block-first">Allows to use custom exception handler instead of default one.
+	            Exception might be rethrown by user-defined handler, and it will be
+	            caught by default handler.</p>
+	      </dd>
+<dt class="term">detail_name &lt;parameter_name&gt;</dt>
+<dd>
+	        <p class="para block block-first">Adds a <span class="type" dir="ltr">const Glib::ustring&amp;</span> parameter to the
+	            <span class="methodname" dir="ltr">signal_something()</span> method. Use it, if the signal
+	            accepts a detailed signal name, i.e. if the underlying C code registers
+	            the signal with the <span class="literal" dir="ltr">G_SIGNAL_DETAILED</span> flag.</p>
+	      </dd>
+<dt class="term">two_signal_methods</dt>
+<dd>
+	        <p class="para block block-first">Used in conjunction with the <span class="literal" dir="ltr">detail_name</span>
+              option to generate two <span class="methodname" dir="ltr">signal_something()</span>
+              methods, one without a parameter and one with a parameter without
+              a default value. With only the <span class="literal" dir="ltr">detail_name</span> option
+              one method is generated, with a parameter with default value.
+              Use the <span class="literal" dir="ltr">two_signal_methods</span> option, if it's
+              necessary in order to preserve ABI.</p>
+	      </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-property"><!--gmmproc-wrap-property--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.5. </span>_WRAP_PROPERTY</span></h3></div>
+<p class="para block block-first">This macro generates the C++ method to wrap a C GObject property. You must
+    specify the property name and the wanted C++ type for the property. <span class="command" dir="ltr">gmmproc</span>
+    uses the .defs file to discover the C type and the .m4 convert files to
+    discover appropriate type conversions.</p>
+<p class="para block"><span class="function">_WRAP_PROPERTY(C property name, C++ type)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">button.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_PROPERTY("label", Glib::ustring)
+</pre></div>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">deprecated ["&lt;text&gt;"]</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks. Text about the
+                deprecation can be specified as an optional parameter.</p>
+        </dd>
+<dt class="term">newin "&lt;version&gt;"</dt>
+<dd>
+            <p class="para block block-first">Adds a @newin Doxygen command to the documentation, or replaces
+                the @newin command generated from the C documentation.</p>
+        </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-vfunc"><!--gmmproc-wrap-vfunc--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.6.6. </span>_WRAP_VFUNC</span></h3></div>
+<p class="para block block-first">This macro generates the C++ method to wrap a virtual C function.</p>
+<p class="para block"><span class="function">_WRAP_VFUNC( C++ method signature, C function name)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">widget.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_VFUNC(SizeRequestMode get_request_mode() const, get_request_mode)
+</pre></div>
+<p class="para block">The C function (e.g. <span class="function">get_request_mode</span>) is described
+    more fully in the <span class="filename" dir="ltr">*_vfuncs.defs</span> file, and the
+    <span class="filename" dir="ltr">convert*.m4</span> files contain the necessary conversion from
+    the C++ parameter type to the C parameter type. Conversions can also be
+    written in the .hg file. Virtual functions often require special conversions
+    that are best kept local to the .hg file where they are used.</p>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">refreturn</dt>
+<dd>
+            <p class="para block block-first">Do an extra <span class="function">reference()</span> on the return value
+                of the <span class="function">something_vfunc()</span> function,
+                in case the virtual C function does not provide a reference.</p>
+        </dd>
+<dt class="term">refreturn_ctype</dt>
+<dd>
+            <p class="para block block-first">Do an extra <span class="function">reference()</span> on the return value
+                of an overridden <span class="function">something_vfunc()</span> function
+                in the C callback function, in case the calling C function
+                expects it to provide a reference.</p>
+        </dd>
+<dt class="term">keep_return</dt>
+<dd>
+            <p class="para block block-first">Keep a copy of the return value in the C callback function,
+                in case the calling C function does not expect to get its own
+                reference.</p>
+        </dd>
+<dt class="term">errthrow</dt>
+<dd>
+            <p class="para block block-first">Use the last GError** parameter of the C virtual function (if
+              there is one) to throw an exception.</p>
+        </dd>
+<dt class="term">custom_vfunc</dt>
+<dd>
+            <p class="para block block-first">Do not generate a definition of the vfunc in the
+               <span class="filename" dir="ltr">.cc</span> file. Use this when you must generate
+               the vfunc by hand.</p>
+        </dd>
+<dt class="term">custom_vfunc_callback</dt>
+<dd>
+            <p class="para block block-first">Do not generate a C callback function for the vfunc.
+                Use this when you must generate the callback function by hand.</p>
+        </dd>
+<dt class="term">ifdef &lt;identifier&gt;</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks.</p>
+        </dd>
+<dt class="term">slot_name &lt;parameter_name&gt;</dt>
+<dd>
+          <p class="para block block-first">Specifies the name of the slot parameter of the method, if it
+            has one.  This enables <span class="command" dir="ltr">gmmproc</span> to generate code
+            to copy the slot and pass the copy on to the C function in its
+            final <span class="literal" dir="ltr">gpointer user_data</span> parameter.  The
+            <span class="literal" dir="ltr">slot_callback</span> option must also be used to
+            specify the name of the glue callback function to also pass on to
+            the C function.</p>
+        </dd>
+<dt class="term">slot_callback &lt;function_name&gt;</dt>
+<dd>
+          <p class="para block block-first">Used in conjunction with the <span class="literal" dir="ltr">slot_name</span>
+            option to specify the name of the glue callback function that
+            handles extracting the slot and then calling it.  The address of
+            this callback is also passed on to the C function that the method
+            wraps.</p>
+        </dd>
+<dt class="term">no_slot_copy</dt>
+<dd>
+          <p class="para block block-first">Tells <span class="command" dir="ltr">gmmproc</span> not to pass a copy of the slot
+            to the C function, if the method has one.  Instead the slot itself
+            is passed.  The slot parameter name and the glue callback function
+            must have been specified with the <span class="literal" dir="ltr">slot_name</span> and
+            <span class="literal" dir="ltr">slot_callback</span> options respectively.</p>
+        </dd>
+<dt class="term">return_value &lt;value&gt;</dt>
+<dd>
+	        <p class="para block block-first">Defines a non-default return value.</p>
+	      </dd>
+<dt class="term">err_return_value &lt;value&gt;</dt>
+<dd>
+	        <p class="para block block-first">Defines a non-default return value, used only if the C++
+	          <span class="function">something_vfunc()</span> function throws an exception
+	          which is propagated to the C callback function. If return_value is
+	          specified, but err_return_value is not, then return_value is used
+	          also when an exception is propagated.</p>
+	      </dd>
+<dt class="term">exception_handler &lt;method_name&gt;</dt>
+<dd>
+	        <p class="para block block-first">Allows to use custom exception handler instead of default one.
+	            Exception might be rethrown by user-defined handler, and it will be
+	            caught by default handler.</p>
+	      </dd>
+</dl></div>
+</p>
+<p class="para block">A rule to which there may be exceptions: If the virtual C function returns
+    a pointer to an object derived from <span class="classname" dir="ltr">GObject</span>, i.e. a
+    reference-counted object, then the virtual C++ function shall return a
+    <span class="classname" dir="ltr">Glib::RefPtr&lt;&gt;</span> object. One of the extra
+    arguments <span class="parameter" dir="ltr">refreturn</span> or
+    <span class="parameter" dir="ltr">refreturn_ctype</span> is required.</p>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-other-macros"><!--gmmproc-other-macros--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.7. </span>Other macros</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.7.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-implements-interface" title="_IMPLEMENTS_INTERFACE">_IMPLEMENTS_INTERFACE</a>
+</li>
+<li>
+<span class="label">G.3.7.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-enum" title="_WRAP_ENUM">_WRAP_ENUM</a>
+</li>
+<li>
+<span class="label">G.3.7.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-enum-docs-only" title="_WRAP_ENUM_DOCS_ONLY">_WRAP_ENUM_DOCS_ONLY</a>
+</li>
+<li>
+<span class="label">G.3.7.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-wrap-gerror" title="_WRAP_GERROR">_WRAP_GERROR</a>
+</li>
+<li>
+<span class="label">G.3.7.5. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-member-set-get" title="_MEMBER_GET / _MEMBER_SET">_MEMBER_GET / _MEMBER_SET</a>
+</li>
+<li>
+<span class="label">G.3.7.6. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-member-get-set-ptr" title="_MEMBER_GET_PTR / _MEMBER_SET_PTR">_MEMBER_GET_PTR / _MEMBER_SET_PTR</a>
+</li>
+<li>
+<span class="label">G.3.7.7. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-member-get-set-gobject" title="_MEMBER_GET_GOBJECT / _MEMBER_SET_GOBJECT">_MEMBER_GET_GOBJECT / _MEMBER_SET_GOBJECT</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-implements-interface"><!--gmmproc-implements-interface--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.1. </span>_IMPLEMENTS_INTERFACE</span></h3></div>
+<p class="para block block-first">This macro generates initialization code for the interface.</p>
+<p class="para block"><span class="function">_IMPLEMENTS_INTERFACE(C++ interface name)</span></p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">grid.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_IMPLEMENTS_INTERFACE(Orientable)
+</pre></div>
+<p class="para block">There is one optional extra argument:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">ifdef &lt;identifier&gt;</dt>
+<dd>
+            <p class="para block block-first">Puts the generated code in #ifdef blocks.</p>
+        </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-enum"><!--gmmproc-wrap-enum--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.2. </span>_WRAP_ENUM</span></h3></div>
+<p class="para block block-first">This macro generates a C++ enum to wrap a C enum. You must specify the desired C++ name and
+    the name of the underlying C enum.</p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">enums.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_ENUM(Orientation, GtkOrientation)
+</pre></div>
+<p class="para block">There are some optional extra arguments:
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">NO_GTYPE</dt>
+<dd>
+      <p class="para block block-first">Use this option, if the enum is not a <span class="classname" dir="ltr">GType</span>.
+        This is the case when there is no <span class="function">*_get_type()</span>
+        function for the C enum, but be careful that you don't just need to
+        include an extra header for that function. You should also file a bug
+        against the C API, because all enums should be registered as GTypes.</p>
+      <p class="para block">If you specify <span class="literal" dir="ltr">NO_GTYPE</span>, don't use that enum as the
+        type in _WRAP_PROPERTY. It would cause a runtime error, when the generated
+        <span class="methodname" dir="ltr">property_*()</span> method is called.</p>
+      <p class="para block">For example, from <span class="filename" dir="ltr">icontheme.hg</span>:</p>
+      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_ENUM(IconLookupFlags, GtkIconLookupFlags, NO_GTYPE)
+      </pre></div>
+    </dd>
+<dt class="term">gtype_func &lt;function_name&gt;</dt>
+<dd>
+      <p class="para block block-first">Specifies the name of the <span class="function">*_get_type()</span> function
+        for the C enum. Use this parameter if <span class="command" dir="ltr">gmmproc</span> can't
+        deduce the correct function name from the name of the C enum type.</p>
+      <p class="para block">For example, from <span class="filename" dir="ltr">dbusproxy.hg</span> in glibmm:</p>
+      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_ENUM(ProxyFlags, GDBusProxyFlags, gtype_func g_dbus_proxy_flags_get_type)
+      </pre></div>
+    </dd>
+<dt class="term">CONV_TO_INT</dt>
+<dd>
+      <p class="para block block-first">"Convertible to int." Generates a plain enum (not an enum class)
+        within a class. Such an enum is scoped like an enum class, but unlike an
+        enum class, it can be implicitly converted to <span class="type" dir="ltr">int</span>.</p>
+      <p class="para block">For example, from <span class="filename" dir="ltr">dialog.hg</span>:</p>
+      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_ENUM(ResponseType, GtkResponseType, CONV_TO_INT)
+      </pre></div>
+    </dd>
+<dt class="term">s#&lt;from&gt;#&lt;to&gt;#</dt>
+<dd>
+      <p class="para block block-first">Substitutes (part of) the name of one or more enum constants.
+        You can add any number of substitutions.</p>
+      <p class="para block">For example, from <span class="filename" dir="ltr">iochannel.hg</span> in glibmm:</p>
+      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_ENUM(SeekType, GSeekType, NO_GTYPE, s#^SEEK_#SEEK_TYPE_#)
+      </pre></div>
+    </dd>
+<dt class="term">deprecated ["&lt;text&gt;"]</dt>
+<dd>
+      <p class="para block block-first">Puts the generated code in #ifdef blocks. Text about the
+        deprecation can be specified as an optional parameter.</p>
+    </dd>
+<dt class="term">newin "&lt;version&gt;"</dt>
+<dd>
+      <p class="para block block-first">Adds a @newin Doxygen command to the documentation, or replaces
+        the @newin command generated from the C documentation.</p>
+    </dd>
+</dl></div>
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-enum-docs-only"><!--gmmproc-wrap-enum-docs-only--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.3. </span>_WRAP_ENUM_DOCS_ONLY</span></h3></div>
+<p class="para block block-first">This macro just generates a Doxygen documentationn block for the enum.
+  This is useful for enums that can't be wrapped with
+  <span class="function">_WRAP_ENUM()</span> because they are complexly defined (maybe
+  using C macros) but including the generated enum documentation is still
+  desired. It is used with the same syntax as
+  <span class="function">_WRAP_ENUM()</span> and also processes the same options (though
+  NO_GTYPE, gtype_func &lt;function_name&gt; and CONV_TO_INT are ignored because
+  they make no difference when just generating the enum's documentation).
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-wrap-gerror"><!--gmmproc-wrap-gerror--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.4. </span>_WRAP_GERROR</span></h3></div>
+<p class="para block block-first">This macro generates a C++ exception class, derived from <span class="classname" dir="ltr">Glib::Error</span>, with
+a <span class="type" dir="ltr">Code</span> enum and a <span class="methodname" dir="ltr">code()</span> method. You must specify the desired C++ name, the name
+of the corresponding C enum, and the prefix for the C enum values.</p>
+<p class="para block">This exception can then be thrown by methods which are generated from
+_WRAP_METHOD() with the errthrow option.</p>
+<p class="para block">For instance, from <span class="filename" dir="ltr">pixbuf.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_GERROR(PixbufError, GdkPixbufError, GDK_PIXBUF_ERROR)
+</pre></div>
+<p class="para block">_WRAP_GERROR() accepts the same optional arguments as _WRAP_ENUM() (though
+CONV_TO_INT is ignored because all exception class enums are plain enums within a class).
+</p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-member-set-get"><!--gmmproc-member-set-get--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.5. </span>_MEMBER_GET / _MEMBER_SET</span></h3></div>
+<p class="para block block-first">
+    Use these macros if you're wrapping a simple struct or boxed type that provides
+    direct access to its data members, to create getters and setters for the data members.
+  </p>
+<p class="para block"><span class="function">_MEMBER_GET(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block"><span class="function">_MEMBER_SET(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block">
+    For example, in <span class="filename" dir="ltr">rectangle.hg</span>:
+  </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_MEMBER_GET(x, x, int, int)</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-member-get-set-ptr"><!--gmmproc-member-get-set-ptr--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.6. </span>_MEMBER_GET_PTR / _MEMBER_SET_PTR</span></h3></div>
+<p class="para block block-first">
+    Use these macros to automatically provide getters and setters for a data
+    member that is a pointer type. For the getter function, it will
+    create two methods, one const and one non-const.
+  </p>
+<p class="para block"><span class="function">_MEMBER_GET_PTR(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block"><span class="function">_MEMBER_SET_PTR(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block">For example, for <span class="classname" dir="ltr">Pango::Analysis</span> in <span class="filename" dir="ltr">item.hg</span>:
+  </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">// _MEMBER_GET_PTR(engine_lang, lang_engine, EngineLang*, PangoEngineLang*)
+// It's just a comment. It's difficult to find a real-world example.
+</pre></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-member-get-set-gobject"><!--gmmproc-member-get-set-gobject--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.7.7. </span>_MEMBER_GET_GOBJECT / _MEMBER_SET_GOBJECT</span></h3></div>
+<p class="para block block-first">
+    Use these macros to provide getters and setters for a data member that is a
+    <span class="classname" dir="ltr">GObject</span> type that must be referenced before being
+    returned.
+  </p>
+<p class="para block"><span class="function">_MEMBER_GET_GOBJECT(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block"><span class="function">_MEMBER_SET_GOBJECT(C++ name, C name, C++ type, C type)</span></p>
+<p class="para block">For example, in Pangomm, <span class="filename" dir="ltr">layoutline.hg</span>:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_MEMBER_GET_GOBJECT(layout, layout, Pango::Layout, PangoLayout*)
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-parameter-processing"><!--gmmproc-parameter-processing--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.8. </span>gmmproc Parameter Processing</span></h2></div>
+<p class="para block block-first"><span class="command" dir="ltr">gmmproc</span> allows processing the parameters in a method
+    signature for the macros that process method signatures (like
+    <span class="function">_WRAP_METHOD()</span>, <span class="function">_WRAP_CTOR()</span> and
+    <span class="function">_WRAP_CREATE()</span>) in a variety of ways:
+  </p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">G.3.8.1. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-parameter-reordering" title="Parameter Reordering">Parameter Reordering</a>
+</li>
+<li>
+<span class="label">G.3.8.2. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-optional-parameter-processing" title="Optional Parameter Processing">Optional Parameter Processing</a>
+</li>
+<li>
+<span class="label">G.3.8.3. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-output-parameter-processing" title="Output Parameter Processing">Output Parameter Processing</a>
+</li>
+<li>
+<span class="label">G.3.8.4. </span><a class="xref" href="sec-wrapping-hg-files.html.en.html#gmmproc-string-parameter-processing" title="String Parameter Processing">String Parameter Processing</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gmmproc-parameter-reordering"><!--gmmproc-parameter-reordering--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.8.1. </span>Parameter Reordering</span></h3></div>
+<p class="para block block-first">
+      For all the macros that process method signatures, it is possible to
+      specify a different order for the C++ parameters than the existing order
+      in the C function, virtual function or signal.  For example, say that the
+      following C function were being wrapped as a C++ method for the
+      <span class="classname" dir="ltr">Gtk::Widget</span> class:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">void gtk_widget_set_device_events(GtkWidget* widget, GdkDevice* device,
+  GdkEventMask events);
+</pre></div>
+      However, changing the order of the C++ method's two parameters is
+      necessary.  Something like the following would wrap the function as a C++
+      method with a different order for the two parameters:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD(void set_device_events(Gdk::EventMask events{events},
+  const Glib::RefPtr&lt;const Gdk::Device&gt;&amp; device{device}),
+  gtk_widget_set_device_events)
+</pre></div>
+      The <span class="literal" dir="ltr">{c_param_name}</span> following the method parameter
+      names tells <span class="command" dir="ltr">gmmproc</span> to map the C++ parameter to the
+      specified C parameter within the <span class="literal" dir="ltr">{}</span>.  Since the C++
+      parameter names correspond to the C ones, the above could be re-written
+      as:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD(void set_device_events(Gdk::EventMask events{.},
+  const Glib::RefPtr&lt;const Gdk::Device&gt;&amp; device{.}),
+  gtk_widget_set_device_events)
+</pre></div>
+    </p>
+<div class="admonition block warning block-indent"><div class="warning-inner">
+      <p class="para block block-first">
+        Please note that when reordering parameters for a
+        <span class="function">_WRAP_SIGNAL()</span> method signature, the C parameter
+        names would always be <span class="literal" dir="ltr">p0</span>, <span class="literal" dir="ltr">p1</span>,
+        etc. because the <span class="filename" dir="ltr">generate_extra_defs</span> utility uses those
+        parameter names no matter what the C API's parameter names may be.
+        It's how the utility is written presently.
+      </p>
+    </div></div>
+</div>
+<div class="division sect3">
+<a name="gmmproc-optional-parameter-processing"><!--gmmproc-optional-parameter-processing--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.8.2. </span>Optional Parameter Processing</span></h3></div>
+<p class="para block block-first">
+      For all macros processing method signatures except
+      <span class="function">_WRAP_SIGNAL()</span> and
+      <span class="function">_WRAP_VFUNC()</span> it is also possible to make the
+      parameters optional so that extra C++ methods are generated without the
+      specified optional parameter.  For example, say that the following
+      <span class="function">*_new()</span> function were being wrapped as a constructor
+      in the <span class="classname" dir="ltr">Gtk::ToolButton</span> class:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">GtkToolItem* gtk_tool_button_new(GtkWidget* icon_widget, const gchar* label);
+</pre></div>
+      Also, say that the C API allowed NULL for the function's
+      <span class="parameter" dir="ltr">label</span> parameter so that that parameter is optional.
+      It would be possible to have <span class="command" dir="ltr">gmmproc</span> generate the
+      original constructor (with all the parameters) along with an additional
+      constructor without that optional parameter by appending a
+      <span class="literal" dir="ltr">{?}</span> to the parameter name like so:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_CTOR(ToolButton(Widget&amp; icon_widget, const Glib::ustring&amp; label{?}),
+  gtk_tool_button_new)
+</pre></div>
+      In this case, two constructors would be generated: One with the optional
+      parameter and one without it.
+    </p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-output-parameter-processing"><!--gmmproc-output-parameter-processing--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.8.3. </span>Output Parameter Processing</span></h3></div>
+<p class="para block block-first">
+      With <span class="function">_WRAP_METHOD()</span> it is also possible for the
+      return of the wrapped C function (if it has one) to be placed in an
+      output parameter of the C++ method instead of having the C++ method also
+      return a value like the C function does.  To do that, simply include the
+      output parameter in the C++ method parameter list appending a
+      <span class="literal" dir="ltr">{OUT}</span> to the output parameter name.  For example, if
+      <span class="function">gtk_widget_get_request_mode()</span> is declared as the
+      following:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">GtkSizeRequestMode gtk_widget_get_request_mode(GtkWidget* widget);
+</pre></div>
+      And having the C++ method set an output parameter is desired instead of
+      returning a <span class="type" dir="ltr">SizeRequestMode</span>, something like the following
+      could be used:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD(void get_request_mode(SizeRequestMode&amp; mode{OUT}) const,
+  gtk_widget_get_request_mode)
+</pre></div>
+      The <span class="literal" dir="ltr">{OUT}</span> appended to the name of the
+      <span class="parameter" dir="ltr">mode</span> output parameter tells
+      <span class="command" dir="ltr">gmmproc</span> to place the return of the C function in that
+      output parameter.  In this case, however, a necessary initialization
+      macro like the following would also have to be specified:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_INITIALIZATION(`SizeRequestMode&amp;',`GtkSizeRequestMode',`$3 = (SizeRequestMode)($4)')
+</pre></div>
+      Which could also be written as:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_INITIALIZATION(`SizeRequestMode&amp;',`GtkSizeRequestMode',`$3 = ($1)($4)')
+</pre></div>
+    </p>
+<p class="para block">
+      <span class="function">_WRAP_METHOD()</span> also supports setting C++ output
+      parameters from C output parameters if the C function being wrapped has
+      any.  Suppose, for example, that we want to wrap the following C function
+      that returns a value in its C output parameter
+      <span class="parameter" dir="ltr">rect</span>:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">gboolean gtk_icon_view_get_cell_rect(GtkIconView* icon_view,
+  GtkTreePath* path, GtkCellRenderer* cell, GdkRectangle* rect);
+</pre></div>
+      To have <span class="command" dir="ltr">gmmproc</span> place the value returned in the C++
+      <span class="parameter" dir="ltr">rect</span> output parameter, something like the
+      following <span class="function">_WRAP_METHOD()</span> macro could be used:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_WRAP_METHOD(bool get_cell_rect(const TreeModel::Path&amp; path,
+  const CellRenderer&amp; cell, Gdk::Rectangle&amp; rect{&gt;&gt;}) const,
+  gtk_icon_view_get_cell_rect)
+</pre></div>
+      The <span class="literal" dir="ltr">{&gt;&gt;}</span> following the <span class="parameter" dir="ltr">rect</span>
+      parameter name indicates that the C++ output parameter should be set from
+      the value returned in the C parameter from the C function.
+      <span class="command" dir="ltr">gmmproc</span> will generate a declaration of a temporary
+      variable in which to store the value of the C output parameter and a
+      statement that sets the C++ output parameter from the temporary variable.
+      In this case it may be necessary to have an
+      <span class="function">_INITIALIZATION()</span> describing how to set a
+      <span class="classname" dir="ltr">Gdk::Rectangle&amp;</span> from a
+      <span class="classname" dir="ltr">GdkRectangle*</span> such as the following:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">_INITIALIZATION(`Gdk::Rectangle&amp;',`GdkRectangle',`$3 = Glib::wrap(&amp;($4))')
+</pre></div>
+    </p>
+</div>
+<div class="division sect3">
+<a name="gmmproc-string-parameter-processing"><!--gmmproc-string-parameter-processing--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">G.3.8.4. </span>String Parameter Processing</span></h3></div>
+<p class="para block block-first">
+      A string-valued input parameter in a C++ method is usually a
+      <span class="type" dir="ltr">const Glib::ustring&amp;</span> or a <span class="type" dir="ltr">const std::string&amp;</span>.
+      In C code it's a <span class="type" dir="ltr">const gchar*</span>. When an empty string is converted
+      to <span class="type" dir="ltr">const gchar*</span>, it can be converted either to <span class="literal" dir="ltr">nullptr</span>
+      or to a pointer to an empty string (with <span class="methodname" dir="ltr">c_str()</span>).
+      Some parameters in some C functions accept a <span class="literal" dir="ltr">nullptr</span>, and
+      interpret it in a special way. Other parameters must not be <span class="literal" dir="ltr">nullptr</span>.
+    </p>
+<p class="para block">
+      The default conversion in <span class="function">_WRAP_METHOD()</span> and similar
+      macros is
+      <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">for mandatory parameters (with or without default values):
+          empty string to empty string,</span></li>
+<li><span class="para">for optional parameters (with appended <span class="literal" dir="ltr">{?}</span>):
+          empty string to <span class="literal" dir="ltr">nullptr</span>.</span></li>
+</ul></div>
+      If the default conversion is not the best conversion, append <span class="literal" dir="ltr">{NULL}</span>
+      to a mandatory parameter or <span class="literal" dir="ltr">{?!NULL}</span> to an optional
+      parameter (<span class="literal" dir="ltr">!NULL</span> = not <span class="literal" dir="ltr">NULL</span>). If you
+      append both a C parameter name and <span class="literal" dir="ltr">NULL</span>, separate them
+      with a space: <span class="literal" dir="ltr">{c_param_name NULL}</span>.
+    </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="gmmproc-basic-types"><!--gmmproc-basic-types--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">G.3.9. </span>Basic Types</span></h2></div>
+<p class="para block block-first">Some of the basic types that are used in C APIs have better alternatives
+    in C++. For example, there's no need for a <span class="type" dir="ltr">gboolean</span> type since
+    C++ has <span class="type" dir="ltr">bool</span>. The following list shows some commonly-used
+    types in C APIs and what you might convert them to in a C++ wrapper library.
+  </p>
+<div class="block list segmentedlist">
+<div class="block block-first title title-formal"><span class="title"><span class="label"></span>Basic Type equivalents</span></div>
+<div class="block seglistitem"><div class="odd">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">gboolean</span></p>
+<p class="block seg"><b>C++ type: </b><span class="type" dir="ltr">bool</span></p>
+</div></div>
+<div class="block seglistitem"><div class="even">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">gint</span></p>
+<p class="block seg"><b>C++ type: </b><span class="type" dir="ltr">int</span></p>
+</div></div>
+<div class="block seglistitem"><div class="odd">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">guint</span></p>
+<p class="block seg"><b>C++ type: </b><span class="type" dir="ltr">guint</span></p>
+</div></div>
+<div class="block seglistitem"><div class="even">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">gdouble</span></p>
+<p class="block seg"><b>C++ type: </b><span class="type" dir="ltr">double</span></p>
+</div></div>
+<div class="block seglistitem"><div class="odd">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">gunichar</span></p>
+<p class="block seg"><b>C++ type: </b><span class="type" dir="ltr">gunichar</span></p>
+</div></div>
+<div class="block seglistitem"><div class="even">
+<p class="segfirst"><b>C type: </b><span class="type" dir="ltr">gchar*</span></p>
+<p class="block seg"><b>C++ type: </b><span class="classname" dir="ltr">Glib::ustring</span> (or <span class="classname" dir="ltr">std::string</span> for filenames)</p>
+</div></div>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="sec-wrapping-defs-files.html.en.html" title="Generating the .defs files.">Generating the .defs files.</a></td>
+<td class="navbar-next"><a class="navbar-next" href="sec-wrapping-hand-coded-files.html.en.html" title="Hand-coded source files">Hand-coded source files</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="Programming with gtkmm 4">Programming with <span class="application">gtkmm</span> 4</a><div class="autotoc"><ul>
+<li><a class="xref" href="chapter-introduction.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="chapter-installation.html.en.html" title="Installation">Installation</a></li>
+<li><a class="xref" href="chapter-basics.html.en.html" title="Basics">Basics</a></li>
+<li><a class="xref" href="changes-gtkmm3.html.en.html" title="Changes in gtkmm 3">Changes in <span class="application">gtkmm</span> 3</a></li>
+<li><a class="xref" href="changes-gtkmm4.html.en.html" title="Changes in gtkmm-4.0 and glibmm-2.68">Changes in <span class="application">gtkmm</span>-4.0 and <span class="application">glibmm-2.68</span></a></li>
+<li><a class="xref" href="chapter-button-widget.html.en.html" title="Buttons">Buttons</a></li>
+<li><a class="xref" href="chapter-range-widgets.html.en.html" title="Range Widgets">Range Widgets</a></li>
+<li><a class="xref" href="chapter-misc-widgets.html.en.html" title="Miscellaneous Widgets">Miscellaneous Widgets</a></li>
+<li><a class="xref" href="chapter-container-widgets.html.en.html" title="Container Widgets">Container Widgets</a></li>
+<li><a class="xref" href="chapter-treeview.html.en.html" title="The TreeView widget">The TreeView widget</a></li>
+<li><a class="xref" href="chapter-combobox.html.en.html" title="Combo Boxes">Combo Boxes</a></li>
+<li><a class="xref" href="chapter-textview.html.en.html" title="TextView">TextView</a></li>
+<li><a class="xref" href="chapter-menus-and-toolbars.html.en.html" title="Menus and Toolbars">Menus and Toolbars</a></li>
+<li><a class="xref" href="chapter-adjustment.html.en.html" title="Adjustments">Adjustments</a></li>
+<li><a class="xref" href="chapter-dialogs.html.en.html" title="Dialogs">Dialogs</a></li>
+<li><a class="xref" href="chapter-drawingarea.html.en.html" title="The DrawingArea Widget">The DrawingArea Widget</a></li>
+<li><a class="xref" href="chapter-draganddrop.html.en.html" title="Drag and Drop">Drag and Drop</a></li>
+<li><a class="xref" href="chapter-clipboard.html.en.html" title="The Clipboard">The Clipboard</a></li>
+<li><a class="xref" href="chapter-printing.html.en.html" title="Printing">Printing</a></li>
+<li><a class="xref" href="chapter-recent-documents.html.en.html" title="Recently Used Documents">Recently Used Documents</a></li>
+<li><a class="xref" href="chapter-keyboardevents.html.en.html" title="Keyboard Events">Keyboard Events</a></li>
+<li><a class="xref" href="chapter-chapter-timeouts.html.en.html" title="Timeouts, I/O and Idle Functions ">Timeouts, I/O and Idle Functions </a></li>
+<li><a class="xref" href="chapter-memory.html.en.html" title="Memory management">Memory management</a></li>
+<li><a class="xref" href="chapter-builder.html.en.html" title="Glade and Gtk::Builder">Glade and Gtk::Builder</a></li>
+<li><a class="xref" href="chapter-internationalization.html.en.html" title="Internationalization and Localization">Internationalization and Localization</a></li>
+<li><a class="xref" href="chapter-customwidgets.html.en.html" title="Custom Widgets">Custom Widgets</a></li>
+<li><a class="xref" href="chapter-multi-threaded-programs.html.en.html" title="Multi-threaded programs">Multi-threaded programs</a></li>
+<li><a class="xref" href="chapter-recommended-techniques.html.en.html" title="Recommended Techniques">Recommended Techniques</a></li>
+<li><a class="xref" href="chapter-building-applications.html.en.html" title="Building applications">Building applications</a></li>
+<li><a class="xref" href="chapter-contributing.html.en.html" title="Contributing">Contributing</a></li>
+<li><a class="xref" href="chapter-refptr.html.en.html" title="The RefPtr smartpointer">The RefPtr smartpointer</a></li>
+<li><a class="xref" href="chapter-signals.html.en.html" title="Signals">Signals</a></li>
+<li><a class="xref" href="chapter-custom-signals.html.en.html" title="Creating your own signals">Creating your own signals</a></li>
+<li><a class="xref" href="sec-signals-comparison.html.en.html" title="Comparison with other signalling systems">Comparison with other signalling systems</a></li>
+<li><a class="xref" href="sec-windows-installation.html.en.html" title="gtkmm and Win32"><span class="application">gtkmm</span> and Win32</a></li>
+<li><a class="xref" href="chapter-working-with-source.html.en.html" title="Working with gtkmm's Source Code">Working with gtkmm's Source Code</a></li>
+<li>
+<a class="xref" href="chapter-wrapping-c-libraries.html.en.html" title="Wrapping C Libraries with gmmproc">Wrapping C Libraries with gmmproc</a><div class="autotoc"><ul>
+<li><a class="xref" href="sec-wrapping-build-structure.html.en.html" title="The build structure">The build structure</a></li>
+<li><a class="xref" href="sec-wrapping-defs-files.html.en.html" title="Generating the .defs files.">Generating the .defs files.</a></li>
+<li>The .hg and .ccg files</li>
+<li><a class="xref" href="sec-wrapping-hand-coded-files.html.en.html" title="Hand-coded source files">Hand-coded source files</a></li>
+<li><a class="xref" href="sec-wrapping-initialization.html.en.html" title="Initialization">Initialization</a></li>
+<li><a class="xref" href="sec-wrapping-problems.html.en.html" title="Problems in the C API.">Problems in the C API.</a></li>
+<li><a class="xref" href="sec-wrapping-documentation.html.en.html" title="Documentation">Documentation</a></li>
+</ul></div>
+</li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="sec-wrapping-hg-files.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

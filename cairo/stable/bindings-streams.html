@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Streams and File I/O: Cairo: A Vector Graphics Library</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Cairo: A Vector Graphics Library">
+<link rel="up" href="language-bindings.html" title="Appendix A. Creating a language binding for cairo">
+<link rel="prev" href="bindings-overloading.html" title="Overloading and optional arguments">
+<link rel="next" href="bindings-errors.html" title="Error handling">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-drawing.html" title="Drawing"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-fonts.html" title="Fonts"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-surfaces.html" title="Surfaces"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="cairo-support.html" title="Utilities"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-all.html" title="Index"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.2.html" title="Index of new symbols in 1.2"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.4.html" title="Index of new symbols in 1.4"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.6.html" title="Index of new symbols in 1.6"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.8.html" title="Index of new symbols in 1.8"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="index" href="index-1.10.html" title="Index of new symbols in 1.10"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="appendix" href="language-bindings.html" title="Appendix A. Creating a language binding for cairo"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="bindings-streams.html#container">Go to page content</a></li><li><a href="bindings-streams.html#top_bar">Go to main menu</a></li><li><a href="bindings-streams.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="language-bindings.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="bindings-overloading.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="bindings-errors.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="bindings-streams"></a>Streams and File I/O</h2></div></div></div>
+<p>
+      Various places in the cairo API deal with reading and writing
+      data, whether from and to files, or to other sources and
+      destinations. In these cases, what is typically provided in the
+      C API is a simple version that just takes a filename, and a
+      complex version that takes a callback function.
+      An example is the PNG handling functions:
+    </p>
+<pre class="programlisting">
+cairo_surface_t *
+cairo_image_surface_create_from_png (const char	*filename);
+
+cairo_surface_t *
+cairo_image_surface_create_from_png_stream (cairo_read_func_t read_func,
+					    void             *closure);
+
+cairo_status_t
+cairo_surface_write_to_png (cairo_surface_t	*surface,
+			    const char		*filename);
+
+cairo_status_t
+cairo_surface_write_to_png_stream (cairo_surface_t	*surface,
+				   cairo_write_func_t	write_func,
+				   void			*closure);</pre>
+<p>
+      The expectation is that the filename version will be mapped
+      literally in the language binding, but the callback version
+      will be mapped to a version that takes a language stream
+      object. For example, in Java, the four functions above
+      might be mapped to:
+    </p>
+<pre class="programlisting">
+static public ImageSurface createFromPNG (String filename) throws IOException;
+static public ImageSurface createFromPNG (InputStream stream) throws IOException;
+public void writeToPNG (String filename) throws IOException;
+public void writeToPNG (OutputStream stream) throws IOException;
+</pre>
+<p>
+      In many cases, it will be better to
+      implement the filename version internally
+      using the stream version, rather than building it on top of the
+      filename version in C. The reason for this is that will
+      naturally give a more standard handling of file errors for
+      the language, as seen in the above Java example, where
+      <code class="methodname">createFromPNG()</code> is marked as raising
+      an exception. Propagating exceptions from inside the callback
+      function to the caller will pose a challenge to the language
+      binding implementor, since an exception must not propagate
+      through the Cairo code. A technique that will be useful in
+      some cases is to catch the exception in the callback,
+      store the exception object inside a structure pointed to by
+      <em class="parameter"><code>closure</code></em>, and then rethrow it once
+      the function returns.
+    </p>
+<p class="remark"><em><span class="remark">
+      I'm not sure how to handle this for
+      <GTKDOCLINK HREF="cairo-pdf-surface-create-for-callback"><code class="function">cairo_pdf_surface_create_for_callback()</code></GTKDOCLINK>.
+      Other than keep a “exception to rethrow” thread-specific
+      variable
+      that is checked after <span class="emphasis"><em>every</em></span> call to a Cairo
+      function.
+    </span></em></p>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="bindings-streams.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using Autotools</title>
+<link rel="previous" href="library-autotools.html.en.html" title="Using Autotools">
+<link rel="next" href="library-anjuta.html.en.html" title="Using Anjuta">
+<link rel="top" href="index.html.en.html" title="Anjuta build tutorial">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/anjuta-build-tutorial/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="library-autotools.html.en.html#container">Go to page content</a></li>
+<li><a href="library-autotools.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="library-autotools.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="library-autotools"><!--library-autotools--></a><div class="header"><h1 class="sect1 title"><span class="title">Using <span class="application">Autotools</span></span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html.en.html" title="Anjuta build tutorial">Anjuta build tutorial</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="library.html.en.html" title="Adding a library">Adding a library</a></li>
+</ul>
+<p class="para block block-first">
+			Adding a new library in a autotools project could be more or less
+			easy depending on how the library is packaged. To take an example,
+			imagine that we want to read an xml file using <span class="application">libxml2</span>
+			(see its <a class="ulink" href="https://developer-old.gnome.org/anjuta-build-tutorial/stable/www.xmlsoft.org" title="www.xmlsoft.org">homepage at www.xmlsoft.org</a>)
+		</p>
+<div class="block list orderedlist"><ol class="orderedlist"><li class="li-first">	
+			<p class="para block block-first">Open the old tutorial project and replace <span class="filename" dir="ltr">main.c</span> by the
+			following.</p>
+			<div class=" block example block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 4-1</span> </span>main.c using <span class="application">libxml2</span>:</span></div>
+<div class="example-inner">
+				
+				<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">#include &lt;libxml/parser.h&gt;			
+#include &lt;stdio.h&gt;
+			
+int main()
+{				
+	xmlDocPtr doc;                                                                                                                  
+	doc = xmlParseFile ("testfile.xml");
+
+	if (doc == NULL) {
+		printf ("Document not parsed successfully. \n");
+		return -1;
+	}
+	else {
+		printf ("Document parsed successfully.\n");
+		xmlFreeDoc(doc);
+		return 0;
+	}
+}</pre></div>
+			</div>
+</div>
+		</li></ol></div>
+<p class="para block">
+			Our goal is now to compile it and make it work correctly. For that purpose, we must
+			tell <span class="application">GCC</span> two things: where to find libxml/parser.h
+			(that is to say, give <span class="application">GCC</span>
+			the right include path) and what library (i.e. shared object) it should link
+			our project against. There are several ways to do that, I will start with the easiest.
+		</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.1.1. </span><a class="xref" href="library-autotools.html.en.html#library-autotools-pkgconfig" title="With pkg-config">With pkg-config</a>
+</li>
+<li>
+<span class="label">4.1.2. </span><a class="xref" href="library-autotools.html.en.html#library-autotools-m4" title="With an Autoconf macro">With an <span class="application">Autoconf</span> macro</a>
+</li>
+<li>
+<span class="label">4.1.3. </span><a class="xref" href="library-autotools.html.en.html#library-autotools-lame" title="With hardcoded library path">With hardcoded library path</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="library-autotools-pkgconfig"><!--library-autotools-pkgconfig--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.1.1. </span>With pkg-config</span></h2></div>
+<p class="para block block-first">
+				<span class="application">pkg-config</span> is tools for developers
+				providing a unified interface for querying installed libraries
+				with their version and all options needed to compile and link it.
+				It comes with an <span class="application">Autoconf</span> macro
+				named PKG_CHECK_MODULES allowing to check the existence of
+				the library and set all necessary flags. 
+			</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+				<p class="para block block-first">Add the following line in <span class="filename" dir="ltr">configure.ac</span>.</p>
+				<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">PKG_CHECK_MODULES(XML, libxml-2.0 &gt;= 2.4)</pre></div>
+				<p class="para block">	
+				This macro will check the existence of <span class="application">libxml2</span> with a version higher or
+				equal to 2.4 and create 2 variable XML_CFLAGS and XML_LIBS containing
+				respectively, the flags for the C compiler and the linker. <span class="userinput" dir="ltr">XML</span> is
+				an user defined name. <span class="userinput" dir="ltr">libxml-2.0</span> is the name of the library. You can
+				run <span class="userinput" dir="ltr">pkg-config --list-all</span> to get a list of
+				all installed libraries.
+				</p>
+			</li>
+<li>
+				<p class="para block block-first">Add the following lines in <span class="filename" dir="ltr">Makefile.am</span>.</p>
+				<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">tut_prog_CPPFLAGS = $(XML_CFLAGS)
+tut_prog_LDFLAGS= $(XML_LIBS)</pre></div>
+				<p class="para block">	
+				This will use the options found by <span class="application">configure</span>
+				when the macro PKG_CHECK_MODULES is executed for compiling your program.
+				</p>
+			</li>
+<li>
+				<p class="para block block-first">That's all. You can run <span class="userinput" dir="ltr">make</span> again.</p>
+			<div dir="ltr" class=" block screen block-indent"><pre class="screen">cd . &amp;&amp; /bin/sh /home/seb2008.1/Projects/tutprog/missing --run aclocal-1.10 
+cd . &amp;&amp; /bin/sh /home/seb2008.1/Projects/tutprog/missing --run automake-1.10 --foreign 
+cd . &amp;&amp; /bin/sh /home/seb2008.1/Projects/tutprog/missing --run autoconf
+/bin/sh ./config.status --recheck
+running CONFIG_SHELL=/bin/sh /bin/sh ./configure  --no-create --no-recursion
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking dependency style of gcc... gcc3
+checking for library containing strerror... none required
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for XML... yes
+configure: creating ./config.status
+ /bin/sh ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+cd . &amp;&amp; /bin/sh /home/seb2008.1/Projects/tutprog/missing --run autoheader
+rm -f stamp-h1
+touch config.h.in
+cd . &amp;&amp; /bin/sh ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+make  all-am
+make[1]: Entering directory `/home/seb/Projects/tutprog'
+gcc -DHAVE_CONFIG_H -I.  -DPACKAGE_DATA_DIR=\""/usr/local/share"\" -I/usr/include/libxml2  \
+        -Wall -g -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+gcc -Wall -g -g -O2   -o tutprog main.o -lxml2   
+make[1]: Leaving directory `/home/seb/Projects/tutprog'</pre></div>
+				<p class="para block">
+					There is no need to rerun <span class="application">Autoconf</span> or
+					<span class="application">Automake</span> because the Makefile generated
+					by it already contains some rules to do it.			
+				</p>
+			</li>
+</ol></div>
+<div class="admonition block tip block-indent"><div class="tip-inner">
+				<p class="para block block-first">When installed, each library supporting pkg-config copy a small text file,
+				with .pc extension, in a system directory; normally 
+				<span class="filename" dir="ltr">/usr/lib/pkgconfig</span>. If you install a library from
+				source it will be by default in <span class="filename" dir="ltr">/usr/local/lib/pkgconfig</span>.
+				You can ask <span class="application">pkg-config</span> to search in this
+				directory too, by defining the environment variable <span class="userinput" dir="ltr">
+				PKG_CONFIG_PATH=/usr/local/lib/pkgconfig</span>.</p>
+			</div></div>
+</div>
+<div class="division sect2">
+<a name="library-autotools-m4"><!--library-autotools-m4--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.1.2. </span>With an <span class="application">Autoconf</span> macro</span></h2></div>
+<p class="para block block-first">
+				If the library does not support <span class="application">pkg-config</span>: it does not
+				appear in the list returned by <span class="userinput" dir="ltr">pkg-config --list-all</span>.
+				You need a <span class="application">Autoconf</span> macro:
+				<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+					<span class="para">Check if the library author shipped a <span class="application">M4</span> macro, and use
+					it if present. It is a text file named like the library with a .m4 extension
+					often installed in <span class="filename" dir="ltr">/usr/share/aclocal</span>.</span>
+				</li>
+<li>
+					<span class="para">If your library is a basic one, it might be checked
+					by the standard <span class="application">Autoconf</span> macros (see the list 
+					<a class="ulink" href="http://sources.redhat.com/autobook/autobook/autobook_283.html#SEC283" title="http://sources.redhat.com/autobook/autobook/autobook_283.html#SEC283">
+					here</a>).</span>
+				</li>
+<li>
+					<span class="para">Perhaps the <span class="application">M4</span> macro you need has already be programmed by someone
+					else. Look at the contributions <a class="ulink" href="http://www.gnu.org/software/ac-archive/" title="http://www.gnu.org/software/ac-archive/">here</a>.</span>
+				</li>
+<li>
+					<span class="para">If all that fail, go deeper in <span class="application">M4</span>, make your own macro, and
+					donate it to the library's author!</span>
+				</li>
+</ul></div>			
+			</p>
+<p class="para block">
+				When, you have this macro, you can copy it in <span class="filename" dir="ltr">/usr/share/aclocal</span>, so
+				<span class="application">aclocal</span> will find it. Then, you just need to look in the
+				macro file to see how to use it. <span class="application">libxml2</span> installs
+				a macro named AM_PATH_XML2 which is in <span class="filename" dir="ltr">/usr/share/aclocal/libxml.m4</span>.
+			</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+				<p class="para block block-first">Add the following line in <span class="filename" dir="ltr">configure.ac</span>.</p>
+				<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">AM_PATH_XML2(2.4.0)</pre></div>
+				<p class="para block">	
+				This macro will check the existence of the library with a version higher or
+				equal to 2.4 and create 2 variable XML_CPPFLAGS and XML_LIBS containing
+				respectively, the flags for the C compiler and the linker. You get these
+				information from the comments in the macro file.
+				</p>
+			</li>
+<li>
+				<p class="para block block-first">Add the following lines in <span class="filename" dir="ltr">Makefile.am</span>.</p>
+				<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">tut_prog_CPPFLAGS = $(XML_CPPFLAGS)
+tut_prog_LDFLAGS= $(XML_LIBS)</pre></div>
+				<p class="para block">	
+				This will use the options found by configure for compiling your program. Note that
+				the macro defined XML_CPPFLAGS instead of XML_CFLAGS with <span class="application">pkg-config</span>.
+				Using CPPFLAGS makes more sense, because these flags are used by the C preprocessor,
+				most of the time only to setup the path of the include files.
+				</p>
+			</li>
+<li>
+				<p class="para block block-first">That's all. You can run <span class="userinput" dir="ltr">make</span> again. The generated
+				<span class="filename" dir="ltr">Makefile</span> is almost the same.</p>
+			</li>
+</ol></div>
+</div>
+<div class="division sect2">
+<a name="library-autotools-lame"><!--library-autotools-lame--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.1.3. </span>With hardcoded library path</span></h2></div>
+<p class="para block block-first">
+				It is the approach one could naturally have: let's give <span class="application">GCC</span> the stuff
+				it needs directly ! On my system, <span class="filename" dir="ltr">libxml/parser.h</span>
+				is in <span class="filename" dir="ltr">/usr/include/libxml2</span>, and
+				the shared object is 'libxml.so', located in <span class="filename" dir="ltr">/usr/lib</span>.
+				(I will assume it's all the same for you).
+			</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+				<p class="para block block-first">Add the following lines in <span class="filename" dir="ltr">Makefile.am</span>.</p>
+				<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">tut_prog_CPPFLAGS = -I /usr/include/libxml2
+tut_prog_LDFLAGS= -lxml2</pre></div>
+				<p class="para block">
+				There is no need to change <span class="filename" dir="ltr">configure.ac</span> because you don't
+				check anything and just assume that all host system will have the right
+				library in the same place than you.
+				</p>
+			</li>
+<li>
+				<p class="para block block-first">You can run <span class="userinput" dir="ltr">make</span> and it should work if you have the same
+				system than me.</p>
+			<div dir="ltr" class=" block screen block-indent"><pre class="screen"> cd . &amp;&amp; /bin/sh /home/seb2008.1/Projects/tutprog/missing --run automake-1.10 --foreign  Makefile
+ cd . &amp;&amp; /bin/sh ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+make  all-am
+make[1]: Entering directory `/home/seb/Projects/tutprog'
+gcc -DHAVE_CONFIG_H -I.  -DPACKAGE_DATA_DIR=\""/usr/local/share"\" -I /usr/include/libxml2  \
+    -Wall -g -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+gcc -Wall -g -g -O2   -o tutprog main.o -lxml2 
+make[1]: Leaving directory `/home/seb/Projects/tutprog'</pre></div>
+			</li>
+</ol></div>
+<p class="para block">
+				I have described this here to show that it is possible to do
+				simple thing using <span class="application">Autotools</span>. But this
+				approach has several drawbacks:
+				<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+						<span class="para">It is not portable to various linuxes: perhaps on other
+						distribution the include path is different.</span>
+					</li>
+<li>
+						<span class="para">If the next versions of libxml have different paths,
+						or different needed libraries, we will need to update the project.</span>
+					</li>
+<li>
+						<span class="para">We don't test whether the system of the packager/user has
+						the library.</span>
+					</li>
+<li>
+						<span class="para">We cannot check the version of the <span class="application">libxml2</span> we use.</span>
+					</li>
+</ul></div>
+			</p>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="library-autotools.html.en.html" title="Using Autotools">Using <span class="application">Autotools</span></a></td>
+<td class="navbar-next"><a class="navbar-next" href="library-anjuta.html.en.html" title="Using Anjuta">Using <span class="application">Anjuta</span></a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="Anjuta build tutorial">Anjuta build tutorial</a><div class="autotoc"><ul>
+<li><a class="xref" href="intro.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="build.html.en.html" title="Building a project">Building a project</a></li>
+<li><a class="xref" href="create.html.en.html" title="Creating a project">Creating a project</a></li>
+<li>
+<a class="xref" href="library.html.en.html" title="Adding a library">Adding a library</a><div class="autotoc"><ul>
+<li>Using <span class="application">Autotools</span>
+</li>
+<li><a class="xref" href="library-anjuta.html.en.html" title="Using Anjuta">Using <span class="application">Anjuta</span></a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="resources.html.en.html" title="Resources">Resources</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="library-autotools.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

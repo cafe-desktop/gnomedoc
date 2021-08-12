@@ -1,0 +1,1148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EpcConsumer: Easy Publish and Consume Reference Manual</title><link href="index.html" rel="home" title="Easy Publish and Consume Reference Manual"></link><link href="consuming.html" rel="up" title="Consuming"></link><link href="consuming.html" rel="prev" title="Consuming"></link><link href="libepc-1.0-EpcProtocol.html" rel="next" title="EpcProtocol"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libepc-1.0-consumer.html#container">Go to page content</a></li><li><a href="libepc-1.0-consumer.html#top_bar">Go to main menu</a></li><li><a href="libepc-1.0-consumer.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="libepc-1.0-consumer.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-consumer.html#libepc-1.0-consumer.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-consumer.html#libepc-1.0-consumer.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-consumer.html#libepc-1.0-consumer.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-consumer.html#libepc-1.0-consumer.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="consuming.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="consuming.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libepc-1.0-EpcProtocol.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libepc-1.0-consumer"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libepc-1.0-consumer.top_of_page"></a>EpcConsumer</span></h2>
+<p>EpcConsumer — lookup published values</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.stability-level"></a><h2>Stability Level</h2>
+<a href="http://foldoc.org/Unstable"><span class="acronym">Unstable</span></a>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-new" title="epc_consumer_new ()">epc_consumer_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name" title="epc_consumer_new_for_name ()">epc_consumer_new_for_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name-full" title="epc_consumer_new_for_name_full ()">epc_consumer_new_for_name_full</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="returnvalue">EpcProtocol</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-get-protocol" title="epc_consumer_get_protocol ()">epc_consumer_get_protocol</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-get-password" title="epc_consumer_get_password ()">epc_consumer_get_password</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">gchar</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-get-username" title="epc_consumer_get_username ()">epc_consumer_get_username</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-set-protocol" title="epc_consumer_set_protocol ()">epc_consumer_set_protocol</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-set-password" title="epc_consumer_set_password ()">epc_consumer_set_password</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-set-username" title="epc_consumer_set_username ()">epc_consumer_set_username</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-resolve-publisher" title="epc_consumer_resolve_publisher ()">epc_consumer_resolve_publisher</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-is-publisher-resolved" title="epc_consumer_is_publisher_resolved ()">epc_consumer_is_publisher_resolved</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gpointer</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-lookup" title="epc_consumer_lookup ()">epc_consumer_lookup</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-list" title="epc_consumer_list ()">epc_consumer_list</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--application" title="The “application” property">application</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--domain" title="The “domain” property">domain</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--hostname" title="The “hostname” property">hostname</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--name" title="The “name” property">name</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--password" title="The “password” property">password</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--path" title="The “path” property">path</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gint</span></td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--port" title="The “port” property">port</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a></td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--protocol" title="The “protocol” property">protocol</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer--username" title="The “username” property">username</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">gboolean</span></td>
+<td class="signal_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer-authenticate" title="The “authenticate” signal">authenticate</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer-publisher-resolved" title="The “publisher-resolved” signal">publisher-resolved</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="EpcConsumer"></a><div class="refsect1">
+<a name="libepc-1.0-consumer.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libepc-1.0-consumer.html#EPC-HTTP-ERROR:CAPS" title="EPC_HTTP_ERROR">EPC_HTTP_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumerPrivate" title="EpcConsumerPrivate">EpcConsumerPrivate</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumerClass" title="struct EpcConsumerClass">EpcConsumerClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer-struct" title="struct EpcConsumer">EpcConsumer</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> EpcConsumer
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libepc/consumer.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.description"></a><h2>Description</h2>
+<p>The <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object is used to lookup values published by an
+<a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> service. Currently HTTP is used for communication.
+To find a publisher, use DNS-SD (also known as ZeroConf) to
+list <span class="type">EPC_PUBLISHER_SERVICE_TYPE</span> services.</p>
+<div class="example">
+<a name="lookup-value"></a><p class="title"><b>Example 1. Lookup a value</b></p>
+<div class="example-contents">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td>
+        <td class="listing_code"><pre class="programlisting">service_name = choose_recently_used_service ();
+
+<span class="keyword">if</span> (service_name)
+  consumer = epc_consumer_new_for_name (service_name);
+<span class="keyword">else</span>
+  consumer = epc_consumer_new (your_app_find_service ());
+
+value = epc_consumer_lookup (consumer, <span class="number">"glom-settings"</span>, <span class="number">NULL</span>, &amp;error);
+g_object_unref (consumer);
+
+your_app_consume_value (value);
+g_free (value);</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break"></br><div class="example">
+<a name="find-publisher"></a><p class="title"><b>Example 2. Find a publisher</b></p>
+<div class="example-contents">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td>
+        <td class="listing_code"><pre class="programlisting">dialog = aui_service_dialog_new (<span class="number">"Choose a Service"</span>, main_window,
+                                 GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                 GTK_STOCK_CONNECT, GTK_RESPONSE_ACCEPT,
+                                 <span class="number">NULL</span>);
+
+aui_service_dialog_set_browse_service_types (AUI_SERVICE_DIALOG (dialog),
+                                             EPC_SERVICE_TYPE_HTTPS,
+                                             EPC_SERVICE_TYPE_HTTP,
+                                             <span class="number">NULL</span>);
+
+ aui_service_dialog_set_service_type_name (AUI_SERVICE_DIALOG (dialog),
+                                         EPC_SERVICE_TYPE_HTTPS,
+                                         <span class="number">"Secure Transport"</span>);
+ aui_service_dialog_set_service_type_name (AUI_SERVICE_DIALOG (dialog),
+                                         EPC_SERVICE_TYPE_HTTP,
+                                         <span class="number">"Insecure Transport"</span>);
+
+ <span class="keyword">if</span> (GTK_RESPONSE_ACCEPT == gtk_dialog_run (GTK_DIALOG (dialog)))
+{
+   EpcServiceInfo *service =
+     epc_service_info_new (aui_service_dialog_get_service_type (AUI_SERVICE_DIALOG (dialog)),
+                           aui_service_dialog_get_host_name    (AUI_SERVICE_DIALOG (dialog)),
+                           aui_service_dialog_get_port         (AUI_SERVICE_DIALOG (dialog)),
+                           aui_service_dialog_get_txt_data     (AUI_SERVICE_DIALOG (dialog)));
+
+   consumer = epc_consumer_new (service);
+   epc_service_info_unref (service);
+   ...
+}</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break"></br>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="epc-consumer-new"></a><h3>epc_consumer_new ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+epc_consumer_new (<em class="parameter"><code>const <a class="link" href="EpcServiceInfo.html" title="EpcServiceInfo"><span class="type">EpcServiceInfo</span></a> *service</code></em>);</pre>
+<p>Creates a new <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object and associates it with a known
+<a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>. The <em class="parameter"><code>service</code></em>
+ description can be retrieved, for instance,
+by using <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a>, or by using the service selection dialog
+of <em class="citetitle">avahi-ui</em> (<span class="type">AuiServiceDialog</span>).</p>
+<p>The connection is not established until functions like <a class="link" href="libepc-1.0-consumer.html#epc-consumer-lookup" title="epc_consumer_lookup ()"><code class="function">epc_consumer_lookup()</code></a>,
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-list" title="epc_consumer_list ()"><code class="function">epc_consumer_list()</code></a> or <a class="link" href="libepc-1.0-consumer.html#epc-consumer-resolve-publisher" title="epc_consumer_resolve_publisher ()"><span class="type">epc_consumer_resolve_publisher</span></a> are called.</p>
+<div class="refsect3">
+<a name="epc-consumer-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>service</p></td>
+<td class="parameter_description"><p>the publisher's service description</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-new.returns"></a><h4>Returns</h4>
+<p> The newly created <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-new-for-name"></a><h3>epc_consumer_new_for_name ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+epc_consumer_new_for_name (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>Creates a new <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object and associates it with the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>
+announcing itself with <em class="parameter"><code>name</code></em>
+ on the local network. The DNS-SD service name
+used for searching the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> is derived from the application's
+program name as returned by <code class="function">g_get_prgname()</code>.</p>
+<p>See <a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name-full" title="epc_consumer_new_for_name_full ()"><code class="function">epc_consumer_new_for_name_full()</code></a> for additional notes
+and a method allowing better control over the search process.</p>
+<div class="refsect3">
+<a name="epc-consumer-new-for-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>the service name of an <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-new-for-name.returns"></a><h4>Returns</h4>
+<p> The newly created <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-new-for-name-full"></a><h3>epc_consumer_new_for_name_full ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="returnvalue">EpcConsumer</span></a> *
+epc_consumer_new_for_name_full (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *application</code></em>,
+                                <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);</pre>
+<p>Creates a new <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object and associates it with the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>
+announcing itself with <em class="parameter"><code>name</code></em>
+ on <em class="parameter"><code>domain</code></em>
+. The DNS-SD service of the
+<a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> is derived from <em class="parameter"><code>application</code></em>
+ using <a class="link" href="libepc-1.0-EpcServiceType.html#epc-service-type-new" title="epc_service_type_new ()"><code class="function">epc_service_type_new()</code></a>.</p>
+<div class="note"><p>
+ This function shall be used to re-connect to a formerly used <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>,
+ selected for instance from a list for recently used services. Therefore
+ using <a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name-full" title="epc_consumer_new_for_name_full ()"><code class="function">epc_consumer_new_for_name_full()</code></a> is a quite optimistic approach for
+ contacting a publisher: You call it without really knowing if the
+ publisher you requested really exists. You only know that it existed
+ in the past when you added it to your list of recently used publishers,
+ but you do not know if it still exists.
+
+ To let your users choose from an up-to-date service list, you have to
+ use a dynamic service list as provided by avahi-ui for choosing a service
+ and pass the information this widget provides (hostname, port, protocol)
+ to <a class="link" href="libepc-1.0-consumer.html#epc-consumer-new" title="epc_consumer_new ()"><code class="function">epc_consumer_new()</code></a>.
+</p></div>
+<div class="note"><p>
+ The connection is not established until a function retrieving
+ data, like for instance <a class="link" href="libepc-1.0-consumer.html#epc-consumer-lookup" title="epc_consumer_lookup ()"><code class="function">epc_consumer_lookup()</code></a>, is called.
+
+ Explicitly call <a class="link" href="libepc-1.0-consumer.html#epc-consumer-resolve-publisher" title="epc_consumer_resolve_publisher ()"><code class="function">epc_consumer_resolve_publisher()</code></a> or connect to
+ the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer-publisher-resolved" title="The “publisher-resolved” signal"><span class="type">“publisher-resolved”</span></a> signal, when your application
+ needs reliable information about the existance of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>
+ described by <em class="parameter"><code>name</code></em>.
+</p></div>
+<div class="refsect3">
+<a name="epc-consumer-new-for-name-full.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>the service name of an <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>application</p></td>
+<td class="parameter_description"><p>the publisher's program name</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>the DNS domain of the <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-new-for-name-full.returns"></a><h4>Returns</h4>
+<p> The newly created <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> object</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-get-protocol"></a><h3>epc_consumer_get_protocol ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="returnvalue">EpcProtocol</span></a>
+epc_consumer_get_protocol (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>);</pre>
+<p>Queries the transport protocol to use for contacting the publisher.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--protocol" title="The “protocol” property"><span class="type">“protocol”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-get-protocol.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-get-protocol.returns"></a><h4>Returns</h4>
+<p> The transport protocol this consumer uses.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-get-password"></a><h3>epc_consumer_get_password ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_consumer_get_password (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>);</pre>
+<p>Queries the password used for authentication.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--password" title="The “password” property"><span class="type">“password”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-get-password.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-get-password.returns"></a><h4>Returns</h4>
+<p> The password this consumer uses.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-get-username"></a><h3>epc_consumer_get_username ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *
+epc_consumer_get_username (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>);</pre>
+<p>Queries the user name used for authentication.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--username" title="The “username” property"><span class="type">“username”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-get-username.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-get-username.returns"></a><h4>Returns</h4>
+<p> The user name this consumer uses.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-set-protocol"></a><h3>epc_consumer_set_protocol ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_consumer_set_protocol (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                           <em class="parameter"><code><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a> protocol</code></em>);</pre>
+<p>Changes the transport protocol to use for contacting the publisher.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--protocol" title="The “protocol” property"><span class="type">“protocol”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-set-protocol.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>protocol</p></td>
+<td class="parameter_description"><p>the new transport protocol</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-set-password"></a><h3>epc_consumer_set_password ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_consumer_set_password (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *password</code></em>);</pre>
+<p>Changes the password used for authentication.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--password" title="The “password” property"><span class="type">“password”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-set-password.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>password</p></td>
+<td class="parameter_description"><p>the new password, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-set-username"></a><h3>epc_consumer_set_username ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_consumer_set_username (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *username</code></em>);</pre>
+<p>Changes the user name used for authentication.
+See <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--username" title="The “username” property"><span class="type">“username”</span></a> for details.</p>
+<div class="refsect3">
+<a name="epc-consumer-set-username.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>username</p></td>
+<td class="parameter_description"><p>the new user name, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-resolve-publisher"></a><h3>epc_consumer_resolve_publisher ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_consumer_resolve_publisher (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                                <em class="parameter"><code><span class="type">guint</span> timeout</code></em>);</pre>
+<p>Waits until the <em class="parameter"><code>consumer</code></em>
+ has found its <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>.
+A <em class="parameter"><code>timeout</code></em>
+ of 0 requests infinite waiting.</p>
+<p>See also: <a class="link" href="libepc-1.0-consumer.html#EpcConsumer-publisher-resolved" title="The “publisher-resolved” signal"><span class="type">“publisher-resolved”</span></a></p>
+<div class="refsect3">
+<a name="epc-consumer-resolve-publisher.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>timeout</p></td>
+<td class="parameter_description"><p>the amount of milliseconds to wait</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-resolve-publisher.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when a publisher has been found, <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-is-publisher-resolved"></a><h3>epc_consumer_is_publisher_resolved ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_consumer_is_publisher_resolved (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>);</pre>
+<p>Checks if the host name of this consumer's <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>
+has been resolved already.</p>
+<p>See also: <a class="link" href="libepc-1.0-consumer.html#epc-consumer-resolve-publisher" title="epc_consumer_resolve_publisher ()"><code class="function">epc_consumer_resolve_publisher()</code></a>, <span class="type">“publisher-resolved”</span></p>
+<div class="refsect3">
+<a name="epc-consumer-is-publisher-resolved.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-is-publisher-resolved.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the host name has been resolved, and <code class="literal">FALSE</code> otherwise.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-lookup"></a><h3>epc_consumer_lookup ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>
+epc_consumer_lookup (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                     <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                     <em class="parameter"><code><span class="type">gsize</span> *length</code></em>,
+                     <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>If the call was successful, this returns a newly allocated buffer containing
+the value the publisher provides for <em class="parameter"><code>key</code></em>
+. If the call was not
+successful it returns <code class="literal">NULL</code> and sets <em class="parameter"><code>error</code></em>
+. The error domain is
+<a class="link" href="libepc-1.0-consumer.html#EPC-HTTP-ERROR:CAPS" title="EPC_HTTP_ERROR"><span class="type">EPC_HTTP_ERROR</span></a>. Error codes are taken from the <span class="type">SoupKnownStatusCode</span>
+enumeration.</p>
+<p>For instance, the error code will be <span class="type">SOUP_STATUS_FORBIDDEN</span> if
+authentication failed (see <a class="link" href="libepc-1.0-publisher.html#epc-publisher-set-auth-handler" title="epc_publisher_set_auth_handler ()"><code class="function">epc_publisher_set_auth_handler()</code></a>). You must
+include <code class="filename">libsoup/soup-status.h</code>
+to use this error code.</p>
+<p>The returned buffer should be freed when no longer needed.</p>
+<p>See the description of <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a> for discussion of <code class="literal">NULL</code> values.</p>
+<div class="refsect3">
+<a name="epc-consumer-lookup.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>the consumer</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>key</p></td>
+<td class="parameter_description"><p>unique key of the value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>length</p></td>
+<td class="parameter_description"><p>location to store length in bytes of the contents, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-lookup.returns"></a><h4>Returns</h4>
+<p> A copy of the publisher's value for the the requested <em class="parameter"><code>key</code></em>
+,
+or <code class="literal">NULL</code> when an error occurred.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-consumer-list"></a><h3>epc_consumer_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+epc_consumer_list (<em class="parameter"><code><a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer</code></em>,
+                   <em class="parameter"><code>const <span class="type">gchar</span> *pattern</code></em>,
+                   <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Matches published keys against patterns containing '*' (wildcard) and '?'
+(joker). Passing <code class="literal">NULL</code> as <em class="parameter"><code>pattern</code></em>
+ is equivalent to passing "*" and returns
+all published keys. This function is useful to find and select dynamically
+published values. See <span class="type">GPatternSpec</span> for information about glob-style
+patterns.</p>
+<p>If the call was successful, a list of keys matching <em class="parameter"><code>pattern</code></em>
+ is returned.
+If the call was not successful, it returns <code class="literal">NULL</code> and sets <em class="parameter"><code>error</code></em>
+.
+The error domain is <a class="link" href="libepc-1.0-consumer.html#EPC-HTTP-ERROR:CAPS" title="EPC_HTTP_ERROR"><span class="type">EPC_HTTP_ERROR</span></a>. Error codes are taken from the
+<span class="type">SoupKnownStatusCode</span> enumeration.</p>
+<p>The returned list should be freed when no longer needed:</p>
+<pre class="programlisting"> g_list_foreach (keys, (GFunc) g_free, NULL);
+ g_list_free (keys);
+</pre>
+<p>See also <a class="link" href="libepc-1.0-publisher.html#epc-publisher-list" title="epc_publisher_list ()"><code class="function">epc_publisher_list()</code></a> for creating custom listings.</p>
+<div class="refsect3">
+<a name="epc-consumer-list.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>pattern</p></td>
+<td class="parameter_description"><p>a glob-style pattern, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-consumer-list.returns"></a><h4>Returns</h4>
+<p> A newly allocated list of keys, or <code class="literal">NULL</code> when an error occurred.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="EPC-HTTP-ERROR:CAPS"></a><h3>EPC_HTTP_ERROR</h3>
+<pre class="programlisting">#define EPC_HTTP_ERROR              (epc_http_error_quark())
+</pre>
+<p>Error domain for HTTP operations. Errors in this domain will
+be from the <span class="type">SoupKnownStatusCode</span> enumeration. See GError for
+information on error domains.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumerPrivate"></a><h3>EpcConsumerPrivate</h3>
+<pre class="programlisting">typedef struct _EpcConsumerPrivate EpcConsumerPrivate;</pre>
+<p>Private fields of the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> class.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumerClass"></a><h3>struct EpcConsumerClass</h3>
+<pre class="programlisting">struct EpcConsumerClass {
+  void (*authenticate)       (EpcConsumer  *consumer,
+                              const gchar  *realm);
+
+  void (*publisher_resolved) (EpcConsumer  *consumer,
+                              EpcProtocol   protocol,
+                              const gchar  *hostname,
+                              guint         port);
+};
+</pre>
+<p>Virtual methods of the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> class.</p>
+<div class="refsect3">
+<a name="EpcConsumerClass.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="struct_members_name" width="300px"></col>
+<col class="struct_members_description"></col>
+<col class="struct_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="EpcConsumerClass.authenticate"></a>authenticate</code></em> ()</p></td>
+<td class="struct_member_description"><p>virtual method of the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer-authenticate" title="The “authenticate” signal"><span class="type">“authenticate”</span></a> signal</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="EpcConsumerClass.publisher-resolved"></a>publisher_resolved</code></em> ()</p></td>
+<td class="struct_member_description"><p>virtual method of the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer-publisher-resolved" title="The “publisher-resolved” signal"><span class="type">“publisher-resolved”</span></a> signal</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer-struct"></a><h3>struct EpcConsumer</h3>
+<pre class="programlisting">struct EpcConsumer;</pre>
+<p>Public fields of the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> class.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EpcConsumer--application"></a><h3>The <code class="literal">“application”</code> property</h3>
+<pre class="programlisting">  “application”              <span class="type">gchar</span> *</pre>
+<p>Program name the publisher to use.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--domain"></a><h3>The <code class="literal">“domain”</code> property</h3>
+<pre class="programlisting">  “domain”                   <span class="type">gchar</span> *</pre>
+<p>DNS domain of the publisher to use.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--hostname"></a><h3>The <code class="literal">“hostname”</code> property</h3>
+<pre class="programlisting">  “hostname”                 <span class="type">gchar</span> *</pre>
+<p>Host name of the publisher to use.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--name"></a><h3>The <code class="literal">“name”</code> property</h3>
+<pre class="programlisting">  “name”                     <span class="type">gchar</span> *</pre>
+<p>Service name of the publisher to use.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--password"></a><h3>The <code class="literal">“password”</code> property</h3>
+<pre class="programlisting">  “password”                 <span class="type">gchar</span> *</pre>
+<p>The password to use for authentication.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--path"></a><h3>The <code class="literal">“path”</code> property</h3>
+<pre class="programlisting">  “path”                     <span class="type">gchar</span> *</pre>
+<p>The path the publisher uses for contents.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: "/contents"</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--port"></a><h3>The <code class="literal">“port”</code> property</h3>
+<pre class="programlisting">  “port”                     <span class="type">gint</span></pre>
+<p>TCP/IP port of the publisher to use.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Allowed values: [0,65535]</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--protocol"></a><h3>The <code class="literal">“protocol”</code> property</h3>
+<pre class="programlisting">  “protocol”                 <a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a></pre>
+<p>The transport protocol to use for contacting the publisher.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: EPC_PROTOCOL_UNKNOWN</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer--username"></a><h3>The <code class="literal">“username”</code> property</h3>
+<pre class="programlisting">  “username”                 <span class="type">gchar</span> *</pre>
+<p>The user name to use for authentication.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EpcConsumer-authenticate"></a><h3>The <code class="literal">“authenticate”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+user_function (<a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer,
+               <span class="type">gchar</span>       *realm,
+               <span class="type">gpointer</span>     user_data)</pre>
+<p>Emitted when the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> requires authentication. The signal
+handler should provide these credentials, which may come from the
+user or from cached information by setting the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--username" title="The “username” property"><span class="type">“username”</span></a>
+and <a class="link" href="libepc-1.0-consumer.html#EpcConsumer--password" title="The “password” property"><span class="type">“password”</span></a> properties. When providing credentials
+the signal handler should return <code class="literal">TRUE</code> to stop signal emission.</p>
+<p>If the provided credentials fail then the signal will be emmitted again.</p>
+<div class="refsect3">
+<a name="EpcConsumer-authenticate.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> emitting the signal</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>realm</p></td>
+<td class="parameter_description"><p>the realm being authenticated to</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="EpcConsumer-authenticate.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> when the signal handler handled the authentication request,
+and <code class="literal">FALSE</code> otherwise.</p>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcConsumer-publisher-resolved"></a><h3>The <code class="literal">“publisher-resolved”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> *consumer,
+               <a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a>  protocol,
+               <span class="type">gchar</span>       *hostname,
+               <span class="type">guint</span>        port,
+               <span class="type">gpointer</span>     user_data)</pre>
+<p>This signal is emitted when a <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> created with
+<a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name" title="epc_consumer_new_for_name ()"><code class="function">epc_consumer_new_for_name()</code></a> or <a class="link" href="libepc-1.0-consumer.html#epc-consumer-new-for-name-full" title="epc_consumer_new_for_name_full ()"><span class="type">epc_consumer_new_for_name_full</span></a>
+has found its <a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a>.</p>
+<p>Publisher detection is integrated with the GLib main loop. Therefore the
+signal will not be emitted before a main loop is run (<code class="function">g_main_loop_run()</code>,
+<code class="function">gtk_main()</code>). So to reliably consume this signal connect to it directly
+after creating the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a>.</p>
+<p>See also: <a class="link" href="libepc-1.0-consumer.html#epc-consumer-resolve-publisher" title="epc_consumer_resolve_publisher ()"><code class="function">epc_consumer_resolve_publisher()</code></a>, <span class="type">epc_consumer_is_pulisher_resolved</span></p>
+<div class="refsect3">
+<a name="EpcConsumer-publisher-resolved.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>consumer</p></td>
+<td class="parameter_description"><p>the <a class="link" href="libepc-1.0-consumer.html#EpcConsumer"><span class="type">EpcConsumer</span></a> emitting the signal</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>protocol</p></td>
+<td class="parameter_description"><p>the publisher's transport protocol</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>hostname</p></td>
+<td class="parameter_description"><p>the publisher's host name</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>port</p></td>
+<td class="parameter_description"><p>the publisher's TCP/IP port</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-consumer.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="libepc-1.0-publisher.html#EpcPublisher"><span class="type">EpcPublisher</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libepc-1.0-consumer.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

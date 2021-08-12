@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ECalBackendStore</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Calendar Backend (libedata-cal)"></link><link href="ch01.html" rel="up" title="Evolution-Data-Server Manual: Calendar Backend (libedata-cal)"></link><link href="ECalBackendSExp.html" rel="prev" title="ECalBackendSExp"></link><link href="ECalBackendSync.html" rel="next" title="ECalBackendSync"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ECalBackendStore.html#container">Go to page content</a></li><li><a href="ECalBackendStore.html#top_bar">Go to main menu</a></li><li><a href="ECalBackendStore.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ECalBackendSExp.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Calendar Backend (libedata-cal)</th>
+<td><a accesskey="n" href="ECalBackendSync.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ECalBackendStore.html#ECalBackendStore.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ECalBackendStore.html#ECalBackendStore.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ECalBackendStore.html#ECalBackendStore.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ECalBackendStore.html#ECalBackendStore.properties">Properties</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ECalBackendStore"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ECalBackendStore.top_of_page"></a>ECalBackendStore</span></h2>
+<p>ECalBackendStore</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ECalBackendStore.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ECalBackendStore.html#ECalBackendStore-struct" title="struct ECalBackendStore">ECalBackendStore</a>;
+<a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="returnvalue">ECalBackendStore</span></a> *  <a class="link" href="ECalBackendStore.html#e-cal-backend-store-new" title="e_cal_backend_store_new ()">e_cal_backend_store_new</a>             (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a> *cache</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-path" title="e_cal_backend_store_get_path ()">e_cal_backend_store_get_path</a>        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<a href="../../libecal/stable/ETimezoneCache.html"><span class="returnvalue">ETimezoneCache</span></a> *    <a class="link" href="ECalBackendStore.html#e-cal-backend-store-ref-timezone-cache" title="e_cal_backend_store_ref_timezone_cache ()">e_cal_backend_store_ref_timezone_cache</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-load" title="e_cal_backend_store_load ()">e_cal_backend_store_load</a>            (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-is-loaded" title="e_cal_backend_store_is_loaded ()">e_cal_backend_store_is_loaded</a>       (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-clean" title="e_cal_backend_store_clean ()">e_cal_backend_store_clean</a>           (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<a href="../../libecal/stable/ECalComponent.html"><span class="returnvalue">ECalComponent</span></a> *     <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-component" title="e_cal_backend_store_get_component ()">e_cal_backend_store_get_component</a>   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-put-component-with-time-range" title="e_cal_backend_store_put_component_with_time_range ()">e_cal_backend_store_put_component_with_time_range</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> occurence_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> occurence_end</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-put-component" title="e_cal_backend_store_put_component ()">e_cal_backend_store_put_component</a>   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-remove-component" title="e_cal_backend_store_remove_component ()">e_cal_backend_store_remove_component</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-has-component" title="e_cal_backend_store_has_component ()">e_cal_backend_store_has_component</a>   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);
+const <span class="returnvalue">icaltimezone</span> * <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-default-timezone" title="e_cal_backend_store_get_default_timezone ()">e_cal_backend_store_get_default_timezone</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-set-default-timezone" title="e_cal_backend_store_set_default_timezone ()">e_cal_backend_store_set_default_timezone</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">icaltimezone</span> *zone</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-components-by-uid" title="e_cal_backend_store_get_components_by_uid ()">e_cal_backend_store_get_components_by_uid</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-components-by-uid-as-ical-string" title="e_cal_backend_store_get_components_by_uid_as_ical_string ()">e_cal_backend_store_get_components_by_uid_as_ical_string</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-components" title="e_cal_backend_store_get_components ()">e_cal_backend_store_get_components</a>  (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-components-occuring-in-range" title="e_cal_backend_store_get_components_occuring_in_range ()">e_cal_backend_store_get_components_occuring_in_range</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> end</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-component-ids" title="e_cal_backend_store_get_component_ids ()">e_cal_backend_store_get_component_ids</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ECalBackendStore.html#e-cal-backend-store-get-key-value" title="e_cal_backend_store_get_key_value ()">e_cal_backend_store_get_key_value</a>   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ECalBackendStore.html#e-cal-backend-store-put-key-value" title="e_cal_backend_store_put_key_value ()">e_cal_backend_store_put_key_value</a>   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ECalBackendStore.html#e-cal-backend-store-thaw-changes" title="e_cal_backend_store_thaw_changes ()">e_cal_backend_store_thaw_changes</a>    (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ECalBackendStore.html#e-cal-backend-store-freeze-changes" title="e_cal_backend_store_freeze_changes ()">e_cal_backend_store_freeze_changes</a>  (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ECalBackendStore.html#e-cal-backend-store-interval-tree-add-comp" title="e_cal_backend_store_interval_tree_add_comp ()">e_cal_backend_store_interval_tree_add_comp</a>
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> end</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ECalBackendStore.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----ECalBackendStore
+</pre>
+</div>
+<div class="refsect1">
+<a name="ECalBackendStore.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="ECalBackendStore.html#ECalBackendStore--path" title='The "path" property'>path</a>"                     <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="ECalBackendStore.html#ECalBackendStore--timezone-cache" title='The "timezone-cache" property'>timezone-cache</a>"           <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a>*       : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="ECalBackendStore.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ECalBackendStore.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ECalBackendStore-struct"></a><h3>struct ECalBackendStore</h3>
+<pre class="programlisting">struct ECalBackendStore;</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-new"></a><h3>e_cal_backend_store_new ()</h3>
+<pre class="programlisting"><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="returnvalue">ECalBackendStore</span></a> *  e_cal_backend_store_new             (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a> *cache</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> from <em class="parameter"><code>path</code></em> and <em class="parameter"><code>cache</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>the directory for the store file</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cache</code></em> :</span></p></td>
+<td>an <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-path"></a><h3>e_cal_backend_store_get_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_cal_backend_store_get_path        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-ref-timezone-cache"></a><h3>e_cal_backend_store_ref_timezone_cache ()</h3>
+<pre class="programlisting"><a href="../../libecal/stable/ETimezoneCache.html"><span class="returnvalue">ETimezoneCache</span></a> *    e_cal_backend_store_ref_timezone_cache
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p>
+Returns the <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a> passed to <a class="link" href="ECalBackendStore.html#e-cal-backend-store-new" title="e_cal_backend_store_new ()"><code class="function">e_cal_backend_store_new()</code></a>.
+</p>
+<p>
+The returned <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a> is referenced for thread-safety and must
+be unreferenced with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td>an <a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-load"></a><h3>e_cal_backend_store_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_load            (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-is-loaded"></a><h3>e_cal_backend_store_is_loaded ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_is_loaded       (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-clean"></a><h3>e_cal_backend_store_clean ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_clean           (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-component"></a><h3>e_cal_backend_store_get_component ()</h3>
+<pre class="programlisting"><a href="../../libecal/stable/ECalComponent.html"><span class="returnvalue">ECalComponent</span></a> *     e_cal_backend_store_get_component   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-put-component-with-time-range"></a><h3>e_cal_backend_store_put_component_with_time_range ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_put_component_with_time_range
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> occurence_start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> occurence_end</code></em>);</pre>
+<p class="since">Since 2.32</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-put-component"></a><h3>e_cal_backend_store_put_component ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_put_component   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-remove-component"></a><h3>e_cal_backend_store_remove_component ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_remove_component
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-has-component"></a><h3>e_cal_backend_store_has_component ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_has_component   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *rid</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-default-timezone"></a><h3>e_cal_backend_store_get_default_timezone ()</h3>
+<pre class="programlisting">const <span class="returnvalue">icaltimezone</span> * e_cal_backend_store_get_default_timezone
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-set-default-timezone"></a><h3>e_cal_backend_store_set_default_timezone ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_set_default_timezone
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">icaltimezone</span> *zone</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-components-by-uid"></a><h3>e_cal_backend_store_get_components_by_uid ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_cal_backend_store_get_components_by_uid
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-components-by-uid-as-ical-string"></a><h3>e_cal_backend_store_get_components_by_uid_as_ical_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_cal_backend_store_get_components_by_uid_as_ical_string
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td>an <a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>a component UID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Newly allocated ical string containing all
+instances with given <em class="parameter"><code>uid</code></em>. Free returned pointer with <code class="function">g_free()</code>,
+when no longer needed.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-components"></a><h3>e_cal_backend_store_get_components ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_cal_backend_store_get_components  (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-components-occuring-in-range"></a><h3>e_cal_backend_store_get_components_occuring_in_range ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_cal_backend_store_get_components_occuring_in_range
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> end</code></em>);</pre>
+<p>
+Retrieves a list of components stored in the store, that are occuring
+in time range [start, end].
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td>An <a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of the components. Each item in the list is
+an <a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a>, which should be freed when no longer needed.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 2.32</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-component-ids"></a><h3>e_cal_backend_store_get_component_ids ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_cal_backend_store_get_component_ids
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-get-key-value"></a><h3>e_cal_backend_store_get_key_value ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_cal_backend_store_get_key_value   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-put-key-value"></a><h3>e_cal_backend_store_put_key_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_cal_backend_store_put_key_value   (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-thaw-changes"></a><h3>e_cal_backend_store_thaw_changes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_cal_backend_store_thaw_changes    (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-freeze-changes"></a><h3>e_cal_backend_store_freeze_changes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_cal_backend_store_freeze_changes  (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>);</pre>
+<p class="since">Since 2.28</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-cal-backend-store-interval-tree-add-comp"></a><h3>e_cal_backend_store_interval_tree_add_comp ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_cal_backend_store_interval_tree_add_comp
+                                                        (<em class="parameter"><code><a class="link" href="ECalBackendStore.html" title="ECalBackendStore"><span class="type">ECalBackendStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a href="../../libecal/stable/ECalComponent.html"><span class="type">ECalComponent</span></a> *comp</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> start</code></em>,
+                                                         <em class="parameter"><code><span class="type">time_t</span> end</code></em>);</pre>
+<p class="since">Since 2.32</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ECalBackendStore.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ECalBackendStore--path"></a><h3>The <code class="literal">"path"</code> property</h3>
+<pre class="programlisting">  "path"                     <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p></p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ECalBackendStore--timezone-cache"></a><h3>The <code class="literal">"timezone-cache"</code> property</h3>
+<pre class="programlisting">  "timezone-cache"           <a href="../../libecal/stable/ETimezoneCache.html"><span class="type">ETimezoneCache</span></a>*       : Read / Write / Construct Only</pre>
+<p>An object implementing the ETimezoneCache interface.</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ECalBackendStore.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

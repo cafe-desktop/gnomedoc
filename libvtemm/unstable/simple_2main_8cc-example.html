@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/doxygen.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>libvtemm: simple/main.cc</title><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="simple_2main_8cc-example.html#container">Go to page content</a></li><li><a href="simple_2main_8cc-example.html#top_bar">Go to main menu</a></li><li><a href="simple_2main_8cc-example.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtkmm"><div class="content"><h1 class="lgotitle">libvtemm: simple/main.cc</h1><div id="content"><div class="tabs" id="navrow1">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Main Page</span></a></li>
+      <li><a href="pages.html"><span>Related Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
+    </ul>
+  </div><div class="contents">
+<p>The simple terminal launching shell. </p>
+<div class="fragment"><pre class="fragment"><span class="comment">/* simple.h</span>
+<span class="comment"> *</span>
+<span class="comment"> * Copyright (C) 2008, 2009 libvtemm Development Team</span>
+<span class="comment"> *</span>
+<span class="comment"> * This file is part of Terminal Example.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is free software: you can redistribute it and/or modify</span>
+<span class="comment"> * it under the terms of the GNU General Public License as published by</span>
+<span class="comment"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="comment"> * (at your option) any later version.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is distributed in the hope that it will be useful,</span>
+<span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<span class="comment"> * GNU General Public License for more details.</span>
+<span class="comment"> *</span>
+<span class="comment"> * You should have received a copy of the GNU General Public License</span>
+<span class="comment"> * along with Terminal Example. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="comment"> */</span>
+
+<span class="preprocessor">#ifndef _LIBVTEMM_EXAMPLE_SIMPLE_H_</span>
+<span class="preprocessor"></span><span class="preprocessor">#define _LIBVTEMM_EXAMPLE_SIMPLE_H_</span>
+<span class="preprocessor"></span>
+<span class="preprocessor">#include &lt;gtkmm.h&gt;</span>
+<span class="preprocessor">#include &lt;libvtemm/terminal.h&gt;</span>
+
+<span class="keyword">class </span>Simple : <span class="keyword">public</span> Gtk::Window
+{
+<span class="keyword">public</span>:
+  Simple();
+  <span class="keyword">virtual</span> ~Simple();
+<span class="keyword">protected</span>:
+  <span class="comment">//Signal handlers:</span>
+  <span class="keyword">virtual</span> <span class="keywordtype">void</span> on_child_exited();
+<span class="keyword">private</span>:
+  <span class="comment">//Member widgets:</span>
+  <a name="_a0"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/classGtk_1_1HBox.html">Gtk::HBox</a> m_box;
+  <a name="_a1"></a><a class="code" href="classGnome_1_1Vte_1_1Terminal.html" title="Terminal - a terminal emulator implemented as a gtkmm widget.">Gnome::Vte::Terminal</a> m_terminal;
+  <a name="_a2"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/classGtk_1_1VScrollbar.html">Gtk::VScrollbar</a> m_scrollbar;
+};
+
+<span class="preprocessor">#endif // _LIBVTEMM_EXAMPLE_SIMPLE_H_</span>
+</pre></div> <div class="fragment"><pre class="fragment"><span class="comment">/* simple.cc</span>
+<span class="comment"> *</span>
+<span class="comment"> * Copyright (C) 2008, 2009 libvtemm Development Team</span>
+<span class="comment"> *</span>
+<span class="comment"> * This file is part of Terminal Example.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is free software: you can redistribute it and/or modify</span>
+<span class="comment"> * it under the terms of the GNU General Public License as published by</span>
+<span class="comment"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="comment"> * (at your option) any later version.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is distributed in the hope that it will be useful,</span>
+<span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<span class="comment"> * GNU General Public License for more details.</span>
+<span class="comment"> *</span>
+<span class="comment"> * You should have received a copy of the GNU General Public License</span>
+<span class="comment"> * along with Terminal Example. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="comment"> */</span>
+
+<span class="preprocessor">#include &lt;<a class="codeRef" doxygen="libstdc++.tag:http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01504.html">vector</a>&gt;</span>
+
+<span class="preprocessor">#include "simple.h"</span>
+
+Simple::Simple()
+:
+  m_box(),
+  m_terminal(),
+  m_scrollbar(m_terminal.get_adjustment())
+{
+  <span class="comment">// first put everything into their proper places, then set them up.</span>
+  <span class="comment">// add terminal to box.</span>
+  m_box.pack_start(m_terminal);
+  <span class="comment">// add scrollbar to box.</span>
+  m_box.pack_start(m_scrollbar);
+  <span class="comment">// put box into window.</span>
+  <a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/namespaceGtk_1_1Stock.html#af5a3d62d679e3dd162bd77ac76205105">add</a>(m_box);
+  <span class="comment">// set up a terminal.</span>
+  m_terminal.fork_command();
+  m_terminal.set_size(80, 24);
+  m_terminal.signal_child_exited().connect(<a name="a3"></a><a class="codeRef" doxygen="libsigc++-2.0.tag:http://library.gnome.org/devel/libsigc++/unstable/" href="http://library.gnome.org/devel/libsigc++/unstable/group__mem__fun.html#ga7d9ea809173f48bf5c76cf1989591602">sigc::mem_fun</a>(*<span class="keyword">this</span>, &amp;Simple::on_child_exited));
+  m_terminal.set_flags(<a name="a4"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/group__gtkmmEnums.html#gga3d42e9e6671e48764b3b42bcc8da0b47adb2ae38c34591e0b352336f576033ffe">Gtk::CAN_FOCUS</a>);
+  m_terminal.grab_focus();
+  <span class="comment">// Set geometry hints, so resizing will work nicely.</span>
+  <a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/namespaceGdk.html#af6948e754cab4e79c6430fb94e438d83">Gdk::Geometry</a> hints;
+  <a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/namespaceGtk.html#a0aed0ea6fbd347e76872f23f9313545e">Gtk::Border</a> inner_border;
+  m_terminal.get_style_property(<span class="stringliteral">"inner-border"</span>, inner_border);
+  hints.base_width = inner_border.left + inner_border.right;
+  hints.base_height = inner_border.top + inner_border.bottom;
+  hints.width_inc = m_terminal.get_char_width();
+  hints.height_inc = m_terminal.get_char_height();
+  <span class="keyword">const</span> <span class="keywordtype">int</span> min_width_chars = 4;
+  <span class="keyword">const</span> <span class="keywordtype">int</span> min_height_chars = 2;
+  hints.min_width = hints.base_width + hints.width_inc * min_width_chars;
+  hints.min_height = hints.base_height + hints.height_inc * min_height_chars;
+  set_geometry_hints(m_terminal, hints, <a name="a5"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/group__gdkmmEnums.html#gga7dd31e80216f3452a1e080bd22fcfd9cae225c378cd4334c2615a8435d7d0ad6a">Gdk::HINT_RESIZE_INC</a> | <a name="a6"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/group__gdkmmEnums.html#gga7dd31e80216f3452a1e080bd22fcfd9ca2acd5d248d5280290d4ef8a1669578af">Gdk::HINT_MIN_SIZE</a> | <a name="a7"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/group__gdkmmEnums.html#gga7dd31e80216f3452a1e080bd22fcfd9ca2ec7605e5e173f09ac7cc9c31e8f0c38">Gdk::HINT_BASE_SIZE</a>);
+  <span class="comment">// scrollbar is already set up during initialization, so nothing to do here.</span>
+  <span class="comment">// set up a window.</span>
+  set_title(<span class="stringliteral">"Simple Gnome::Vte::Terminal example"</span>);
+  <span class="comment">// show us the co... terminal, we mean.</span>
+  show_all_children();
+}
+
+Simple::~Simple()
+{}
+
+<span class="keywordtype">void</span>
+Simple::on_child_exited()
+{
+  <a name="a8"></a><a class="codeRef" doxygen="libsigc++-2.0.tag:http://library.gnome.org/devel/libsigc++/unstable/" href="http://library.gnome.org/devel/libsigc++/unstable/group__hide.html#gaf28d43958b26c67e314f726540463c44">hide</a>();
+}
+</pre></div><div class="fragment"><pre class="fragment"><span class="comment">/* main.cc</span>
+<span class="comment"> *</span>
+<span class="comment"> * Copyright (C) 2008, 2009 libvtemm Development Team</span>
+<span class="comment"> *</span>
+<span class="comment"> * This file is part of Terminal Example.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is free software: you can redistribute it and/or modify</span>
+<span class="comment"> * it under the terms of the GNU General Public License as published by</span>
+<span class="comment"> * the Free Software Foundation, either version 3 of the License, or</span>
+<span class="comment"> * (at your option) any later version.</span>
+<span class="comment"> *</span>
+<span class="comment"> * Terminal Example is distributed in the hope that it will be useful,</span>
+<span class="comment"> * but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="comment"> * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the</span>
+<span class="comment"> * GNU General Public License for more details.</span>
+<span class="comment"> *</span>
+<span class="comment"> * You should have received a copy of the GNU General Public License</span>
+<span class="comment"> * along with Terminal Example. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="comment"> */</span>
+
+<span class="preprocessor">#include &lt;gtkmm.h&gt;</span>
+<span class="preprocessor">#include &lt;libvtemm/init.h&gt;</span>
+<span class="preprocessor">#include "simple.h"</span>
+
+<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])
+{
+  <a name="_a9"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/classGtk_1_1Main.html">Gtk::Main</a> kit(argc, argv);
+  Gnome::Vte::init();
+  Simple window;
+  <a name="a10"></a><a class="codeRef" doxygen="gtkmm-2.4.tag:http://library.gnome.org/devel/gtkmm/unstable/" href="http://library.gnome.org/devel/gtkmm/unstable/classGtk_1_1Main.html#a6a8904c35952006d13cb07c1d0c16c10">Gtk::Main::run</a>(window);
+  <span class="keywordflow">return</span> 0;
+}
+</pre></div> </div></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="simple_2main_8cc-example.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

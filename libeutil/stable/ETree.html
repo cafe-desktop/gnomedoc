@@ -1,0 +1,1351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ETree</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch10.html" rel="up" title="Tables and Trees"></link><link href="ETableWithout.html" rel="prev" title="ETableWithout"></link><link href="libeutil-ETreeMemoryCallbacks.html" rel="next" title="ETreeMemoryCallbacks"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ETree.html#container">Go to page content</a></li><li><a href="ETree.html#top_bar">Go to main menu</a></li><li><a href="ETree.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ETableWithout.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch10.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="libeutil-ETreeMemoryCallbacks.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ETree.html#ETree.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.style-properties">Style Properties</a>
+                   | 
+                  <a class="shortcut" href="ETree.html#ETree.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ETree"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ETree.top_of_page"></a>ETree</span></h2>
+<p>ETree</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ETree.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ETree.html#ETree-struct" title="struct ETree">ETree</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-construct" title="e_tree_construct ()">e_tree_construct</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_str</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="ETree.html#e-tree-new" title="e_tree_new ()">e_tree_new</a>                          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_str</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-construct-from-spec-file" title="e_tree_construct_from_spec_file ()">e_tree_construct_from_spec_file</a>     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_fn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_fn</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="ETree.html#e-tree-new-from-spec-file" title="e_tree_new_from_spec_file ()">e_tree_new_from_spec_file</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_fn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_fn</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ETree.html#e-tree-get-state" title="e_tree_get_state ()">e_tree_get_state</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-save-state" title="e_tree_save_state ()">e_tree_save_state</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+<a class="link" href="ETableState.html" title="ETableState"><span class="returnvalue">ETableState</span></a> *       <a class="link" href="ETree.html#e-tree-get-state-object" title="e_tree_get_state_object ()">e_tree_get_state_object</a>             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<a class="link" href="ETableSpecification.html" title="ETableSpecification"><span class="returnvalue">ETableSpecification</span></a> * <a class="link" href="ETree.html#e-tree-get-spec" title="e_tree_get_spec ()">e_tree_get_spec</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-set-search-column" title="e_tree_set_search_column ()">e_tree_set_search_column</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-set-state" title="e_tree_set_state ()">e_tree_set_state</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-set-state-object" title="e_tree_set_state_object ()">e_tree_set_state_object</a>             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a> *state</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-load-state" title="e_tree_load_state ()">e_tree_load_state</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-show-cursor-after-reflow" title="e_tree_show_cursor_after_reflow ()">e_tree_show_cursor_after_reflow</a>     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-set-cursor" title="e_tree_set_cursor ()">e_tree_set_cursor</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETree.html#e-tree-get-cursor" title="e_tree_get_cursor ()">e_tree_get_cursor</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-selected-row-foreach" title="e_tree_selected_row_foreach ()">e_tree_selected_row_foreach</a>         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libeutil-Miscellaneous-Utilities.html#EForeachFunc" title="EForeachFunc ()"><span class="type">EForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-selected-path-foreach" title="e_tree_selected_path_foreach ()">e_tree_selected_path_foreach</a>        (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeSelectionModel.html#ETreeForeachFunc" title="ETreeForeachFunc ()"><span class="type">ETreeForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-path-foreach" title="e_tree_path_foreach ()">e_tree_path_foreach</a>                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeSelectionModel.html#ETreeForeachFunc" title="ETreeForeachFunc ()"><span class="type">ETreeForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);
+<a class="link" href="EPrintable.html" title="EPrintable"><span class="returnvalue">EPrintable</span></a> *        <a class="link" href="ETree.html#e-tree-get-printable" title="e_tree_get_printable ()">e_tree_get_printable</a>                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-get-next-row" title="e_tree_get_next_row ()">e_tree_get_next_row</a>                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-get-prev-row" title="e_tree_get_prev_row ()">e_tree_get_prev_row</a>                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-model-to-view-row" title="e_tree_model_to_view_row ()">e_tree_model_to_view_row</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-view-to-model-row" title="e_tree_view_to_model_row ()">e_tree_view_to_model_row</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> view_row</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-get-cell-at" title="e_tree_get_cell_at ()">e_tree_get_cell_at</a>                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col_return</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-get-cell-geometry" title="e_tree_get_cell_geometry ()">e_tree_get_cell_geometry</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *width_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *height_return</code></em>);
+<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="returnvalue">ETreeModel</span></a> *        <a class="link" href="ETree.html#e-tree-get-model" title="e_tree_get_model ()">e_tree_get_model</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<a class="link" href="ESelectionModel.html" title="ESelectionModel"><span class="returnvalue">ESelectionModel</span></a> *   <a class="link" href="ETree.html#e-tree-get-selection-model" title="e_tree_get_selection_model ()">e_tree_get_selection_model</a>          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<a class="link" href="ETreeTableAdapter.html" title="ETreeTableAdapter"><span class="returnvalue">ETreeTableAdapter</span></a> * <a class="link" href="ETree.html#e-tree-get-table-adapter" title="e_tree_get_table_adapter ()">e_tree_get_table_adapter</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-get-data" title="e_tree_drag_get_data ()">e_tree_drag_get_data</a>                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkAtom</span> target</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> time</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-highlight" title="e_tree_drag_highlight ()">e_tree_drag_highlight</a>               (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-unhighlight" title="e_tree_drag_unhighlight ()">e_tree_drag_unhighlight</a>             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-dest-set" title="e_tree_drag_dest_set ()">e_tree_drag_dest_set</a>                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkDestDefaults</span> flags</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GtkTargetEntry</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-dest-set-proxy" title="e_tree_drag_dest_set_proxy ()">e_tree_drag_dest_set_proxy</a>          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkWindow</span> *proxy_window</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragProtocol</span> protocol</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_coordinates</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-dest-unset" title="e_tree_drag_dest_unset ()">e_tree_drag_dest_unset</a>              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-source-set" title="e_tree_drag_source_set ()">e_tree_drag_source_set</a>              (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkModifierType</span> start_button_mask</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GtkTargetEntry</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-drag-source-unset" title="e_tree_drag_source_unset ()">e_tree_drag_source_unset</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);
+<span class="returnvalue">GdkDragContext</span> *    <a class="link" href="ETree.html#e-tree-drag-begin" title="e_tree_drag_begin ()">e_tree_drag_begin</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkTargetList</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> button</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-is-dragging" title="e_tree_is_dragging ()">e_tree_is_dragging</a>                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-node-is-expanded" title="e_tree_node_is_expanded ()">e_tree_node_is_expanded</a>             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-node-set-expanded" title="e_tree_node_set_expanded ()">e_tree_node_set_expanded</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> expanded</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-node-set-expanded-recurse" title="e_tree_node_set_expanded_recurse ()">e_tree_node_set_expanded_recurse</a>    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> expanded</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-root-node-set-visible" title="e_tree_root_node_set_visible ()">e_tree_root_node_set_visible</a>        (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> visible</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETree.html#e-tree-node-at-row" title="e_tree_node_at_row ()">e_tree_node_at_row</a>                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-row-of-node" title="e_tree_row_of_node ()">e_tree_row_of_node</a>                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-root-node-is-visible" title="e_tree_root_node_is_visible ()">e_tree_root_node_is_visible</a>         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-show-node" title="e_tree_show_node ()">e_tree_show_node</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-save-expanded-state" title="e_tree_save_expanded_state ()">e_tree_save_expanded_state</a>          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-load-expanded-state" title="e_tree_load_expanded_state ()">e_tree_load_expanded_state</a>          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *filename</code></em>);
+<span class="returnvalue">xmlDoc</span> *            <a class="link" href="ETree.html#e-tree-save-expanded-state-xml" title="e_tree_save_expanded_state_xml ()">e_tree_save_expanded_state_xml</a>      (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-load-expanded-state-xml" title="e_tree_load_expanded_state_xml ()">e_tree_load_expanded_state_xml</a>      (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlDoc</span> *doc</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETree.html#e-tree-row-count" title="e_tree_row_count ()">e_tree_row_count</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="ETree.html#e-tree-get-tooltip" title="e_tree_get_tooltip ()">e_tree_get_tooltip</a>                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-force-expanded-state" title="e_tree_force_expanded_state ()">e_tree_force_expanded_state</a>         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);
+enum                <a class="link" href="ETree.html#ETreeFindNextParams" title="enum ETreeFindNextParams">ETreeFindNextParams</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-find-next" title="e_tree_find_next ()">e_tree_find_next</a>                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETree.html#ETreeFindNextParams" title="enum ETreeFindNextParams"><span class="type">ETreeFindNextParams</span></a> params</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-right-click-up" title="e_tree_right_click_up ()">e_tree_right_click_up</a>               (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<a class="link" href="ETableItem.html" title="ETableItem"><span class="returnvalue">ETableItem</span></a> *        <a class="link" href="ETree.html#e-tree-get-item" title="e_tree_get_item ()">e_tree_get_item</a>                     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">GnomeCanvasItem</span> *   <a class="link" href="ETree.html#e-tree-get-header-item" title="e_tree_get_header_item ()">e_tree_get_header_item</a>              (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-set-info-message" title="e_tree_set_info_message ()">e_tree_set_info_message</a>             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *info_message</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-freeze-state-change" title="e_tree_freeze_state_change ()">e_tree_freeze_state_change</a>          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *table</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETree.html#e-tree-thaw-state-change" title="e_tree_thaw_state_change ()">e_tree_thaw_state_change</a>            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *table</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETree.html#e-tree-is-editing" title="e_tree_is_editing ()">e_tree_is_editing</a>                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETree.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----GInitiallyUnowned
+         +----GtkWidget
+               +----GtkContainer
+                     +----GtkTable
+                           +----ETree
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETree.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+ETree implements
+ AtkImplementorIface,  GtkBuildable and  GtkScrollable.</p>
+</div>
+<div class="refsect1">
+<a name="ETree.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="ETree.html#ETree--ETreeTableAdapter" title='The "ETreeTableAdapter" property'>ETreeTableAdapter</a>"        <a class="link" href="ETreeTableAdapter.html" title="ETreeTableAdapter"><span class="type">ETreeTableAdapter</span></a>*    : Read
+  "<a class="link" href="ETree.html#ETree--always-search" title='The "always-search" property'>always-search</a>"            <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="ETree.html#ETree--drawfocus" title='The "drawfocus" property'>drawfocus</a>"                <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETree.html#ETree--horizontal-draw-grid" title='The "horizontal-draw-grid" property'>horizontal-draw-grid</a>"     <span class="type">gboolean</span>              : Write
+  "<a class="link" href="ETree.html#ETree--is-editing" title='The "is-editing" property'>is-editing</a>"               <span class="type">gboolean</span>              : Read
+  "<a class="link" href="ETree.html#ETree--length-threshold" title='The "length-threshold" property'>length-threshold</a>"         <span class="type">gint</span>                  : Write
+  "<a class="link" href="ETree.html#ETree--uniform-row-height" title='The "uniform-row-height" property'>uniform-row-height</a>"       <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="ETree.html#ETree--vertical-draw-grid" title='The "vertical-draw-grid" property'>vertical-draw-grid</a>"       <span class="type">gboolean</span>              : Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETree.style-properties"></a><h2>Style Properties</h2>
+<pre class="synopsis">  "<a class="link" href="ETree.html#ETree--s-expander-size" title='The "expander-size" style property'>expander-size</a>"            <span class="type">gint</span>                  : Read
+  "<a class="link" href="ETree.html#ETree--s-vertical-spacing" title='The "vertical-spacing" style property'>vertical-spacing</a>"         <span class="type">gint</span>                  : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETree.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="ETree.html#ETree-click" title='The "click" signal'>click</a>"                                          : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-cursor-activated" title='The "cursor-activated" signal'>cursor-activated</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-cursor-change" title='The "cursor-change" signal'>cursor-change</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-double-click" title='The "double-click" signal'>double-click</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-key-press" title='The "key-press" signal'>key-press</a>"                                      : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-right-click" title='The "right-click" signal'>right-click</a>"                                    : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-selection-change" title='The "selection-change" signal'>selection-change</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-start-drag" title='The "start-drag" signal'>start-drag</a>"                                     : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-state-change" title='The "state-change" signal'>state-change</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-begin" title='The "tree-drag-begin" signal'>tree-drag-begin</a>"                                : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-data-delete" title='The "tree-drag-data-delete" signal'>tree-drag-data-delete</a>"                          : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-data-get" title='The "tree-drag-data-get" signal'>tree-drag-data-get</a>"                             : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-data-received" title='The "tree-drag-data-received" signal'>tree-drag-data-received</a>"                        : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-drop" title='The "tree-drag-drop" signal'>tree-drag-drop</a>"                                 : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-end" title='The "tree-drag-end" signal'>tree-drag-end</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-leave" title='The "tree-drag-leave" signal'>tree-drag-leave</a>"                                : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-tree-drag-motion" title='The "tree-drag-motion" signal'>tree-drag-motion</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="ETree.html#ETree-white-space-event" title='The "white-space-event" signal'>white-space-event</a>"                              : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETree.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ETree.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ETree-struct"></a><h3>struct ETree</h3>
+<pre class="programlisting">struct ETree;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-construct"></a><h3>e_tree_construct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_construct                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_str</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);</pre>
+<p>
+This is the internal implementation of <a class="link" href="ETree.html#e-tree-new" title="e_tree_new ()"><code class="function">e_tree_new()</code></a> for use by
+subclasses or language bindings.  See <a class="link" href="ETree.html#e-tree-new" title="e_tree_new ()"><code class="function">e_tree_new()</code></a> for details.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>The newly created <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etm</code></em> :</span></p></td>
+<td>The model for this table.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ete</code></em> :</span></p></td>
+<td>An optional <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>.  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec_str</code></em> :</span></p></td>
+<td>The spec.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_str</code></em> :</span></p></td>
+<td>An optional state.  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occurred</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-new"></a><h3>e_tree_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_tree_new                          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_str</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);</pre>
+<p>
+This function creates an <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> from the given parameters.  The
+<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> is a tree model to be represented.  The <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>
+is an optional set of pixbufs, cells, and sorting functions to be
+used when interpreting the spec.  If you pass in <code class="literal">NULL</code> it uses the
+default <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>.  (See <a class="link" href="ETableExtras.html#e-table-extras-new" title="e_table_extras_new ()"><code class="function">e_table_extras_new()</code></a>).
+</p>
+<p>
+<em class="parameter"><code>spec</code></em> is the specification of the set of viewable columns and the
+default sorting state and such.  <em class="parameter"><code>state</code></em> is an optional string
+specifying the current sorting state and such.  If <em class="parameter"><code>state</code></em> is NULL,
+then the default state from the spec will be used.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etm</code></em> :</span></p></td>
+<td>The model for this tree</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ete</code></em> :</span></p></td>
+<td>An optional <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec_str</code></em> :</span></p></td>
+<td>The spec</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_str</code></em> :</span></p></td>
+<td>An optional state  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The newly created <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> or <code class="literal">NULL</code> if there's an error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-construct-from-spec-file"></a><h3>e_tree_construct_from_spec_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_construct_from_spec_file     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_fn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_fn</code></em>);</pre>
+<p>
+This is the internal implementation of <a class="link" href="ETree.html#e-tree-new-from-spec-file" title="e_tree_new_from_spec_file ()"><code class="function">e_tree_new_from_spec_file()</code></a>
+for use by subclasses or language bindings.  See
+<a class="link" href="ETree.html#e-tree-new-from-spec-file" title="e_tree_new_from_spec_file ()"><code class="function">e_tree_new_from_spec_file()</code></a> for details.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>The newly created <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etm</code></em> :</span></p></td>
+<td>The model for this tree</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ete</code></em> :</span></p></td>
+<td>An optional <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec_fn</code></em> :</span></p></td>
+<td>The filename of the spec</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_fn</code></em> :</span></p></td>
+<td>An optional state file  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if an error occurred</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-new-from-spec-file"></a><h3>e_tree_new_from_spec_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_tree_new_from_spec_file           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etm</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a> *ete</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *spec_fn</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_fn</code></em>);</pre>
+<p>
+This is very similar to <a class="link" href="ETree.html#e-tree-new" title="e_tree_new ()"><code class="function">e_tree_new()</code></a>, except instead of passing in
+strings you pass in the file names of the spec and state to load.
+</p>
+<p>
+<em class="parameter"><code>spec_fn</code></em> is the filename of the spec to load.  If this file doesn't
+exist, e_tree_new_from_spec_file will return <code class="literal">NULL</code>.
+</p>
+<p>
+<em class="parameter"><code>state_fn</code></em> is the filename of the initial state to load.  If this is
+<code class="literal">NULL</code> or if the specified file doesn't exist, the default state
+from the spec file is used.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etm</code></em> :</span></p></td>
+<td>The model for this tree.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ete</code></em> :</span></p></td>
+<td>An optional <a class="link" href="ETableExtras.html" title="ETableExtras"><span class="type">ETableExtras</span></a>.  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec_fn</code></em> :</span></p></td>
+<td>The filename of the spec.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_fn</code></em> :</span></p></td>
+<td>An optional state file.  (<code class="literal">NULL</code> is valid.)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The newly created <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> or <code class="literal">NULL</code> if there's an error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-state"></a><h3>e_tree_get_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_tree_get_state                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+<p>
+Builds a state object based on the current state and returns the
+string corresponding to that state.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>The <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string describing the current state of the <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-save-state"></a><h3>e_tree_save_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_save_state                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>
+Saves the state of the <em class="parameter"><code>e_tree</code></em> object into the file pointed by
+<em class="parameter"><code>filename</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>The <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>name of the file to save to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-state-object"></a><h3>e_tree_get_state_object ()</h3>
+<pre class="programlisting"><a class="link" href="ETableState.html" title="ETableState"><span class="returnvalue">ETableState</span></a> *       e_tree_get_state_object             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+<p>
+Builds an <a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a> corresponding to the current state of the
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="ETableState.html" title="ETableState"><code class="literal">ETableState</code></a> object generated.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-spec"></a><h3>e_tree_get_spec ()</h3>
+<pre class="programlisting"><a class="link" href="ETableSpecification.html" title="ETableSpecification"><span class="returnvalue">ETableSpecification</span></a> * e_tree_get_spec                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+<p>
+Returns the specification object.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>The <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> to query</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-set-search-column"></a><h3>e_tree_set_search_column ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_set_search_column            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+<p>
+This routine sets the current search column to be used for keypress
+searches of the <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>. If -1 is passed in for column, the current
+search column is cleared.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object that will be modified</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>Column index to use for searches</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-set-state"></a><h3>e_tree_set_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_set_state                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *state_str</code></em>);</pre>
+<p>
+This routine sets the state (as described by <a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a>) of the
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object that will be modified</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state_str</code></em> :</span></p></td>
+<td>a string with the XML representation of the <a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-set-state-object"></a><h3>e_tree_set_state_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_set_state_object             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a> *state</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-load-state"></a><h3>e_tree_load_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_load_state                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>);</pre>
+<p>
+An <a class="link" href="ETableState.html" title="ETableState"><span class="type">ETableState</span></a> will be loaded form the file pointed by <em class="parameter"><code>filename</code></em> into the
+<em class="parameter"><code>e_tree</code></em> object.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e_tree</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> object that will be modified</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>name of the file containing the state to be loaded into the <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-show-cursor-after-reflow"></a><h3>e_tree_show_cursor_after_reflow ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_show_cursor_after_reflow     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-set-cursor"></a><h3>e_tree_set_cursor ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_set_cursor                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-cursor"></a><h3>e_tree_get_cursor ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_get_cursor                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-selected-row-foreach"></a><h3>e_tree_selected_row_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_selected_row_foreach         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libeutil-Miscellaneous-Utilities.html#EForeachFunc" title="EForeachFunc ()"><span class="type">EForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-selected-path-foreach"></a><h3>e_tree_selected_path_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_selected_path_foreach        (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeSelectionModel.html#ETreeForeachFunc" title="ETreeForeachFunc ()"><span class="type">ETreeForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-path-foreach"></a><h3>e_tree_path_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_path_foreach                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeSelectionModel.html#ETreeForeachFunc" title="ETreeForeachFunc ()"><span class="type">ETreeForeachFunc</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-printable"></a><h3>e_tree_get_printable ()</h3>
+<pre class="programlisting"><a class="link" href="EPrintable.html" title="EPrintable"><span class="returnvalue">EPrintable</span></a> *        e_tree_get_printable                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-next-row"></a><h3>e_tree_get_next_row ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_get_next_row                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-prev-row"></a><h3>e_tree_get_prev_row ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_get_prev_row                 (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-to-view-row"></a><h3>e_tree_model_to_view_row ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_model_to_view_row            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> model_row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-view-to-model-row"></a><h3>e_tree_view_to_model_row ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_view_to_model_row            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *e_tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> view_row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-cell-at"></a><h3>e_tree_get_cell_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_get_cell_at                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> y</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *row_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *col_return</code></em>);</pre>
+<p>
+Return the row and column for the cell in which the pixel at (<em class="parameter"><code>x</code></em>, <em class="parameter"><code>y</code></em>) is
+contained.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>An ETree widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>X coordinate for the pixel</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>Y coordinate for the pixel</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row_return</code></em> :</span></p></td>
+<td>Pointer to return the row value</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col_return</code></em> :</span></p></td>
+<td>Pointer to return the column value</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-cell-geometry"></a><h3>e_tree_get_cell_geometry ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_get_cell_geometry            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *x_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *y_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *width_return</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> *height_return</code></em>);</pre>
+<p>
+Computes the data about this cell.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>The tree.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>The row to get the geometry of.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>The col to get the geometry of.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x_return</code></em> :</span></p></td>
+<td>Returns the x coordinate of the upper right hand corner
+of the cell with respect to the widget.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y_return</code></em> :</span></p></td>
+<td>Returns the y coordinate of the upper right hand corner
+of the cell with respect to the widget.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width_return</code></em> :</span></p></td>
+<td>Returns the width of the cell.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height_return</code></em> :</span></p></td>
+<td>Returns the height of the cell.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-model"></a><h3>e_tree_get_model ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="returnvalue">ETreeModel</span></a> *        e_tree_get_model                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+<p>
+Returns the model upon which this ETree is based.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>et</code></em> :</span></p></td>
+<td>the ETree</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the model</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-selection-model"></a><h3>e_tree_get_selection_model ()</h3>
+<pre class="programlisting"><a class="link" href="ESelectionModel.html" title="ESelectionModel"><span class="returnvalue">ESelectionModel</span></a> *   e_tree_get_selection_model          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+<p>
+Returns the selection model of this ETree.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>et</code></em> :</span></p></td>
+<td>the ETree</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the selection model</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-table-adapter"></a><h3>e_tree_get_table_adapter ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeTableAdapter.html" title="ETreeTableAdapter"><span class="returnvalue">ETreeTableAdapter</span></a> * e_tree_get_table_adapter            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+<p>
+Returns the table adapter this ETree uses.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>et</code></em> :</span></p></td>
+<td>the ETree</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the model</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-get-data"></a><h3>e_tree_drag_get_data ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_get_data                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragContext</span> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkAtom</span> target</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint32</span> time</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-highlight"></a><h3>e_tree_drag_highlight ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_highlight               (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+<p>
+Set col to -1 to highlight the entire row.
+Set row to -1 to turn off the highlight.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-unhighlight"></a><h3>e_tree_drag_unhighlight ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_unhighlight             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-dest-set"></a><h3>e_tree_drag_dest_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_dest_set                (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkDestDefaults</span> flags</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GtkTargetEntry</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-dest-set-proxy"></a><h3>e_tree_drag_dest_set_proxy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_dest_set_proxy          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkWindow</span> *proxy_window</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragProtocol</span> protocol</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> use_coordinates</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-dest-unset"></a><h3>e_tree_drag_dest_unset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_dest_unset              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-source-set"></a><h3>e_tree_drag_source_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_source_set              (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkModifierType</span> start_button_mask</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GtkTargetEntry</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> n_targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-source-unset"></a><h3>e_tree_drag_source_unset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_drag_source_unset            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-drag-begin"></a><h3>e_tree_drag_begin ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkDragContext</span> *    e_tree_drag_begin                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkTargetList</span> *targets</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkDragAction</span> actions</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> button</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-is-dragging"></a><h3>e_tree_is_dragging ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_is_dragging                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>An <a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> widget</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether is <em class="parameter"><code>tree</code></em> in a drag&amp;drop operation.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-node-is-expanded"></a><h3>e_tree_node_is_expanded ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_node_is_expanded             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-node-set-expanded"></a><h3>e_tree_node_set_expanded ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_node_set_expanded            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> expanded</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-node-set-expanded-recurse"></a><h3>e_tree_node_set_expanded_recurse ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_node_set_expanded_recurse    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> expanded</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-root-node-set-visible"></a><h3>e_tree_root_node_set_visible ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_root_node_set_visible        (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> visible</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-node-at-row"></a><h3>e_tree_node_at_row ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_node_at_row                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-row-of-node"></a><h3>e_tree_row_of_node ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_row_of_node                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-root-node-is-visible"></a><h3>e_tree_root_node_is_visible ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_root_node_is_visible         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-show-node"></a><h3>e_tree_show_node ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_show_node                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-save-expanded-state"></a><h3>e_tree_save_expanded_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_save_expanded_state          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *filename</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-load-expanded-state"></a><h3>e_tree_load_expanded_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_load_expanded_state          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *filename</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-save-expanded-state-xml"></a><h3>e_tree_save_expanded_state_xml ()</h3>
+<pre class="programlisting"><span class="returnvalue">xmlDoc</span> *            e_tree_save_expanded_state_xml      (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-load-expanded-state-xml"></a><h3>e_tree_load_expanded_state_xml ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_load_expanded_state_xml      (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlDoc</span> *doc</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-row-count"></a><h3>e_tree_row_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_row_count                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-tooltip"></a><h3>e_tree_get_tooltip ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_tree_get_tooltip                  (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-force-expanded-state"></a><h3>e_tree_force_expanded_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_force_expanded_state         (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeFindNextParams"></a><h3>enum ETreeFindNextParams</h3>
+<pre class="programlisting">typedef enum {
+	E_TREE_FIND_NEXT_BACKWARD = 0,
+	E_TREE_FIND_NEXT_FORWARD = 1 &lt;&lt; 0,
+	E_TREE_FIND_NEXT_WRAP = 1 &lt;&lt; 1
+} ETreeFindNextParams;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-find-next"></a><h3>e_tree_find_next ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_find_next                    (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETree.html#ETreeFindNextParams" title="enum ETreeFindNextParams"><span class="type">ETreeFindNextParams</span></a> params</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-right-click-up"></a><h3>e_tree_right_click_up ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_right_click_up               (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-item"></a><h3>e_tree_get_item ()</h3>
+<pre class="programlisting"><a class="link" href="ETableItem.html" title="ETableItem"><span class="returnvalue">ETableItem</span></a> *        e_tree_get_item                     (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-get-header-item"></a><h3>e_tree_get_header_item ()</h3>
+<pre class="programlisting"><span class="returnvalue">GnomeCanvasItem</span> *   e_tree_get_header_item              (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *et</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-set-info-message"></a><h3>e_tree_set_info_message ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_set_info_message             (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *info_message</code></em>);</pre>
+<p>
+Creates an info message in table area, or removes old.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree</code></em> :</span></p></td>
+<td>
+<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>info_message</code></em> :</span></p></td>
+<td>Message to set. Can be NULL.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-freeze-state-change"></a><h3>e_tree_freeze_state_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_freeze_state_change          (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *table</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-thaw-state-change"></a><h3>e_tree_thaw_state_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_thaw_state_change            (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *table</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-is-editing"></a><h3>e_tree_is_editing ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_is_editing                   (<em class="parameter"><code><a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a> *tree</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETree.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ETree--ETreeTableAdapter"></a><h3>The <code class="literal">"ETreeTableAdapter"</code> property</h3>
+<pre class="programlisting">  "ETreeTableAdapter"        <a class="link" href="ETreeTableAdapter.html" title="ETreeTableAdapter"><span class="type">ETreeTableAdapter</span></a>*    : Read</pre>
+<p>ETree table adapter.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--always-search"></a><h3>The <code class="literal">"always-search"</code> property</h3>
+<pre class="programlisting">  "always-search"            <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Always search.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--drawfocus"></a><h3>The <code class="literal">"drawfocus"</code> property</h3>
+<pre class="programlisting">  "drawfocus"                <span class="type">gboolean</span>              : Write</pre>
+<p>Draw focus.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--horizontal-draw-grid"></a><h3>The <code class="literal">"horizontal-draw-grid"</code> property</h3>
+<pre class="programlisting">  "horizontal-draw-grid"     <span class="type">gboolean</span>              : Write</pre>
+<p>Horizontal Draw Grid.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--is-editing"></a><h3>The <code class="literal">"is-editing"</code> property</h3>
+<pre class="programlisting">  "is-editing"               <span class="type">gboolean</span>              : Read</pre>
+<p>Whether is in an editing mode.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--length-threshold"></a><h3>The <code class="literal">"length-threshold"</code> property</h3>
+<pre class="programlisting">  "length-threshold"         <span class="type">gint</span>                  : Write</pre>
+<p>Length Threshold.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--uniform-row-height"></a><h3>The <code class="literal">"uniform-row-height"</code> property</h3>
+<pre class="programlisting">  "uniform-row-height"       <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Uniform row height.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--vertical-draw-grid"></a><h3>The <code class="literal">"vertical-draw-grid"</code> property</h3>
+<pre class="programlisting">  "vertical-draw-grid"       <span class="type">gboolean</span>              : Write</pre>
+<p>Vertical Draw Grid.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETree.style-property-details"></a><h2>Style Property Details</h2>
+<div class="refsect2">
+<a name="ETree--s-expander-size"></a><h3>The <code class="literal">"expander-size"</code> style property</h3>
+<pre class="programlisting">  "expander-size"            <span class="type">gint</span>                  : Read</pre>
+<p>Size of the expander arrow.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree--s-vertical-spacing"></a><h3>The <code class="literal">"vertical-spacing"</code> style property</h3>
+<pre class="programlisting">  "vertical-spacing"         <span class="type">gint</span>                  : Read</pre>
+<p>Vertical space between rows. It is added to top and to bottom of a row.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 3</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETree.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ETree-click"></a><h3>The <code class="literal">"click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">gint</span>      arg1,
+                                                        <span class="type">gpointer</span>  arg2,
+                                                        <span class="type">gint</span>      arg3,
+                                                        <span class="type">GdkEvent</span> *arg4,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-cursor-activated"></a><h3>The <code class="literal">"cursor-activated"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>   *etree,
+                                                        <span class="type">gint</span>     arg1,
+                                                        <span class="type">gpointer</span> arg2,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-cursor-change"></a><h3>The <code class="literal">"cursor-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>   *etree,
+                                                        <span class="type">gint</span>     arg1,
+                                                        <span class="type">gpointer</span> arg2,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-double-click"></a><h3>The <code class="literal">"double-click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">gint</span>      arg1,
+                                                        <span class="type">gpointer</span>  arg2,
+                                                        <span class="type">gint</span>      arg3,
+                                                        <span class="type">GdkEvent</span> *arg4,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-key-press"></a><h3>The <code class="literal">"key-press"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">gint</span>      arg1,
+                                                        <span class="type">gpointer</span>  arg2,
+                                                        <span class="type">gint</span>      arg3,
+                                                        <span class="type">GdkEvent</span> *arg4,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-right-click"></a><h3>The <code class="literal">"right-click"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">gint</span>      arg1,
+                                                        <span class="type">gpointer</span>  arg2,
+                                                        <span class="type">gint</span>      arg3,
+                                                        <span class="type">GdkEvent</span> *arg4,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-selection-change"></a><h3>The <code class="literal">"selection-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>   *etree,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-start-drag"></a><h3>The <code class="literal">"start-drag"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">gint</span>      arg1,
+                                                        <span class="type">gpointer</span>  arg2,
+                                                        <span class="type">gint</span>      arg3,
+                                                        <span class="type">GdkEvent</span> *arg4,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-state-change"></a><h3>The <code class="literal">"state-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>   *etree,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-begin"></a><h3>The <code class="literal">"tree-drag-begin"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-data-delete"></a><h3>The <code class="literal">"tree-drag-data-delete"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-data-get"></a><h3>The <code class="literal">"tree-drag-data-get"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>            *etree,
+                                                        <span class="type">gint</span>              arg1,
+                                                        <span class="type">gpointer</span>          arg2,
+                                                        <span class="type">gint</span>              arg3,
+                                                        <span class="type">GdkDragContext</span>   *arg4,
+                                                        <span class="type">GtkSelectionData</span> *arg5,
+                                                        <span class="type">guint</span>             arg6,
+                                                        <span class="type">guint</span>             arg7,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-data-received"></a><h3>The <code class="literal">"tree-drag-data-received"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>            *etree,
+                                                        <span class="type">gint</span>              arg1,
+                                                        <span class="type">gpointer</span>          arg2,
+                                                        <span class="type">gint</span>              arg3,
+                                                        <span class="type">GdkDragContext</span>   *arg4,
+                                                        <span class="type">gint</span>              arg5,
+                                                        <span class="type">gint</span>              arg6,
+                                                        <span class="type">GtkSelectionData</span> *arg7,
+                                                        <span class="type">guint</span>             arg8,
+                                                        <span class="type">guint</span>             arg9,
+                                                        <span class="type">gpointer</span>          user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-drop"></a><h3>The <code class="literal">"tree-drag-drop"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">gint</span>            arg5,
+                                                        <span class="type">gint</span>            arg6,
+                                                        <span class="type">guint</span>           arg7,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-end"></a><h3>The <code class="literal">"tree-drag-end"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-leave"></a><h3>The <code class="literal">"tree-drag-leave"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">guint</span>           arg5,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-tree-drag-motion"></a><h3>The <code class="literal">"tree-drag-motion"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>          *etree,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        arg2,
+                                                        <span class="type">gint</span>            arg3,
+                                                        <span class="type">GdkDragContext</span> *arg4,
+                                                        <span class="type">gint</span>            arg5,
+                                                        <span class="type">gint</span>            arg6,
+                                                        <span class="type">guint</span>           arg7,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETree-white-space-event"></a><h3>The <code class="literal">"white-space-event"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="ETree.html" title="ETree"><span class="type">ETree</span></a>    *etree,
+                                                        <span class="type">GdkEvent</span> *arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ETree.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

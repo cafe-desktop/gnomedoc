@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EShellSettings</title><link href="index.html" rel="home" title="Evolution Shell Reference Manual"></link><link href="ch01.html" rel="up" title="The Shell"></link><link href="EShellSearchbar.html" rel="prev" title="EShellSearchbar"></link><link href="EShellSwitcher.html" rel="next" title="EShellSwitcher"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EShellSettings.html#container">Go to page content</a></li><li><a href="EShellSettings.html#top_bar">Go to main menu</a></li><li><a href="EShellSettings.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="EShellSearchbar.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Shell Reference Manual</th>
+<td><a accesskey="n" href="EShellSwitcher.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EShellSettings.html#EShellSettings.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EShellSettings.html#EShellSettings.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EShellSettings.html#EShellSettings.object-hierarchy">Object Hierarchy</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EShellSettings"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EShellSettings.top_of_page"></a>EShellSettings</span></h2>
+<p>EShellSettings — settings management</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EShellSettings.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;shell/e-shell-settings.h&gt;
+
+struct              <a class="link" href="EShellSettings.html#EShellSettings-struct" title="struct EShellSettings">EShellSettings</a>;
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-install-property" title="e_shell_settings_install_property ()">e_shell_settings_install_property</a>   (<em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-install-property-for-key" title="e_shell_settings_install_property_for_key ()">e_shell_settings_install_property_for_key</a>
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *schema</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-enable-debug" title="e_shell_settings_enable_debug ()">e_shell_settings_enable_debug</a>       (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShellSettings.html#e-shell-settings-get-boolean" title="e_shell_settings_get_boolean ()">e_shell_settings_get_boolean</a>        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-set-boolean" title="e_shell_settings_set_boolean ()">e_shell_settings_set_boolean</a>        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> v_boolean</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="EShellSettings.html#e-shell-settings-get-int" title="e_shell_settings_get_int ()">e_shell_settings_get_int</a>            (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-set-int" title="e_shell_settings_set_int ()">e_shell_settings_set_int</a>            (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> v_int</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EShellSettings.html#e-shell-settings-get-string" title="e_shell_settings_get_string ()">e_shell_settings_get_string</a>         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-set-string" title="e_shell_settings_set_string ()">e_shell_settings_set_string</a>         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *v_string</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EShellSettings.html#e-shell-settings-get-object" title="e_shell_settings_get_object ()">e_shell_settings_get_object</a>         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-set-object" title="e_shell_settings_set_object ()">e_shell_settings_set_object</a>         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> v_object</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EShellSettings.html#e-shell-settings-get-pointer" title="e_shell_settings_get_pointer ()">e_shell_settings_get_pointer</a>        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShellSettings.html#e-shell-settings-set-pointer" title="e_shell_settings_set_pointer ()">e_shell_settings_set_pointer</a>        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> v_pointer</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShellSettings.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EShellSettings
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShellSettings.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EShellSettings.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EShellSettings-struct"></a><h3>struct EShellSettings</h3>
+<pre class="programlisting">struct EShellSettings;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-install-property"></a><h3>e_shell_settings_install_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_install_property   (<em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>);</pre>
+<p>
+Installs a new <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> class property from <em class="parameter"><code>pspec</code></em>.
+This is usually done during initialization of an <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>
+or other dynamically loaded entity.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pspec</code></em> :</span></p></td>
+<td>a <span class="type">GParamSpec</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-install-property-for-key"></a><h3>e_shell_settings_install_property_for_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_install_property_for_key
+                                                        (<em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *schema</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>
+Installs a new <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> class property by examining the
+GSettings schema for <em class="parameter"><code>key</code></em> to determine the appropriate type and
+default value.  This is usually done during initialization of an
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> of other dynamically loaded entity.
+</p>
+<p>
+After the class property is installed, all <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> instances
+are bound to <em class="parameter"><code>key</code></em>, causing <em class="parameter"><code>property_name</code></em> and <em class="parameter"><code>key</code></em> to have
+the same value at all times.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>the name of the property to install</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>schema</code></em> :</span></p></td>
+<td>the GSettings schema to use for <em class="parameter"><code>key</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>the GSettings key to bind the property to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-enable-debug"></a><h3>e_shell_settings_enable_debug ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_enable_debug       (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>);</pre>
+<p>
+Print a debug message to standard output when a property value changes.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-get-boolean"></a><h3>e_shell_settings_get_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_settings_get_boolean        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);</pre>
+<p>
+Return the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type
+<span class="type">G_TYPE_BOOLEAN</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>boolean contents of <em class="parameter"><code>property_name</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-set-boolean"></a><h3>e_shell_settings_set_boolean ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_set_boolean        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> v_boolean</code></em>);</pre>
+<p>
+Sets the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type <span class="type">G_TYPE_BOOLEAN</span>
+to <em class="parameter"><code>v_boolean</code></em>.  If <em class="parameter"><code>property_name</code></em> is bound to a GSettings key, the GSettings key
+will also be set to <em class="parameter"><code>v_boolean</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v_boolean</code></em> :</span></p></td>
+<td>boolean value to be set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-get-int"></a><h3>e_shell_settings_get_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_shell_settings_get_int            (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);</pre>
+<p>
+Returns the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type
+<span class="type">G_TYPE_INT</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>integer contents of <em class="parameter"><code>property_name</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-set-int"></a><h3>e_shell_settings_set_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_set_int            (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> v_int</code></em>);</pre>
+<p>
+Sets the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type <span class="type">G_TYPE_INT</span>
+to <em class="parameter"><code>v_int</code></em>.  If <em class="parameter"><code>property_name</code></em> is bound to a GSettings key, the GSettings key
+will also be set to <em class="parameter"><code>v_int</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v_int</code></em> :</span></p></td>
+<td>integer value to be set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-get-string"></a><h3>e_shell_settings_get_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_shell_settings_get_string         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);</pre>
+<p>
+Returns the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type
+<span class="type">G_TYPE_STRING</span>.  The returned string should be freed using <code class="function">g_free()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>string contents of <em class="parameter"><code>property_name</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-set-string"></a><h3>e_shell_settings_set_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_set_string         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *v_string</code></em>);</pre>
+<p>
+Sets the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type <span class="type">G_TYPE_STRING</span>
+to <em class="parameter"><code>v_string</code></em>.  If <em class="parameter"><code>property_name</code></em> is bound to a GSettings key, the GSettings key
+will also be set to <em class="parameter"><code>v_string</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v_string</code></em> :</span></p></td>
+<td>string to be set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-get-object"></a><h3>e_shell_settings_get_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_shell_settings_get_object         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);</pre>
+<p>
+Returns the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type
+<span class="type">G_TYPE_OBJECT</span>.  The caller owns the reference to the returned
+object, and should call <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new reference to the object under <em class="parameter"><code>property_name</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-set-object"></a><h3>e_shell_settings_set_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_set_object         (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> v_object</code></em>);</pre>
+<p>
+Sets the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type <span class="type">G_TYPE_OBJECT</span>
+to <em class="parameter"><code>v_object</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v_object</code></em> :</span></p></td>
+<td>object to be set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-get-pointer"></a><h3>e_shell_settings_get_pointer ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_shell_settings_get_pointer        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>);</pre>
+<p>
+Returns the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type
+<span class="type">G_TYPE_POINTER</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>pointer contents of <em class="parameter"><code>property_name</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-settings-set-pointer"></a><h3>e_shell_settings_set_pointer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_settings_set_pointer        (<em class="parameter"><code><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> *shell_settings</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> v_pointer</code></em>);</pre>
+<p>
+Sets the contents of an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> property of type <span class="type">G_TYPE_POINTER</span>
+to <em class="parameter"><code>v_pointer</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell_settings</code></em> :</span></p></td>
+<td>an <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property_name</code></em> :</span></p></td>
+<td>an installed property name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v_pointer</code></em> :</span></p></td>
+<td>pointer to be set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EShellSettings.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

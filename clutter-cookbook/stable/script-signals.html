@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>3. Connecting to signals in ClutterScript</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="script.html" rel="up" title="Chapter 8. Script"></link><link href="script-ui.html" rel="prev" title="2. Defining a user interface with JSON"></link><link href="script-state.html" rel="next" title="4. Connecting ClutterState states in ClutterScript"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="script-signals.html#container">Go to page content</a></li><li><a href="script-signals.html#top_bar">Go to main menu</a></li><li><a href="script-signals.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">3. Connecting to signals in <span class="type">ClutterScript</span></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="script-ui.html">Prev</a> </td><th align="center" width="60%">Chapter 8. Script</th><td align="right" width="20%"> <a accesskey="n" href="script-state.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="script-signals"></a>3. Connecting to signals in <span class="type">ClutterScript</span></h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505250640"></a>3.1. Problem</h3></div></div></div><p>You have declared an actor using JSON, and want to add
+      handlers for signals emitted by it.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505249216"></a>3.2. Solution</h3></div></div></div><p>Add a <code class="varname">signals</code> property to the actor's
+      JSON definition.</p><p>Here's how to connect a <span class="type">ClutterStage's</span>
+      <code class="code">destroy</code> signal to the
+      <code class="function">clutter_main_quit()</code> function:</p><div class="informalexample"><pre class="programlisting">{
+  "id" : "stage",
+  "type" : "ClutterStage",
+  "width" : 300,
+  "height" : 300,
+
+  <span class="emphasis"><em>"signals" : [
+    { "name" : "destroy", "handler" : "clutter_main_quit" }
+  ]</em></span>
+}</pre></div><p>The highlighted part of the code is where the
+      signal is connected. In this case, a Clutter function is used
+      as the handler; in most cases, you'll want to define your own
+      handlers, rather than using functions from other libraries,
+      as follows:</p><div class="informalexample"><pre class="programlisting">{
+  "id" : "rectangle",
+  "type" : "ClutterRectangle",
+  "width" : 200,
+  "height" : 200,
+  "reactive" : true,
+
+  <span class="emphasis"><em>"signals" : [
+    { "name" : "motion-event", "handler" : "foo_pointer_motion_cb" }
+  ]</em></span>
+}</pre></div><p>This signal handler definition sets
+      <code class="function">foo_pointer_motion_cb()</code>
+      as the handler for the <code class="code">motion-event</code>
+      signal on the rectangle. (NB the rectangle has
+      <code class="varname">reactive</code> set to true, otherwise it
+      can't emit this signal.)</p><p>As per standard event handling in Clutter,
+      you define the handler function next. For example:</p><div class="informalexample"><pre class="programlisting">/* handler which just prints the position of the pointer at each motion event */
+gboolean
+foo_pointer_motion_cb (ClutterActor *actor,
+                       ClutterEvent *event,
+                       gpointer      user_data)
+{
+  gfloat x, y;
+  clutter_event_get_coords (event, &amp;x, &amp;y);
+
+  g_print ("Pointer movement at %.0f,%.0f\n", x, y);
+
+  return TRUE;
+}</pre></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>See the
+        <a class="link" href="script-signals.html#script-signals-discussion-writing-handlers" title="3.3.2. Writing handler functions">Discussion</a>
+        section for more about writing handler functions.</p></div><p>To make the signal connections active in your code,
+      call the <code class="function">clutter_script_connect_signals()</code>
+      function after loading the JSON:</p><div class="informalexample"><pre class="programlisting">GError *error = NULL;
+
+/* load JSON from a file */
+ClutterScript *ui = clutter_script_new ();
+clutter_script_load_from_file (ui, filename, &amp;error);
+
+/* ...handle errors etc... */
+
+/* connect the signals defined in the JSON file
+ *
+ * the first argument is the script into which the JSON
+ * definition was loaded
+ *
+ * the second argument is passed as user_data to all
+ * handlers: in this case, we pass the script as user_data
+ * to all handlers, so that all the objects in the UI
+ * are available to callback functions
+ */
+clutter_script_connect_signals (ui, ui);</pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="script-signals-discussion"></a>3.3. Discussion</h3></div></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790505231840"></a>3.3.1. Options for connecting signals to handlers</h4></div></div></div><p>Every connection between a signal and handler requires
+        a JSON object with <code class="varname">name</code> and
+        <code class="varname">handler</code> keys. The <code class="varname">name</code>
+        is the name of the signal you're connecting a handler to; the
+        <code class="varname">handler</code> is the name of the function which
+        will handle the signal.</p><p>You can also specify these optional keys for a handler
+        object:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p><code class="code">"after" : true</code> configures the handler
+            to run after the default handler for the signal. (Default is
+            <code class="code">"after" : false</code>).</p></li><li class="listitem"><p><code class="varname">"swapped" : true</code> specifies that
+            the instance and the user data passed to the
+            handler function are swapped around; i.e. the instance emitting
+            the signal is passed in as the user data argument (usually the
+            last argument), and any user data is passed in as the first
+            argument. (Default is <code class="code">"swapped" : false</code>).</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>While the connections to signals were specified in JSON
+          above, it is still possible to connect handlers to signals in
+          code (e.g. if you need to conditionally connect a handler). Just
+          retrieve the object from the <span class="type">ClutterScript</span> and
+          connect to its signals with
+          <code class="function">g_signal_connect()</code>.</p></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="script-signals-discussion-writing-handlers"></a>3.3.2. Writing handler functions</h4></div></div></div><p>The handler function has the usual signature required
+        for the signal. However, the function cannot be static, otherwise
+        the function is invisible to GModule (the mechanism used by
+        <span class="type">ClutterScript</span> to look up functions named
+        in the JSON definition). Consequently, callback functions should be
+        namespaced in such a way that they won't clash with function
+        definitions in other parts of your code or in libraries you link
+        to.</p><p>You should also ensure that you use the
+        <code class="option">-export-dynamic</code> flag when you compile your
+        application: either by passing it on the command line (if you're
+        calling <span class="command"><strong>gcc</strong></span> directly); or by adding
+        it to the appropriate <code class="varname">LDFLAGS</code> variable in
+        your <code class="filename">Makefile</code> (if you're using
+        <span class="command"><strong>make</strong></span>); or by whatever other mechanism is
+        appropriate for your build environment.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790505215520"></a>3.3.3. Passing objects to handler functions</h4></div></div></div><p>In a typical Clutter application, handler functions
+        require access to objects other than the one which emitted a
+        signal. For example, a button may move another actor when
+        clicked. Typically, you would pass any required objects
+        to the handler function as user data, like this:</p><div class="informalexample"><pre class="programlisting">g_signal_connect (button,
+                  "clicked",
+                  G_CALLBACK (_button_clicked_cb),
+                  actor_to_move);</pre></div><p>Note how <code class="varname">actor_to_move</code> is passed
+        as user data to the handler.</p><p>However, the JSON definition doesn't allow you to specify
+        that different user data be passed to different handlers. So,
+        to get at all required objects in the handler, a simple
+        solution is to pass the <span class="type">ClutterScript</span> to
+        <span class="emphasis"><em>every</em></span> handler function; then inside
+        <span class="emphasis"><em>each</em></span> handler function, retrieve
+        the required objects from the script.</p><p>This was done in the code example above, by passing
+        the <span class="type">ClutterScript</span> instance as two arguments to
+        <code class="function">clutter_script_connect_signals()</code>:
+        the first argument specifies the script which defines the
+        signal handlers; the second specifies the user data passed to every
+        handler function. This ensures that each handler has access
+        to all of the elements defined in the JSON file.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Alternatively, you could create some other structure to
+          hold the objects you need and pass it to all handler functions.
+          But this would effectively be a reimplementation of some aspects
+          of <span class="type">ClutterScript</span>.</p></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790507644800"></a>3.4. Full examples</h3></div></div></div><div class="example"><a name="script-signals-examples-1"></a><p class="title"><b>Example 8.3. <span class="type">ClutterScript</span> JSON with signal handler
+        definitions</b></p><div class="example-contents"><pre class="programlisting">[
+  {
+    "id" : "stage",
+    "type" : "ClutterStage",
+    "width" : 300,
+    "height" : 300,
+    "color" : "#335",
+
+    "signals" : [
+      { "name" : "destroy", "handler" : "clutter_main_quit" }
+    ],
+
+    "children" : [ "rectangle" ]
+  },
+
+  {
+    "id" : "rectangle",
+    "type" : "ClutterRectangle",
+    "width" : 200,
+    "height" : 200,
+    "x" : 50,
+    "y" : 50,
+    "color" : "#a90",
+    "rotation-center-z-gravity" : "center",
+    "reactive" : true,
+
+    "signals" : [
+      { "name" : "motion-event", "handler" : "foo_pointer_motion_cb" }
+    ],
+
+    "actions" : [
+      {
+        "type" : "ClutterClickAction",
+        "signals" : [
+          { "name" : "clicked", "handler" : "foo_button_clicked_cb" }
+        ]
+      }
+    ]
+  }
+]
+</pre></div></div><br class="example-break"></br><div class="example"><a name="script-signals-examples-2"></a><p class="title"><b>Example 8.4. Loading a JSON file into a <span class="type">ClutterScript</span>
+        and connecting signal handlers</b></p><div class="example-contents"><pre class="programlisting">#include &lt;stdlib.h&gt;
+#include &lt;clutter/clutter.h&gt;
+
+/* callbacks cannot be declared static as they
+ * are looked up dynamically by ClutterScript
+ */
+gboolean
+foo_pointer_motion_cb (ClutterActor *actor,
+                       ClutterEvent *event,
+                       gpointer      user_data)
+{
+  gfloat x, y;
+  clutter_event_get_coords (event, &amp;x, &amp;y);
+
+  g_print ("Pointer movement at %.0f,%.0f\n", x, y);
+
+  return TRUE;
+}
+
+void
+foo_button_clicked_cb (ClutterClickAction *action,
+                       ClutterActor       *actor,
+                       gpointer            user_data)
+{
+  gfloat z_angle;
+
+  /* get the UI definition passed to the handler */
+  ClutterScript *ui = CLUTTER_SCRIPT (user_data);
+
+  /* get the rectangle defined in the JSON */
+  ClutterActor *rectangle;
+  clutter_script_get_objects (ui,
+                              "rectangle", &amp;rectangle,
+                              NULL);
+
+  /* do nothing if the actor is already animating */
+  if (clutter_actor_get_animation (rectangle) != NULL)
+    return;
+
+  /* get the current rotation and increment it */
+  z_angle = clutter_actor_get_rotation (rectangle,
+                                        CLUTTER_Z_AXIS,
+                                        NULL, NULL, NULL);
+
+  if (clutter_click_action_get_button (action) == 1)
+    z_angle += 90.0;
+  else
+    z_angle -= 90.0;
+
+  /* animate to new rotation angle */
+  clutter_actor_animate (rectangle,
+                         CLUTTER_EASE_OUT_CUBIC,
+                         1000,
+                         "rotation-angle-z", z_angle,
+                         NULL);
+}
+
+int
+main (int argc, char *argv[])
+{
+  ClutterActor *stage;
+  ClutterScript *ui;
+
+  gchar *filename = "script-signals.json";
+  GError *error = NULL;
+
+  if (clutter_init (&amp;argc, &amp;argv) != CLUTTER_INIT_SUCCESS)
+    return 1;
+
+  ui = clutter_script_new ();
+
+  clutter_script_load_from_file (ui, filename, &amp;error);
+
+  if (error != NULL)
+    {
+      g_critical ("Error loading ClutterScript file %s\n%s", filename, error-&gt;message);
+      g_error_free (error);
+      exit (EXIT_FAILURE);
+    }
+
+  clutter_script_get_objects (ui,
+                              "stage", &amp;stage,
+                              NULL);
+
+  /* make the objects in the script available to all signals
+   * by passing the script as the second argument
+   * to clutter_script_connect_signals()
+   */
+  clutter_script_connect_signals (ui, ui);
+
+  clutter_actor_show (stage);
+
+  clutter_main ();
+
+  g_object_unref (ui);
+
+  return EXIT_SUCCESS;
+}
+</pre></div></div><br class="example-break"></br></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="script-ui.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="script.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="script-state.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">2. Defining a user interface with JSON </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 4. Connecting <span class="type">ClutterState</span> states in <span class="type">ClutterScript</span></td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="script-signals.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

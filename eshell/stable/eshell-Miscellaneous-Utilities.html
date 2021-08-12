@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Miscellaneous Utilities</title><link href="index.html" rel="home" title="Evolution Shell Reference Manual"></link><link href="ch02.html" rel="up" title="Basic Utility Functions"></link><link href="eshell-e-selection.html" rel="prev" title="e-selection"></link><link href="eshell-Reading-and-Writing-XML.html" rel="next" title="Reading and Writing XML"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="eshell-Miscellaneous-Utilities.html#container">Go to page content</a></li><li><a href="eshell-Miscellaneous-Utilities.html#top_bar">Go to main menu</a></li><li><a href="eshell-Miscellaneous-Utilities.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="eshell-e-selection.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Shell Reference Manual</th>
+<td><a accesskey="n" href="eshell-Reading-and-Writing-XML.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="eshell-Miscellaneous-Utilities.html#eshell-Miscellaneous-Utilities.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="eshell-Miscellaneous-Utilities.html#eshell-Miscellaneous-Utilities.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="eshell-Miscellaneous-Utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="eshell-Miscellaneous-Utilities.top_of_page"></a>Miscellaneous Utilities</span></h2>
+<p>Miscellaneous Utilities</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="eshell-Miscellaneous-Utilities.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;e-util/e-util.h&gt;
+
+const <span class="returnvalue">gchar</span> *       <a class="link" href="eshell-Miscellaneous-Utilities.html#e-get-accels-filename" title="e_get_accels_filename ()">e_get_accels_filename</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-show-uri" title="e_show_uri ()">e_show_uri</a>                          (<em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-display-help" title="e_display_help ()">e_display_help</a>                      (<em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *link_id</code></em>);
+<span class="returnvalue">GtkAction</span> *         <a class="link" href="eshell-Miscellaneous-Utilities.html#e-lookup-action" title="e_lookup_action ()">e_lookup_action</a>                     (<em class="parameter"><code><span class="type">GtkUIManager</span> *ui_manager</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *action_name</code></em>);
+<span class="returnvalue">GtkActionGroup</span> *    <a class="link" href="eshell-Miscellaneous-Utilities.html#e-lookup-action-group" title="e_lookup_action_group ()">e_lookup_action_group</a>               (<em class="parameter"><code><span class="type">GtkUIManager</span> *ui_manager</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *group_name</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-action-compare-by-label" title="e_action_compare_by_label ()">e_action_compare_by_label</a>           (<em class="parameter"><code><span class="type">GtkAction</span> *action1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkAction</span> *action2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-action-group-remove-all-actions" title="e_action_group_remove_all_actions ()">e_action_group_remove_all_actions</a>   (<em class="parameter"><code><span class="type">GtkActionGroup</span> *action_group</code></em>);
+<span class="returnvalue">GtkRadioAction</span> *    <a class="link" href="eshell-Miscellaneous-Utilities.html#e-radio-action-get-current-action" title="e_radio_action_get_current_action ()">e_radio_action_get_current_action</a>   (<em class="parameter"><code><span class="type">GtkRadioAction</span> *radio_action</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-categories-add-change-hook" title="e_categories_add_change_hook ()">e_categories_add_change_hook</a>        (<em class="parameter"><code><span class="type">GHookFunc</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> object</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-str-without-underscores" title="e_str_without_underscores ()">e_str_without_underscores</a>           (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-str-compare" title="e_str_compare ()">e_str_compare</a>                       (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-str-case-compare" title="e_str_case_compare ()">e_str_case_compare</a>                  (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-collate-compare" title="e_collate_compare ()">e_collate_compare</a>                   (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-int-compare" title="e_int_compare ()">e_int_compare</a>                       (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-color-to-value" title="e_color_to_value ()">e_color_to_value</a>                    (<em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-format-number" title="e_format_number ()">e_format_number</a>                     (<em class="parameter"><code><span class="type">gint</span> number</code></em>);
+<span class="returnvalue">gint</span>                (<a class="link" href="eshell-Miscellaneous-Utilities.html#ESortCompareFunc" title="ESortCompareFunc ()">*ESortCompareFunc</a>)                 (<em class="parameter"><code><span class="type">gconstpointer</span> first</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> second</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-bsearch" title="e_bsearch ()">e_bsearch</a>                           (<em class="parameter"><code><span class="type">gconstpointer</span> key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> base</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> nmemb</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="eshell-Miscellaneous-Utilities.html#ESortCompareFunc" title="ESortCompareFunc ()"><span class="type">ESortCompareFunc</span></a> compare</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *end</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="eshell-Miscellaneous-Utilities.html#e-strftime-fix-am-pm" title="e_strftime_fix_am_pm ()">e_strftime_fix_am_pm</a>                (<em class="parameter"><code><span class="type">gchar</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> max</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *fmt</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">struct tm</span> *tm</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="eshell-Miscellaneous-Utilities.html#e-utf8-strftime-fix-am-pm" title="e_utf8_strftime_fix_am_pm ()">e_utf8_strftime_fix_am_pm</a>           (<em class="parameter"><code><span class="type">gchar</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> max</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *fmt</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">struct tm</span> *tm</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="eshell-Miscellaneous-Utilities.html#e-get-month-name" title="e_get_month_name ()">e_get_month_name</a>                    (<em class="parameter"><code><span class="type">GDateMonth</span> month</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> abbreviated</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="eshell-Miscellaneous-Utilities.html#e-get-weekday-name" title="e_get_weekday_name ()">e_get_weekday_name</a>                  (<em class="parameter"><code><span class="type">GDateWeekday</span> weekday</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> abbreviated</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-flexible-strtod" title="e_flexible_strtod ()">e_flexible_strtod</a>                   (<em class="parameter"><code>const <span class="type">gchar</span> *nptr</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **endptr</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-ascii-dtostr" title="e_ascii_dtostr ()">e_ascii_dtostr</a>                      (<em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buf_len</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> d</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-file-lock-create" title="e_file_lock_create ()">e_file_lock_create</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-file-lock-destroy" title="e_file_lock_destroy ()">e_file_lock_destroy</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-file-lock-exists" title="e_file_lock_exists ()">e_file_lock_exists</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-util-guess-mime-type" title="e_util_guess_mime_type ()">e_util_guess_mime_type</a>              (<em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> localfile</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-util-get-category-filter-options" title="e_util_get_category_filter_options ()">e_util_get_category_filter_options</a>  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-binding-transform-color-to-string" title="e_binding_transform_color_to_string ()">e_binding_transform_color_to_string</a> (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> not_used</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-binding-transform-string-to-color" title="e_binding_transform_string_to_color ()">e_binding_transform_string_to_color</a> (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> not_used</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-binding-transform-source-to-uid" title="e_binding_transform_source_to_uid ()">e_binding_transform_source_to_uid</a>   (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-binding-transform-uid-to-source" title="e_binding_transform_uid_to_source ()">e_binding_transform_uid_to_source</a>   (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-charset-add-radio-actions" title="e_charset_add_radio_actions ()">e_charset_add_radio_actions</a>         (<em class="parameter"><code><span class="type">GtkActionGroup</span> *action_group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *action_prefix</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *default_charset</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">EActivity</span> *         <a class="link" href="eshell-Miscellaneous-Utilities.html#e-file-replace-contents-async" title="e_file_replace_contents_async ()">e_file_replace_contents_async</a>       (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *contents</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *etag</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> make_backup</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFileCreateFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="eshell-Miscellaneous-Utilities.html#e-file-replace-contents-finish" title="e_file_replace_contents_finish ()">e_file_replace_contents_finish</a>      (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **new_etag</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-mktemp" title="e_mktemp ()">e_mktemp</a>                            (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="eshell-Miscellaneous-Utilities.html#e-mkstemp" title="e_mkstemp ()">e_mkstemp</a>                           (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="eshell-Miscellaneous-Utilities.html#e-mkdtemp" title="e_mkdtemp ()">e_mkdtemp</a>                           (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="eshell-Miscellaneous-Utilities.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="eshell-Miscellaneous-Utilities.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="e-get-accels-filename"></a><h3>e_get_accels_filename ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_get_accels_filename               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-show-uri"></a><h3>e_show_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_show_uri                          (<em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-display-help"></a><h3>e_display_help ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_display_help                      (<em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *link_id</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-lookup-action"></a><h3>e_lookup_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkAction</span> *         e_lookup_action                     (<em class="parameter"><code><span class="type">GtkUIManager</span> *ui_manager</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *action_name</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-lookup-action-group"></a><h3>e_lookup_action_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkActionGroup</span> *    e_lookup_action_group               (<em class="parameter"><code><span class="type">GtkUIManager</span> *ui_manager</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *group_name</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-action-compare-by-label"></a><h3>e_action_compare_by_label ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_action_compare_by_label           (<em class="parameter"><code><span class="type">GtkAction</span> *action1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkAction</span> *action2</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-action-group-remove-all-actions"></a><h3>e_action_group_remove_all_actions ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_action_group_remove_all_actions   (<em class="parameter"><code><span class="type">GtkActionGroup</span> *action_group</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-radio-action-get-current-action"></a><h3>e_radio_action_get_current_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkRadioAction</span> *    e_radio_action_get_current_action   (<em class="parameter"><code><span class="type">GtkRadioAction</span> *radio_action</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-categories-add-change-hook"></a><h3>e_categories_add_change_hook ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_categories_add_change_hook        (<em class="parameter"><code><span class="type">GHookFunc</span> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> object</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-str-without-underscores"></a><h3>e_str_without_underscores ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_str_without_underscores           (<em class="parameter"><code>const <span class="type">gchar</span> *string</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-str-compare"></a><h3>e_str_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_str_compare                       (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-str-case-compare"></a><h3>e_str_case_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_str_case_compare                  (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-collate-compare"></a><h3>e_collate_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_collate_compare                   (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-int-compare"></a><h3>e_int_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_int_compare                       (<em class="parameter"><code><span class="type">gconstpointer</span> x</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> y</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-color-to-value"></a><h3>e_color_to_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             e_color_to_value                    (<em class="parameter"><code><span class="type">GdkColor</span> *color</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-format-number"></a><h3>e_format_number ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_format_number                     (<em class="parameter"><code><span class="type">gint</span> number</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ESortCompareFunc"></a><h3>ESortCompareFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                (*ESortCompareFunc)                 (<em class="parameter"><code><span class="type">gconstpointer</span> first</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> second</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-bsearch"></a><h3>e_bsearch ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_bsearch                           (<em class="parameter"><code><span class="type">gconstpointer</span> key</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> base</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> nmemb</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="eshell-Miscellaneous-Utilities.html#ESortCompareFunc" title="ESortCompareFunc ()"><span class="type">ESortCompareFunc</span></a> compare</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> closure</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *start</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> *end</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-strftime-fix-am-pm"></a><h3>e_strftime_fix_am_pm ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               e_strftime_fix_am_pm                (<em class="parameter"><code><span class="type">gchar</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> max</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *fmt</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">struct tm</span> *tm</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-utf8-strftime-fix-am-pm"></a><h3>e_utf8_strftime_fix_am_pm ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               e_utf8_strftime_fix_am_pm           (<em class="parameter"><code><span class="type">gchar</span> *str</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> max</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *fmt</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">struct tm</span> *tm</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-get-month-name"></a><h3>e_get_month_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_get_month_name                    (<em class="parameter"><code><span class="type">GDateMonth</span> month</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> abbreviated</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-get-weekday-name"></a><h3>e_get_weekday_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_get_weekday_name                  (<em class="parameter"><code><span class="type">GDateWeekday</span> weekday</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> abbreviated</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-flexible-strtod"></a><h3>e_flexible_strtod ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             e_flexible_strtod                   (<em class="parameter"><code>const <span class="type">gchar</span> *nptr</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **endptr</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-ascii-dtostr"></a><h3>e_ascii_dtostr ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_ascii_dtostr                      (<em class="parameter"><code><span class="type">gchar</span> *buffer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> buf_len</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *format</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> d</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-file-lock-create"></a><h3>e_file_lock_create ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_file_lock_create                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-file-lock-destroy"></a><h3>e_file_lock_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_file_lock_destroy                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-file-lock-exists"></a><h3>e_file_lock_exists ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_file_lock_exists                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-util-guess-mime-type"></a><h3>e_util_guess_mime_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_util_guess_mime_type              (<em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> localfile</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-util-get-category-filter-options"></a><h3>e_util_get_category_filter_options ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_util_get_category_filter_options  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-binding-transform-color-to-string"></a><h3>e_binding_transform_color_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_binding_transform_color_to_string (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> not_used</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-binding-transform-string-to-color"></a><h3>e_binding_transform_string_to_color ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_binding_transform_string_to_color (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> not_used</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-binding-transform-source-to-uid"></a><h3>e_binding_transform_source_to_uid ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_binding_transform_source_to_uid   (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-binding-transform-uid-to-source"></a><h3>e_binding_transform_uid_to_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_binding_transform_uid_to_source   (<em class="parameter"><code><span class="type">GBinding</span> *binding</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *source_value</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *target_value</code></em>,
+                                                         <em class="parameter"><code><a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> *registry</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-charset-add-radio-actions"></a><h3>e_charset_add_radio_actions ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_charset_add_radio_actions         (<em class="parameter"><code><span class="type">GtkActionGroup</span> *action_group</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *action_prefix</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *default_charset</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-file-replace-contents-async"></a><h3>e_file_replace_contents_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">EActivity</span> *         e_file_replace_contents_async       (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *contents</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> length</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *etag</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> make_backup</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFileCreateFlags</span> flags</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-file-replace-contents-finish"></a><h3>e_file_replace_contents_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_file_replace_contents_finish      (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **new_etag</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-mktemp"></a><h3>e_mktemp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_mktemp                            (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-mkstemp"></a><h3>e_mkstemp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_mkstemp                           (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-mkdtemp"></a><h3>e_mkdtemp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_mkdtemp                           (<em class="parameter"><code>const <span class="type">gchar</span> *template</code></em>);</pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="eshell-Miscellaneous-Utilities.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

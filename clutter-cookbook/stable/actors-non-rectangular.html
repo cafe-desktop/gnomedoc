@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>6. Creating an actor with a non-rectangular shape</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="actors.html" rel="up" title="Chapter 2. Actors"></link><link href="actors-opacity.html" rel="prev" title="5. Making an actor transparent by changing its opacity"></link><link href="events.html" rel="next" title="Chapter 3. Events"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="actors-non-rectangular.html#container">Go to page content</a></li><li><a href="actors-non-rectangular.html#top_bar">Go to main menu</a></li><li><a href="actors-non-rectangular.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">6. Creating an actor with a non-rectangular shape</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="actors-opacity.html">Prev</a> </td><th align="center" width="60%">Chapter 2. Actors</th><td align="right" width="20%"> <a accesskey="n" href="events.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="actors-non-rectangular"></a>6. Creating an actor with a non-rectangular shape</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511200192"></a>6.1. Problem</h3></div></div></div><p>You want to create a <span class="type">ClutterActor</span> subclass,
+      but don't want it to be rectangular; for example, you want a
+      star-shaped actor.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511198320"></a>6.2. Solution</h3></div></div></div><p>Use Cogl primitives to draw the actor.</p><p>Below is an example of the pick and paint implementations for a
+      star-shaped <span class="type">StarActor</span> class (an extension of
+      <span class="type">ClutterActor</span>).</p><p>Like <span class="type">ClutterRectangle</span>, it has a private
+      struct internally, which contains a <span class="type">ClutterColor</span>
+      denoting the color it should be painted. This is used to set the Cogl
+      source color.</p><div class="informalexample"><pre class="programlisting">static void
+star_actor_paint (ClutterActor *actor)
+{
+  ClutterActorBox allocation = { 0, };
+  gfloat width, height;
+  guint tmp_alpha;
+
+  /* priv is a private internal struct */
+  ClutterColor color = STAR_ACTOR (actor)-&gt;priv-&gt;color;
+
+  clutter_actor_get_allocation_box (actor, &amp;allocation);
+  clutter_actor_box_get_size (&amp;allocation, &amp;width, &amp;height);
+
+  tmp_alpha = clutter_actor_get_paint_opacity (actor)
+                * color.alpha
+                / 255;
+
+  cogl_path_new ();
+
+  cogl_set_source_color4ub (color.red,
+                            color.green,
+                            color.blue,
+                            tmp_alpha);
+
+  /* create and store a path describing a star */
+  cogl_path_move_to (width * 0.5, 0);
+  cogl_path_line_to (width, height * 0.75);
+  cogl_path_line_to (0, height * 0.75);
+  cogl_path_move_to (width * 0.5, height);
+  cogl_path_line_to (0, height * 0.25);
+  cogl_path_line_to (width, height * 0.25);
+  cogl_path_line_to (width * 0.5, height);
+
+  cogl_path_fill ();
+}
+
+static void
+star_actor_pick (ClutterActor *actor,
+                 const ClutterColor *pick_color)
+{
+  if (!clutter_actor_should_pick_paint (actor))
+    return;
+
+  ClutterActorBox allocation = { 0, };
+  gfloat width, height;
+
+  clutter_actor_get_allocation_box (actor, &amp;allocation);
+  clutter_actor_box_get_size (&amp;allocation, &amp;width, &amp;height);
+
+  cogl_path_new ();
+
+  cogl_set_source_color4ub (pick_color-&gt;red,
+                            pick_color-&gt;green,
+                            pick_color-&gt;blue,
+                            pick_color-&gt;alpha);
+
+  /* create and store a path describing a star */
+  cogl_path_move_to (width * 0.5, 0);
+  cogl_path_line_to (width, height * 0.75);
+  cogl_path_line_to (0, height * 0.75);
+  cogl_path_move_to (width * 0.5, height);
+  cogl_path_line_to (0, height * 0.25);
+  cogl_path_line_to (width, height * 0.25);
+  cogl_path_line_to (width * 0.5, height);
+
+  cogl_path_fill ();
+}</pre></div><p>If you need more information about how to implement your own
+      <span class="type">ClutterActor</span>, see the Clutter reference
+      manual.</p><p>Note that the code in these two functions is virtually identical:
+      the Discussion section suggests how to remove this redundancy.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511189504"></a>6.3. Discussion</h3></div></div></div><p>The above is one approach to creating a non-rectangular
+      actor. But it's also possible to get a similar effect by
+      subclassing an existing actor (like <span class="type">ClutterRectangle</span>)
+      and giving it a non-rectangular appearance. You could do this by
+      making the underlying rectangle transparent and then drawing on
+      top of it (e.g. using Cairo or Cogl).</p><p>However, if you then made such an actor reactive, events
+      like mouse button presses would be triggered from anywhere on
+      the underlying rectangle. This is true even if the visible part
+      of the actor only partially fills the rectangle (underneath, it's
+      still a rectangle).</p><p>The advantage of using Cogl paths is that the reactive area
+      of the actor is defined by the Cogl path. So if you have a
+      star-shaped actor, only clicks (or other events) directly on the
+      star will have any effect on it.</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790511186160"></a>6.3.1. Cogl path coordinates</h4></div></div></div><p>In the example shown, <code class="function">cogl_path_move_to()</code>
+        and <code class="function">cogl_path_line_to()</code> are used. These
+        take absolute <code class="code">x</code> and <code class="code">y</code> coordinates as
+        arguments, relative to the GL 'modelview' transform matrix; in
+        the case of an actor's <code class="function">paint</code> implementation,
+        relative to the bounding box for the actor. So if an actor has
+        width and height of 50 pixels, and you used
+        <code class="function">cogl_move_to (25, 25)</code> in its
+        <code class="function">paint</code> implementation, the "pen"
+        moves to the centre of the actor, regardless of where the actor
+        is positioned on the stage. Similarly, using
+        <code class="function">cogl_path_line_to()</code> creates a line segment
+        from the current pen position to the absolute coordinates
+        (<code class="code">x</code>, <code class="code">y</code>) specified.</p><p>The Cogl API also provides various "rel" variants of the path
+        functions (e.g. <code class="function">cogl_path_rel_line_to()</code>), which
+        create path segments relative to the current pen position (i.e.
+        <code class="code">pen_x + x</code>, <code class="code">pen_y + y</code>).</p><p>It's important to note that the path isn't drawn until you
+        call <code class="function">cogl_path_stroke()</code> (to draw the path segments)
+        or <code class="function">cogl_path_fill()</code> (to fill the area enclosed by
+        the path). The path is cleared once it's been drawn.
+        Using the <code class="function">*_preserve</code> variants of these functions draws
+        the path and retains it (so it could be drawn again).</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790511173216"></a>6.3.2. Other Cogl primitives</h4></div></div></div><p>Note that the Cogl primitives API provides other types of path
+        segment beyond straight lines that we didn't use here, including:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Bezier curves (<code class="function">cogl_path_curve_to()</code>)</p></li><li class="listitem"><p>Arcs (<code class="function">cogl_path_arc()</code>)</p></li><li class="listitem"><p>Polygons (<code class="function">cogl_path_polygon()</code>)</p></li><li class="listitem"><p>Rectangles (<code class="function">cogl_path_rectangle()</code>)</p></li><li class="listitem"><p>Rectangles with rounded corners
+            (<code class="function">cogl_path_round_rectangle()</code>)</p></li><li class="listitem"><p>Ellipses (<code class="function">cogl_path_ellipse()</code>)</p></li></ul></div><p>One important drawback of using Cogl path primitives is that
+        they will not produce high quality results; more specifically,
+        Cogl does not draw anti-aliased primitives. It is recommended to use
+        the Cairo API to draw during the paint sequence, and the Cogl API
+        to draw during the pick sequence.</p><p>If you need more flexibility than is available in the Cogl path
+        API, you can make direct use of the <span class="type">CoglVertexBuffer</span>
+        API instead. This is a lower-level API, but could potentially
+        be used to draw more complex shapes.</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790511159776"></a>6.3.3. Using <span class="type">ClutterPath</span> to store the path</h4></div></div></div><p>The disadvantage of the code above is that the paths are stored in two
+        places: once for <code class="function">pick</code>, and once for
+        <code class="function">paint</code>. It would make sense to store the
+        path in one place and reference it from both of these functions to
+        prevent duplication.</p><p>Clutter provides a <span class="type">ClutterPath</span> API for storing
+        generic path descriptions. It can be used to describe paths
+        which translate to Cogl or Cairo paths, and can also be used to
+        describe animation paths.</p><p>We can use a <span class="type">ClutterPath</span> instance stored
+        inside the actor to define the path for <code class="function">pick</code> and
+        <code class="function">paint</code>; then, inside those functions, we
+        translate the <span class="type">ClutterPath</span> into Cogl path function calls
+        (NB <span class="type">ClutterPath</span> is effectively a declarative method
+        for defining a path, while the Cogl path API is imperative).</p><p>First we add a <code class="varname">path</code> member to the private
+        struct for the <span class="type">StarActor</span> class (using standard
+        GObject mechanisms). The <code class="function">init</code> implementation for
+        <span class="type">StarActor</span> creates an empty path:</p><div class="informalexample"><pre class="programlisting">static void
+star_actor_init (StarActor *self)
+{
+  self-&gt;priv = STAR_ACTOR_GET_PRIVATE (self);
+
+  self-&gt;priv-&gt;path = clutter_path_new ();
+
+  clutter_actor_set_reactive (CLUTTER_ACTOR (self), TRUE);
+}</pre></div><p>One consideration is that the path coordinates need to
+        fit inside the actor's bounding box. So as the actor's allocation
+        changes, <code class="varname">path</code> also needs to change. We can do this
+        by implementing <code class="function">allocate</code> for the
+        <span class="type">StarActor</span> class:</p><div class="informalexample"><pre class="programlisting">static void
+star_actor_allocate (ClutterActor           *actor,
+                     const ClutterActorBox  *box,
+                     ClutterAllocationFlags  flags)
+{
+  ClutterPath *path = STAR_ACTOR (actor)-&gt;priv-&gt;path;
+  gfloat width, height;
+
+  clutter_actor_box_get_size (box, &amp;width, &amp;height);
+
+  /* create and store a path describing a star */
+  clutter_path_clear (path);
+
+  clutter_path_add_move_to (path, width * 0.5, 0);
+  clutter_path_add_line_to (path, width, height * 0.75);
+  clutter_path_add_line_to (path, 0, height * 0.75);
+  clutter_path_add_move_to (path, width * 0.5, height);
+  clutter_path_add_line_to (path, 0, height * 0.25);
+  clutter_path_add_line_to (path, width, height * 0.25);
+  clutter_path_add_line_to (path, width * 0.5, height);
+
+  CLUTTER_ACTOR_CLASS (star_actor_parent_class)-&gt;allocate (actor, box, flags);
+}</pre></div><p>This clears then adds segments to the
+      <span class="type">ClutterPath</span> stored with the
+      <span class="type">StarActor</span> instance. The positioning and
+      lengths of the segments are relative to the size of the actor when
+      its allocation changes.</p><p>The <code class="function">pick</code> and <code class="function">paint</code>
+      functions now reference the <span class="type">ClutterPath</span> (only the
+      <code class="function">pick</code> is shown below); and
+      to turn the path into drawing operations, we implement a
+      <code class="function">star_actor_convert_clutter_path_node()</code> function
+      which takes a <span class="type">ClutterPathNode</span> and converts it
+      into its Cogl equivalent:</p><div class="informalexample"><pre class="programlisting">static void
+star_actor_convert_clutter_path_node (const ClutterPathNode *node,
+                                      gpointer               data)
+{
+  g_return_if_fail (node != NULL);
+
+  ClutterKnot knot;
+
+  switch (node-&gt;type)
+    {
+    case CLUTTER_PATH_MOVE_TO:
+      knot = node-&gt;points[0];
+      cogl_path_move_to (knot.x, knot.y);
+      break;
+    case CLUTTER_PATH_LINE_TO:
+      knot = node-&gt;points[0];
+      cogl_path_line_to (knot.x, knot.y);
+      break;
+    default:
+      break;
+    }
+}
+
+static void
+star_actor_pick (ClutterActor       *actor,
+                 const ClutterColor *pick_color)
+{
+  if (!clutter_actor_should_pick_paint (actor))
+    return;
+
+  ClutterActorBox allocation = { 0, };
+  gfloat width, height;
+  ClutterPath *path = STAR_ACTOR (actor)-&gt;priv-&gt;path;
+
+  clutter_actor_get_allocation_box (actor, &amp;allocation);
+  clutter_actor_box_get_size (&amp;allocation, &amp;width, &amp;height);
+
+  cogl_path_new ();
+
+  cogl_set_source_color4ub (pick_color-&gt;red,
+                            pick_color-&gt;green,
+                            pick_color-&gt;blue,
+                            pick_color-&gt;alpha);
+
+  clutter_path_foreach (path, star_actor_convert_clutter_path_node, NULL);
+
+  cogl_path_fill ();
+}</pre></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The conversion function only covers
+        <span class="type">ClutterPathNode</span> types encountered in this
+        actor.</p></div><p>Instead of converting to Cogl path operations, another alternative
+      would be to use the <code class="function">clutter_path_to_cairo_path()</code>
+      function to write directly from the <span class="type">ClutterPath</span>
+      onto a Cairo context.</p></div></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="actors-opacity.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="actors.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="events.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">5. Making an actor transparent by changing its opacity </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> Chapter 3. Events</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="actors-non-rectangular.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

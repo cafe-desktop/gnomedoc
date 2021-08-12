@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mcast: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-udp.html" title="UDP">
+<link rel="next" href="gnet-conn-http.html" title="GConnHttp">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-mcast.html#container">Go to page content</a></li><li><a href="gnet-mcast.html#top_bar">Go to main menu</a></li><li><a href="gnet-mcast.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-mcast.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-mcast.html#gnet-mcast.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-udp.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-conn-http.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-mcast"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Mcast</span></h2>
+<p>Mcast — IP Multicast socket</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+                    <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>;
+<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       <a class="link" href="gnet-mcast.html#gnet-mcast-socket-new">gnet_mcast_socket_new</a>               (void);
+<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       <a class="link" href="gnet-mcast.html#gnet-mcast-socket-new-with-port">gnet_mcast_socket_new_with_port</a>     (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);
+<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       <a class="link" href="gnet-mcast.html#gnet-mcast-socket-new-full">gnet_mcast_socket_new_full</a>          (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *iface,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-delete">gnet_mcast_socket_delete</a>            (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-ref">gnet_mcast_socket_ref</a>               (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-unref">gnet_mcast_socket_unref</a>             (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         <a class="link" href="gnet-mcast.html#gnet-mcast-socket-get-io-channel">gnet_mcast_socket_get_io_channel</a>    (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          <a class="link" href="gnet-mcast.html#gnet-mcast-socket-get-local-inetaddr">gnet_mcast_socket_get_local_inetaddr</a>
+                                                        (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-join-group">gnet_mcast_socket_join_group</a>        (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-leave-group">gnet_mcast_socket_leave_group</a>       (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-get-ttl">gnet_mcast_socket_get_ttl</a>           (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-set-ttl">gnet_mcast_socket_set_ttl</a>           (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> ttl);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-send">gnet_mcast_socket_send</a>              (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *dst);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-receive">gnet_mcast_socket_receive</a>           (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> **src);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-mcast.html#gnet-mcast-socket-has-packet">gnet_mcast_socket_has_packet</a>        (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-is-loopback">gnet_mcast_socket_is_loopback</a>       (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-mcast.html#gnet-mcast-socket-set-loopback">gnet_mcast_socket_set_loopback</a>      (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);
+#define             <a class="link" href="gnet-mcast.html#gnet-mcast-socket-to-udp-socket">gnet_mcast_socket_to_udp_socket</a>     (MS)
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.7.4"></a><h2>Description</h2>
+<p>
+The Mcast module provides support for IP Multicast sockets.  IP
+Multicast allows you to send one packet to many receivers at once.
+Unfortunately, IP Multicast is not widely available.  IP Multicast is
+built on UDP.
+</p>
+<p>
+An IP Multicast socket is represented by a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> stucture.  To
+create a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>, call <a class="link" href="gnet-mcast.html#gnet-mcast-socket-new"><code class="function">gnet_mcast_socket_new()</code></a>,
+<a class="link" href="gnet-mcast.html#gnet-mcast-socket-new-with-port"><code class="function">gnet_mcast_socket_new_with_port()</code></a>, or <a class="link" href="gnet-mcast.html#gnet-mcast-socket-new-full"><code class="function">gnet_mcast_socket_new_full()</code></a>.
+Then call <a class="link" href="gnet-mcast.html#gnet-mcast-socket-join-group"><code class="function">gnet_mcast_socket_join_group()</code></a> to join a multicast group.
+To leave the group, call <a class="link" href="gnet-mcast.html#gnet-mcast-socket-leave-group"><code class="function">gnet_mcast_socket_leave_group()</code></a>.
+</p>
+<p>
+Use <a class="link" href="gnet-mcast.html#gnet-mcast-socket-set-loopback"><code class="function">gnet_mcast_socket_set_loopback()</code></a> to set whether packets sent by
+the host will also be received by the host.  Applications typically
+disable loopback.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.7.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.7.5.2"></a><h3>
+<a name="GMcastSocket"></a>GMcastSocket</h3>
+<pre class="programlisting">typedef struct _GMcastSocket GMcastSocket;</pre>
+<p>
+A <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> structure represents a IP Multicast socket.  The
+ implementation is hidden.  A <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> is child of
+ <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.  Use <a class="link" href="gnet-mcast.html#gnet-mcast-socket-to-udp-socket"><code class="function">gnet_mcast_socket_to_udp_socket()</code></a> to safely cast
+ a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> to a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.3"></a><h3>
+<a name="gnet-mcast-socket-new"></a>gnet_mcast_socket_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       gnet_mcast_socket_new               (void);</pre>
+<p>
+Creates a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> bound to all interfaces and an arbitrary
+ port.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>; NULL on error.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.4"></a><h3>
+<a name="gnet-mcast-socket-new-with-port"></a>gnet_mcast_socket_new_with_port ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       gnet_mcast_socket_new_with_port     (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);</pre>
+<p>
+Creates a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> bound to all interfaces and port <em class="parameter"><code>port</code></em>.
+ If <em class="parameter"><code>port</code></em> is 0, an arbitrary port will be used.  Use this
+ constructor if you know the port of the group you will join.  Most
+ applications will use this constructor.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em> :</span></p></td>
+<td> port to bind to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>; NULL on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.5"></a><h3>
+<a name="gnet-mcast-socket-new-full"></a>gnet_mcast_socket_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a>*       gnet_mcast_socket_new_full          (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *iface,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);</pre>
+<p>
+Creates a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> bound to interface <em class="parameter"><code>iface</code></em> and port <em class="parameter"><code>port</code></em>.
+ If <em class="parameter"><code>iface</code></em> is NULL, all interfaces will be used.  If <em class="parameter"><code>port</code></em> is 0, an
+ arbitrary port will be used.  To receive packets from this group,
+ call <a class="link" href="gnet-mcast.html#gnet-mcast-socket-join-group"><code class="function">gnet_mcast_socket_join_group()</code></a> next.  Loopback is disabled by
+ default.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iface</code></em> :</span></p></td>
+<td> interface to bind to (NULL for all interfaces)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em> :</span></p></td>
+<td> port to bind to (0 for an arbitrary port)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>; NULL on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.6"></a><h3>
+<a name="gnet-mcast-socket-delete"></a>gnet_mcast_socket_delete ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_mcast_socket_delete            (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Deletes a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>. Does nothing if <em class="parameter"><code>socket</code></em> is NULL.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>, or NULL
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.7"></a><h3>
+<a name="gnet-mcast-socket-ref"></a>gnet_mcast_socket_ref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_mcast_socket_ref               (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Adds a reference to a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.8"></a><h3>
+<a name="gnet-mcast-socket-unref"></a>gnet_mcast_socket_unref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_mcast_socket_unref             (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Removes a reference from a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.  A <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> is
+ deleted when the reference count reaches 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.9"></a><h3>
+<a name="gnet-mcast-socket-get-io-channel"></a>gnet_mcast_socket_get_io_channel ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         gnet_mcast_socket_get_io_channel    (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Gets the <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> of a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.
+</p>
+<p>
+ Use the channel with <GTKDOCLINK HREF="g-io-add-watch"><code class="function">g_io_add_watch()</code></GTKDOCLINK> to check if the socket is
+ readable or writable.  If the channel is readable, call
+ <a class="link" href="gnet-mcast.html#gnet-mcast-socket-receive"><code class="function">gnet_mcast_socket_receive()</code></a> to receive a packet.  If the channel
+ is writable, call <a class="link" href="gnet-mcast.html#gnet-mcast-socket-send"><code class="function">gnet_mcast_socket_send()</code></a> to send a packet.  This
+ is not a normal giochannel - do not read from or write to it.
+</p>
+<p>
+ Every <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> has one and only one <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.  If you ref
+ the channel, then you must unref it eventually.  Do not close the
+ channel.  The channel is closed by GNet when the socket is
+ deleted.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.10"></a><h3>
+<a name="gnet-mcast-socket-get-local-inetaddr"></a>gnet_mcast_socket_get_local_inetaddr ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          gnet_mcast_socket_get_local_inetaddr
+                                                        (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Gets the local host's address from a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="gnet-inetaddr.html#GInetAddr"><span class="type">GInetAddr</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.11"></a><h3>
+<a name="gnet-mcast-socket-join-group"></a>gnet_mcast_socket_join_group ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_join_group        (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);</pre>
+<p>
+Joins a multicast group.  Join only one group per socket.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inetaddr</code></em> :</span></p></td>
+<td> address of the group
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 on success.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.12"></a><h3>
+<a name="gnet-mcast-socket-leave-group"></a>gnet_mcast_socket_leave_group ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_leave_group       (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);</pre>
+<p>
+Leaves a mulitcast group.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inetaddr</code></em> :</span></p></td>
+<td> address of the group
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 on success.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.13"></a><h3>
+<a name="gnet-mcast-socket-get-ttl"></a>gnet_mcast_socket_get_ttl ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_get_ttl           (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Gets the multicast time-to-live (TTL) of a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.  All IP
+ multicast packets have a TTL field.  This field is decremented by
+ a router before it forwards the packet.  If the TTL reaches zero,
+ the packet is discarded.  The default value is sufficient for most
+ applications.
+</p>
+<p>
+ The table below shows the scope for a given TTL.  The scope is
+ only an estimate.
+</p>
+<p>
+ </p>
+<div class="table">
+<a name="id-1.5.7.5.13.6.1"></a><p class="title"><b>Table 1. TTL and scope</b></p>
+<div class="table-contents"><table summary="TTL and scope" border="1">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead><tr>
+<th align="left">TTL</th>
+<th align="left">Scope</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">0</td>
+<td align="left">node local</td>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">link local</td>
+</tr>
+<tr>
+<td align="left">2-32</td>
+<td align="left">site local</td>
+</tr>
+<tr>
+<td align="left">33-64</td>
+<td align="left">region local</td>
+</tr>
+<tr>
+<td align="left">65-128</td>
+<td align="left">continent local</td>
+</tr>
+<tr>
+<td align="left">129-255</td>
+<td align="left">unrestricted (global)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p><br class="table-break"></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the TTL (an integer between 0 and 255), -1 if the kernel
+ default is being used, or an integer less than -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.14"></a><h3>
+<a name="gnet-mcast-socket-set-ttl"></a>gnet_mcast_socket_set_ttl ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_set_ttl           (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> ttl);</pre>
+<p>
+Sets the time-to-live (TTL) default of a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.  Set the TTL
+ to -1 to use the kernel default.  The default value is sufficient
+ for most applications.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ttl</code></em> :</span></p></td>
+<td> value to set TTL to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if successful.  
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.15"></a><h3>
+<a name="gnet-mcast-socket-send"></a>gnet_mcast_socket_send ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_send              (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *dst);</pre>
+<p>
+Sends data to a host using a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to send
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of buffer
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td> destination address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if successful.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.16"></a><h3>
+<a name="gnet-mcast-socket-receive"></a>gnet_mcast_socket_receive ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_receive           (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> **src);</pre>
+<p>
+Receives data using a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.  If <em class="parameter"><code>src</code></em> is set, the source
+ address is stored in the location <em class="parameter"><code>src</code></em> points to.  The address is
+ caller owned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to write to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td> pointer to source address (optional)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of bytes received, -1 if unsuccessful.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.17"></a><h3>
+<a name="gnet-mcast-socket-has-packet"></a>gnet_mcast_socket_has_packet ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_mcast_socket_has_packet        (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Tests if a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> has a packet waiting to be received.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is packet waiting, FALSE otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.18"></a><h3>
+<a name="gnet-mcast-socket-is-loopback"></a>gnet_mcast_socket_is_loopback ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_is_loopback       (const <a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket);</pre>
+<p>
+Checks if a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> has loopback enabled.  If loopback is
+ enabled, all packets sent by the host will also be received by the
+ host.  Loopback is disabled by default.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if loopback is disabled, 1 if enabled, and -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.19"></a><h3>
+<a name="gnet-mcast-socket-set-loopback"></a>gnet_mcast_socket_set_loopback ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_mcast_socket_set_loopback      (<a class="link" href="gnet-mcast.html#GMcastSocket">GMcastSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enable);</pre>
+<p>
+Enables (or disables) loopback on a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>.  Loopback is
+ disabled by default.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>enable</code></em> :</span></p></td>
+<td> should loopback be enabled?
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if successful.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.7.5.20"></a><h3>
+<a name="gnet-mcast-socket-to-udp-socket"></a>gnet_mcast_socket_to_udp_socket()</h3>
+<pre class="programlisting">#define gnet_mcast_socket_to_udp_socket(MS) ((GUdpSocket*) (MS))
+</pre>
+<p>
+Converts a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> to a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.  A <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a> is a
+ child of <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>MS</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-mcast.html#GMcastSocket"><span class="type">GMcastSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-mcast.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

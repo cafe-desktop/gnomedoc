@@ -1,0 +1,989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>SeahorseContext</title><link href="index.html" rel="home" title="libseahorse Reference Manual"></link><link href="ch01.html" rel="up" title="libseahorse Objects and Functions"></link><link href="libseahorse-seahorse-xxx.html" rel="prev" title="SeahorseXxx"></link><link href="libseahorse-SeahorseObjectWidget.html" rel="next" title="SeahorseObjectWidget"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libseahorse-seahorse-context.html#container">Go to page content</a></li><li><a href="libseahorse-seahorse-context.html#top_bar">Go to main menu</a></li><li><a href="libseahorse-seahorse-context.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libseahorse-seahorse-xxx.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">libseahorse Reference Manual</th>
+<td><a accesskey="n" href="libseahorse-SeahorseObjectWidget.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="libseahorse-seahorse-context.html#libseahorse-seahorse-context.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="libseahorse-seahorse-context.html#libseahorse-seahorse-context.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="libseahorse-seahorse-context"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libseahorse-seahorse-context.top_of_page"></a>SeahorseContext</span></h2>
+<p>SeahorseContext — This is where all the action in a Seahorse process comes together.</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="libseahorse-seahorse-context.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;libseahorse/seahorse-context.h&gt;
+
+                    <a class="link" href="libseahorse-seahorse-context.html#SeahorseContextPrivate" title="SeahorseContextPrivate">SeahorseContextPrivate</a>;
+struct              <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext">SeahorseContext</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="libseahorse-seahorse-context.html#SeahorseObjectFunc" title="SeahorseObjectFunc ()">*SeahorseObjectFunc</a>)               (<em class="parameter"><code><span class="type">struct _SeahorseObject</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+#define             <a class="link" href="libseahorse-seahorse-context.html#SCTX-APP:CAPS" title="SCTX_APP">SCTX_APP</a>
+<a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="returnvalue">SeahorseContext</span></a> *     <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-for-app" title="seahorse_context_for_app ()">seahorse_context_for_app</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="returnvalue">SeahorseContext</span></a> *     <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-new" title="seahorse_context_new ()">seahorse_context_new</a>              (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> flags</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-destroy" title="seahorse_context_destroy ()">seahorse_context_destroy</a>            (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);
+#define             <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-is-daemon" title="seahorse_context_is_daemon()">seahorse_context_is_daemon</a>          (ctx)
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-add-source" title="seahorse_context_add_source ()">seahorse_context_add_source</a>         (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-take-source" title="seahorse_context_take_source ()">seahorse_context_take_source</a>        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-remove-source" title="seahorse_context_remove_source ()">seahorse_context_remove_source</a>      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);
+<a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="returnvalue">SeahorseSource</span></a> *      <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-find-source" title="seahorse_context_find_source ()">seahorse_context_find_source</a>      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);
+<a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *              <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-find-sources" title="seahorse_context_find_sources ()">seahorse_context_find_sources</a>     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);
+<a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="returnvalue">SeahorseSource</span></a> *      <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-remote-source" title="seahorse_context_remote_source ()">seahorse_context_remote_source</a>    (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-add-object" title="seahorse_context_add_object ()">seahorse_context_add_object</a>         (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-take-object" title="seahorse_context_take_object ()">seahorse_context_take_object</a>        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-get-count" title="seahorse_context_get_count ()">seahorse_context_get_count</a>          (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);
+struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-get-object" title="seahorse_context_get_object ()">seahorse_context_get_object</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>);
+<a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-get-objects" title="seahorse_context_get_objects ()">seahorse_context_get_objects</a>      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);
+struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-find-object" title="seahorse_context_find_object ()">seahorse_context_find_object</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);
+<a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-find-objects" title="seahorse_context_find_objects ()">seahorse_context_find_objects</a>     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseUsage" title="enum SeahorseUsage"><span class="type">SeahorseUsage</span></a> usage</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);
+<a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-find-objects-full" title="seahorse_context_find_objects_full ()">seahorse_context_find_objects_full</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObjectPredicate</span> *skpred</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-for-objects-full" title="seahorse_context_for_objects_full ()">seahorse_context_for_objects_full</a>   (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObjectPredicate</span> *skpred</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseObjectFunc" title="SeahorseObjectFunc ()"><span class="type">SeahorseObjectFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-verify-objects" title="seahorse_context_verify_objects ()">seahorse_context_verify_objects</a>     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-remove-object" title="seahorse_context_remove_object ()">seahorse_context_remove_object</a>      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);
+<a class="link" href="libseahorse-seahorse-dns-sd.html#SeahorseServiceDiscovery" title="struct SeahorseServiceDiscovery"><span class="returnvalue">SeahorseServiceDiscovery</span></a> * <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-get-discovery" title="seahorse_context_get_discovery ()">seahorse_context_get_discovery</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);
+struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> * <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-get-default-key" title="seahorse_context_get_default_key ()">seahorse_context_get_default_key</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-refresh-auto" title="seahorse_context_refresh_auto ()">seahorse_context_refresh_auto</a>       (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);
+<a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-search-remote" title="seahorse_context_search_remote ()">seahorse_context_search_remote</a>    (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>);
+<a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-transfer-objects" title="seahorse_context_transfer_objects ()">seahorse_context_transfer_objects</a> (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *objs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *to</code></em>);
+<a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-retrieve-objects" title="seahorse_context_retrieve_objects ()">seahorse_context_retrieve_objects</a> (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *ids</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *to</code></em>);
+<a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-discover-objects" title="seahorse_context_discover_objects ()">seahorse_context_discover_objects</a> (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *ids</code></em>);
+struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-object-from-dbus" title="seahorse_context_object_from_dbus ()">seahorse_context_object_from_dbus</a>
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dbusid</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-object-to-dbus" title="seahorse_context_object_to_dbus ()">seahorse_context_object_to_dbus</a>   (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *               <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-id-to-dbus" title="seahorse_context_id_to_dbus ()">seahorse_context_id_to_dbus</a>       (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>);
+<a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              (<a class="link" href="libseahorse-seahorse-context.html#SeahorseCanonizeFunc" title="SeahorseCanonizeFunc ()">*SeahorseCanonizeFunc</a>)             (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);
+<a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-canonize-id" title="seahorse_context_canonize_id ()">seahorse_context_canonize_id</a>        (<em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libseahorse-seahorse-context.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libseahorse-seahorse-context.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="SeahorseContextPrivate"></a><h3>SeahorseContextPrivate</h3>
+<pre class="programlisting">typedef struct _SeahorseContextPrivate SeahorseContextPrivate;</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SeahorseContext"></a><h3>struct SeahorseContext</h3>
+<pre class="programlisting">struct SeahorseContext {
+	GObject parent;
+
+	gboolean is_daemon;
+};
+</pre>
+<p>
+This is where all the action in a Seahorse process comes together.
+</p>
+<p>
+- Usually there's only one <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> per process created by passing
+  <code class="literal">SEAHORSE_CONTEXT_APP</code> to <a class="link" href="libseahorse-seahorse-context.html#seahorse-context-new" title="seahorse_context_new ()"><code class="function">seahorse_context_new()</code></a>, and accessed via
+  the <a class="link" href="libseahorse-seahorse-context.html#SCTX-APP:CAPS" title="SCTX_APP"><code class="literal">SCTX_APP</code></a> macro.
+- Retains the list of all valid struct _SeahorseObject objects.
+- Has a collection of <a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> objects which add objects to the
+  <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>.
+</p>
+<p>
+Signals:
+  added: A object was added to the context.
+  removed: A object was removed from the context.
+  changed: A object changed.
+  destroy: The context was destroyed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject"><span class="type">GObject</span></a> <em class="structfield"><code><a name="SeahorseContext.parent"></a>parent</code></em>;</span></p></td>
+<td>The parent <span class="type">GtkObject</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> <em class="structfield"><code><a name="SeahorseContext.is-daemon"></a>is_daemon</code></em>;</span></p></td>
+<td>a <a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> indicating whether the context is being used in a
+program that is daemonized</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SeahorseObjectFunc"></a><h3>SeahorseObjectFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*SeahorseObjectFunc)               (<em class="parameter"><code><span class="type">struct _SeahorseObject</span> *obj</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SCTX-APP:CAPS"></a><h3>SCTX_APP</h3>
+<pre class="programlisting">#define             SCTX_APP()                          (seahorse_context_for_app ())
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-for-app"></a><h3>seahorse_context_for_app ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="returnvalue">SeahorseContext</span></a> *     seahorse_context_for_app          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the application main context as <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-new"></a><h3>seahorse_context_new ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="returnvalue">SeahorseContext</span></a> *     seahorse_context_new              (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> flags</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>.
+Flags:
+SEAHORSE_CONTEXT_DAEMON: internal daemon flag will be set
+SEAHORSE_CONTEXT_APP: will support DNS-SD discovery and remote key sources
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>flags</code></em> :</span></p></td>
+<td>Flags define the type of the context to create.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The new context</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-destroy"></a><h3>seahorse_context_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_destroy            (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);</pre>
+<p>
+Emits the destroy signal for <em class="parameter"><code>sctx</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>
+<a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to destroy</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-is-daemon"></a><h3>seahorse_context_is_daemon()</h3>
+<pre class="programlisting">#define             seahorse_context_is_daemon(ctx)     ((ctx)-&gt;is_daemon)
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-add-source"></a><h3>seahorse_context_add_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_add_source         (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>sksrc</code></em> to the <em class="parameter"><code>sctx</code></em>. If <em class="parameter"><code>sctx</code></em> is NULL it will use the application context.
+It also adds a reference to the new added source.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A context to add a source to, can be NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sksrc</code></em> :</span></p></td>
+<td>The source to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-take-source"></a><h3>seahorse_context_take_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_take_source        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>sksrc</code></em> to the <em class="parameter"><code>sctx</code></em>. If <em class="parameter"><code>sctx</code></em> is NULL it will use the application context.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A context to add a source to, can be NULL</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sksrc</code></em> :</span></p></td>
+<td>The source to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-remove-source"></a><h3>seahorse_context_remove_source ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_remove_source      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);</pre>
+<p>
+Remove all objects from source <em class="parameter"><code>sksrc</code></em> from the <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> <em class="parameter"><code>sctx</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>Context to remove objects from</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sksrc</code></em> :</span></p></td>
+<td>The source to remove</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-find-source"></a><h3>seahorse_context_find_source ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="returnvalue">SeahorseSource</span></a> *      seahorse_context_find_source      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);</pre>
+<p>
+Finds a context where <em class="parameter"><code>ktype</code></em> and <em class="parameter"><code>location</code></em> match
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>A seahorse tag (SEAHORSE_TAG_INVALID is wildcard)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
+<td>A location (SEAHORSE_LOCATION_INVALID is wildcard)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The context</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-find-sources"></a><h3>seahorse_context_find_sources ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *              seahorse_context_find_sources     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>the context to work with</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>the type of the key to match. Or SEAHORSE_TAG_INVALID</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
+<td>the location to match. Or SEAHORSE_LOCATION_INVALID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of seahorse sources matching <em class="parameter"><code>ktype</code></em> and <em class="parameter"><code>location</code></em> as <a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a>. Must
+be freed with <a href="../../glib/unstable/glib-Singly-Linked-Lists.html#g-slist-free"><span class="type">g_slist_free</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-remote-source"></a><h3>seahorse_context_remote_source ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="returnvalue">SeahorseSource</span></a> *      seahorse_context_remote_source    (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *uri</code></em>);</pre>
+<p>
+Add a remote source to the Context <em class="parameter"><code>sctx</code></em>. If it already exists, the source
+object will be returned.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>the context to add the source to (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>An URI to add as remote source</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> with this URI</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-add-object"></a><h3>seahorse_context_add_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_add_object         (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>sobj</code></em> to <em class="parameter"><code>sctx</code></em>. References <em class="parameter"><code>sobj</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The context to add the object to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sobj</code></em> :</span></p></td>
+<td>The object to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-take-object"></a><h3>seahorse_context_take_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_take_object        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);</pre>
+<p>
+Adds <em class="parameter"><code>sobj</code></em> to <em class="parameter"><code>sctx</code></em>. If a similar object exists, it will be overwritten.
+Emits the "added" signal.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> context to add an object to</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sobj</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="type">SeahorseObject</span></a> object to add</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-get-count"></a><h3>seahorse_context_get_count ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               seahorse_context_get_count          (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The context. If NULL is passed it will take the application context</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The number of objects in this context</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-get-object"></a><h3>seahorse_context_get_object ()</h3>
+<pre class="programlisting">struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      seahorse_context_get_object
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>);</pre>
+<p>
+Finds the object with the source <em class="parameter"><code>sksrc</code></em> and <em class="parameter"><code>id</code></em> in the context and returns it
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to look in</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sksrc</code></em> :</span></p></td>
+<td>The source to match</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>the id to match</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The matching object</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-get-objects"></a><h3>seahorse_context_get_objects ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               seahorse_context_get_objects      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *sksrc</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> of objects from <em class="parameter"><code>self</code></em> that match the source <em class="parameter"><code>source</code></em>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-find-object"></a><h3>seahorse_context_find_object ()</h3>
+<pre class="programlisting">struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      seahorse_context_find_object
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);</pre>
+<p>
+Finds the object with the id <em class="parameter"><code>id</code></em> at location <em class="parameter"><code>location</code></em> or better.
+Local is better than remote...
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to work with (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The id to look for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
+<td>The location to look for (at least)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the matching <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="type">SeahorseObject</span></a> or NULL if none is found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-find-objects"></a><h3>seahorse_context_find_objects ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               seahorse_context_find_objects     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseUsage" title="enum SeahorseUsage"><span class="type">SeahorseUsage</span></a> usage</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-types.html#SeahorseLocation" title="enum SeahorseLocation"><span class="type">SeahorseLocation</span></a> location</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to look in (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>The tag to look for</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>usage</code></em> :</span></p></td>
+<td>the usage (<a class="link" href="libseahorse-seahorse-types.html#SeahorseUsage" title="enum SeahorseUsage"><span class="type">SeahorseUsage</span></a>)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>location</code></em> :</span></p></td>
+<td>the location to look for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of matching objects</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-find-objects-full"></a><h3>seahorse_context_find_objects_full ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               seahorse_context_find_objects_full
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObjectPredicate</span> *skpred</code></em>);</pre>
+<p>
+Finds matching objects and adds them to the list
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to match objects in</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> list containing the matching objects</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-for-objects-full"></a><h3>seahorse_context_for_objects_full ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_for_objects_full   (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObjectPredicate</span> *skpred</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseObjectFunc" title="SeahorseObjectFunc ()"><span class="type">SeahorseObjectFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Calls <em class="parameter"><code>func</code></em> for every object in <em class="parameter"><code>self</code></em> matching the criteria in <em class="parameter"><code>pred</code></em>. <em class="parameter"><code>user_data</code></em>
+is passed to this function
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>
+<a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to work with</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>Function to call for matching objects</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Data to pass to this function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-verify-objects"></a><h3>seahorse_context_verify_objects ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_verify_objects     (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *self</code></em>);</pre>
+<p>
+Verifies each key in the given context.
+An assertion handles failure.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> to verify</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-remove-object"></a><h3>seahorse_context_remove_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_remove_object      (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);</pre>
+<p>
+Removes the object from the context
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sobj</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="type">SeahorseObject</span></a> to remove</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-get-discovery"></a><h3>seahorse_context_get_discovery ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-seahorse-dns-sd.html#SeahorseServiceDiscovery" title="struct SeahorseServiceDiscovery"><span class="returnvalue">SeahorseServiceDiscovery</span></a> * seahorse_context_get_discovery
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">seahorse_context_get_discovery</code> is deprecated and should not be used in newly-written code. No replacement</p>
+</div>
+<p>
+Gets the Service Discovery object for this context.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>
+<a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The Service Discovery object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-get-default-key"></a><h3>seahorse_context_get_default_key ()</h3>
+<pre class="programlisting">struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> * seahorse_context_get_default_key
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">seahorse_context_get_default_key</code> is deprecated and should not be used in newly-written code. No replacement</p>
+</div>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>Current <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the secret key that's the default key</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-refresh-auto"></a><h3>seahorse_context_refresh_auto ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                seahorse_context_refresh_auto       (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>);</pre>
+<p>
+Starts a new refresh operation and emits the "refreshing" signal
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> (can be NULL)</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-search-remote"></a><h3>seahorse_context_search_remote ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   seahorse_context_search_remote    (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *search</code></em>);</pre>
+<p>
+Searches for the key matching <em class="parameter"><code>search</code></em> o the remote servers
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>search</code></em> :</span></p></td>
+<td>a keyword (name, email address...) to search for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The created search operation</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-transfer-objects"></a><h3>seahorse_context_transfer_objects ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   seahorse_context_transfer_objects (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> *objs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *to</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>to</code></em> :</span></p></td>
+<td>a source to import to (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A transfer operation</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-retrieve-objects"></a><h3>seahorse_context_retrieve_objects ()</h3>
+<pre class="programlisting"><a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="returnvalue">SeahorseOperation</span></a> *   seahorse_context_retrieve_objects (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *ids</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a> *to</code></em>);</pre>
+<p>
+Copies remote objects to a local source
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <span class="type">SeahorsecContext</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>The type of the keys to transfer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ids</code></em> :</span></p></td>
+<td>The key ids to transfer</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>to</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-source.html#SeahorseSource" title="SeahorseSource"><span class="type">SeahorseSource</span></a>. If NULL, it will use <em class="parameter"><code>ktype</code></em> to find a source</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="libseahorse-SeahorseOperation.html#SeahorseOperation" title="SeahorseOperation"><span class="type">SeahorseOperation</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-discover-objects"></a><h3>seahorse_context_discover_objects ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *               seahorse_context_discover_objects (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *ids</code></em>);</pre>
+<p>
+Downloads a list of keys from the keyserver
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>the context to work with (can be NULL)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>the type of key to discover</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The imported keys</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-object-from-dbus"></a><h3>seahorse_context_object_from_dbus ()</h3>
+<pre class="programlisting">struct <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="returnvalue">_SeahorseObject</span></a> *      seahorse_context_object_from_dbus
+                                                        (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *dbusid</code></em>);</pre>
+<p>
+Finds an object basing on the <em class="parameter"><code>key</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A <a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <a class="link" href="libseahorse-seahorse-object.html#SeahorseObject" title="struct SeahorseObject"><span class="type">SeahorseObject</span></a> found. NULL on not found.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-object-to-dbus"></a><h3>seahorse_context_object_to_dbus ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *               seahorse_context_object_to_dbus   (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><span class="type">struct _SeahorseObject</span> *sobj</code></em>);</pre>
+<p>
+Translates an object to a string id
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>A seahorse context</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sobj</code></em> :</span></p></td>
+<td>the object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The string id of the object. Free with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><span class="type">g_free</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-id-to-dbus"></a><h3>seahorse_context_id_to_dbus ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *               seahorse_context_id_to_dbus       (<em class="parameter"><code><a class="link" href="libseahorse-seahorse-context.html#SeahorseContext" title="struct SeahorseContext"><span class="type">SeahorseContext</span></a> *sctx</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> id</code></em>);</pre>
+<p>
+Translates an id to a dbus compatible string
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sctx</code></em> :</span></p></td>
+<td>ignored</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>the id to translate</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string, free with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><span class="type">g_free</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="SeahorseCanonizeFunc"></a><h3>SeahorseCanonizeFunc ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              (*SeahorseCanonizeFunc)             (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="seahorse-context-canonize-id"></a><h3>seahorse_context_canonize_id ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>              seahorse_context_canonize_id        (<em class="parameter"><code><a href="../../glib/unstable/glib-Quarks.html#GQuark"><span class="type">GQuark</span></a> ktype</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *id</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ktype</code></em> :</span></p></td>
+<td>a keytype defining the canonization function</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The id to canonize</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A canonized GQuark</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.17</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libseahorse-seahorse-context.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

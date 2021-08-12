@@ -1,0 +1,647 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Tracker Extract Library Reference Manual: Data utilities</title><link href="index.html" rel="home" title="Tracker Extract Library Reference Manual"></link><link href="ch02.html" rel="up" title="Core API"></link><link href="libtracker-extract-TrackerExtractInfo.html" rel="prev" title="TrackerExtractInfo"></link><link href="ch03.html" rel="next" title="Common Embedded Support API"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libtracker-extract-Data-utilities.html#container">Go to page content</a></li><li><a href="libtracker-extract-Data-utilities.html#top_bar">Go to main menu</a></li><li><a href="libtracker-extract-Data-utilities.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="10" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="libtracker-extract-Data-utilities.html#">Top</a><span id="nav_description"> <span class="dim">|</span> 
+                  <a class="shortcut" href="libtracker-extract-Data-utilities.html#libtracker-extract-Data-utilities.description">Description</a></span><span id="nav_hierarchy"> <span class="dim">|</span> 
+                  <a class="shortcut" href="libtracker-extract-Data-utilities.html#libtracker-extract-Data-utilities.object-hierarchy">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libtracker-extract-TrackerExtractInfo.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="ch03.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libtracker-extract-Data-utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libtracker-extract-Data-utilities.top_of_page"></a>Data utilities</span></h2>
+<p>Data utilities — Functions for coalescing, merging, date
+handling and normalizing</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.stability-level"></a><h2>Stability Level</h2>
+Stable, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-coalesce" title="tracker_coalesce ()">tracker_coalesce</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-coalesce-strip" title="tracker_coalesce_strip ()">tracker_coalesce_strip</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-merge" title="tracker_merge ()">tracker_merge</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-merge-const" title="tracker_merge_const ()">tracker_merge_const</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gssize</span>
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-getline" title="tracker_getline ()">tracker_getline</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-text-normalize" title="tracker_text_normalize ()">tracker_text_normalize</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-text-validate-utf8" title="tracker_text_validate_utf8 ()">tracker_text_validate_utf8</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-date-format-to-iso8601" title="tracker_date_format_to_iso8601 ()">tracker_date_format_to_iso8601</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-date-guess" title="tracker_date_guess ()">tracker_date_guess</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libtracker-extract-Data-utilities.html#tracker-keywords-parse" title="tracker_keywords_parse ()">tracker_keywords_parse</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen"></pre>
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libtracker-extract/tracker-extract.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.description"></a><h2>Description</h2>
+<p>This API is provided to facilitate common more general functions
+which extractors may find useful. These functions are also used by
+the in-house extractors quite frequently.</p>
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="tracker-coalesce"></a><h3>tracker_coalesce ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_coalesce (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_values</code></em>,
+                  <em class="parameter"><code>...</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">tracker_coalesce</code> has been deprecated since version 0.10 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="libtracker-extract-Data-utilities.html#tracker-coalesce-strip" title="tracker_coalesce_strip ()"><code class="function">tracker_coalesce_strip()</code></a> instead.</p>
+</div>
+<p>This function iterates through a series of string pointers passed
+using @... and returns the first which is not <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, not empty
+(i.e. "") and not comprised of one or more spaces (i.e. " ").</p>
+<p>The returned value is stripped using <a href="../../glib/unstable/glib-String-Utility-Functions.html#g-strstrip"><code class="function">g_strstrip()</code></a>. All other values
+supplied are freed. It is MOST important NOT to pass constant
+string pointers to this function!</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.2.8"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p>the number of <em class="parameter"><code>Varargs</code></em>
+supplied</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>the string pointers to coalesce</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.2.9"></a><h4>Returns</h4>
+<p> the first string pointer from those provided which
+matches, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-coalesce-strip"></a><h3>tracker_coalesce_strip ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_coalesce_strip (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_values</code></em>,
+                        <em class="parameter"><code>...</code></em>);</pre>
+<p>This function iterates through a series of string pointers passed
+using @... and returns the first which is not <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>, not empty
+(i.e. "") and not comprised of one or more spaces (i.e. " ").</p>
+<p>The returned value is stripped using <a href="../../glib/unstable/glib-String-Utility-Functions.html#g-strstrip"><code class="function">g_strstrip()</code></a>. It is MOST
+important NOT to pass constant string pointers to this function!</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.3.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p>the number of @... supplied</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>the string pointers to coalesce</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.3.7"></a><h4>Returns</h4>
+<p> the first string pointer from those provided which
+matches, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-merge"></a><h3>tracker_merge ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_merge (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *delimiter</code></em>,
+               <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_values</code></em>,
+               <em class="parameter"><code>...</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">tracker_merge</code> has been deprecated since version 0.10 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="libtracker-extract-Data-utilities.html#tracker-merge-const" title="tracker_merge_const ()"><code class="function">tracker_merge_const()</code></a> instead.</p>
+</div>
+<p>This function iterates through a series of string pointers passed
+using @... and returns a newly allocated string of the merged
+strings. All passed strings are freed (don't pass const values)/</p>
+<p>The <em class="parameter"><code>delimiter</code></em>
+ can be <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. If specified, it will be used in
+between each merged string in the result.</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.4.8"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>delimiter</p></td>
+<td class="parameter_description"><p>the delimiter to use when merging</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p>the number of @... supplied</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>the string pointers to merge</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.4.9"></a><h4>Returns</h4>
+<p> a newly-allocated string holding the result which should
+be freed with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when finished with, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-merge-const"></a><h3>tracker_merge_const ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_merge_const (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *delimiter</code></em>,
+                     <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> n_values</code></em>,
+                     <em class="parameter"><code>...</code></em>);</pre>
+<p>This function iterates through a series of string pointers passed
+using @... and returns a newly allocated string of the merged
+strings.</p>
+<p>The <em class="parameter"><code>delimiter</code></em>
+ can be <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. If specified, it will be used in
+between each merged string in the result.</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.5.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>delimiter</p></td>
+<td class="parameter_description"><p>the delimiter to use when merging</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_values</p></td>
+<td class="parameter_description"><p>the number of @... supplied</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>the string pointers to merge</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.5.7"></a><h4>Returns</h4>
+<p> a newly-allocated string holding the result which should
+be freed with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when finished with, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-getline"></a><h3>tracker_getline ()</h3>
+<pre class="programlisting"><span class="returnvalue">gssize</span>
+tracker_getline (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **lineptr</code></em>,
+                 <em class="parameter"><code><span class="type">gsize</span> *n</code></em>,
+                 <em class="parameter"><code><span class="type">FILE</span> *stream</code></em>);</pre>
+<p>Reads an entire line from stream, storing the address of the buffer
+containing  the  text into *lineptr.  The buffer is null-terminated
+and includes the newline character, if one was found.</p>
+<p>Read GNU <code class="function">getline()</code>'s manpage for more information</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.6.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>lineptr</p></td>
+<td class="parameter_description"><p>Buffer to write into</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n</p></td>
+<td class="parameter_description"><p>Max bytes of linebuf</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>stream</p></td>
+<td class="parameter_description"><p>Filestream to read from</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.6.7"></a><h4>Returns</h4>
+<p> the number of characters read, including the delimiter
+character, but not including the terminating <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> byte. This value
+can be used to handle embedded <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> bytes in the line read. Upon
+failure, -1 is returned.</p>
+<p></p>
+</div>
+<p class="since">Since 0.10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-text-normalize"></a><h3>tracker_text_normalize ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_text_normalize (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                        <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> max_words</code></em>,
+                        <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> *n_words</code></em>);</pre>
+<div class="warning">
+<p><code class="literal">tracker_text_normalize</code> has been deprecated since version 0.10 and should not be used in newly-written code.</p>
+<p>Use <a class="link" href="libtracker-extract-Data-utilities.html#tracker-text-validate-utf8" title="tracker_text_validate_utf8 ()"><code class="function">tracker_text_validate_utf8()</code></a> instead.</p>
+</div>
+<p>This function iterates through <em class="parameter"><code>text</code></em>
+ checking for UTF-8 validity
+using <a href="../../glib/unstable/glib-Unicode-Manipulation.html#g-utf8-get-char-validated"><code class="function">g_utf8_get_char_validated()</code></a>. For each character found, the
+<a href="../../glib/unstable/glib-Unicode-Manipulation.html#GUnicodeType"><code class="literal">GUnicodeType</code></a> is checked to make sure it is one fo the following
+values:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p><code class="literal">G_UNICODE_LOWERCASE_LETTER</code></p></li>
+<li class="listitem"><p><code class="literal">G_UNICODE_MODIFIER_LETTER</code></p></li>
+<li class="listitem"><p><code class="literal">G_UNICODE_OTHER_LETTER</code></p></li>
+<li class="listitem"><p><code class="literal">G_UNICODE_TITLECASE_LETTER</code></p></li>
+<li class="listitem"><p><code class="literal">G_UNICODE_UPPERCASE_LETTER</code></p></li>
+</ul></div>
+<p>All other symbols, punctuation, marks, numbers and separators are
+stripped. A regular space (i.e. " ") is used to separate the words
+in the returned string.</p>
+<p>The <em class="parameter"><code>n_words</code></em>
+ can be <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. If specified, it will be populated with
+the number of words that were normalized in the result.</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.7.10"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p>the text to normalize</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_words</p></td>
+<td class="parameter_description"><p>the maximum words of <em class="parameter"><code>text</code></em>
+to normalize</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_words</p></td>
+<td class="parameter_description"><p>the number of words actually normalized</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.7.11"></a><h4>Returns</h4>
+<p> a newly-allocated string holding the result which should
+be freed with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when finished with, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-text-validate-utf8"></a><h3>tracker_text_validate_utf8 ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+tracker_text_validate_utf8 (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *text</code></em>,
+                            <em class="parameter"><code><span class="type">gssize</span> text_len</code></em>,
+                            <em class="parameter"><code><a href="../../glib/unstable/glib-Strings.html#GString"><span class="type">GString</span></a> **str</code></em>,
+                            <em class="parameter"><code><span class="type">gsize</span> *valid_len</code></em>);</pre>
+<div class="warning"><p><code class="literal">tracker_text_validate_utf8</code> is deprecated and should not be used in newly-written code.</p></div>
+<p>This function iterates through <em class="parameter"><code>text</code></em>
+ checking for UTF-8 validity
+using <a href="../../glib/unstable/glib-Unicode-Manipulation.html#g-utf8-validate"><code class="function">g_utf8_validate()</code></a>, appends the first chunk of valid characters
+to <em class="parameter"><code>str</code></em>
+, and gives the number of valid UTF-8 bytes in <em class="parameter"><code>valid_len</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.8.7"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p>the text to validate</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>text_len</p></td>
+<td class="parameter_description"><p>length of <em class="parameter"><code>text</code></em>
+, or -1 if NUL-terminated</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>str</p></td>
+<td class="parameter_description"><p>the string where to place the validated UTF-8 characters, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if
+not needed.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>valid_len</p></td>
+<td class="parameter_description"><p>Output number of valid UTF-8 bytes found, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not needed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.8.8"></a><h4>Returns</h4>
+<p> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if some bytes were found to be valid, <a href="../../glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise.</p>
+<p></p>
+</div>
+<p class="since">Since 0.10</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-date-format-to-iso8601"></a><h3>tracker_date_format_to_iso8601 ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_date_format_to_iso8601 (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *date_string</code></em>,
+                                <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *format</code></em>);</pre>
+<p>This function uses <code class="function">strptime()</code> to create a time tm structure using
+<em class="parameter"><code>date_string</code></em>
+ and <em class="parameter"><code>format</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>date_string</p></td>
+<td class="parameter_description"><p>the date in a string pointer</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>format</p></td>
+<td class="parameter_description"><p>the format of the <em class="parameter"><code>date_string</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.9.6"></a><h4>Returns</h4>
+<p> a newly-allocated string with the time represented in
+ISO8601 date format which should be freed with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when
+finished with, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-date-guess"></a><h3>tracker_date_guess ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+tracker_date_guess (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *date_string</code></em>);</pre>
+<p>This function uses a number of methods to try and guess the date
+held in <em class="parameter"><code>date_string</code></em>
+. The <em class="parameter"><code>date_string</code></em>
+ must be at least 5
+characters in length or longer for any guessing to be attempted.
+Some of the string formats guessed include:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>"YYYY-MM-DD" (Simple format)</p></li>
+<li class="listitem"><p>"20050315113224-08'00'" (PDF format)</p></li>
+<li class="listitem"><p>"20050216111533Z" (PDF format)</p></li>
+<li class="listitem"><p>"Mon Feb  9 10:10:00 2004" (Microsoft Office format)</p></li>
+<li class="listitem"><p>"2005:04:29 14:56:54" (Exif format)</p></li>
+<li class="listitem"><p>"YYYY-MM-DDThh:mm:ss.ff+zz:zz</p></li>
+</ul></div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.10.6"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>date_string</p></td>
+<td class="parameter_description"><p>the date in a string pointer</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.10.7"></a><h4>Returns</h4>
+<p> a newly-allocated string with the time represented in
+ISO8601 date format which should be freed with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a> when
+finished with, otherwise <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<p></p>
+</div>
+<p class="since">Since 0.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="tracker-keywords-parse"></a><h3>tracker_keywords_parse ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+tracker_keywords_parse (<em class="parameter"><code><a href="../../glib/unstable/glib-Pointer-Arrays.html#GPtrArray"><span class="type">GPtrArray</span></a> *store</code></em>,
+                        <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *keywords</code></em>);</pre>
+<p>Parses a keywords line into store, avoiding duplicates and stripping leading
+and trailing spaces from keywords. Allowed delimiters are , and ;</p>
+<div class="refsect3">
+<a name="id-1.3.3.4.8.11.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>store</p></td>
+<td class="parameter_description"><p>Array where to store the keywords</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>keywords</p></td>
+<td class="parameter_description"><p>Keywords line to parse</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since 0.10</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libtracker-extract-Data-utilities.other_details"></a><h2>Types and Values</h2>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.20</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libtracker-extract-Data-utilities.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

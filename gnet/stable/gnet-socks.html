@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SOCKS: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-ipv6.html" title="IPv6">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-socks.html#container">Go to page content</a></li><li><a href="gnet-socks.html#top_bar">Go to main menu</a></li><li><a href="gnet-socks.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-socks.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-socks.html#gnet-socks.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-ipv6.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><img src="right-insensitive.png" width="16" height="16" border="0"></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-socks"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">SOCKS</span></h2>
+<p>SOCKS — SOCKS proxy</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+#define             <a class="link" href="gnet-socks.html#GNET-SOCKS-PORT:CAPS">GNET_SOCKS_PORT</a>
+#define             <a class="link" href="gnet-socks.html#GNET-SOCKS-VERSION:CAPS">GNET_SOCKS_VERSION</a>
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-socks.html#gnet-socks-get-enabled">gnet_socks_get_enabled</a>              (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-socks.html#gnet-socks-set-enabled">gnet_socks_set_enabled</a>              (<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enabled);
+<a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          <a class="link" href="gnet-socks.html#gnet-socks-get-server">gnet_socks_get_server</a>               (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-socks.html#gnet-socks-set-server">gnet_socks_set_server</a>               (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-socks.html#gnet-socks-get-version">gnet_socks_get_version</a>              (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-socks.html#gnet-socks-set-version">gnet_socks_set_version</a>              (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> version);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.19.4"></a><h2>Description</h2>
+<p>
+SOCKS is a TCP proxy protocol.  Typically, a host behind a firewall
+uses SOCKS to connect to hosts outside the firewall via a SOCKS proxy
+server.  To open a TCP connection, a SOCKS client connects to a SOCKS
+server and the SOCKS server connects to the destination.  Data is then
+forwarded between the client and the destination by the SOCKS server.
+GNet supports SOCKS versions 4 and 5.  Version 5 includes support for
+server sockets.
+</p>
+<p>
+SOCKS is used if the SOCKS_SERVER environment variable is set or
+<a class="link" href="gnet-socks.html#gnet-socks-set-server"><code class="function">gnet_socks_set_server()</code></a> is called to set the SOCKS server's address.
+To disable SOCKS support, call <a class="link" href="gnet-socks.html#gnet-socks-set-enabled"><code class="function">gnet_socks_set_enabled()</code></a> and pass
+FALSE.  The SOCKS_VERSION environment variable controls which SOCKS
+version is used.  The default is version 5.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.19.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.19.5.2"></a><h3>
+<a name="GNET-SOCKS-PORT:CAPS"></a>GNET_SOCKS_PORT</h3>
+<pre class="programlisting">#define GNET_SOCKS_PORT 1080
+</pre>
+<p>
+Default port for the SOCKS protocol.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.3"></a><h3>
+<a name="GNET-SOCKS-VERSION:CAPS"></a>GNET_SOCKS_VERSION</h3>
+<pre class="programlisting">#define GNET_SOCKS_VERSION 5
+</pre>
+<p>
+Default version of the SOCKS protocol.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.4"></a><h3>
+<a name="gnet-socks-get-enabled"></a>gnet_socks_get_enabled ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_socks_get_enabled              (void);</pre>
+<p>
+Determines whether SOCKS support is enabled.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if SOCKS is enabled, FALSE otherwise.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.5"></a><h3>
+<a name="gnet-socks-set-enabled"></a>gnet_socks_set_enabled ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_socks_set_enabled              (<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK> enabled);</pre>
+<p>
+Sets whether SOCKS support is enabled.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>enabled</code></em> :</span></p></td>
+<td> is SOCKS support enabled?
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.6"></a><h3>
+<a name="gnet-socks-get-server"></a>gnet_socks_get_server ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          gnet_socks_get_server               (void);</pre>
+<p>
+Gets the address of the SOCKS server (regardless of whether SOCKS
+ is enabled).  This function checks the <a class="link" href="gnet-socks.html#gnet-socks-set-server"><code class="function">gnet_socks_set_server()</code></a>
+ value and, if not set, the SOCKS_SERVER environment variable.  The
+ SOCKS_SERVER enviroment variable should be in the form HOSTNAME or
+ HOSTNAME:PORT.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a copy of the address; NULL if there is no server.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.7"></a><h3>
+<a name="gnet-socks-set-server"></a>gnet_socks_set_server ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_socks_set_server               (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *inetaddr);</pre>
+<p>
+Sets the address of the SOCKS server.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>inetaddr</code></em> :</span></p></td>
+<td> SOCKS server address
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.8"></a><h3>
+<a name="gnet-socks-get-version"></a>gnet_socks_get_version ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_socks_get_version              (void);</pre>
+<p>
+Gets the SOCKS version GNet uses.  This function checks the
+ <a class="link" href="gnet-socks.html#gnet-socks-set-version"><code class="function">gnet_socks_set_version()</code></a> value and, if not set, the SOCKS_VERSION
+ environment variable.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the SOCKS version.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.19.5.9"></a><h3>
+<a name="gnet-socks-set-version"></a>gnet_socks_set_version ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_socks_set_version              (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> version);</pre>
+<p>
+Sets the SOCKS version GNet uses.  GNet only supports versions 4
+ and 5.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>version</code></em> :</span></p></td>
+<td> SOCKS version
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-socks.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

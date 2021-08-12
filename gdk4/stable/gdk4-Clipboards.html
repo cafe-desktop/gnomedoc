@@ -1,0 +1,1238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Clipboards: GDK 4 Reference Manual</title><link href="index.html" rel="home" title="GDK 4 Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="gdk4-Keyboard-Handling.html" rel="prev" title="Key Values"></link><link href="gdk4-Drag-and-Drop.html" rel="next" title="Drag And Drop"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gdk4-Clipboards.html#container">Go to page content</a></li><li><a href="gdk4-Clipboards.html#top_bar">Go to main menu</a></li><li><a href="gdk4-Clipboards.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="gdk4-Clipboards.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="gdk4-Clipboards.html#gdk4-Clipboards.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="gdk4-Clipboards.html#gdk4-Clipboards.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="gdk4-Clipboards.html#gdk4-Clipboards.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="gdk4-Clipboards.html#gdk4-Clipboards.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="gdk4-Keyboard-Handling.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="gdk4-Drag-and-Drop.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="gdk4-Clipboards"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gdk4-Clipboards.top_of_page"></a>Clipboards</span></h2>
+<p>Clipboards — Share data between applications for Copy-and-Paste</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_proto_type" width="150px"></col>
+<col class="functions_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="returnvalue">GdkDisplay</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-get-display" title="gdk_clipboard_get_display ()">gdk_clipboard_get_display</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="gdk4-Content-Formats.html#GdkContentFormats"><span class="returnvalue">GdkContentFormats</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-get-formats" title="gdk_clipboard_get_formats ()">gdk_clipboard_get_formats</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-is-local" title="gdk_clipboard_is_local ()">gdk_clipboard_is_local</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="returnvalue">GdkContentProvider</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-get-content" title="gdk_clipboard_get_content ()">gdk_clipboard_get_content</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-store-async" title="gdk_clipboard_store_async ()">gdk_clipboard_store_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-store-finish" title="gdk_clipboard_store_finish ()">gdk_clipboard_store_finish</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-async" title="gdk_clipboard_read_async ()">gdk_clipboard_read_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GInputStream</span> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-finish" title="gdk_clipboard_read_finish ()">gdk_clipboard_read_finish</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-async" title="gdk_clipboard_read_value_async ()">gdk_clipboard_read_value_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <span class="returnvalue">GValue</span> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-finish" title="gdk_clipboard_read_value_finish ()">gdk_clipboard_read_value_finish</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-texture-async" title="gdk_clipboard_read_texture_async ()">gdk_clipboard_read_texture_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="gdk4-Textures.html#GdkTexture"><span class="returnvalue">GdkTexture</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-texture-finish" title="gdk_clipboard_read_texture_finish ()">gdk_clipboard_read_texture_finish</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-text-async" title="gdk_clipboard_read_text_async ()">gdk_clipboard_read_text_async</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">char</span> *
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-text-finish" title="gdk_clipboard_read_text_finish ()">gdk_clipboard_read_text_finish</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-content" title="gdk_clipboard_set_content ()">gdk_clipboard_set_content</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set" title="gdk_clipboard_set ()">gdk_clipboard_set</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-valist" title="gdk_clipboard_set_valist ()">gdk_clipboard_set_valist</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-value" title="gdk_clipboard_set_value ()">gdk_clipboard_set_value</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-text" title="gdk_clipboard_set_text ()">gdk_clipboard_set_text</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-texture" title="gdk_clipboard_set_texture ()">gdk_clipboard_set_texture</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> *</td>
+<td class="property_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard--content" title="The “content” property">content</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</td>
+<td class="property_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard--display" title="The “display” property">display</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<a class="link" href="gdk4-Content-Formats.html#GdkContentFormats"><span class="type">GdkContentFormats</span></a> *</td>
+<td class="property_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard--formats" title="The “formats” property">formats</a></td>
+<td class="property_flags">Read</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard--local" title="The “local” property">local</a></td>
+<td class="property_flags">Read</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signal_proto_type" width="150px"></col>
+<col class="signal_proto_name" width="300px"></col>
+<col class="signal_proto_flags" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard-changed" title="The “changed” signal">changed</a></td>
+<td class="signal_flags">Run Last</td>
+</tr></tbody>
+</table></div>
+</div>
+<a name="GdkClipboard"></a><div class="refsect1">
+<a name="gdk4-Clipboards.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="other_proto_type" width="150px"></col>
+<col class="other_proto_name"></col>
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="gdk4-Clipboards.html#GdkClipboard-struct" title="GdkClipboard">GdkClipboard</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> GdkClipboard
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.description"></a><h2>Description</h2>
+<p>The <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> object represents a clipboard of data shared
+between different applications or between different parts of
+the same application.</p>
+<p>To get a GdkClipboard object, use <a class="link" href="GdkDisplay.html#gdk-display-get-clipboard" title="gdk_display_get_clipboard ()"><code class="function">gdk_display_get_clipboard()</code></a> or
+<a class="link" href="GdkDisplay.html#gdk-display-get-primary-clipboard" title="gdk_display_get_primary_clipboard ()"><code class="function">gdk_display_get_primary_clipboard()</code></a>. You can find out about the data that
+is currently available in a clipboard using <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-get-formats" title="gdk_clipboard_get_formats ()"><code class="function">gdk_clipboard_get_formats()</code></a>.</p>
+<p>To make text or image data available in a clipboard, use <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-text" title="gdk_clipboard_set_text ()"><code class="function">gdk_clipboard_set_text()</code></a> or
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-texture" title="gdk_clipboard_set_texture ()"><code class="function">gdk_clipboard_set_texture()</code></a>. For other data, you can use <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-set-content" title="gdk_clipboard_set_content ()"><code class="function">gdk_clipboard_set_content()</code></a>,
+which takes a <a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> object.</p>
+<p>To read textual or image data from a clipboard, use <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-text-async" title="gdk_clipboard_read_text_async ()"><code class="function">gdk_clipboard_read_text_async()</code></a> or
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-texture-async" title="gdk_clipboard_read_texture_async ()"><code class="function">gdk_clipboard_read_texture_async()</code></a>. For other data, use <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-async" title="gdk_clipboard_read_async ()"><code class="function">gdk_clipboard_read_async()</code></a>,
+which provides a <span class="type">GInputStream</span> object.</p>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gdk-clipboard-get-display"></a><h3>gdk_clipboard_get_display ()</h3>
+<pre class="programlisting"><a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="returnvalue">GdkDisplay</span></a> *
+gdk_clipboard_get_display (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>);</pre>
+<p>Gets the <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> that the clipboard was created for.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-get-display.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-get-display.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-get-formats"></a><h3>gdk_clipboard_get_formats ()</h3>
+<pre class="programlisting"><a class="link" href="gdk4-Content-Formats.html#GdkContentFormats"><span class="returnvalue">GdkContentFormats</span></a> *
+gdk_clipboard_get_formats (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>);</pre>
+<p>Gets the formats that the clipboard can provide its current contents in.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-get-formats.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-get-formats.returns"></a><h4>Returns</h4>
+<p>The formats of the clipboard. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-is-local"></a><h3>gdk_clipboard_is_local ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_clipboard_is_local (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>);</pre>
+<p>Returns if the clipboard is local. A clipboard is considered local if it was
+last claimed by the running application.</p>
+<p>Note that <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-get-content" title="gdk_clipboard_get_content ()"><code class="function">gdk_clipboard_get_content()</code></a> may return <code class="literal">NULL</code> even on a local
+clipboard. In this case the clipboard is empty.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-is-local.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-is-local.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if the clipboard is local</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-get-content"></a><h3>gdk_clipboard_get_content ()</h3>
+<pre class="programlisting"><a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="returnvalue">GdkContentProvider</span></a> *
+gdk_clipboard_get_content (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>);</pre>
+<p>Returns the <a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> currently set on <em class="parameter"><code>clipboard</code></em>
+. If the
+<em class="parameter"><code>clipboard</code></em>
+ is empty or its contents are not owned by the current process,
+<code class="literal">NULL</code> will be returned.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-get-content.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-get-content.returns"></a><h4>Returns</h4>
+<p>The content of a clipboard or <code class="literal">NULL</code>
+if the clipboard does not maintain any content. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-store-async"></a><h3>gdk_clipboard_store_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_store_async (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                           <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                           <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                           <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                           <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>Asynchronously instructs the <em class="parameter"><code>clipboard</code></em>
+ to store its contents remotely to
+preserve them for later usage. If the clipboard is not local, this function
+does nothing but report success.</p>
+<p>This function is called automatically when <code class="function">gtk_main()</code> or <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkApplication.html#GtkApplication-struct"><span class="type">GtkApplication</span></a>
+exit, so you likely don't need to call it.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-store-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>io_priority</p></td>
+<td class="parameter_description"><p>the I/O priority
+of the request. </p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cancellable</p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>callback to call when the request is satisfied. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-store-finish"></a><h3>gdk_clipboard_store_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_clipboard_store_finish (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                            <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Finishes an asynchronous clipboard store started with <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-store-async" title="gdk_clipboard_store_async ()"><code class="function">gdk_clipboard_store_async()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-store-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> location to store the error occurring, or <code class="literal">NULL</code> to
+ignore.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-store-finish.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if storing was successful.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-async"></a><h3>gdk_clipboard_read_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_read_async (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                          <em class="parameter"><code>const <span class="type">char</span> **mime_types</code></em>,
+                          <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                          <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                          <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                          <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>Asynchronously requests an input stream to read the <em class="parameter"><code>clipboard</code></em>
+'s
+contents from. When the operation is finished <em class="parameter"><code>callback</code></em>
+ will be called. 
+You can then call <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-finish" title="gdk_clipboard_read_finish ()"><code class="function">gdk_clipboard_read_finish()</code></a> to get the result of the 
+operation.</p>
+<p>The clipboard will choose the most suitable mime type from the given list
+to fulfill the request, preferring the ones listed first.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>mime_types</p></td>
+<td class="parameter_description"><p>a <code class="literal">NULL</code>-terminated array of mime types to choose from</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>io_priority</p></td>
+<td class="parameter_description"><p>the I/O priority
+of the request. </p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cancellable</p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>callback to call when the request is satisfied. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-finish"></a><h3>gdk_clipboard_read_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">GInputStream</span> *
+gdk_clipboard_read_finish (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                           <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                           <em class="parameter"><code>const <span class="type">char</span> **out_mime_type</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Finishes an asynchronous clipboard read started with <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-async" title="gdk_clipboard_read_async ()"><code class="function">gdk_clipboard_read_async()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_mime_type</p></td>
+<td class="parameter_description"><p>pointer to store
+the chosen mime type in or <code class="literal">NULL</code>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> location to store the error occurring, or <code class="literal">NULL</code> to
+ignore.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-read-finish.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GInputStream</span> or <code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-value-async"></a><h3>gdk_clipboard_read_value_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_read_value_async (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                                <em class="parameter"><code><span class="type">GType</span> type</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                                <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>Asynchronously request the <em class="parameter"><code>clipboard</code></em>
+ contents converted to the given
+<em class="parameter"><code>type</code></em>
+. When the operation is finished <em class="parameter"><code>callback</code></em>
+ will be called. 
+You can then call <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-finish" title="gdk_clipboard_read_value_finish ()"><code class="function">gdk_clipboard_read_value_finish()</code></a> to get the resulting
+<span class="type">GValue</span>.</p>
+<p>For local clipboard contents that are available in the given <span class="type">GType</span>, the
+value will be copied directly. Otherwise, GDK will try to use
+<a class="link" href="GdkContentDeserializer.html#gdk-content-deserialize-async" title="gdk_content_deserialize_async ()"><code class="function">gdk_content_deserialize_async()</code></a> to convert the clipboard's data.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-value-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>a <span class="type">GType</span> to read</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>io_priority</p></td>
+<td class="parameter_description"><p>the I/O priority
+of the request. </p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cancellable</p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>callback to call when the request is satisfied. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-value-finish"></a><h3>gdk_clipboard_read_value_finish ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GValue</span> *
+gdk_clipboard_read_value_finish (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                                 <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                 <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Finishes an asynchronous clipboard read started with
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-async" title="gdk_clipboard_read_value_async ()"><code class="function">gdk_clipboard_read_value_async()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-value-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> location to store the error occurring, or <code class="literal">NULL</code> to
+ignore.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-read-value-finish.returns"></a><h4>Returns</h4>
+<p>a <span class="type">GValue</span> containing the result. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-texture-async"></a><h3>gdk_clipboard_read_texture_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_read_texture_async (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                                  <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                  <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                  <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>Asynchronously request the <em class="parameter"><code>clipboard</code></em>
+ contents converted to a <a href="../../gdk-pixbuf/stable/gdk-pixbuf-The-GdkPixbuf-Structure.html#GdkPixbuf-struct"><span class="type">GdkPixbuf</span></a>.
+When the operation is finished <em class="parameter"><code>callback</code></em>
+ will be called. You can then
+call <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-texture-finish" title="gdk_clipboard_read_texture_finish ()"><code class="function">gdk_clipboard_read_texture_finish()</code></a> to get the result.</p>
+<p>This is a simple wrapper around <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-async" title="gdk_clipboard_read_value_async ()"><code class="function">gdk_clipboard_read_value_async()</code></a>. Use
+that function or <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-async" title="gdk_clipboard_read_async ()"><code class="function">gdk_clipboard_read_async()</code></a> directly if you need more
+control over the operation.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-texture-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cancellable</p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>callback to call when the request is satisfied. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-texture-finish"></a><h3>gdk_clipboard_read_texture_finish ()</h3>
+<pre class="programlisting"><a class="link" href="gdk4-Textures.html#GdkTexture"><span class="returnvalue">GdkTexture</span></a> *
+gdk_clipboard_read_texture_finish (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                                   <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                   <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Finishes an asynchronous clipboard read started with
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-texture-async" title="gdk_clipboard_read_texture_async ()"><code class="function">gdk_clipboard_read_texture_async()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-texture-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> location to store the error occurring, or <code class="literal">NULL</code> to
+ignore.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-read-texture-finish.returns"></a><h4>Returns</h4>
+<p>a new <a class="link" href="gdk4-Textures.html#GdkTexture"><span class="type">GdkTexture</span></a> or <code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-text-async"></a><h3>gdk_clipboard_read_text_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_read_text_async (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                               <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                               <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                               <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>Asynchronously request the <em class="parameter"><code>clipboard</code></em>
+ contents converted to a string.
+When the operation is finished <em class="parameter"><code>callback</code></em>
+ will be called. You can then
+call <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-text-finish" title="gdk_clipboard_read_text_finish ()"><code class="function">gdk_clipboard_read_text_finish()</code></a> to get the result.</p>
+<p>This is a simple wrapper around <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-value-async" title="gdk_clipboard_read_value_async ()"><code class="function">gdk_clipboard_read_value_async()</code></a>. Use
+that function or <a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-async" title="gdk_clipboard_read_async ()"><code class="function">gdk_clipboard_read_async()</code></a> directly if you need more
+control over the operation.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-text-async.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cancellable</p></td>
+<td class="parameter_description"><p>optional <span class="type">GCancellable</span> object, <code class="literal">NULL</code> to ignore. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>callback to call when the request is satisfied. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>the data to pass to callback function. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-read-text-finish"></a><h3>gdk_clipboard_read_text_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *
+gdk_clipboard_read_text_finish (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                                <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Finishes an asynchronous clipboard read started with
+<a class="link" href="gdk4-Clipboards.html#gdk-clipboard-read-text-async" title="gdk_clipboard_read_text_async ()"><code class="function">gdk_clipboard_read_text_async()</code></a>.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-read-text-finish.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>result</p></td>
+<td class="parameter_description"><p>a <span class="type">GAsyncResult</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a <span class="type">GError</span> location to store the error occurring, or <code class="literal">NULL</code> to
+ignore.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-read-text-finish.returns"></a><h4>Returns</h4>
+<p>a new string or <code class="literal">NULL</code> on error. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL may be passed as the value in, out, in-out; or as a return value."><span class="acronym">nullable</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set-content"></a><h3>gdk_clipboard_set_content ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+gdk_clipboard_set_content (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                           <em class="parameter"><code><a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> *provider</code></em>);</pre>
+<p>Sets a new content provider on <em class="parameter"><code>clipboard</code></em>
+. The clipboard will claim the
+<a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a>'s resources and advertise these new contents to other
+applications.</p>
+<p>In the rare case of a failure, this function will return <code class="literal">FALSE</code>. The
+clipboard will then continue reporting its old contents and ignore
+<em class="parameter"><code>provider</code></em>
+.</p>
+<p>If the contents are read by either an external application or the
+<em class="parameter"><code>clipboard</code></em>
+'s read functions, <em class="parameter"><code>clipboard</code></em>
+ will select the best format to
+transfer the contents and then request that format from <em class="parameter"><code>provider</code></em>
+.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-set-content.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>provider</p></td>
+<td class="parameter_description"><p>the new contents of <em class="parameter"><code>clipboard</code></em>
+or
+<code class="literal">NULL</code> to clear the clipboard. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-clipboard-set-content.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if setting the clipboard succeeded</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set"></a><h3>gdk_clipboard_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_set (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                   <em class="parameter"><code><span class="type">GType</span> type</code></em>,
+                   <em class="parameter"><code>...</code></em>);</pre>
+<p>Sets the clipboard to contain the value collected from the given
+varargs.</p>
+<div class="refsect3">
+<a name="gdk-clipboard-set.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>type of value to set</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>value contents conforming to <em class="parameter"><code>type</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set-valist"></a><h3>gdk_clipboard_set_valist ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_set_valist (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                          <em class="parameter"><code><span class="type">GType</span> type</code></em>,
+                          <em class="parameter"><code><span class="type">va_list</span> args</code></em>);</pre>
+<p>Sets the clipboard to contain the value collected from the given
+<em class="parameter"><code>args</code></em>
+.</p>
+<p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="gdk-clipboard-set-valist.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>type of value to set</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>args</p></td>
+<td class="parameter_description"><p>varargs containing the value of <em class="parameter"><code>type</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set-value"></a><h3>gdk_clipboard_set_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_set_value (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                         <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);</pre>
+<p>Sets the <em class="parameter"><code>clipboard</code></em>
+ to contain the given <em class="parameter"><code>value</code></em>
+.</p>
+<p><span class="annotation">[<acronym title="Rename the original symbol's name to SYMBOL."><span class="acronym">rename-to</span></acronym> gdk_clipboard_set]</span></p>
+<div class="refsect3">
+<a name="gdk-clipboard-set-value.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>value</p></td>
+<td class="parameter_description"><p>a <span class="type">GValue</span> to set</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set-text"></a><h3>gdk_clipboard_set_text ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_set_text (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                        <em class="parameter"><code>const <span class="type">char</span> *text</code></em>);</pre>
+<p>Puts the given <em class="parameter"><code>text</code></em>
+ into the clipboard.</p>
+<p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="gdk-clipboard-set-text.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>text</p></td>
+<td class="parameter_description"><p>Text to put into the clipboard</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-clipboard-set-texture"></a><h3>gdk_clipboard_set_texture ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_clipboard_set_texture (<em class="parameter"><code><a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard</code></em>,
+                           <em class="parameter"><code><a class="link" href="gdk4-Textures.html#GdkTexture"><span class="type">GdkTexture</span></a> *texture</code></em>);</pre>
+<p>Puts the given <em class="parameter"><code>texture</code></em>
+ into the clipboard.</p>
+<p><span class="annotation">[<acronym title="Exposed in C code, not necessarily available in other languages."><span class="acronym">skip</span></acronym>]</span></p>
+<div class="refsect3">
+<a name="gdk-clipboard-set-texture.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>texture</p></td>
+<td class="parameter_description"><p>a <a class="link" href="gdk4-Textures.html#GdkTexture"><span class="type">GdkTexture</span></a> to put into the clipboard</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GdkClipboard-struct"></a><h3>GdkClipboard</h3>
+<pre class="programlisting">typedef struct _GdkClipboard GdkClipboard;</pre>
+<p>The GdkClipboard struct contains only private fields and should not be
+accessed directly.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GdkClipboard--content"></a><h3>The <code class="literal">“content”</code> property</h3>
+<pre class="programlisting">  “content”                  <a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> *</pre>
+<p>The <a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a> or <code class="literal">NULL</code> if the clipboard is empty or contents are
+provided otherwise.</p>
+<p>Owner: GdkClipboard</p>
+<p>Flags: Read</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkClipboard--display"></a><h3>The <code class="literal">“display”</code> property</h3>
+<pre class="programlisting">  “display”                  <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> *</pre>
+<p>The <a class="link" href="GdkDisplay.html" title="GdkDisplay"><span class="type">GdkDisplay</span></a> that the clipboard belongs to.</p>
+<p>Owner: GdkClipboard</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkClipboard--formats"></a><h3>The <code class="literal">“formats”</code> property</h3>
+<pre class="programlisting">  “formats”                  <a class="link" href="gdk4-Content-Formats.html#GdkContentFormats"><span class="type">GdkContentFormats</span></a> *</pre>
+<p>The possible formats that the clipboard can provide its data in.</p>
+<p>Owner: GdkClipboard</p>
+<p>Flags: Read</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkClipboard--local"></a><h3>The <code class="literal">“local”</code> property</h3>
+<pre class="programlisting">  “local”                    <span class="type">gboolean</span></pre>
+<p><code class="literal">TRUE</code> if the contents of the clipboard are owned by this process.</p>
+<p>Owner: GdkClipboard</p>
+<p>Flags: Read</p>
+<p>Default value: TRUE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GdkClipboard-changed"></a><h3>The <code class="literal">“changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="gdk4-Clipboards.html#GdkClipboard"><span class="type">GdkClipboard</span></a> *clipboard,
+               <span class="type">gpointer</span>      user_data)</pre>
+<p>The ::changed signal is emitted when the clipboard changes ownership.</p>
+<div class="refsect3">
+<a name="GdkClipboard-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>clipboard</p></td>
+<td class="parameter_description"><p>the object on which the signal was emitted</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="gdk4-Clipboards.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="GdkContentProvider.html" title="GdkContentProvider"><span class="type">GdkContentProvider</span></a>, <a class="link" href="gdk4-Content-Formats.html#GdkContentFormats"><span class="type">GdkContentFormats</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gdk4-Clipboards.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

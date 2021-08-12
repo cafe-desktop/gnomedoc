@@ -1,0 +1,1098 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GNOME Documentation System</title>
+<link rel="previous" href="intro.html.en.html" title="Introduction">
+<link rel="next" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">
+<link rel="top" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gdp-handbook/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="gnomedocsystem.html.en.html#container">Go to page content</a></li>
+<li><a href="gnomedocsystem.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="gnomedocsystem.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="gnomedocsystem"><!--gnomedocsystem--></a><div class="header"><h1 class="sect1 title"><span class="title">GNOME Documentation System</span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">GNOME Handbook of Writing Software Documentation V1.0.2</a></li></ul>
+<p class="para block block-first">
+	The GNOME Documentation System consists of DocBook, Yelp (GNOME Help
+	Browser), Scrollkeeper (document cataloging system), and the XML tools
+	(called DocBook Tools) to transform and check the documentation.  Use of
+	this system is necessary to write good documentation for GNOME.  This
+	chapter gives a brief overview describing the tools in the GNOME
+	Documentation System.
+  </p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">2.1. </span><a class="xref" href="gnomedocsystem.html.en.html#docbooksys" title="DocBook">DocBook</a>
+</li>
+<li>
+<span class="label">2.2. </span><a class="xref" href="gnomedocsystem.html.en.html#gnomehelpbrowser" title="GNOME Help Browser">GNOME Help Browser</a>
+</li>
+<li>
+<span class="label">2.3. </span><a class="xref" href="gnomedocsystem.html.en.html#scrollkeeper" title="Scrollkeeper">Scrollkeeper</a>
+</li>
+<li>
+<span class="label">2.4. </span><a class="xref" href="gnomedocsystem.html.en.html#gnomehelpcomponents" title="GNOME Documentation Components">GNOME Documentation Components</a>
+</li>
+<li>
+<span class="label">2.5. </span><a class="xref" href="gnomedocsystem.html.en.html#svn" title="Using Subversion">Using Subversion</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="docbooksys"><!--docbooksys--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">2.1. </span>DocBook</span></h2></div>
+<p class="para block block-first">
+	  DocBook is a markup language, like HTML, for technical and computer 
+	  documentation, papers, and books.  The GNOME Documentation Project 
+	  uses DocBook to mark up GNOME documentation.  The GDP currently uses 
+	  version 4.1.2 of DocBook.  DocBook SGML is used 
+	  with <span class="application">gtk-doc</span> for developer documentation 
+	  while DocBook XML is used for end user documentation.
+	</p>
+<p class="para block">
+	  The main advantage of DocBook is its single-source multiple-output
+	  nature.  Only one DocBook source file is needed to make many different
+	  outputs.  From the same DocBook file the GDP lets the user view the
+	  documentation as HTML with <span class="application">Yelp</span> and can
+	  provide a print copy, usually in PDF.
+	</p>
+<p class="para block">
+	  The GDP uses the XSL language to exploit DocBook's multi source nature.  
+	  XSLT stylesheets convert DocBook into HTML, which 
+	  <span class="application">Yelp</span> displays.  XSLT stylesheets are 
+	  also used to convert DocBook into FO, an XML print specification, 
+	  which is in turn converted to PDF or PS files.  If any other format 
+	  is needed the GDP could use an XSLT stylesheet to convert the 
+	  DocBook files into another format such as man or info pages.
+	</p>
+<p class="para block">
+	  DocBook focuses on the document content, leaving presentation details
+	  to XSLT. For example all the applications within DocBook use the
+	  <span class="sgmltag" dir="ltr">&lt;application&gt;</span> tag.  The stylesheets determine
+	  how the text inside the tag looks.  Authors need not concern
+	  themselves, for example, with whether all applications will be in bold
+	  text or italics or whether the applications should not have any
+	  special formatting, focusing instead on what ideas the documentation
+	  should convey to the readers.
+	</p>
+<div class="autotoc"><ul><li>
+<span class="label">2.1.1. </span><a class="xref" href="gnomedocsystem.html.en.html#moredocbookinfo" title="Learning DocBook">Learning DocBook</a>
+</li></ul></div>
+<div class="division sect3">
+<a name="moredocbookinfo"><!--moredocbookinfo--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.1.1. </span>Learning DocBook</span></h3></div>
+<p class="para block block-first">
+		There are many resources available to help you learn DocBook, including 
+		this manual.  The following resources on the web are useful for 
+		learning DocBook:
+	  </p>
+<div class="block list itemizedlist"><ul class="itemizedlist" style="list-style-type: disc">
+<li class="li-first">
+		  <span class="para">
+			<a class="ulink" href="http://www.docbook.org" title="http://www.docbook.org">http://www.docbook.org</a> — Norman
+			Walsh's <span class="citetitle"><span style="font-style: italic; ">DocBook: The Definitive
+			  Guide</span></span>.  Online O'Reilly book on using
+			DocBook. Contains an excellent element reference. May be
+			too formal for a beginner.
+		  </span>
+		</li>
+<li>
+		  <span class="para">
+			<a class="ulink" href="http://www.ibiblio.org/oswg/oswg-nightly/oswg/en_US.ISO_8859-1/articles/DocBook-Intro/docbook-intro/" title="http://www.ibiblio.org/oswg/oswg-nightly/oswg/en_US.ISO_8859-1/articles/DocBook-Intro/docbook-intro/">A Practical Introduction to DocBook</a>
+			— The Open Source Writers Group's introduction to using
+			DocBook. This is an excellent HOW-TO article on
+			getting started.
+		  </span>
+		</li>
+<li>
+		  <span class="para">
+			<a class="ulink" href="http://nis-www.lanl.gov/~rosalia/mydocs/docbook-intro/docbook-intro.html" title="http://nis-www.lanl.gov/~rosalia/mydocs/docbook-intro/docbook-intro.html">Getting Going with DocBook: Notes for
+			  Hackers</a> — Mark Galassi's introduction to DocBook
+			for hackers. This has to be one of the first
+			introductions to DocBook ever - still as good as it ever
+			was.
+		  </span>
+		</li>
+<li>
+		  <span class="para">
+			<a class="ulink" href="http://dpawson.co.uk/docbook/" title="http://dpawson.co.uk/docbook/">Dave Pawson's DocBook FAQ</a>
+			— Dave Pawson's FAQ on everything DocBook related.  He 
+			discusses references, tools, catalogs, and stylesheets in a 
+			concise FAQ format.  One of the best resources to find 
+			answers to common questions and problems about DocBook.
+		  </span>
+		</li>
+<li>
+		  <span class="para">
+			<a class="ulink" href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/index.html" title="http://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/index.html">
+			  FreeBSD Documentation Project Primer for New
+			  Contributors</a> — FreeBSD documentation project
+			primer. Chapter 4.2 provides a very good introduction to
+			writing documentation using DocBook. Note that it also
+			describes some custom extensions of DocBook;
+			fortunately, they are clearly marked as such.
+		  </span>
+		</li>
+</ul></div>
+<p class="para block">
+		Norman Walsh's book is also available in print.
+	  </p>
+<p class="para block">
+		The following sections of this document are designed to help
+		documentation authors write correct and consistent DocBook:
+	  </p>
+<div class="block list itemizedlist"><ul class="itemizedlist" style="list-style-type: disc"><li class="li-first">
+		  <span class="para">
+			<a class="xref" href="docbook.html.en.html" title="DocBook Basics ">Section 4 ― DocBook Basics </a> - Descriptions of
+			commonly used DocBook tags.
+		  </span>
+		</li></ul></div>
+<p class="para block">
+		You may also discuss specific DocBook questions with GDP
+		members on the #docs IRC channel at irc.gnome.org and on the
+		gnome-doc-list mailing list.
+	  </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="gnomehelpbrowser"><!--gnomehelpbrowser--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">2.2. </span>GNOME Help Browser</span></h2></div>
+<p class="para block block-first">
+	  At the core of the GNOME help system is 
+	  <span class="application">Yelp</span>.  <span class="application">Yelp</span> 
+	  provides a unified interface to several
+	  distinct documentation systems on Linux/Unix systems: man
+	  pages, info pages, Linux Documentation Project (LDP)
+	  documents, GNOME application documentation, and other GNOME
+	  documents.
+	</p>
+<p class="para block">
+	  <span class="application">Yelp</span> works by getting a list of all 
+	  documentation installed on your system from 
+	  <span class="application">Scrollkeeper</span>, documentation cataloging 
+	  system used by GNOME, LDP, and other projects.  Thus, the documentation 
+	  that appears in the <span class="application">Yelp</span> is 
+	  specific to each computer and will typically only represent
+	  software that is installed on the computer.
+	</p>
+<p class="para block">
+	  GNOME uses the documentation presented by all the various
+	  GNOME components and applications installed on the system to
+	  present a complete and customized documentation environment.
+	  <span class="application">Yelp</span> describes only components which are 
+	  currently installed on a users system.  Some of this documentation, 
+	  such as the User's Guide, will be combined in such a way that it 
+	  appears to be a single document.
+	</p>
+<p class="para block">
+	  By using such a system, you can be sure that any GNOME application you
+	  install that has documentation will show up in the index,
+	  table of contents, and any search you do in the help browser.
+	</p>
+<p class="para block">
+	  <span class="application">Yelp</span> also integrates the conversion from 
+	  DocBook to HTML.  <span class="application">Yelp</span> takes the DocBook 
+	  document and runs a XSL processor, <span class="application">xsltproc</span>, 
+	  which uses a stylesheet to convert the DocBook file to a HTML 
+	  file.  <span class="application">Yelp</span> also uses the GDP's own 
+	  stylesheets on top of Norman Walsh's stylesheets.  This allows 
+	  the appearance of the all GNOME documentation to change with only 
+	  altering one specific stylesheet.  Using a custom stylesheet gives 
+	  GNOME a custom help environment.
+	</p>
+</div>
+<div class="division sect2">
+<a name="scrollkeeper"><!--scrollkeeper--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">2.3. </span>Scrollkeeper</span></h2></div>
+<p class="para block block-first">
+	  <a class="ulink" href="http://scrollkeeper.sourceforge.net" title="http://scrollkeeper.sourceforge.net">Scrollkeeper</a>
+	  works with <span class="application">Yelp</span> providing
+	  <span class="application">Yelp</span> with the location of the local
+	  documentation, a TOC for that document, searching, and indexing
+	  abilities based on metadata gathered about the document.
+	  <span class="application">Scrollkeeper</span> is a document cataloging
+	  system using Open Source Metadata Framework (OMF) files to
+	  provide metadata about each document installed in
+	  <span class="application">Scrollkeeper's</span> catalog.
+	  <span class="application">Scrollkeeper</span> is only meant to catalog
+	  documentation available locally on the user's system.
+	</p>
+<p class="para block">
+	  <span class="application">Scrollkeeper</span> uses metadata from OMF files 
+	  provided with each piece of documentation to categorize the document 
+	  in its catalog.  This catalog is then accessed by 
+	  <span class="application">Yelp</span> to build the links when 
+	  <span class="application">Yelp</span> starts up.  Currently the OMF files 
+	  aren't used for anything else, but in future versions of Scrollkeeper 
+	  it will be utilized.
+	</p>
+<p class="para block">
+	  <span class="application">Scrollkeeper</span> uses DocBook 
+	  <span class="sgmltag" dir="ltr">&lt;indexterm&gt;</span> tags in the documentation to 
+	  build an index.  The index is a collection of words which refer to a 
+	  specific document.  In <span class="application">Yelp</span> you can search 
+	  through these words and view the document they coorespond to.
+	</p>
+</div>
+<div class="division sect2">
+<a name="gnomehelpcomponents"><!--gnomehelpcomponents--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">2.4. </span>GNOME Documentation Components</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">2.4.1. </span><a class="xref" href="gnomedocsystem.html.en.html#gdpstylesheets" title="GDP Stylesheets">GDP Stylesheets</a>
+</li>
+<li>
+<span class="label">2.4.2. </span><a class="xref" href="gnomedocsystem.html.en.html#gdpdtd" title="GDP DTD">GDP DTD</a>
+</li>
+<li>
+<span class="label">2.4.3. </span><a class="xref" href="gnomedocsystem.html.en.html#applicationmanualsintro" title="Application Manuals">Application Manuals</a>
+</li>
+<li>
+<span class="label">2.4.4. </span><a class="xref" href="gnomedocsystem.html.en.html#applicationhelpintro" title="Application Help">Application Help</a>
+</li>
+<li>
+<span class="label">2.4.5. </span><a class="xref" href="gnomedocsystem.html.en.html#userguide" title="GNOME User Guide">GNOME User Guide</a>
+</li>
+<li>
+<span class="label">2.4.6. </span><a class="xref" href="gnomedocsystem.html.en.html#userdocs" title="User Documents">User Documents</a>
+</li>
+<li>
+<span class="label">2.4.7. </span><a class="xref" href="gnomedocsystem.html.en.html#developerdocs" title="Developer Documents">Developer Documents</a>
+</li>
+<li>
+<span class="label">2.4.8. </span><a class="xref" href="gnomedocsystem.html.en.html#projectdocs" title="Project Documents">Project Documents</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="gdpstylesheets"><!--gdpstylesheets--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.1. </span>GDP Stylesheets</span></h3></div>
+<p class="para block block-first">
+		The GDP uses its own DocBook stylesheets.  These stylesheets are 
+		integrated into the Yelp help browser.  This means you do not need 
+		to install any specific stylesheets.  All you need are the standard 
+		DocBook stylesheets installed and a working XML Catalog.
+	  </p>
+<p class="para block">
+		If you do not wish to use <span class="application">Yelp</span> to view 
+		your completed documentation, the specific GDP stylesheets can 
+		be obtained through Subversion.  The GDP stylesheets are in the 
+		module <span class="filename" dir="ltr">gnome-doc-utils/trunk/xslt/</span>
+		of the GNOME Subversion.  
+	  </p>
+</div>
+<div class="division sect3">
+<a name="gdpdtd"><!--gdpdtd--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.2. </span>GDP DTD</span></h3></div>
+<p class="para block block-first">
+		Since DocBook 4.0 the DocBook DTD has included support for PNG 
+		graphic files.  Therefore the GDP recommends documenters use the 
+		standard DocBook DTD.
+	  </p>
+<p class="para block">
+		The GDP used to use a customized DTD for DocBook SGML which added 
+		support for PNG graphic files.  This is no longer needed.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="applicationmanualsintro"><!--applicationmanualsintro--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.3. </span>Application Manuals</span></h3></div>
+<p class="para block block-first">
+		Every GNOME application should have an application manual.
+		An application manual is a document specific to the
+		particular application which explains the various windows
+		and features of the application.  Application manuals
+		typically use screenshots (PNG format) for clarity.  Writing
+		application manuals is discussed in more detail in <a class="xref" href="writingapplicationmanuals.html.en.html" title="Writing Application and Applet Manuals">Section 6 ― Writing Application and Applet Manuals</a> below.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="applicationhelpintro"><!--applicationhelpintro--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.4. </span>Application Help</span></h3></div>
+<p class="para block block-first">
+		Applications should have a <span class="guibutton">Help</span>
+		button on screens on which users may need help.  These
+		<span class="guibutton">Help</span> buttons should pull up the
+		default help browser, determined by the
+		<span class="guilabel">File Types and Programs</span> dialog, typically 
+		<span class="application">Yelp</span>.  The help
+		browser should show either the first page of the application
+		manual, or else the relevant page thereof.
+
+	  </p>
+</div>
+<div class="division sect3">
+<a name="userguide"><!--userguide--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.5. </span>GNOME User Guide</span></h3></div>
+<p class="para block block-first">
+		The <span class="citetitle"><span style="font-style: italic; ">GNOME User Guide</span></span> describes the
+		GNOME desktop environment and core components of GNOME such
+		as the <span class="application">panel</span> and
+		<span class="application">nautilus</span>. In GNOME 1.x this
+		was the main source of documentation while sometimes duplicating 
+		existing documentation of various components. In GNOME 2.0
+		this is a document for the web and for printing
+		that is derived from various parts chosen in the system that
+		are necessary for the new user to understand.  The User Guide 
+		is the main source of documentation for basic components of the 
+		GNOME desktop such as the panel, Nautilus, and customizations.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="userdocs"><!--userdocs--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.6. </span>User Documents</span></h3></div>
+<p class="para block block-first">
+		Aside from the <span class="citetitle"><span style="font-style: italic; ">GNOME User Guide</span></span>,
+		there are several other documents to help new users learn
+		GNOME, including the <span class="citetitle"><span style="font-style: italic; ">Introduction to GNOME</span></span>,
+		<span class="citetitle"><span style="font-style: italic; ">GNOME Installation and Configuration
+          Guide</span></span>, and the <span class="citetitle"><span style="font-style: italic; ">GNOME Administrators
+          Guide</span></span>.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="developerdocs"><!--developerdocs--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.7. </span>Developer Documents</span></h3></div>
+<p class="para block block-first">
+		There are many White Papers, Tutorials, HOWTO's and FAQ's to
+		make programming GNOME and GNOME applications as easy as
+		possible.
+	  </p>
+<p class="para block">
+		API documentation is also available for the GNOME libraries. This is
+		detailed documentation of the code that is used to build GNOME
+		apps.</p>
+<p class="para block">You can find general developer documentation on the <a class="ulink" href="http://library.gnome.org/devel/" title="http://library.gnome.org/devel/">Developer 
+          section of the GNOME Documentation Library</a>.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="projectdocs"><!--projectdocs--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.4.8. </span>Project Documents</span></h3></div>
+<p class="para block block-first">
+		Some GNOME projects have documentation to maintain
+		consistency in their product and to help new contributors
+		get up to speed quickly. Among these are the GDP documents,
+		such as the one you are reading now.
+	  </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="svn"><!--svn--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">2.5. </span>Using Subversion</span></h2></div>
+<p class="para block block-first">
+		Subversion (SVN) is a tool that allows multiple developers to
+		concurrently work on a set of documents, keeping track of the
+		modifications made by each person.  The files are stored on a
+		server and each developer checks files out, modifies them,
+		and then checks in their modified version of the files. Many
+		GNOME programs and documents are stored in the Subversion
+		repository. The GNOME Subversion server allows users to
+		anonymously check out files. Most GDP members will access the
+		repository without a login to download the most up-to-date
+		version of documentation or programs.  Modified documents
+		will typically be emailed to the the application developer.
+		Core GDP members may also be granted login privileges so they
+		may commit modified files directly to the Subversion
+		repositories. Below is a simple tutorial which will take you
+		through the basics of using Subversion. A more complete guide
+		is <a class="ulink" href="http://svnbook.red-bean.com/" title="http://svnbook.red-bean.com/"><span class="citetitle"><span style="font-style: italic; ">
+		Version Control with Subversion</span></span></a>.
+	</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">2.5.1. </span><a class="xref" href="gnomedocsystem.html.en.html#initialcheckout" title="Initial Checkout">Initial Checkout</a>
+</li>
+<li>
+<span class="label">2.5.2. </span><a class="xref" href="gnomedocsystem.html.en.html#committingchanges" title="Committing Changes">Committing Changes</a>
+</li>
+<li>
+<span class="label">2.5.3. </span><a class="xref" href="gnomedocsystem.html.en.html#svnetiquette" title="SVN Etiquette">SVN Etiquette</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="initialcheckout"><!--initialcheckout--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.5.1. </span>Initial Checkout</span></h3></div>
+<p class="para block block-first">
+		You can download files anonymously from the server to create
+		a local working copy. As an example, we will check out the
+		files for this handbook. To check out for the first time,
+		type <span class="command" dir="ltr">
+		svn checkout http://svn.gnome.org/svn/gnome-devel-docs/trunk/gdp-handbook/
+		</span>. After you have this document checked out and you
+		would like to download any updates from the Subversion
+		repository, use <span class="command" dir="ltr">svn update</span>.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="committingchanges"><!--committingchanges--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.5.2. </span>Committing Changes</span></h3></div>
+<p class="para block block-first">  
+		If you are a registered GNOME developer, you may use your SSH
+		key to authenticate yourself so you can commit changes back
+		to the Subversion repositories. Be sure to read the following
+		section on Subversion etiquette before making any commits. To
+		authenticate to the Subversion server as user <span class="command" dir="ltr">
+		<span class="replaceable">username</span></span>, you will use a
+		slightly different URL. To commit <span class="command" dir="ltr"><span class="replaceable">
+		filename</span></span> to the Subversion server,
+		type <span class="command" dir="ltr"> svn commit
+		svn+ssh://<span class="replaceable">username@</span>svn.gnome.org/svn/gnome-devel-docs/trunk/gdp-handbook/<span class="replaceable">filename</span>
+		</span>. You will be given an editor window to type in a
+		brief log entry, summarizing your changes. Note the default
+		editor can be changed using the <span class="varname" dir="ltr">EDITOR</span>
+		environment variable or with the
+		<span class="command" dir="ltr"><span class="option" dir="ltr">--editor-cmd</span></span> option.
+	  </p>
+</div>
+<div class="division sect3">
+<a name="svnetiquette"><!--svnetiquette--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">2.5.3. </span>SVN Etiquette</span></h3></div>
+<p class="para block block-first">
+		Because files in Subversion are typically used and modified
+		by multiple developers and documentation authors, users should
+		exercise a few simple practices out of courtesy towards the
+		other Subversion users and the project leader. First, you
+		should not commit changes back to the Subversion repositories
+		without first discussing your plans with the project leader.
+		This way, the project leader knows who is modifying the files
+		and generally, what sort of changes/development is being done.
+		Also, whenever a Subversion user commits a file, they should
+		make an entry in the Subversion log and in the <span class="filename" dir="ltr">
+		ChangeLog</span> so that other users know who is making
+		modifications and what is being modified. When modifying files
+		created by others, you should follow the indentation scheme
+		used by the initial author.
+	  </p>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="intro.html.en.html" title="Introduction">Introduction</a></td>
+<td class="navbar-next"><a class="navbar-next" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">Getting Started Writing GNOME Documentation</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;">
+<div class="division">
+<h2 class="title copyright">Copyrights</h2>
+<div class="block block-first"><dl class="dl-compact">
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Red Hat, Inc.</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Daniel Mueth</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Alexander Kirillov</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">Eric Baudais</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">Eugene O'Connor</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">John Fleck</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2003</span>  <span class="holder">John Fleck</span>
+</dt>
+</dl></div>
+</div>
+<div class="division legalnotice">
+<a name="legalnotice"><!--legalnotice--></a><h2 class="title legalnotice">Legal Notice</h2>
+	<p class="para block block-first">
+	  Permission is granted to copy, distribute and/or modify this
+	  document under the terms of the GNU Free Documentation
+	  License (GFDL), Version 1.1 or any later version published
+	  by the Free Software Foundation with no Invariant Sections,
+	  no Front-Cover Texts, and no Back-Cover Texts.  You can find
+	  a copy of the GFDL at this <a class="ulink" href="gnomedocsystem.html.en.html" title="ghelp:fdl">link</a> or in the file COPYING-DOCS
+	  distributed with this manual.
+         </p>
+         <p class="para block"> This manual is part of a collection of GNOME manuals
+          distributed under the GFDL.  If you want to distribute this
+          manual separately from the collection, you can do so by
+          adding a copy of the license to the manual, as described in
+          section 6 of the license.
+	</p>
+
+	<p class="para block">
+	  Many of the names used by companies to distinguish their
+	  products and services are claimed as trademarks. Where those
+	  names appear in any GNOME documentation, and the members of
+	  the GNOME Documentation Project are made aware of those
+	  trademarks, then the names are in capital letters or initial
+	  capital letters.
+	</p>
+
+	<p class="para block">
+	  DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED
+	  UNDER  THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE
+	  WITH THE FURTHER UNDERSTANDING THAT:
+
+	  <div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+		  <span class="para">DOCUMENT IS PROVIDED ON AN "AS IS" BASIS,
+                    WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+                    IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES
+                    THAT THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS FREE OF DEFECTS MERCHANTABLE, FIT FOR
+                    A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE
+                    RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE
+                    OF THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR
+                    MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT,
+                    YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY
+                    CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY
+                    SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER
+                    OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS
+                    LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED
+                    VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER
+                    EXCEPT UNDER THIS DISCLAIMER; AND
+		  </span>
+		</li>
+<li>
+		  <span class="para">UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL
+                       THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE),
+                       CONTRACT, OR OTHERWISE, SHALL THE AUTHOR,
+                       INITIAL WRITER, ANY CONTRIBUTOR, OR ANY
+                       DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION
+                       OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH
+                       PARTIES, BE LIABLE TO ANY PERSON FOR ANY
+                       DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR
+                       CONSEQUENTIAL DAMAGES OF ANY CHARACTER
+                       INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS
+                       OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR
+                       MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR
+                       LOSSES ARISING OUT OF OR RELATING TO USE OF THE
+                       DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT,
+                       EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF
+                       THE POSSIBILITY OF SUCH DAMAGES.
+		  </span>
+		</li>
+</ol></div>
+	</p>
+  </div>
+<div class="division legalnotice"> 
+      <h2 class="title legalnotice">Feedback</h2> 
+      <p class="para block block-first">To report a bug or make a suggestion regarding the GNOME Handbook 
+		of Writing Software Documentation follow the directions in the 
+	<a class="ulink" href="gnomedocsystem.html.en.html" title="ghelp:user-guide?feedback">GNOME Feedback Page</a>. 
+      </p>
+
+    </div>
+</div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">GNOME Handbook of Writing Software Documentation V1.0.2</a><div class="autotoc"><ul>
+<li><a class="xref" href="intro.html.en.html" title="Introduction">Introduction</a></li>
+<li>GNOME Documentation System</li>
+<li><a class="xref" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">Getting Started Writing GNOME Documentation</a></li>
+<li><a class="xref" href="docbook.html.en.html" title="DocBook Basics ">DocBook Basics </a></li>
+<li><a class="xref" href="guidelines.html.en.html" title="GDP Documentation Guidelines ">GDP Documentation Guidelines </a></li>
+<li><a class="xref" href="writingapplicationmanuals.html.en.html" title="Writing Application and Applet Manuals">Writing Application and Applet Manuals</a></li>
+<li><a class="xref" href="refering.html.en.html" title="Cross Referencing Other Documentation">Cross Referencing Other Documentation</a></li>
+<li><a class="xref" href="writingcontextsensitivehelp.html.en.html" title="Writing Context Sensitive Help (coming in GNOME-3.0)">Writing Context Sensitive Help (coming in GNOME-3.0)</a></li>
+<li><a class="xref" href="buildingdocs.html.en.html" title="Building Documentation within a Program">Building Documentation within a Program</a></li>
+<li><a class="xref" href="teamwork.html.en.html" title="Teamwork">Teamwork</a></li>
+<li><a class="xref" href="finishing.html.en.html" title="Finishing a Document">Finishing a Document</a></li>
+<li><a class="xref" href="resources.html.en.html" title="Resources">Resources</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="gnomedocsystem.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

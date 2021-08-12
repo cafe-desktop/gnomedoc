@@ -1,0 +1,1846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DocBook Basics</title>
+<link rel="previous" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">
+<link rel="next" href="guidelines.html.en.html" title="GDP Documentation Guidelines ">
+<link rel="top" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gdp-handbook/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="docbook.html.en.html#container">Go to page content</a></li>
+<li><a href="docbook.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="docbook.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="docbook"><!--docbook--></a><div class="header"><h1 class="sect1 title"><span class="title">DocBook Basics </span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">GNOME Handbook of Writing Software Documentation V1.0.2</a></li></ul>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.1. </span><a class="xref" href="docbook.html.en.html#docbook-introtodocbook" title="Introduction to DocBook">Introduction to DocBook</a>
+</li>
+<li>
+<span class="label">4.2. </span><a class="xref" href="docbook.html.en.html#docbook-begin" title="Starting a Document">Starting a Document</a>
+</li>
+<li>
+<span class="label">4.3. </span><a class="xref" href="docbook.html.en.html#docbook-structure" title="Structural Elements">Structural Elements</a>
+</li>
+<li>
+<span class="label">4.4. </span><a class="xref" href="docbook.html.en.html#docbook-inline" title="Inline Elements">Inline Elements</a>
+</li>
+<li>
+<span class="label">4.5. </span><a class="xref" href="docbook.html.en.html#docbook-indexing" title="Indexing">Indexing</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="docbook-introtodocbook"><!--docbook-introtodocbook--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.1. </span>Introduction to DocBook</span></h2></div>
+<p class="para block block-first">
+      To understand DocBook, a basic understanding of SGML and XML
+      is helpful.
+    </p>
+<p class="para block">
+      SGML stands for Standard Generalized Markup Language and is
+      one of the first markup languages ever created.  A
+      different, but similar markup language is XML which stands
+      for Extended Markup Langauge.  XML extends and structures
+      SGML in ways which were optional using SGML.  Both use what
+      are called Document Type Definitions (DTD) to define
+      document structural types such as HTML and DocBook. A DTD
+      specifies document <span class="emphasis">elements</span> which are
+      delimited by angle brackets, &lt; and &gt;, and document text
+      is then marked by both beginning and ending elements. Using
+      the DocBook DTD, for example, one marks up a title with
+      <span class="sgmltag" dir="ltr">&lt;title&gt;</span>The
+      Title<span class="sgmltag" dir="ltr">&lt;/title&gt;</span>.  The DTD (in the case
+      of the GDP, DocBook) also defines rules for how the elements
+      can be used. For example, if one element can only be used
+      when embedded within another, this is defined in the DTD.
+    </p>
+<p class="para block"> 
+      A XML file is just a plain ASCII file containing the
+      text with the markup specified above. To convert it to some
+      easily readable format, you need special tools. The GDP uses
+      <span class="emphasis">xsltproc</span>, a free converter which
+      converts the DocBook file into browser readable HTML using
+      XSL stylesheets.  <span class="application">Yelp</span> is used to
+      run <span class="application">xsltproc</span> and then display the
+      resulting HTML in a user friendly format.  You can read more
+      about DocBook in <a class="xref" href="gettingstarted.html.en.html#usingdocbook" title="Using DocBook Tools">Section 3.3 ― Using DocBook Tools</a>.
+    </p>
+<p class="para block">
+      The final appearance of the output (e.g. PostScript or HTML) is
+      determined by a <span class="emphasis">stylesheet</span>. Stylesheets are
+      files, written in a special language (XSL — Extended
+      Specification Language or DSSSL — Document Style Semantics
+      and Specification Language), which specify the appearance of
+      various DocBook elements, for example, what fonts to use for
+      titles and various inline elements, page numbering style, and
+      much more. You need to install a common collection of
+      stylesheets in <a class="xref" href="gettingstarted.html.en.html#installingdocbook" title="Installing DocBook">Section 3.2 ― Installing DocBook</a> (Norman
+      Walsh's modular stylesheets). The GNOME Documentation Project
+      uses a customized set of stylesheets on top of Norman Walsh's
+      version.
+    </p>
+<p class="para block">
+      The advantage of specifying the <span class="emphasis">structure</span>
+      of a document with XML instead of specifying the
+      <span class="emphasis">appearance</span> of the document with a typical
+      word processor, or with HTML, is that the resulting document can
+      be processed in a variety of ways using the structural
+      information.  Whereas formatting a document for appearance
+      assumes a medium (typically written text on a standard-sized
+      piece of paper), XML can be processed to produce output for a
+      large variety of media such as text, postscript, HTML, Braille,
+      audio, and potentially many other formats.  This assumption of a
+      specific media makes translating documents not written in XML
+      very difficult.
+    </p>
+<p class="para block">
+      Using elements contained in a document to structure the text
+      of that same document also allows search engines to make use
+      of that information. For example, if you are searching for
+      all documents written by the author <span class="quote">“Susie”</span>
+      your search engine could be made smart enough to only search
+      &lt;author&gt; elements, making for a faster and more
+      accurate search.
+    </p>
+<p class="para block">
+      Using a stylesheet to determine the overall appearance of
+      the output, rather than the DTD or the XML document, allows
+      everyone in the project to create documents with the same
+      look just by using the same stylesheet. It also allows the
+      look to be updated just by modifying that one stylesheet.
+    </p>
+<p class="para block">
+      As stated before, the GDP uses the DocBook DTD.  For a list
+      of introductory and reference resources on DocBook, see
+      <a class="xref" href="resources.html.en.html" title="Resources">Appendix A ― Resources</a>.  The following sections also
+      provide convenient instructions on which markup tags to use
+      in various circumstances.  Be sure to read <a class="xref" href="guidelines.html.en.html" title="GDP Documentation Guidelines ">Section 5 ― GDP Documentation Guidelines </a> for GDP documentation-specific
+      guidelines.
+    </p>
+</div>
+<div class="division sect2">
+<a name="docbook-begin"><!--docbook-begin--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.2. </span>Starting a Document</span></h2></div>
+<p class="para block block-first">
+      DocBook can be used to write many different documents.
+      Glossaries, FAQs, indexes, books, and articles are some of the
+      documents which can be written.  To start the type of document
+      you will need to enclose the document in the appropriate tag.
+      You will be able to tell the type of document from the first
+      tag.  For books you will enclose the document in the
+      <span class="sgmltag" dir="ltr">&lt;book&gt;</span> tag and for articles you will
+      enclose the document in the <span class="sgmltag" dir="ltr">&lt;article&gt;</span>
+      tag.
+    </p>
+<p class="para block">
+      DocBook documents contain meta data, data which describes the
+      document, typically at the beginning of the document.  This meta
+      data will include copyright notices, author information,
+      revision history, and release information.  The meta data is
+      enclosed within the info tags.  For books you will enclose the
+      meta data with the <span class="sgmltag" dir="ltr">&lt;bookinfo&gt;</span> tag and
+      for articles you will enclose the meta data in the
+      <span class="sgmltag" dir="ltr">&lt;articleinfo&gt;</span> tag.
+    </p>
+<p class="para block">
+      Throughout this chapter a full article will be produced showing
+      you how to write a full article in DocBook.  So far we have
+      <div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">
+&lt;article&gt;
+  &lt;articleinfo&gt;
+  This will contain some information about the document.
+  &lt;/articleinfo&gt;
+  This is the body of the document.
+&lt;/article&gt;
+
+      </pre></div>
+      as our document.  As you continue to learn more about DocBook
+      the article will grow.
+    </p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.2.1. </span><a class="xref" href="docbook.html.en.html#docbook-section" title="Sections and Paragraphs">Sections and Paragraphs</a>
+</li>
+<li>
+<span class="label">4.2.2. </span><a class="xref" href="docbook.html.en.html#docbook-info" title="DocBook Meta Data">DocBook Meta Data</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="docbook-section"><!--docbook-section--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.2.1. </span>Sections and Paragraphs</span></h3></div>
+<p class="para block block-first">
+	DocBook has sections for structuring your document up to 5
+	sections deep.  Also paragraphs must be enclosed with the
+	<span class="sgmltag" dir="ltr">&lt;para&gt;</span> tag.
+	The top-level element of a book body is 
+	<span class="sgmltag" dir="ltr">&lt;chapter&gt;</span>; it may contain one or more
+	<span class="sgmltag" dir="ltr">&lt;sect1&gt;</span>, each of them may contain
+	<span class="sgmltag" dir="ltr">&lt;sect2&gt;</span> and so on up to
+	<span class="sgmltag" dir="ltr">&lt;sect5&gt;</span>. The top-level element of an
+	article body is always
+	<span class="sgmltag" dir="ltr">&lt;sect1&gt;</span>. Regardless of which elements
+	you use, give each structural element an unique id, see <a class="xref" href="guidelines.html.en.html#guidelines-sectids" title="Section IDs">Section 5.2 ― Section IDs</a>.
+      </p>
+<p class="para block"> 
+	Please try to avoid using deeply nested sections. For
+	most situations, <span class="sgmltag" dir="ltr">&lt;sect1&gt;</span> and
+	<span class="sgmltag" dir="ltr">&lt;sect2&gt;</span> should be sufficient. If
+	not, you probably should split your
+	<span class="sgmltag" dir="ltr">&lt;sect1&gt;</span> into several smaller ones.
+	For splitting large sections into smaller ones, see the
+	GNOME Documentation Style Guide.
+      </p>
+<p class="para block">
+	Each section needs to contain a title.  The title is a concise
+	description of the content of a section.  The
+	<span class="sgmltag" dir="ltr">&lt;title&gt;</span> tag encloses the title of
+	each section.  The title is placed right after the section
+	tags but before the body of the section.  For help on writing
+	good titles, see the GNOME Documentation Style Guide.
+      </p>
+<p class="para block"> 
+	Use the tag <span class="sgmltag" dir="ltr">&lt;para&gt;</span> for
+	paragraphs.  If there is only one paragraph in a section you
+	still need to use the <span class="sgmltag" dir="ltr">para</span> tag.
+	You need to close the tag at the end of the all paragraphs.
+	If the paragraph is only one line you should place the
+	<span class="sgmltag" dir="ltr">para</span> tags on the same line.  If the
+	paragraph is multiple lines the <span class="sgmltag" dir="ltr">para</span> tags
+	should be placed on separate lines as shown in the example below.
+      </p>
+<p class="para block">
+	The most basic section of DocBook is made up of three parts.
+	The section tags define where each section of text begins and
+	ends, the title tags give a concise description of each
+	section and the paragraph tags surround the text.  So for our
+	article document looks like:
+	<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">
+&lt;article&gt;
+  &lt;articleinfo&gt;
+  This will contain some information about the document.
+  &lt;/articleinfo&gt;
+
+  &lt;sect1&gt;
+    &lt;title&gt;DocBook Example&lt;/title&gt;
+    &lt;para&gt;
+      This is an example of using DocBook for the most basic type of
+      document.  The article just has one section and one paragraph.
+    &lt;/para&gt;
+  &lt;/sect1&gt;
+&lt;/article&gt;
+
+	</pre></div>
+	This is a very basic document with only one section and no
+	meta data.
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-info"><!--docbook-info--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.2.2. </span>DocBook Meta Data</span></h3></div>
+<p class="para block block-first">
+	The meta data of a document is put in 
+	<span class="sgmltag" dir="ltr">&lt;articleinfo&gt;</span> or
+	<span class="sgmltag" dir="ltr">&lt;bookinfo&gt;</span> tags.  The title of the
+	entire document is put in the meta data.  It is enclosed in
+	the <span class="sgmltag" dir="ltr">&lt;title&gt;</span> tag.  The copyright
+	information is enclosed in the
+	<span class="sgmltag" dir="ltr">&lt;copyright&gt;</span> tags.  The copyright
+	years are put inside the <span class="sgmltag" dir="ltr">&lt;year&gt;</span> tag
+	and the copyright holder is put inside the
+	<span class="sgmltag" dir="ltr">lt;holder&gt;</span> tag.  For example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;copyright&gt;
+  &lt;year&gt;2002&lt;/year&gt;
+  &lt;holder&gt;Eric Baudais&lt;/holder&gt;
+&lt;/copyright&gt;
+
+	</pre></div>
+	is how the copyright information should look like inside articleinfo.
+      </p>
+<p class="para block">
+	The author information contains the author's name, their
+	address, and any affiliation.  The authors of a document are
+	enclosed in the <span class="sgmltag" dir="ltr">&lt;authorgroup&gt;</span> tag.
+	The individual author's information is put inside the
+	<span class="sgmltag" dir="ltr">&lt;author&gt;</span> tag.  If there is only one
+	author of the document you do not need the authorgroup tag.
+	The author's name is divided into their firstname and surname
+	with the two tags <span class="sgmltag" dir="ltr">&lt;firstname&gt;</span> and
+	<span class="sgmltag" dir="ltr">&lt;surname&gt;</span>.  The author's affiliation
+	is put inside the <span class="sgmltag" dir="ltr">&lt;affiliation&gt;</span> tag.
+	The address can be the author's email address or a physical
+	address where they can be contacted through regular mail.
+	For example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;authorgroup&gt;
+  &lt;author&gt;
+    &lt;firstname&gt;Eric&lt;/firstname&gt;
+    &lt;surname&gt;Baudais&lt;/surname&gt;
+    &lt;affiliation&gt;
+      &lt;orgname&gt;GNOME Documentation Project&lt;/orgname&gt;
+      &lt;address&gt;
+        &lt;email&gt;baudais@kkpsi.org&lt;/email&gt;
+      &lt;/address&gt;
+    &lt;/affiliation&gt;
+  &lt;/author&gt;
+
+  &lt;author&gt;
+    &lt;firstname&gt;John&lt;/firstname&gt;
+    &lt;surname&gt;Doe&lt;/surname&gt;
+    &lt;affiliation&gt;
+      &lt;orgname&gt;Free Software Foundation&lt;/orgname&gt;
+      &lt;address&gt;
+        59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+        &lt;email&gt;john.doe@gnu.org&lt;/email&gt;
+      &lt;/address&gt;
+    &lt;/affiliation
+  &lt;/author&gt;
+&lt;/authorgroup&gt;
+
+	</pre></div>
+	is how the author information should look inside the
+	articleinfo.  There are more information you can include
+	inside the author tag.  This is just the basics of how to
+	construct the meta data.
+      </p>
+<p class="para block">
+	The last meta data for a document is any legal statements such
+	as the license of the document or any disclaimers or any
+	warranties and the release information.  The legal information
+	about the document is enclosed in the
+	<span class="sgmltag" dir="ltr">&lt;legalnotice&gt;</span> tag.  You can have a
+	title for the legalnotice using the
+	<span class="sgmltag" dir="ltr">&lt;title&gt;</span> tag.  The legalnotice should
+	be treated as a section of the articleinfo.  All paragraphs
+	should be enclosed with the <span class="sgmltag" dir="ltr">&lt;para&gt;</span>
+	tag.  The release information is enclosed in the
+	<span class="sgmltag" dir="ltr">&lt;releaseinfo&gt;</span> tag.  This is different
+	from the legalnotice because the release information is
+	entered without any paragraph tags.  For example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;legalnotice&gt;
+  &lt;title&gt;Legal Notices&lt;/title&gt;
+
+  &lt;para&gt;
+    Permission is granted to copy, distribute and/or modify this
+    document under the terms of the GNU Free Documentation
+    License (GFDL), Version 1.1 or any later version published
+    by the Free Software Foundation with no Invariant Sections,
+    no Front-Cover Texts, and no Back-Cover Texts.  You can find
+    a copy of the GFDL at this &lt;ulink type="help"
+    url="ghelp:fdl"&gt;link&lt;/ulink&gt; or in the file COPYING-DOCS
+    distributed with this manual.
+  &lt;/para&gt;
+&lt;/legalnotice&gt;
+
+&lt;releaseinfo&gt;
+  This is version 1.0.0 of DocBook Basics documenting version 4.1.2 of
+  DocBook XML.
+&lt;/releaseinfo&gt;
+
+	</pre></div>
+	is the other information included in the meta data.  There are
+	more information about the document you can include, but this
+	is a good beginning for a basic document.
+      </p>
+<p class="para block">
+	The document created so far includes the meta data and the
+	body of the documentation.  Our article document now looks
+	like:
+	<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">
+&lt;article&gt;
+  &lt;articleinfo&gt;
+
+    &lt;copyright&gt;
+      &lt;year&gt;2002&lt;/year&gt;
+      &lt;holder&gt;Eric Baudais&lt;/holder&gt;
+    &lt;/copyright&gt;
+
+    &lt;authorgroup&gt;
+      &lt;author&gt;
+        &lt;firstname&gt;Eric&lt;/firstname&gt;
+        &lt;surname&gt;Baudais&lt;/surname&gt;
+        &lt;affiliation&gt;
+          &lt;orgname&gt;GNOME Documentation Project&lt;/orgname&gt;
+          &lt;address&gt;
+            &lt;email&gt;baudais@kkpsi.org&lt;/email&gt;
+          &lt;/address&gt;
+        &lt;/affiliation&gt;
+      &lt;/author&gt;
+
+      &lt;author&gt;
+        &lt;firstname&gt;John&lt;/firstname&gt;
+        &lt;surname&gt;Doe&lt;/surname&gt;
+          &lt;affiliation&gt;
+          &lt;orgname&gt;Free Software Foundation&lt;/orgname&gt;
+          &lt;address&gt;
+            59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+            &lt;email&gt;john.doe@gnu.org&lt;/email&gt;
+          &lt;/address&gt;
+        &lt;/affiliation
+      &lt;/author&gt;
+    &lt;/authorgroup&gt;
+
+    &lt;legalnotice&gt;
+      &lt;title&gt;Legal Notices&lt;/title&gt;
+
+      &lt;para&gt;
+        Permission is granted to copy, distribute and/or modify this
+        document under the terms of the GNU Free Documentation
+        License (GFDL), Version 1.1 or any later version published
+        by the Free Software Foundation with no Invariant Sections,
+        no Front-Cover Texts, and no Back-Cover Texts.  You can find
+        a copy of the GFDL at this &lt;ulink type="help"
+        url="ghelp:fdl"&gt;link&lt;/ulink&gt; or in the file COPYING-DOCS
+        distributed with this manual.
+      &lt;/para&gt;
+    &lt;/legalnotice&gt;
+
+    &lt;releaseinfo&gt;
+      This is version 1.0.0 of DocBook Basics documenting version 4.1.2 of
+      DocBook XML.
+    &lt;/releaseinfo&gt;
+
+  &lt;/articleinfo&gt;
+
+  &lt;sect1&gt;
+    &lt;title&gt;DocBook Example&lt;/title&gt;
+    &lt;para&gt;
+      This is an example of using DocBook for the most basic type of
+      document.  The article just has one section and one paragraph.
+    &lt;/para&gt;
+  &lt;/sect1&gt;
+&lt;/article&gt;
+
+	</pre></div>
+	The document is still very basic with not much content.  Yet
+	there is lots of meta data information about the document.  As
+	you learn more about the DocBook tags your documents will
+	become more complex.  However, the basic structure of the
+	document is done and all that is left is to write the
+	document.
+      </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="docbook-structure"><!--docbook-structure--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.3. </span>Structural Elements</span></h2></div>
+<p class="para block block-first">
+      DocBook has many other tags to structure a document than
+      sections and paragraph.  Notes, figures, lists, and tables can
+      all be included into a document and are as much a part of the
+      way a document is structured as sections and paragraphs.  An
+      explanatory figure or table in the right place will enlighten
+      the reader and enhance the appearance and readability of the
+      document.  The GNOME Documentation Style Guide talks more about
+      when and where to use these effectively.  Some of these are easy
+      to use with DocBook while others take a while to master.
+    </p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.3.1. </span><a class="xref" href="docbook.html.en.html#docbook-notes" title="Notes, Warnings, and Tips">Notes, Warnings, and Tips</a>
+</li>
+<li>
+<span class="label">4.3.2. </span><a class="xref" href="docbook.html.en.html#docbook-figures" title=" Screenshots and other Figures"> Screenshots and other Figures</a>
+</li>
+<li>
+<span class="label">4.3.3. </span><a class="xref" href="docbook.html.en.html#docbook-screenshottools" title="Screenshot Tools">Screenshot Tools</a>
+</li>
+<li>
+<span class="label">4.3.4. </span><a class="xref" href="docbook.html.en.html#takescreenshots" title="Taking Screenshots Without Callouts">Taking Screenshots Without Callouts</a>
+</li>
+<li>
+<span class="label">4.3.5. </span><a class="xref" href="docbook.html.en.html#calloutscreenshots" title="Creating Screenshots With Callouts">Creating Screenshots With Callouts</a>
+</li>
+<li>
+<span class="label">4.3.6. </span><a class="xref" href="docbook.html.en.html#docbook-listing" title="Program Listings and Terminal Session">Program Listings and Terminal Session</a>
+</li>
+<li>
+<span class="label">4.3.7. </span><a class="xref" href="docbook.html.en.html#docbook-lists" title=" Lists"> Lists</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="docbook-notes"><!--docbook-notes--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.1. </span>Notes, Warnings, and Tips</span></h3></div>
+<p class="para block block-first">
+	For notes, tips, warnings, and important information, called
+	admonitions, should be set apart from the main text (usually
+	as a paragraph with some warning sign on the margin).  A title
+	is usually a good idea as it tells the reader what information
+	you are trying to set off, but is entirely optional.  Use the
+	tags <span class="sgmltag" dir="ltr">&lt;note&gt;</span>,
+	<span class="sgmltag" dir="ltr">&lt;tip&gt;</span>,
+	<span class="sgmltag" dir="ltr">&lt;warning&gt;</span>,
+	<span class="sgmltag" dir="ltr">&lt;important&gt;</span> respectively. For
+	example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;tip&gt;
+&lt;title&gt;DocBook Validation Tip&lt;/title&gt;
+  &lt;para&gt;
+    To validate DocBook without displaying the document, add the
+    argument &lt;parameter class="option"&gt;--noout&lt;/programlisting&gt; to the
+    &lt;application&gt;xmllint&lt;/programlisting&gt; command.
+  &lt;/para&gt;
+&lt;/tip&gt; </pre></div>  produces
+      </p>
+<div class="admonition block tip block-indent">
+<a name="docbook-extip"><!--docbook-extip--></a><div class="tip-inner">
+	<div class="block block-first title title-formal"><span class="title"><span class="label"></span>DocBook Validation Tip</span></div>
+	<p class="para block block-first">
+	  To validate DocBook without displaying the document, add the
+	  argument <span class="parameter" dir="ltr">--noout</span>
+	  to the <span class="application">xmllint</span> command.
+	</p>
+      </div>
+</div>
+<div class="admonition block note block-indent"><div class="note-inner">
+        <p class="para block block-first">
+          The <span class="sgmltag" dir="ltr">&lt;tip&gt;</span> tag should not be inside
+	  a <span class="sgmltag" dir="ltr">&lt;para&gt;</span> tag but between
+	  paragraphs.
+        </p>
+      </div></div>
+</div>
+<div class="division sect3">
+<a name="docbook-figures"><!--docbook-figures--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.2. </span> Screenshots and other Figures</span></h3></div>
+<p class="para block block-first">
+	To include screenshots and other figures, use the following
+	tags:
+	
+	<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">
+&lt;figure id="app-FIG-shot1"&gt;
+ &lt;title&gt;Screenshot&lt;/title&gt;
+ &lt;screenshot&gt;
+  &lt;mediaobject&gt;
+   &lt;imageobject&gt;
+    &lt;imagedata fileref="figures/example_screenshot.png" format="PNG"/&gt;
+   &lt;/imageobject&gt;
+   &lt;textobject&gt;
+     &lt;phrase&gt;Shows the application screenshot with several buttons.&lt;/phrase&gt;
+   &lt;/textobject&gt;
+   &lt;caption&gt;
+    &lt;para&gt;Screenshot of a program&lt;/para&gt;
+   &lt;/caption&gt;
+  &lt;/mediaobject&gt;
+ &lt;/screenshot&gt;
+&lt;/figure&gt;
+	</pre></div>
+	replacing <span class="filename" dir="ltr">example_screenshot</span> with the
+	actual file name (without extension). The result will look like this:
+	
+	<div class=" block figure block-indent">
+<a name="docbook-FIG-shot1"><!--docbook-FIG-shot1--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 1</span> </span>Screenshot</span></div>
+<div class="figure-inner">
+	  
+	  <div class=" block screenshot block-first">
+	    <div class="mediaobject">
+<img src="https://developer-old.gnome.org/gdp-handbook/stable/figures/example_screenshot.png.en"><div class=" block caption">
+		<p class="para block block-first">Screenshot of a program</p>
+	      </div>
+</div>
+	  </div>
+	</div>
+</div>
+	
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-screenshottools"><!--docbook-screenshottools--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.3. </span>Screenshot Tools</span></h3></div>
+<p class="para block block-first">
+	There are many tools for taking screenshots in
+	GNOME/Linux. Perhaps the most convenient is the
+	<span class="application">Take a Screen Shot</span> tool located in 
+	<span class="menuchoice"><span class="guimenu">Actions</span> ▸ <span class="guisubmenu">Take a Screen Shot</span></span>.  Just choose whether you want to save the screenshot 
+	to a file or on the desktop and click <span class="guibutton">Okay</span>.  
+	When you click the <span class="guibutton">Okay</span> button the tool will 
+	take a screenshot in a second.  If you want a window in focus you 
+	will need to focus the window in the second from when you click 
+	the <span class="guibutton">Okay</span> button to when the tool takes a 
+	screen shot.  For applets in a <span class="interface">Panel</span>,
+	<span class="application">GIMP</span> can be used to crop the
+	screenshot to only include the relevant portion of the
+	<span class="interface">Panel</span>. Note that
+	<span class="application">GIMP</span> can both be used for taking
+	screenshots, cropping screenshots, and converting image
+	formats.  If you need to convert an image to PNG from another 
+	format make sure you use compression liberally.  A high compression 
+	level will usually look fine in <span class="application">Yelp</span>.
+      </p>
+</div>
+<div class="division sect3">
+<a name="takescreenshots"><!--takescreenshots--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.4. </span>Taking Screenshots Without Callouts</span></h3></div>
+<p class="para block block-first">To create a screenshot that does not require callouts, follow these steps:</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+		  <span class="para">Start <span class="application">GIMP</span>.</span>
+		</li>
+<li>
+		  <span class="para">Choose 
+			 <span class="menuchoice"><span class="guimenu">File</span> ▸ <span class="guisubmenu">Acquire</span> ▸ <span class="guimenuitem">Screenshot</span></span>. A 
+			 <span class="guilabel">Screen Shot</span> dialog is displayed. </span>
+		</li>
+<li>
+		  <span class="para">Select the options that you require in the 
+			 <span class="guilabel">Screen Shot</span> dialog, then click 
+			 <span class="guibutton">OK</span>. <span class="application">GIMP</span> takes the
+			 screenshot, and displays the screenshot.</span>
+		</li>
+<li>
+		  <span class="para">If necessary, scale the image down. Save the image as PNG.</span>
+		</li>
+</ol></div>
+<p class="para block">Alternatively, to take a screenshot of the desktop, choose  
+			 <span class="menuchoice"><span class="guimenu">Actions</span> ▸ <span class="guimenuitem">Take a Screen Shot</span></span>. The screenshot is displayed in a  
+			 <span class="guilabel">Screenshot</span> dialog. If necessary, you can use <span class="application">GIMP</span> to 
+         crop the screenshot, or to scale the image down.</p>
+</div>
+<div class="division sect3">
+<a name="calloutscreenshots"><!--calloutscreenshots--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.5. </span>Creating Screenshots With Callouts</span></h3></div>
+<p class="para block block-first">
+You can download a sample screenshot with callouts, <a class="ulink" href="https://developer-old.gnome.org/gdp-handbook/stable/sample_anno_panel.xcf" title="sample_anno_panel.xcf">sample_anno_panel.xcf</a>. This file is in the native format of GIMP, XCF. To create a screenshot and all callouts to the screenshot, follow these steps:</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+		  <p class="para block block-first">Start <span class="application">GIMP</span>.</p>
+		</li>
+<li>
+		  <p class="para block block-first">Choose 
+			 <span class="menuchoice"><span class="guimenu">File</span> ▸ <span class="guisubmenu">Acquire</span> ▸ <span class="guimenuitem">Screenshot</span></span>. A 
+			 <span class="guilabel">Screen Shot</span> dialog is displayed. </p>
+		</li>
+<li>
+		  <p class="para block block-first">Select the options that you require in the 
+			 <span class="guilabel">Screen Shot</span> dialog, then click 
+			 <span class="guibutton">OK</span>. <span class="application">GIMP</span> takes the
+			 screenshot, and displays the screenshot.</p>
+		</li>
+<li>
+		  <p class="para block block-first">Create space on the image in which to add the callouts. To do
+			 this, right-click on the image, then choose 
+			 <span class="menuchoice"><span class="guimenu">Image</span> ▸ <span class="guimenuitem">Canvas Size</span></span>. A 
+			 <span class="guilabel">Set Canvas Size</span> dialog is displayed. Specify the
+			 new size of the image in the upper part of this dialog. Use the lower part of
+			 the dialog to position the screenshot in the image.</p> 
+		  <p class="para block">Alternatively, you can create a large new image, then paste in
+			 the screenshot. When you are finished you can use the 
+			 <span class="guilabel">Crop</span> tool to resize the image. </p>
+		</li>
+<li>
+		  <p class="para block block-first">Save the file in XCF format. XCF is the native format of 
+			 <span class="application">GIMP</span> and allows you to use complex
+			 graphical features such as layers.</p>
+		</li>
+<li>
+		  <p class="para block block-first">When your screenshot is localized, the localizer might cut out the 
+			 screenshot in the original language, and paste in the screenshot in 
+			 the new language. A mark that indicates the location of the screenshot 
+			 might be helpful in this case.</p>
+		  <p class="para block">Create the mark in a new layer. To create a new layer,
+			 right-click on the image, then choose 
+			 <span class="menuchoice"><span class="guimenu">Layers</span> ▸ <span class="guimenuitem">Layers, Channels &amp; Paths</span></span>. The 
+			 <span class="guilabel">Layers, Channels &amp; Paths</span> dialog is
+			 displayed. Click on the 
+			 <span class="guibutton">New Layer</span> button at the bottom left of the
+			 dialog. Name the layer <span class="emphasis">Top left corner of image</span>. </p> 
+		  <p class="para block"> Use the 
+			 <span class="guilabel">Pencil</span> tool to draw a right angle around the top left 
+			 corner of the image.  Format the lines as follows:</p> 
+		  <div class="block list itemizedlist"><ul class="itemizedlist"><li class="li-first">
+				<span class="para">Foreground colour: Green (Hex triplet: #00ff00)</span>
+			 </li></ul></div>
+ 		</li>
+<li>
+		  <p class="para block block-first">Create a new layer for the callout lines. Name the layer 
+<span class="emphasis">Callout lines</span>. </p> 
+		  <p class="para block"> Use the 
+			 <span class="guilabel">Pencil</span> tool to draw the callout lines. To keep
+			 the lines straight, click to start drawing the line, then press-and-hold 
+			 <span class="keycap">Shift</span>. Format the lines as follows:</p> 
+		  <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+				<span class="para">Brush: pixel (1 x 1 square)</span>
+			 </li>
+<li>
+				<span class="para">Foreground colour: Black (Hex triplet: #000000)</span>
+			 </li>
+</ul></div> 
+		  <p class="para block">Use straight horizontal and vertical lines only.</p> 
+		</li>
+<li>
+		  <p class="para block block-first">Use the dynamic text plugin to create the callout text. To access
+			 the Dynamic Text plugin, right-click on an image, then choose 
+			 <span class="menuchoice"><span class="guimenu">Filters</span> ▸ <span class="guisubmenu">Render</span> ▸ <span class="guimenuitem">Dynamic Text</span></span>. This creates a new layer for each text item. Format
+			 the text as follows: </p> 
+		  <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+				<span class="para">helvetica(adobe)</span>
+			 </li>
+<li>
+				<span class="para">medium</span>
+			 </li>
+<li>
+				<span class="para">11-point</span>
+			 </li>
+<li>
+				<span class="para">anti-aliased</span>
+			 </li>
+</ul></div> 
+		  <p class="para block">Rename the layers so that the name of the layer matches the text
+			 that appears in the callout. Prefix each layer name with <span class="emphasis">Text:
+			 </span>. </p>
+		</li>
+<li>
+		  <p class="para block block-first">Save the image as PNG (right-click on the image and choose 
+			 <span class="menuchoice"><span class="guimenu">File</span> ▸ <span class="guimenuitem">Save As</span></span>). An 
+			 <span class="guilabel">Export File</span> dialog is displayed. This warns that
+			 you are about to flatten the layers in the image. Click on the 
+			 <span class="guibutton">Export</span> button. A 
+			 <span class="guilabel">Save As PNG</span> dialog is displayed. Deselect the 
+			 <span class="guilabel">Save background color</span> option. <span class="emphasis">Ensure
+			 that you do not overwrite the XCF file!</span></p>
+		</li>
+</ol></div>
+</div>
+<div class="division sect3">
+<a name="docbook-listing"><!--docbook-listing--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.6. </span>Program Listings and Terminal Session</span></h3></div>
+<p class="para block block-first">
+	To show a file fragment—for example, program
+	listing—use <span class="sgmltag" dir="ltr">&lt;programlisting&gt;</span> tag:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;programlisting&gt;
+[Desktop Entry] 
+Name=Gnumeric spreadsheet
+Exec=gnumeric 
+Icon=gnome-gnumeric.png 
+Terminal=0
+Type=Application
+&lt;/programlisting&gt;
+	</pre></div>
+	which produces
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">[Desktop Entry] 
+Name=Gnumeric spreadsheet 
+Exec=gnumeric
+Icon=gnome-gnumeric.png 
+Terminal=0 
+Type=Application
+	</pre></div>
+	As a matter of fact, all examples in this document were
+	produced using <span class="sgmltag" dir="ltr">&lt;programlisting&gt;</span>.
+      </p>
+<p class="para block">
+	To show a record of a terminal session (i.e. sequence of
+	commands entered at the command line) use the 
+	<span class="sgmltag" dir="ltr">&lt;screen&gt;</span> tag:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;screen&gt;
+&lt;prompt&gt;bash$&lt;/prompt&gt;&lt;userinput&gt;make love&lt;/userinput&gt; 
+make: *** No rule to make target `love'. Stop.
+&lt;/screen&gt;
+	</pre></div>
+	which produces
+	<div dir="ltr" class=" block screen block-indent"><pre class="screen"><span class="prompt" dir="ltr">bash$</span><span class="userinput" dir="ltr">make love</span>  
+make: *** No rule to make target `love'.  Stop.
+	</pre></div>
+	Observe the use of tags <span class="sgmltag" dir="ltr">&lt;prompt&gt;</span> and
+	<span class="sgmltag" dir="ltr">&lt;userinput&gt;</span> for marking system prompt
+	and commands entered by user.
+	<div class="admonition block note block-indent"><div class="note-inner">
+	  <div class="block block-first title title-formal"><span class="title"><span class="label"></span>Note</span></div>
+	  <p class="para block block-first">
+	    Note that both <span class="sgmltag" dir="ltr">&lt;programlisting&gt;</span>
+	    and <span class="sgmltag" dir="ltr">&lt;screen&gt;</span> preserve linebreaks,
+	    but interpret XML tags (unlike LaTeX
+	    <span class="markup" dir="ltr">verbatim</span> environment). Take a look at
+	    the source of this document to see how you can have XML
+	    tags literally shown but not interpreted,
+	  </p>
+	</div></div>
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-lists"><!--docbook-lists--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.3.7. </span> Lists</span></h3></div>
+<p class="para block block-first">
+	The most common list types  in DocBook are
+	<span class="sgmltag" dir="ltr">&lt;itemizedlist&gt;</span>,
+	<span class="sgmltag" dir="ltr">&lt;orderedlist&gt;</span>, and 
+	<span class="sgmltag" dir="ltr">&lt;variablelist&gt;</span>.
+      </p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first"> <span class="sgmltag" dir="ltr">&lt;itemizedlist&gt;</span>
+</dt>
+<dd>
+<p class="para block block-first"> 
+	      This is the simplest unnumbered list, parallel to
+	      <span class="sgmltag" dir="ltr">&lt;ul&gt;</span> in HTML. Here is an example: 
+	      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;itemizedlist&gt;
+  &lt;listitem&gt;
+    &lt;para&gt;
+      &lt;guilabel&gt;Show backup files&lt;/guilabel&gt; &amp;mdash; This will
+      show any backup file that might be on your system.
+    &lt;/para&gt;
+  &lt;/listitem&gt;
+  &lt;listitem&gt;
+    &lt;para&gt;
+      &lt;guilabel&gt;Show hidden files&lt;/guilabel&gt; &amp;mdash; This will
+      show all "dot files" or files that begin with a dot.  Those
+      files typically include configuration files and directories.
+    &lt;/para&gt;
+  &lt;/listitem&gt;
+  &lt;listitem&gt;
+    &lt;para&gt;
+      &lt;guilabel&gt;Mix files and directories&lt;/guilabel&gt; &amp;mdash; This
+      option will  display files and directories in the order you
+      sort them instead of 
+      always having directories shown above files.
+    &lt;/para&gt;
+   &lt;/listitem&gt;
+&lt;/itemizedlist&gt; 
+
+	      </pre></div>
+	      and output:
+	    </p>
+	    <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+		<span class="para">
+		  <span class="guilabel">Show backup files</span> —
+		  This will show any backup file that might be on
+		  your system.
+		</span>
+	      </li>
+<li>
+		<span class="para">
+		  <span class="guilabel">Show hidden files</span> —
+		  This will show all "dot files" or files that
+		  begin with a dot.  Those files typically include
+		  configuration files and directories.
+		</span>
+	      </li>
+<li>
+		<span class="para">
+		  <span class="guilabel">Mix files and directories</span>
+		  — This option will display files and
+		  directories in the order you sort them instead
+		  of always having directories shown above files.
+		</span>
+	      </li>
+</ul></div>
+	    <p class="para block"> Note the use of the character entity
+              <span class="sgmltag" dir="ltr">&amp;mdash;</span> for a long dash (see
+              <a class="xref" href="docbook.html.en.html#docbook-specsymb" title=" Special Symbols ">Section 4.4.6 ―  Special Symbols </a>). Also, please note
+              that the result looks much nicer because the terms being
+              explained (<span class="guilabel">Show backup files</span>, etc.)
+              are set in a different font. In this case, it was
+              achieved by using <a class="link" href="docbook.html.en.html#docbook-gui" title="GUI elements"><span class="sgmltag" dir="ltr">&lt;guilabel&gt;</span></a>
+              tag. In other cases, use appropriate tags such as <a class="link" href="docbook.html.en.html#docbook-gui" title="GUI elements"><span class="sgmltag" dir="ltr">&lt;guimenuitem&gt;</span></a>, 
+              <a class="link" href="docbook.html.en.html#docbook-filenames" title="Filenames, commands, and other computer-related things"><span class="sgmltag" dir="ltr">&lt;command&gt;</span></a>,
+              or — if none of this applies — use <a class="link" href="docbook.html.en.html#docbook-gui" title="GUI elements"><span class="sgmltag" dir="ltr">&lt;emphasis&gt;</span></a>.
+	    </p>
+	  </dd>
+<dt class="term"> <span class="sgmltag" dir="ltr">&lt;orderedlist&gt;</span>
+</dt>
+<dd><p class="para block block-first">
+	      This list is completely analogous to
+	      <span class="sgmltag" dir="ltr">&lt;itemizedlist&gt;</span> and has the same
+	      syntax, but it produces numbered list. By default,
+	      this list uses Arabic numerals for numbering entries;
+	      you can override this using <span class="sgmltag" dir="ltr">numeration</span>,
+	      for example <span class="sgmltag" dir="ltr">&lt;orderedlist
+		numeration="lowerroman"&gt;</span>. Possible values 
+	      of the numeration attribute are <span class="sgmltag" dir="ltr">arabic</span>,
+	      <span class="sgmltag" dir="ltr">upperalpha</span>,
+	      <span class="sgmltag" dir="ltr">loweralpha</span>,
+	      <span class="sgmltag" dir="ltr">upperroman</span>, and 
+	      <span class="sgmltag" dir="ltr">lowerroman</span>.
+	    </p></dd>
+<dt class="term"> <span class="sgmltag" dir="ltr">&lt;variablelist&gt;</span>
+</dt>
+<dd>
+<p class="para block block-first"> This list is used when each entry is
+	      rather long, so it should be formatted as a block of text
+	      with some subtitle, like a small subsection.  The
+	      <span class="sgmltag" dir="ltr">&lt;variablelist&gt;</span> is more complicated
+	      than itemizedlists, but for larger blocks of text, or when
+	      you're explaining or defining something, it's best to use
+	      them.  Their greatest advantage is that it's easier for a
+	      computer to search.  The lines you are reading now were
+	      produced by <span class="sgmltag" dir="ltr">&lt;variablelist&gt;</span>. The
+	      source looked liked this:
+	      <div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;variablelist&gt;
+  &lt;varlistentry&gt;
+    &lt;term&gt; &lt;sgmltag&gt;&amp;lt;itemizedlist&amp;gt;&lt;/sgmltag&gt;&lt;/term&gt; 
+    &lt;listitem&gt;&lt;para&gt; 
+	This is the simplest unnumbered list, parallel to
+        &lt;sgmltag&gt;&amp;lt;ul&amp;gt;&lt;/sgmltag&gt; in HTML. Here is an example:...
+    &lt;/para&gt;&lt;/listitem&gt;
+    &lt;/varlistentry&gt;
+    &lt;varlistentry&gt;		 
+	&lt;term&gt; &lt;sgmltag&gt;&amp;lt;orderedlist&amp;gt;&lt;/sgmltag&gt;&lt;/term&gt;
+     &lt;listitem&gt;&lt;para&gt;	
+	This list is completely analogous to
+	&lt;sgmltag&gt;&amp;lt;itemizedlist&amp;gt;&lt;/sgmltag&gt; 
+    &lt;/para&gt;&lt;/listitem&gt;
+    &lt;/varlistentry&gt;
+    &lt;varlistentry&gt;		 
+	&lt;term&gt; &lt;sgmltag&gt;&amp;lt;variablelist&amp;gt;&lt;/sgmltag&gt;&lt;/term&gt;
+     &lt;listitem&gt;&lt;para&gt;	
+		This list is used when each entry is rather long,...
+    &lt;/para&gt;&lt;/listitem&gt;
+    &lt;/varlistentry&gt;
+&lt;/variablelist&gt;        
+
+	      </pre></div>		
+	    </p>
+	  </dd>
+</dl></div>
+<p class="para block">
+	Lists can be nested; in this case, the stylesheets
+	are smart enough to change the numeration (for
+	<span class="sgmltag" dir="ltr">&lt;orderedlist&gt;</span>) or marks of each entry
+	(in  <span class="sgmltag" dir="ltr">&lt;itemizedlist&gt;</span>) for sub-lists
+      </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="docbook-inline"><!--docbook-inline--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.4. </span>Inline Elements</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.4.1. </span><a class="xref" href="docbook.html.en.html#docbook-gui" title="GUI elements">GUI elements</a>
+</li>
+<li>
+<span class="label">4.4.2. </span><a class="xref" href="docbook.html.en.html#docbook-links" title="Links and References">Links and References</a>
+</li>
+<li>
+<span class="label">4.4.3. </span><a class="xref" href="docbook.html.en.html#docbook-filenames" title="Filenames, commands, and other computer-related things">Filenames, commands, and other computer-related things</a>
+</li>
+<li>
+<span class="label">4.4.4. </span><a class="xref" href="docbook.html.en.html#docbook-keys" title="Keyboard Input">Keyboard Input</a>
+</li>
+<li>
+<span class="label">4.4.5. </span><a class="xref" href="docbook.html.en.html#docbook-email" title="E-mail Addresses">E-mail Addresses</a>
+</li>
+<li>
+<span class="label">4.4.6. </span><a class="xref" href="docbook.html.en.html#docbook-specsymb" title=" Special Symbols "> Special Symbols </a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="docbook-gui"><!--docbook-gui--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.1. </span>GUI elements</span></h3></div>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;guibutton&gt;</span> — used for
+	    clickable buttons in the user interface
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;guimenu&gt;</span>, 
+	    <span class="sgmltag" dir="ltr">&lt;guisubmenu&gt;</span> —used for 
+	    top-level menus and submenus
+	    respectively, for example <span class="literal" dir="ltr">
+              &lt;guisubmenu&gt;Utilities&lt;/guisubmenu&gt; submenu of the
+              &lt;guimenu&gt;Main Menu&lt;/guimenu&gt;</span>
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;guimenuitem&gt;</span>—an entry in a
+	    menu
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;guiicon&gt;</span>—an icon
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;guilabel&gt;</span>—for items which have
+	    labels, like tabs, bounding boxes, or radio buttons.
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;interface&gt;</span>— for most everything
+	    else... a window, a dialog box, the Panel, etc.
+	  </span>
+	</li>
+</ul></div>
+<p class="para block">
+	If you need to refer to a sequence of menu choices, such as
+	<span class="menuchoice"><span class="guimenu">Main Menu</span> ▸ <span class="guisubmenu">Utilities</span> ▸ <span class="guimenuitem">GNOME
+            terminal</span></span>
+	there is a special construction for this, too:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;menuchoice&gt;
+  &lt;guimenu&gt;Main Menu&lt;/guimenu&gt; &lt;guisubmenu&gt;Utilities&lt;/guisubmenu&gt;
+  &lt;guimenuitem&gt;GNOME terminal&lt;/guimenuitem&gt; &lt;/menuchoice&gt;
+	</pre></div>
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-links"><!--docbook-links--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.2. </span>Links and References</span></h3></div>
+<p class="para block block-first">
+	To refer to another place in the same document, you can use
+	tags <span class="sgmltag" dir="ltr">&lt;xref&gt;</span> and
+	<span class="sgmltag" dir="ltr">&lt;link&gt;</span>. The first of them
+	automatically inserts the full name of the element you refer
+	to (section, figure, etc.), while the second just creates a
+	link (in HTML output). Here is an example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+An example of a &lt;link linkend="app-extip"&gt;tip&lt;/link&gt; was given in
+&lt;xref linkend="notes" /&gt;.
+
+	</pre></div>
+	which produces: 
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">An example of a <a class="link" href="docbook.html.en.html#docbook-extip" title="DocBook Validation Tip">tip</a> was given in  <a class="xref" href="docbook.html.en.html#docbook-notes" title="Notes, Warnings, and Tips">Section 4.3.1 ― Notes, Warnings, and Tips</a>.</pre></div>
+      </p>
+<p class="para block">
+	Here <span class="sgmltag" dir="ltr">notes</span> is the id attribute of 
+	<a class="xref" href="docbook.html.en.html#docbook-notes" title="Notes, Warnings, and Tips">Section 4.3.1 ― Notes, Warnings, and Tips</a> and <span class="sgmltag" dir="ltr">extip</span> is the id 
+	attribute of the section about tips.
+      </p>
+<p class="para block">  To produce a link  to an external source, such as a
+	Web page or a local file, use the <span class="sgmltag" dir="ltr">&lt;ulink&gt;</span>
+	tag, for example:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+To find more about GNOME, please visit the &lt;ulink type="http"
+url="http://www.gnome.org"&gt;GNOME Web Site&lt;/ulink&gt;
+
+	</pre></div>
+	which produces:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">To find more about GNOME, please visit the <a class="ulink" href="http://www.gnome.org" title="http://www.gnome.org">GNOME Web Site</a></pre></div>
+      </p>
+<p class="para block">You can use any of the standard URL types, such
+	as <span class="literal" dir="ltr">http, ftp, file, telnet, mailto</span> (in
+	most cases, however, use of <span class="literal" dir="ltr">mailto</span> is
+	unnecessary—see <a class="link" href="docbook.html.en.html#docbook-email" title="E-mail Addresses">discussion of
+          <span class="sgmltag" dir="ltr">&lt;email&gt;</span> tag</a>).
+      </p>
+<p class="para block">For more on this topic, see <a class="xref" href="refering.html.en.html" title="Cross Referencing Other Documentation">Section 7 ― Cross Referencing Other Documentation</a>.</p>
+</div>
+<div class="division sect3">
+<a name="docbook-filenames"><!--docbook-filenames--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.3. </span>Filenames, commands, and other computer-related things</span></h3></div>
+<p class="para block block-first">
+	Here are some tags used to describe operating system-related
+	things:  
+      </p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+	  <span class="para">  <span class="sgmltag" dir="ltr">&lt;filename&gt;</span> — used
+	    for filenames,
+	    e.g.<span class="sgmltag" dir="ltr">&lt;filename&gt;</span>
+	    foo.sgml
+	    <span class="sgmltag" dir="ltr">&lt;/filename&gt;</span> 
+	    produces: <span class="filename" dir="ltr">foo.sgml</span>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">  <span class="sgmltag" dir="ltr">&lt;filename
+              class="directory"&gt;</span> — used for
+	    directories, e.g.<span class="sgmltag" dir="ltr">&lt;filename
+              class="directory"&gt;</span>/usr/bin
+	    <span class="sgmltag" dir="ltr">&lt;/filename&gt;</span>
+	    produces: <span class="filename" dir="ltr">/usr/bin</span>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;application&gt;</span> — used for
+	    application names,
+	    e.g. <span class="sgmltag" dir="ltr">&lt;application&gt;</span>Gnumeric
+	    <span class="sgmltag" dir="ltr">&lt;/application&gt;</span> produces:
+	    <span class="application">Gnumeric</span>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;envar&gt;</span> — used for
+	    environment variables, e.g. 
+	    <span class="sgmltag" dir="ltr">&lt;envar&gt;</span>PATH<span class="sgmltag" dir="ltr">&lt;/envar&gt;
+	    </span> produces :
+	    <span class="envar" dir="ltr">PATH</span>
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;command&gt;</span> — used for
+	    commands entered on command line, e.g.
+	    <span class="sgmltag" dir="ltr">&lt;command&gt;</span>make install
+	    <span class="sgmltag" dir="ltr">&lt;/command&gt;</span> produces:
+	    <span class="command" dir="ltr">make install</span>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;parameter&gt;</span> — used for
+	    options or arguments passed to a system call or command,
+	    e.g.
+	    <span class="sgmltag" dir="ltr">&lt;parameter&gt;</span>--version
+	    <span class="sgmltag" dir="ltr">&lt;/parameter&gt;</span> produces:
+	    <span class="parameter" dir="ltr">--version</span>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">
+	    <span class="sgmltag" dir="ltr">&lt;replaceable&gt;</span> — used for
+	    replaceable text, e.g.
+	    <span class="sgmltag" dir="ltr">&lt;command&gt;</span>db2html<span class="sgmltag" dir="ltr">&lt;replaceable&gt;</span>
+	    foo.sgml
+	    <span class="sgmltag" dir="ltr">&lt;/replaceable&gt;</span><span class="sgmltag" dir="ltr">&lt;/command&gt;</span>
+	    produces: <span class="command" dir="ltr">db2html
+              <span class="replaceable">foo.sgml</span></span>.
+	  </span>
+	</li>
+</ul></div>
+</div>
+<div class="division sect3">
+<a name="docbook-keys"><!--docbook-keys--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.4. </span>Keyboard Input</span></h3></div>
+<p class="para block block-first"> To mark up text input by the user, use
+        <span class="sgmltag" dir="ltr">&lt;userinput&gt;</span>.
+      </p>
+<p class="para block">  To mark keystrokes such as shortcuts and other
+	commands, use <span class="sgmltag" dir="ltr">&lt;keycap&gt;</span>. 
+	This is used for marking up what is printed on the top 
+	of the physical key on the keyboard. There are a couple of
+	other tags for keys, too: <span class="sgmltag" dir="ltr">&lt;keysym&gt;</span>
+	and <span class="sgmltag" dir="ltr">&lt;keycode&gt;</span>. However you are
+	unlikely to need these for most documentation. For reference,
+	<span class="sgmltag" dir="ltr">&lt;keysym&gt;</span> is for the <span class="quote">“symbolic
+          name”</span> of a key. <span class="sgmltag" dir="ltr">&lt;keycode&gt;</span> is
+	for the <span class="quote">“scan code”</span> of a key. These are not
+	terms commonly required in <span class="acronym">GNOME</span> documentation,
+	although <span class="sgmltag" dir="ltr">&lt;keysym&gt;</span> is useful for marking
+	up control codes.
+      </p>
+<p class="para block">
+	To mark up a combination of keystrokes, use the
+	<span class="sgmltag" dir="ltr">&lt;keycombo&gt;</span> wrapper:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">
+&lt;keycombo&gt;
+ &lt;keycap&gt;Ctrl&lt;/keycap&gt;
+ &lt;keycap&gt;Alt&lt;/keycap&gt;
+ &lt;keycap&gt;F1&lt;/keycap&gt;
+&lt;/keycombo&gt;
+	</pre></div>
+      </p>
+<p class="para block">
+	Finally, if you want to show a shortcut for some menu
+	command, here are the appropriate tags (rather long):
+	<div dir="ltr" class=" block programlisting block-indent block-first"><pre class="programlisting">
+&lt;menuchoice&gt;
+ &lt;shortcut&gt;
+  &lt;keycombo&gt;&lt;keycap&gt;Ctrl&lt;/keycap&gt;&lt;keycap&gt;q&lt;/keycap&gt;&lt;/keycombo&gt;
+ &lt;/shortcut&gt; 
+ &lt;guimenuitem&gt; Quit&lt;/guimenuitem&gt; 
+&lt;/menuchoice&gt;
+	</pre></div>
+	which produces simply
+	<span class="menuchoice"><span class="guimenuitem"> Quit</span> <span class="shortcut">(   <span class="keysym" dir="ltr">Ctrl-q</span> )</span></span>
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-email"><!--docbook-email--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.5. </span>E-mail Addresses</span></h3></div>
+<p class="para block block-first">  To mark up e-mail
+        address, use <span class="sgmltag" dir="ltr">&lt;email&gt;</span>:
+	<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting"> The easiest way to get in touch with me is by e-mail
+(&lt;email&gt;me@mydomain.com&lt;/email&gt;)
+	</pre></div>
+	which produces: The easiest way to get in touch with me is
+	by e-mail  (<span class="email" dir="ltr">&lt;<a href="mailto:me@mydomain.com" title="Send email to ‘me@mydomain.com’.">me@mydomain.com</a>&gt;</span>) Note that
+	<span class="sgmltag" dir="ltr">&lt;email&gt;</span> automatically produces a link
+	in the HTML version.
+      </p>
+</div>
+<div class="division sect3">
+<a name="docbook-specsymb"><!--docbook-specsymb--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">4.4.6. </span> Special Symbols </span></h3></div>
+<p class="para block block-first"> 
+	DocBook also provides special means for entering
+	typographic symbols which can not be entered directly
+	form the keyboard (such as copyright sign). This is done using
+	<span class="emphasis">character entities</span>, which ii the XML analogue of
+	macros, or commands, of LaTeX. They generally have the form 
+	<span class="sgmltag" dir="ltr">&amp;entityname;</span>. Note that the semicolon
+	is required. 
+      </p>
+<p class="para block">
+	here is partial list of most commonly used enitites:
+      </p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;amp;</span> — ampersend (&amp;)
+	  </span></li>
+<li><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;lt;</span> — left angle bracket (&lt;)
+	  </span></li>
+<li><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;gt;</span> — right angle bracket (&gt;)
+	  </span></li>
+<li><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;copy;</span> — copyright sign (©)
+	  </span></li>
+<li><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;mdash;</span> — long dash (—)
+	  </span></li>
+<li><span class="para">
+	    <span class="sgmltag" dir="ltr">&amp;hellip;</span> — ellipsis (…)
+	  </span></li>
+</ul></div>
+<p class="para block">
+	Note that the actual look of the resulting symbols depends
+	on the fonts used by your browser; for example, it might
+	happen that long dash (<span class="sgmltag" dir="ltr">&amp;mdash;</span>) looks
+	exactly like the usual dash (-). However, in the PostScript
+	(and thus, in print) the output will look markedly better if
+	you use appropriate tags. 
+      </p>
+</div>
+</div>
+<div class="division sect2">
+<a name="docbook-indexing"><!--docbook-indexing--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">4.5. </span>Indexing</span></h2></div>
+<p class="para block block-first">
+    </p>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">Getting Started Writing GNOME Documentation</a></td>
+<td class="navbar-next"><a class="navbar-next" href="guidelines.html.en.html" title="GDP Documentation Guidelines ">GDP Documentation Guidelines </a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;">
+<div class="division">
+<h2 class="title copyright">Copyrights</h2>
+<div class="block block-first"><dl class="dl-compact">
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Red Hat, Inc.</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Daniel Mueth</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2000</span>  <span class="holder">Alexander Kirillov</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">Eric Baudais</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">Eugene O'Connor</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2002</span>  <span class="holder">John Fleck</span>
+</dt>
+<dt class="copyright">Copyright © <span class="year">2003</span>  <span class="holder">John Fleck</span>
+</dt>
+</dl></div>
+</div>
+<div class="division legalnotice">
+<a name="legalnotice"><!--legalnotice--></a><h2 class="title legalnotice">Legal Notice</h2>
+	<p class="para block block-first">
+	  Permission is granted to copy, distribute and/or modify this
+	  document under the terms of the GNU Free Documentation
+	  License (GFDL), Version 1.1 or any later version published
+	  by the Free Software Foundation with no Invariant Sections,
+	  no Front-Cover Texts, and no Back-Cover Texts.  You can find
+	  a copy of the GFDL at this <a class="ulink" href="docbook.html.en.html" title="ghelp:fdl">link</a> or in the file COPYING-DOCS
+	  distributed with this manual.
+         </p>
+         <p class="para block"> This manual is part of a collection of GNOME manuals
+          distributed under the GFDL.  If you want to distribute this
+          manual separately from the collection, you can do so by
+          adding a copy of the license to the manual, as described in
+          section 6 of the license.
+	</p>
+
+	<p class="para block">
+	  Many of the names used by companies to distinguish their
+	  products and services are claimed as trademarks. Where those
+	  names appear in any GNOME documentation, and the members of
+	  the GNOME Documentation Project are made aware of those
+	  trademarks, then the names are in capital letters or initial
+	  capital letters.
+	</p>
+
+	<p class="para block">
+	  DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED
+	  UNDER  THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE
+	  WITH THE FURTHER UNDERSTANDING THAT:
+
+	  <div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+		  <span class="para">DOCUMENT IS PROVIDED ON AN "AS IS" BASIS,
+                    WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+                    IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES
+                    THAT THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS FREE OF DEFECTS MERCHANTABLE, FIT FOR
+                    A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE
+                    RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE
+                    OF THE DOCUMENT OR MODIFIED VERSION OF THE
+                    DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR
+                    MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT,
+                    YOU (NOT THE INITIAL WRITER, AUTHOR OR ANY
+                    CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY
+                    SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER
+                    OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS
+                    LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED
+                    VERSION OF THE DOCUMENT IS AUTHORIZED HEREUNDER
+                    EXCEPT UNDER THIS DISCLAIMER; AND
+		  </span>
+		</li>
+<li>
+		  <span class="para">UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL
+                       THEORY, WHETHER IN TORT (INCLUDING NEGLIGENCE),
+                       CONTRACT, OR OTHERWISE, SHALL THE AUTHOR,
+                       INITIAL WRITER, ANY CONTRIBUTOR, OR ANY
+                       DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION
+                       OF THE DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH
+                       PARTIES, BE LIABLE TO ANY PERSON FOR ANY
+                       DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR
+                       CONSEQUENTIAL DAMAGES OF ANY CHARACTER
+                       INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS
+                       OF GOODWILL, WORK STOPPAGE, COMPUTER FAILURE OR
+                       MALFUNCTION, OR ANY AND ALL OTHER DAMAGES OR
+                       LOSSES ARISING OUT OF OR RELATING TO USE OF THE
+                       DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT,
+                       EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF
+                       THE POSSIBILITY OF SUCH DAMAGES.
+		  </span>
+		</li>
+</ol></div>
+	</p>
+  </div>
+<div class="division legalnotice"> 
+      <h2 class="title legalnotice">Feedback</h2> 
+      <p class="para block block-first">To report a bug or make a suggestion regarding the GNOME Handbook 
+		of Writing Software Documentation follow the directions in the 
+	<a class="ulink" href="docbook.html.en.html" title="ghelp:user-guide?feedback">GNOME Feedback Page</a>. 
+      </p>
+
+    </div>
+</div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="GNOME Handbook of Writing Software Documentation V1.0.2">GNOME Handbook of Writing Software Documentation V1.0.2</a><div class="autotoc"><ul>
+<li><a class="xref" href="intro.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="gnomedocsystem.html.en.html" title="GNOME Documentation System">GNOME Documentation System</a></li>
+<li><a class="xref" href="gettingstarted.html.en.html" title="Getting Started Writing GNOME Documentation">Getting Started Writing GNOME Documentation</a></li>
+<li>DocBook Basics </li>
+<li><a class="xref" href="guidelines.html.en.html" title="GDP Documentation Guidelines ">GDP Documentation Guidelines </a></li>
+<li><a class="xref" href="writingapplicationmanuals.html.en.html" title="Writing Application and Applet Manuals">Writing Application and Applet Manuals</a></li>
+<li><a class="xref" href="refering.html.en.html" title="Cross Referencing Other Documentation">Cross Referencing Other Documentation</a></li>
+<li><a class="xref" href="writingcontextsensitivehelp.html.en.html" title="Writing Context Sensitive Help (coming in GNOME-3.0)">Writing Context Sensitive Help (coming in GNOME-3.0)</a></li>
+<li><a class="xref" href="buildingdocs.html.en.html" title="Building Documentation within a Program">Building Documentation within a Program</a></li>
+<li><a class="xref" href="teamwork.html.en.html" title="Teamwork">Teamwork</a></li>
+<li><a class="xref" href="finishing.html.en.html" title="Finishing a Document">Finishing a Document</a></li>
+<li><a class="xref" href="resources.html.en.html" title="Resources">Resources</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="docbook.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

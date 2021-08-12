@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Appendix 1. Contributing to this document</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="index.html" rel="up" title="The Clutter Cookbook"></link><link href="effects-custom-deform.html" rel="prev" title="3. Creating and animating a custom ClutterDeformEffect"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="contributing.html#container">Go to page content</a></li><li><a href="contributing.html#top_bar">Go to main menu</a></li><li><a href="contributing.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">Appendix 1. Contributing to this document</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="effects-custom-deform.html">Prev</a> </td><th align="center" width="60%"> </th><td align="right" width="20%"> </td></tr></tbody></table><hr></hr></div><div class="appendix"><div class="titlepage"><div><div><h1 class="title"><a name="contributing"></a>Appendix 1. Contributing to this document</h1></div></div></div><p>This document is written in
+    <a class="ulink" href="http://docbook.org/" target="_top">Docbook XML</a>. The source files
+    for this document are located in the subdirectory
+    <code class="filename">doc/cookbook</code> inside the Clutter source directory.</p><p>To maintain some degree of consistency, try to stick to the
+    following broad guidelines about how to write Docbook for this
+    cookbook:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>If adding a new recipe, use the
+        <code class="filename">recipe-template.xml</code> XML file as a basis.
+        You can find it in the <code class="filename">&lt;clutter source&gt;/doc/cookbook/</code>
+        directory.</p></li><li class="listitem"><p>Try to indent your XML sensibly using 2 spaces per level
+        (we're not too strict, but some indentation helps reading
+        the source).</p></li><li class="listitem"><p>Stick to a column width of around 80 characters.</p></li><li class="listitem"><p>Use the &lt;filename&gt; element for file
+        and directory names.</p></li><li class="listitem"><p>Use the &lt;property&gt; element for property names
+        (e.g. GObject properties).</p></li><li class="listitem"><p>Use the &lt;type&gt; element for GObject class
+        names.</p></li><li class="listitem"><p>Use the &lt;constant&gt; element for C defines.</p></li><li class="listitem"><p>Use the &lt;keycap&gt; element for keys, where
+        you are referring to what's actually printed on the key, e.g.
+        <span class="keycap"><strong>Shift</strong></span>. If you're referring to the key some
+        other way (e.g. "the Control key"), don't use
+        &lt;keycap&gt;.</p></li><li class="listitem"><p>Use the &lt;function&gt; element for functions;
+        the style adopted is to give the function name followed by
+        empty brackets, e.g. <code class="function">clutter_actor_set_size()</code>.
+        </p></li><li class="listitem"><p>Use the &lt;note&gt; element for asides which might
+        otherwise interrupt the flow of the recipe.</p></li><li class="listitem"><p>To include a video in a recipe, do the following:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Make the video as short as is practical, and only include
+            the relevant Clutter window(s).</p></li><li class="listitem"><p>Use Ogg Theora for the encoding.</p></li><li class="listitem"><p>Put the file into the
+            <code class="filename">&lt;clutter source&gt;/doc/cookbook/videos</code>
+            directory. The name should be in the format
+            <code class="filename">&lt;section&gt;-&lt;recipe&gt;-&lt;identifier&gt;.ogv</code>.
+            For example: <code class="filename">animations-fading-fade-out.ogv</code>.</p></li><li class="listitem"><p>Add the name of the file to the <code class="varname"></code>
+            in the cookbook's <code class="filename">Makefile.am</code>, e.g.</p><div class="informalexample"><pre class="programlisting">VIDEO_FILES = \
+	videos/animations-fading-fade-out.ogv \
+	$(NULL)</pre></div><p>This ensures it gets included in the distribution and
+            installation.</p></li><li class="listitem"><p>Use an &lt;inlinemediaobject&gt; to include it in the
+            Docbook recipe file. It should look something like this:</p><div class="informalexample"><pre class="programlisting">&lt;inlinemediaobject&gt;
+  &lt;videoobject&gt;
+    &lt;videodata fileref="videos/animations-fading-in-then-out.ogv"/&gt;
+  &lt;/videoobject&gt;
+  &lt;alt&gt;
+    &lt;para&gt;Video showing an actor fading in then out using
+    &lt;type&gt;ClutterState&lt;/type&gt;&lt;/para&gt;
+  &lt;/alt&gt;
+&lt;/inlinemediaobject&gt;</pre></div><p>The &lt;alt&gt; tag provides the text which
+            is presented as a link to the file for users whose browser
+            doesn't support HTML 5 embedded video.</p></li></ul></div></li><li class="listitem"><p>To include a full code sample in a recipe (which can
+        be compiled into a runnable binary), do the following:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem"><p>Create a C code file in the
+            <code class="filename">&lt;clutter source&gt;/doc/cookbook/examples</code>
+            directory. It should be a standalone C application (with
+            a <code class="function">main()</code> etc.). The filename should be
+            in the format
+            <code class="filename">&lt;section&gt;-&lt;recipe&gt;.c</code>; you
+            can add an optional identifier to the end if you have more
+            than one example for a recipe.</p><p>If you want to load image files into the application
+            (e.g. to demonstrate something with a texture), you can use
+            the <code class="constant">TESTS_DATA_DIR</code> variable in your C
+            code to reuse images in the Clutter <code class="filename">tests</code>
+            directory; this will be replaced with
+            <code class="filename">&lt;clutter source&gt;/tests/data</code>
+            during the build. For example:</p><div class="informalexample"><pre class="programlisting">clutter_texture_set_from_file (CLUTTER_TEXTURE (texture),
+                               TESTS_DATA_DIR "/redhand.png",
+                               &amp;error);</pre></div></li><li class="listitem"><p>Edit <code class="filename">Makefile.am</code>
+            in the <code class="filename">cookbook/examples</code> directory
+            so that the build recognises the new code; e.g. if
+            your C source file were called
+            <code class="filename">fooing-barring.c</code> you would do:</p><div class="informalexample"><pre class="programlisting">noinst_PROGRAMS = \
+	textures-reflection	\
+	text-shadow		\
+	animations-rotating \
+	fooing-barring \
+	$(NULL)
+
+fooing_barring_SOURCE = fooing-barring.c</pre></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Note the second line is a new one to tell the
+              build where the source file is for your example.</p></div></li><li class="listitem"><p>Add a section at the end of your recipe which
+            XIncludes the sample code, e.g.:</p><div class="informalexample"><pre class="programlisting">&lt;section&gt;
+  &lt;title&gt;Full example&lt;/title&gt;
+
+  &lt;example id="fooing-barring-example"&gt;
+    &lt;title&gt;Fooing with a bar&lt;/title&gt;
+    &lt;programlisting&gt;
+      &lt;xi:include href="examples/fooing-barring.c" parse="text"&gt;
+        &lt;xi:fallback&gt;a code sample should be here... but isn't&lt;/xi:fallback&gt;
+      &lt;/xi:include&gt;
+    &lt;/programlisting&gt;
+  &lt;/example&gt;
+&lt;/section&gt;</pre></div></li></ul></div></li></ul></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="effects-custom-deform.html">Prev</a> </td><td align="center" width="20%"> </td><td align="right" width="40%"> </td></tr><tr><td align="left" valign="top" width="40%">3. Creating and animating a custom <span class="type">ClutterDeformEffect</span> </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> </td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="contributing.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>2. Inverting Animations</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="animations.html" rel="up" title="Chapter 5. Animations"></link><link href="animations.html" rel="prev" title="Chapter 5. Animations"></link><link href="animations-fading.html" rel="next" title="3. Fading an actor out of or into view"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="animations-inversion.html#container">Go to page content</a></li><li><a href="animations-inversion.html#top_bar">Go to main menu</a></li><li><a href="animations-inversion.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">2. Inverting Animations</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="animations.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Animations</th><td align="right" width="20%"> <a accesskey="n" href="animations-fading.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="animations-inversion"></a>2. Inverting Animations</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790509757264"></a>2.1. Problem</h3></div></div></div><p>You want to have an animation exactly mirroring another one
+      that you just played.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790509755952"></a>2.2. Solution</h3></div></div></div><p>Reverse the direction of the <span class="type">ClutterTimeline</span>
+      associated with the animation.</p><p>For example, here's how to invert an implicit
+      animation which moves an actor along the <code class="varname">x</code>
+      axis. The direction of the animation is inverted when the
+      movement along the <code class="varname">x</code> axis is completed; it is
+      also inverted if the mouse button is pressed on the actor.</p><p>First, set up the animation:</p><div class="informalexample"><pre class="programlisting">ClutterAnimation *animation;
+
+/*
+ * animate actor to x = 300.0;
+ * the implicit animation functions return a ClutterAnimation
+ * which we can use to invert the timeline
+ */
+animation = clutter_actor_animate (actor,
+                                   CLUTTER_EASE_IN_OUT_CUBIC,
+                                   2000,
+                                   "x", 300.0,
+                                   NULL);
+
+/* callback for when the animation completes */
+g_signal_connect (animation,
+                  "completed",
+                  G_CALLBACK (_animation_done_cb),
+                  NULL);
+
+/*
+ * callback for when the mouse button is pressed on the actor;
+ * note the animation is passed as user data, so we can
+ * get at the timeline
+ */
+g_signal_connect (actor,
+                  "button-press-event",
+                  G_CALLBACK (_on_click_cb),
+                  animation);</pre></div><p>Next, add a function for inverting the timeline:</p><div class="informalexample"><pre class="programlisting">static void
+_invert_timeline (ClutterTimeline *timeline)
+{
+  ClutterTimelineDirection direction = clutter_timeline_get_direction (timeline);
+
+  if (direction == CLUTTER_TIMELINE_FORWARD)
+    direction = CLUTTER_TIMELINE_BACKWARD;
+  else
+    direction = CLUTTER_TIMELINE_FORWARD;
+
+  clutter_timeline_set_direction (timeline, direction);
+}</pre></div><p>Then add a function which calls <code class="function">_invert_timeline</code>
+      when the animation completes. More importantly, the callback should
+      stop emission of the "completed" signal by the animation. This
+      prevents the <span class="type">ClutterAnimation</span> underlying the implicit
+      animation from being unreferenced; which in turn allows it to be
+      inverted:</p><div class="informalexample"><pre class="programlisting">static void
+_animation_done_cb (ClutterAnimation *animation,
+                    gpointer          user_data)
+{
+  /* stop the completed signal before the ClutterAnimation is unreferenced */
+  g_signal_stop_emission_by_name (animation, "completed");
+
+  /* invert the timeline associated with the animation */
+  ClutterTimeline *timeline = clutter_animation_get_timeline (animation);
+  _invert_timeline (timeline);
+}</pre></div><p>Finally, the click callback function uses the same
+      <code class="function">_invert_timeline</code> function if the animation
+      is playing; but if the animation is stopped, it will
+      start it instead:</p><div class="informalexample"><pre class="programlisting">static void
+_on_click_cb (ClutterActor *actor,
+              ClutterEvent *event,
+              gpointer      user_data)
+{
+  ClutterAnimation *animation = (ClutterAnimation *)user_data;
+
+  ClutterTimeline *timeline = clutter_animation_get_timeline (animation);
+
+  if (clutter_timeline_is_playing (timeline))
+    {
+      _invert_timeline (timeline);
+    }
+  else
+    {
+      clutter_timeline_start (timeline);
+    }
+}</pre></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505853408"></a>2.3. Discussion</h3></div></div></div><p>If you are using <span class="type">ClutterAnimator</span> rather than
+      implicit animations, <code class="function">clutter_animator_get_timeline()</code>
+      enables you to get the underlying timeline; you could then use
+      the techniques shown above to invert it.</p><p><span class="type">ClutterState</span> enables a different approach
+      to "inverting" an animation: rather than having a single animation
+      which you invert, you would define two or more
+      <span class="emphasis"><em>keys</em></span> for an actor (or set of actors) and
+      transition between them.</p><p>For the example above, you would define two keys:
+      one for the actor's initial position; and a second for the actor
+      at <code class="code">x = 300.0</code>. You would also define the
+      transition between them: 2000 milliseconds with a
+      <code class="constant">CLUTTER_EASE_IN_OUT_CUBIC</code> easing mode.</p><p>With the states defined, you would then use
+      <code class="function">clutter_state_set_state()</code> inside callbacks to
+      animate the actor between the two <code class="varname">x</code> positions.
+      Behind the scenes, <span class="type">ClutterState</span> would handle the
+      animations and timelines for you.</p></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="animations.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="animations.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="animations-fading.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">Chapter 5. Animations </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 3. Fading an actor out of or into view</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="animations-inversion.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EImport</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch14.html" rel="up" title="Plugins (Legacy)"></link><link href="EEvent.html" rel="prev" title="EEvent"></link><link href="ch15.html" rel="next" title="(Unsorted Sections)"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EImport.html#container">Go to page content</a></li><li><a href="EImport.html#top_bar">Go to main menu</a></li><li><a href="EImport.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="EEvent.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch14.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="ch15.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EImport.html#EImport.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EImport.html#EImport.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EImport.html#EImport.object-hierarchy">Object Hierarchy</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EImport"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EImport.top_of_page"></a>EImport</span></h2>
+<p>EImport</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EImport.synopsis"></a><h2>Synopsis</h2>
+<a name="EImportHook"></a><pre class="synopsis">struct              <a class="link" href="EImport.html#EImport-struct" title="struct EImport">EImport</a>;
+enum                <a class="link" href="EImport.html#e-import-target-t" title="enum e_import_target_t">e_import_target_t</a>;
+struct              <a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter">EImportImporter</a>;
+                    <a class="link" href="EImport.html#EImportFactory" title="EImportFactory">EImportFactory</a>;
+struct              <a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget">EImportTarget</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="EImport.html#EImportCompleteFunc" title="EImportCompleteFunc ()">*EImportCompleteFunc</a>)              (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EImport.html#EImportStatusFunc" title="EImportStatusFunc ()">*EImportStatusFunc</a>)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *what</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> pc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EImport.html#EImportFactoryFunc" title="EImportFactoryFunc ()">*EImportFactoryFunc</a>)               (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EImport.html#EImportImporterFunc" title="EImportImporterFunc ()">*EImportImporterFunc</a>)              (<em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            (<a class="link" href="EImport.html#EImportSupportedFunc" title="EImportSupportedFunc ()">*EImportSupportedFunc</a>)             (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);
+<span class="returnvalue">GtkWidget</span> *         (<a class="link" href="EImport.html#EImportWidgetFunc" title="EImportWidgetFunc ()">*EImportWidgetFunc</a>)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EImport.html#EImportImportFunc" title="EImportImportFunc ()">*EImportImportFunc</a>)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);
+struct              <a class="link" href="EImport.html#EImportTargetURI" title="struct EImportTargetURI">EImportTargetURI</a>;
+struct              <a class="link" href="EImport.html#EImportTargetHome" title="struct EImportTargetHome">EImportTargetHome</a>;
+<a class="link" href="EImport.html" title="EImport"><span class="returnvalue">EImport</span></a> *           <a class="link" href="EImport.html#e-import-new" title="e_import_new ()">e_import_new</a>                        (<em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-class-add-importer" title="e_import_class_add_importer ()">e_import_class_add_importer</a>         (<em class="parameter"><code><span class="type">EImportClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporterFunc" title="EImportImporterFunc ()"><span class="type">EImportImporterFunc</span></a> freefunc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EImport.html#e-import-get-importers" title="e_import_get_importers ()">e_import_get_importers</a>              (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>);
+<a class="link" href="EImport.html" title="EImport"><span class="returnvalue">EImport</span></a> *           <a class="link" href="EImport.html#e-import-construct" title="e_import_construct ()">e_import_construct</a>                  (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-import" title="e_import_import ()">e_import_import</a>                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportStatusFunc" title="EImportStatusFunc ()"><span class="type">EImportStatusFunc</span></a> status</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportCompleteFunc" title="EImportCompleteFunc ()"><span class="type">EImportCompleteFunc</span></a> done</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-cancel" title="e_import_cancel ()">e_import_cancel</a>                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EImport.html#e-import-get-widget" title="e_import_get_widget ()">e_import_get_widget</a>                 (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EImport.html#e-import-get-preview-widget" title="e_import_get_preview_widget ()">e_import_get_preview_widget</a>         (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-status" title="e_import_status ()">e_import_status</a>                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *what</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> pc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-complete" title="e_import_complete ()">e_import_complete</a>                   (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EImport.html#e-import-target-new" title="e_import_target_new ()">e_import_target_new</a>                 (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-target-free" title="e_import_target_free ()">e_import_target_free</a>                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> target</code></em>);
+<a class="link" href="EImport.html#EImportTargetURI" title="struct EImportTargetURI"><span class="returnvalue">EImportTargetURI</span></a> *  <a class="link" href="EImport.html#e-import-target-new-uri" title="e_import_target_new_uri ()">e_import_target_new_uri</a>             (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri_src</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri_dst</code></em>);
+<a class="link" href="EImport.html#EImportTargetHome" title="struct EImportTargetHome"><span class="returnvalue">EImportTargetHome</span></a> * <a class="link" href="EImport.html#e-import-target-new-home" title="e_import_target_new_home ()">e_import_target_new_home</a>            (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>);
+struct              <a class="link" href="EImport.html#EImportHook-struct" title="struct EImportHook">EImportHook</a>;
+typedef             <a class="link" href="EImport.html#EImportHookTargetMap" title="EImportHookTargetMap">EImportHookTargetMap</a>;
+typedef             <a class="link" href="EImport.html#EImportHookTargetMask" title="EImportHookTargetMask">EImportHookTargetMask</a>;
+struct              <a class="link" href="EImport.html#EImportHookImporter" title="struct EImportHookImporter">EImportHookImporter</a>;
+<span class="returnvalue">void</span>                <a class="link" href="EImport.html#e-import-hook-class-add-target-map" title="e_import_hook_class_add_target_map ()">e_import_hook_class_add_target_map</a>  (<em class="parameter"><code><span class="type">EImportHookClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EImport.html#EImportHookTargetMap" title="EImportHookTargetMap"><span class="type">EImportHookTargetMap</span></a> *map</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EImport.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EImport
+</pre>
+<pre class="synopsis">  GObject
+   +----<a class="link" href="EPlugin.html#EPluginHook">EPluginHook</a>
+         +----EImportHook
+</pre>
+</div>
+<div class="refsect1">
+<a name="EImport.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EImport.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EImport-struct"></a><h3>struct EImport</h3>
+<pre class="programlisting">struct EImport;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-target-t"></a><h3>enum e_import_target_t</h3>
+<pre class="programlisting">enum e_import_target_t {
+	E_IMPORT_TARGET_URI, /* simple file */
+	E_IMPORT_TARGET_HOME, /* a home-directory thing,
+				 * i.e. old applications */
+	E_IMPORT_TARGET_LAST = 256
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportImporter"></a><h3>struct EImportImporter</h3>
+<pre class="programlisting">struct EImportImporter {
+	enum _e_import_target_t type;
+
+	gint pri;
+
+	EImportSupportedFunc supported;
+	EImportWidgetFunc get_widget;
+	EImportImportFunc import;
+	EImportImportFunc cancel;
+	EImportWidgetFunc get_preview;
+
+	gpointer user_data;
+
+	/* ?? */
+	gchar *name;
+	gchar *description;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportFactory"></a><h3>EImportFactory</h3>
+<pre class="programlisting">typedef struct _EImportFactory EImportFactory;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportTarget"></a><h3>struct EImportTarget</h3>
+<pre class="programlisting">struct EImportTarget {
+	EImport *import;
+
+	guint32 type;
+
+	GData *data;
+
+	/* implementation fields follow, depends on target type */
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportCompleteFunc"></a><h3>EImportCompleteFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EImportCompleteFunc)              (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportStatusFunc"></a><h3>EImportStatusFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EImportStatusFunc)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *what</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> pc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportFactoryFunc"></a><h3>EImportFactoryFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EImportFactoryFunc)               (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportImporterFunc"></a><h3>EImportImporterFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EImportImporterFunc)              (<em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportSupportedFunc"></a><h3>EImportSupportedFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*EImportSupportedFunc)             (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportWidgetFunc"></a><h3>EImportWidgetFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         (*EImportWidgetFunc)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportImportFunc"></a><h3>EImportImportFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EImportImportFunc)                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *ei</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *Param2</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportTargetURI"></a><h3>struct EImportTargetURI</h3>
+<pre class="programlisting">struct EImportTargetURI {
+	EImportTarget target;
+
+	gchar *uri_src;
+	gchar *uri_dest;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportTargetHome"></a><h3>struct EImportTargetHome</h3>
+<pre class="programlisting">struct EImportTargetHome {
+	EImportTarget target;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-new"></a><h3>e_import_new ()</h3>
+<pre class="programlisting"><a class="link" href="EImport.html" title="EImport"><span class="returnvalue">EImport</span></a> *           e_import_new                        (<em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-class-add-importer"></a><h3>e_import_class_add_importer ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_class_add_importer         (<em class="parameter"><code><span class="type">EImportClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporterFunc" title="EImportImporterFunc ()"><span class="type">EImportImporterFunc</span></a> freefunc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>klass</code></em> :</span></p></td>
+<td>An initialised implementing instance of EImport.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>importer</code></em> :</span></p></td>
+<td>Importer to add.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>freefunc</code></em> :</span></p></td>
+<td>If supplied, called to free the importer node
+when it is no longer needed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Data for the callback.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-get-importers"></a><h3>e_import_get_importers ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_import_get_importers              (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>);</pre>
+<p>
+Get a list of importers.  If <em class="parameter"><code>target</code></em> is supplied, then only
+importers which support the type and location specified by the
+target are listed.  If <em class="parameter"><code>target</code></em> is NULL, then all importers are
+listed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of importers.  The list should be freed when
+no longer needed.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-construct"></a><h3>e_import_construct ()</h3>
+<pre class="programlisting"><a class="link" href="EImport.html" title="EImport"><span class="returnvalue">EImport</span></a> *           e_import_construct                  (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
+<p>
+Used by implementing classes to initialise base parameters.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>The instance to initialise.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>ep</code></em> is returned.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-import"></a><h3>e_import_import ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_import                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportStatusFunc" title="EImportStatusFunc ()"><span class="type">EImportStatusFunc</span></a> status</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportCompleteFunc" title="EImportCompleteFunc ()"><span class="type">EImportCompleteFunc</span></a> done</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Run the import function of the selected importer.  Once the
+importer has finished, it MUST call the <a class="link" href="EImport.html#e-import-complete" title="e_import_complete ()"><code class="function">e_import_complete()</code></a>
+function.  This allows importers to run in synchronous or
+asynchronous mode.
+</p>
+<p>
+When complete, the <em class="parameter"><code>done</code></em> callback will be called.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>Target to import.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>importer</code></em> :</span></p></td>
+<td>Importer to use.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status</code></em> :</span></p></td>
+<td>Status callback, called with progress information.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>done</code></em> :</span></p></td>
+<td>Complete callback, will always be called once complete.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>user data for callback functions</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-cancel"></a><h3>e_import_cancel ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_cancel                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-get-widget"></a><h3>e_import_get_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_import_get_widget                 (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *importer</code></em>);</pre>
+<p>
+Gets a widget that the importer uses to configure its
+destination.  This widget should be packed into a container
+widget.  It should not be shown_all.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>Target of interest</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>importer</code></em> :</span></p></td>
+<td>Importer to get widget of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>NULL if the importer doesn't support/require
+a destination.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-get-preview-widget"></a><h3>e_import_get_preview_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_import_get_preview_widget         (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportImporter" title="struct EImportImporter"><span class="type">EImportImporter</span></a> *im</code></em>);</pre>
+<p>
+Gets a widget that the importer uses to preview data to be
+imported.  This widget should be packed into a container
+widget.  It should not be shown_all.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>Target of interest</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>im</code></em> :</span></p></td>
+<td>Importer to get a preview widget of</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>NULL if the importer doesn't support preview.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-status"></a><h3>e_import_status ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_status                     (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *what</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> pc</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-complete"></a><h3>e_import_complete ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_complete                   (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EImport.html#EImportTarget" title="struct EImportTarget"><span class="type">EImportTarget</span></a> *target</code></em>);</pre>
+<p>
+Signify that an import is complete.  This must be called by
+importer implementations when they are done.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>Target just completed (unused currently)</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-target-new"></a><h3>e_import_target_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_import_target_new                 (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);</pre>
+<p>
+Allocate a new import target suitable for this class.  Implementing
+classes will define the actual content of the target.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type, up to implementor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>Size of object to allocate.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-target-free"></a><h3>e_import_target_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_target_free                (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> target</code></em>);</pre>
+<p>
+Free a target.  The implementing class can override this method to
+free custom targets.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>import</code></em> :</span></p></td>
+<td>an <a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>the target to free</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-target-new-uri"></a><h3>e_import_target_new_uri ()</h3>
+<pre class="programlisting"><a class="link" href="EImport.html#EImportTargetURI" title="struct EImportTargetURI"><span class="returnvalue">EImportTargetURI</span></a> *  e_import_target_new_uri             (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri_src</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uri_dst</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-target-new-home"></a><h3>e_import_target_new_home ()</h3>
+<pre class="programlisting"><a class="link" href="EImport.html#EImportTargetHome" title="struct EImportTargetHome"><span class="returnvalue">EImportTargetHome</span></a> * e_import_target_new_home            (<em class="parameter"><code><a class="link" href="EImport.html" title="EImport"><span class="type">EImport</span></a> *import</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportHook-struct"></a><h3>struct EImportHook</h3>
+<pre class="programlisting">struct EImportHook;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportHookTargetMap"></a><h3>EImportHookTargetMap</h3>
+<pre class="programlisting">typedef struct _EPluginHookTargetMap EImportHookTargetMap;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportHookTargetMask"></a><h3>EImportHookTargetMask</h3>
+<pre class="programlisting">typedef struct _EPluginHookTargetKey EImportHookTargetMask;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EImportHookImporter"></a><h3>struct EImportHookImporter</h3>
+<pre class="programlisting">struct EImportHookImporter {
+	EImportImporter importer;
+
+	/* user_data == EImportHook */
+
+	gchar *supported;
+	gchar *get_widget;
+	gchar *import;
+	gchar *cancel;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-import-hook-class-add-target-map"></a><h3>e_import_hook_class_add_target_map ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_import_hook_class_add_target_map  (<em class="parameter"><code><span class="type">EImportHookClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EImport.html#EImportHookTargetMap" title="EImportHookTargetMap"><span class="type">EImportHookTargetMap</span></a> *map</code></em>);</pre>
+<p>
+<em class="parameter"><code>class</code></em>: The dervied EimportHook class.
+<em class="parameter"><code>map</code></em>: A map used to describe a single EImportTarget type for this
+class.
+</p>
+<p>
+Add a targe tmap to a concrete derived class of EImport.  The
+target map enumates the target types available for the implenting
+class.
+</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EImport.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

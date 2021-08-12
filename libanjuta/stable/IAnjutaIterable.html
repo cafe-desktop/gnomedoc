@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Anjuta Developers Reference Manual: IAnjutaIterable</title><link href="index.html" rel="home" title="Anjuta Developers Reference Manual"></link><link href="plugin-interfaces.html" rel="up" title="Plugin interfaces"></link><link href="IAnjutaIndicable.html" rel="prev" title="IAnjutaIndicable"></link><link href="IAnjutaIterableTree.html" rel="next" title="IAnjutaIterableTree"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="IAnjutaIterable.html#container">Go to page content</a></li><li><a href="IAnjutaIterable.html#top_bar">Go to main menu</a></li><li><a href="IAnjutaIterable.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="IAnjutaIterable.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="IAnjutaIterable.html#IAnjutaIterable.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="IAnjutaIterable.html#IAnjutaIterable.object-hierarchy">Object Hierarchy</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="plugin-interfaces.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="IAnjutaIndicable.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="IAnjutaIterableTree.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="IAnjutaIterable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="IAnjutaIterable.top_of_page"></a>IAnjutaIterable</span></h2>
+<p>IAnjutaIterable — Implemented by objects that can iterate</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="IAnjutaIterable.stability-level"></a><h2>Stability Level</h2>
+<a href="http://foldoc.org/Unstable"><span class="acronym">Unstable</span></a>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GQuark</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-error-quark" title="ianjuta_iterable_error_quark ()">ianjuta_iterable_error_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-assign" title="ianjuta_iterable_assign ()">ianjuta_iterable_assign</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="returnvalue">IAnjutaIterable</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-clone" title="ianjuta_iterable_clone ()">ianjuta_iterable_clone</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-compare" title="ianjuta_iterable_compare ()">ianjuta_iterable_compare</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-diff" title="ianjuta_iterable_diff ()">ianjuta_iterable_diff</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-first" title="ianjuta_iterable_first ()">ianjuta_iterable_first</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-foreach" title="ianjuta_iterable_foreach ()">ianjuta_iterable_foreach</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-get-length" title="ianjuta_iterable_get_length ()">ianjuta_iterable_get_length</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gint</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-get-position" title="ianjuta_iterable_get_position ()">ianjuta_iterable_get_position</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-last" title="ianjuta_iterable_last ()">ianjuta_iterable_last</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-next" title="ianjuta_iterable_next ()">ianjuta_iterable_next</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-previous" title="ianjuta_iterable_previous ()">ianjuta_iterable_previous</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-set-position" title="ianjuta_iterable_set_position ()">ianjuta_iterable_set_position</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody><tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="IAnjutaIterable.html#IANJUTA-ITERABLE-ERROR:CAPS" title="IANJUTA_ITERABLE_ERROR">IANJUTA_ITERABLE_ERROR</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GInterface
+    <span class="lineart">╰──</span> IAnjutaIterable
+</pre>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libanjuta/interfaces/ianjuta-iterable.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="ianjuta-iterable-error-quark"></a><h3>ianjuta_iterable_error_quark ()</h3>
+<pre class="programlisting"><span class="returnvalue">GQuark</span>
+ianjuta_iterable_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.2.5"></a><h4>Returns</h4>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-assign"></a><h3>ianjuta_iterable_assign ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+ianjuta_iterable_assign (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                         <em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *src_iter</code></em>,
+                         <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Assigns the iter position from <em class="parameter"><code>src_iter</code></em>
+.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.3.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>src_iter</p></td>
+<td class="parameter_description"><p>Source iter from which to copy the assignment.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-clone"></a><h3>ianjuta_iterable_clone ()</h3>
+<pre class="programlisting"><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="returnvalue">IAnjutaIterable</span></a> *
+ianjuta_iterable_clone (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Clones the iterable. The returned iterable object must be unreffed
+when done.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.4.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.4.6"></a><h4>Returns</h4>
+<p> A new instance of this iterable pointing at the same location. </p>
+<p><span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-compare"></a><h3>ianjuta_iterable_compare ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+ianjuta_iterable_compare (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                          <em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *iter2</code></em>,
+                          <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Compares the position of <em class="parameter"><code>iter2</code></em>
+ with this <em class="parameter"><code>obj</code></em>
+. Returns -1
+value if this <em class="parameter"><code>obj</code></em>
+ is smaller than <em class="parameter"><code>iter2</code></em>
+. Returns +1 value
+if this <em class="parameter"><code>obj</code></em>
+ is larger than <em class="parameter"><code>iter2</code></em>
+. And returns 0 if both are equal.
+If you want difference of the iter positions, use
+<a class="link" href="IAnjutaIterable.html#ianjuta-iterable-diff" title="ianjuta_iterable_diff ()"><code class="function">ianjuta_iterable_diff()</code></a>. This method is meant for fast comparision.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.5.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>iter2</p></td>
+<td class="parameter_description"><p>Second iter to compare.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.5.6"></a><h4>Returns</h4>
+<p> 0 if equal, -1 if <em class="parameter"><code>obj</code></em>
+is smaller than <em class="parameter"><code>iter2</code></em>
+or +1 if <em class="parameter"><code>obj</code></em>
+is larger than <em class="parameter"><code>iter2</code></em>
+.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-diff"></a><h3>ianjuta_iterable_diff ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+ianjuta_iterable_diff (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                       <em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *iter2</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Compares the position of <em class="parameter"><code>iter2</code></em>
+ with this <em class="parameter"><code>obj</code></em>
+ and returns difference
+in position of the two (<em class="parameter"><code>obj</code></em>
+ - <em class="parameter"><code>iter2</code></em>
+).</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.6.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>iter2</p></td>
+<td class="parameter_description"><p>Second iter to differenciate.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.6.6"></a><h4>Returns</h4>
+<p> The position difference of <em class="parameter"><code>obj</code></em>
+- <em class="parameter"><code>iter2</code></em>
+</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-first"></a><h3>ianjuta_iterable_first ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+ianjuta_iterable_first (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                        <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Set iter to first element position. Returns FALSE if
+there is no element in the iterable (hence does not have first).
+The iter points to the first valid item.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.7.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.7.6"></a><h4>Returns</h4>
+<p> TRUE if sucessful, other FALSE.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-foreach"></a><h3>ianjuta_iterable_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+ianjuta_iterable_foreach (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                          <em class="parameter"><code><span class="type">GFunc</span> callback</code></em>,
+                          <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                          <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Call callback for each element in the list. Call back is passed the
+same iter, but with different position set (from first to last). This
+method does not affect current position. i.e. current position is
+restored at the end of this method.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.8.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>callback</p></td>
+<td class="parameter_description"><p>Callback to call for each element.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data that is passed back to the callback.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-get-length"></a><h3>ianjuta_iterable_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+ianjuta_iterable_get_length (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                             <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Length of the iterable (number of elements indexable by it).</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.9.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.9.6"></a><h4>Returns</h4>
+<p> total length of the list.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-get-position"></a><h3>ianjuta_iterable_get_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>
+ianjuta_iterable_get_position (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Index of the current iter in the iterable. It will be
+from 0 to length - 1 (<code class="function">ianjuta_iter_get_length()</code>) if iter is pointed
+at valid element. It will return -1 if iter is pointed at end-iter.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.10.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.10.6"></a><h4>Returns</h4>
+<p> integer index, or -1 for end-iter.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-last"></a><h3>ianjuta_iterable_last ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+ianjuta_iterable_last (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Set iter position to end-iter (one past last element) position.
+Returns FALSE if there is no element in the iterable (already
+at end-iter).</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.11.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.11.6"></a><h4>Returns</h4>
+<p> TRUE if sucessful, other FALSE.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-next"></a><h3>ianjuta_iterable_next ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+ianjuta_iterable_next (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                       <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Set the iter position to next element position. Iter can go until one
+item past the last item and lands in end-iter. end-iter does not point
+to any valid item and signifies end of the list. Returns FALSE if iter
+was already at end-iter (iter can not go past it) and remains pointed
+to the end-iter.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.12.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.12.6"></a><h4>Returns</h4>
+<p> TRUE if sucessful, otherwise FALSE if already at end-iter.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-previous"></a><h3>ianjuta_iterable_previous ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+ianjuta_iterable_previous (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                           <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Set the iter position to previous element position. Returns FALSE if
+there is no previous element and the iter remains pointed to the first
+element.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.13.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.13.6"></a><h4>Returns</h4>
+<p> TRUE if sucessful, other FALSE.</p>
+<p></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ianjuta-iterable-set-position"></a><h3>ianjuta_iterable_set_position ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+ianjuta_iterable_set_position (<em class="parameter"><code><a class="link" href="IAnjutaIterable.html" title="IAnjutaIterable"><span class="type">IAnjutaIterable</span></a> *obj</code></em>,
+                               <em class="parameter"><code><span class="type">gint</span> position</code></em>,
+                               <em class="parameter"><code><span class="type">GError</span> **err</code></em>);</pre>
+<p>Sets the current position of the iter to <em class="parameter"><code>position</code></em>
+. The given <em class="parameter"><code>position</code></em>
+
+must be from 0 to length - 1 (<code class="function"><gtkdoclink href="ianjuta-iter-get-length"><code class="function">ianjuta_iter_get_length()</code></gtkdoclink></code>) to point to
+a valid element. Passing <em class="parameter"><code>position</code></em>
+ &lt; 0 will set it to end-iter. It
+returns TRUE for the above cases. FLASE will be returned, if
+out-of-range <em class="parameter"><code>position</code></em>
+ is passed (<em class="parameter"><code>position</code></em>
+ &gt; length - 1) and iter is
+set to end-iter.</p>
+<div class="refsect3">
+<a name="id-1.8.39.9.14.5"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>obj</p></td>
+<td class="parameter_description"><p>Self</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>position</p></td>
+<td class="parameter_description"><p>New position for the iter.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>err</p></td>
+<td class="parameter_description"><p>Error propagation and reporting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="id-1.8.39.9.14.6"></a><h4>Returns</h4>
+<p> TRUE if successfully set (i.e. <em class="parameter"><code>position</code></em>
+is within the range or
+end-iter). otherwise returns FALSE (i.e. <em class="parameter"><code>position</code></em>
+is out of data range).</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="IAnjutaIterable.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="IANJUTA-ITERABLE-ERROR:CAPS"></a><h3>IANJUTA_ITERABLE_ERROR</h3>
+<pre class="programlisting">#define IANJUTA_ITERABLE_ERROR ianjuta_iterable_error_quark()
+</pre>
+<p>
+</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.21</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="IAnjutaIterable.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

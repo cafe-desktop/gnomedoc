@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ETableMemoryStore</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch10.html" rel="up" title="Tables and Trees"></link><link href="libeutil-ETableMemoryCallbacks.html" rel="prev" title="ETableMemoryCallbacks"></link><link href="ETableMemory.html" rel="next" title="ETableMemory"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ETableMemoryStore.html#container">Go to page content</a></li><li><a href="ETableMemoryStore.html#top_bar">Go to main menu</a></li><li><a href="ETableMemoryStore.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libeutil-ETableMemoryCallbacks.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch10.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="ETableMemory.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ETableMemoryStore.html#ETableMemoryStore.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ETableMemoryStore.html#ETableMemoryStore.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ETableMemoryStore.html#ETableMemoryStore.object-hierarchy">Object Hierarchy</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ETableMemoryStore"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ETableMemoryStore.top_of_page"></a>ETableMemoryStore</span></h2>
+<p>ETableMemoryStore</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ETableMemoryStore.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ETableMemoryStore.html#ETableMemoryStore-struct" title="struct ETableMemoryStore">ETableMemoryStore</a>;
+enum                <a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnType" title="enum ETableMemoryStoreColumnType">ETableMemoryStoreColumnType</a>;
+                    <a class="link" href="ETableMemoryStore.html#ETableMemoryStoreCustomColumn" title="ETableMemoryStoreCustomColumn">ETableMemoryStoreCustomColumn</a>;
+                    <a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnInfo" title="ETableMemoryStoreColumnInfo">ETableMemoryStoreColumnInfo</a>;
+#define             <a class="link" href="ETableMemoryStore.html#E-TABLE-MEMORY-STORE-TERMINATOR:CAPS" title="E_TABLE_MEMORY_STORE_TERMINATOR">E_TABLE_MEMORY_STORE_TERMINATOR</a>
+#define             <a class="link" href="ETableMemoryStore.html#E-TABLE-MEMORY-STORE-INTEGER:CAPS" title="E_TABLE_MEMORY_STORE_INTEGER">E_TABLE_MEMORY_STORE_INTEGER</a>
+#define             <a class="link" href="ETableMemoryStore.html#E-TABLE-MEMORY-STORE-STRING:CAPS" title="E_TABLE_MEMORY_STORE_STRING">E_TABLE_MEMORY_STORE_STRING</a>
+<a class="link" href="ETableModel.html" title="ETableModel"><span class="returnvalue">ETableModel</span></a> *       <a class="link" href="ETableMemoryStore.html#e-table-memory-store-new" title="e_table_memory_store_new ()">e_table_memory_store_new</a>            (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnInfo" title="ETableMemoryStoreColumnInfo"><span class="type">ETableMemoryStoreColumnInfo</span></a> *columns</code></em>);
+<a class="link" href="ETableModel.html" title="ETableModel"><span class="returnvalue">ETableModel</span></a> *       <a class="link" href="ETableMemoryStore.html#e-table-memory-store-construct" title="e_table_memory_store_construct ()">e_table_memory_store_construct</a>      (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnInfo" title="ETableMemoryStoreColumnInfo"><span class="type">ETableMemoryStoreColumnInfo</span></a> *columns</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-adopt-value-at" title="e_table_memory_store_adopt_value_at ()">e_table_memory_store_adopt_value_at</a> (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-insert-array" title="e_table_memory_store_insert_array ()">e_table_memory_store_insert_array</a>   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-insert" title="e_table_memory_store_insert ()">e_table_memory_store_insert</a>         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-insert-adopt" title="e_table_memory_store_insert_adopt ()">e_table_memory_store_insert_adopt</a>   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-insert-adopt-array" title="e_table_memory_store_insert_adopt_array ()">e_table_memory_store_insert_adopt_array</a>
+                                                        (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-change-array" title="e_table_memory_store_change_array ()">e_table_memory_store_change_array</a>   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-change" title="e_table_memory_store_change ()">e_table_memory_store_change</a>         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-change-adopt" title="e_table_memory_store_change_adopt ()">e_table_memory_store_change_adopt</a>   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-change-adopt-array" title="e_table_memory_store_change_adopt_array ()">e_table_memory_store_change_adopt_array</a>
+                                                        (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-remove" title="e_table_memory_store_remove ()">e_table_memory_store_remove</a>         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETableMemoryStore.html#e-table-memory-store-clear" title="e_table_memory_store_clear ()">e_table_memory_store_clear</a>          (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableMemoryStore.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----<a class="link" href="ETableModel.html" title="ETableModel">ETableModel</a>
+         +----<a class="link" href="ETableMemory.html" title="ETableMemory">ETableMemory</a>
+               +----ETableMemoryStore
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETableMemoryStore.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ETableMemoryStore.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ETableMemoryStore-struct"></a><h3>struct ETableMemoryStore</h3>
+<pre class="programlisting">struct ETableMemoryStore;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableMemoryStoreColumnType"></a><h3>enum ETableMemoryStoreColumnType</h3>
+<pre class="programlisting">typedef enum {
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_TERMINATOR,
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_INTEGER,
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_STRING,
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_PIXBUF,
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_OBJECT,
+	E_TABLE_MEMORY_STORE_COLUMN_TYPE_CUSTOM
+} ETableMemoryStoreColumnType;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableMemoryStoreCustomColumn"></a><h3>ETableMemoryStoreCustomColumn</h3>
+<pre class="programlisting">typedef struct {
+	ETableMemoryCallbacksDuplicateValueFn duplicate_value;
+	ETableMemoryCallbacksFreeValueFn free_value;
+	ETableMemoryCallbacksInitializeValueFn initialize_value;
+	ETableMemoryCallbacksValueIsEmptyFn value_is_empty;
+	ETableMemoryCallbacksValueToStringFn value_to_string;
+} ETableMemoryStoreCustomColumn;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETableMemoryStoreColumnInfo"></a><h3>ETableMemoryStoreColumnInfo</h3>
+<pre class="programlisting">typedef struct {
+	ETableMemoryStoreColumnType type;
+	ETableMemoryStoreCustomColumn custom;
+	guint editable : 1;
+} ETableMemoryStoreColumnInfo;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="E-TABLE-MEMORY-STORE-TERMINATOR:CAPS"></a><h3>E_TABLE_MEMORY_STORE_TERMINATOR</h3>
+<pre class="programlisting">#define             E_TABLE_MEMORY_STORE_TERMINATOR</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="E-TABLE-MEMORY-STORE-INTEGER:CAPS"></a><h3>E_TABLE_MEMORY_STORE_INTEGER</h3>
+<pre class="programlisting">#define             E_TABLE_MEMORY_STORE_INTEGER</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="E-TABLE-MEMORY-STORE-STRING:CAPS"></a><h3>E_TABLE_MEMORY_STORE_STRING</h3>
+<pre class="programlisting">#define             E_TABLE_MEMORY_STORE_STRING</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-new"></a><h3>e_table_memory_store_new ()</h3>
+<pre class="programlisting"><a class="link" href="ETableModel.html" title="ETableModel"><span class="returnvalue">ETableModel</span></a> *       e_table_memory_store_new            (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnInfo" title="ETableMemoryStoreColumnInfo"><span class="type">ETableMemoryStoreColumnInfo</span></a> *columns</code></em>);</pre>
+<p>
+This initializes a new ETableMemoryStoreModel object.  ETableMemoryStoreModel is
+an implementaiton of the abstract class ETableModel.  The ETableMemoryStoreModel
+is designed to allow people to easily create ETableModels without having
+to create a new GType derived from ETableModel every time they need one.
+</p>
+<p>
+Instead, ETableMemoryStoreModel uses a setup based in callback functions, every
+callback function signature mimics the signature of each ETableModel method
+and passes the extra <em class="parameter"><code>data</code></em> pointer to each one of the method to provide them
+with any context they might want to use.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An ETableMemoryStoreModel object (which is also an ETableModel
+object).</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-construct"></a><h3>e_table_memory_store_construct ()</h3>
+<pre class="programlisting"><a class="link" href="ETableModel.html" title="ETableModel"><span class="returnvalue">ETableModel</span></a> *       e_table_memory_store_construct      (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *store</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETableMemoryStore.html#ETableMemoryStoreColumnInfo" title="ETableMemoryStoreColumnInfo"><span class="type">ETableMemoryStoreColumnInfo</span></a> *columns</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-adopt-value-at"></a><h3>e_table_memory_store_adopt_value_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_adopt_value_at (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-insert-array"></a><h3>e_table_memory_store_insert_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_insert_array   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-insert"></a><h3>e_table_memory_store_insert ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_insert         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-insert-adopt"></a><h3>e_table_memory_store_insert_adopt ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_insert_adopt   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-insert-adopt-array"></a><h3>e_table_memory_store_insert_adopt_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_insert_adopt_array
+                                                        (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-change-array"></a><h3>e_table_memory_store_change_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_change_array   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+frees existing values associated with a row and replaces them with
+duplicates of the values in store.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etms</code></em> :</span></p></td>
+<td>the ETabelMemoryStore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>the row we're changing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td>an array of new values to fill the row</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the new closure to associate with this row.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-change"></a><h3>e_table_memory_store_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_change         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+a varargs version of e_table_memory_store_change_array.  you must
+pass in etms-&gt;col_count args.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etms</code></em> :</span></p></td>
+<td>the ETabelMemoryStore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>the row we're changing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the new closure to associate with this row.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-change-adopt"></a><h3>e_table_memory_store_change_adopt ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_change_adopt   (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+a varargs version of e_table_memory_store_change_adopt_array.  you
+must pass in etms-&gt;col_count args.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etms</code></em> :</span></p></td>
+<td>the ETabelMemoryStore.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>the row we're changing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the new closure to associate with this row.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-change-adopt-array"></a><h3>e_table_memory_store_change_adopt_array ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_change_adopt_array
+                                                        (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> *store</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+frees existing values for the row and stores the values from store
+into it.  This function differs from
+e_table_memory_storage_change_adopt_array in that it does not
+duplicate the data.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>etms</code></em> :</span></p></td>
+<td>the ETableMemoryStore</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>the row we're changing.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td>an array of new values to fill the row</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>the new closure to associate with this row.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-remove"></a><h3>e_table_memory_store_remove ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_remove         (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> row</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-table-memory-store-clear"></a><h3>e_table_memory_store_clear ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_table_memory_store_clear          (<em class="parameter"><code><a class="link" href="ETableMemoryStore.html" title="ETableMemoryStore"><span class="type">ETableMemoryStore</span></a> *etms</code></em>);</pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ETableMemoryStore.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

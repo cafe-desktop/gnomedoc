@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Shell Utilities</title><link href="index.html" rel="home" title="Evolution Shell Reference Manual"></link><link href="ch01.html" rel="up" title="The Shell"></link><link href="EShellSwitcher.html" rel="prev" title="EShellSwitcher"></link><link href="ch02.html" rel="next" title="Basic Utility Functions"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="eshell-Shell-Utilities.html#container">Go to page content</a></li><li><a href="eshell-Shell-Utilities.html#top_bar">Go to main menu</a></li><li><a href="eshell-Shell-Utilities.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="EShellSwitcher.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Shell Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="eshell-Shell-Utilities.html#eshell-Shell-Utilities.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="eshell-Shell-Utilities.html#eshell-Shell-Utilities.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="eshell-Shell-Utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="eshell-Shell-Utilities.top_of_page"></a>Shell Utilities</span></h2>
+<p>Shell Utilities — high-level utilities with shell integration</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="eshell-Shell-Utilities.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;shell/e-shell-utils.h&gt;
+
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Shell-Utilities.html#e-shell-configure-ui-manager" title="e_shell_configure_ui_manager ()">e_shell_configure_ui_manager</a>        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">EUIManager</span> *ui_manager</code></em>);
+<span class="returnvalue">GFile</span> *             <a class="link" href="eshell-Shell-Utilities.html#e-shell-run-open-dialog" title="e_shell_run_open_dialog ()">e_shell_run_open_dialog</a>             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkCallback</span> customize_func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> customize_data</code></em>);
+<span class="returnvalue">GFile</span> *             <a class="link" href="eshell-Shell-Utilities.html#e-shell-run-save-dialog" title="e_shell_run_save_dialog ()">e_shell_run_save_dialog</a>             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *suggestion</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filters</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkCallback</span> customize_func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> customize_data</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="eshell-Shell-Utilities.html#e-shell-utils-import-uris" title="e_shell_utils_import_uris ()">e_shell_utils_import_uris</a>           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> * const *uris</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="eshell-Shell-Utilities.html#e-shell-hide-widgets-for-express-mode" title="e_shell_hide_widgets_for_express_mode ()">e_shell_hide_widgets_for_express_mode</a>
+                                                        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkBuilder</span> *builder</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *widget_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="eshell-Shell-Utilities.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="eshell-Shell-Utilities.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="e-shell-configure-ui-manager"></a><h3>e_shell_configure_ui_manager ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_configure_ui_manager        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">EUIManager</span> *ui_manager</code></em>);</pre>
+<p>
+Adds shell integration to <em class="parameter"><code>ui_manager</code></em>.  In particular, it keeps
+<em class="parameter"><code>ui_manager</code></em>'s EUIManager:express-mode property synchronized with
+<em class="parameter"><code>shell</code></em>'s EShell:express-mode property.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ui_manager</code></em> :</span></p></td>
+<td>an <span class="type">EUIManager</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-run-open-dialog"></a><h3>e_shell_run_open_dialog ()</h3>
+<pre class="programlisting"><span class="returnvalue">GFile</span> *             e_shell_run_open_dialog             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkCallback</span> customize_func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> customize_data</code></em>);</pre>
+<p>
+Runs a <span class="type">GtkFileChooserDialog</span> in open mode with the given title and
+returns the selected <span class="type">GFile</span>.  If <em class="parameter"><code>customize_func</code></em> is provided, the
+function is called just prior to running the dialog (the file chooser
+is the first argument, <em class="parameter"><code>customize</code></em> data is the second).  If the user
+cancels the dialog the function will return <code class="literal">NULL</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>file chooser dialog title</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>customize_func</code></em> :</span></p></td>
+<td>optional dialog customization function</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>customize_data</code></em> :</span></p></td>
+<td>optional data to pass to <em class="parameter"><code>customize_func</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GFile</span> to open, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-run-save-dialog"></a><h3>e_shell_run_save_dialog ()</h3>
+<pre class="programlisting"><span class="returnvalue">GFile</span> *             e_shell_run_save_dialog             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *suggestion</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *filters</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkCallback</span> customize_func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> customize_data</code></em>);</pre>
+<p>
+Runs a <span class="type">GtkFileChooserDialog</span> in save mode with the given title and
+returns the selected <span class="type">GFile</span>.  If <em class="parameter"><code>customize_func</code></em> is provided, the
+function is called just prior to running the dialog (the file chooser
+is the first argument, <em class="parameter"><code>customize_data</code></em> is the second).  If the user
+cancels the dialog the function will return <code class="literal">NULL</code>.
+</p>
+<p>
+With non-<code class="literal">NULL</code> <em class="parameter"><code>filters</code></em> will be added also file filters to the dialog.
+The string format is "pat1:mt1;pat2:mt2:...", where 'pat' is a pattern
+and 'mt' is a MIME type for the pattern to be used.  There can be more
+than one MIME type, those are separated by comma.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>file chooser dialog title</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>suggestion</code></em> :</span></p></td>
+<td>file name suggestion, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filters</code></em> :</span></p></td>
+<td>Possible filters for dialog, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>customize_func</code></em> :</span></p></td>
+<td>optional dialog customization function</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>customize_data</code></em> :</span></p></td>
+<td>optional data to pass to <em class="parameter"><code>customize_func</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GFile</span> to save to, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-utils-import-uris"></a><h3>e_shell_utils_import_uris ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e_shell_utils_import_uris           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> * const *uris</code></em>);</pre>
+<p>
+Imports given URIs to Evolution, giving user a choice what to import
+if more than one importer can be applied, and where to import it, if
+the importer itself is configurable.
+</p>
+<p>
+URIs should be either a filename or URI of form file://.
+All others are skipped.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>The <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> instance</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uris</code></em> :</span></p></td>
+<td>
+<code class="literal">NULL</code>-terminated list of URIs to import</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of URIs successfully handled</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-hide-widgets-for-express-mode"></a><h3>e_shell_hide_widgets_for_express_mode ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_hide_widgets_for_express_mode
+                                                        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkBuilder</span> *builder</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *widget_name</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+If Evolution is running in Express mode (i.e. if the specified <em class="parameter"><code>shell</code></em> is
+in Express mode), then this function will hide a list of widgets, based
+on their specified names.  The list of names must be NULL-terminated,
+and each element of that list must be the name of a widget present in
+<em class="parameter"><code>builder</code></em>.  Those widgets will then get hidden.
+</p>
+<p>
+This can be used to simplify preference dialogs and such in an easy
+fashion, for use in Express mode.
+</p>
+<p>
+If Evolution is not running in Express mode, this function does nothing.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builder</code></em> :</span></p></td>
+<td>a <span class="type">GtkBuilder</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget_name</code></em> :</span></p></td>
+<td>NULL-terminated list of strings</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="eshell-Shell-Utilities.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

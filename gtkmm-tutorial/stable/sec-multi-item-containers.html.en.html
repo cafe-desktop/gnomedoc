@@ -1,0 +1,1792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Multiple-item Containers</title>
+<link rel="previous" href="sec-single-item-containers.html.en.html" title="Single-item Containers">
+<link rel="next" href="chapter-treeview.html.en.html" title="The TreeView widget">
+<link rel="top" href="index.html.en.html" title="Programming with gtkmm 4">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gtkmm-tutorial/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="sec-multi-item-containers.html.en.html#container">Go to page content</a></li>
+<li><a href="sec-multi-item-containers.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="sec-multi-item-containers.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="sec-multi-item-containers"><!--sec-multi-item-containers--></a><div class="header"><h1 class="sect1 title"><span class="title">Multiple-item Containers </span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html.en.html" title="Programming with gtkmm 4">Programming with <span class="application">gtkmm</span> 4</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="chapter-container-widgets.html.en.html" title="Container Widgets">Container Widgets</a></li>
+</ul>
+<p class="para block block-first">
+Multiple-item container widgets have other methods than <span class="methodname" dir="ltr">set_child()</span>
+and <span class="methodname" dir="ltr">unset_child()</span>. Different containers can have different
+methods for adding and removing child widgets. For instance, <span class="classname" dir="ltr">Gtk::Box</span>
+has <span class="methodname" dir="ltr">append()</span> and <span class="methodname" dir="ltr">remove()</span> as
+well as other methods. The <span class="methodname" dir="ltr">remove()</span> method for multiple-item
+containers takes an argument, specifying which widget to remove.
+</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">9.2.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#container-packing" title="Packing">Packing</a>
+</li>
+<li>
+<span class="label">9.2.2. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-helloworld2" title="An improved Hello World">An improved Hello World</a>
+</li>
+<li>
+<span class="label">9.2.3. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-boxes" title="Boxes">Boxes</a>
+</li>
+<li>
+<span class="label">9.2.4. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-grid" title="Grid">Grid</a>
+</li>
+<li>
+<span class="label">9.2.5. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-notebook" title="Notebook">Notebook</a>
+</li>
+<li>
+<span class="label">9.2.6. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-assistant" title="Assistant">Assistant</a>
+</li>
+<li>
+<span class="label">9.2.7. </span><a class="xref" href="sec-multi-item-containers.html.en.html#sec-other-multi-item-containers" title="Other Multi-item Containers">Other Multi-item Containers</a>
+</li>
+</ul></div>
+<div class="division sect2">
+<a name="container-packing"><!--container-packing--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.1. </span>Packing</span></h2></div>
+<p class="para block block-first">
+You've probably noticed that <span class="application">gtkmm</span> windows seem "elastic" - they can usually be stretched in many  different ways. This is due to the <span class="emphasis">widget packing</span>
+system.
+</p>
+<p class="para block">
+Many GUI toolkits require you to precisely place widgets in a window, using absolute positioning, often using a visual editor. This leads to several problems:
+</p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+<span class="para">The widgets don't rearrange themselves when the window is resized. Some widgets are hidden when the window is made smaller, and lots of useless space appears when the window is made larger.</span>
+</li>
+<li>
+<span class="para">It's impossible to predict the amount of space necessary for text after it has been translated to other languages, or displayed in a different font. On Unix it is also impossible to anticipate the effects of every theme and window manager.</span>
+</li>
+<li>
+<span class="para">
+Changing the layout of a window "on the fly", to make some extra widgets appear, for instance, is complex. It  requires tedious recalculation of every widget's position.</span>
+</li>
+</ul></div>
+<p class="para block">
+<span class="application">gtkmm</span> uses the packing system to solve these problems. Rather than specifying the position and size of each widget in the window,
+you can arrange your widgets in rows, columns,
+and/or grids. <span class="application">gtkmm</span> can size your window automatically, based on the
+sizes of the widgets it contains. And the sizes of the widgets are, in turn, determined by the amount of text they contain, or the minimum and maximum sizes that you specify, and/or how you have requested that the available space should be shared between sets of widgets.
+You can perfect your layout by
+specifying margins and centering values for each of your widgets. <span class="application">gtkmm</span> then uses
+all this information to resize and reposition everything sensibly and smoothly when the user manipulates the window. </p>
+<p class="para block">
+<span class="application">gtkmm</span> arranges widgets hierarchically, using <span class="emphasis">containers</span>.
+A container widget contains other widgets. Most <span class="application">gtkmm</span> widgets are
+containers. Windows, Notebook tabs, and Buttons are all container widgets.
+There are two flavours of containers: single-child containers and multiple-child
+containers. Most container widgets in <span class="application">gtkmm</span> are single-child containers,
+including <span class="classname" dir="ltr">Gtk::Window</span>.
+</p>
+<p class="para block">
+Yes, that's correct: a Window can contain at most one widget. How, then, can
+we use a window for anything useful?  By placing a multiple-child container in
+the window. The most useful container widgets are
+<span class="classname" dir="ltr">Gtk::Grid</span> and <span class="classname" dir="ltr">Gtk::Box</span>.
+</p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+<span class="para">
+<span class="classname" dir="ltr">Gtk::Grid</span> arranges its child widgets in rows and
+columns. Use <span class="methodname" dir="ltr">attach()</span> and
+<span class="methodname" dir="ltr">attach_next_to()</span> to insert child widgets.
+</span>
+</li>
+<li>
+<span class="para">
+<span class="classname" dir="ltr">Gtk::Box</span> arranges its child widgets vertically or horizontally.
+Use <span class="methodname" dir="ltr">append()</span> to insert child widgets.
+</span>
+</li>
+</ul></div>
+<p class="para block">
+ There are several other containers, which we will also discuss.
+</p>
+<p class="para block">
+If you've never used a packing toolkit before, it can take some
+getting used to. You'll probably find, however, that you don't
+need to rely on visual form editors quite as much as you might with
+other toolkits.
+</p>
+</div>
+<div class="division sect2">
+<a name="sec-helloworld2"><!--sec-helloworld2--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.2. </span>An improved Hello World</span></h2></div>
+<p class="para block block-first">
+Let's take a look at a slightly improved <span class="literal" dir="ltr">helloworld</span>, showing what we've learnt.
+</p>
+<div class=" block figure block-indent">
+<a name="figure-helloworld2"><!--figure-helloworld2--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-5</span> </span>Hello World 2</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/helloworld2.png.en"></div>
+  </div>
+</div>
+</div>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/helloworld2" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/helloworld2">Source Code</a></p>
+<p class="para block">File: <span class="filename" dir="ltr">helloworld.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLE_HELLOWORLD_H
+#define GTKMM_EXAMPLE_HELLOWORLD_H
+
+#include &lt;gtkmm/box.h&gt;
+#include &lt;gtkmm/button.h&gt;
+#include &lt;gtkmm/window.h&gt;
+
+class HelloWorld : public Gtk::Window
+{
+public:
+  HelloWorld();
+  ~HelloWorld() override;
+
+protected:
+
+  // Signal handlers:
+  // Our new improved on_button_clicked().
+  void on_button_clicked(const Glib::ustring&amp; data);
+
+  // Child widgets:
+  Gtk::Box m_box1;
+  Gtk::Button m_button1, m_button2;
+};
+
+#endif // GTKMM_EXAMPLE_HELLOWORLD_H
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">main.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "helloworld.h"
+#include &lt;gtkmm/application.h&gt;
+
+int main(int argc, char* argv[])
+{
+  auto app = Gtk::Application::create("org.gtkmm.example");
+
+  //Shows the window and returns when it is closed.
+  return app-&gt;make_window_and_run&lt;HelloWorld&gt;(argc, argv);
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">helloworld.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "helloworld.h"
+#include &lt;iostream&gt;
+
+HelloWorld::HelloWorld()
+: m_button1("Button 1"),
+  m_button2("Button 2")
+{
+  // This just sets the title of our new window.
+  set_title("Hello Buttons!");
+
+  // Sets the margin around the box.
+  m_box1.set_margin(10);
+
+  // put the box into the main window.
+  set_child(m_box1);
+
+  // Now when the button is clicked, we call the on_button_clicked() function
+  // with a pointer to "button 1" as its argument.
+  m_button1.signal_clicked().connect(sigc::bind(
+              sigc::mem_fun(*this, &amp;HelloWorld::on_button_clicked), "button 1"));
+
+  // We use Gtk::Box::append() to pack this button into the box,
+  // which has been packed into the window.
+  // A widget's default behaviour is not to expand if extra space is available.
+  // A container widget by default expands if any of the contained widgets
+  // wants to expand.
+  m_box1.append(m_button1);
+  m_button1.set_expand();
+
+  // call the same signal handler with a different argument,
+  // passing a pointer to "button 2" instead.
+  m_button2.signal_clicked().connect(sigc::bind(
+              sigc::mem_fun(*this, &amp;HelloWorld::on_button_clicked), "button 2"));
+
+  m_box1.append(m_button2);
+  m_button2.set_expand();
+
+  // Gtk::Widget::show() is seldom needed. All widgets are visible by default.
+}
+
+HelloWorld::~HelloWorld()
+{
+}
+
+// Our new improved signal handler.  The data passed to this method is
+// printed to stdout.
+void HelloWorld::on_button_clicked(const Glib::ustring&amp; data)
+{
+  std::cout &lt;&lt; "Hello World - " &lt;&lt; data &lt;&lt; " was pressed" &lt;&lt; std::endl;
+}
+
+</pre></div>
+<p class="para block">
+After building and running this program, try resizing the window to see the
+behaviour. Also, try playing with <span class="methodname" dir="ltr">set_expand()</span>,
+<span class="methodname" dir="ltr">set_hexpand()</span>, <span class="methodname" dir="ltr">set_vexpand()</span>,
+<span class="methodname" dir="ltr">set_halign()</span> and <span class="methodname" dir="ltr">set_valign()</span>
+while reading the <a class="link" href="sec-multi-item-containers.html.en.html#sec-boxes" title="Boxes">Boxes</a> section.
+</p>
+</div>
+<div class="division sect2">
+<a name="sec-boxes"><!--sec-boxes--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.3. </span>Boxes</span></h2></div>
+<p class="para block block-first">
+Most packing uses boxes as in the above example. These
+are invisible containers into which we can pack our widgets. When
+packing widgets into a horizontal box, the objects are inserted
+horizontally from left to right. In a vertical box, widgets are packed from
+top to bottom. You may use any combination of boxes inside or beside other
+boxes to create the desired effect.
+</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">9.2.3.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#boxes-adding-widgets" title="Adding widgets">Adding widgets</a>
+</li>
+<li>
+<span class="label">9.2.3.2. </span><a class="xref" href="sec-multi-item-containers.html.en.html#boxes-command-line-options" title="Gtk::Application and command-line options">Gtk::Application and command-line options</a>
+</li>
+<li>
+<span class="label">9.2.3.3. </span><a class="xref" href="sec-multi-item-containers.html.en.html#box-packing-example" title="Example">Example</a>
+</li>
+</ul></div>
+<div class="division sect3">
+<a name="boxes-adding-widgets"><!--boxes-adding-widgets--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.3.1. </span>Adding widgets</span></h3></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">9.2.3.1.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#per-child-packing-options" title="Per-child packing options">Per-child packing options</a>
+</li>
+<li>
+<span class="label">9.2.3.1.2. </span><a class="xref" href="sec-multi-item-containers.html.en.html#per-container-packing-options" title="Per-container packing options">Per-container packing options</a>
+</li>
+</ul></div>
+<div class="division sect4">
+<a name="per-child-packing-options"><!--per-child-packing-options--></a><div class="header"><h4 class="sect4 title"><span class="title"><span class="label">9.2.3.1.1. </span>Per-child packing options</span></h4></div>
+<p class="para block block-first">
+The <span class="methodname" dir="ltr">append()</span> method places widgets inside these
+containers. It will start at the top and work its way down in a
+<span class="classname" dir="ltr">Box</span> with vertical orientation, or pack left to right in
+a <span class="classname" dir="ltr">Box</span> with horizontal orientation. If it's inconvenient
+to add widgets in this order, use <span class="methodname" dir="ltr">insert_child_after()</span>
+or <span class="methodname" dir="ltr">insert_child_at_start()</span>. We will use
+<span class="methodname" dir="ltr">append()</span> in our examples.
+</p>
+<p class="para block">
+There are several options governing how widgets are to be packed, and this can
+be confusing at first. You can modify the packing by using <span class="methodname" dir="ltr">set_expand()</span>,
+<span class="methodname" dir="ltr">set_hexpand()</span>, <span class="methodname" dir="ltr">set_vexpand()</span>,
+<span class="methodname" dir="ltr">set_halign()</span>, <span class="methodname" dir="ltr">set_valign()</span>
+and/or <span class="methodname" dir="ltr">set_margin()</span> on the child widgets. If you have
+difficulties, then it is sometimes a good idea to play with the
+<span class="application">glade</span> GUI designer to see what is possible.
+You might even decide to use the <span class="classname" dir="ltr">Gtk::Builder</span>
+API to load your GUI at runtime.
+</p>
+<p class="para block">
+There are basically five
+different styles, as shown in this picture:
+</p>
+<div class=" block figure block-indent">
+<a name="figure-box-packing1"><!--figure-box-packing1--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-6</span> </span>Box Packing 1</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/box_packing1.png.en"></div>
+  </div>
+</div>
+</div>
+<p class="para block">
+Each line contains one horizontal <span class="classname" dir="ltr">Box</span> with
+several buttons. Each of the buttons on a line is packed into the
+<span class="classname" dir="ltr">Box</span> with the same arguments to the
+<span class="methodname" dir="ltr">set_hexpand()</span>, <span class="methodname" dir="ltr">set_halign()</span>,
+<span class="methodname" dir="ltr">set_margin_start()</span> and <span class="methodname" dir="ltr">set_margin_end()</span>
+methods.
+</p>
+<p class="para block"><a class="ulink" href="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Box.html" title="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Box.html">Reference</a></p>
+</div>
+<div class="division sect4">
+<a name="per-container-packing-options"><!--per-container-packing-options--></a><div class="header"><h4 class="sect4 title"><span class="title"><span class="label">9.2.3.1.2. </span>Per-container packing options</span></h4></div>
+<p class="para block block-first">
+Here's the constructor for the <span class="classname" dir="ltr">Box</span> widget,
+and methods that set per-container packing options:
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">Gtk::Box(Gtk::Orientation orientation = Gtk::Orientation::HORIZONTAL, int spacing = 0);
+void set_orientation(Gtk::Orientation orientation);
+void set_spacing(int spacing);
+void set_homogeneous(bool homogeneous = true);</pre></div>
+Passing <span class="literal" dir="ltr">true</span> to <span class="methodname" dir="ltr">set_homogeneous()</span> will
+cause all of the contained widgets to be the same size.
+<span class="parameter" dir="ltr">spacing</span> is a (minimum) number of pixels to leave between
+each widget.
+</p>
+<p class="para block">
+What's the difference between spacing (set when the box is created)
+and margins (set separately for each child widget)? Spacing is added between
+objects, and margins are added on one or more sides of a widget. The following
+figure should make it clearer. The shown margins are the left and right margins
+of each button in the row.
+</p>
+<div class=" block figure block-indent">
+<a name="figure-box-packing2"><!--figure-box-packing2--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-7</span> </span>Box Packing 2</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/box_packing2.png.en"></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="division sect3">
+<a name="boxes-command-line-options"><!--boxes-command-line-options--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.3.2. </span>Gtk::Application and command-line options</span></h3></div>
+<p class="para block block-first">The following example program requires a command-line option.
+The source code shows two ways of handling command-line options in combination
+with <span class="classname" dir="ltr">Gtk::Application</span>.
+</p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"><p class="para block block-first">
+Handle the options in <span class="function">main()</span> and hide them from
+<span class="classname" dir="ltr">Gtk::Application</span> by setting <span class="literal" dir="ltr">argc = 1</span>
+in the call to <span class="methodname" dir="ltr">Gtk::Application::run()</span>.
+</p></li>
+<li>
+<p class="para block block-first">
+Give all command-line options to <span class="methodname" dir="ltr">Gtk::Application::run()</span>
+and add the flag <span class="literal" dir="ltr">Gio::Application::Flags::HANDLES_COMMAND_LINE</span>
+to <span class="methodname" dir="ltr">Gtk::Application::create()</span>.
+Connect a signal handler to the <span class="literal" dir="ltr">command_line</span> signal, and
+handle the command-line options in the signal handler.</p>
+
+<p class="para block">You must set the optional parameter <span class="literal" dir="ltr">after = false</span> in
+the call to <span class="literal" dir="ltr">signal_command_line().connect()</span>, because your signal
+handler must be called before the default signal handler. You must also call
+<span class="methodname" dir="ltr">Gio::Application::activate()</span> in the signal handler,
+unless you want your application to exit without showing its main window.
+(<span class="classname" dir="ltr">Gio::Application</span> is a base class of
+<span class="classname" dir="ltr">Gtk::Application</span>.)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="division sect3">
+<a name="box-packing-example"><!--box-packing-example--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.3.3. </span>Example</span></h3></div>
+<p class="para block block-first">
+Here is the source code for the example that produced the screenshots above. When you run this example, provide a number between 1 and 3 as a command-line option, to see different packing options in use.</p>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/box" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/box">Source Code</a></p>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLEWINDOW_H
+#define GTKMM_EXAMPLEWINDOW_H
+
+#include &lt;gtkmm.h&gt;
+
+class ExampleWindow : public Gtk::Window
+{
+public:
+  ExampleWindow(int which);
+  virtual ~ExampleWindow();
+
+protected:
+  //Signal handlers:
+  void on_button_quit_clicked();
+
+  //Child widgets:
+  Gtk::Button m_button;
+  Gtk::Box m_box1;
+  Gtk::Box m_boxQuit;
+  Gtk::Button m_buttonQuit;
+
+  Gtk::Label m_Label1, m_Label2;
+
+  Gtk::Separator m_separator1, m_separator2;
+};
+
+#endif //GTKMM_EXAMPLEWINDOW_H
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">packbox.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLE_PACKBOX_H
+#define GTKMM_EXAMPLE_PACKBOX_H
+
+#include &lt;gtkmm.h&gt;
+
+class PackBox : public Gtk::Box
+{
+public:
+  PackBox(bool homogeneous = false, int spacing = 0, bool expand = false,
+    Gtk::Align align = Gtk::Align::FILL, int margin = 0);
+
+protected:
+  Gtk::Button m_buttons[4];
+};
+
+#endif //GTKMM_EXAMPLE_PACKBOX_H
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">main.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "examplewindow.h"
+#include &lt;gtkmm/application.h&gt;
+#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+
+#define GTK_APPLICATION_RECEIVES_COMMAND_LINE_ARGUMENTS 0
+
+#if GTK_APPLICATION_RECEIVES_COMMAND_LINE_ARGUMENTS
+namespace
+{
+int on_command_line(const Glib::RefPtr&lt;Gio::ApplicationCommandLine&gt;&amp; command_line,
+                    Glib::RefPtr&lt;Gtk::Application&gt;&amp; app)
+{
+  int argc = 0;
+  char** argv = command_line-&gt;get_arguments(argc);
+
+  for (int i = 0; i &lt; argc; ++i)
+    std::cout &lt;&lt; "argv[" &lt;&lt; i &lt;&lt; "] = " &lt;&lt; argv[i] &lt;&lt; std::endl;
+
+  app-&gt;activate(); // Without activate() the window won't be shown.
+  return EXIT_SUCCESS;
+}
+} // anonymous namespace
+#endif
+
+
+int main(int argc, char *argv[])
+{
+  if (argc != 2)
+  {
+    std::cerr &lt;&lt; "Usage: example &lt;num&gt;, where &lt;num&gt; is 1, 2, or 3." &lt;&lt; std::endl;
+    return EXIT_FAILURE;
+  }
+
+  int argc1 = argc;
+
+#if GTK_APPLICATION_RECEIVES_COMMAND_LINE_ARGUMENTS
+  // The Gio::Application::Flags::HANDLES_COMMAND_LINE flag and the
+  // on_command_line() signal handler are not necessary. This program is simpler
+  // without them, and with argc = 1 in the call to Gtk::Application::make_window_and_run().
+  // They are included to show a program with Gio::Application::Flags::HANDLES_COMMAND_LINE.
+  // Gio::Application::Flags::NON_UNIQUE makes it possible to run several instances of
+  // this application simultaneously.
+  auto app = Gtk::Application::create(
+    "org.gtkmm.example", Gio::Application::Flags::HANDLES_COMMAND_LINE | Gio::Application::Flags::NON_UNIQUE);
+
+  // Note after = false.
+  // Only one signal handler is invoked. This signal handler must run before
+  // the default signal handler, or else it won't run at all.
+  app-&gt;signal_command_line().connect(sigc::bind(sigc::ptr_fun(&amp;on_command_line), app), false);
+#else
+  // Gio::Application::Flags::NON_UNIQUE makes it possible to run several instances of
+  // this application simultaneously.
+  argc1 = 1; // Don't give the command line arguments to Gtk::Application.
+  auto app = Gtk::Application::create("org.gtkmm.example", Gio::Application::Flags::NON_UNIQUE);
+#endif
+
+  // Shows the window and returns when it is closed.
+  return app-&gt;make_window_and_run&lt;ExampleWindow&gt;(argc1, argv, std::atoi(argv[1]));
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include &lt;iostream&gt;
+#include "examplewindow.h"
+#include "packbox.h"
+
+ExampleWindow::ExampleWindow(int which)
+: m_box1(Gtk::Orientation::VERTICAL),
+  m_buttonQuit("Quit")
+{
+  set_title("Gtk::Box example");
+
+  m_separator1.set_margin_top(5);
+  m_separator1.set_margin_bottom(5);
+  m_separator2.set_margin_top(5);
+  m_separator2.set_margin_bottom(5);
+
+  switch(which)
+  {
+    case 1:
+    {
+      m_Label1.set_text("Gtk::Box(Gtk::Orientation::HORIZONTAL, 0); set_homogeneous(false);");
+
+      // Align the label to the left side.
+      m_Label1.set_halign(Gtk::Align::START);
+      m_Label1.set_valign(Gtk::Align::START);
+
+      // Pack the label into the vertical box (vbox box1).  Remember that
+      // widgets added to a vbox will be packed one on top of the other in
+      // order.
+      m_box1.append(m_Label1);
+
+      // Create a PackBox - homogeneous = false, spacing = 0,
+      // expand = false, Gtk::Align::FILL, margin = 0
+      // These are the default values.
+      auto pPackBox = Gtk::make_managed&lt;PackBox&gt;();
+      m_box1.append(*pPackBox);
+
+      // Create a PackBox - homogeneous = false, spacing = 0,
+      // expand = true, Gtk::Align::CENTER, margin = 0
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 0, true, Gtk::Align::CENTER);
+      m_box1.append(*pPackBox);
+
+      // Create a PackBox - homogeneous = false, spacing = 0,
+      // expand = true, Gtk::Align::FILL, margin = 0
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 0, true);
+      m_box1.append(*pPackBox);
+
+      // pack the separator into the vbox.  Remember each of these
+      // widgets are being packed into a vbox, so they'll be stacked
+      // vertically.
+      m_box1.append(m_separator1);
+
+      // create another new label, and show it.
+      m_Label2.set_text("Gtk::Box(Gtk::Orientation::HORIZONTAL, 0); set_homogeneous(true);");
+      m_Label2.set_halign(Gtk::Align::START);
+      m_Label2.set_valign(Gtk::Align::START);
+      m_box1.append(m_Label2);
+
+      // Args are: homogeneous, spacing, expand, align, margin
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(true, 0, true, Gtk::Align::CENTER);
+      m_box1.append(*pPackBox);
+
+      // Args are: homogeneous, spacing, expand, align, margin
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(true, 0, true);
+      m_box1.append(*pPackBox);
+
+      m_box1.append(m_separator2);
+
+      break;
+    }
+
+    case 2:
+    {
+      m_Label1.set_text("Gtk::Box(Gtk::Orientation::HORIZONTAL, 10); set_homogeneous(false);");
+      m_Label1.set_halign(Gtk::Align::START);
+      m_Label1.set_valign(Gtk::Align::START);
+      m_box1.append(m_Label1);
+
+      auto pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 10, true, Gtk::Align::CENTER);
+      m_box1.append(*pPackBox);
+
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 10, true);
+      m_box1.append(*pPackBox);
+
+      m_box1.append(m_separator1);
+
+      m_Label2.set_text("Gtk::Box(Gtk::Orientation::HORIZONTAL, 0); set_homogeneous(false);");
+      m_Label2.set_halign(Gtk::Align::START);
+      m_Label2.set_valign(Gtk::Align::START);
+      m_box1.append(m_Label2);
+
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 0, false, Gtk::Align::FILL, 10);
+      m_box1.append(*pPackBox);
+
+      pPackBox = Gtk::make_managed&lt;PackBox&gt;(false, 0, true, Gtk::Align::FILL, 10);
+      m_box1.append(*pPackBox);
+
+      m_box1.append(m_separator2);
+
+      break;
+    }
+
+    case 3:
+    {
+      // This demonstrates the ability to use Gtk::Align::END to
+      // right justify widgets.  First, we create a new box as before.
+      auto pPackBox = Gtk::make_managed&lt;PackBox&gt;();
+
+      // create the label that will be put at the end.
+      m_Label1.set_text("end");
+
+      // pack it using Gtk::Align::END, so it is put on the right side
+      // of the PackBox.
+      m_Label1.set_halign(Gtk::Align::END);
+      m_Label1.set_hexpand(true);
+      pPackBox-&gt;append(m_Label1);
+
+      m_box1.append(*pPackBox);
+
+      // This explicitly sets the separator to 700 pixels wide by 5 pixels
+      // high.  This is so the hbox we created will also be 700 pixels wide,
+      // and the "end" label will be separated from the other labels in the
+      // hbox.  Otherwise, all the widgets in the hbox would be packed as
+      // close together as possible.
+      m_separator1.set_size_request(700, 5);
+
+      // pack the separator into the vbox.
+      m_box1.append(m_separator1);
+
+      break;
+    }
+
+    default:
+    {
+      std::cerr &lt;&lt; "Unexpected command-line option." &lt;&lt; std::endl;
+      break;
+    }
+  }
+
+  // Connect the signal to hide the window:
+  m_buttonQuit.signal_clicked().connect( sigc::mem_fun(*this,
+              &amp;ExampleWindow::on_button_quit_clicked) );
+
+  // pack the button into the quitbox.
+  m_boxQuit.append(m_buttonQuit);
+  m_buttonQuit.set_hexpand(true);
+  m_buttonQuit.set_halign(Gtk::Align::CENTER);
+  m_box1.append(m_boxQuit);
+
+  // pack the vbox (box1) which now contains all our widgets, into the
+  // main window.
+  set_child(m_box1);
+}
+
+ExampleWindow::~ExampleWindow()
+{
+}
+
+void ExampleWindow::on_button_quit_clicked()
+{
+  hide();
+}
+
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">packbox.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "packbox.h"
+#include &lt;map&gt;
+
+namespace
+{
+  const std::map&lt;Gtk::Align, Glib::ustring&gt; align_string = {
+    {Gtk::Align::FILL, "Gtk::Align::FILL"},
+    {Gtk::Align::START, "Gtk::Align::START"},
+    {Gtk::Align::END, "Gtk::Align::END"},
+    {Gtk::Align::CENTER, "Gtk::Align::CENTER"},
+    {Gtk::Align::BASELINE, "Gtk::Align::BASELINE"},
+  };
+}
+
+PackBox::PackBox(bool homogeneous, int spacing, bool expand, Gtk::Align align, int margin)
+: Gtk::Box(Gtk::Orientation::HORIZONTAL, spacing)
+{
+  set_homogeneous(homogeneous);
+
+  m_buttons[0].set_label("box.append(button);");
+  m_buttons[1].set_label("expand=" + Glib::ustring(expand ? "true" : "false"));
+  m_buttons[2].set_label(align_string.at(align));
+  m_buttons[3].set_label("margin=" + Glib::ustring::format(margin));
+
+  for (auto&amp; button : m_buttons)
+  {
+    append(button);
+    button.set_hexpand(expand);
+    button.set_halign(align);
+    button.set_margin_start(margin);
+    button.set_margin_end(margin);
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="sec-grid"><!--sec-grid--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.4. </span>Grid</span></h2></div>
+<p class="para block block-first">
+A <span class="classname" dir="ltr">Grid</span> dynamically lays out child widgets in rows and
+columns. The dimensions of the grid do not need to be specified in the constructor.
+</p>
+<p class="para block">
+Child widgets can span multiple rows or columns, using
+<span class="methodname" dir="ltr">attach()</span>, or added next to an existing widget inside
+the grid with <span class="methodname" dir="ltr">attach_next_to()</span>. Individual rows and columns of the grid can be set to have uniform height or width with
+<span class="methodname" dir="ltr">set_row_homogeneous()</span> and
+<span class="methodname" dir="ltr">set_column_homogeneous()</span>.
+</p>
+<p class="para block">You can set the <span class="emphasis">margin</span> and <span class="emphasis">expand</span> properties of the
+child <span class="classname" dir="ltr">Widget</span>s to control their spacing and their behaviour when the Grid is resized.
+</p>
+<p class="para block"><a class="ulink" href="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Grid.html" title="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Grid.html">Reference</a></p>
+<div class="autotoc"><ul><li>
+<span class="label">9.2.4.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#grid-example" title="Example">Example</a>
+</li></ul></div>
+<div class="division sect3">
+<a name="grid-example"><!--grid-example--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.4.1. </span>Example</span></h3></div>
+<p class="para block block-first">
+This example creates a window with three buttons in a grid.
+The first two buttons are in the upper row, from left to right. A
+third button is attached underneath the first button, in a new lower row,
+spanning two columns.
+</p>
+<div class=" block figure block-indent">
+<a name="figure-grid"><!--figure-grid--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-8</span> </span>Grid</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/grid.png.en"></div>
+  </div>
+</div>
+</div>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/grid" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/grid">Source Code</a></p>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLEWINDOW_H
+#define GTKMM_EXAMPLEWINDOW_H
+
+#include &lt;gtkmm.h&gt;
+
+class ExampleWindow : public Gtk::Window
+{
+public:
+  ExampleWindow();
+  virtual ~ExampleWindow();
+
+private:
+  // Signal handlers:
+  void on_button_quit();
+  void on_button_numbered(const Glib::ustring&amp; data);
+
+  // Child widgets:
+  Gtk::Grid m_grid;
+  Gtk::Button m_button_1, m_button_2, m_button_quit;
+};
+
+#endif /* GTKMM_EXAMPLEWINDOW_H */
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">main.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "examplewindow.h"
+#include &lt;gtkmm/application.h&gt;
+
+int main(int argc, char *argv[])
+{
+  auto app = Gtk::Application::create("org.gtkmm.example");
+
+  // Shows the window and returns when it is closed.
+  return app-&gt;make_window_and_run&lt;ExampleWindow&gt;(argc, argv);
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include &lt;iostream&gt;
+#include "examplewindow.h"
+
+ExampleWindow::ExampleWindow()
+: m_button_1("button 1"),
+  m_button_2("button 2"),
+  m_button_quit("Quit")
+{
+  set_title("Gtk::Grid");
+
+  m_grid.set_margin(12);
+  set_child(m_grid);
+
+  m_grid.attach(m_button_1, 0, 0);
+  m_grid.attach(m_button_2, 1, 0);
+  m_grid.attach_next_to(m_button_quit, m_button_1, Gtk::PositionType::BOTTOM, 2, 1);
+
+  m_button_1.signal_clicked().connect(
+    sigc::bind( sigc::mem_fun(*this, &amp;ExampleWindow::on_button_numbered), "button 1") );
+  m_button_2.signal_clicked().connect(
+    sigc::bind( sigc::mem_fun(*this, &amp;ExampleWindow::on_button_numbered), "button 2") );
+
+  m_button_quit.signal_clicked().connect(sigc::mem_fun(*this,
+    &amp;ExampleWindow::on_button_quit) );
+}
+
+ExampleWindow::~ExampleWindow()
+{
+}
+
+void ExampleWindow::on_button_quit()
+{
+  hide();
+}
+
+void
+ExampleWindow::on_button_numbered(const Glib::ustring&amp; data)
+{
+  std::cout &lt;&lt; data &lt;&lt; " was pressed" &lt;&lt; std::endl;
+}
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="sec-notebook"><!--sec-notebook--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.5. </span>Notebook</span></h2></div>
+<p class="para block block-first">
+A <span class="classname" dir="ltr">Notebook</span> has a set of stacked
+<span class="literal" dir="ltr">pages</span>, each of which contains widgets. Labelled
+<span class="literal" dir="ltr">tabs</span> allow the user to select the pages.
+<span class="classname" dir="ltr">Notebook</span>s allow several sets of widgets to be placed in a
+small space, by only showing one page at a time. For instance, they are often
+used in preferences dialogs.
+</p>
+<p class="para block">
+Use the <span class="methodname" dir="ltr">append_page()</span>, <span class="methodname" dir="ltr">prepend_page()</span>
+and <span class="methodname" dir="ltr">insert_page()</span> methods to add tabbed pages to the
+<span class="literal" dir="ltr">Notebook</span>, supplying the child widget and the name for the
+tab.
+</p>
+<p class="para block">
+To discover the currently visible page, use the
+<span class="methodname" dir="ltr">get_current_page()</span> method. This returns the page number,
+and then calling <span class="methodname" dir="ltr">get_nth_page()</span> with that number will give
+you a pointer to the actual child widget.
+</p>
+<p class="para block">
+To programmatically change the selected page, use the
+<span class="methodname" dir="ltr">set_current_page()</span> method.
+</p>
+<p class="para block"><a class="ulink" href="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Notebook.html" title="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Notebook.html">Reference</a></p>
+<div class="autotoc"><ul><li>
+<span class="label">9.2.5.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#notebook-example" title="Example">Example</a>
+</li></ul></div>
+<div class="division sect3">
+<a name="notebook-example"><!--notebook-example--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.5.1. </span>Example</span></h3></div>
+<div class=" block figure block-first block-indent">
+<a name="figure-notebook"><!--figure-notebook--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-9</span> </span>Notebook</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/notebook.png.en"></div>
+  </div>
+</div>
+</div>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/notebook/" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/notebook/">Source Code</a></p>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLEWINDOW_H
+#define GTKMM_EXAMPLEWINDOW_H
+
+#include &lt;gtkmm.h&gt;
+
+class ExampleWindow : public Gtk::Window
+{
+public:
+  ExampleWindow();
+  virtual ~ExampleWindow();
+
+protected:
+  //Signal handlers:
+  void on_button_quit();
+  void on_notebook_switch_page(Gtk::Widget* page, guint page_num);
+
+  //Child widgets:
+  Gtk::Box m_VBox;
+  Gtk::Notebook m_Notebook;
+  Gtk::Label m_Label1, m_Label2;
+
+  Gtk::Box m_ButtonBox;
+  Gtk::Button m_Button_Quit;
+};
+
+#endif //GTKMM_EXAMPLEWINDOW_H
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">main.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "examplewindow.h"
+#include &lt;gtkmm/application.h&gt;
+
+int main(int argc, char *argv[])
+{
+  auto app = Gtk::Application::create("org.gtkmm.example");
+
+  //Shows the window and returns when it is closed.
+  return app-&gt;make_window_and_run&lt;ExampleWindow&gt;(argc, argv);
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include &lt;iostream&gt;
+#include "examplewindow.h"
+
+ExampleWindow::ExampleWindow()
+: m_VBox(Gtk::Orientation::VERTICAL),
+  m_Label1("Contents of tab 1"),
+  m_Label2("Contents of tab 2"),
+  m_Button_Quit("Quit")
+{
+  set_title("Gtk::Notebook example");
+  set_default_size(400, 200);
+
+  m_VBox.set_margin(10);
+  set_child(m_VBox);
+
+  //Add the Notebook, with the button underneath:
+  m_Notebook.set_margin(10);
+  m_Notebook.set_expand();
+  m_VBox.append(m_Notebook);
+  m_VBox.append(m_ButtonBox);
+
+  m_ButtonBox.append(m_Button_Quit);
+  m_Button_Quit.set_hexpand(true);
+  m_Button_Quit.set_halign(Gtk::Align::CENTER);
+  m_Button_Quit.signal_clicked().connect(sigc::mem_fun(*this,
+              &amp;ExampleWindow::on_button_quit) );
+
+  //Add the Notebook pages:
+  m_Notebook.append_page(m_Label1, "First");
+  m_Notebook.append_page(m_Label2, "Second");
+
+  m_Notebook.signal_switch_page().connect(sigc::mem_fun(*this,
+              &amp;ExampleWindow::on_notebook_switch_page) );
+}
+
+ExampleWindow::~ExampleWindow()
+{
+}
+
+void ExampleWindow::on_button_quit()
+{
+  hide();
+}
+
+void ExampleWindow::on_notebook_switch_page(Gtk::Widget* /* page */, guint page_num)
+{
+  std::cout &lt;&lt; "Switched to tab with index " &lt;&lt; page_num &lt;&lt; std::endl;
+
+  //You can also use m_Notebook.get_current_page() to get this index.
+}
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="sec-assistant"><!--sec-assistant--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.6. </span>Assistant</span></h2></div>
+<p class="para block block-first">
+An <span class="classname" dir="ltr">Assistant</span> splits a complex operation into steps. Each step is a page, containing a header, a child widget and an action area. The Assistant's action area has navigation buttons which update automatically depending on the type of the page, set with <span class="methodname" dir="ltr">set_page_type()</span>.
+</p>
+<p class="para block">
+Use the <span class="methodname" dir="ltr">append_page()</span>, <span class="methodname" dir="ltr">prepend_page</span> and <span class="methodname" dir="ltr">insert_page()</span> methods to add pages to the <span class="classname" dir="ltr">Assistant</span>, supplying the child widget for each page.
+</p>
+<p class="para block">
+To determine the currently-visible page, use the <span class="methodname" dir="ltr">get_current_page()</span> method, and pass the result to <span class="methodname" dir="ltr">get_nth_page()</span>, which returns a pointer to the actual widget. To programmatically change the current page, use the <span class="methodname" dir="ltr">set_current_page()</span> method.
+</p>
+<p class="para block">
+To set the title of a page, use the <span class="methodname" dir="ltr">set_page_title()</span> method.
+</p>
+<p class="para block">
+To add widgets to the action area, use the <span class="methodname" dir="ltr">add_action_widget()</span> method. They will be packed alongside the default buttons. Use the <span class="methodname" dir="ltr">remove_action_widget()</span> method to remove widgets.
+</p>
+<p class="para block"><a class="ulink" href="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Assistant.html" title="http://developer.gnome.org/gtkmm/unstable/classGtk_1_1Assistant.html">Reference</a></p>
+<div class="autotoc"><ul><li>
+<span class="label">9.2.6.1. </span><a class="xref" href="sec-multi-item-containers.html.en.html#assistant-example" title="Example">Example</a>
+</li></ul></div>
+<div class="division sect3">
+<a name="assistant-example"><!--assistant-example--></a><div class="header"><h3 class="sect3 title"><span class="title"><span class="label">9.2.6.1. </span>Example</span></h3></div>
+<div class=" block figure block-first block-indent">
+<a name="figure-assistant"><!--figure-assistant--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 9-10</span> </span>Assistant</span></div>
+<div class="figure-inner">
+  
+  <div class=" block screenshot block-first">
+    <div class="graphic"><img src="figures/assistant.png.en"></div>
+  </div>
+</div>
+</div>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/assistant/" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/assistant/">Source Code</a></p>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLEWINDOW_H
+#define GTKMM_EXAMPLEWINDOW_H
+
+#include "exampleassistant.h"
+#include &lt;gtkmm.h&gt;
+
+class ExampleWindow : public Gtk::Window
+{
+public:
+  ExampleWindow();
+  virtual ~ExampleWindow();
+
+private:
+  // Signal handlers:
+  void on_button_clicked();
+  void on_assistant_apply();
+
+  // Child widgets:
+  Gtk::Grid m_grid;
+  Gtk::Button m_button;
+  Gtk::Label m_label1, m_label2;
+  Gtk::CheckButton m_check;
+  Gtk::Entry m_entry;
+  ExampleAssistant m_assistant;
+};
+
+#endif /* GTKMM_EXAMPLEWINDOW_H */
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">exampleassistant.h</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#ifndef GTKMM_EXAMPLEASSISTANT_H
+#define GTKMM_EXAMPLEASSISTANT_H
+
+#include &lt;gtkmm.h&gt;
+
+class ExampleAssistant : public Gtk::Assistant
+{
+public:
+  ExampleAssistant();
+  virtual ~ExampleAssistant();
+
+  void get_result(bool&amp; check_state, Glib::ustring&amp; entry_text);
+
+private:
+  // Signal handlers:
+  void on_assistant_apply();
+  void on_assistant_cancel();
+  void on_assistant_close();
+  void on_assistant_prepare(Gtk::Widget* widget);
+  void on_entry_changed();
+
+  // Member functions:
+  void print_status();
+
+  // Child widgets:
+  Gtk::Box m_box;
+  Gtk::Label m_label1, m_label2;
+  Gtk::CheckButton m_check;
+  Gtk::Entry m_entry;
+};
+
+#endif /* GTKMM_EXAMPLEASSISTANT_H */
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">main.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "examplewindow.h"
+#include &lt;gtkmm/application.h&gt;
+
+int main(int argc, char *argv[])
+{
+  auto app = Gtk::Application::create("org.gtkmm.example");
+
+  // Shows the window and returns when it is closed.
+  return app-&gt;make_window_and_run&lt;ExampleWindow&gt;(argc, argv);
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">examplewindow.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include "examplewindow.h"
+#include "exampleassistant.h"
+
+ExampleWindow::ExampleWindow()
+: m_button("Show the assistant"),
+  m_label1("State of assistant checkbutton:", Gtk::Align::START, Gtk::Align::CENTER),
+  m_label2("Contents of assistant entry:", Gtk::Align::START, Gtk::Align::CENTER)
+{
+  set_title("Gtk::Assistant example");
+
+  m_grid.set_row_homogeneous(true);
+  m_grid.set_column_spacing(5);
+  m_grid.set_margin(12);
+
+  m_grid.attach(m_button, 0, 0, 2, 1);
+  m_button.set_hexpand(true);
+  m_button.set_valign(Gtk::Align::CENTER);
+
+  m_grid.attach(m_label1, 0, 1, 1, 1);
+
+  m_grid.attach(m_label2, 0, 2, 1, 1);
+
+  m_grid.attach(m_check, 1, 1, 1, 1);
+  m_check.set_halign(Gtk::Align::START);
+
+  m_grid.attach(m_entry, 1, 2, 1, 1);
+  m_entry.set_hexpand(true);
+
+  set_child(m_grid);
+
+  m_button.signal_clicked().connect(sigc::mem_fun(*this,
+    &amp;ExampleWindow::on_button_clicked));
+  m_assistant.signal_apply().connect(sigc::mem_fun(*this,
+    &amp;ExampleWindow::on_assistant_apply));
+
+  m_check.set_sensitive(false);
+  m_entry.set_sensitive(false);
+}
+
+ExampleWindow::~ExampleWindow()
+{
+}
+
+void ExampleWindow::on_assistant_apply()
+{
+  bool check_state;
+  Glib::ustring entry_text;
+
+  m_assistant.get_result(check_state, entry_text);
+  m_check.set_active(check_state);
+  m_entry.set_text(entry_text);
+}
+
+void ExampleWindow::on_button_clicked()
+{
+  m_assistant.show();
+}
+</pre></div>
+<p class="para block">File: <span class="filename" dir="ltr">exampleassistant.cc</span> (For use with gtkmm 4)</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">#include &lt;iostream&gt;
+#include "exampleassistant.h"
+
+ExampleAssistant::ExampleAssistant()
+: m_box(Gtk::Orientation::HORIZONTAL, 12),
+  m_label1("Type text to allow the assistant to continue:"),
+  m_label2("Confirmation page"),
+  m_check("Optional extra information")
+{
+  set_title("Gtk::Assistant example");
+  set_default_size(400, 200);
+
+  m_box.append(m_label1);
+  m_box.append(m_entry);
+  m_label1.set_wrap();
+  m_label1.set_valign(Gtk::Align::CENTER);
+  m_entry.set_valign(Gtk::Align::CENTER);
+
+  append_page(m_box);
+  append_page(m_check);
+  append_page(m_label2);
+
+  set_page_title(*get_nth_page(0), "Page 1");
+  set_page_title(*get_nth_page(1), "Page 2");
+  set_page_title(*get_nth_page(2), "Confirmation");
+
+  set_page_complete(m_check, true);
+  set_page_complete(m_label2, true);
+
+  set_page_type(m_box, Gtk::AssistantPage::Type::INTRO);
+  set_page_type(m_label2, Gtk::AssistantPage::Type::CONFIRM);
+
+  signal_apply().connect(sigc::mem_fun(*this,
+    &amp;ExampleAssistant::on_assistant_apply));
+  signal_cancel().connect(sigc::mem_fun(*this,
+    &amp;ExampleAssistant::on_assistant_cancel));
+  signal_close().connect(sigc::mem_fun(*this,
+    &amp;ExampleAssistant::on_assistant_close));
+  signal_prepare().connect(sigc::mem_fun(*this,
+    &amp;ExampleAssistant::on_assistant_prepare));
+
+  m_entry.signal_changed().connect(sigc::mem_fun(*this,
+    &amp;ExampleAssistant::on_entry_changed));
+}
+
+ExampleAssistant::~ExampleAssistant()
+{
+}
+
+void ExampleAssistant::get_result(bool&amp; check_state, Glib::ustring&amp; entry_text)
+{
+  check_state = m_check.get_active();
+  entry_text = m_entry.get_text();
+}
+
+void ExampleAssistant::on_assistant_apply()
+{
+  std::cout &lt;&lt; "Apply was clicked";
+  print_status();
+}
+
+void ExampleAssistant::on_assistant_cancel()
+{
+  std::cout &lt;&lt; "Cancel was clicked";
+  print_status();
+  hide();
+}
+
+void ExampleAssistant::on_assistant_close()
+{
+  std::cout &lt;&lt; "Assistant was closed";
+  print_status();
+  hide();
+}
+
+void ExampleAssistant::on_assistant_prepare(Gtk::Widget* /* widget */)
+{
+  set_title(Glib::ustring::compose("Gtk::Assistant example (Page %1 of %2)",
+    get_current_page() + 1, get_n_pages()));
+}
+
+void ExampleAssistant::on_entry_changed()
+{
+  // The page is only complete if the entry contains text.
+  if(m_entry.get_text_length())
+    set_page_complete(m_box, true);
+  else
+    set_page_complete(m_box, false);
+}
+
+void ExampleAssistant::print_status()
+{
+  std::cout &lt;&lt; ", entry contents: \"" &lt;&lt; m_entry.get_text()
+    &lt;&lt; "\", checkbutton status: " &lt;&lt; m_check.get_active() &lt;&lt; std::endl;
+}
+</pre></div>
+</div>
+</div>
+<div class="division sect2">
+<a name="sec-other-multi-item-containers"><!--sec-other-multi-item-containers--></a><div class="header"><h2 class="sect2 title"><span class="title"><span class="label">9.2.7. </span>Other Multi-item Containers</span></h2></div>
+<p class="para block block-first">
+There are other multi-item containers. See the reference documentation for a
+complete list. Here are links to some example programs that show containers,
+which are not mentioned elsewhere in this tutorial.
+</p>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/actionbar" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/actionbar">Source Code, ActionBar</a></p>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/flowbox" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/flowbox">Source Code, FlowBox</a></p>
+<p class="para block"><a class="ulink" href="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/iconview" title="https://gitlab.gnome.org/GNOME/gtkmm-documentation/tree/master/examples/book/iconview">Source Code, IconView</a></p>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="sec-single-item-containers.html.en.html" title="Single-item Containers">Single-item Containers</a></td>
+<td class="navbar-next"><a class="navbar-next" href="chapter-treeview.html.en.html" title="The TreeView widget">The TreeView widget</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="Programming with gtkmm 4">Programming with <span class="application">gtkmm</span> 4</a><div class="autotoc"><ul>
+<li><a class="xref" href="chapter-introduction.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="chapter-installation.html.en.html" title="Installation">Installation</a></li>
+<li><a class="xref" href="chapter-basics.html.en.html" title="Basics">Basics</a></li>
+<li><a class="xref" href="changes-gtkmm3.html.en.html" title="Changes in gtkmm 3">Changes in <span class="application">gtkmm</span> 3</a></li>
+<li><a class="xref" href="changes-gtkmm4.html.en.html" title="Changes in gtkmm-4.0 and glibmm-2.68">Changes in <span class="application">gtkmm</span>-4.0 and <span class="application">glibmm-2.68</span></a></li>
+<li><a class="xref" href="chapter-button-widget.html.en.html" title="Buttons">Buttons</a></li>
+<li><a class="xref" href="chapter-range-widgets.html.en.html" title="Range Widgets">Range Widgets</a></li>
+<li><a class="xref" href="chapter-misc-widgets.html.en.html" title="Miscellaneous Widgets">Miscellaneous Widgets</a></li>
+<li>
+<a class="xref" href="chapter-container-widgets.html.en.html" title="Container Widgets">Container Widgets</a><div class="autotoc"><ul>
+<li><a class="xref" href="sec-single-item-containers.html.en.html" title="Single-item Containers">Single-item Containers</a></li>
+<li>Multiple-item Containers </li>
+</ul></div>
+</li>
+<li><a class="xref" href="chapter-treeview.html.en.html" title="The TreeView widget">The TreeView widget</a></li>
+<li><a class="xref" href="chapter-combobox.html.en.html" title="Combo Boxes">Combo Boxes</a></li>
+<li><a class="xref" href="chapter-textview.html.en.html" title="TextView">TextView</a></li>
+<li><a class="xref" href="chapter-menus-and-toolbars.html.en.html" title="Menus and Toolbars">Menus and Toolbars</a></li>
+<li><a class="xref" href="chapter-adjustment.html.en.html" title="Adjustments">Adjustments</a></li>
+<li><a class="xref" href="chapter-dialogs.html.en.html" title="Dialogs">Dialogs</a></li>
+<li><a class="xref" href="chapter-drawingarea.html.en.html" title="The DrawingArea Widget">The DrawingArea Widget</a></li>
+<li><a class="xref" href="chapter-draganddrop.html.en.html" title="Drag and Drop">Drag and Drop</a></li>
+<li><a class="xref" href="chapter-clipboard.html.en.html" title="The Clipboard">The Clipboard</a></li>
+<li><a class="xref" href="chapter-printing.html.en.html" title="Printing">Printing</a></li>
+<li><a class="xref" href="chapter-recent-documents.html.en.html" title="Recently Used Documents">Recently Used Documents</a></li>
+<li><a class="xref" href="chapter-keyboardevents.html.en.html" title="Keyboard Events">Keyboard Events</a></li>
+<li><a class="xref" href="chapter-chapter-timeouts.html.en.html" title="Timeouts, I/O and Idle Functions ">Timeouts, I/O and Idle Functions </a></li>
+<li><a class="xref" href="chapter-memory.html.en.html" title="Memory management">Memory management</a></li>
+<li><a class="xref" href="chapter-builder.html.en.html" title="Glade and Gtk::Builder">Glade and Gtk::Builder</a></li>
+<li><a class="xref" href="chapter-internationalization.html.en.html" title="Internationalization and Localization">Internationalization and Localization</a></li>
+<li><a class="xref" href="chapter-customwidgets.html.en.html" title="Custom Widgets">Custom Widgets</a></li>
+<li><a class="xref" href="chapter-multi-threaded-programs.html.en.html" title="Multi-threaded programs">Multi-threaded programs</a></li>
+<li><a class="xref" href="chapter-recommended-techniques.html.en.html" title="Recommended Techniques">Recommended Techniques</a></li>
+<li><a class="xref" href="chapter-building-applications.html.en.html" title="Building applications">Building applications</a></li>
+<li><a class="xref" href="chapter-contributing.html.en.html" title="Contributing">Contributing</a></li>
+<li><a class="xref" href="chapter-refptr.html.en.html" title="The RefPtr smartpointer">The RefPtr smartpointer</a></li>
+<li><a class="xref" href="chapter-signals.html.en.html" title="Signals">Signals</a></li>
+<li><a class="xref" href="chapter-custom-signals.html.en.html" title="Creating your own signals">Creating your own signals</a></li>
+<li><a class="xref" href="sec-signals-comparison.html.en.html" title="Comparison with other signalling systems">Comparison with other signalling systems</a></li>
+<li><a class="xref" href="sec-windows-installation.html.en.html" title="gtkmm and Win32"><span class="application">gtkmm</span> and Win32</a></li>
+<li><a class="xref" href="chapter-working-with-source.html.en.html" title="Working with gtkmm's Source Code">Working with gtkmm's Source Code</a></li>
+<li><a class="xref" href="chapter-wrapping-c-libraries.html.en.html" title="Wrapping C Libraries with gmmproc">Wrapping C Libraries with gmmproc</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="sec-multi-item-containers.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

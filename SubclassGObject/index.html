@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" href="../skin/moinmoin.css" type="text/css"></link><title>HowDoI/SubclassGObject - GNOME Wiki!</title><link href="https://wiki.gnome.org/action/rss_rc/HowDoI/SubclassGObject?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=HowDoI%2FSubclassGObject&amp;ddiffs=1" rel="alternate" title="GNOME Wiki!: HowDoI/SubclassGObject" type="application/rss+xml"></link><link href="https://wiki.gnome.org/Home" rel="Start"></link><link href="https://wiki.gnome.org/action/raw/HowDoI/SubclassGObject?action=raw" rel="Alternate" title="Wiki Markup"></link><link href="https://wiki.gnome.org/action/print/HowDoI/SubclassGObject?action=print" media="print" rel="Alternate" title="Print View"></link><link href="https://wiki.gnome.org/HowDoI" rel="Up"></link><link href="https://wiki.gnome.org/FindPage" rel="Search"></link><link href="https://wiki.gnome.org/TitleIndex" rel="Index"></link><link href="https://wiki.gnome.org/WordIndex" rel="Glossary"></link><link href="https://wiki.gnome.org/HelpOnFormatting" rel="Help"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/960_24_col.css"></link><script type="text/javascript" src="../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="index.html#container">Go to page content</a></li><li><a href="index.html#top_bar">Go to main menu</a></li><li><a href="index.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/search"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form></div></div></div><div class="clearfix"></div><div id="container" class="content-id"><div class="content"><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="Subclassing_GObject">Subclassing GObject</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line874">This page describes how to create a subclass of GObject in C, using best standard practices. <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><p class="line867">
+</p><h2 id="Preconditions">Preconditions</h2>
+<span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line874">To use the instructions in this page, you need to be using GLib 2.44 or later (or git master as of February 2015).  Additionally, the class that you are subclassing must support GLib's new auto-cleanup functionality (as a requirement of using the type declaration macros below).  All classes in GLib and Gtk have this support. <span class="anchor" id="line-8"></span><span class="anchor" id="line-9"></span></p><p class="line867">
+</p><h2 id="Naming_and_conventions">Naming and conventions</h2>
+<span class="anchor" id="line-10"></span><span class="anchor" id="line-11"></span><p class="line862">In general, the program or library that you are working on should have a namespace that is used as the first part of the name of all of the classes that it contains.  Gtk uses the prefix <tt class="backtick">Gtk</tt>, GLib uses the prefix <tt class="backtick">G</tt>, and so on. <span class="anchor" id="line-12"></span><span class="anchor" id="line-13"></span></p><p class="line874">Following this, you'll need a descriptive name for what the class is doing.  This is typically a noun. <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span></p><p class="line862">In our example, we'll assume that our namespace is <tt class="backtick">MyApp</tt> and we'll make a class called <tt class="backtick">MyAppWindow</tt> which is a subclass of <tt class="backtick">GtkApplicationWindow</tt>. <span class="anchor" id="line-16"></span><span class="anchor" id="line-17"></span></p><p class="line874">When you define a class, it is expected that you will also define some additional standard macros that are used with that class.  These macros are available for all object types.  In our case these would be: <span class="anchor" id="line-18"></span><span class="anchor" id="line-19"></span></p><ul><li><p class="line891"><tt class="backtick">MY_APP_TYPE_WINDOW</tt> — a macro that evaluates to the <tt class="backtick">GType</tt> of your new object type <span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span></p></li><li class="gap"><p class="line891"><tt class="backtick">MY_APP_WINDOW</tt> — a type-checking macro that casts <tt class="backtick">GObject</tt> instances to your pointer type <span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span></p></li><li class="gap"><p class="line891"><tt class="backtick">MY_APP_IS_WINDOW</tt> — a macro for checking if a given <tt class="backtick">GObject</tt> is an instance of your object type <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p></li><li class="gap">derivable classes will also contain other macros to help with further subclassing them <span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span></li><li class="gap">all methods related to your class should have names starting with <span class="anchor" id="line-28"></span><ul><li style="list-style-type:none"><p class="line891"><tt class="backtick">my_app_window_</tt> as a way to distinguish them from methods of other classes <span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span></p></li></ul></li><li class="gap"><p class="line862">a constructor function (<tt class="backtick">my_app_window_new</tt>) will typically be provided <span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span></p></li></ul><p class="line874">Most of the above macros will be written for you automatically if you follow the templates below. <span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span></p><p class="line867">
+</p><h2 id="File_names">File names</h2>
+<span class="anchor" id="line-35"></span><span class="anchor" id="line-36"></span><p class="line862">Nominally, each subclass is contained in its own separate <tt class="backtick">.c</tt> file with an associated <tt class="backtick">.h</tt> file.  The <tt class="backtick">.c</tt> file contains the implementation of the class and the <tt class="backtick">.h</tt> describes the public interface of the class that is visible to its users. <span class="anchor" id="line-37"></span><span class="anchor" id="line-38"></span></p><p class="line862">Filenames are typically in lowercase and separated by dashes (<tt class="backtick">-</tt>) in the places that you'd have underscores in the function names.  In our example, we would expect to have files named <tt class="backtick">my-app-window.c</tt> and <tt class="backtick">my-app-window.h</tt>. <span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span></p><p class="line867">
+</p><h2 id="Two_styles_for_subclassing">Two styles for subclassing</h2>
+<span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><p class="line874">There are two styles of creating subclasses. <span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span></p><p class="line874">The difference between them is if you intend for your subclass to be further subclassed. <span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span></p><p class="line874">If your subclass will not be further subclassed then it is said to be "final".  If your subclass wants to support further subclassing then it is "derivable". <span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span></p><p class="line874">A final class has several advantages: <span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span></p><ul><li>it is easier to implement a final subclass <span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span></li><li class="gap">when creating a library, it is easier to maintain API and ABI compatibility <span class="anchor" id="line-53"></span><ul><li style="list-style-type:none">if you create a final subclass because more of the implementation details <span class="anchor" id="line-54"></span>are hidden from the users of the library <span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span></li></ul></li></ul><p class="line874">A derivable class has the advantage of being subclassable. <span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span></p><p class="line874">In general, it is better to make a class final unless you know that it needs to be derivable. It is always possible to make a final class derivable later without breaking API or ABI compatibility, but not the other way around. <span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span></p><p class="line867">
+</p><h2 id="Final_class">Final class</h2>
+<span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><p class="line874">Here is an example of creating our subclass as a final class. <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span></p><p class="line867"><tt class="backtick">my-app-window.h</tt>: <span class="anchor" id="line-65"></span><span class="anchor" id="line-66"></span><span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span><span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span><span class="anchor" id="line-71"></span><span class="anchor" id="line-72"></span><span class="anchor" id="line-73"></span><span class="anchor" id="line-74"></span><span class="anchor" id="line-75"></span><span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span><span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span><span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span><span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span><span class="anchor" id="line-86"></span></p><pre><span class="anchor" id="line-1"></span>/* Copyright YEAR Copyright Holder
+<span class="anchor" id="line-2"></span> *
+<span class="anchor" id="line-3"></span> * Licence text goes here
+<span class="anchor" id="line-4"></span> *
+<span class="anchor" id="line-5"></span> * Author: you &lt;your@email&gt;
+<span class="anchor" id="line-6"></span> */
+<span class="anchor" id="line-7"></span>
+<span class="anchor" id="line-8"></span>#ifndef _my_app_window_h_
+<span class="anchor" id="line-9"></span>#define _my_app_window_h_
+<span class="anchor" id="line-10"></span>
+<span class="anchor" id="line-11"></span>G_BEGIN_DECLS
+<span class="anchor" id="line-12"></span>
+<span class="anchor" id="line-13"></span>#define MY_APP_TYPE_WINDOW (my_app_window_get_type ())
+<span class="anchor" id="line-14"></span>G_DECLARE_FINAL_TYPE(MyAppWindow, my_app_window, MY_APP, WINDOW, GtkApplicationWindow)
+<span class="anchor" id="line-15"></span>
+<span class="anchor" id="line-16"></span>MyAppWindow *          my_app_window_new            (void);
+<span class="anchor" id="line-17"></span>
+<span class="anchor" id="line-18"></span>G_END_DECLS
+<span class="anchor" id="line-19"></span>
+<span class="anchor" id="line-20"></span>#endif /* _my_app_window_h_ */</pre><span class="anchor" id="line-87"></span><span class="anchor" id="line-88"></span><p class="line867"><tt class="backtick">my-app-window.c</tt>: <span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span></p><pre><span class="anchor" id="line-1-1"></span>/* Copyright YEAR Copyright Holder
+<span class="anchor" id="line-2-1"></span> *
+<span class="anchor" id="line-3-1"></span> * Licence text goes here
+<span class="anchor" id="line-4-1"></span> *
+<span class="anchor" id="line-5-1"></span> * Author: you &lt;your@email&gt;
+<span class="anchor" id="line-6-1"></span> */
+<span class="anchor" id="line-7-1"></span>
+<span class="anchor" id="line-8-1"></span>#include "my-app-window.h"
+<span class="anchor" id="line-9-1"></span>
+<span class="anchor" id="line-10-1"></span>struct _MyAppWindow
+<span class="anchor" id="line-11-1"></span>{
+<span class="anchor" id="line-12-1"></span>  GtkApplicationWindow parent_instance;
+<span class="anchor" id="line-13-1"></span>
+<span class="anchor" id="line-14-1"></span>  // instance variables for subclass go here
+<span class="anchor" id="line-15-1"></span>};
+<span class="anchor" id="line-16-1"></span>
+<span class="anchor" id="line-17-1"></span>G_DEFINE_TYPE(MyAppWindow, my_app_window, GTK_TYPE_APPLICATION_WINDOW)
+<span class="anchor" id="line-18-1"></span>
+<span class="anchor" id="line-19-1"></span>static void
+<span class="anchor" id="line-20-1"></span>my_app_window_init (MyAppWindow *window)
+<span class="anchor" id="line-21"></span>{
+<span class="anchor" id="line-22"></span>  // initialisation goes here
+<span class="anchor" id="line-23"></span>}
+<span class="anchor" id="line-24"></span>
+<span class="anchor" id="line-25"></span>static void
+<span class="anchor" id="line-26"></span>my_app_window_class_init (MyAppWindowClass *class)
+<span class="anchor" id="line-27"></span>{
+<span class="anchor" id="line-28"></span>  // virtual function overrides go here
+<span class="anchor" id="line-29"></span>  // property and signal definitions go here
+<span class="anchor" id="line-30"></span>}
+<span class="anchor" id="line-31"></span>
+<span class="anchor" id="line-32"></span>MyAppWindow *
+<span class="anchor" id="line-33"></span>my_app_window_new (void)
+<span class="anchor" id="line-34"></span>{
+<span class="anchor" id="line-35"></span>  return g_object_new (MY_APP_TYPE_WINDOW, NULL);
+<span class="anchor" id="line-36"></span>}</pre><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><p class="line874">Some notes about the above: <span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span></p><ul><li>Each file should contain a comment at the top with information about the copyright owner, the licence information and the author of the file.  The copyright information is required for legal reasons.  The name of the author and the email address are useful for others who read the file and may have questions about its contents. <span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span></li><li class="gap"><p class="line862">the <tt class="backtick">#ifndef</tt>, <tt class="backtick">#define</tt> and <tt class="backtick">#endif</tt> in the header form something called a <a class="http" href="http://en.wikipedia.org/wiki/Include_guard">single include guard</a> and is used to prevent the content of the header from being included more than once <span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span></p></li><li class="gap"><p class="line862">The <tt class="backtick">G_DECLARE_FINAL_TYPE</tt> macro takes your C structure name (<tt class="backtick">MyAppWindow</tt>), the uppercase namespace name of your project (<tt class="backtick">MY_APP</tt>), the uppercase name of your class (<tt class="backtick">WINDOW</tt>), the lowercase prefix of your C functions (<tt class="backtick">my_app_window</tt>)  and the class name of your parent class (<tt class="backtick">GtkApplicationWindow</tt>).  These names are used to create the various macros that are expected to exist for your type, as well as defining its "Class" structure. <span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span></p></li><li class="gap"><p class="line891"><tt class="backtick">MY_APP_TYPE_WINDOW</tt> must be manually declared because it is not possible for the macro to emit a non-function macro for this definition <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p></li><li class="gap"><p class="line862">The <tt class="backtick">struct _MyAppWindow</tt> definition is expected in this form (type name prefixed by <tt class="backtick">_</tt>) by the type declaration macros. <span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span></p></li><li class="gap"><p class="line862">The first item in your structure <strong>must</strong> be of the type of your parent class and should be named <tt class="backtick">parent_instance</tt>.  This must be a direct inclusion of the parent type.  Do not use a pointer.  If you get this part wrong, your program will very likely crash in obscure and confusing ways. <span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span></p></li><li class="gap"><p class="line862">The <tt class="backtick">G_DEFINE_TYPE</tt> macro takes the name of your class (<tt class="backtick">MyAppWindow</tt>), the C function name prefix (<tt class="backtick">my_app_window</tt>) and the <tt class="backtick">GType</tt> of your parent class (<tt class="backtick">GTK_TYPE_APPLICATION_WINDOW</tt>). <span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span></p></li><li class="gap"><p class="line862">The <tt class="backtick">gtk_app_window_init()</tt> and <tt class="backtick">gtk_app_window_class_init()</tt> functions are expected to exist by the type definition macro. <span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span></p></li><li class="gap"><p class="line862">As a general rule, <tt class="backtick">_new()</tt> functions should only call <tt class="backtick">g_object_new()</tt> with the passed in arguments as properties.  If your class has extra code in <tt class="backtick">_new()</tt> then it will be difficult (or impossible) to subclass or to use from language bindings. <span class="anchor" id="line-147"></span><span class="anchor" id="line-148"></span></p></li></ul><p class="line867">
+</p><h2 id="Derivable_class">Derivable class</h2>
+<span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span><p class="line862">Here is an example of creating a derivable class.  Let's create a <tt class="backtick">GtkLabel</tt> subclass called <tt class="backtick">MyAppLabel</tt>. <span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span></p><p class="line867"><tt class="backtick">my-app-label.h</tt>: <span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span><span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span><span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span><span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span></p><pre><span class="anchor" id="line-1-2"></span>/* Copyright YEAR Copyright Holder
+<span class="anchor" id="line-2-2"></span> *
+<span class="anchor" id="line-3-2"></span> * Licence text goes here
+<span class="anchor" id="line-4-2"></span> *
+<span class="anchor" id="line-5-2"></span> * Author: you &lt;your@email&gt;
+<span class="anchor" id="line-6-2"></span> */
+<span class="anchor" id="line-7-2"></span>
+<span class="anchor" id="line-8-2"></span>#ifndef _my_app_label_h_
+<span class="anchor" id="line-9-2"></span>#define _my_app_label_h_
+<span class="anchor" id="line-10-2"></span>
+<span class="anchor" id="line-11-2"></span>G_BEGIN_DECLS
+<span class="anchor" id="line-12-2"></span>
+<span class="anchor" id="line-13-2"></span>#define MY_APP_TYPE_LABEL (my_app_label_get_type ())
+<span class="anchor" id="line-14-2"></span>G_DECLARE_DERIVABLE_TYPE(MyAppLabel, my_app_label, MY_APP, LABEL, GtkApplicationLabel)
+<span class="anchor" id="line-15-2"></span>
+<span class="anchor" id="line-16-2"></span>struct _MyAppLabelClass {
+<span class="anchor" id="line-17-2"></span>  GtkLabelClass parent_class;
+<span class="anchor" id="line-18-2"></span>
+<span class="anchor" id="line-19-2"></span>  gchar * (* transform_text)   (MyAppLabel  *label,
+<span class="anchor" id="line-20-2"></span>                                const gchar *text);
+<span class="anchor" id="line-21-1"></span>
+<span class="anchor" id="line-22-1"></span>  /*&lt; private &gt;*/
+<span class="anchor" id="line-23-1"></span>  gpointer _padding[10];
+<span class="anchor" id="line-24-1"></span>};
+<span class="anchor" id="line-25-1"></span>
+<span class="anchor" id="line-26-1"></span>MyAppLabel *          my_app_label_new            (void);
+<span class="anchor" id="line-27-1"></span>
+<span class="anchor" id="line-28-1"></span>void                  my_app_label_set_text       (MyAppLabel  *label,
+<span class="anchor" id="line-29-1"></span>                                                   const gchar *text);
+<span class="anchor" id="line-30-1"></span>
+<span class="anchor" id="line-31-1"></span>G_END_DECLS
+<span class="anchor" id="line-32-1"></span>
+<span class="anchor" id="line-33-1"></span>#endif /* _my_app_label_h_ */</pre><span class="anchor" id="line-188"></span><span class="anchor" id="line-189"></span><p class="line867"><tt class="backtick">my-app-label.c</tt>: <span class="anchor" id="line-190"></span><span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span><span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span><span class="anchor" id="line-195"></span><span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span><span class="anchor" id="line-198"></span><span class="anchor" id="line-199"></span><span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span><span class="anchor" id="line-202"></span><span class="anchor" id="line-203"></span><span class="anchor" id="line-204"></span><span class="anchor" id="line-205"></span><span class="anchor" id="line-206"></span><span class="anchor" id="line-207"></span><span class="anchor" id="line-208"></span><span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span><span class="anchor" id="line-211"></span><span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span><span class="anchor" id="line-214"></span><span class="anchor" id="line-215"></span><span class="anchor" id="line-216"></span><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span><span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span><span class="anchor" id="line-222"></span><span class="anchor" id="line-223"></span><span class="anchor" id="line-224"></span><span class="anchor" id="line-225"></span><span class="anchor" id="line-226"></span><span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span><span class="anchor" id="line-229"></span><span class="anchor" id="line-230"></span><span class="anchor" id="line-231"></span><span class="anchor" id="line-232"></span><span class="anchor" id="line-233"></span><span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span><span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span><span class="anchor" id="line-238"></span><span class="anchor" id="line-239"></span><span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span><span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><span class="anchor" id="line-244"></span><span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span><span class="anchor" id="line-247"></span><span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span><span class="anchor" id="line-250"></span><span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span><span class="anchor" id="line-253"></span><span class="anchor" id="line-254"></span><span class="anchor" id="line-255"></span></p><pre><span class="anchor" id="line-1-3"></span>/* Copyright YEAR Copyright Holder
+<span class="anchor" id="line-2-3"></span> *
+<span class="anchor" id="line-3-3"></span> * Licence text goes here
+<span class="anchor" id="line-4-3"></span> *
+<span class="anchor" id="line-5-3"></span> * Author: you &lt;your@email&gt;
+<span class="anchor" id="line-6-3"></span> */
+<span class="anchor" id="line-7-3"></span>
+<span class="anchor" id="line-8-3"></span>#include "my-app-label.h"
+<span class="anchor" id="line-9-3"></span>
+<span class="anchor" id="line-10-3"></span>typedef struct
+<span class="anchor" id="line-11-3"></span>{
+<span class="anchor" id="line-12-3"></span>  guint num_changes;
+<span class="anchor" id="line-13-3"></span>} MyAppLabelPrivate;
+<span class="anchor" id="line-14-3"></span>
+<span class="anchor" id="line-15-3"></span>G_DEFINE_TYPE_WITH_PRIVATE (MyAppLabel, my_app_label, GTK_TYPE_APPLICATION_LABEL)
+<span class="anchor" id="line-16-3"></span>
+<span class="anchor" id="line-17-3"></span>static gchar *
+<span class="anchor" id="line-18-3"></span>my_app_label_real_transform_text (MyAppLabel  *label,
+<span class="anchor" id="line-19-3"></span>                                  const gchar *text,
+<span class="anchor" id="line-20-3"></span>                                  guint        change_nr)
+<span class="anchor" id="line-21-2"></span>{
+<span class="anchor" id="line-22-2"></span>  return g_strdup_printf ("%d %s", change_nr, text);
+<span class="anchor" id="line-23-2"></span>}
+<span class="anchor" id="line-24-2"></span>
+<span class="anchor" id="line-25-2"></span>static void
+<span class="anchor" id="line-26-2"></span>my_app_label_init (MyAppLabel *label)
+<span class="anchor" id="line-27-2"></span>{
+<span class="anchor" id="line-28-2"></span>  // initialisation goes here
+<span class="anchor" id="line-29-2"></span>}
+<span class="anchor" id="line-30-2"></span>
+<span class="anchor" id="line-31-2"></span>static void
+<span class="anchor" id="line-32-2"></span>my_app_label_class_init (MyAppLabelClass *class)
+<span class="anchor" id="line-33-2"></span>{
+<span class="anchor" id="line-34-1"></span>  class-&gt;transform_text = my_app_label_real_transform_text;
+<span class="anchor" id="line-35-1"></span>}
+<span class="anchor" id="line-36-1"></span>
+<span class="anchor" id="line-37"></span>void
+<span class="anchor" id="line-38"></span>my_app_label_transform_text (MyAppLabel  *label,
+<span class="anchor" id="line-39"></span>                             const gchar *text,
+<span class="anchor" id="line-40"></span>                             guint        change_nr)
+<span class="anchor" id="line-41"></span>{
+<span class="anchor" id="line-42"></span>  g_return_if_fail (G_IS_MY_APP_LABEL (label));
+<span class="anchor" id="line-43"></span>
+<span class="anchor" id="line-44"></span>  return MY_APP_LABEL_GET_CLASS(label)-&gt;transform_text (label, text, change_nr);
+<span class="anchor" id="line-45"></span>}
+<span class="anchor" id="line-46"></span>
+<span class="anchor" id="line-47"></span>void
+<span class="anchor" id="line-48"></span>my_app_label_set_text (MyAppLabel  *label,
+<span class="anchor" id="line-49"></span>                       const gchar *text)
+<span class="anchor" id="line-50"></span>{
+<span class="anchor" id="line-51"></span>  MyAppLabelPrivate *priv = my_app_label_get_instance_private (label);
+<span class="anchor" id="line-52"></span>  guint change_nr = priv-&gt;num_changes++;
+<span class="anchor" id="line-53"></span>  gchar *transformed;
+<span class="anchor" id="line-54"></span>
+<span class="anchor" id="line-55"></span>  transformed = my_app_label_transform_text (label, text, change_nr);
+<span class="anchor" id="line-56"></span>  gtk_label_set_text (GTK_LABEL (label), transformed);
+<span class="anchor" id="line-57"></span>  g_free (transformed);
+<span class="anchor" id="line-58"></span>}
+<span class="anchor" id="line-59"></span>
+<span class="anchor" id="line-60"></span>MyAppLabel *
+<span class="anchor" id="line-61"></span>my_app_label_new (void)
+<span class="anchor" id="line-62"></span>{
+<span class="anchor" id="line-63"></span>  return g_object_new (MY_APP_TYPE_LABEL, NULL);
+<span class="anchor" id="line-64"></span>}</pre><span class="anchor" id="line-256"></span><span class="anchor" id="line-257"></span><p class="line874">As compared with the other example, there are a few noticeable changes: <span class="anchor" id="line-258"></span><span class="anchor" id="line-259"></span></p><ul><li><p class="line862">The header file now contains the definition of a <tt class="backtick">_MyAppLabelClass</tt> structure.  This structure is required when using <tt class="backtick">G_DECLARE_DERIVABLE_TYPE</tt>.  It contains the vtable of your class so that virtual functions can be overridden by subclasses. <span class="anchor" id="line-260"></span><span class="anchor" id="line-261"></span></p></li><li class="gap"><p class="line862">There is an example of how to do a virtual function.  You need a function pointer in the <tt class="backtick">Class</tt> structure, a wrapper function (<tt class="backtick">my_app_label_transform_text</tt>) and a default implementation (<tt class="backtick">my_app_label_real_transform_text</tt>).  You set the default implementation during your <tt class="backtick">class_init</tt> function and the wrapper calls it.  If a subclass wants to override it then they can do so from their own <tt class="backtick">class_init</tt> function, but if they do not, then your default implementation will be used. <span class="anchor" id="line-262"></span><span class="anchor" id="line-263"></span></p></li><li class="gap"><p class="line862">Because your <tt class="backtick">MyAppLabel</tt> structure must be public (in order to be embedded in the instance structures of those who subclass you) you must use a <tt class="backtick">MyAppLabelPrivate</tt> structure to hold the instance variables.  This avoids issues with having to change API or ABI when changing the instances variables of the class. <span class="anchor" id="line-264"></span><span class="anchor" id="line-265"></span></p></li><li class="gap"><p class="line862">You get access to the <tt class="backtick">Private</tt> structure using <tt class="backtick">my_app_label_get_instance_private()</tt>. <span class="anchor" id="line-266"></span></p></li></ul><span class="anchor" id="bottom"></span></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="index.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EpcServiceMonitor: Easy Publish and Consume Reference Manual</title><link href="index.html" rel="home" title="Easy Publish and Consume Reference Manual"></link><link href="dns-sd-support.html" rel="up" title="DNS-SD Support"></link><link href="EpcServiceInfo.html" rel="prev" title="EpcServiceInfo"></link><link href="libepc-1.0-EpcServiceType.html" rel="next" title="EpcServiceType"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libepc-1.0-service-monitor.html#container">Go to page content</a></li><li><a href="libepc-1.0-service-monitor.html#top_bar">Go to main menu</a></li><li><a href="libepc-1.0-service-monitor.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="libepc-1.0-service-monitor.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-service-monitor.html#libepc-1.0-service-monitor.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-service-monitor.html#libepc-1.0-service-monitor.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-service-monitor.html#libepc-1.0-service-monitor.properties">Properties</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="libepc-1.0-service-monitor.html#libepc-1.0-service-monitor.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="dns-sd-support.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="EpcServiceInfo.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libepc-1.0-EpcServiceType.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="libepc-1.0-service-monitor"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libepc-1.0-service-monitor.top_of_page"></a>EpcServiceMonitor</span></h2>
+<p>EpcServiceMonitor — find DNS-SD services</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.stability-level"></a><h2>Stability Level</h2>
+<a href="http://foldoc.org/Unstable"><span class="acronym">Unstable</span></a>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-new" title="epc_service_monitor_new ()">epc_service_monitor_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-new-for-types" title="epc_service_monitor_new_for_types ()">epc_service_monitor_new_for_types</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-new-for-types-strv" title="epc_service_monitor_new_for_types_strv ()">epc_service_monitor_new_for_types_strv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-set-skip-our-own" title="epc_service_monitor_set_skip_our_own ()">epc_service_monitor_set_skip_our_own</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-get-skip-our-own" title="epc_service_monitor_get_skip_our_own ()">epc_service_monitor_get_skip_our_own</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor--application" title="The “application” property">application</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<span class="type">gchar</span> *</td>
+<td class="property_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor--domain" title="The “domain” property">domain</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">GStrv</span></td>
+<td class="property_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor--service-types" title="The “service-types” property">service-types</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type"><span class="type">gboolean</span></td>
+<td class="property_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor--skip-our-own" title="The “skip-our-own” property">skip-our-own</a></td>
+<td class="property_flags">Read / Write / Construct</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-scanning-done" title="The “scanning-done” signal">scanning-done</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-service-found" title="The “service-found” signal">service-found</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-service-removed" title="The “service-removed” signal">service-removed</a></td>
+<td class="signal_flags">Run First</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="EpcServiceMonitor"></a><div class="refsect1">
+<a name="libepc-1.0-service-monitor.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitorClass" title="struct EpcServiceMonitorClass">EpcServiceMonitorClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitorPrivate" title="EpcServiceMonitorPrivate">EpcServiceMonitorPrivate</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-struct" title="struct EpcServiceMonitor">EpcServiceMonitor</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">╰──</span> EpcServiceMonitor
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libepc/service-monitor.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.description"></a><h2>Description</h2>
+<p>The <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> object provides an easy method for finding DNS-SD
+services. It hides all the boring state and callback handling Avahi
+requires, and just exposes three simple GObject signals:
+<span class="type">“service-found”</span>, <span class="type">“service-removed”</span>
+and <span class="type">“scanning-done”</span>.</p>
+<div class="example">
+<a name="find-services"></a><p class="title"><b>Example 8. Find an Easy-Publish service</b></p>
+<div class="example-contents">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6</pre></td>
+        <td class="listing_code"><pre class="programlisting">monitor = epc_service_monitor_new (<span class="number">"glom"</span>, <span class="number">NULL</span>, EPC_PROTOCOL_UNKNOWN);
+
+g_signal_connect (monitor, <span class="number">"service-found"</span>, service_found_cb, self);
+g_signal_connect (monitor, <span class="number">"service-removed"</span>, service_removed_cb, self);
+
+g_main_loop_run (loop);</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break"></br>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="epc-service-monitor-new"></a><h3>epc_service_monitor_new ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+epc_service_monitor_new (<em class="parameter"><code>const <span class="type">gchar</span> *application</code></em>,
+                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                         <em class="parameter"><code><a class="link" href="libepc-1.0-EpcProtocol.html#EpcProtocol" title="enum EpcProtocol"><span class="type">EpcProtocol</span></a> first_protocol</code></em>,
+                         <em class="parameter"><code>...</code></em>);</pre>
+<p>Creates a new service monitor watching the specified <em class="parameter"><code>domain</code></em>
+ for a
+certain <em class="parameter"><code>application</code></em>
+ using one of the protocols listed. Passing <code class="literal">NULL</code> for
+<em class="parameter"><code>application</code></em>
+ lists all libepc based applications. Passing <code class="literal">NULL</code> for <em class="parameter"><code>domain</code></em>
+
+monitors the local network. Passing an empty protocol list requests
+monitoring of all service-types supported by the library (see
+<a class="link" href="libepc-1.0-EpcServiceType.html#epc-service-type-list-supported" title="epc_service_type_list_supported ()"><code class="function">epc_service_type_list_supported()</code></a>).</p>
+<div class="refsect3">
+<a name="epc-service-monitor-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>application</p></td>
+<td class="parameter_description"><p>name of the application to monitor, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>the DNS domain to monitor, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_protocol</p></td>
+<td class="parameter_description"><p>the first protocol to monitor</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>a list of additional protocols, terminated by <a class="link" href="libepc-1.0-EpcProtocol.html#EPC-PROTOCOL-UNKNOWN:CAPS"><span class="type">EPC_PROTOCOL_UNKNOWN</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-service-monitor-new.returns"></a><h4>Returns</h4>
+<p> The newly created service monitor.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-service-monitor-new-for-types"></a><h3>epc_service_monitor_new_for_types ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+epc_service_monitor_new_for_types (<em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                   <em class="parameter"><code>...</code></em>);</pre>
+<p>Creates a new service monitor watching the specified <em class="parameter"><code>domain</code></em>
+ for the
+service-types listed. Passing <code class="literal">NULL</code> for <em class="parameter"><code>domain</code></em>
+ monitors the local network.
+Passing an empty service list requests monitoring of all service-types
+supported by the library (see <a class="link" href="libepc-1.0-EpcServiceType.html#epc-service-type-list-supported" title="epc_service_type_list_supported ()"><code class="function">epc_service_type_list_supported()</code></a>).</p>
+<p>See also: <a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-new-for-types-strv" title="epc_service_monitor_new_for_types_strv ()"><code class="function">epc_service_monitor_new_for_types_strv()</code></a></p>
+<div class="refsect3">
+<a name="epc-service-monitor-new-for-types.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>the DNS domain to monitor, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>a <code class="literal">NULL</code> terminated list of service types to monitor</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-service-monitor-new-for-types.returns"></a><h4>Returns</h4>
+<p> The newly created service monitor.</p>
+</div>
+<p class="since">Since: 0.3.1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-service-monitor-new-for-types-strv"></a><h3>epc_service_monitor_new_for_types_strv ()</h3>
+<pre class="programlisting"><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="returnvalue">EpcServiceMonitor</span></a> *
+epc_service_monitor_new_for_types_strv
+                               (<em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                <em class="parameter"><code><span class="type">gchar</span> **types</code></em>);</pre>
+<p>Creates a new service monitor watching the specified <em class="parameter"><code>domain</code></em>
+ for the
+service-types listed. Passing <code class="literal">NULL</code> for <em class="parameter"><code>domain</code></em>
+ monitors the local network.
+Passing an empty service list requests monitoring of all service-types
+supported by the library (see <a class="link" href="libepc-1.0-EpcServiceType.html#epc-service-type-list-supported" title="epc_service_type_list_supported ()"><code class="function">epc_service_type_list_supported()</code></a>).</p>
+<p>See also: <a class="link" href="libepc-1.0-service-monitor.html#epc-service-monitor-new-for-types" title="epc_service_monitor_new_for_types ()"><code class="function">epc_service_monitor_new_for_types()</code></a></p>
+<div class="refsect3">
+<a name="epc-service-monitor-new-for-types-strv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>the DNS domain to monitor, or <code class="literal">NULL</code></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>types</p></td>
+<td class="parameter_description"><p>a <code class="literal">NULL</code> terminated list of service types to monitor</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-service-monitor-new-for-types-strv.returns"></a><h4>Returns</h4>
+<p> The newly created service monitor.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-service-monitor-set-skip-our-own"></a><h3>epc_service_monitor_set_skip_our_own ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+epc_service_monitor_set_skip_our_own (<em class="parameter"><code><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> *monitor</code></em>,
+                                      <em class="parameter"><code><span class="type">gboolean</span> setting</code></em>);</pre>
+<p>Updates the <span class="type">“skip-our-own”</span> property.</p>
+<div class="refsect3">
+<a name="epc-service-monitor-set-skip-our-own.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>setting</p></td>
+<td class="parameter_description"><p>the new setting</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="epc-service-monitor-get-skip-our-own"></a><h3>epc_service_monitor_get_skip_our_own ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+epc_service_monitor_get_skip_our_own (<em class="parameter"><code><a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> *monitor</code></em>);</pre>
+<p>Queries the current value of the <span class="type">“skip-our-own”</span> property.</p>
+<div class="refsect3">
+<a name="epc-service-monitor-get-skip-our-own.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="epc-service-monitor-get-skip-our-own.returns"></a><h4>Returns</h4>
+<p> The current value of the <span class="type">“skip-our-own”</span> property</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="EpcServiceMonitorClass"></a><h3>struct EpcServiceMonitorClass</h3>
+<pre class="programlisting">struct EpcServiceMonitorClass {
+  void (*service_found)   (EpcServiceMonitor  *monitor,
+                           const gchar        *name,
+                           EpcServiceInfo     *info);
+  void (*service_removed) (EpcServiceMonitor  *monitor,
+                           const gchar        *name,
+                           const gchar        *type);
+  void (*scanning_done)   (EpcServiceMonitor  *monitor,
+                           const gchar        *type);
+};
+</pre>
+<p>Virtual methods of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> class.</p>
+<div class="refsect3">
+<a name="EpcServiceMonitorClass.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="struct_members_name" width="300px"></col>
+<col class="struct_members_description"></col>
+<col class="struct_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="EpcServiceMonitorClass.service-found"></a>service_found</code></em> ()</p></td>
+<td class="struct_member_description"><p>virtual method of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-service-found" title="The “service-found” signal"><span class="type">“service-found”</span></a> signal</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="EpcServiceMonitorClass.service-removed"></a>service_removed</code></em> ()</p></td>
+<td class="struct_member_description"><p>virtual method of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-service-removed" title="The “service-removed” signal"><span class="type">“service-removed”</span></a> signal</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="EpcServiceMonitorClass.scanning-done"></a>scanning_done</code></em> ()</p></td>
+<td class="struct_member_description"><p>virtual method of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor-scanning-done" title="The “scanning-done” signal"><span class="type">“scanning-done”</span></a> signal</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitorPrivate"></a><h3>EpcServiceMonitorPrivate</h3>
+<pre class="programlisting">typedef struct _EpcServiceMonitorPrivate EpcServiceMonitorPrivate;</pre>
+<p>Private fields of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> class.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor-struct"></a><h3>struct EpcServiceMonitor</h3>
+<pre class="programlisting">struct EpcServiceMonitor;</pre>
+<p>Public fields of the <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> class.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EpcServiceMonitor--application"></a><h3>The <code class="literal">“application”</code> property</h3>
+<pre class="programlisting">  “application”              <span class="type">gchar</span> *</pre>
+<p>The application to monitor.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor--domain"></a><h3>The <code class="literal">“domain”</code> property</h3>
+<pre class="programlisting">  “domain”                   <span class="type">gchar</span> *</pre>
+<p>The DNS domain to monitor.</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor--service-types"></a><h3>The <code class="literal">“service-types”</code> property</h3>
+<pre class="programlisting">  “service-types”            <span class="type">GStrv</span></pre>
+<p>The DNS-SD services types to watch.</p>
+<p>Flags: Read / Write / Construct Only</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor--skip-our-own"></a><h3>The <code class="literal">“skip-our-own”</code> property</h3>
+<pre class="programlisting">  “skip-our-own”             <span class="type">gboolean</span></pre>
+<p>Skip services of the current application.</p>
+<p>Flags: Read / Write / Construct</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libepc-1.0-service-monitor.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EpcServiceMonitor-scanning-done"></a><h3>The <code class="literal">“scanning-done”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> *monitor,
+               <span class="type">gchar</span>             *type,
+               <span class="type">gpointer</span>           user_data)</pre>
+<p>This signal is emitted when active scanning as finished and most certainly
+no new services will be detected for some time. Can be used for instance
+to hide an progress indicator.</p>
+<div class="refsect3">
+<a name="EpcServiceMonitor-scanning-done.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>the service type watched</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor-service-found"></a><h3>The <code class="literal">“service-found”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> *monitor,
+               <span class="type">gchar</span>             *name,
+               <a class="link" href="EpcServiceInfo.html" title="EpcServiceInfo"><span class="type">EpcServiceInfo</span></a>    *info,
+               <span class="type">gpointer</span>           user_data)</pre>
+<p>This signal is emitted when a new service was found.</p>
+<div class="refsect3">
+<a name="EpcServiceMonitor-service-found.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>name of the service removed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>info</p></td>
+<td class="parameter_description"><p>a description of the service found</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EpcServiceMonitor-service-removed"></a><h3>The <code class="literal">“service-removed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a> *monitor,
+               <span class="type">gchar</span>             *name,
+               <span class="type">gchar</span>             *type,
+               <span class="type">gpointer</span>           user_data)</pre>
+<p>This signal is emitted when a previously known service disappears.</p>
+<div class="refsect3">
+<a name="EpcServiceMonitor-service-removed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>monitor</p></td>
+<td class="parameter_description"><p>a <a class="link" href="libepc-1.0-service-monitor.html#EpcServiceMonitor"><span class="type">EpcServiceMonitor</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>name</p></td>
+<td class="parameter_description"><p>name of the service removed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>type</p></td>
+<td class="parameter_description"><p>the service type watched</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run First</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libepc-1.0-service-monitor.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

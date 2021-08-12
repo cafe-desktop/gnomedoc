@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UDP: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-tcp.html" title="TCP">
+<link rel="next" href="gnet-mcast.html" title="Mcast">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-udp.html#container">Go to page content</a></li><li><a href="gnet-udp.html#top_bar">Go to main menu</a></li><li><a href="gnet-udp.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-udp.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-udp.html#gnet-udp.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-tcp.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-mcast.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-udp"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">UDP</span></h2>
+<p>UDP — UDP socket</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+                    <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>;
+<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         <a class="link" href="gnet-udp.html#gnet-udp-socket-new">gnet_udp_socket_new</a>                 (void);
+<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         <a class="link" href="gnet-udp.html#gnet-udp-socket-new-with-port">gnet_udp_socket_new_with_port</a>       (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);
+<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         <a class="link" href="gnet-udp.html#gnet-udp-socket-new-full">gnet_udp_socket_new_full</a>            (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *iface,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-delete">gnet_udp_socket_delete</a>              (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-ref">gnet_udp_socket_ref</a>                 (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-unref">gnet_udp_socket_unref</a>               (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-send">gnet_udp_socket_send</a>                (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *dst);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-receive">gnet_udp_socket_receive</a>             (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> **src);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-udp.html#gnet-udp-socket-has-packet">gnet_udp_socket_has_packet</a>          (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         <a class="link" href="gnet-udp.html#gnet-udp-socket-get-io-channel">gnet_udp_socket_get_io_channel</a>      (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          <a class="link" href="gnet-udp.html#gnet-udp-socket-get-local-inetaddr">gnet_udp_socket_get_local_inetaddr</a>  (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-get-ttl">gnet_udp_socket_get_ttl</a>             (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);
+<GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                <a class="link" href="gnet-udp.html#gnet-udp-socket-set-ttl">gnet_udp_socket_set_ttl</a>             (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> ttl);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.6.4"></a><h2>Description</h2>
+<p>
+This module provides support for UDP sockets.  UDP is an internet
+protocol that transfers packets by best-effort delivery.  Packets may
+be lost or arrive out-of-order.  Use TCP if your protocol requires
+data transfered reliably and in-order -- most do.
+</p>
+<p>
+A UDP socket is represented by a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> structure.  To create a
+<a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>, call <a class="link" href="gnet-udp.html#gnet-udp-socket-new"><code class="function">gnet_udp_socket_new()</code></a>,
+<a class="link" href="gnet-udp.html#gnet-udp-socket-new-with-port"><code class="function">gnet_udp_socket_new_with_port()</code></a>, or <a class="link" href="gnet-udp.html#gnet-udp-socket-new-full"><code class="function">gnet_udp_socket_new_full()</code></a>.
+</p>
+<p>
+To send a packet, call <a class="link" href="gnet-udp.html#gnet-udp-socket-send"><code class="function">gnet_udp_socket_send()</code></a>.  To receive a packet,
+call <a class="link" href="gnet-udp.html#gnet-udp-socket-receive"><code class="function">gnet_udp_socket_receive()</code></a>.  <a class="link" href="gnet-udp.html#gnet-udp-socket-send"><code class="function">gnet_udp_socket_send()</code></a> will block if
+the OS cannot buffer the packet immediately.
+<a class="link" href="gnet-udp.html#gnet-udp-socket-receive"><code class="function">gnet_udp_socket_receive()</code></a> will block until there is a packet available
+to receive.  Call <a class="link" href="gnet-udp.html#gnet-udp-socket-has-packet"><code class="function">gnet_udp_socket_has_packet()</code></a> to determine whether a
+packet is available immediately.  A more elegant method is to get the
+<GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> and add a read watch.  A callback will be called when a
+packet is available.  Note that a UDP socket's <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> is not a
+normal <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> -- it should not be written to or read from
+directly.
+</p>
+<p>
+Packets have a time-to-live (TTL) field.  This field is decremented
+before a router forwards the packet.  If the TTL reaches zero, the
+packet is dropped.  The TTL can be set by calling
+<a class="link" href="gnet-udp.html#gnet-udp-socket-get-ttl"><code class="function">gnet_udp_socket_get_ttl()</code></a>.  The default value is sufficient for most
+applications.
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.6.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.6.5.2"></a><h3>
+<a name="GUdpSocket"></a>GUdpSocket</h3>
+<pre class="programlisting">typedef struct _GUdpSocket GUdpSocket;</pre>
+<p>
+A <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> structure represents a UDP socket.  The
+ implementation is hidden.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.3"></a><h3>
+<a name="gnet-udp-socket-new"></a>gnet_udp_socket_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         gnet_udp_socket_new                 (void);</pre>
+<p>
+Creates a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> bound to all interfaces and an arbitrary
+ port.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>; NULL on error.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.4"></a><h3>
+<a name="gnet-udp-socket-new-with-port"></a>gnet_udp_socket_new_with_port ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         gnet_udp_socket_new_with_port       (<GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);</pre>
+<p>
+Creates a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> bound to all interfaces and port <em class="parameter"><code>port</code></em>.  If
+ <em class="parameter"><code>port</code></em> is 0, an arbitrary port will be used.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em> :</span></p></td>
+<td> port to bind to (0 for an arbitrary port)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>; NULL on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.5"></a><h3>
+<a name="gnet-udp-socket-new-full"></a>gnet_udp_socket_new_full ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a>*         gnet_udp_socket_new_full            (const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *iface,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> port);</pre>
+<p>
+Creates a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> bound to interface <em class="parameter"><code>iface</code></em> and port <em class="parameter"><code>port</code></em>.
+ If <em class="parameter"><code>iface</code></em> is NULL, all interfaces will be used.  If <em class="parameter"><code>port</code></em> is 0, an
+ arbitrary port will be used.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>iface</code></em> :</span></p></td>
+<td> interface to bind to (NULL for all interfaces)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em> :</span></p></td>
+<td> port to bind to (0 for an arbitrary port)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>; NULL on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.6"></a><h3>
+<a name="gnet-udp-socket-delete"></a>gnet_udp_socket_delete ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_udp_socket_delete              (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Deletes a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>. Does nothing if <em class="parameter"><code>socket</code></em> is NULL.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>, or NULL
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.7"></a><h3>
+<a name="gnet-udp-socket-ref"></a>gnet_udp_socket_ref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_udp_socket_ref                 (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Adds a reference to a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> to reference
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.8"></a><h3>
+<a name="gnet-udp-socket-unref"></a>gnet_udp_socket_unref ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_udp_socket_unref               (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Removes a reference from a <GTKDOCLINK HREF="GUdpScoket"><span class="type">GUdpScoket</span></GTKDOCLINK>.  A <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> is deleted
+ when the reference count reaches 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.9"></a><h3>
+<a name="gnet-udp-socket-send"></a>gnet_udp_socket_send ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_udp_socket_send                (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         const <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> *dst);</pre>
+<p>
+Sends data to a host using a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to send
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dst</code></em> :</span></p></td>
+<td> destination address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if successful; something else on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.10"></a><h3>
+<a name="gnet-udp-socket-receive"></a>gnet_udp_socket_receive ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_udp_socket_receive             (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> length,
+                                                         <a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a> **src);</pre>
+<p>
+Receives data using a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.  If <em class="parameter"><code>src</code></em> is set, the source
+ address is stored in the location <em class="parameter"><code>src</code></em> points to.  The address is
+ caller owned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to write to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td> pointer to source address (optional)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of bytes received, -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.11"></a><h3>
+<a name="gnet-udp-socket-has-packet"></a>gnet_udp_socket_has_packet ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_udp_socket_has_packet          (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Tests if a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> has a packet waiting to be received.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is packet waiting, FALSE otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.12"></a><h3>
+<a name="gnet-udp-socket-get-io-channel"></a>gnet_udp_socket_get_io_channel ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="GIOChannel">GIOChannel</GTKDOCLINK>*         gnet_udp_socket_get_io_channel      (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Gets the <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK> of a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.
+</p>
+<p>
+ Use the channel with <GTKDOCLINK HREF="g-io-add-watch"><code class="function">g_io_add_watch()</code></GTKDOCLINK> to check if the socket is
+ readable or writable.  If the channel is readable, call
+ <a class="link" href="gnet-udp.html#gnet-udp-socket-receive"><code class="function">gnet_udp_socket_receive()</code></a> to receive a packet.  If the channel is
+ writable, call <a class="link" href="gnet-udp.html#gnet-udp-socket-send"><code class="function">gnet_udp_socket_send()</code></a> to send a packet.  This is
+ not a normal giochannel - do not read from or write to it.
+</p>
+<p>
+ Every <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a> has one and only one <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.  If you ref
+ the channel, then you must unref it eventually.  Do not close the
+ channel.  The channel is closed by GNet when the socket is
+ deleted.
+</p>
+<p>
+ Before deleting the UDP socket, make sure to remove any watches you have
+ added with <GTKDOCLINK HREF="g-io-add-watch"><code class="function">g_io_add_watch()</code></GTKDOCLINK> again with <GTKDOCLINK HREF="g-source-remove"><code class="function">g_source_remove()</code></GTKDOCLINK> using the integer
+ id returned by <GTKDOCLINK HREF="g-io-add-watch"><code class="function">g_io_add_watch()</code></GTKDOCLINK>. You may find your program stuck in a busy
+ loop at 100% CPU utilisation if you forget to do this.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <GTKDOCLINK HREF="GIOChannel"><span class="type">GIOChannel</span></GTKDOCLINK>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.13"></a><h3>
+<a name="gnet-udp-socket-get-local-inetaddr"></a>gnet_udp_socket_get_local_inetaddr ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-inetaddr.html#GInetAddr">GInetAddr</a>*          gnet_udp_socket_get_local_inetaddr  (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Gets the local host's address from a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="gnet-inetaddr.html#GInetAddr"><span class="type">GInetAddr</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.14"></a><h3>
+<a name="gnet-udp-socket-get-ttl"></a>gnet_udp_socket_get_ttl ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_udp_socket_get_ttl             (const <a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket);</pre>
+<p>
+Gets the time-to-live (TTL) default of a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.  All UDP
+ packets have a TTL field.  This field is decremented by a router
+ before it forwards the packet.  If the TTL reaches zero, the
+ packet is discarded.  The default value is sufficient for most
+ applications.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the TTL (an integer between 0 and 255), -1 if the kernel
+ default is being used, or an integer less than -1 on error.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.6.5.15"></a><h3>
+<a name="gnet-udp-socket-set-ttl"></a>gnet_udp_socket_set_ttl ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gint">gint</GTKDOCLINK>                gnet_udp_socket_set_ttl             (<a class="link" href="gnet-udp.html#GUdpSocket">GUdpSocket</a> *socket,
+                                                         <GTKDOCLINK HREF="gint">gint</GTKDOCLINK> ttl);</pre>
+<p>
+Sets the time-to-live (TTL) default of a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>.  Set the TTL
+ to -1 to use the kernel default.  The default value is sufficient
+ for most applications.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>socket</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-udp.html#GUdpSocket"><span class="type">GUdpSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ttl</code></em> :</span></p></td>
+<td> value to set TTL to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> 0 if successful.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-udp.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

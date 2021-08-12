@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>bonobo-app-client</title><link href="index.html" rel="home" title="Libbonobo Reference Manual"></link><link href="general.html" rel="up" title="General"></link><link href="libbonobo-bonobo-application.html" rel="prev" title="bonobo-application"></link><link href="factories.html" rel="next" title="Objects, Factories, Reference Counting"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libbonobo-bonobo-app-client.html#container">Go to page content</a></li><li><a href="libbonobo-bonobo-app-client.html#top_bar">Go to main menu</a></li><li><a href="libbonobo-bonobo-app-client.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libbonobo-bonobo-application.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="general.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Libbonobo Reference Manual</th>
+<td><a accesskey="n" href="factories.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="libbonobo-bonobo-app-client.html#libbonobo-bonobo-app-client.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="libbonobo-bonobo-app-client.html#libbonobo-bonobo-app-client.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="libbonobo-bonobo-app-client"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libbonobo-bonobo-app-client.top_of_page"></a>bonobo-app-client</span></h2>
+<p>bonobo-app-client — client interface to remote <span class="type">BonoboApplication</span> objects</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="libbonobo-bonobo-app-client.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="libbonobo-bonobo-app-client.html#BonoboAppClientMsgDesc" title="BonoboAppClientMsgDesc">BonoboAppClientMsgDesc</a>;
+<span class="returnvalue">BonoboAppClient</span> *   <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-new" title="bonobo_app_client_new ()">bonobo_app_client_new</a>               (<em class="parameter"><code><span class="type">Bonobo_Application</span> app_server</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-new-instance" title="bonobo_app_client_new_instance ()">bonobo_app_client_new_instance</a>      (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> argc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *argv[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>);
+<a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send-valist" title="bonobo_app_client_msg_send_valist ()">bonobo_app_client_msg_send_valist</a>   (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>,
+                                                         <em class="parameter"><code><a href="../../gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> first_arg_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);
+<a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send-argv" title="bonobo_app_client_msg_send_argv ()">bonobo_app_client_msg_send_argv</a>     (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *argv[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>);
+<a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send" title="bonobo_app_client_msg_send ()">bonobo_app_client_msg_send</a>          (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>,
+                                                         <em class="parameter"><code><a href="../../gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> first_arg_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libbonobo-bonobo-app-client.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libbonobo-bonobo-app-client.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BonoboAppClientMsgDesc"></a><h3>BonoboAppClientMsgDesc</h3>
+<pre class="programlisting">typedef struct {
+	gchar *name;
+	GType  return_type;
+	GType *types;		/* G_TYPE_NONE-terminated array */
+	gchar *description;
+} BonoboAppClientMsgDesc;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="bonobo-app-client-new"></a><h3>bonobo_app_client_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">BonoboAppClient</span> *   bonobo_app_client_new               (<em class="parameter"><code><span class="type">Bonobo_Application</span> app_server</code></em>);</pre>
+<p>
+<em class="parameter"><code>app_server</code></em>: object reference to a Bonobo::Application; this
+function takes ownership of this reference (use
+<a class="link" href="libbonobo-bonobo-object.html#bonobo-object-dup-ref" title="bonobo_object_dup_ref ()"><code class="function">bonobo_object_dup_ref()</code></a> if you want to keep your own reference.)
+</p>
+<p>
+Create an application client object connected to the remote (or
+local) Bonobo::Application object.
+</p>
+<p>
+</p>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>Applications should not use this function. See
+<a class="link" href="libbonobo-bonobo-application.html#bonobo-application-register-unique" title="bonobo_application_register_unique ()"><code class="function">bonobo_application_register_unique()</code></a>.</div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_server</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <span class="type">BonoboAppClient</span> object.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="bonobo-app-client-new-instance"></a><h3>bonobo_app_client_new_instance ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gint"><span class="returnvalue">gint</span></a>                bonobo_app_client_new_instance      (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> argc</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *argv[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>);</pre>
+<p>
+Ask the application server to emit a "new-instance" signal
+containing the specified string vector.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_client</code></em> :</span></p></td>
+<td>a <span class="type">BonoboAppClient</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argc</code></em> :</span></p></td>
+<td>length of <em class="parameter"><code>argv</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argv</code></em> :</span></p></td>
+<td>array of command-line arguments
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_env</code></em> :</span></p></td>
+<td>a <span class="type">CORBA_Environment</span>, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the message return value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="bonobo-app-client-msg-send-valist"></a><h3>bonobo_app_client_msg_send_valist ()</h3>
+<pre class="programlisting"><a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            bonobo_app_client_msg_send_valist   (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>,
+                                                         <em class="parameter"><code><a href="../../gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> first_arg_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">va_list</span> var_args</code></em>);</pre>
+<p>
+See <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send" title="bonobo_app_client_msg_send ()"><code class="function">bonobo_app_client_msg_send()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_client</code></em> :</span></p></td>
+<td>client
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>message name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_env</code></em> :</span></p></td>
+<td>optional corba environment
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_arg_type</code></em> :</span></p></td>
+<td>first message parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>var_args</code></em> :</span></p></td>
+<td>remaining parameters
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> return value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="bonobo-app-client-msg-send-argv"></a><h3>bonobo_app_client_msg_send_argv ()</h3>
+<pre class="programlisting"><a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            bonobo_app_client_msg_send_argv     (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *argv[]</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>);</pre>
+<p>
+Like <a class="link" href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send" title="bonobo_app_client_msg_send ()"><code class="function">bonobo_app_client_msg_send()</code></a>, except that it receives a single
+argument vector instead of a variable number of arguments.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_client</code></em> :</span></p></td>
+<td>client
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>message name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>argv</code></em> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>-terminated vector of pointers to GValue, the arguments
+to pass with the message.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_env</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the message return value
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="bonobo-app-client-msg-send"></a><h3>bonobo_app_client_msg_send ()</h3>
+<pre class="programlisting"><a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="returnvalue">GValue</span></a> *            bonobo_app_client_msg_send          (<em class="parameter"><code><span class="type">BonoboAppClient</span> *app_client</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *message</code></em>,
+                                                         <em class="parameter"><code><span class="type">CORBA_Environment</span> *opt_env</code></em>,
+                                                         <em class="parameter"><code><a href="../../gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> first_arg_type</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
+<p>
+Send a message to the application server. Takes a variable length
+argument list of GType, value pairs, terminated with
+<a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE:CAPS"><code class="literal">G_TYPE_NONE</code></a>. Values are direct C values, not GValues! Example:
+</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="usertype">GValue</span><span class="normal"> </span><span class="symbol">*</span><span class="normal">retval</span><span class="symbol">;</span>
+<span class="normal">retval </span><span class="symbol">=</span><span class="normal"> </span><span class="function"><a href="libbonobo-bonobo-app-client.html#bonobo-app-client-msg-send">bonobo_app_client_msg_send</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">app_client</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"openURL"</span><span class="symbol">,</span>
+<span class="normal">                                     <a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-STRING:CAPS">G_TYPE_STRING</a></span><span class="symbol">,</span><span class="normal"> </span><span class="string">"http://www.gnome.org"</span><span class="symbol">,</span>
+<span class="normal">                                     <a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">,</span><span class="normal"> <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS">TRUE</a></span><span class="symbol">,</span>
+<span class="normal">                                     <a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-NONE:CAPS">G_TYPE_NONE</a></span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>app_client</code></em> :</span></p></td>
+<td>the client interface associated with the application
+to which we wish to send a message
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em> :</span></p></td>
+<td>message name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>opt_env</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>first_arg_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td>arguments
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a GValue containing the value returned from the
+aplication server.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libbonobo-bonobo-app-client.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

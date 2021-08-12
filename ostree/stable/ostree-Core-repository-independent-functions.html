@@ -1,0 +1,1414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Core repository-independent functions</title><link href="index.html" rel="home" title="OSTree Manual"></link><link href="reference.html" rel="up" title="API Reference"></link><link href="reference.html" rel="prev" title="API Reference"></link><link href="ostree-Content-addressed-object-store.html" rel="next" title="Content-addressed object store"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ostree-Core-repository-independent-functions.html#container">Go to page content</a></li><li><a href="ostree-Core-repository-independent-functions.html#top_bar">Go to main menu</a></li><li><a href="ostree-Core-repository-independent-functions.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="reference.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="reference.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">OSTree Manual</th>
+<td><a accesskey="n" href="ostree-Content-addressed-object-store.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ostree-Core-repository-independent-functions.html#ostree-Core-repository-independent-functions.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ostree-Core-repository-independent-functions.html#ostree-Core-repository-independent-functions.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ostree-Core-repository-independent-functions"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ostree-Core-repository-independent-functions.top_of_page"></a>Core repository-independent functions</span></h2>
+<p>Core repository-independent functions — Create, validate, and convert core data types</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ostree-Core-repository-independent-functions.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-MAX-METADATA-SIZE:CAPS" title="OSTREE_MAX_METADATA_SIZE">OSTREE_MAX_METADATA_SIZE</a>
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-MAX-RECURSION:CAPS" title="OSTREE_MAX_RECURSION">OSTREE_MAX_RECURSION</a>
+enum                <a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType">OstreeObjectType</a>;
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-IS-META:CAPS" title="OSTREE_OBJECT_TYPE_IS_META()">OSTREE_OBJECT_TYPE_IS_META</a>          (t)
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-LAST:CAPS" title="OSTREE_OBJECT_TYPE_LAST">OSTREE_OBJECT_TYPE_LAST</a>
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-DIRMETA-GVARIANT-FORMAT:CAPS" title="OSTREE_DIRMETA_GVARIANT_FORMAT">OSTREE_DIRMETA_GVARIANT_FORMAT</a>
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-TREE-GVARIANT-FORMAT:CAPS" title="OSTREE_TREE_GVARIANT_FORMAT">OSTREE_TREE_GVARIANT_FORMAT</a>
+#define             <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-COMMIT-GVARIANT-FORMAT:CAPS" title="OSTREE_COMMIT_GVARIANT_FORMAT">OSTREE_COMMIT_GVARIANT_FORMAT</a>
+const <a href="../../glib/unstable/glib-GVariantType.html#GVariantType"><span class="returnvalue">GVariantType</span></a> * <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-metadata-variant-type" title="ostree_metadata_variant_type ()">ostree_metadata_variant_type</a>       (<em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-checksum-string" title="ostree_validate_checksum_string ()">ostree_validate_checksum_string</a>     (<em class="parameter"><code>const <span class="type">char</span> *sha256</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-to-bytes" title="ostree_checksum_to_bytes ()">ostree_checksum_to_bytes</a>            (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>);
+<a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-to-bytes-v" title="ostree_checksum_to_bytes_v ()">ostree_checksum_to_bytes_v</a>          (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-from-bytes" title="ostree_checksum_from_bytes ()">ostree_checksum_from_bytes</a>          (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *csum</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-from-bytes-v" title="ostree_checksum_from_bytes_v ()">ostree_checksum_from_bytes_v</a>        (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *csum_v</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-inplace-from-bytes" title="ostree_checksum_inplace_from_bytes ()">ostree_checksum_inplace_from_bytes</a>  (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *csum</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *buf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-inplace-to-bytes" title="ostree_checksum_inplace_to_bytes ()">ostree_checksum_inplace_to_bytes</a>    (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *buf</code></em>);
+const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *      <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-bytes-peek" title="ostree_checksum_bytes_peek ()">ostree_checksum_bytes_peek</a>          (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *bytes</code></em>);
+<span class="returnvalue">int</span>                 <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-cmp-checksum-bytes" title="ostree_cmp_checksum_bytes ()">ostree_cmp_checksum_bytes</a>           (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *a</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *b</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-rev" title="ostree_validate_rev ()">ostree_validate_rev</a>                 (<em class="parameter"><code>const <span class="type">char</span> *rev</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-parse-refspec" title="ostree_parse_refspec ()">ostree_parse_refspec</a>                (<em class="parameter"><code>const <span class="type">char</span> *refspec</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **out_remote</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **out_ref</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-update-meta" title="ostree_checksum_update_meta ()">ostree_checksum_update_meta</a>         (<em class="parameter"><code><a href="../../glib/unstable/glib-Data-Checksums.html#GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-type-to-string" title="ostree_object_type_to_string ()">ostree_object_type_to_string</a>        (<em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);
+<a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="returnvalue">OstreeObjectType</span></a>    <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-type-from-string" title="ostree_object_type_from_string ()">ostree_object_type_from_string</a>      (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-hash-object-name" title="ostree_hash_object_name ()">ostree_hash_object_name</a>             (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> a</code></em>);
+<a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-name-serialize" title="ostree_object_name_serialize ()">ostree_object_name_serialize</a>        (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-name-deserialize" title="ostree_object_name_deserialize ()">ostree_object_name_deserialize</a>      (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *variant</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> **out_checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> *out_objtype</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-to-string" title="ostree_object_to_string ()">ostree_object_to_string</a>             (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-from-string" title="ostree_object_from_string ()">ostree_object_from_string</a>           (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **out_checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> *out_objtype</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-content-stream-parse" title="ostree_content_stream_parse ()">ostree_content_stream_parse</a>         (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> compressed</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> input_length</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> trusted</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> **out_file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **out_xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-content-file-parse" title="ostree_content_file_parse ()">ostree_content_file_parse</a>           (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> compressed</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *content_path</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> trusted</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> **out_file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **out_xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-raw-file-to-content-stream" title="ostree_raw_file_to_content_stream ()">ostree_raw_file_to_content_stream</a>   (<em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *out_length</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file-from-input" title="ostree_checksum_file_from_input ()">ostree_checksum_file_from_input</a>     (<em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *in</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file" title="ostree_checksum_file ()">ostree_checksum_file</a>                (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file-async" title="ostree_checksum_file_async ()">ostree_checksum_file_async</a>          (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file-async-finish" title="ostree_checksum_file_async_finish ()">ostree_checksum_file_async_finish</a>   (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-create-directory-metadata" title="ostree_create_directory_metadata ()">ostree_create_directory_metadata</a>    (<em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *dir_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-objtype" title="ostree_validate_structureof_objtype ()">ostree_validate_structureof_objtype</a> (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-csum-v" title="ostree_validate_structureof_csum_v ()">ostree_validate_structureof_csum_v</a>  (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-checksum-string" title="ostree_validate_structureof_checksum_string ()">ostree_validate_structureof_checksum_string</a>
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-file-mode" title="ostree_validate_structureof_file_mode ()">ostree_validate_structureof_file_mode</a>
+                                                        (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-commit" title="ostree_validate_structureof_commit ()">ostree_validate_structureof_commit</a>  (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *commit</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-dirtree" title="ostree_validate_structureof_dirtree ()">ostree_validate_structureof_dirtree</a> (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *dirtree</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-validate-structureof-dirmeta" title="ostree_validate_structureof_dirmeta ()">ostree_validate_structureof_dirmeta</a> (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *dirmeta</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);
+<a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-commit-get-parent" title="ostree_commit_get_parent ()">ostree_commit_get_parent</a>            (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *commit_variant</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ostree-Core-repository-independent-functions.description"></a><h2>Description</h2>
+<p>
+These functions implement repository-independent algorithms for
+operating on the core OSTree data formats, such as converting
+<a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> into a <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a>.
+</p>
+<p>
+There are 4 types of objects; file, dirmeta, tree, and commit.  The
+last 3 are metadata, and the file object is the only content object
+type.
+</p>
+<p>
+All metadata objects are stored as <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> (big endian).  The
+rationale for this is the same as that of the ext{2,3,4} family of
+filesystems; most developers will be using LE, and so it's better
+to continually test the BE-&gt;LE swap.
+</p>
+<p>
+The file object is a custom format in order to support streaming.
+</p>
+</div>
+<div class="refsect1">
+<a name="ostree-Core-repository-independent-functions.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="OSTREE-MAX-METADATA-SIZE:CAPS"></a><h3>OSTREE_MAX_METADATA_SIZE</h3>
+<pre class="programlisting">#define OSTREE_MAX_METADATA_SIZE (1 &lt;&lt; 26)
+</pre>
+<p>
+Maximum permitted size in bytes of metadata objects.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-MAX-RECURSION:CAPS"></a><h3>OSTREE_MAX_RECURSION</h3>
+<pre class="programlisting">#define OSTREE_MAX_RECURSION (256)
+</pre>
+<p>
+Maximum depth of metadata.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OstreeObjectType"></a><h3>enum OstreeObjectType</h3>
+<pre class="programlisting">typedef enum {
+  OSTREE_OBJECT_TYPE_FILE = 1,      /* .file */
+  OSTREE_OBJECT_TYPE_DIR_TREE = 2,  /* .dirtree */
+  OSTREE_OBJECT_TYPE_DIR_META = 3,  /* .dirmeta */
+  OSTREE_OBJECT_TYPE_COMMIT = 4     /* .commit */
+} OstreeObjectType;
+</pre>
+<p>
+Enumeration for core object types; <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-FILE:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_FILE</code></a> is for
+content, the other types are metadata.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="OSTREE-OBJECT-TYPE-FILE:CAPS"></a><span class="term"><code class="literal">OSTREE_OBJECT_TYPE_FILE</code></span></p></td>
+<td>Content; regular file, symbolic link
+</td>
+</tr>
+<tr>
+<td><p><a name="OSTREE-OBJECT-TYPE-DIR-TREE:CAPS"></a><span class="term"><code class="literal">OSTREE_OBJECT_TYPE_DIR_TREE</code></span></p></td>
+<td>List of children (trees or files), and metadata
+</td>
+</tr>
+<tr>
+<td><p><a name="OSTREE-OBJECT-TYPE-DIR-META:CAPS"></a><span class="term"><code class="literal">OSTREE_OBJECT_TYPE_DIR_META</code></span></p></td>
+<td>Directory metadata
+</td>
+</tr>
+<tr>
+<td><p><a name="OSTREE-OBJECT-TYPE-COMMIT:CAPS"></a><span class="term"><code class="literal">OSTREE_OBJECT_TYPE_COMMIT</code></span></p></td>
+<td>Toplevel object, refers to tree and dirmeta for root
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-OBJECT-TYPE-IS-META:CAPS"></a><h3>OSTREE_OBJECT_TYPE_IS_META()</h3>
+<pre class="programlisting">#define OSTREE_OBJECT_TYPE_IS_META(t) (t &gt;= 2 &amp;&amp; t &lt;= 4)
+</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>t</code></em> :</span></p></td>
+<td>An <a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if object type is metadata</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-OBJECT-TYPE-LAST:CAPS"></a><h3>OSTREE_OBJECT_TYPE_LAST</h3>
+<pre class="programlisting">#define OSTREE_OBJECT_TYPE_LAST OSTREE_OBJECT_TYPE_COMMIT
+</pre>
+<p>
+Last valid object type; use this to validate ranges.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-DIRMETA-GVARIANT-FORMAT:CAPS"></a><h3>OSTREE_DIRMETA_GVARIANT_FORMAT</h3>
+<pre class="programlisting">#define OSTREE_DIRMETA_GVARIANT_FORMAT G_VARIANT_TYPE ("(uuua(ayay))")
+</pre>
+<p>
+u - uid
+u - gid
+u - mode
+a(ayay) - xattrs
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-TREE-GVARIANT-FORMAT:CAPS"></a><h3>OSTREE_TREE_GVARIANT_FORMAT</h3>
+<pre class="programlisting">#define OSTREE_TREE_GVARIANT_FORMAT G_VARIANT_TYPE ("(a(say)a(sayay))")
+</pre>
+<p>
+a(say) - array of (filename, checksum) for files
+a(sayay) - array of (dirname, tree_checksum, meta_checksum) for directories
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="OSTREE-COMMIT-GVARIANT-FORMAT:CAPS"></a><h3>OSTREE_COMMIT_GVARIANT_FORMAT</h3>
+<pre class="programlisting">#define OSTREE_COMMIT_GVARIANT_FORMAT G_VARIANT_TYPE ("(a{sv}aya(say)sstayay)")
+</pre>
+<p>
+a{sv} - Metadata
+ay - parent checksum (empty string for initial)
+a(say) - Related objects
+s - subject 
+s - body
+t - Timestamp in seconds since the epoch (UTC)
+ay - Root tree contents
+ay - Root tree metadata
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-metadata-variant-type"></a><h3>ostree_metadata_variant_type ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-GVariantType.html#GVariantType"><span class="returnvalue">GVariantType</span></a> * ostree_metadata_variant_type       (<em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-checksum-string"></a><h3>ostree_validate_checksum_string ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_checksum_string     (<em class="parameter"><code>const <span class="type">char</span> *sha256</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Use this function to see if input strings are checksums.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha256</code></em> :</span></p></td>
+<td>SHA256 hex string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>sha256</code></em> is a valid checksum string, <a href="../../glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> otherwise</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-to-bytes"></a><h3>ostree_checksum_to_bytes ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *            ostree_checksum_to_bytes            (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>An ASCII checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Binary checksum from <em class="parameter"><code>checksum</code></em> of length 32; free with <a href="../../glib/unstable/glib-Memory-Allocation.html#g-free"><code class="function">g_free()</code></a>. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-to-bytes-v"></a><h3>ostree_checksum_to_bytes_v ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          ostree_checksum_to_bytes_v          (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>An ASCII checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>New <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> of type ay with length 32. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-from-bytes"></a><h3>ostree_checksum_from_bytes ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              ostree_checksum_from_bytes          (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *csum</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>csum</code></em> :</span></p></td>
+<td>An binary checksum of length 32. <span class="annotation">[<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>String form of <em class="parameter"><code>csum</code></em>. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-from-bytes-v"></a><h3>ostree_checksum_from_bytes_v ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              ostree_checksum_from_bytes_v        (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *csum_v</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>csum_v</code></em> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> of type ay</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>String form of <em class="parameter"><code>csum_bytes</code></em>. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-inplace-from-bytes"></a><h3>ostree_checksum_inplace_from_bytes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_checksum_inplace_from_bytes  (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *csum</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *buf</code></em>);</pre>
+<p>
+Overwrite the contents of <em class="parameter"><code>buf</code></em> with stringified version of <em class="parameter"><code>csum</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>csum</code></em> :</span></p></td>
+<td>An binary checksum of length 32. <span class="annotation">[<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>Output location, must be at least 65 bytes in length</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-inplace-to-bytes"></a><h3>ostree_checksum_inplace_to_bytes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_checksum_inplace_to_bytes    (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *buf</code></em>);</pre>
+<p>
+Convert <em class="parameter"><code>checksum</code></em> from a string to binary in-place, without
+allocating memory.  Use this function in hot code paths.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>a SHA256 string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>Output buffer with at least 32 bytes of space</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-bytes-peek"></a><h3>ostree_checksum_bytes_peek ()</h3>
+<pre class="programlisting">const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="returnvalue">guchar</span></a> *      ostree_checksum_bytes_peek          (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *bytes</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bytes</code></em> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> of type ay</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Binary checksum data in <em class="parameter"><code>bytes</code></em>; do not free.  If <em class="parameter"><code>bytes</code></em> does not have the correct length, return <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32][<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> guint8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-cmp-checksum-bytes"></a><h3>ostree_cmp_checksum_bytes ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>                 ostree_cmp_checksum_bytes           (<em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *a</code></em>,
+                                                         <em class="parameter"><code>const <a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> *b</code></em>);</pre>
+<p>
+Compare two binary checksums, using <code class="function">memcmp()</code>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>A binary checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>A binary checksum</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-rev"></a><h3>ostree_validate_rev ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_rev                 (<em class="parameter"><code>const <span class="type">char</span> *rev</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rev</code></em> :</span></p></td>
+<td>A revision string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>rev</code></em> is a valid ref string</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-parse-refspec"></a><h3>ostree_parse_refspec ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_parse_refspec                (<em class="parameter"><code>const <span class="type">char</span> *refspec</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **out_remote</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> **out_ref</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Split a refspec like "gnome-ostree:gnome-ostree/buildmaster" into
+two parts; <em class="parameter"><code>out_remote</code></em> will be set to "gnome-ostree", and <em class="parameter"><code>out_ref</code></em>
+will be "gnome-ostree/buildmaster".
+</p>
+<p>
+If <em class="parameter"><code>refspec</code></em> refers to a local ref, <em class="parameter"><code>out_remote</code></em> will be <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>refspec</code></em> :</span></p></td>
+<td>A "refspec" string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_remote</code></em> :</span></p></td>
+<td>The remote name, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if the refspec refs to a local ref. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_ref</code></em> :</span></p></td>
+<td>Name of ref. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-update-meta"></a><h3>ostree_checksum_update_meta ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_checksum_update_meta         (<em class="parameter"><code><a href="../../glib/unstable/glib-Data-Checksums.html#GChecksum"><span class="type">GChecksum</span></a> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-type-to-string"></a><h3>ostree_object_type_to_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        ostree_object_type_to_string        (<em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);</pre>
+<p>
+Serialize <em class="parameter"><code>objtype</code></em> to a string; this is used for file extensions.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>an <a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-type-from-string"></a><h3>ostree_object_type_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="returnvalue">OstreeObjectType</span></a>    ostree_object_type_from_string      (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>);</pre>
+<p>
+The reverse of <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-type-to-string" title="ostree_object_type_to_string ()"><code class="function">ostree_object_type_to_string()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>A stringified version of <a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-hash-object-name"></a><h3>ostree_hash_object_name ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               ostree_hash_object_name             (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> a</code></em>);</pre>
+<p>
+Use this function with <a href="../../glib/unstable/glib-Hash-Tables.html#GHashTable"><span class="type">GHashTable</span></a> and <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-name-serialize" title="ostree_object_name_serialize ()"><code class="function">ostree_object_name_serialize()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>A <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> containing a serialized object</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-name-serialize"></a><h3>ostree_object_name_serialize ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          ostree_object_name_serialize        (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>An ASCII checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>An object type</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new floating <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> containing checksum string and objtype. <span class="annotation">[<a href="http://foldoc.org/transfer%20floating"><span class="acronym">transfer floating</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-name-deserialize"></a><h3>ostree_object_name_deserialize ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_object_name_deserialize      (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *variant</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> **out_checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> *out_objtype</code></em>);</pre>
+<p>
+Reverse <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-name-serialize" title="ostree_object_name_serialize ()"><code class="function">ostree_object_name_serialize()</code></a>.  Note that <em class="parameter"><code>out_checksum</code></em> is
+only valid for the lifetime of <em class="parameter"><code>variant</code></em>, and must not be freed.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>variant</code></em> :</span></p></td>
+<td>A <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> of type (su)</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_checksum</code></em> :</span></p></td>
+<td>Pointer into string memory of <em class="parameter"><code>variant</code></em> with checksum. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_objtype</code></em> :</span></p></td>
+<td>Return object type. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-to-string"></a><h3>ostree_object_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              ostree_object_to_string             (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>An ASCII checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>Object type</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string containing both <em class="parameter"><code>checksum</code></em> and a stringifed version of <em class="parameter"><code>objtype</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-object-from-string"></a><h3>ostree_object_from_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_object_from_string           (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **out_checksum</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> *out_objtype</code></em>);</pre>
+<p>
+Reverse <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-object-to-string" title="ostree_object_to_string ()"><code class="function">ostree_object_to_string()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>An ASCII checksum</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_checksum</code></em> :</span></p></td>
+<td>Parsed checksum. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_objtype</code></em> :</span></p></td>
+<td>Parsed object type. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-content-stream-parse"></a><h3>ostree_content_stream_parse ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_content_stream_parse         (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> compressed</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> input_length</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> trusted</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> **out_file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **out_xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+The reverse of <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-raw-file-to-content-stream" title="ostree_raw_file_to_content_stream ()"><code class="function">ostree_raw_file_to_content_stream()</code></a>; this function
+converts an object content stream back into components.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compressed</code></em> :</span></p></td>
+<td>Whether or not the stream is zlib-compressed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>Object content stream</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_length</code></em> :</span></p></td>
+<td>Length of stream</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trusted</code></em> :</span></p></td>
+<td>If <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, assume the content has been validated</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_input</code></em> :</span></p></td>
+<td>The raw file content stream. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_file_info</code></em> :</span></p></td>
+<td>Normal metadata. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_xattrs</code></em> :</span></p></td>
+<td>Extended attributes. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-content-file-parse"></a><h3>ostree_content_file_parse ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_content_file_parse           (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> compressed</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *content_path</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> trusted</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> **out_file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> **out_xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+A thin wrapper for <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-content-stream-parse" title="ostree_content_stream_parse ()"><code class="function">ostree_content_stream_parse()</code></a>; this function
+converts an object content stream back into components.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compressed</code></em> :</span></p></td>
+<td>Whether or not the stream is zlib-compressed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>content_path</code></em> :</span></p></td>
+<td>Path to file containing content</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trusted</code></em> :</span></p></td>
+<td>If <a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a>, assume the content has been validated</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_input</code></em> :</span></p></td>
+<td>The raw file content stream. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_file_info</code></em> :</span></p></td>
+<td>Normal metadata. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_xattrs</code></em> :</span></p></td>
+<td>Extended attributes. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-raw-file-to-content-stream"></a><h3>ostree_raw_file_to_content_stream ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_raw_file_to_content_stream   (<em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *input</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> **out_input</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint64"><span class="type">guint64</span></a> *out_length</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Convert from a "bare" file representation into an
+OSTREE_OBJECT_TYPE_FILE stream.  This is a fundamental operation
+for writing data to an <a class="link" href="ostree-Content-addressed-object-store.html#OstreeRepo" title="OstreeRepo"><span class="type">OstreeRepo</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input</code></em> :</span></p></td>
+<td>File raw content stream</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>A file info</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xattrs</code></em> :</span></p></td>
+<td>Optional extended attributes. <span class="annotation">[<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_input</code></em> :</span></p></td>
+<td>Serialized object stream. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_length</code></em> :</span></p></td>
+<td>Length of stream. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-file-from-input"></a><h3>ostree_checksum_file_from_input ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_checksum_file_from_input     (<em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *file_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GInputStream.html"><span class="type">GInputStream</span></a> *in</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Compute the OSTree checksum for a given input.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file_info</code></em> :</span></p></td>
+<td>File information</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xattrs</code></em> :</span></p></td>
+<td>Optional extended attributes. <span class="annotation">[<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>File content, should be <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> for symbolic links. <span class="annotation">[<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>Object type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_csum</code></em> :</span></p></td>
+<td>Return location for binary checksum. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-file"></a><h3>ostree_checksum_file ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_checksum_file                (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Compute the OSTree checksum for a given file.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>File path</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>Object type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_csum</code></em> :</span></p></td>
+<td>Return location for binary checksum. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-file-async"></a><h3>ostree_checksum_file_async ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ostree_checksum_file_async          (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ostree-Core-repository-independent-functions.html#OstreeObjectType" title="enum OstreeObjectType"><span class="type">OstreeObjectType</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><span class="type">int</span> io_priority</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GCancellable.html"><span class="type">GCancellable</span></a> *cancellable</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GAsyncResult.html#GAsyncReadyCallback"><span class="type">GAsyncReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
+<p>
+Asynchronously compute the OSTree checksum for a given file;
+complete with <a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file-async-finish" title="ostree_checksum_file_async_finish ()"><code class="function">ostree_checksum_file_async_finish()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>File path</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>objtype</code></em> :</span></p></td>
+<td>Object type</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>io_priority</code></em> :</span></p></td>
+<td>Priority for operation, see <code class="literal">G_IO_PRIORITY_DEFAULT</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>Cancellable</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Invoked when operation is complete</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Data for <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-checksum-file-async-finish"></a><h3>ostree_checksum_file_async_finish ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_checksum_file_async_finish   (<em class="parameter"><code><a href="../../gio/unstable/GFile.html"><span class="type">GFile</span></a> *f</code></em>,
+                                                         <em class="parameter"><code><a href="../../gio/unstable/GAsyncResult.html"><span class="type">GAsyncResult</span></a> *result</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> **out_csum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Finish computing the OSTree checksum for a given file; see
+<a class="link" href="ostree-Core-repository-independent-functions.html#ostree-checksum-file-async" title="ostree_checksum_file_async ()"><code class="function">ostree_checksum_file_async()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>f</code></em> :</span></p></td>
+<td>File path</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>Async result</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_csum</code></em> :</span></p></td>
+<td>Return location for binary checksum. <span class="annotation">[<a href="http://foldoc.org/out"><span class="acronym">out</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a> fixed-size=32]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-create-directory-metadata"></a><h3>ostree_create_directory_metadata ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="returnvalue">GVariant</span></a> *          ostree_create_directory_metadata    (<em class="parameter"><code><a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> *dir_info</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *xattrs</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir_info</code></em> :</span></p></td>
+<td>a <a href="../../gio/unstable/GFileInfo.html"><span class="type">GFileInfo</span></a> containing directory information</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xattrs</code></em> :</span></p></td>
+<td>Optional extended attributes. <span class="annotation">[<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> containing <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-DIR-META:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_DIR_META</code></a>. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-objtype"></a><h3>ostree_validate_structureof_objtype ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_objtype (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guchar"><span class="type">guchar</span></a> objtype</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>objtype</code></em> represents a valid object type</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-csum-v"></a><h3>ostree_validate_structureof_csum_v ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_csum_v  (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>a <a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> of type "ay"</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>checksum</code></em> is a valid binary SHA256 checksum</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-checksum-string"></a><h3>ostree_validate_structureof_checksum_string ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_checksum_string
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *checksum</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>checksum</code></em> :</span></p></td>
+<td>an ASCII string</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>checksum</code></em> is a valid ASCII SHA256 checksum</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-file-mode"></a><h3>ostree_validate_structureof_file_mode ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_file_mode
+                                                        (<em class="parameter"><code><a href="../../glib/unstable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> mode</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mode</code></em> :</span></p></td>
+<td>A Unix filesystem mode</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>mode</code></em> represents a valid file type and permissions</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-commit"></a><h3>ostree_validate_structureof_commit ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_commit  (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *commit</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Use this to validate the basic structure of <em class="parameter"><code>commit</code></em>, independent of
+any other objects it references.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>commit</code></em> :</span></p></td>
+<td>A commit object, <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-COMMIT:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_COMMIT</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>commit</code></em> is structurally valid</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-dirtree"></a><h3>ostree_validate_structureof_dirtree ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_dirtree (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *dirtree</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Use this to validate the basic structure of <em class="parameter"><code>dirtree</code></em>, independent of
+any other objects it references.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dirtree</code></em> :</span></p></td>
+<td>A dirtree object, <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-DIR-TREE:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_DIR_TREE</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>dirtree</code></em> is structurally valid</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-validate-structureof-dirmeta"></a><h3>ostree_validate_structureof_dirmeta ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            ostree_validate_structureof_dirmeta (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *dirmeta</code></em>,
+                                                         <em class="parameter"><code><a href="../../glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>
+Use this to validate the basic structure of <em class="parameter"><code>dirmeta</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dirmeta</code></em> :</span></p></td>
+<td>A dirmeta object, <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-DIR-META:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_DIR_META</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Error</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<a href="../../glib/unstable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if <em class="parameter"><code>dirmeta</code></em> is structurally valid</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ostree-commit-get-parent"></a><h3>ostree_commit_get_parent ()</h3>
+<pre class="programlisting"><a href="../../glib/unstable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *             ostree_commit_get_parent            (<em class="parameter"><code><a href="../../glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> *commit_variant</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>commit_variant</code></em> :</span></p></td>
+<td>Variant of type <a class="link" href="ostree-Core-repository-independent-functions.html#OSTREE-OBJECT-TYPE-COMMIT:CAPS"><code class="literal">OSTREE_OBJECT_TYPE_COMMIT</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Binary checksum with parent of <em class="parameter"><code>commit_variant</code></em>, or <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if none</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ostree-Core-repository-independent-functions.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

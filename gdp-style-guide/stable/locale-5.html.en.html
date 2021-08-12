@@ -1,0 +1,1376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to Write for Translation</title>
+<link rel="previous" href="idm140668244882176.html.en.html" title="">
+<link rel="next" href="locale-6.html.en.html" title="Terminology Considerations for Translation">
+<link rel="top" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gdp-style-guide/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="locale-5.html.en.html#container">Go to page content</a></li>
+<li><a href="locale-5.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="locale-5.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division sect1">
+<a name="locale-5"><!--locale-5--></a><div class="header"><h1 class="sect1 title"><span class="title">How to Write for Translation</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">GNOME-STYLE</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="locale.html.en.html" title="Writing Documentation for an International Audience">Writing Documentation for an International Audience</a></li>
+</ul>
+<p class="para block block-first"> This section provides you with specific rules about how to write for
+		translation, with practical examples. The topics in this section are the most
+		common causes of translation errors. You can use the following basic grammar
+		guidelines to avoid most situations that cause difficulty for translators and
+		readers. The examples for each topic might relate to releases of the GNOME Desktop that
+		predate the release you are working with, nevertheless the linguistic points
+		remain valid. </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 1 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Gerund </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Do not use a gerund where a translator can mistake the
+					 gerund form for an adjective. The most common place for this problem to occur
+					 is when a gerund immediately precedes a noun. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Clicking Programs opens the Programs menu. </span>
+				  </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Click on Programs to open the Programs menu. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> 
+					 <div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first"> 
+						  <span class="para"> You can use the gerund in section headers, for
+							 example: <span class="emphasis">Using the Menu Editor</span>. </span> 
+						</li>
+<li> 
+						  <span class="para"> You can use the gerund in the present continuous
+							 tense, for example: The application is running. </span> 
+						</li>
+<li> 
+						  <span class="para"> You can use the gerund for the term
+							 <span class="emphasis">Settings</span>, for example, when you describe controls in a
+							 dialog. </span> 
+						</li>
+<li> 
+						  <span class="para"> You can use the gerund for the adjective
+							 <span class="emphasis">following</span>, when you introduce a list or a procedure.
+							 </span> 
+						</li>
+<li> 
+						  <span class="para"> You can use gerunds preceded by an article when the
+							 gerund is a noun, for example, <span class="emphasis">the setting</span>. </span> 
+						</li>
+</ol></div> </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 2 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Passive voice </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use the active voice wherever you can. If you do use the
+					 passive voice, analyze the text to see if you can say the same thing in the
+					 active voice. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The Menu Editor is started from the Main Menu. </span>
+				  </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You start the Menu Editor from the Main Menu. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Sometimes you cannot avoid the passive voice. If the
+					 sentence does not make sense in the active voice, then use the passive voice,
+					 but limit the occurrences. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 3 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Indefinite pronouns </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Restrict the use of indefinite pronouns such as
+					 <span class="emphasis">it</span>, <span class="emphasis">this,</span> and
+					 <span class="emphasis">those</span>, especially at the beginning of sentences. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The Menu Editor is a configuration tool for the Main Menu.
+					 It is very useful in setting your system to your system requirements. </span>
+				  </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The Menu Editor is a configuration tool for the Main Menu.
+					 The Menu Editor provides a useful way to set your system requirements. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Very restricted usage only. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 4 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Future tense </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use the present tense in your writing wherever you can. Do
+					 not use the future tense, or future passive tenses. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example 1 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> In the menu tree you will notice that there are two main
+					 menu lists. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite 1 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The menu tree contains two main menu lists. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example 2 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> In the menu tree you will have noticed that there are two
+					 main menu lists. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite 2 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The menu tree contains two main menu lists. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Restrict the use of the future tense to only those
+					 circumstances that will happen at some future point in time, such as next year.
+					 </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 5 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> There is, there are </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The terms <span class="emphasis">there is</span> and
+					 <span class="emphasis">there are</span> are ambiguous. Do not use these terms. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> In the menu tree there are two main menu lists. </span>
+				  </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The menu tree contains two main menu lists. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Limit your use of these terms. Test your text to see if
+					 you can phrase the sentence with a more definite verb. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 6 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Sentence length </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> See <a class="xref" href="fundamentals-2.html.en.html" title="Golden Rules">Section 1.2 ― Golden Rules</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> If you would like to place a menu item onto the panel, you
+					 can drag and drop from the menu to the panel and it will place a launcher there
+					 with all the appropriate properties set for you. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You can drag a menu item from the menu to the panel. The
+					 drag action places a launcher on the panel with all the appropriate properties
+					 set. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Legal statements. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 7 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> How to introduce lists and procedures </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> See <a class="xref" href="infodesign-12.html.en.html" title="Lists">Section 2.5 ― Lists</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> In the Properties dialog select: </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> In the Properties dialog select the following parameters:
+					 </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exceptions </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <p class="para block block-first"> Single nouns in front of a colon are acceptable, as
+					 opposed to a sentence fragment. For example, if the preceding paragraph
+					 discusses parameters, you can introduce the list of parameters in the following
+					 way: Parameters: </p> 
+				  <p class="para block"> Also note the use of the gerund
+					 <span class="emphasis">following</span> in this context. </p> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 8 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Parentheses </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use parentheses to introduce abbreviations that you will
+					 use later, such as GNOME Documentation Project (GDP). Do not use parentheses to
+					 provide explanations. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The theme files should be in a tar.gz or .tgz format
+					 (otherwise known as a tarball). </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The theme files are usually in a tar.gz or .tgz archive
+					 file, known as a <span class="emphasis">tarball</span>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 9 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rank of structures within a sentence </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Repeat noun modifiers to make structures equal in rank in
+					 a sentence. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You can start applications from panel menus or objects. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You can start applications from panel menus or panel objects. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 10 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Semicolons </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> See the entry for <span class="emphasis">Semicolons</span> in
+					 <a class="xref" href="grammar.html.en.html" title="Grammar and Usage Guidelines">Chapter 3 ― Grammar and Usage Guidelines</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The first option in the dialog is selected; all the other
+					 options are unselected. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The first option in the dialog is selected. All the other
+					 options are unselected. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 11 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Personal pronouns </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Do not use personal pronouns other than
+					 <span class="emphasis">you</span>. See also the entry for <span class="emphasis">Gender</span> in
+					 <a class="xref" href="grammar.html.en.html" title="Grammar and Usage Guidelines">Chapter 3 ― Grammar and Usage Guidelines</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> We recommend this method of moving a symbolic link.
+					 </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use this method to move a symbolic link. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 12 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> May </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Replace <span class="emphasis">may</span> with
+					 <span class="emphasis">can</span> or <span class="emphasis">might</span>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> These settings may be accessed from the GMC Preferences
+					 dialog. You may launch this dialog by selecting the Preferences item from the
+					 Settings menu. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You can access these settings from the GMC Preferences
+					 dialog. To launch this dialog select the Preferences item from the Settings
+					 menu. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use <span class="emphasis">may</span> only when you grant
+					 permission to do something. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 13 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Possessive apostrophe 's, Saxon Genitive. See
+					 <a class="xref" href="language.html.en.html" title="Glossary of Terms in This Guide">Appendix C ― Glossary of Terms in This Guide</a>. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Replace the genitive construction with an
+					 <span class="emphasis">of</span> structure. See also the entry for
+					 <span class="emphasis">Apostrophe</span> in <a class="xref" href="grammar.html.en.html" title="Grammar and Usage Guidelines">Chapter 3 ― Grammar and Usage Guidelines</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> You can configure a drawer's properties by right-clicking
+					 on the drawer's icon and selecting Properties. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> To configure the properties of a drawer, right-click on
+					 the drawer and select Properties. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use the genitive construction for named individuals, for
+					 example: Bob's book. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 14 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Contractions </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Replace contractions with the relevant complete words.
+					 Especially avoid the <span class="emphasis">'s</span> contraction for
+					 <span class="emphasis">is</span> and <span class="emphasis">has</span>. Translators can confuse
+					 these contractions with each other, or with the Saxon genitive or even with
+					 plurals. See also the entries for <span class="emphasis">Apostrophe</span> and
+					 <span class="emphasis">Contractions</span> in <a class="xref" href="grammar.html.en.html" title="Grammar and Usage Guidelines">Chapter 3 ― Grammar and Usage Guidelines</a>. </span>
+				  </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> If you're new to GNOME... </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> If you are new to GNOME... </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Only use a contraction if you cannot find a reasonable
+					 alternative. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 15 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exotic tenses </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Write in the present tense. Avoid conditional phrases and
+					 past tenses.</span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> If you are missing any drives that might have been added
+					 to your machine, you may right mouse click on the desktop and choose... </span>
+				  </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> If any drives are missing from your machine, right-click
+					 on the desktop and choose... </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 16 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Gender-specific references </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> See <a class="xref" href="fundamentals-4.html.en.html#fundamentals-9" title="Do Not Offend Your Audience">Section 1.4.4 ― Do Not Offend Your Audience</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Tell the user to reset his password. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Tell the users to reset their passwords. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 17 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Articles </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Do not omit articles in prose. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Open Main Menu and select item. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Open the Main Menu and select an item. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 18 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> When, if </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+						<span class="para"> Use <span class="emphasis">when</span> for an inevitable event.
+						  </span> 
+					 </li>
+<li> 
+						<span class="para"> Use <span class="emphasis">if</span> for a conditional event.
+						  </span> 
+					 </li>
+</ul></div> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example 1 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <p class="para block block-first"> When the prompt is displayed. </p> 
+				  <p class="para block"> This sentence implies that the prompt is definitely
+					 displayed. The only question is when the prompt is displayed. </p> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example 2 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <p class="para block block-first"> If the prompt is displayed. </p> 
+				  <p class="para block"> The sentence says that the prompt might, or might not, be
+					 displayed. </p> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 19 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Colloquial language </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> See <a class="xref" href="fundamentals-3.html.en.html" title="Tone">Section 1.3 ― Tone</a>. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The Modem Lights Applet is a handy applet that will start
+					 your dialup connection. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> The Modem Lights applet starts your dialup connection.
+					 </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> None. </span> </td>
+</tr>
+</tbody></table></div>
+<p class="para block"> </p>
+<div class="table block block-indent"><table style="border-bottom: solid 1px; border-top: solid 1px;"><tbody>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Topic 20 </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Conjoined sentences </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rule </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Do not join sentences with conjunctions such as
+					 <span class="emphasis">and</span> or <span class="emphasis">so</span>. Instead, create two
+					 sentences. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Example </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> At the time of publication of this manual there were not
+					 any applications that offer full session management for your data, so until
+					 there are some and you are aware of their capabilities you should not rely on
+					 session management to save your application. </span> </td>
+</tr>
+<tr class="tr-shade">
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Rewrite </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> At the time of publication of this manual there were not
+					 any applications that offer full session management for your data. Do not rely
+					 on session management to save your session, until you have a reliable
+					 session-management application. </span> </td>
+</tr>
+<tr>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Exception </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+				  <span class="para"> Use conjoined sentence structures only for short
+					 sentences. </span> </td>
+</tr>
+</tbody></table></div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="idm140668244882176.html.en.html" title=""></a></td>
+<td class="navbar-next"><a class="navbar-next" href="locale-6.html.en.html" title="Terminology Considerations for Translation">Terminology Considerations for Translation</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">GNOME-STYLE</a><div class="autotoc"><ul>
+<li><a class="xref" href="preface.html.en.html" title="Preface">Preface</a></li>
+<li><a class="xref" href="fundamentals.html.en.html" title="Fundamental Concepts of Technical Documentation">Fundamental Concepts of Technical Documentation</a></li>
+<li><a class="xref" href="infodesign.html.en.html" title="Basic Building Blocks of Information Design">Basic Building Blocks of Information Design</a></li>
+<li><a class="xref" href="grammar.html.en.html" title="Grammar and Usage Guidelines">Grammar and Usage Guidelines</a></li>
+<li>
+<a class="xref" href="locale.html.en.html" title="Writing Documentation for an International Audience">Writing Documentation for an International Audience</a><div class="autotoc"><ul>
+<li><a class="xref" href="locale-2.html.en.html" title="Goals of the Writer">Goals of the Writer</a></li>
+<li><a class="xref" href="idm140668244882176.html.en.html" title="Cultural Differences">Cultural Differences</a></li>
+<li>How to Write for Translation</li>
+<li><a class="xref" href="locale-6.html.en.html" title="Terminology Considerations for Translation">Terminology Considerations for Translation</a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="improving.html.en.html" title="Ways to Improve Your Documentation">Ways to Improve Your Documentation</a></li>
+<li><a class="xref" href="indexing.html.en.html" title="Indexing Your Documentation">Indexing Your Documentation</a></li>
+<li><a class="xref" href="gui-1.html.en.html" title="Writing for GUIs">Writing for GUIs</a></li>
+<li><a class="xref" href="usability.html.en.html" title="Usability and Readability Considerations for Technical
+	 Documentation">Usability and Readability Considerations for Technical
+	 Documentation</a></li>
+<li><a class="xref" href="accessibility.html.en.html" title="Writing Accessible Documentation">Writing Accessible Documentation</a></li>
+<li><a class="xref" href="screenshots.html.en.html" title="Use of Screenshots">Use of Screenshots</a></li>
+<li><a class="xref" href="legal-issues.html.en.html" title="Legal Topics">Legal Topics</a></li>
+<li><a class="xref" href="wordlist.html.en.html" title="Recommended Terminology">Recommended Terminology</a></li>
+<li><a class="xref" href="units.html.en.html" title="Units">Units</a></li>
+<li><a class="xref" href="language.html.en.html" title="Glossary of Terms in This Guide">Glossary of Terms in This Guide</a></li>
+<li><a class="xref" href="infoblocks.html.en.html" title="Examples of Information Design Building Blocks">Examples of Information Design Building Blocks</a></li>
+<li><a class="xref" href="authorlist.html.en.html" title="GDSG Contributors">GDSG Contributors</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="locale-5.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

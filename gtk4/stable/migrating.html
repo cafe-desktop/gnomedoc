@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Part VI. Migrating from Previous Versions of GTK: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="index.html" rel="up" title="GTK 4 Reference Manual"></link><link href="GtkIconTheme.html" rel="prev" title="GtkIconTheme"></link><link href="gtk-migrating-2-to-4.html" rel="next" title="Migrating from GTK 2.x to GTK 4"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="migrating.html#container">Go to page content</a></li><li><a href="migrating.html#top_bar">Go to main menu</a></li><li><a href="migrating.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc two_columns"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><img border="0" height="16" src="up-insensitive.png" width="16"></img></td>
+<td><a accesskey="p" href="GtkIconTheme.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="gtk-migrating-2-to-4.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="part">
+<div class="titlepage"><div><div><h1 class="title">
+<a name="migrating"></a>Part VI. Migrating from Previous Versions of GTK</h1></div></div></div>
+    
+
+    <div class="partintro">
+<div></div>
+      <p>
+        This part describes what you need to change in programs use
+        older versions of GTK so that they can use the new features.
+        It also mentions how to convert applications using widgets
+        found in the libgnomeui library to use their counterparts
+        in GTK.
+      </p>
+    <div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+<dt><span class="chapter"><a href="gtk-migrating-2-to-4.html">Migrating from GTK 2.x to GTK 4</a></span></dt>
+<dt><span class="chapter"><a href="gtk-migrating-3-to-4.html">Migrating from GTK 3.x to GTK 4</a></span></dt>
+<dd><dl>
+<dt><span class="sect1"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3">Preparation in GTK 3.x</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.3">Do not use deprecated symbols</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.4">Enable diagnostic warnings</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.5">Do not use GTK-specific command line arguments</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.6">Do not use widget style properties</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.7">Review your window creation flags</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.8">Stop using direct access to GdkEvent structs</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.9">Stop using <code class="function">gdk_pointer_warp()</code></a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.10">Stop using non-RGBA visuals</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.11">Stop using GtkBox padding, fill and expand child
+      properties</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.12">Stop using the state argument of GtkStyleContext
+      getters</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.13">Stop using <code class="function">gdk_pixbuf_get_from_window()</code> and
+      <code class="function">gdk_cairo_set_source_surface()</code></a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.14">Stop using GtkWidget event signals</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.15">Set a proper application ID</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.16">Stop using <code class="function">gtk_main()</code> and related APIs</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.17">Reduce the use of <code class="function">gtk_widget_destroy()</code></a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.18">Reduce the use of generic container APIs</a></span></dt>
+<dt><span class="sect2"><a href="gtk-migrating-3-to-4.html#id-1.7.4.3.19">Review your use of icon resources</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="ch41s02.html">Changes that need to be done at the time of the
+    switch</a></span></dt>
+<dd><dl>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.3">Larger changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.4">Stop using GdkScreen</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.5">Stop using the root window</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.6">Stop using GdkVisual</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.7">Stop using GdkDeviceManager</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.8">Adapt to GdkWindow API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.9">The <span class="quote">“<span class="quote">iconified</span>”</span> window state has been renamed
+      to <span class="quote">“<span class="quote">minimized</span>”</span></a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.10">Adapt to GdkEvent API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.11">Stop using grabs</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.12">Adapt to coordinate API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.13">Adapt to GdkKeymap API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.14">Adapt to changes in keyboard modifier handling</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.15">Replace GtkClipboard with GdkClipboard</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.16">Stop using <code class="literal">gtk_get_current_...</code>
+      APIs</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.17">Convert your ui files</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.18">Adapt to GtkBuilder API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.19">Adapt to event controller API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.20">Focus handling changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.21">Use the new apis for keyboard shortcuts</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.22">Stop using GtkEventBox</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.23">Stop using GtkButtonBox</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.24">Adapt to GtkBox API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.25">Adapt to GtkWindow API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.26">Adapt to GtkHeaderBar and GtkActionBar API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.27">Adapt to GtkStack, GtkAssistant and GtkNotebook API
+      changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.28">Adapt to button class hierarchy changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.29">Adapt to GtkScrolledWindow API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.30">Adapt to GtkBin removal</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.31">Adapt to GtkContainer removal</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.32">Stop using GtkContainer::border-width</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.33">Adapt to <code class="function">gtk_widget_destroy()</code> removal</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.34">Adapt to coordinate API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.35">Adapt to GtkStyleContext API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.36">Adapt to GtkCssProvider API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.37">Stop using GtkShadowType and GtkRelief properties</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.38">Adapt to GtkWidget’s size request changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.39">Adapt to GtkWidget’s size allocation changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.40">Switch to GtkWidget’s children APIs</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.41">Don’t use -gtk-gradient in your CSS</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.42">Don’t use -gtk-icon-effect in your CSS</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.43">Don’t use -gtk-icon-theme in your CSS</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.44">Don’t use -gtk-outline-…-radius in your CSS</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.45">Adapt to drawing model changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.46">Stop using APIs to query GdkSurfaces</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.47">Widgets are now visible by default</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.48">Adapt to changes in animated hiding and showing of
+      widgets</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.49">Stop passing commandline arguments to gtk_init</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.50">GdkPixbuf is deemphasized</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.51">GtkWidget event signals are removed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.52">Invalidation handling has changed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.53">Stop using GtkWidget::draw</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.54">Window content observation has changed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.55">Monitor handling has changed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.56">Adapt to monitor API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.57">Adapt to cursor API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.58">Adapt to icon size API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.59">Adapt to changes in the GtkAssistant API</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.60">Adapt to changes in the API of GtkEntry, GtkSearchEntry and
+      GtkSpinButton</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.61">Adapt to changes in GtkOverlay API</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.62">Use GtkFixed instead of GtkLayout</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.63">Adapt to search entry changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.64">Adapt to GtkScale changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.65">Stop using <code class="function">gtk_window_activate_default()</code></a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.66">Stop using <code class="function">gtk_widget_grab_default()</code></a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.67">Stop setting ::has-default and ::has-focus in .ui
+      files</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.68">Stop using the GtkWidget::display-changed signal</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.69">GtkPopover::modal has been renamed to autohide</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.70">gtk_widget_get_surface has been removed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.71">gtk_widget_is_toplevel has been removed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.72">gtk_widget_get_toplevel has been removed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.73">GtkEntryBuffer ::deleted-text has changed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.74">GtkMenu, GtkMenuBar and GtkMenuItem are gone</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.75">GtkToolbar has been removed</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.76">GtkAspectFrame is no longer a frame</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.77">Stop using custom tooltip windows</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.78">Switch to the new Drag-and-Drop api</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.79">Adapt to GtkIconTheme API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.80">Update to GtkFileChooser API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.81">Stop using blocking dialog functions</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.82">Stop using GtkBuildable API</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.83">Adapt to GtkAboutDialog API changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.84">Adapt to GtkTreeView and GtkIconView tooltip context
+      changes</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.85">Stop using GtkFileChooserButton</a></span></dt>
+<dt><span class="sect2"><a href="ch41s02.html#id-1.7.4.4.86">Adapt to changed GtkSettings properties</a></span></dt>
+</dl></dd>
+<dt><span class="sect1"><a href="ch41s03.html">Changes to consider after the switch</a></span></dt>
+<dd><dl><dt><span class="sect2"><a href="ch41s03.html#id-1.7.4.5.3">Consider porting to the new list widgets</a></span></dt></dl></dd>
+</dl></dd>
+</dl>
+</div>
+</div>
+
+    
+    
+  </div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="migrating.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

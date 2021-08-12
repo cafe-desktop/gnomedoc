@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GdkPaintable: GDK 4 Reference Manual</title><link href="index.html" rel="home" title="GDK 4 Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="gdk4-Textures.html" rel="prev" title="GdkTexture"></link><link href="gdk4-RGBA-Colors.html" rel="next" title="GdkRGBA"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdkPaintable.html#container">Go to page content</a></li><li><a href="GdkPaintable.html#top_bar">Go to main menu</a></li><li><a href="GdkPaintable.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdkPaintable.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkPaintable.html#GdkPaintable.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkPaintable.html#GdkPaintable.object-hierarchy">Object Hierarchy</a></span><span id="nav_prerequisites">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkPaintable.html#GdkPaintable.prerequisites">Prerequisites</a></span><span id="nav_implementations">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkPaintable.html#GdkPaintable.implementations">Known Implementations</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdkPaintable.html#GdkPaintable.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="gdk4-Textures.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="gdk4-RGBA-Colors.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdkPaintable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdkPaintable.top_of_page"></a>GdkPaintable</span></h2>
+<p>GdkPaintable — An interface for a paintable region</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdkPaintable.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_proto_type" width="150px"></col>
+<col class="functions_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="returnvalue">GdkPaintable</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-current-image" title="gdk_paintable_get_current_image ()">gdk_paintable_get_current_image</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()">gdk_paintable_snapshot</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags"><span class="returnvalue">GdkPaintableFlags</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-flags" title="gdk_paintable_get_flags ()">gdk_paintable_get_flags</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-width" title="gdk_paintable_get_intrinsic_width ()">gdk_paintable_get_intrinsic_width</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">int</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-height" title="gdk_paintable_get_intrinsic_height ()">gdk_paintable_get_intrinsic_height</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">double</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-aspect-ratio" title="gdk_paintable_get_intrinsic_aspect_ratio ()">gdk_paintable_get_intrinsic_aspect_ratio</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-compute-concrete-size" title="gdk_paintable_compute_concrete_size ()">gdk_paintable_compute_concrete_size</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-contents" title="gdk_paintable_invalidate_contents ()">gdk_paintable_invalidate_contents</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-size" title="gdk_paintable_invalidate_size ()">gdk_paintable_invalidate_size</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="returnvalue">GdkPaintable</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdkPaintable.html#gdk-paintable-new-empty" title="gdk_paintable_new_empty ()">gdk_paintable_new_empty</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signal_proto_type" width="150px"></col>
+<col class="signal_proto_name" width="300px"></col>
+<col class="signal_proto_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-contents" title="The “invalidate-contents” signal">invalidate-contents</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-size" title="The “invalidate-size” signal">invalidate-size</a></td>
+<td class="signal_flags">Run Last</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="GdkSnapshot"></a><div class="refsect1">
+<a name="GdkPaintable.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="other_proto_type" width="150px"></col>
+<col class="other_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GdkPaintable.html#GdkPaintable-struct" title="GdkPaintable">GdkPaintable</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GdkPaintable.html#GdkPaintableInterface" title="struct GdkPaintableInterface">GdkPaintableInterface</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags">GdkPaintableFlags</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="GdkPaintable.html#GdkSnapshot-struct" title="GdkSnapshot">GdkSnapshot</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/stable/GTypeModule.html">GInterface</a>
+    <span class="lineart">╰──</span> GdkPaintable
+    GObject
+    <span class="lineart">╰──</span> GdkSnapshot
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+GdkPaintable requires
+ GObject.</p>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.implementations"></a><h2>Known Implementations</h2>
+<p>
+GdkPaintable is implemented by
+ <a class="link" href="gdk4-Textures.html#GdkGLTexture">GdkGLTexture</a>,  <a class="link" href="gdk4-Textures.html#GdkMemoryTexture">GdkMemoryTexture</a> and  <a class="link" href="gdk4-Textures.html#GdkTexture">GdkTexture</a>.</p>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;gdk/gdk.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.description"></a><h2>Description</h2>
+<p><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> is a simple interface used by GDK and GTK to represent
+objects that can be painted anywhere at any size without requiring any
+sort of layout. The interface is inspired by similar concepts elsewhere,
+such as <a class="ulink" href="https://developer-old.gnome.org/clutter/stable/stable/ClutterContent.html" target="_top">ClutterContent</a>,
+<a class="ulink" href="https://www.w3.org/TR/css-images-4/#paint-source" target="_top">HTML/CSS Paint Sources</a>,
+or <a class="ulink" href="https://www.w3.org/TR/SVG2/pservers.html" target="_top">SVG Paint Servers</a>.</p>
+<p>A <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> can be snapshot at any time and size using
+<a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()"><code class="function">gdk_paintable_snapshot()</code></a>. How the paintable interprets that size and if it
+scales or centers itself into the given rectangle is implementation defined,
+though if you are implementing a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> and don't know what to do, it
+is suggested that you scale your paintable ignoring any potential aspect ratio.</p>
+<p>The contents that a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> produces may depend on the <a class="link" href="GdkPaintable.html#GdkSnapshot"><span class="type">GdkSnapshot</span></a> passed
+to it. For example, paintables may decide to use more detailed images on higher
+resolution screens or when OpenGL is available. A <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> will however
+always produce the same output for the same snapshot.</p>
+<p>A <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> may change its contents, meaning that it will now produce a
+different output with the same snapshot. Once that happens, it will call
+<a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-contents" title="gdk_paintable_invalidate_contents ()"><code class="function">gdk_paintable_invalidate_contents()</code></a> which will emit the
+<a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-contents" title="The “invalidate-contents” signal"><span class="type">“invalidate-contents”</span></a> signal. If a paintable is known to never
+change its contents, it will set the <a class="link" href="GdkPaintable.html#GDK-PAINTABLE-STATIC-CONTENTS:CAPS"><code class="literal">GDK_PAINTABLE_STATIC_CONTENTS</code></a> flag.
+If a consumer cannot deal with changing contents, it may call
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-current-image" title="gdk_paintable_get_current_image ()"><code class="function">gdk_paintable_get_current_image()</code></a> which will return a static paintable and
+use that.</p>
+<p>A paintable can report an intrinsic (or preferred) size or aspect ratio it
+wishes to be rendered at, though it doesn't have to. Consumers of the interface
+can use this information to layout thepaintable appropriately.
+Just like the contents, the size of a paintable can change. A paintable will
+indicate this by calling <a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-size" title="gdk_paintable_invalidate_size ()"><code class="function">gdk_paintable_invalidate_size()</code></a> which will emit the
+<a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-size" title="The “invalidate-size” signal"><span class="type">“invalidate-size”</span></a> signal.
+And just like for contents, if a paintable is known to never change its size,
+it will set the <a class="link" href="GdkPaintable.html#GDK-PAINTABLE-STATIC-SIZE:CAPS"><code class="literal">GDK_PAINTABLE_STATIC_SIZE</code></a> flag.</p>
+<p>Besides API for applications, there are some functions that are only
+useful for implementing subclasses and should not be used by applications:
+<a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-contents" title="gdk_paintable_invalidate_contents ()"><code class="function">gdk_paintable_invalidate_contents()</code></a>,
+<a class="link" href="GdkPaintable.html#gdk-paintable-invalidate-size" title="gdk_paintable_invalidate_size ()"><code class="function">gdk_paintable_invalidate_size()</code></a>,
+<a class="link" href="GdkPaintable.html#gdk-paintable-new-empty" title="gdk_paintable_new_empty ()"><code class="function">gdk_paintable_new_empty()</code></a>.</p>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gdk-paintable-get-current-image"></a><h3>gdk_paintable_get_current_image ()</h3>
+<pre class="programlisting"><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="returnvalue">GdkPaintable</span></a> *
+gdk_paintable_get_current_image (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Gets an immutable paintable for the current contents displayed by <em class="parameter"><code>paintable</code></em>
+.</p>
+<p>This is useful when you want to retain the current state of an animation, for
+example to take a screenshot of a running animation.</p>
+<p>If the <em class="parameter"><code>paintable</code></em>
+ is already immutable, it will return itself.</p>
+<div class="refsect3">
+<a name="gdk-paintable-get-current-image.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-get-current-image.returns"></a><h4>Returns</h4>
+<p>An immutable paintable for the current
+contents of <em class="parameter"><code>paintable</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-snapshot"></a><h3>gdk_paintable_snapshot ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_paintable_snapshot (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>,
+                        <em class="parameter"><code><a class="link" href="GdkPaintable.html#GdkSnapshot"><span class="type">GdkSnapshot</span></a> *snapshot</code></em>,
+                        <em class="parameter"><code><span class="type">double</span> width</code></em>,
+                        <em class="parameter"><code><span class="type">double</span> height</code></em>);</pre>
+<p>Snapshots the given paintable with the given <em class="parameter"><code>width</code></em>
+ and <em class="parameter"><code>height</code></em>
+ at the
+current (0,0) offset of the <em class="parameter"><code>snapshot</code></em>
+. If <em class="parameter"><code>width</code></em>
+ and <em class="parameter"><code>height</code></em>
+ are not larger
+than zero, this function will do nothing.</p>
+<div class="refsect3">
+<a name="gdk-paintable-snapshot.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>snapshot</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html#GdkSnapshot"><span class="type">GdkSnapshot</span></a> to snapshot to</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>width</p></td>
+<td class="parameter_description"><p>width to snapshot in</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>height</p></td>
+<td class="parameter_description"><p>height to snapshot in</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-get-flags"></a><h3>gdk_paintable_get_flags ()</h3>
+<pre class="programlisting"><a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags"><span class="returnvalue">GdkPaintableFlags</span></a>
+gdk_paintable_get_flags (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Get flags for the paintable. This is oftentimes useful for optimizations.</p>
+<p>See <a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags"><span class="type">GdkPaintableFlags</span></a> for the flags and what they mean.</p>
+<div class="refsect3">
+<a name="gdk-paintable-get-flags.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-get-flags.returns"></a><h4>Returns</h4>
+<p> The <a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags"><span class="type">GdkPaintableFlags</span></a> for this paintable.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-get-intrinsic-width"></a><h3>gdk_paintable_get_intrinsic_width ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+gdk_paintable_get_intrinsic_width (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Gets the preferred width the <em class="parameter"><code>paintable</code></em>
+ would like to be displayed at.
+Consumers of this interface can use this to reserve enough space to draw
+the paintable.</p>
+<p>This is a purely informational value and does not in any way limit the values
+that may be passed to <a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()"><code class="function">gdk_paintable_snapshot()</code></a>.</p>
+<p>If the <em class="parameter"><code>paintable</code></em>
+ does not have a preferred width, it returns 0. Negative
+values are never returned.</p>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-width.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-width.returns"></a><h4>Returns</h4>
+<p> the intrinsic width of <em class="parameter"><code>paintable</code></em>
+or 0 if none.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-get-intrinsic-height"></a><h3>gdk_paintable_get_intrinsic_height ()</h3>
+<pre class="programlisting"><span class="returnvalue">int</span>
+gdk_paintable_get_intrinsic_height (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Gets the preferred height the <em class="parameter"><code>paintable</code></em>
+ would like to be displayed at.
+Consumers of this interface can use this to reserve enough space to draw
+the paintable.</p>
+<p>This is a purely informational value and does not in any way limit the values
+that may be passed to <a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()"><code class="function">gdk_paintable_snapshot()</code></a>.</p>
+<p>If the <em class="parameter"><code>paintable</code></em>
+ does not have a preferred height, it returns 0. Negative
+values are never returned.</p>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-height.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-height.returns"></a><h4>Returns</h4>
+<p> the intrinsic height of <em class="parameter"><code>paintable</code></em>
+or 0 if none.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-get-intrinsic-aspect-ratio"></a><h3>gdk_paintable_get_intrinsic_aspect_ratio ()</h3>
+<pre class="programlisting"><span class="returnvalue">double</span>
+gdk_paintable_get_intrinsic_aspect_ratio
+                               (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Gets the preferred aspect ratio the <em class="parameter"><code>paintable</code></em>
+ would like to be displayed at.
+The aspect ratio is the width divided by the height, so a value of 0.5 means
+that the <em class="parameter"><code>paintable</code></em>
+ prefers to be displayed twice as high as it is wide.
+Consumers of this interface can use this to preserve aspect ratio when displaying
+the paintable.</p>
+<p>This is a purely informational value and does not in any way limit the values
+that may be passed to <a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()"><code class="function">gdk_paintable_snapshot()</code></a>.</p>
+<p>Usually when a <em class="parameter"><code>paintable</code></em>
+ returns nonzero values from
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-width" title="gdk_paintable_get_intrinsic_width ()"><code class="function">gdk_paintable_get_intrinsic_width()</code></a> and <a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-height" title="gdk_paintable_get_intrinsic_height ()"><code class="function">gdk_paintable_get_intrinsic_height()</code></a>
+the aspect ratio should conform to those values, though that is not required.</p>
+<p>If the <em class="parameter"><code>paintable</code></em>
+ does not have a preferred aspect ratio, it returns 0.
+Negative values are never returned.</p>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-aspect-ratio.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-get-intrinsic-aspect-ratio.returns"></a><h4>Returns</h4>
+<p> the intrinsic aspect ratio of <em class="parameter"><code>paintable</code></em>
+or 0 if none.</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-compute-concrete-size"></a><h3>gdk_paintable_compute_concrete_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_paintable_compute_concrete_size (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> specified_width</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> specified_height</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> default_width</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> default_height</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> *concrete_width</code></em>,
+                                     <em class="parameter"><code><span class="type">double</span> *concrete_height</code></em>);</pre>
+<p>Applies the sizing algorithm outlined in
+https://drafts.csswg.org/css-images-3/<span class="type">default-sizing</span>
+to the given <em class="parameter"><code>paintable</code></em>
+. See that link for more details.</p>
+<p>It is not necessary to call this function when both <em class="parameter"><code>specified_width</code></em>
+
+and <em class="parameter"><code>specified_height</code></em>
+ are known, but it is useful to call this
+function in GtkWidget:measure implementations to compute the
+other dimension when only one dimension is given.</p>
+<div class="refsect3">
+<a name="gdk-paintable-compute-concrete-size.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>specified_width</p></td>
+<td class="parameter_description"><p>the width <em class="parameter"><code>paintable</code></em>
+could be drawn into or
+0.0 if unknown</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>specified_height</p></td>
+<td class="parameter_description"><p>the height <em class="parameter"><code>paintable</code></em>
+could be drawn into or
+0.0 if unknown</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_width</p></td>
+<td class="parameter_description"><p>the width <em class="parameter"><code>paintable</code></em>
+would be drawn into if
+no other constraints were given</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>default_height</p></td>
+<td class="parameter_description"><p>the height <em class="parameter"><code>paintable</code></em>
+would be drawn into if
+no other constraints were given</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>concrete_width</p></td>
+<td class="parameter_description"><p>will be set to the concrete width
+computed. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>concrete_height</p></td>
+<td class="parameter_description"><p>will be set to the concrete height
+computed. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-invalidate-contents"></a><h3>gdk_paintable_invalidate_contents ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_paintable_invalidate_contents (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Called by implementations of <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> to invalidate their contents.
+Unless the contents are invalidated, implementations must guarantee that
+multiple calls of <a class="link" href="GdkPaintable.html#gdk-paintable-snapshot" title="gdk_paintable_snapshot ()"><code class="function">gdk_paintable_snapshot()</code></a> produce the same output.</p>
+<p>This function will emit the <a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-contents" title="The “invalidate-contents” signal"><span class="type">“invalidate-contents”</span></a> signal.</p>
+<p>If a <em class="parameter"><code>paintable</code></em>
+ reports the <a class="link" href="GdkPaintable.html#GDK-PAINTABLE-STATIC-CONTENTS:CAPS"><code class="literal">GDK_PAINTABLE_STATIC_CONTENTS</code></a> flag,
+it must not call this function.</p>
+<div class="refsect3">
+<a name="gdk-paintable-invalidate-contents.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-invalidate-size"></a><h3>gdk_paintable_invalidate_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gdk_paintable_invalidate_size (<em class="parameter"><code><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable</code></em>);</pre>
+<p>Called by implementations of <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> to invalidate their size.
+As long as the size is not invalidated, <em class="parameter"><code>paintable</code></em>
+ must return the same
+values for its intrinsic width, height and aspect ratio.</p>
+<p>This function will emit the <a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-size" title="The “invalidate-size” signal"><span class="type">“invalidate-size”</span></a> signal.</p>
+<p>If a <em class="parameter"><code>paintable</code></em>
+ reports the <a class="link" href="GdkPaintable.html#GDK-PAINTABLE-STATIC-SIZE:CAPS"><code class="literal">GDK_PAINTABLE_STATIC_SIZE</code></a> flag,
+it must not call this function.</p>
+<div class="refsect3">
+<a name="gdk-paintable-invalidate-size.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gdk-paintable-new-empty"></a><h3>gdk_paintable_new_empty ()</h3>
+<pre class="programlisting"><a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="returnvalue">GdkPaintable</span></a> *
+gdk_paintable_new_empty (<em class="parameter"><code><span class="type">int</span> intrinsic_width</code></em>,
+                         <em class="parameter"><code><span class="type">int</span> intrinsic_height</code></em>);</pre>
+<p>Returns a paintable that has the given intrinsic size and draws nothing.
+This is often useful for implementing the <a class="link" href="GdkPaintable.html#GdkPaintableInterface.get-current-image"><code class="function">GdkPaintableInterface.get_current_image()</code></a>
+virtual function when the paintable is in an incomplete state (like a
+<a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkMediaStream.html#GtkMediaStream-struct"><span class="type">GtkMediaStream</span></a> before receiving the first frame).</p>
+<div class="refsect3">
+<a name="gdk-paintable-new-empty.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>intrinsic_width</p></td>
+<td class="parameter_description"><p>The intrinsic width to report. Can be 0 for no width.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>intrinsic_height</p></td>
+<td class="parameter_description"><p>The intrinsic height to report. Can be 0 for no height.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gdk-paintable-new-empty.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GdkPaintable-struct"></a><h3>GdkPaintable</h3>
+<pre class="programlisting">typedef struct _GdkPaintable GdkPaintable;</pre>
+<p>Interface for paintable objects.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkPaintableInterface"></a><h3>struct GdkPaintableInterface</h3>
+<pre class="programlisting">struct GdkPaintableInterface {
+  /* draw to 0,0 with the given width and height */
+  void                  (* snapshot)                    (GdkPaintable           *paintable,
+                                                         GdkSnapshot            *snapshot,
+                                                         double                  width,
+                                                         double                  height);
+  /* get the current contents in an immutable form (optional) */
+  GdkPaintable *        (* get_current_image)           (GdkPaintable           *paintable);
+
+  /* get flags for potential optimizations (optional) */
+  GdkPaintableFlags     (* get_flags)                   (GdkPaintable           *paintable);
+  /* preferred width of paintable or 0 if it has no width (optional) */
+  int                   (* get_intrinsic_width)         (GdkPaintable           *paintable);
+  /* preferred height of paintable or 0 if it has no height (optional) */
+  int                   (* get_intrinsic_height)        (GdkPaintable           *paintable);
+  /* aspect ratio (width / height) of paintable or 0 if it has no aspect ratio (optional) */
+  double                (* get_intrinsic_aspect_ratio)  (GdkPaintable           *paintable);
+};
+</pre>
+<p>The list of functions that can be implemented for the <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> interface.</p>
+<p>Note that apart from the <a class="link" href="GdkPaintable.html#GdkPaintableInterface.snapshot"><code class="function">GdkPaintableInterface.snapshot()</code></a> function, no virtual
+function of this interface is mandatory to implement, though it is a good idea
+to implement <a class="link" href="GdkPaintable.html#GdkPaintableInterface.get-current-image"><code class="function">GdkPaintableInterface.get_current_image()</code></a> for non-static paintables
+and <a class="link" href="GdkPaintable.html#GdkPaintableInterface.get-flags"><code class="function">GdkPaintableInterface.get_flags()</code></a> if the image is not dynamic as the default
+implementation returns no flags and that will make the implementation likely
+quite slow.</p>
+<div class="refsect3">
+<a name="GdkPaintableInterface.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="struct_members_name" width="300px"></col>
+<col class="struct_members_description"></col>
+<col class="struct_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.snapshot"></a>snapshot</code></em> ()</p></td>
+<td class="struct_member_description"><p>Snapshot the paintable. The given <em class="parameter"><code>width</code></em>
+and <em class="parameter"><code>height</code></em>
+are
+guaranteed to be larger than 0.0. The resulting snapshot must modify
+only the area in the rectangle from (0,0) to (width, height).
+This is the only function that must be implemented for this interface.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.get-current-image"></a>get_current_image</code></em> ()</p></td>
+<td class="struct_member_description"><p>return a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> that does not change over
+time. This means the GDK_PAINTABLE_STATIC_SIZE and
+<a class="link" href="GdkPaintable.html#GDK-PAINTABLE-STATIC-CONTENTS:CAPS"><code class="literal">GDK_PAINTABLE_STATIC_CONTENTS</code></a> flag are set.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.get-flags"></a>get_flags</code></em> ()</p></td>
+<td class="struct_member_description"><p>Get the flags for this instance. See <a class="link" href="GdkPaintable.html#GdkPaintableFlags" title="enum GdkPaintableFlags"><span class="type">GdkPaintableFlags</span></a>
+for details.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.get-intrinsic-width"></a>get_intrinsic_width</code></em> ()</p></td>
+<td class="struct_member_description"><p>The preferred width for this object to be
+snapshot at or 0 if none. This is purely a hint. The object must still
+be able to render at any size.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.get-intrinsic-height"></a>get_intrinsic_height</code></em> ()</p></td>
+<td class="struct_member_description"><p>The preferred height for this object to be
+snapshot at or 0 if none. This is purely a hint. The object must still
+be able to render at any size.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="GdkPaintableInterface.get-intrinsic-aspect-ratio"></a>get_intrinsic_aspect_ratio</code></em> ()</p></td>
+<td class="struct_member_description"><p>The preferred aspect ratio for this object
+or 0 if none. If both <a class="link" href="GdkPaintable.html#GdkPaintableInterface.get-intrinsic-width"><code class="function">GdkPaintableInterface.get_intrinsic_width()</code></a> and
+<a class="link" href="GdkPaintable.html#GdkPaintableInterface.get-intrinsic-height"><code class="function">GdkPaintableInterface.get_intrinsic_height()</code></a> return non-zero values,
+this function should return the aspect ratio computed from those.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkPaintableFlags"></a><h3>enum GdkPaintableFlags</h3>
+<p>Flags about this object. Implementations use these for optimizations
+such as caching.</p>
+<div class="refsect3">
+<a name="GdkPaintableFlags.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-PAINTABLE-STATIC-SIZE:CAPS"></a>GDK_PAINTABLE_STATIC_SIZE</p></td>
+<td class="enum_member_description">
+<p>The size is immutable.
+The <a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-size" title="The “invalidate-size” signal"><span class="type">“invalidate-size”</span></a> signal will never be
+emitted.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDK-PAINTABLE-STATIC-CONTENTS:CAPS"></a>GDK_PAINTABLE_STATIC_CONTENTS</p></td>
+<td class="enum_member_description">
+<p>The content is immutable.
+The <a class="link" href="GdkPaintable.html#GdkPaintable-invalidate-contents" title="The “invalidate-contents” signal"><span class="type">“invalidate-contents”</span></a> signal will never be
+emitted.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkSnapshot-struct"></a><h3>GdkSnapshot</h3>
+<pre class="programlisting">typedef struct _GdkSnapshot GdkSnapshot;</pre>
+<p>Base type for snapshot operations.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GdkPaintable-invalidate-contents"></a><h3>The <code class="literal">“invalidate-contents”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable,
+               <span class="type">gpointer</span>      user_data)</pre>
+<p>Emitted when the contents of the <em class="parameter"><code>paintable</code></em>
+ change.</p>
+<p>Examples for such an event would be videos changing to the next frame or
+the icon theme for an icon changing.</p>
+<div class="refsect3">
+<a name="GdkPaintable-invalidate-contents.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdkPaintable-invalidate-size"></a><h3>The <code class="literal">“invalidate-size”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a> *paintable,
+               <span class="type">gpointer</span>      user_data)</pre>
+<p>Emitted when the intrinsic size of the <em class="parameter"><code>paintable</code></em>
+ changes. This means the values
+reported by at least one of <a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-width" title="gdk_paintable_get_intrinsic_width ()"><code class="function">gdk_paintable_get_intrinsic_width()</code></a>,
+<a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-height" title="gdk_paintable_get_intrinsic_height ()"><code class="function">gdk_paintable_get_intrinsic_height()</code></a> or <a class="link" href="GdkPaintable.html#gdk-paintable-get-intrinsic-aspect-ratio" title="gdk_paintable_get_intrinsic_aspect_ratio ()"><code class="function">gdk_paintable_get_intrinsic_aspect_ratio()</code></a>
+has changed.</p>
+<p>Examples for such an event would be a paintable displaying the contents of a toplevel
+surface being resized.</p>
+<div class="refsect3">
+<a name="GdkPaintable-invalidate-size.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>paintable</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdkPaintable.html" title="GdkPaintable"><span class="type">GdkPaintable</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: Run Last</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdkPaintable.see-also"></a><h2>See Also</h2>
+<p><span class="type">ClutterContent</span>, <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkImage.html#GtkImage-struct"><span class="type">GtkImage</span></a>, <a class="link" href="gdk4-Textures.html#GdkTexture"><span class="type">GdkTexture</span></a>, <a href="https://developer-old.gnome.org/usr/share/gtk-doc/html/gtk4/GtkSnapshot.html#GtkSnapshot"><span class="type">GtkSnapshot</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdkPaintable.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Implementing GStreamer-based Renderers: X Window Example: librygel-renderer-gst Reference Manual</title><link href="index.html" rel="home" title="librygel-renderer-gst Reference Manual"></link><link href="implementing-renderers-gst.html" rel="up" title="Implementing GStreamer-based Renderers"></link><link href="implementing-renderers-gst-simple-example.html" rel="prev" title="Implementing GStreamer-based Renderers: Simple Example"></link><link href="api-main-list.html" rel="next" title="librygel-renderer-gst API Reference"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="implementing-renderers-gst-x-window-example.html#container">Go to page content</a></li><li><a href="implementing-renderers-gst-x-window-example.html#top_bar">Go to main menu</a></li><li><a href="implementing-renderers-gst-x-window-example.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="implementing-renderers-gst.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="implementing-renderers-gst-simple-example.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="api-main-list.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="section">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="implementing-renderers-gst-x-window-example"></a>Implementing GStreamer-based Renderers: X Window Example</h2></div></div></div>
+<p>
+This slightly fuller example program shows how to instantiate the renderer then configure its GStreamer playbin element and connect it to a network interface, rendering the content in a full-screen X window.
+</p>
+<pre class="programlisting">/*
+ * Copyright (C) 2012 Openismus GmbH.
+ *
+ * Author: Jens Georg &lt;jensg@openismus.com&gt;
+ *
+ * This file is part of Rygel.
+ *
+ * Rygel is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * Rygel is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+/*
+ * Demo application for librygel-renderer-gst.
+ *
+ * Creates a simple stand-alone UPnP renderer that renders any visual content
+ * fullscreen.
+ *
+ * Usage:
+ *   standalone-renderer [&lt;network device&gt;]
+ *
+ * If no network device is given on the commandline, the program falls back to
+ * eth0.
+ *
+ * To do anything useful, another UPnP server + UPnP controller is necessary
+ * to tell it which media file to show.
+ */
+
+#include &lt;gst/video/videooverlay.h&gt;
+#include &lt;gdk/gdkx.h&gt;
+#include &lt;gdk/gdkwayland.h&gt;
+#include &lt;gdk/gdkkeysyms.h&gt;
+#include &lt;gtk/gtk.h&gt;
+
+#include "rygel-renderer-gst.h"
+#include "rygel-core.h"
+
+#define LOGO_PATH "/org/gnome/Rygel/FullscreenRenderer/rygel-full.svg"
+
+struct _MainData {
+    GtkWindow *window;
+    GtkWidget *video;
+    GstElement *playbin;
+    GdkPixbuf *pixbuf;
+    gint logo_width;
+    gint logo_height;
+};
+typedef struct _MainData MainData;
+
+static void on_realize (GtkWidget *widget, gpointer user_data)
+{
+    GdkWindow *window;
+    guintptr window_handle;
+    MainData *data = (MainData *) user_data;
+
+    window = gtk_widget_get_window (widget);
+    if (!gdk_window_ensure_native (window))
+        g_error ("Could not create native window for overlay");
+
+    if (GDK_IS_WAYLAND_WINDOW (window)) {
+        window_handle = gdk_wayland_window_get_wl_surface (window);
+    } else if (GDK_IS_X11_WINDOW (window)) {
+        window_handle = GDK_WINDOW_XID (window);
+    } else {
+        g_error ("Unsupported windowing system");
+    }
+
+    gst_video_overlay_set_window_handle (GST_VIDEO_OVERLAY (data-&gt;playbin),
+                                         window_handle);
+}
+
+static gboolean on_draw (GtkWidget *widget, cairo_t *cr, gpointer user_data)
+{
+    MainData *data = (MainData *) user_data;
+    GstState state;
+
+    gst_element_get_state (data-&gt;playbin, &amp;state, NULL, GST_CLOCK_TIME_NONE);
+
+    if (state &lt; GST_STATE_PAUSED) {
+        gint width, height, logo_x, logo_y;
+
+        width = gtk_widget_get_allocated_width (widget);
+        height = gtk_widget_get_allocated_height (widget);
+
+        cairo_set_source_rgb (cr, 0, 0, 0);
+        cairo_rectangle (cr, 0, 0, width, height);
+        cairo_fill (cr);
+
+        if (data-&gt;pixbuf == NULL) {
+            data-&gt;pixbuf = gdk_pixbuf_new_from_resource_at_scale
+                                        (LOGO_PATH,
+                                         (int) width * 0.6,
+                                         (int) height * 0.6,
+                                         TRUE,
+                                         NULL);
+            data-&gt;logo_width = gdk_pixbuf_get_width (data-&gt;pixbuf);
+            data-&gt;logo_height = gdk_pixbuf_get_height (data-&gt;pixbuf);
+        }
+
+
+        logo_x = (width - data-&gt;logo_width) / 2;
+        logo_y = (height - data-&gt;logo_height) / 2;
+
+        gdk_cairo_set_source_pixbuf (cr, data-&gt;pixbuf, logo_x, logo_y);
+
+        cairo_paint (cr);
+    }
+}
+
+static gboolean on_key_released (GtkWidget *widget,
+                             GdkEvent *event,
+                             gpointer user_data)
+{
+    GdkEventKey *key_event = (GdkEventKey *) event;
+
+    switch (key_event-&gt;keyval) {
+        case GDK_KEY_Escape:
+        case GDK_KEY_q:
+        case GDK_KEY_Q:
+            gtk_main_quit ();
+
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
+int main (int argc, char *argv[])
+{
+    RygelPlaybinRenderer *renderer;
+    GError *error = NULL;
+    GMainLoop *loop;
+    MainData data;
+    GdkCursor *cursor;
+
+    gtk_init (&amp;argc, &amp;argv);
+    gst_init (&amp;argc, &amp;argv);
+
+    g_set_application_name ("Rygel-Fullscreen-Renderer");
+
+    renderer = rygel_playbin_renderer_new ("LibRygel renderer demo");
+    data.playbin = rygel_playbin_renderer_get_playbin (renderer);
+
+    data.window = GTK_WINDOW (gtk_window_new (GTK_WINDOW_TOPLEVEL));
+    data.video = gtk_drawing_area_new ();
+    gtk_widget_set_double_buffered (data.video, FALSE);
+    gtk_container_add (GTK_CONTAINER (data.window), data.video);
+    g_signal_connect (data.video, "realize", G_CALLBACK (on_realize), &amp;data);
+    gtk_widget_add_events (data.video,
+                           GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK);
+    gtk_widget_set_can_focus (data.video, TRUE);
+    gtk_widget_grab_focus (data.video);
+    g_signal_connect (data.video,
+                      "draw",
+                      G_CALLBACK (on_draw),
+                      &amp;data);
+    g_signal_connect (data.video,
+                      "key-release-event",
+                      G_CALLBACK (on_key_released),
+                      &amp;data);
+    gtk_window_fullscreen (data.window);
+    gtk_widget_show_all (GTK_WIDGET (data.window));
+    cursor = gdk_cursor_new_for_display (gtk_widget_get_display (data.video),
+                                         GDK_BLANK_CURSOR);
+    gdk_window_set_cursor (gtk_widget_get_window (data.video), cursor);
+
+    if (argc &gt;= 2) {
+        rygel_media_device_add_interface (RYGEL_MEDIA_DEVICE (renderer), argv[1]);
+    } else {
+        rygel_media_device_add_interface (RYGEL_MEDIA_DEVICE (renderer), "eth0");
+    }
+
+    gtk_main ();
+    gtk_widget_hide (GTK_WIDGET (data.window));
+    g_object_unref (renderer);
+
+    return 0;
+}
+
+</pre>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="implementing-renderers-gst-x-window-example.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

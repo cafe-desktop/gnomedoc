@@ -1,0 +1,1362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Grammar and Usage Guidelines</title>
+<link rel="previous" href="infodesign-19.html.en.html" title="Endnotes and Footnotes">
+<link rel="next" href="locale.html.en.html" title="Writing Documentation for an International Audience">
+<link rel="top" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/gdp-style-guide/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="grammar.html.en.html#container">Go to page content</a></li>
+<li><a href="grammar.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="grammar.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division chapter">
+<a name="grammar"><!--grammar--></a><div class="header"><h1 class="chapter title"><span class="title">Grammar and Usage Guidelines</span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">GNOME-STYLE</a></li></ul>
+<p class="para block block-first"> This chapter contains an alphabetical list of grammar and usage
+	 guidelines for use in GNOME documentation. Many of these guidelines are only
+	 applicable to English-language usage, see the 
+	 <a class="ulink" href="http://www.bartleby.com/61/" title="http://www.bartleby.com/61/">http://www.bartleby.com/61/</a> and the 
+	 <a class="ulink" href="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html" title="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html">http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html</a>. </p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">Abbreviations</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> A shortened form of a word or phrase that takes the
+						  place of the full word or phrase, for example Dr., a.m., p.m., and so on.
+						  </p> 
+						<p class="para block"> Apply the following rules when you use abbreviations:
+						  </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Avoid creating new abbreviations. Unfamiliar
+								abbreviations can confuse rather than clarify a concept. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not explain or expand familiar abbreviations.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not include familiar abbreviations in the
+								glossary of your manual. </span> 
+						  </li>
+</ul></div> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Adjectives</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Use adjectives with caution. If an adjective is
+						  necessary to differentiate between items, then use adjectives. In all cases,
+						  test whether the phrase can stand alone without the adjective. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Acronyms</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> A term that represents a multi-word term. Typically,
+						  acronyms are formed in the following ways: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> From the first letters of each word in a compound
+								term, for example Table of Contents (TOC). </span> 
+						  </li>
+<li> 
+							 <span class="para"> From recognizable parts of a compound term, such
+								as GNU Object Model Environment (GNOME). </span> 
+						  </li>
+</ul></div> 
+						<p class="para block"> Apply the following rules when you use acronyms:
+						  </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> On the first occurrence of an acronym, spell out
+								the full term, with the acronym in parentheses. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not spell out the full compound for well-known
+								acronyms, unless you think the information is useful for readers. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Avoid creating new acronyms. Unfamiliar acronyms
+								can confuse rather than clarify a concept. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Write the acronym in uppercase letters, unless
+								there is a compelling case for lowercase. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Include the acronym and the full term in the
+								glossary of your manual. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Adverbs</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Use adverbs with caution. If an adverb is necessary to
+						  qualify the function of a component, then use an adverb. In all cases, test
+						  whether the phrase can stand alone without the adverb. Classic superfluous
+						  adverbs are: <span class="emphasis">simply, easily, quickly</span>. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Anthropomorphism</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Do not apply emotions, desires, or opinions to
+								software applications. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not apply a sense of location or dimension to a
+								software application. You can not be <span class="emphasis">in</span> a text editor.
+								</span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Apostrophe</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Do not use apostrophes to denote possession.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not use apostrophes to denote contractions.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not use apostrophes to denote plurals. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Articles</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Do not use the definite article
+						  <span class="emphasis">the</span> to begin any of the following items: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Manual titles </span> 
+						  </li>
+<li> 
+							 <span class="para"> Chapter titles </span> 
+						  </li>
+<li> 
+							 <span class="para"> Headings </span> 
+						  </li>
+<li> 
+							 <span class="para"> Figure captions </span> 
+						  </li>
+<li> 
+							 <span class="para"> Table captions </span> 
+						  </li>
+<li> 
+							 <span class="para"> Callouts </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Brackets</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Do not use brackets [such as these] as a
+								substitute for parentheses (such as these). </span> 
+						  </li>
+<li> 
+							 <span class="para"> Use brackets for optional command line entries.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not use angle brackets to indicate variables in
+								text, instead use the <span class="emphasis">replaceable</span> tag. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Capitalization</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Capitalize in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> All letters in acronyms, unless the acronym is a
+								well-known exception</span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial letter of the first word in a list</span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial letter of the first word in a
+								callout</span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial letter of a key name, such as the 
+								<span class="keycap">Shift</span> key</span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial letter of a sentence. Avoid starting a
+								sentence with a command name or application name that has a lowercase initial
+								letter</span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial letter of a complete sentence after a
+								colon</span> 
+						  </li>
+</ul></div> 
+						<p class="para block"> Do not capitalize in the following situations: </p>
+						
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> A compound term that is followed by an
+								abbreviation or an acronym</span> 
+						  </li>
+<li> 
+							 <span class="para"> When you want to emphasize something</span> 
+						  </li>
+<li> 
+							 <span class="para"> Variable names</span> 
+						  </li>
+<li> 
+							 <span class="para"> The initial letter of the first word following a
+								colon, if the word is part of an incomplete sentence</span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Captions</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Use the same rules as for headings, for all
+								captions accompanying figures and tables.</span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not put a period at the end of a
+								caption.</span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Colon</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use a colon in the following situations: 
+						  <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+								<span class="para"> To introduce a list </span> 
+							 </li>
+<li> 
+								<span class="para"> Before an explanation </span> 
+							 </li>
+<li> 
+								<span class="para"> After an introduction </span> 
+							 </li>
+</ul></div> </p> 
+						<p class="para block"> Do not use a colon in the following situations: 
+						  <div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+								<span class="para"> To introduce a figure or a table </span> 
+							 </li>
+<li> 
+								<span class="para"> To introduce headings </span> 
+							 </li>
+<li> 
+								<span class="para"> At the end of an introduction to a procedure
+								  </span> 
+							 </li>
+</ul></div> </p> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Column headings</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist"><li class="li-first"> 
+							 <span class="para"> Use the same rules as for headings. </span> 
+						  </li></ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Comma</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use commas in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> To separate items in a series </span> 
+						  </li>
+<li> 
+							 <span class="para"> To separate the parts of a sentence </span> 
+						  </li>
+<li> 
+							 <span class="para"> To separate nonrestrictive phrases </span> 
+						  </li>
+<li> 
+							 <span class="para"> Instead of dashes to set off appositives </span> 
+						  </li>
+<li> 
+							 <span class="para"> With <span class="emphasis">for example</span> and similar
+								expressions </span> 
+						  </li>
+</ul></div> 
+						<p class="para block"> Do not use commas in the following situations: </p>
+						
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> In a series of adjectives used as one modifier
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Between two short independent clauses </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Commands</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use commands as verbs. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Contractions</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use contractions such as
+						  <span class="emphasis">can't</span>, <span class="emphasis">don't</span>, or
+						  <span class="emphasis">isn't</span>. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Dash</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use the em dash or the en dash. Use a paragraph
+						  break or a colon instead, where you want to create an introductory piece of
+						  text. If you have several items that you want to introduce, then you can use a
+						  variable list. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Ellipsis</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use an ellipsis in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> To show that you have omitted something from a
+								sentence </span> 
+						  </li>
+<li> 
+							 <span class="para"> To indicate a pause when you quote displayed text
+								</span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Fractions</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Use numerals for fractions in tables and in units
+								of measurement, but spell out fractions in prose. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Use a space between a numeral and a related
+								fraction, if there is a possible ambiguity. For example: 1 1/2 instead of 11/2.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> If a fraction is used in a compound modifier,
+								insert a hyphen between the fraction and the unit of measurement. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Gender</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> See <a class="xref" href="fundamentals-4.html.en.html#fundamentals-9" title="Do Not Offend Your Audience">Section 1.4.4 ― Do Not Offend Your Audience</a>. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Grammar</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td> 
+						<span class="para"> Rules: </span> </td>
+<td> 
+						<span class="para"> Use standard American English grammar rules, see the 
+						  <a class="ulink" href="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html" title="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html">http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html</a>.</span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Headings</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use the following capitalization rules in headings:
+						  </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Initial uppercase letter for the first word and the last word, regardless of part of
+speech </span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial uppercase letter for all nouns, adjectives, and verbs </span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial uppercase letter for conjunctions of four
+								letters or longer </span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial uppercase letter for prepositions of four
+								letters or longer </span> 
+						  </li>
+<li> 
+							 <span class="para"> Initial uppercase letter for prepositions that are part of a 
+								phrasal verb </span> 
+						  </li>
+<li> 
+							 <span class="para"> All lowercase letters for conjunctions, articles,
+								and prepositions of less than four letters </span> 
+						  </li>
+</ul></div> 
+						<p class="para block"> See <a class="xref" href="infodesign-2.html.en.html" title="Section Headings">Section 2.1 ― Section Headings</a> for more
+						  information about headings. </p> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Hyphen</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use hyphens in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> With a numeral in a compound modifier </span> 
+						  </li>
+<li> 
+							 <span class="para"> To prevent ambiguity </span> 
+						  </li>
+<li> 
+							 <span class="para"> With some standard prefixes and suffixes. Use the 
+								<a class="ulink" href="http://www.bartleby.com/61/" title="http://www.bartleby.com/61/">http://www.bartleby.com/61/</a> for guidance </span> 
+						  </li>
+<li> 
+							 <span class="para"> In spelled-out fractions </span> 
+						  </li>
+<li> 
+							 <span class="para"> In variable names of two or more words, such as 
+								<span class="replaceable"> directory-name</span>. Note: 
+								<span class="replaceable">filename</span> is an exception.
+								</span> 
+						  </li>
+</ul></div> 
+						<p class="para block"> Do not use hyphens in the following situations:
+						  </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> For industry-accepted terms </span> 
+						  </li>
+<li> 
+							 <span class="para"> To construct verbs </span> 
+						  </li>
+<li> 
+							 <span class="para"> With an adverb ending in <span class="emphasis">ly</span>
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> With numerals as single modifiers </span> 
+						  </li>
+<li> 
+							 <span class="para"> With a word that is listed as unhyphenated in the 
+								<a class="ulink" href="http://www.bartleby.com/61/" title="http://www.bartleby.com/61/">http://www.bartleby.com/61/</a>, and that uses a common prefix </span> 
+						  </li>
+<li> 
+							 <span class="para"> With trademarked terms </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Latin terms</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use Latin terms. Use an equivalent English term
+						  instead. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Like</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use the term <span class="emphasis">like</span> to
+						  denote equivalence or similarity. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Lists</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Introduce a list with a complete sentence that ends
+						  with a colon. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Numbers</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Spell out numbers in the following situations: </p>
+						
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Numbers from zero through nine unless the number
+								is part of a measurement. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Approximations. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Extreme values such as
+								<span class="emphasis">million</span>, but precede the value with a numeral </span> 
+						  </li>
+<li> 
+							 <span class="para"> Any number that begins a sentence </span> 
+						  </li>
+<li> 
+							 <span class="para"> A number that is immediately followed by a
+								numeral, for example: two 10 MB files </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Numerals</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use numerals in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> The number 10 or greater </span> 
+						  </li>
+<li> 
+							 <span class="para"> Negative numbers </span> 
+						  </li>
+<li> 
+							 <span class="para"> Most fractions </span> 
+						  </li>
+<li> 
+							 <span class="para"> Percentages </span> 
+						  </li>
+<li> 
+							 <span class="para"> Decimals </span> 
+						  </li>
+<li> 
+							 <span class="para"> Measurements </span> 
+						  </li>
+<li> 
+							 <span class="para"> Units of time smaller than one second </span> 
+						  </li>
+<li> 
+							 <span class="para"> References to bits and bytes </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Parentheses</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use parentheses in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> To contain the abbreviation of a term on the first
+								occurrence of the full term </span> 
+						  </li>
+<li> 
+							 <span class="para"> In man page references, specifically the section
+								number </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Period</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<p class="para block block-first"> Use a period in the following situations: </p> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> To end a sentence </span> 
+						  </li>
+<li> 
+							 <span class="para"> In file and directory names </span> 
+						  </li>
+<li> 
+							 <span class="para"> In abbreviations that can be mistaken for words,
+								such as a.m. and U.S. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Punctuation</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Use standard American English punctuation rules. In
+						  addition to the specific points of punctuation in this section, see also the 
+						  <a class="ulink" href="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html" title="http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html">http://www.press.uchicago.edu/Misc/Chicago/cmosfaq/cmosfaq.html</a>.
+						  </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Punctuation in numbers</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Do not use a comma in numerals of four digits.
+								</span> 
+						  </li>
+<li> 
+							 <span class="para"> Use a comma in numerals of more than four digits.
+								</span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Quotation marks</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Use quotation marks to indicate material that is
+								taken verbatim from another source. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Do not use quotation marks to excuse terms from
+								legitimacy. If the term is not legitimate, then use another term. If you must
+								use that term, declare the term in the glossary and make the term legitimate.
+								</span> 
+						  </li>
+</ul></div> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Semicolon</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Do not use semicolons. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Spelling</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Use standard American English spelling rules, see the 
+						  <a class="ulink" href="http://www.bartleby.com/61/" title="http://www.bartleby.com/61/">http://www.bartleby.com/61/</a> for guidelines. </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Titles</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> For manual titles use the same rules as for headings.
+						  </span> </td>
+</tr></tbody></table></div> 
+		</dd>
+<dt class="term">Units</dt>
+<dd> 
+		  <div class="table block block-indent"><table style="border: none;"><tbody><tr>
+<td style="text-align: left;vertical-align: top;"> 
+						<span class="para"> Rules: </span> </td>
+<td style="text-align: left;vertical-align: top;"> 
+						<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first"> 
+							 <span class="para"> Use standard abbreviations for units of
+								measurements, do not invent your own abbreviations. </span> 
+						  </li>
+<li> 
+							 <span class="para"> See <a class="xref" href="units.html.en.html" title="Units">Appendix B ― Units</a> for a list of units
+								relevant to the GNOME Desktop. For further guidelines, see the 
+								<span class="citetitle"><span style="font-style: italic; ">IEEE Standard Dictionary of Electrical and
+								  Electronics Terms</span></span>. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Use periods for abbreviated units that might be
+								mistaken for a word. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Most standard abbreviations of units account for
+								both singular and plural usage. </span> 
+						  </li>
+<li> 
+							 <span class="para"> Insert a space between the numeral and the unit of
+								measurement. </span> 
+						  </li>
+</ul></div>
+</td>
+</tr></tbody></table></div> 
+		</dd>
+</dl></div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="infodesign-19.html.en.html" title="Endnotes and Footnotes">Endnotes and Footnotes</a></td>
+<td class="navbar-next"><a class="navbar-next" href="locale.html.en.html" title="Writing Documentation for an International Audience">Writing Documentation for an International Audience</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="GNOME Documentation Style Guide V1.6">GNOME-STYLE</a><div class="autotoc"><ul>
+<li><a class="xref" href="preface.html.en.html" title="Preface">Preface</a></li>
+<li><a class="xref" href="fundamentals.html.en.html" title="Fundamental Concepts of Technical Documentation">Fundamental Concepts of Technical Documentation</a></li>
+<li><a class="xref" href="infodesign.html.en.html" title="Basic Building Blocks of Information Design">Basic Building Blocks of Information Design</a></li>
+<li>Grammar and Usage Guidelines<div class="autotoc"><ul></ul></div>
+</li>
+<li><a class="xref" href="locale.html.en.html" title="Writing Documentation for an International Audience">Writing Documentation for an International Audience</a></li>
+<li><a class="xref" href="improving.html.en.html" title="Ways to Improve Your Documentation">Ways to Improve Your Documentation</a></li>
+<li><a class="xref" href="indexing.html.en.html" title="Indexing Your Documentation">Indexing Your Documentation</a></li>
+<li><a class="xref" href="gui-1.html.en.html" title="Writing for GUIs">Writing for GUIs</a></li>
+<li><a class="xref" href="usability.html.en.html" title="Usability and Readability Considerations for Technical
+	 Documentation">Usability and Readability Considerations for Technical
+	 Documentation</a></li>
+<li><a class="xref" href="accessibility.html.en.html" title="Writing Accessible Documentation">Writing Accessible Documentation</a></li>
+<li><a class="xref" href="screenshots.html.en.html" title="Use of Screenshots">Use of Screenshots</a></li>
+<li><a class="xref" href="legal-issues.html.en.html" title="Legal Topics">Legal Topics</a></li>
+<li><a class="xref" href="wordlist.html.en.html" title="Recommended Terminology">Recommended Terminology</a></li>
+<li><a class="xref" href="units.html.en.html" title="Units">Units</a></li>
+<li><a class="xref" href="language.html.en.html" title="Glossary of Terms in This Guide">Glossary of Terms in This Guide</a></li>
+<li><a class="xref" href="infoblocks.html.en.html" title="Examples of Information Design Building Blocks">Examples of Information Design Building Blocks</a></li>
+<li><a class="xref" href="authorlist.html.en.html" title="GDSG Contributors">GDSG Contributors</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="grammar.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

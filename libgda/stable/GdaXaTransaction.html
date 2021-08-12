@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GdaXaTransaction: GNU Data Access Reference Manual</title><link href="index.html" rel="home" title="GNU Data Access Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="GdaWorker.html" rel="prev" title="GdaWorker"></link><link href="libgda-6.0-itsignaler.html" rel="next" title="itsignaler"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdaXaTransaction.html#container">Go to page content</a></li><li><a href="GdaXaTransaction.html#top_bar">Go to main menu</a></li><li><a href="GdaXaTransaction.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdaXaTransaction.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaXaTransaction.html#GdaXaTransaction.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaXaTransaction.html#GdaXaTransaction.object-hierarchy">Object Hierarchy</a></span><span id="nav_properties">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaXaTransaction.html#GdaXaTransaction.properties">Properties</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GdaWorker.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libgda-6.0-itsignaler.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdaXaTransaction"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdaXaTransaction.top_of_page"></a>GdaXaTransaction</span></h2>
+<p>GdaXaTransaction — Distributed transaction manager</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdaXaTransaction.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to develop applications to these interfaces, release them, and have confidence that they will run on all minor releases of the product (after the one in which the interface was introduced, and within the same major release). Even at a major release, incompatible changes are expected to be rare, and to have strong justifications. "><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-error-quark" title="gda_xa_transaction_error_quark ()">gda_xa_transaction_error_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="returnvalue">GdaXaTransaction</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-new" title="gda_xa_transaction_new ()">gda_xa_transaction_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-register-connection" title="gda_xa_transaction_register_connection ()">gda_xa_transaction_register_connection</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-unregister-connection" title="gda_xa_transaction_unregister_connection ()">gda_xa_transaction_unregister_connection</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-begin" title="gda_xa_transaction_begin ()">gda_xa_transaction_begin</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-commit" title="gda_xa_transaction_commit ()">gda_xa_transaction_commit</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-rollback" title="gda_xa_transaction_rollback ()">gda_xa_transaction_rollback</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-commit-recovered" title="gda_xa_transaction_commit_recovered ()">gda_xa_transaction_commit_recovered</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-id-to-string" title="gda_xa_transaction_id_to_string ()">gda_xa_transaction_id_to_string</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="returnvalue">GdaXaTransactionId</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaXaTransaction.html#gda-xa-transaction-string-to-id" title="gda_xa_transaction_string_to_id ()">gda_xa_transaction_string_to_id</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.properties"></a><h2>Properties</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="properties_type" width="150px"></col>
+<col class="properties_name" width="300px"></col>
+<col class="properties_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="property_type"><a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></td>
+<td class="property_name"><a class="link" href="GdaXaTransaction.html#GdaXaTransaction--format-id" title="The “format-id” property">format-id</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+<tr>
+<td class="property_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</td>
+<td class="property_name"><a class="link" href="GdaXaTransaction.html#GdaXaTransaction--transaction-id" title="The “transaction-id” property">transaction-id</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="GdaXaTransactionId"></a><div class="refsect1">
+<a name="GdaXaTransaction.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GdaXaTransaction.html#GDA-XA-TRANSACTION-ERROR:CAPS" title="GDA_XA_TRANSACTION_ERROR">GDA_XA_TRANSACTION_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdaXaTransaction.html#GdaXaTransactionError" title="enum GdaXaTransactionError">GdaXaTransactionError</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GdaXaTransaction.html#GdaXaTransactionId-struct" title="struct GdaXaTransactionId">GdaXaTransactionId</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/stable/gobject-Boxed-Types.html">GBoxed</a>
+    <span class="lineart">╰──</span> GdaXaTransactionId
+    <a href="../../gobject/stable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> GdaXaTransaction
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.description"></a><h2>Description</h2>
+<p>The <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object acts as a distributed transaction manager: to make sure local transactions on several
+connections (to possibly different databases and database types) either all succeed or all fail. For more information,
+see the X/Open CAE document Distributed Transaction Processing: The XA Specification. 
+This document is published by The Open Group and available at </p>
+<a class="ulink" href="http://www.opengroup.org/public/pubs/catalog/c193.htm" target="_top">http://www.opengroup.org/public/pubs/catalog/c193.htm</a>.
+<p>The two phases commit protocol is implemented during the execution of a distributed transaction: modifications
+made on any connection are first <span class="emphasis"><em>prepared</em></span> (which means that they are store in the database), and
+if that phase succeeded for all the involved connections, then the <span class="emphasis"><em>commit</em></span> phase is executed
+(where all the data previously stored during the <span class="emphasis"><em>prepare</em></span> phase are actually committed).
+That second phase may actually fail, but the distributed transaction will still be considered as successfull
+as the data stored during the <span class="emphasis"><em>prepare</em></span> phase can be committed afterwards.</p>
+<p>A distributed transaction involves the following steps:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>Create a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></li>
+<li class="listitem"><p>Register the connections which will be part of the distributed transaction with that object
+using <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-register-connection" title="gda_xa_transaction_register_connection ()"><code class="function">gda_xa_transaction_register_connection()</code></a></p></li>
+<li class="listitem"><p>Beging the distributed transaction using <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-begin" title="gda_xa_transaction_begin ()"><code class="function">gda_xa_transaction_begin()</code></a></p></li>
+<li class="listitem"><p>Work individually on each connection as normally (make modifications)</p></li>
+<li class="listitem"><p>Commit the distributed transaction using <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-commit" title="gda_xa_transaction_commit ()"><code class="function">gda_xa_transaction_commit()</code></a></p></li>
+<li class="listitem"><p>Discard the <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object using <a href="../../gobject/stable/gobject-The-Base-Object-Type.html#g-object-unref"><code class="function">g_object_unref()</code></a></p></li>
+</ol></div>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gda-xa-transaction-error-quark"></a><h3>gda_xa_transaction_error_quark ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+gda_xa_transaction_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-new"></a><h3>gda_xa_transaction_new ()</h3>
+<pre class="programlisting"><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="returnvalue">GdaXaTransaction</span></a> *
+gda_xa_transaction_new (<em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> format</code></em>,
+                        <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *global_transaction_id</code></em>);</pre>
+<p>Creates a new <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object, which will control the process of
+performing a distributed transaction across several connections.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>format</p></td>
+<td class="parameter_description"><p>a format ID</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>global_transaction_id</p></td>
+<td class="parameter_description"><p>the global transaction ID</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-new.returns"></a><h4>Returns</h4>
+<p>the newly created object. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-register-connection"></a><h3>gda_xa_transaction_register_connection ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_xa_transaction_register_connection
+                               (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                                <em class="parameter"><code><a class="link" href="GdaConnection.html" title="GdaConnection"><span class="type">GdaConnection</span></a> *cnc</code></em>,
+                                <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *branch</code></em>,
+                                <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Registers <em class="parameter"><code>cnc</code></em>
+ to be used by <em class="parameter"><code>xa_trans</code></em>
+ to create a distributed transaction.</p>
+<p>Note: any <a class="link" href="GdaConnection.html" title="GdaConnection"><span class="type">GdaConnection</span></a> object can only be registered with at most one <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object; also
+some connections may not be registered at all with a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object because the database
+provider being used does not support it.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-register-connection.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>the connection to add to <em class="parameter"><code>xa_trans</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>branch</p></td>
+<td class="parameter_description"><p>the branch qualifier</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-register-connection.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-unregister-connection"></a><h3>gda_xa_transaction_unregister_connection ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_xa_transaction_unregister_connection
+                               (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                                <em class="parameter"><code><a class="link" href="GdaConnection.html" title="GdaConnection"><span class="type">GdaConnection</span></a> *cnc</code></em>);</pre>
+<p>Unregisters <em class="parameter"><code>cnc</code></em>
+ to be used by <em class="parameter"><code>xa_trans</code></em>
+ to create a distributed transaction. This is
+the opposite of <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-register-connection" title="gda_xa_transaction_register_connection ()"><code class="function">gda_xa_transaction_register_connection()</code></a>.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-unregister-connection.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>the connection to add to <em class="parameter"><code>xa_trans</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-begin"></a><h3>gda_xa_transaction_begin ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_xa_transaction_begin (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                          <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Begins a distributed transaction (managed by <em class="parameter"><code>xa_trans</code></em>
+). Please note that this phase may fail
+for some connections if a (normal) transaction is already started (this depends on the database
+provider being used), so it's better to avoid starting any (normal) transaction on any of the
+connections registered with <em class="parameter"><code>xa_trans</code></em>
+.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-begin.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-begin.returns"></a><h4>Returns</h4>
+<p> TRUE if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-commit"></a><h3>gda_xa_transaction_commit ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_xa_transaction_commit (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                           <em class="parameter"><code><a href="../../glib/stable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> **cnc_to_recover</code></em>,
+                           <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Commits a distributed transaction (managed by <em class="parameter"><code>xa_trans</code></em>
+). The commit is composed of two phases:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>a PREPARE phase where all the connections are required to store their transaction data to a 
+    permanent place (to be able to complete the commit should a problem occur afterwards)</p></li>
+<li class="listitem"><p>a COMMIT phase where the transaction data is actually written to the database</p></li>
+</ul></div>
+<p>If the PREPARE phase fails for any of the connection registered with <em class="parameter"><code>xa_trans</code></em>
+, then the distributed commit
+fails and FALSE is returned. During the COMMIT phase, some commit may actually fail but the transaction can
+still be completed because the PREPARE phase succeeded (through the recover method).</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-commit.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cnc_to_recover</p></td>
+<td class="parameter_description"><p>a place to store the list of connections for which the commit phase failed, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gda.Connection][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out callee-allocates</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-commit.returns"></a><h4>Returns</h4>
+<p> TRUE if no error occurred (there may be some connections to recover, though)</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-rollback"></a><h3>gda_xa_transaction_rollback ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_xa_transaction_rollback (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                             <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Cancels a distributed transaction (managed by <em class="parameter"><code>xa_trans</code></em>
+).</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-rollback.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-rollback.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-commit-recovered"></a><h3>gda_xa_transaction_commit_recovered ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_xa_transaction_commit_recovered (<em class="parameter"><code><a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> *xa_trans</code></em>,
+                                     <em class="parameter"><code><a href="../../glib/stable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> **cnc_to_recover</code></em>,
+                                     <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Tries to commit the data prepared but which failed to commit (see <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-commit" title="gda_xa_transaction_commit ()"><code class="function">gda_xa_transaction_commit()</code></a>). This
+method allows one to terminate a distributed transaction which succeeded but for which some
+connections needed to be recovered.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-commit-recovered.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>xa_trans</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html" title="GdaXaTransaction"><span class="type">GdaXaTransaction</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>cnc_to_recover</p></td>
+<td class="parameter_description"><p>a place to store the list of connections for which the there were data to recover and which failed to be actually committed, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Gda.Connection][<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out callee-allocates</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-commit-recovered.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if all the data which was still uncommitted has been committed</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-id-to-string"></a><h3>gda_xa_transaction_id_to_string ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gda_xa_transaction_id_to_string (<em class="parameter"><code>const <a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="type">GdaXaTransactionId</span></a> *xid</code></em>);</pre>
+<p>Creates a string representation of <em class="parameter"><code>xid</code></em>
+, in the format &lt;gtrid&gt;,&lt;bqual&gt;,&lt;formatID&gt; the 
+&lt;gtrid&gt; and &lt;bqual&gt; strings contain alphanumeric characters, and non alphanumeric characters
+are converted to "<code class="literal">ab</code>" where ab is the hexadecimal representation of the character.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-id-to-string.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>xid</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="type">GdaXaTransactionId</span></a> pointer</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-id-to-string.returns"></a><h4>Returns</h4>
+<p>a new string representation of <em class="parameter"><code>xid</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-xa-transaction-string-to-id"></a><h3>gda_xa_transaction_string_to_id ()</h3>
+<pre class="programlisting"><a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="returnvalue">GdaXaTransactionId</span></a> *
+gda_xa_transaction_string_to_id (<em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *str</code></em>);</pre>
+<p>Creates a new <a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="type">GdaXaTransactionId</span></a> structure from its string representation, it's the opposite
+of <a class="link" href="GdaXaTransaction.html#gda-xa-transaction-id-to-string" title="gda_xa_transaction_id_to_string ()"><code class="function">gda_xa_transaction_id_to_string()</code></a>.</p>
+<div class="refsect3">
+<a name="gda-xa-transaction-string-to-id.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>str</p></td>
+<td class="parameter_description"><p>a string representation of a <a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="type">GdaXaTransactionId</span></a>, in the "gtrid,bqual,formatID" format</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-xa-transaction-string-to-id.returns"></a><h4>Returns</h4>
+<p> a new <a class="link" href="GdaXaTransaction.html#GdaXaTransactionId"><span class="type">GdaXaTransactionId</span></a> structure, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> in <em class="parameter"><code>str</code></em>
+has a wrong format</p>
+<p>Free-function: g_free</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GDA-XA-TRANSACTION-ERROR:CAPS"></a><h3>GDA_XA_TRANSACTION_ERROR</h3>
+<pre class="programlisting">#define GDA_XA_TRANSACTION_ERROR gda_xa_transaction_error_quark ()
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaXaTransactionError"></a><h3>enum GdaXaTransactionError</h3>
+<div class="refsect3">
+<a name="GdaXaTransactionError.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-XA-TRANSACTION-ALREADY-REGISTERED-ERROR:CAPS"></a>GDA_XA_TRANSACTION_ALREADY_REGISTERED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-XA-TRANSACTION-DTP-NOT-SUPPORTED-ERROR:CAPS"></a>GDA_XA_TRANSACTION_DTP_NOT_SUPPORTED_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GDA-XA-TRANSACTION-CONNECTION-BRANCH-LENGTH-ERROR:CAPS"></a>GDA_XA_TRANSACTION_CONNECTION_BRANCH_LENGTH_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaXaTransactionId-struct"></a><h3>struct GdaXaTransactionId</h3>
+<pre class="programlisting">struct GdaXaTransactionId {
+	guint32  format;
+	gushort  gtrid_length;
+	gushort  bqual_length;
+	char     data [128];
+};
+</pre>
+<div class="refsect3">
+<a name="GdaXaTransactionId.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="struct_members_name" width="300px"></col>
+<col class="struct_members_description"></col>
+<col class="struct_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><a href="../../glib/stable/glib-Basic-Types.html#guint32"><span class="type">guint32</span></a> <em class="structfield"><code><a name="GdaXaTransactionId-struct.format"></a>format</code></em>;</p></td>
+<td class="struct_member_description"><p>any number</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a href="../../glib/stable/glib-Basic-Types.html#gushort"><span class="type">gushort</span></a> <em class="structfield"><code><a name="GdaXaTransactionId-struct.gtrid-length"></a>gtrid_length</code></em>;</p></td>
+<td class="struct_member_description"><p>number between 1 and 64</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a href="../../glib/stable/glib-Basic-Types.html#gushort"><span class="type">gushort</span></a> <em class="structfield"><code><a name="GdaXaTransactionId-struct.bqual-length"></a>bqual_length</code></em>;</p></td>
+<td class="struct_member_description"><p>number between 1 and 64</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><span class="type">char</span> <em class="structfield"><code><a name="GdaXaTransactionId-struct.data"></a>data</code></em>[128];</p></td>
+<td class="struct_member_description"> </td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaXaTransaction.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GdaXaTransaction--format-id"></a><h3>The <code class="literal">“format-id”</code> property</h3>
+<pre class="programlisting">  “format-id”                <a href="../../glib/stable/glib-Basic-Types.html#guint"><span class="type">guint</span></a></pre>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: 1</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaXaTransaction--transaction-id"></a><h3>The <code class="literal">“transaction-id”</code> property</h3>
+<pre class="programlisting">  “transaction-id”           <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *</pre>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.27</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdaXaTransaction.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

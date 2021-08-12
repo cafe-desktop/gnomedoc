@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GdaVconnectionDataModel: GNU Data Access Reference Manual</title><link href="index.html" rel="home" title="GNU Data Access Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="libgda-6.0-A-single-Value.html" rel="prev" title="A single Value"></link><link href="libgda-6.0-gda-vconnection-data-model-private.html" rel="next" title="gda-vconnection-data-model-private"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdaVconnectionDataModel.html#container">Go to page content</a></li><li><a href="GdaVconnectionDataModel.html#top_bar">Go to main menu</a></li><li><a href="GdaVconnectionDataModel.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdaVconnectionDataModel.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaVconnectionDataModel.html#GdaVconnectionDataModel.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaVconnectionDataModel.html#GdaVconnectionDataModel.object-hierarchy">Object Hierarchy</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaVconnectionDataModel.html#GdaVconnectionDataModel.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libgda-6.0-A-single-Value.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libgda-6.0-gda-vconnection-data-model-private.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdaVconnectionDataModel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdaVconnectionDataModel.top_of_page"></a>GdaVconnectionDataModel</span></h2>
+<p>GdaVconnectionDataModel — Virtual connection based on a list of GdaDataModel</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to develop applications to these interfaces, release them, and have confidence that they will run on all minor releases of the product (after the one in which the interface was introduced, and within the same major release). Even at a major release, incompatible changes are expected to be rare, and to have strong justifications. "><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateColumnsFunc" title="GdaVconnectionDataModelCreateColumnsFunc ()">*GdaVconnectionDataModelCreateColumnsFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateModelFunc" title="GdaVconnectionDataModelCreateModelFunc ()">*GdaVconnectionDataModelCreateModelFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFunc" title="GdaVconnectionDataModelFunc ()">*GdaVconnectionDataModelFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelParseFilterFunc" title="GdaVconnectionDataModelParseFilterFunc ()">*GdaVconnectionDataModelParseFilterFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+</td>
+<td class="function_name">
+<span class="c_punctuation">(</span><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateFModelFunc" title="GdaVconnectionDataModelCreateFModelFunc ()">*GdaVconnectionDataModelCreateFModelFunc</a><span class="c_punctuation">)</span> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#GDA-VCONNECTION-DATA-MODEL-SPEC:CAPS" title="GDA_VCONNECTION_DATA_MODEL_SPEC()">GDA_VCONNECTION_DATA_MODEL_SPEC</a><span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add" title="gda_vconnection_data_model_add ()">gda_vconnection_data_model_add</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add-model" title="gda_vconnection_data_model_add_model ()">gda_vconnection_data_model_add_model</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-remove" title="gda_vconnection_data_model_remove ()">gda_vconnection_data_model_remove</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="returnvalue">GdaVconnectionDataModelSpec</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-get" title="gda_vconnection_data_model_get ()">gda_vconnection_data_model_get</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-get-table-name" title="gda_vconnection_data_model_get_table_name ()">gda_vconnection_data_model_get_table_name</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-get-model" title="gda_vconnection_data_model_get_model ()">gda_vconnection_data_model_get_model</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-foreach" title="gda_vconnection_data_model_foreach ()">gda_vconnection_data_model_foreach</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModel-vtable-created" title="The “vtable-created” signal">vtable-created</a></td>
+<td class="signal_flags"><a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+</tr>
+<tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModel-vtable-dropped" title="The “vtable-dropped” signal">vtable-dropped</a></td>
+<td class="signal_flags"><a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter">GdaVconnectionDataModelFilter</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">struct</td>
+<td class="function_name"><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec">GdaVconnectionDataModelSpec</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/stable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> <a class="link" href="GdaConnection.html" title="GdaConnection">GdaConnection</a>
+        <span class="lineart">╰──</span> <a class="link" href="GdaVirtualConnection.html" title="GdaVirtualConnection">GdaVirtualConnection</a>
+            <span class="lineart">╰──</span> GdaVconnectionDataModel
+                <span class="lineart">├──</span> <a class="link" href="libgda-6.0-GdaLdap.html#GdaLdapConnection">GdaLdapConnection</a>
+                <span class="lineart">╰──</span> <a class="link" href="GdaVconnectionHub.html" title="GdaVconnectionHub">GdaVconnectionHub</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.description"></a><h2>Description</h2>
+<p>The <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> is a virtual connection in which <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> data models can be added
+or removed, each representing a table in the connection, the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add-model" title="gda_vconnection_data_model_add_model ()"><code class="function">gda_vconnection_data_model_add_model()</code></a>
+and <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-remove" title="gda_vconnection_data_model_remove ()"><code class="function">gda_vconnection_data_model_remove()</code></a> methods.</p>
+<p>Furthermore it is possible to declare tables without any associated data model yet,
+the real data model being automatically created when the
+table's data is needed. This allows more dynamic table's contents and filtering optimizations.
+See the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add" title="gda_vconnection_data_model_add ()"><code class="function">gda_vconnection_data_model_add()</code></a> and <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-remove" title="gda_vconnection_data_model_remove ()"><code class="function">gda_vconnection_data_model_remove()</code></a> methods. The
+filtering optimizations are based on SQLite's virtual table optimisations see</p>
+<a class="ulink" href="http://www.sqlite.org/cvstrac/wiki?p=VirtualTableBestIndexMethod" target="_top">SQLite's documentation</a><p>for some background information.</p>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelCreateColumnsFunc"></a><h3>GdaVconnectionDataModelCreateColumnsFunc ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Doubly-Linked-Lists.html#GList"><span class="returnvalue">GList</span></a> *
+<span class="c_punctuation">(</span>*GdaVconnectionDataModelCreateColumnsFunc<span class="c_punctuation">)</span>
+                               (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> *Param1</code></em>,
+                                <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **Param2</code></em>);</pre>
+<p>Function called to create the virtual table's columns, as <a class="link" href="GdaColumn.html" title="GdaDataModel columns"><span class="type">GdaColumn</span></a> objects.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateColumnsFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>Param1</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> structure</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param2</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateColumnsFunc.returns"></a><h4>Returns</h4>
+<p>a new list of <a class="link" href="GdaColumn.html" title="GdaDataModel columns"><span class="type">GdaColumn</span></a> objects. </p>
+<p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdaColumn][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelCreateModelFunc"></a><h3>GdaVconnectionDataModelCreateModelFunc ()</h3>
+<pre class="programlisting"><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+<span class="c_punctuation">(</span>*GdaVconnectionDataModelCreateModelFunc<span class="c_punctuation">)</span>
+                               (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> *Param1</code></em>);</pre>
+<p>Function called to create a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> object, called when a virtual table's data need to
+be accessed, and when optimization is not handled.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateModelFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>Param1</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> structure</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateModelFunc.returns"></a><h4>Returns</h4>
+<p>a new <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelFunc"></a><h3>GdaVconnectionDataModelFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*GdaVconnectionDataModelFunc<span class="c_punctuation">)</span> (<em class="parameter"><code><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> *Param1</code></em>,
+                                <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *Param2</code></em>,
+                                <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> Param3</code></em>);</pre>
+<p>This function is called for every <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> representing a table in a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a>
+connection, when using the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-foreach" title="gda_vconnection_data_model_foreach ()"><code class="function">gda_vconnection_data_model_foreach()</code></a> method.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>Param1</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param2</p></td>
+<td class="parameter_description"><p>the name of the table represented by <em class="parameter"><code>Param1</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param3</p></td>
+<td class="parameter_description"><p>a data pointer, passed as last ergument to <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-foreach" title="gda_vconnection_data_model_foreach ()"><code class="function">gda_vconnection_data_model_foreach()</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelParseFilterFunc"></a><h3>GdaVconnectionDataModelParseFilterFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+<span class="c_punctuation">(</span>*GdaVconnectionDataModelParseFilterFunc<span class="c_punctuation">)</span>
+                               (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> *Param1</code></em>,
+                                <em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter"><span class="type">GdaVconnectionDataModelFilter</span></a> *Param2</code></em>);</pre>
+<p>This function actually analyses the proposed optimization and modified <em class="parameter"><code>Param2</code></em>
+ to tell the database
+engine how (if applicable) it implements the optimization.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelParseFilterFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>Param1</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> structure</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param2</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter"><span class="type">GdaVconnectionDataModelFilter</span></a> structure</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelCreateFModelFunc"></a><h3>GdaVconnectionDataModelCreateFModelFunc ()</h3>
+<pre class="programlisting"><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+<span class="c_punctuation">(</span>*GdaVconnectionDataModelCreateFModelFunc<span class="c_punctuation">)</span>
+                               (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> *Param1</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> Param2</code></em>,
+                                <em class="parameter"><code>const <span class="type">char</span> *Param3</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> Param4</code></em>,
+                                <em class="parameter"><code><a href="../../gobject/stable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> **Param5</code></em>);</pre>
+<p>Function called to create a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> object, called when a virtual table's data need to
+be accessed, and when optimization is handled.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateFModelFunc.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>Param1</p></td>
+<td class="parameter_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> structure</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param2</p></td>
+<td class="parameter_description"><p>the index number chosen to actually execute the optimization (from <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter"><span class="type">GdaVconnectionDataModelFilter</span></a>'s <span class="type">idxNum</span> attribute)</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param3</p></td>
+<td class="parameter_description"><p>corresponds to the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter"><span class="type">GdaVconnectionDataModelFilter</span></a>'s <span class="type">idxPointer</span> attribute</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param4</p></td>
+<td class="parameter_description"><p>size of <em class="parameter"><code>Param5</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>Param5</p></td>
+<td class="parameter_description"><p>an array of <a href="../../gobject/stable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>, as specified by the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFilter" title="struct GdaVconnectionDataModelFilter"><span class="type">GdaVconnectionDataModelFilter</span></a>'s <span class="type">aConstraintUsage</span>'s <span class="type">argvIndex</span> value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelCreateFModelFunc.returns"></a><h4>Returns</h4>
+<p>a new <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GDA-VCONNECTION-DATA-MODEL-SPEC:CAPS"></a><h3>GDA_VCONNECTION_DATA_MODEL_SPEC()</h3>
+<pre class="programlisting">#define GDA_VCONNECTION_DATA_MODEL_SPEC(x) ((GdaVconnectionDataModelSpec*)(x))
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-add"></a><h3>gda_vconnection_data_model_add ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_vconnection_data_model_add (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                <em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> *spec</code></em>,
+                                <em class="parameter"><code><a href="../../glib/stable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> spec_free_func</code></em>,
+                                <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *table_name</code></em>,
+                                <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Create a new virtual table named <em class="parameter"><code>table_name</code></em>
+ in <em class="parameter"><code>cnc</code></em>
+. The contents of that new table
+is dictated by what's in <em class="parameter"><code>spec</code></em>
+.</p>
+<p>If there is just one <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> to make appear as a table
+then the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add-model" title="gda_vconnection_data_model_add_model ()"><code class="function">gda_vconnection_data_model_add_model()</code></a> method is easier to use.</p>
+<p>The <em class="parameter"><code>spec_free_func</code></em>
+ can (depending on your code) be used to clean memory allocated for <em class="parameter"><code>spec</code></em>
+ or
+<em class="parameter"><code>spec-&gt;data_model</code></em>
+.</p>
+<p>If an error occurs, then the <em class="parameter"><code>spec_free_func</code></em>
+ function is called using <em class="parameter"><code>spec</code></em>
+ as argument.</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-add.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spec</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> structure, used AS IS (not copied) and can be modified</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spec_free_func</p></td>
+<td class="parameter_description"><p>function to call when freeing <em class="parameter"><code>spec</code></em>
+, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>table_name</p></td>
+<td class="parameter_description"><p>the name of the table</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-add.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-add-model"></a><h3>gda_vconnection_data_model_add_model ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_vconnection_data_model_add_model (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                      <em class="parameter"><code><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> *model</code></em>,
+                                      <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *table_name</code></em>,
+                                      <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Make <em class="parameter"><code>model</code></em>
+ appear as a table named <em class="parameter"><code>table_name</code></em>
+ in the <em class="parameter"><code>cnc</code></em>
+ connection (as if a
+"CREATE TABLE..." statement was executed, except that the data contained within <em class="parameter"><code>model</code></em>
+
+is actually used when <em class="parameter"><code>table_name</code></em>
+'s contents is read or written).</p>
+<p>For a more general approach, see the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add" title="gda_vconnection_data_model_add ()"><code class="function">gda_vconnection_data_model_add()</code></a> method.</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-add-model.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>model</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>table_name</p></td>
+<td class="parameter_description"><p>the name of the table</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-add-model.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-remove"></a><h3>gda_vconnection_data_model_remove ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_vconnection_data_model_remove (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                   <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *table_name</code></em>,
+                                   <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Remove the table named <em class="parameter"><code>table_name</code></em>
+ in the <em class="parameter"><code>cnc</code></em>
+ connection (as if a "DROP TABLE..."
+statement was executed, except that no data gets destroyed as the associated data model remains the same).</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-remove.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>table_name</p></td>
+<td class="parameter_description"><p>the name of the table to remove from <em class="parameter"><code>cnc</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-remove.returns"></a><h4>Returns</h4>
+<p> <a href="../../glib/stable/glib-Standard-Macros.html#TRUE:CAPS"><code class="literal">TRUE</code></a> if no error occurred</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-get"></a><h3>gda_vconnection_data_model_get ()</h3>
+<pre class="programlisting"><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="returnvalue">GdaVconnectionDataModelSpec</span></a> *
+gda_vconnection_data_model_get (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *table_name</code></em>);</pre>
+<p>Find the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> specifying how the table named <em class="parameter"><code>table_name</code></em>
+ is represented
+in <em class="parameter"><code>cnc</code></em>
+.</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>table_name</p></td>
+<td class="parameter_description"><p>a table name within <em class="parameter"><code>cnc</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get.returns"></a><h4>Returns</h4>
+<p>a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> pointer, of <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if there is no table named <em class="parameter"><code>table_name</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="api-index-4-2-6.html#api-index-4.2.6">4.2.6</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-get-table-name"></a><h3>gda_vconnection_data_model_get_table_name ()</h3>
+<pre class="programlisting">const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gda_vconnection_data_model_get_table_name
+                               (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                <em class="parameter"><code><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> *model</code></em>);</pre>
+<p>Find the name of the table associated to <em class="parameter"><code>model</code></em>
+ in <em class="parameter"><code>cnc</code></em>
+</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get-table-name.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>model</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> representing a table within <em class="parameter"><code>cnc</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get-table-name.returns"></a><h4>Returns</h4>
+<p>the table name, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> if not found. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-get-model"></a><h3>gda_vconnection_data_model_get_model ()</h3>
+<pre class="programlisting"><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="returnvalue">GdaDataModel</span></a> *
+gda_vconnection_data_model_get_model (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                      <em class="parameter"><code>const <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *table_name</code></em>);</pre>
+<p>Find the <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> object representing the <em class="parameter"><code>table_name</code></em>
+ table in <em class="parameter"><code>cnc</code></em>
+. it can return <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>
+either if no table named <em class="parameter"><code>table_name</code></em>
+ exists, or if that table actually exists but no <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>
+has yet been created. For a more general approach, use the <a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-get" title="gda_vconnection_data_model_get ()"><code class="function">gda_vconnection_data_model_get()</code></a>.</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get-model.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>table_name</p></td>
+<td class="parameter_description"><p>a table name within <em class="parameter"><code>cnc</code></em>
+</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-get-model.returns"></a><h4>Returns</h4>
+<p>the <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-vconnection-data-model-foreach"></a><h3>gda_vconnection_data_model_foreach ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_vconnection_data_model_foreach (<em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc</code></em>,
+                                    <em class="parameter"><code><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFunc" title="GdaVconnectionDataModelFunc ()"><span class="type">GdaVconnectionDataModelFunc</span></a> func</code></em>,
+                                    <em class="parameter"><code><a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>);</pre>
+<p>Call <em class="parameter"><code>func</code></em>
+ for each table in <em class="parameter"><code>cnc</code></em>
+. </p>
+<p>Warning: <em class="parameter"><code>func</code></em>
+ will be called for any table present in <em class="parameter"><code>cnc</code></em>
+ even if no data
+model represents the contents of the table (which means the 1st argument of <em class="parameter"><code>func</code></em>
+
+may be <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>)</p>
+<div class="refsect3">
+<a name="gda-vconnection-data-model-foreach.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>func</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelFunc" title="GdaVconnectionDataModelFunc ()"><span class="type">GdaVconnectionDataModelFunc</span></a> function pointer</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>data</p></td>
+<td class="parameter_description"><p>data to pass to <em class="parameter"><code>func</code></em>
+calls</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelFilter"></a><h3>struct GdaVconnectionDataModelFilter</h3>
+<pre class="programlisting">struct GdaVconnectionDataModelFilter {
+	/* Inputs */
+	int nConstraint; /* Number of entries in aConstraint */
+	struct GdaVirtualConstraint {
+		int iColumn;       /* Column on left-hand side of constraint */
+		GdaSqlOperatorType op;  /* Constraint operator, among _EQ, _LT, _LEQ, _GT, _GEQ, _REGEXP */
+	} *aConstraint;            /* Table of WHERE clause constraints */
+	int nOrderBy;              /* Number of terms in the ORDER BY clause */
+	struct GdaVirtualOrderby {
+		int iColumn;       /* Column number */
+		gboolean desc;     /* TRUE for DESC.  FALSE for ASC. */
+	} *aOrderBy;               /* The ORDER BY clause */
+
+	/* Outputs */
+	struct GdaVirtualConstraintUsage {
+		int argvIndex;     /* if &gt;0, constraint is part of argv to xFilter */
+		gboolean omit;     /* Do not code a test for this constraint if TRUE */
+	} *aConstraintUsage;
+	int idxNum;                /* Number used to identify the index */
+	gpointer idxPointer;       /* Pointer used to identify the index */
+	gboolean orderByConsumed;  /* TRUE if output is already ordered */
+	double estimatedCost;      /* Estimated cost of using this index */
+};
+</pre>
+<p>This structure contains data which should be analysed to produce a data model (used as data 
+for a virtual table) when a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateFModelFunc" title="GdaVconnectionDataModelCreateFModelFunc ()"><span class="type">GdaVconnectionDataModelCreateFModelFunc</span></a> is called. The structure
+contains an input part (which should not be modified) and and output part (it is
+closely mapped with SQLite's sqlite3_index_info type).</p>
+<p>A pointer to this structure is passed to the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelParseFilterFunc" title="GdaVconnectionDataModelParseFilterFunc ()"><span class="type">GdaVconnectionDataModelParseFilterFunc</span></a> function
+and the function has to modify the variables in the output part (marked as *Outputs*).</p>
+<p>The <em class="parameter"><code>idxNum</code></em>
+ and <em class="parameter"><code>idxPointer</code></em>
+ are passed to the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateFModelFunc" title="GdaVconnectionDataModelCreateFModelFunc ()"><span class="type">GdaVconnectionDataModelCreateFModelFunc</span></a> function call
+and they represent nothing specific except that the GdaVconnectionDataModelParseFilterFunc and
+GdaVconnectionDataModelCreateFModelFunc functions need to agree on their meaning.</p>
+<p>See the gda-vconnection-hub.c file for an usage example.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModelSpec"></a><h3>struct GdaVconnectionDataModelSpec</h3>
+<pre class="programlisting">struct GdaVconnectionDataModelSpec {
+	GdaDataModel                             *data_model;
+	GdaVconnectionDataModelCreateColumnsFunc  create_columns_func;
+	GdaVconnectionDataModelCreateModelFunc    create_model_func;
+
+	GdaVconnectionDataModelParseFilterFunc    create_filter_func;
+	GdaVconnectionDataModelCreateFModelFunc   create_filtered_model_func;
+};
+</pre>
+<p>This structure holds all the information supplied to declare a virtual table using
+<a class="link" href="GdaVconnectionDataModel.html#gda-vconnection-data-model-add" title="gda_vconnection_data_model_add ()"><code class="function">gda_vconnection_data_model_add()</code></a>. You don't need to provider pointers for all the functions and
+for <em class="parameter"><code>data_model</code></em>
+, but the following rules have to be respected:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p><em class="parameter"><code>data_model</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and all the function pointers are <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>: this is the situation
+  when the virtual table's contents is defined once by <em class="parameter"><code>data_model</code></em></p></li>
+<li class="listitem">
+<p><em class="parameter"><code>data_model</code></em> is <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a> and <em class="parameter"><code>create_columns_func</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>:
+    </p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; ">
+<li class="listitem"><p><em class="parameter"><code>create_filtered_model_func</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>: this is the situation where the
+                       virtual table's associated data model handles filter optimizations.
+                       <em class="parameter"><code>create_model_func</code></em> is ignored in this case.
+       </p></li>
+<li class="listitem"><p><em class="parameter"><code>create_model_func</code></em> is not <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>: this is the situation where the
+                       virtual table's associated data model does not handle filter optimizations
+       </p></li>
+</ul></div>
+<p>
+ </p>
+</li>
+</ul></div>
+<p>Note that if specifying a <em class="parameter"><code>create_filtered_model_func</code></em>
+, you should also specifiy a <em class="parameter"><code>create_filter_func</code></em>
+
+function which is actually responsible for analysing the optimization.</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModelSpec.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="struct_members_name" width="300px"></col>
+<col class="struct_members_description"></col>
+<col class="struct_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a> *<em class="structfield"><code><a name="GdaVconnectionDataModelSpec.data-model"></a>data_model</code></em>;</p></td>
+<td class="struct_member_description"><p>a <a class="link" href="GdaDataModel.html" title="GdaDataModel"><span class="type">GdaDataModel</span></a>, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateColumnsFunc" title="GdaVconnectionDataModelCreateColumnsFunc ()"><span class="type">GdaVconnectionDataModelCreateColumnsFunc</span></a> <em class="structfield"><code><a name="GdaVconnectionDataModelSpec.create-columns-func"></a>create_columns_func</code></em>;</p></td>
+<td class="struct_member_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateColumnsFunc" title="GdaVconnectionDataModelCreateColumnsFunc ()"><span class="type">GdaVconnectionDataModelCreateColumnsFunc</span></a> function, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateModelFunc" title="GdaVconnectionDataModelCreateModelFunc ()"><span class="type">GdaVconnectionDataModelCreateModelFunc</span></a> <em class="structfield"><code><a name="GdaVconnectionDataModelSpec.create-model-func"></a>create_model_func</code></em>;</p></td>
+<td class="struct_member_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateModelFunc" title="GdaVconnectionDataModelCreateModelFunc ()"><span class="type">GdaVconnectionDataModelCreateModelFunc</span></a> function, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelParseFilterFunc" title="GdaVconnectionDataModelParseFilterFunc ()"><span class="type">GdaVconnectionDataModelParseFilterFunc</span></a> <em class="structfield"><code><a name="GdaVconnectionDataModelSpec.create-filter-func"></a>create_filter_func</code></em>;</p></td>
+<td class="struct_member_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelParseFilterFunc" title="GdaVconnectionDataModelParseFilterFunc ()"><span class="type">GdaVconnectionDataModelParseFilterFunc</span></a> function, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateFModelFunc" title="GdaVconnectionDataModelCreateFModelFunc ()"><span class="type">GdaVconnectionDataModelCreateFModelFunc</span></a> <em class="structfield"><code><a name="GdaVconnectionDataModelSpec.create-filtered-model-func"></a>create_filtered_model_func</code></em>;</p></td>
+<td class="struct_member_description"><p>a pointer to a <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelCreateFModelFunc" title="GdaVconnectionDataModelCreateFModelFunc ()"><span class="type">GdaVconnectionDataModelCreateFModelFunc</span></a> function, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="struct_member_annotations"><span class="annotation">[<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GdaVconnectionDataModel-vtable-created"></a><h3>The <code class="literal">“vtable-created”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc,
+               <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>                   *spec,
+               <a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                 user_data)</pre>
+<p>Signal emitted when a new virtual table has been declared</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModel-vtable-created.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spec</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> for the new virtual table</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaVconnectionDataModel-vtable-dropped"></a><h3>The <code class="literal">“vtable-dropped”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> *cnc,
+               <a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>                   *spec,
+               <a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>                 user_data)</pre>
+<p>Signal emitted when a new virtual table has been undeclared</p>
+<div class="refsect3">
+<a name="GdaVconnectionDataModel-vtable-dropped.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>cnc</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdaVconnectionDataModel.html" title="GdaVconnectionDataModel"><span class="type">GdaVconnectionDataModel</span></a> connection</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>spec</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdaVconnectionDataModel.html#GdaVconnectionDataModelSpec" title="struct GdaVconnectionDataModelSpec"><span class="type">GdaVconnectionDataModelSpec</span></a> for the new virtual table</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">Run Last</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaVconnectionDataModel.see-also"></a><h2>See Also</h2>
+<p>The <a class="link" href="GdaVproviderDataModel.html" title="GdaVproviderDataModel"><span class="type">GdaVproviderDataModel</span></a> provider to use to create such connection objects.</p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.27</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdaVconnectionDataModel.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,1507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module Set File Syntax</title>
+<link rel="previous" href="config-reference.html.en.html" title="Configuration File Reference">
+<link rel="top" href="index.html.en.html" title="JHBuild Manual">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/jhbuild/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="moduleset-syntax.html.en.html#container">Go to page content</a></li>
+<li><a href="moduleset-syntax.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="moduleset-syntax.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division section">
+<a name="moduleset-syntax"><!--moduleset-syntax--></a><div class="header"><h1 class="section title"><span class="title">Module Set File Syntax</span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a></li></ul>
+<p class="para block block-first">JHBuild uses XML files to describe the dependencies between modules.
+      A RELAX-NG schema and Document Type Definition are included with JHBuild
+      in the <span class="filename" dir="ltr">modulesets/</span> directory. The RELAX-NG schema can
+      be used to edit module set files using <span class="literal" dir="ltr">nxml-mode</span> in
+      Emacs.</p>
+<p class="para block">The top-level element in a module set file is
+      <span class="sgmltag sgmltag-element" dir="ltr">moduleset</span> element. No XML namespace is
+      used. The elements below the top-level come in three types: module
+      sources, include statements and module definitions.</p>
+<p class="para block">Content in the moduleset file can be conditionally included by use of the &lt;if&gt; tag to surround the
+      conditional content.  It is currently only possible to predicate the inclusion on whether a particular
+      condition flag is set or not, using &lt;if condition-set='cond'&gt; or &lt;if condition-unset='cond'&gt;.
+      Conditions are set by default on a per-OS basis but can be influenced by way of the
+      <span class="varname" dir="ltr">conditions</span> variable in jhbuildrc or the <span class="command" dir="ltr">--conditions=</span> commandline
+      argument.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">6.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources" title="Module Sources">Module Sources</a>
+</li>
+<li>
+<span class="label">6.2. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-includes" title="Including Other Module Sets">Including Other Module Sets</a>
+</li>
+<li>
+<span class="label">6.3. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs" title="Module Definitions">Module Definitions</a>
+</li>
+<li>
+<span class="label">6.4. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-deprecated-elements" title="Deprecated Elements">Deprecated Elements</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="moduleset-syntax-sources"><!--moduleset-syntax-sources--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">6.1. </span>Module Sources</span></h2></div>
+<p class="para block block-first">Rather than listing the full location of every module, a number of
+        "module sources" are listed in the module set, and then referenced by
+        name in the module definitions. As well as reducing the amount of
+        redundant information in the module set, it makes it easy for a user to
+        specify an alternative source for those modules (for CVS and Subversion,
+        it is common for developers and users to use different repository access
+        methods).</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">repository</span> element is used
+        to describe all types of repository. The
+        <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element is used inside module
+        definition to specify additional settings.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository name="<span class="replaceable">name</span>"
+  type="<span class="replaceable">type</span>"
+  [ default="<span class="replaceable">default</span>" ]
+  [ password="<span class="replaceable">password</span>" ]
+  [ cvsroot="<span class="replaceable">cvsroot</span>" ]
+  [ archive="<span class="replaceable">archive</span>" ]
+  [ href="<span class="replaceable">href</span>" ]
+  [ server="<span class="replaceable">server</span>" ]
+  [ database="<span class="replaceable">database</span>" ]
+  [ defbranch="<span class="replaceable">defbranch</span>" ]
+  [ trunk-template="<span class="replaceable">trunk-template</span>" ]
+  [ branches-template="<span class="replaceable">branches-template</span>" ]
+  [ tags-template="<span class="replaceable">tags-template</span>" ]
+  [ developer-href-example="<span class="replaceable">developer-href-example</span>" ] /&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">name</span> attribute is a
+        unique identifier for the repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">default</span> attribute
+        specifies whether this repository is the default source for this module
+        set.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">type</span> attribute specifies
+        the type of repository. It can be one of: <span class="literal" dir="ltr">bzr</span>,
+        <span class="literal" dir="ltr">cvs</span>, <span class="literal" dir="ltr">darcs</span>,
+        <span class="literal" dir="ltr">fossil</span>, <span class="literal" dir="ltr">git</span>,
+        <span class="literal" dir="ltr">hg</span>, <span class="literal" dir="ltr">mnt</span>, <span class="literal" dir="ltr">svn</span>,
+        <span class="literal" dir="ltr">tarball</span>. Other attributes depend on the
+        <span class="sgmltag sgmltag-attribute" dir="ltr">type</span>, as well as the
+        <span class="sgmltag sgmltag-element" dir="ltr">branch</span> used inside module
+        definitions. Those are described below in the repository type
+        sub-sections.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">developer-href-example</span>
+        attribute is used to specify the format of the URL for the repository
+        used by developers. This is informational only.</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element is used
+        inside module definitions.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch
+  [ repo="<span class="replaceable">repository</span>" ]
+  [ module="<span class="replaceable">module name</span>" ]
+  [ checkoutdir="<span class="replaceable">checkoutdir</span>" ]
+  [ revision="<span class="replaceable">revision</span>" ]
+  [ tag="<span class="replaceable">tag</span>" ]
+  [ update-new-dirs="<span class="replaceable">update-new-dirs</span>" ]
+  [ override-checkoutdir="<span class="replaceable">override-checkoutdir</span>" ]
+  [ subdir="<span class="replaceable">subdir</span>" ]
+  [ branch="<span class="replaceable">branch</span>" ]
+  [ version="<span class="replaceable">version</span>" ]
+  [ size="<span class="replaceable">size</span>" ]
+  [ source-subdir="<span class="replaceable">source-subdir</span>" ]
+  [ hash="<span class="replaceable">hash</span>" ]/&gt;
+</pre></div>
+<p class="para block">All attributes have sensible defaults and depend on the module and
+        repository definitions. Common attributes are described here.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">repo</span> attribute is used to
+        specify non-default repository name.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">module</span> attribute is used
+        to specify module name to checkout from the repository. Defaults to
+        module id.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">checkoutdir</span> attribute is
+        used to specify the checkout directory name. Defaults to module id.
+      </p>
+<p class="para block">Other attributes are described below</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">6.1.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-bzr" title="Bazaar">Bazaar</a>
+</li>
+<li>
+<span class="label">6.1.2. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-cvs" title="CVS">CVS</a>
+</li>
+<li>
+<span class="label">6.1.3. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-darcs" title="Darcs">Darcs</a>
+</li>
+<li>
+<span class="label">6.1.4. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-git" title="Git">Git</a>
+</li>
+<li>
+<span class="label">6.1.5. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-hg" title="Mercurial">Mercurial</a>
+</li>
+<li>
+<span class="label">6.1.6. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-mtn" title="Monotone">Monotone</a>
+</li>
+<li>
+<span class="label">6.1.7. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-svn" title="Subversion">Subversion</a>
+</li>
+<li>
+<span class="label">6.1.8. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-system" title="System">System</a>
+</li>
+<li>
+<span class="label">6.1.9. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-tarball" title="Tarballs">Tarballs</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="moduleset-syntax-sources-bzr"><!--moduleset-syntax-sources-bzr--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.1. </span>Bazaar</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Bazaar repository. It
+          is recommended to have Bazaar 1.16 or higher.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="bzr" name="launchpad.net"
+      href="lp:"/&gt;
+        </pre></div>
+<p class="para block">Additional attributes are:
+          <span class="sgmltag sgmltag-attribute" dir="ltr">trunk-template</span> (defaults to
+          <span class="literal" dir="ltr">"%(module)s"</span>) and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">branches-template</span> (defaults to
+          <span class="literal" dir="ltr">"%(module)s/%(branch)s</span>"). These attributes are used
+          to specify templates for constructing URL. A
+          <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element in the module
+          definitions can specify <span class="sgmltag sgmltag-attribute" dir="ltr">branch</span>
+          and <span class="sgmltag sgmltag-attribute" dir="ltr">user</span> attributes. These values
+          will be substituted in the templates. If either of those are defined
+          <span class="sgmltag sgmltag-attribute" dir="ltr">branches-template</span> is used,
+          otherwise <span class="sgmltag sgmltag-attribute" dir="ltr">trunk-template</span> is used.
+          This way you can override repository to build modules from your
+          personal branch or build many modules from a repository with
+          non-standard layout.</p>
+<p class="para block">An addition <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element
+          accepts <span class="sgmltag sgmltag-attribute" dir="ltr">revspec</span> attribute to
+          anchor on a particular revision. Any valid <span class="literal" dir="ltr">bzr
+          revspec</span> is accepted, for example <span class="literal" dir="ltr">date:yesterday,
+          -5, tag:0.1</span> to get first revision since yesterday, 5 commits
+          behind the tip or tag "0.1". See <span class="literal" dir="ltr">bzr help
+          revisionspec</span> for all possible values.</p>
+<p class="para block">For example repository with
+          <span class="sgmltag sgmltag-attribute" dir="ltr">template</span> attributes defined:
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="bzr" name="launchpad.net"
+      href="lp:"
+      trunk-template="~bzr-pqm/%(module)s/bzr.dev"
+      branches-template="~bzr-pqm/%(module)s/%(branch)s"/&gt;
+        </pre></div>
+<p class="para block">Example <span class="sgmltag sgmltag-element" dir="ltr">branch</span> elements for
+          the above repository:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch repo="launchpad.net"
+      module="bzr"
+      checkoutdir="bzr-next"/&gt;
+        </pre></div>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch repo="launchpad.net"
+      module="bzr"
+      branch="2.2"
+      checkoutdir="bzr-beta"/&gt;
+        </pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-cvs"><!--moduleset-syntax-sources-cvs--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.2. </span>CVS</span></h3></div>
+<p class="para block block-first">This repository type is used to define a CVS repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">password</span> attribute is
+          used to specify the password to the repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">cvsroot</span> attribute is
+          used to specify the root of the repository.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="cvs" name="tango.freedesktop.org"
+    cvsroot=":pserver:anoncvs@anoncvs.freedesktop.org:/cvs/tango"
+    password=""/&gt;
+        </pre></div>
+<p class="para block">Additional attributes are:
+          <span class="sgmltag sgmltag-attribute" dir="ltr">revision</span>,
+          <span class="sgmltag sgmltag-attribute" dir="ltr">update-new-dirs</span> and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">override-checkoutdir</span>.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-darcs"><!--moduleset-syntax-sources-darcs--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.3. </span>Darcs</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Darcs repository.
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="darcs" name="telepathy.freedesktop.org"
+      href="http://projects.collabora.co.uk/darcs/telepathy/"/&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-git"><!--moduleset-syntax-sources-git--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.4. </span>Git</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Git repository.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="git" name="git.freedesktop.org"
+    href="git://anongit.freedesktop.org/git/"/&gt;
+        </pre></div>
+<p class="para block">It allows the following attributes on the
+          <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element:</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">revision</span> attribute is
+          used to specify a local or remote-tracking branch to switch to in the
+          update phase. It defaults to 'master'. It is possible to override this
+          attribute with the <span class="varname" dir="ltr">branches</span> configuration variable.
+          The switch will only be performed, if the current branch is tracking a
+          remote branch, to not disturb your own work.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">tag</span> attribute is used
+          to specify a revision to unconditionally check out in the update
+          phase. It overrides the <span class="sgmltag sgmltag-attribute" dir="ltr">revision</span>
+          attribute.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch repo="git.freedesktop.org" module="swfdec/swfdec"
+        checkoutdir="swfdec"
+        revision="<span class="replaceable">local-or-remote-branch</span>"
+        tag="<span class="replaceable">tree-ish</span>"/&gt;
+        </pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-hg"><!--moduleset-syntax-sources-hg--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.5. </span>Mercurial</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Mercurial repository.
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="hg" name="hg.gtk-vnc"
+    href="http://gtk-vnc.codemonkey.ws/hg/" /&gt;
+</pre></div>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch repo="hg.gtk-vnc" module="outgoing.hg" checkoutdir="gtk-vnc"/&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-mtn"><!--moduleset-syntax-sources-mtn--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.6. </span>Monotone</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Monotone repository.
+        </p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">server</span> attribute is
+          used to specify the repository server.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">database</span> attribute is
+          used to specify the database to use for the repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">defbranch</span> attribute is
+          used specify the branch of the repository to use.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="mtn" name="pidgin.im"
+    server="pidgin.im" database="pidgin.im.mtn"
+    defbranch="im.pidgin.pidgin"/&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-svn"><!--moduleset-syntax-sources-svn--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.7. </span>Subversion</span></h3></div>
+<p class="para block block-first">This repository type is used to define a Subversion repository.
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="svn" name="svn.gnome.org" default="yes"
+    href="http://svn.gnome.org/svn/"/&gt;
+        </pre></div>
+<p class="para block">It allows a <span class="sgmltag sgmltag-attribute" dir="ltr">revision</span> on the
+          <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element. This attribute
+          defines the branch to checkout or, if it is a number, a specific
+          revision to checkout.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch revision="gnome-2-20"/&gt;
+        </pre></div>
+<p class="para block">It is possible to specify custom <span class="literal" dir="ltr">svn</span> layout
+          using <span class="sgmltag sgmltag-attribute" dir="ltr">trunk-template</span> (defaults to
+          "%(module)s/trunk"),
+          <span class="sgmltag sgmltag-attribute" dir="ltr">branches-template</span> (defaults to
+          "%(module)s/branches/%(branch)s") and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">tags-template</span> (defaults to
+          "%(module)s/tags/%(tag)s")</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-system"><!--moduleset-syntax-sources-system--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.8. </span>System</span></h3></div>
+<p class="para block block-first">This repository type is used to define a fake system repository.
+          A system repository is required to create
+          <a class="link" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-systemmodule" title="systemmodule"><span class="sgmltag sgmltag-element" dir="ltr">systemmodules</span></a>.
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="system" name="system"/&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-tarball"><!--moduleset-syntax-sources-tarball--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.1.9. </span>Tarballs</span></h3></div>
+<p class="para block block-first">This repository type is used to define a tarball repository.
+        </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;repository type="tarball" name="dbus/dbus-python"
+    href="http://dbus.freedesktop.org/releases/dbus-python/"/&gt;
+</pre></div>
+<p class="para block">It allows the following attributes on the
+          <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element:</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">module</span> attribute
+          specifies the file to download and compile, the
+          <span class="sgmltag sgmltag-attribute" dir="ltr">version</span> attribute specifies the
+          module version.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">size</span> and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">hash</span>, as well as the obsolete
+          <span class="sgmltag sgmltag-attribute" dir="ltr">md5sum</span>, attributes are optional.
+          If these attributes are present, they are used to check that the
+          source package was downloaded correctly.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">rename-tarball</span> can be
+          used to rename the tarball file when downloading, in case the original
+          name conflicts with another module.</p>
+<p class="para block">Any number of <span class="sgmltag sgmltag-element" dir="ltr">patch</span> elements
+          may be nested inside the <span class="sgmltag sgmltag-element" dir="ltr">branch</span>
+          element. These patches are applied, in order, to the source tree after
+          unpacking. The <span class="sgmltag sgmltag-attribute" dir="ltr">file</span> attribute
+          gives the patch filename, and the
+          <span class="sgmltag sgmltag-attribute" dir="ltr">strip</span> attribute says how many
+          levels of directories to prune when applying the patch.</p>
+<p class="para block">For module sets shipped with JHBuild, the patch files are looked
+          up in the <span class="filename" dir="ltr">jhbuild/patches/</span> directory; for module
+          sets referred by URI, the patch files are looked for in the same
+          directory as the moduleset file, or in its
+          <span class="filename" dir="ltr">patches/</span> subdirectory. It is also possible for
+          the <span class="sgmltag sgmltag-attribute" dir="ltr">file</span> attribute to specify a
+          URI, in which case it will be downloaded from that location.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;branch module="dbus-python-0.80.2.tar.gz" version="0.80.2"
+    repo="dbus/dbus-python"
+    hash="md5:2807bc85215c995bd595e01edd9d2077" size="453499"&gt;
+  &lt;patch file="dbus-glib-build.patch" strip="1" /&gt;
+&lt;/branch&gt;
+</pre></div>
+<p class="para block">A tarball <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element may
+          also contain <span class="sgmltag sgmltag-element" dir="ltr">quilt</span> elements which
+          specify nested <span class="sgmltag sgmltag-element" dir="ltr">branch</span> to import.
+        </p>
+</div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-includes"><!--moduleset-syntax-includes--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">6.2. </span>Including Other Module Sets</span></h2></div>
+<p class="para block block-first">JHBuild allows one module set to include the contents of another
+        by reference using the <span class="sgmltag sgmltag-element" dir="ltr">include</span>
+        element.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;include href="<span class="replaceable">uri</span>"/&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">href</span> is a URI reference
+        to the module set to be included, relative to the file containing the
+        <span class="sgmltag sgmltag-element" dir="ltr">include</span> element.</p>
+<p class="para block">Only module definitions are imported from the referenced module
+        set - module sources are not. Multiple levels of includes are allowed,
+        but include loops are not (there isn't any code to handle loops at the
+        moment).</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs"><!--moduleset-syntax-defs--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">6.3. </span>Module Definitions</span></h2></div>
+<p class="para block block-first">There are various types of module definitions that can be used in
+        a module set file, and the list can easily be extended. Only the most
+        common ones will be mentioned here.</p>
+<p class="para block">They are all basically composed of a
+        <span class="sgmltag sgmltag-element" dir="ltr">branch</span> element describing how to get
+        the module and <span class="sgmltag sgmltag-element" dir="ltr">dependencies</span>,
+        <span class="sgmltag sgmltag-element" dir="ltr">suggests</span> and
+        <span class="sgmltag sgmltag-element" dir="ltr">after</span> elements to declare the
+        dependencies of the module.</p>
+<p class="para block">Any modules listed in the
+        <span class="sgmltag sgmltag-element" dir="ltr">dependencies</span> element will be added to
+        the module list for <span class="command" dir="ltr">jhbuild build</span> if it isn't already
+        included, and make sure the dependent modules are built first.</p>
+<p class="para block">After generating the modules list, the modules listed in the
+        <span class="sgmltag sgmltag-element" dir="ltr">suggests</span> element will be used to
+        further sort the modules list (although it will not pull any additional
+        modules). This is intended for cases where a module has an optional
+        dependency on another module.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">6.3.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-autotools" title="autotools">autotools</a>
+</li>
+<li>
+<span class="label">6.3.2. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-cmake" title="cmake">cmake</a>
+</li>
+<li>
+<span class="label">6.3.3. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-meson" title="Meson">Meson</a>
+</li>
+<li>
+<span class="label">6.3.4. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-distutils" title="distutils">distutils</a>
+</li>
+<li>
+<span class="label">6.3.5. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-linux" title="linux">linux</a>
+</li>
+<li>
+<span class="label">6.3.6. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-perl" title="perl">perl</a>
+</li>
+<li>
+<span class="label">6.3.7. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-systemmodule" title="systemmodule">systemmodule</a>
+</li>
+<li>
+<span class="label">6.3.8. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-waf" title="waf">waf</a>
+</li>
+<li>
+<span class="label">6.3.9. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-testmodule" title="testmodule">testmodule</a>
+</li>
+<li>
+<span class="label">6.3.10. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-metamodule" title="metamodule">metamodule</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="moduleset-syntax-defs-autotools"><!--moduleset-syntax-defs-autotools--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.1. </span>autotools</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">autotools</span> element is used
+          to define a module which is compiled using the GNU Autotools build
+          system.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;autotools id="<span class="replaceable">id</span>"
+	      [ autogenargs="<span class="replaceable">autogenargs</span>" ]
+	      [ makeargs="<span class="replaceable">makeargs</span>" ]
+	      [ makeinstallargs="<span class="replaceable">makeinstallargs</span>" ]
+	      [ autogen-sh="<span class="replaceable">autogen-sh</span>" ]
+	      [ makefile="<span class="replaceable">makefile</span>" ]
+	      [ skip-autogen="<span class="replaceable">skip-autogen</span>" ]
+	      [ skip-install="<span class="replaceable">skip-install</span>" ]
+	      [ uninstall-before-install="<span class="replaceable">uninstall-before-install</span>" ]
+	      [ autogen-template="<span class="replaceable">autogen-template</span>" ]
+	      [ check-target="<span class="replaceable">check-target</span>" ]
+	      [ supports-non-srcdir-builds="<span class="replaceable">supports-non-srcdir-builds</span>" ]
+	      [ force-non-srcdir-builds="<span class="replaceable">force-non-srcdir-builds</span>" ]
+	      [ supports-unknown-configure-options="<span class="replaceable">supports-unknown-configure-options</span>" ]
+	      [ supports-static-analyzer="<span class="replaceable">supports-static-analyzer</span>" ]&gt;
+
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+
+&lt;/autotools&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">autogenargs</span> and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">makeargs</span> and
+          <span class="sgmltag sgmltag-attribute" dir="ltr">makeinstallargs</span> attributes are
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">autogen.sh</span>, <span class="command" dir="ltr">make</span> and
+          <span class="command" dir="ltr">make install</span> respectively.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">autogen-sh</span> attribute
+          specifies the name of the autogen.sh script to run. The value
+          <span class="literal" dir="ltr">autoreconf</span> can be used if your module has no
+          <span class="command" dir="ltr">autogen.sh</span> script equivalent. In that case, JHBuild
+          will run <span class="command" dir="ltr">autoreconf -fi</span>, followed by the proper
+          <span class="command" dir="ltr">configure</span>.
+          <span class="sgmltag sgmltag-attribute" dir="ltr">skip-autogen</span> chooses whether or
+          not to run autogen.sh, it is a boolean with an extra
+          <span class="literal" dir="ltr">never</span> value to tell JHBuild to never skip running
+          <span class="command" dir="ltr">autogen.sh</span>.
+          <span class="sgmltag sgmltag-attribute" dir="ltr">skip-install</span> is a boolean
+          attribute specifying whether to skip <span class="command" dir="ltr">make install</span>
+          command on the module. <span class="sgmltag sgmltag-attribute" dir="ltr">makefile</span>
+          specifies the filename of the makefile to use.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">uninstall-before-install</span>
+	  specifies any old installed files from the module should before removed
+	  before running the install step. This can be used to work around a
+	  problem where libtool tries to link one library it is installing
+	  against another library it is installing, but because of jhbuild's
+	  use of DESTDIR, finds the old installed library instead. The downside
+          of specifying this is that it could cause problems if the user is
+	  currently running code that relies on installed files from the
+	  module.</p>
+<p class="para block">The
+          <span class="sgmltag sgmltag-attribute" dir="ltr">supports-non-srcdir-builds</span>
+          attribute is used to mark modules that can't be cleanly built using a
+          separate source directory.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">force-non-srcdir-builds</span>
+          attribute is used to mark modules that can't be cleanly built from
+          the source directory, but can be built from outside it.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">autogen-template</span>
+          attribute can be used if you need finer control over the autogen
+          command line. It is a python format string, which will be substituted
+          with the following variables: <span class="varname" dir="ltr">srcdir</span>,
+          <span class="varname" dir="ltr">autogen-sh</span>, <span class="varname" dir="ltr">prefix</span>,
+          <span class="varname" dir="ltr">libdir</span>, and <span class="varname" dir="ltr">autogenargs</span>. For
+          example, here is the default autogen-template:</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">%(srcdir)s/%(autogen-sh)s --prefix %(prefix)s --libdir %(libdir)s %(autogenargs)s
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">check-target</span> attribute
+          must be specified (with false as value) for modules that do not have a
+          <span class="command" dir="ltr">make check</span> target.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">supports-static-analyzer</span>
+          attribute must be specified (with false as value) for modules which
+          don’t support being built under a static analysis tool such as
+          <span class="command" dir="ltr">scan-build</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">supports-unknown-configure-options</span>
+          attribute is used to mark modules that will error out if an unknown
+          option is passed to <span class="filename" dir="ltr">configure</span>. Global configure
+          options will not be used for that module.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-cmake"><!--moduleset-syntax-defs-cmake--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.2. </span>cmake</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">cmake</span> element is used to
+          define a module which is built using the CMake build system.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">  &lt;cmake id="<span class="replaceable">modulename</span>"
+            [ cmakeargs="<span class="replaceable">cmakeargs</span>" ]
+            [ ninjaargs="<span class="replaceable">ninjaargs</span>" ]
+            [ makeargs="<span class="replaceable">makeargs</span>" ]
+            [ skip-install="<span class="replaceable">skip-install</span>" ]
+            [ cmakedir="<span class="replaceable">cmakedir</span>" ]
+            [ use-ninja="<span class="replaceable">use-ninja</span>" ]
+            [ force-non-srcdir-builds="<span class="replaceable">force-non-srcdir-builds</span>" ]&gt;
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+&lt;/cmake&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">cmakeargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">cmake</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">ninjaargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">ninja</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">makeargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">make</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">cmakedir</span> attribute
+          specifies the subdirectory where cmake will run in relation to srcdir.
+        </p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">force-non-srcdir-builds</span>
+          attribute is used to mark modules that can't be cleanly built from
+          the source directory, but can be built from outside it.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">use-ninja</span>
+          attribute is used to mark modules should be built using the
+          Ninja backend for cmake, instead of the Make backend. The
+          default is to use the Ninja backend.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-meson"><!--moduleset-syntax-defs-meson--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.3. </span>Meson</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">meson</span> element is used to
+          define a module which is configured using the Meson build system and
+          built using the Ninja build tool.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">  &lt;meson id="<span class="replaceable">modulename</span>"
+            [ mesonargs="<span class="replaceable">mesonargs</span>" ]
+            [ ninjaargs="<span class="replaceable">ninjaargs</span>" ]
+            [ skip-install="<span class="replaceable">skip-install</span>" ]&gt;
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+&lt;/meson&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">mesonargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">meson</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">ninjaargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">ninja</span>.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-distutils"><!--moduleset-syntax-defs-distutils--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.4. </span>distutils</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">distutils</span> element is used
+          to define a module which is built using python's distutils.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;distutils id="<span class="replaceable">modulename</span>"
+            [ supports-non-srcdir-builds="<span class="replaceable">yes|no</span>" ]&gt;
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+&lt;/distutils&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-linux"><!--moduleset-syntax-defs-linux--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.5. </span>linux</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">linux</span> element defines a
+          module used to build a linux kernel. In addition, a separate kernel
+          configuration can be chosen using the
+          <span class="sgmltag sgmltag-element" dir="ltr">kconfig</span> subelement.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;linux id="<span class="replaceable">id</span>"
+	  [ makeargs="<span class="replaceable">makeargs</span>" ]&gt;
+
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+
+  &lt;kconfig [ repo="<span class="replaceable">repo</span>" ]
+	    version="<span class="replaceable">version</span>"
+	    [ module="<span class="replaceable">module</span>" ]
+	    [ config="<span class="replaceable">config</span>" ] /&gt;
+
+&lt;/linux&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-perl"><!--moduleset-syntax-defs-perl--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.6. </span>perl</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">perl</span> element is used to
+          build perl modules.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">makeargs</span> attribute is
+          used to specify additional arguments to pass to
+          <span class="command" dir="ltr">make</span>.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;perl id="<span class="replaceable">modulename</span>"
+	 [ makeargs="<span class="replaceable">makeargs</span>" ]&gt;
+
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+
+&lt;/perl&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-systemmodule"><!--moduleset-syntax-defs-systemmodule--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.7. </span>systemmodule</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">systemmodule</span> element is
+          used to specify modules that must be provided by the system. The
+          module should be installed by your distributions package management
+          system.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;systemmodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;pkg-config&gt;<span class="replaceable">pkg-config</span>.pc&lt;/pkg-config&gt;
+
+  &lt;branch repo="<span class="replaceable">system</span>" version="<span class="replaceable">version</span>" /&gt;
+&lt;/systemmodule&gt;
+</pre></div>
+<p class="para block">If the system module does not provide a pkg-config file,
+          <span class="sgmltag sgmltag-element" dir="ltr">systemdependencies</span> tag can be used
+          to identify the dependencies. Two values are supported by the
+          <span class="sgmltag sgmltag-attribute" dir="ltr">type</span> attribute of the
+          <span class="sgmltag sgmltag-element" dir="ltr">dep</span> tag:</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+            <p class="simpara block block-first"><span class="sgmltag sgmltag-attvalue" dir="ltr">path</span> value. The path
+              is searched for the matching program name.</p>
+          </li>
+<li>
+            <p class="simpara block block-first"><span class="sgmltag sgmltag-attvalue" dir="ltr">c_include</span> value. The
+              C include path is searched for the matching header name.
+              <span class="sgmltag sgmltag-attribute" dir="ltr">name</span> may include a
+              sub-directory. The C include search path can modified by setting
+              <span class="varname" dir="ltr">CPPFLAGS</span> within the configuration variables
+              <span class="varname" dir="ltr">cflags</span> or
+              <a class="link" href="config-reference.html.en.html#cfg-module-autogenargs" title=""><span class="varname" dir="ltr">module_autogenargs</span></a>.
+            </p>
+          </li>
+</ol></div>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;systemmodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;branch repo="<span class="replaceable">system</span>" version="<span class="replaceable">version</span>" /&gt;
+  &lt;systemdependencies&gt;
+    &lt;dep type="path" name="<span class="replaceable">executable-name</span>" /&gt;
+  &lt;/systemdependencies&gt;
+&lt;/systemmodule&gt;
+
+&lt;systemmodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;branch repo="<span class="replaceable">system</span>" version="<span class="replaceable">version</span>" /&gt;
+  &lt;systemdependencies&gt;
+    &lt;dep type="c_include" name="<span class="replaceable">header-name</span>" /&gt;
+  &lt;/systemdependencies&gt;
+&lt;/systemmodule&gt;
+</pre></div>
+<p class="para block">If the system module may be installed in different locations
+          or installed with different names by different distributions,
+          <span class="sgmltag sgmltag-element" dir="ltr">altdep</span> tag can be used as
+          subelements of <span class="sgmltag sgmltag-element" dir="ltr">dep</span> tag to
+          specify alternative locations or names.
+          <span class="sgmltag sgmltag-element" dir="ltr">altdep</span> tag support the same
+          attributes as <span class="sgmltag sgmltag-element" dir="ltr">dep</span> tag does.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;systemmodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;branch repo="<span class="replaceable">system</span>" version="<span class="replaceable">version</span>" /&gt;
+  &lt;systemdependencies&gt;
+    &lt;dep type="path" name="<span class="replaceable">executable-name</span>"&gt;
+      &lt;altdep type="path" name="<span class="replaceable">alternative-executable-name-1</span>" /&gt;
+      &lt;altdep type="path" name="<span class="replaceable">alternative-executable-name-2</span>" /&gt;
+      ...
+    &lt;dep&gt;
+  &lt;/systemdependencies&gt;
+&lt;/systemmodule&gt;
+
+&lt;systemmodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;branch repo="<span class="replaceable">system</span>" version="<span class="replaceable">version</span>" /&gt;
+  &lt;systemdependencies&gt;
+    &lt;dep type="c_include" name="<span class="replaceable">header-name</span>"&gt;
+      &lt;altdep type="c_include" name="<span class="replaceable">alternative-header-name-1</span>" /&gt;
+      &lt;altdep type="c_include" name="<span class="replaceable">alternative-header-name-2</span>" /&gt;
+      ...
+    &lt;dep&gt;
+  &lt;/systemdependencies&gt;
+&lt;/systemmodule&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-waf"><!--moduleset-syntax-defs-waf--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.8. </span>waf</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">waf</span> element is used to
+          define a module which is built using the Waf build system.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">waf-command</span> attribute
+          is used to specify the waf command script to use; it defaults to
+          <span class="command" dir="ltr">waf</span>.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">python-command</span> attribute
+          is used to specify the Python executable to use; it defaults to
+          <span class="command" dir="ltr">python</span>. This is useful to build modules against
+          version 3 of Python.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;waf id="<span class="replaceable">modulename</span>"&gt;
+	 [ python-command="<span class="replaceable">python-command</span>" ]
+	 [ waf-command="<span class="replaceable">waf-command</span>" ]&gt;
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+&lt;/waf&gt;
+</pre></div>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-testmodule"><!--moduleset-syntax-defs-testmodule--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.9. </span>testmodule</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">testmodule</span> element is
+          used to create a module which runs a suite of tests using LDTP or
+          Dogtail.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;testmodule id="<span class="replaceable">id</span>"
+	       type="<span class="replaceable">type</span>"&gt;
+
+  &lt;branch [ ... ] &gt;
+    [...]
+  &lt;/branch&gt;
+
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;after&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/after&gt;
+
+  &lt;testedmodules&gt;
+    &lt;tested package="<span class="replaceable">package</span>" /&gt;
+  &lt;/testedmodules&gt;
+
+&lt;/testmodule&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">type</span> attribute gives
+          the type of tests to be run in the module. 'dogtail' uses python to
+          invoke all .py files. 'ldtp' invokes 'ldtprunner run.xml'.</p>
+<p class="para block">Unless the noxvfb configuration option is set, an Xvfb server is
+          started to run the tests in.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-defs-metamodule"><!--moduleset-syntax-defs-metamodule--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.3.10. </span>metamodule</span></h3></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">metamodule</span> element
+          defines a module that doesn't actually do anything. The only purpose
+          of a module of this type is its dependencies.</p>
+<p class="para block">For example, meta-gnome-desktop depends on all the key
+          components of the GNOME desktop, therefore telling JHBuild to install
+          it actually installs the full desktop.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">&lt;metamodule id="<span class="replaceable">modulename</span>"&gt;
+  &lt;dependencies&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/dependencies&gt;
+  &lt;suggests&gt;
+    &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+    ...
+  &lt;/suggests&gt;
+&lt;/metamodule&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">id</span> attribute gives the
+          name of the module. The child elements are handled as for
+          <a class="link" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-autotools" title="autotools"><span class="sgmltag sgmltag-element" dir="ltr">autotools</span></a>.
+        </p>
+</div>
+</div>
+<div class="division section">
+<a name="moduleset-deprecated-elements"><!--moduleset-deprecated-elements--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">6.4. </span>Deprecated Elements</span></h2></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">6.4.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-deprecated-elements-syntax-sources" title="Module Sources">Module Sources</a>
+</li>
+<li>
+<span class="label">6.4.2. </span><a class="xref" href="moduleset-syntax.html.en.html" title="Deprecated Module Types">Deprecated Module Types</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="moduleset-deprecated-elements-syntax-sources"><!--moduleset-deprecated-elements-syntax-sources--></a><div class="header"><h3 class="section title"><span class="title"><span class="label">6.4.1. </span>Module Sources</span></h3></div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">6.4.1.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-cvsroot" title="cvsroot">cvsroot</a>
+</li>
+<li>
+<span class="label">6.4.1.2. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-sources-svnroot" title="svnroot">svnroot</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="moduleset-syntax-sources-cvsroot"><!--moduleset-syntax-sources-cvsroot--></a><div class="header"><h4 class="section title"><span class="title"><span class="label">6.4.1.1. </span>cvsroot</span></h4></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">cvsroot</span> element is now
+            deprecated - the <span class="sgmltag sgmltag-element" dir="ltr">repository</span>
+            element should be used instead.</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">cvsroot</span> element is used
+            to describe a CVS repository.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">  &lt;cvsroot name="<span class="replaceable">rootname</span>"
+           [ default="<span class="replaceable">yes|no</span>" ]
+           root="<span class="replaceable">anon-cvsroot</span>"
+           password="<span class="replaceable">anon-password</span>"/&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">name</span> attribute should
+            be a unique identifier for the CVS repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">default</span> attribute
+            says whether this is the default module source for this module set
+            file.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">root</span> attribute lists
+            the CVS root used for anonymous access to this repository, and the
+            <span class="sgmltag sgmltag-attribute" dir="ltr">password</span> attribute gives the
+            password used for anonymous access.</p>
+</div>
+<div class="division section">
+<a name="moduleset-syntax-sources-svnroot"><!--moduleset-syntax-sources-svnroot--></a><div class="header"><h4 class="section title"><span class="title"><span class="label">6.4.1.2. </span>svnroot</span></h4></div>
+<p class="para block block-first">The <span class="sgmltag sgmltag-element" dir="ltr">svnroot</span> element is now
+            deprecated - the <span class="sgmltag sgmltag-element" dir="ltr">repository</span>
+            element should be used instead.</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">svnroot</span> element is used
+            to describe a Subversion repository.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">  &lt;svnroot name="<span class="replaceable">rootname</span>"
+           [ default="<span class="replaceable">yes|no</span>" ]
+           href="<span class="replaceable">anon-svnroot</span>"/&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">name</span> attribute should
+            be a unique identifier for the Subversion repository.</p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">default</span> attribute says
+            whether this is the default module source for this module set file.
+          </p>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">href</span> attribute lists
+            the base URL for the repository. This will probably be either a
+            <span class="literal" dir="ltr">http</span>, <span class="literal" dir="ltr">https</span> or
+            <span class="literal" dir="ltr">svn</span> URL.</p>
+</div>
+</div>
+<div class="division section">
+<div class="header"><h3 class="section title"><span class="title"><span class="label">6.4.2. </span>Deprecated Module Types</span></h3></div>
+<div class="admonition block warning block-first block-indent"><div class="warning-inner">
+          <p class="para block block-first">This section describes deprecated elements, they may still be
+            used in existing module sets but it is advised not to use them
+            anymore.</p>
+        </div></div>
+<div class="autotoc"><ul><li>
+<span class="label">6.4.2.1. </span><a class="xref" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-tarball" title="tarball">tarball</a>
+</li></ul></div>
+<div class="division section">
+<a name="moduleset-syntax-defs-tarball"><!--moduleset-syntax-defs-tarball--></a><div class="header"><h4 class="section title"><span class="title"><span class="label">6.4.2.1. </span>tarball</span></h4></div>
+<div class="admonition block important block-first block-indent"><div class="important-inner">
+            <p class="para block block-first">This deprecated element is just a thin wrapper around both
+              <span class="sgmltag sgmltag-element" dir="ltr">autotools</span> module type and
+              <span class="sgmltag sgmltag-element" dir="ltr">tarball</span> repository type.</p>
+          </div></div>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">tarball</span> element is used
+            to define a module that is to be built from a tarball.</p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">  &lt;tarball id="<span class="replaceable">modulename</span>"
+              [ version="<span class="replaceable">version</span>" ]
+              [ checkoutdir="<span class="replaceable">checkoutdir</span>" ]
+              [ autogenargs="<span class="replaceable">autogenargs</span>" ]
+              [ makeargs="<span class="replaceable">makeargs</span>" ]
+              [ autogen-sh="<span class="replaceable">autogen-sh</span>" ]
+              [ supports-non-srcdir-builds="<span class="replaceable">yes|no</span>" ]&gt;
+    &lt;source href="<span class="replaceable">source-url</span>"
+            [ size="<span class="replaceable">source-size</span>" ]
+            [ hash="<span class="replaceable">source-algo:source-hash</span>" ]
+            [ md5sum="<span class="replaceable">source-md5sum</span>" ]/&gt;
+    &lt;patches&gt;
+      &lt;patch file="<span class="replaceable">filename</span>" strip="<span class="replaceable">level</span>"/&gt;
+      ...
+    &lt;/patches&gt;
+    &lt;dependencies&gt;
+      &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+      ...
+    &lt;/dependencies&gt;
+    &lt;suggests&gt;
+      &lt;dep package="<span class="replaceable">modulename</span>"/&gt;
+      ...
+    &lt;/suggests&gt;
+  &lt;/tarball&gt;
+</pre></div>
+<p class="para block">The <span class="sgmltag sgmltag-attribute" dir="ltr">id</span> and
+            <span class="sgmltag sgmltag-attribute" dir="ltr">version</span> attributes are used to
+            identify the module.</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">source</span> element
+            specifies the file to download and compile. The
+            <span class="sgmltag sgmltag-attribute" dir="ltr">href</span> attribute is mandatory,
+            while the <span class="sgmltag sgmltag-attribute" dir="ltr">size</span> and
+            <span class="sgmltag sgmltag-attribute" dir="ltr">hash</span>, as well as the obsolete
+            <span class="sgmltag sgmltag-attribute" dir="ltr">md5sum</span>, attributes are
+            optional. If these last two attributes are present, they are used to
+            check that the source package was downloaded correctly.</p>
+<p class="para block">The <span class="sgmltag sgmltag-element" dir="ltr">patches</span> element is used
+            to specify one or more patches to apply to the source tree after
+            unpacking, the <span class="sgmltag sgmltag-attribute" dir="ltr">file</span> attribute
+            gives the patch filename, and the
+            <span class="sgmltag sgmltag-attribute" dir="ltr">strip</span> attribute says how many
+            levels of directories to prune when applying the patch.</p>
+<p class="para block">For module sets shipped with JHBuild, the patch files are
+            looked up in the <span class="filename" dir="ltr">jhbuild/patches/</span> directory;
+            for module sets referred by URI, the patch files are looked for in
+            the same directory as the moduleset file, or in its
+            <span class="filename" dir="ltr">patches/</span> subdirectory. It is also possible for
+            the <span class="sgmltag sgmltag-attribute" dir="ltr">file</span> attribute to specify a
+            URI, in which case it will be downloaded from that location.</p>
+<p class="para block">The other attributes and the
+            <span class="sgmltag sgmltag-element" dir="ltr">dependencies</span>,
+            <span class="sgmltag sgmltag-element" dir="ltr">suggests</span> and
+            <span class="sgmltag sgmltag-element" dir="ltr">after</span> elements are processed as
+            for
+            <a class="link" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-autotools" title="autotools">autotools</a>.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="config-reference.html.en.html" title="Configuration File Reference">Configuration File Reference</a></td>
+<td class="navbar-next"></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"><div class="division">
+<h2 class="title copyright">Copyright</h2>
+<div class="block block-first"><dl class="dl-compact"><dt class="copyright">Copyright © <span class="year">2004, 2008</span>  <span class="holder">James Henstridge</span>
+</dt></dl></div>
+</div></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a><div class="autotoc"><ul>
+<li><a class="xref" href="introduction.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="getting-started.html.en.html" title="Getting Started">Getting Started</a></li>
+<li><a class="xref" href="jhbuild-and-gnome.html.en.html" title="JHBuild and GNOME">JHBuild and GNOME</a></li>
+<li><a class="xref" href="command-reference.html.en.html" title="Command Reference">Command Reference</a></li>
+<li><a class="xref" href="config-reference.html.en.html" title="Configuration File Reference">Configuration File Reference</a></li>
+<li>Module Set File Syntax</li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="moduleset-syntax.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

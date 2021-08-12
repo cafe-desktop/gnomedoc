@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Style Scheme Definition Reference: GtkSourceView 4 Reference Manual</title><link href="index.html" rel="home" title="GtkSourceView 4 Reference Manual"></link><link href="syntax-highlighting-reference.html" rel="up" title="Part III. Syntax highlighting reference"></link><link href="lang-reference.html" rel="prev" title="Language Definition v2.0 Reference"></link><link href="porting-guide.html" rel="next" title="Part IV. Porting Guide"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="style-reference.html#container">Go to page content</a></li><li><a href="style-reference.html#top_bar">Go to main menu</a></li><li><a href="style-reference.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="syntax-highlighting-reference.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="lang-reference.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="porting-guide.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="style-reference"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Style Scheme Definition Reference</span></h2>
+<p>Style Scheme Definition Reference — 
+Reference to the GtkSourceView style scheme definition file format
+</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="id-1.4.4.3"></a><h2>Overview</h2>
+<p>
+This is an overview of the Style Scheme Definition XML format, describing the
+meaning and usage of every element and attribute.  The formal definition is
+stored in the RelaxNG schema file <code class="filename">style.rng</code> which
+should be installed on your system in the directory
+<code class="filename">${PREFIX}/share/gtksourceview-4/</code> (where
+<code class="filename">${PREFIX}</code> can be <code class="filename">/usr/</code> or
+<code class="filename">/usr/local/</code> if you have installed from source).
+</p>
+</div>
+<p>
+The toplevel tag in a style scheme file is <code class="code">&lt;style-scheme&gt;</code>.
+It has the following attributes:
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">id</code> (mandatory)</span></p></td>
+<td><p>
+Identifier for the style scheme. This is must be unique among style schemes.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">name</code> (mandatory)</span></p></td>
+<td><p>
+Name of the style scheme. This is the name of the scheme to display to user, e.g.
+in a preferences dialog.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">_name</code></span></p></td>
+<td><p>
+This is the same as <code class="code">name</code> attribute, except it will be translated.
+<code class="code">name</code> and <code class="code">_name</code> may not be used simultaneously.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">parent-scheme</code> (optional)</span></p></td>
+<td><p>
+Style schemes may have <span class="emphasis"><em>parent</em></span> schemes: all styles but those specified
+in the scheme will be taken from the parent scheme. In this way a scheme may
+be customized without copying all its content.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">version</code> (mandatory)</span></p></td>
+<td><p>
+Style scheme format identifier. At the moment it must be "1.0".
+</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+<p>
+<code class="code">style-scheme</code> tag may contain the following tags:
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">author</code></span></p></td>
+<td><p>
+Name of the style scheme author.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">description</code></span></p></td>
+<td><p>
+Description of the style scheme.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">_description</code></span></p></td>
+<td><p>
+Same as <code class="code">description</code> except it will be localized.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">color</code> tags</span></p></td>
+<td><p>
+These define color names to be used in <code class="code">style</code> tags.
+It has two attributes: <code class="code">name</code> and <code class="code">value</code>.
+<code class="code">value</code> is the hexadecimal color specification like
+"#000000" or named color understood by Gdk prefixed with "#",
+e.g. "#beige".
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">style</code> tags</span></p></td>
+<td><p>
+See below for their format description.
+</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+<p>
+Each <code class="code">style</code> tag describes a single element of style scheme (it corresponds
+to #GtkSourceStyle object). It has the following attributes:
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">name</code> (mandatory)</span></p></td>
+<td><p>
+Name of the style. It can be anything, syntax highlighting uses <span class="emphasis"><em>lang-id:style-id</em></span>,
+and there are few special styles which are used to control general appearance
+of the text. Style scheme may contain other names to be used in an application. For instance,
+it may define color to highlight compilation errors in a build log or a color for
+bookmarks.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">foreground</code></span></p></td>
+<td><p>
+Foreground color. It may be name defined in one of <code class="code">color</code> tags, or value in
+hexadecimal format, e.g. "#000000", or symbolic name understood
+by Gdk, prefixed with "#", e.g. "#magenta" or "#darkred".
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">background</code></span></p></td>
+<td><p>
+Background color.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">italic</code></span></p></td>
+<td><p>"true" or "false"</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">bold</code></span></p></td>
+<td><p>"true" or "false"</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">underline</code></span></p></td>
+<td><p>
+Accepts the values supported by PangoUnderline ("none", "single",
+"double", "low", "error"). GtkSourceView versions &lt;= 3.16 only
+supported "true" or "false" and such value are still accepted
+for backward compatibility.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">underline-color</code></span></p></td>
+<td><p>
+Underline color.
+</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">strikethrough</code></span></p></td>
+<td><p>"true" or "false"</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">scale</code></span></p></td>
+<td><p>
+Scale the matched text block. Possible values are a float number as factor
+(e.g. <code class="code">"1.75"</code>) or one of the values <code class="code">"xx-small"</code>,
+<code class="code">"x-small"</code>, <code class="code">"small"</code>, <code class="code">"medium"</code>,
+<code class="code">"large"</code>,<code class="code">"x-large"</code>,<code class="code">"xx-large"</code>.
+</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+<p>
+The following are names of styles which control GtkSourceView appearance:
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top"></col>
+<col></col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><code class="code">text</code></span></p></td>
+<td><p>Default style of text.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">selection</code></span></p></td>
+<td><p>Style of selected text.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">selection-unfocused</code></span></p></td>
+<td><p>Style of selected text when the widget doesn't have input focus.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">cursor</code></span></p></td>
+<td><p>Text cursor style. Only the <code class="code">foreground</code> attribute is used
+for this style.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">secondary-cursor</code></span></p></td>
+<td><p>Secondary cursor style (used in bidirectional text). Only the
+<code class="code">foreground</code> attribute is used for this style. If this is not set
+while "cursor" is, then a color between text background and cursor colors is
+chosen, so it is enough to use "cursor" style only.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">current-line</code></span></p></td>
+<td><p>Current line style. Only the <code class="code">background</code> attribute
+is used.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">line-numbers</code></span></p></td>
+<td><p>Text and background colors for the left margin, on which line
+numbers are drawn.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">current-line-number</code></span></p></td>
+<td><p>Current line style for the left margin, on which the current
+line number is drawn. Only the <code class="code">background</code> attribute is used.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">bracket-match</code></span></p></td>
+<td><p>Style to use for matching brackets.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">bracket-mismatch</code></span></p></td>
+<td><p>Style to use for mismatching brackets.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">right-margin</code></span></p></td>
+<td><p>Style to use for the right margin. The <code class="code">foreground</code> attribute is used for
+drawing the vertical line. And the <code class="code">background</code> attribute is used for the background on
+the right side of the margin. An alpha channel is applied to the two colors. For a light style
+scheme, a good color for both attributes is black. For a dark style scheme, white is a good
+choice.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">draw-spaces</code></span></p></td>
+<td><p>Style to use for drawing spaces (special symbols for a space, a tabulation, etc).
+Only the <code class="code">foreground</code> attribute is used.</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="code">background-pattern</code></span></p></td>
+<td><p>Style to use for drawing a background pattern, for example a
+grid. Only the <code class="code">background</code> attribute is used.</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+</p>
+<div class="refsect1">
+<a name="id-1.4.4.8"></a><h2>Default style schemes</h2>
+<p>
+The GtkSourceView team prefers to just keep a small number of style schemes
+distributed with the library. To add a new style scheme in GtkSourceView
+itself, the style scheme must be very popular, and ideally a
+GtkSourceView-based application must use it by default.
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.29</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="style-reference.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

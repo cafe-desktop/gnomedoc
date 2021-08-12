@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Direct Booking of Resource Calendars</title><link href="index.html" rel="home" title="Evolution Connector for Microsoft Exchange Programmer’s Reference Manual"></link><link href="ch02.html" rel="up" title="Implementation of Connector Features"></link><link href="ximian-connector-autoconfig.html" rel="prev" title="Account Autoconfiguration"></link><link href="ximian-connector-delegation.html" rel="next" title="Delegation"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ximian-connnector-booking.html#container">Go to page content</a></li><li><a href="ximian-connnector-booking.html#top_bar">Go to main menu</a></li><li><a href="ximian-connnector-booking.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="ximian-connector-autoconfig.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Connector for Microsoft Exchange Programmer’s Reference Manual</th>
+<td><a accesskey="n" href="ximian-connector-delegation.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="refentry" title="Direct Booking of Resource Calendars">
+<a name="ximian-connnector-booking"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Direct Booking of Resource Calendars</span></h2>
+<p></p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<p>
+"Direct booking" is the ability to directly add appointments to the
+calendar of an Exchange "user" that represents a resource. ("Resource"
+almost always means a conference room, but in theory could also be a
+video projector, white board, or anything else reservable.)
+</p>
+<p>
+Connector's implementation of this functionality is designed to be
+basically identical to <span class="application">Outlook</span>'s.
+</p>
+<div class="refsect2" title="Creating a Resource">
+<a name="id2574753"></a><h3>Creating a Resource</h3>
+<p>
+Any Exchange account can be a resource. Nothing special needs to be
+done in Exchange or Active Directory. There are three properties,
+stored on the account's <gtkdoclink href="freebusy">personal free/busy
+message</gtkdoclink> that control whether or not
+<span class="application">Outlook</span> and
+<span class="application">Evolution</span> treat it as a resource:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><code class="literal">PR_PROCESS_MEETING_REQUESTS</code></span></p></td>
+<td><p>
+	If <code class="literal">TRUE</code>, then the account is a resource.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="literal">PR_DECLINE_RECURRING_MEETING_REQUESTS</code></span></p></td>
+<td><p>
+	If <code class="literal">TRUE</code>, the resource cannot be booked for
+	recurring events.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="literal">PR_DECLINE_CONFLICTING_MEETING_REQUESTS</code></span></p></td>
+<td><p>
+	If <code class="literal">TRUE</code>, the resource cannot be double-booked.
+	</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+Connector doesn't currently provide any way to set these properties on
+a mailbox. (<span class="application">Outlook</span> does.)
+</p>
+<p>
+Of course, to be able to act as a resource, the account's Calendar
+must be writable by other users. (And the properties on the free/busy
+message must be readable as well. If you use the Delegates dialog in
+either <span class="application">Outlook</span> or
+<span class="application">Evolution</span>, it will make sure the free/busy
+message is readable to any user who can read the Calendar.)
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="Booking a Resource">
+<a name="id2590872"></a><h3>Booking a Resource</h3>
+<p>
+<span class="application">Outlook</span>'s convention is that direct booking
+happens when all of the following are true:
+</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>
+    An <span class="application">Exchange</span> user is added to the
+    meeting with an attendee type of <code class="literal">RESOURCE</code>.
+    </p></li>
+<li class="listitem"><p>
+    That user has the <code class="literal">PR_PROCESS_MEETING_REQUESTS</code>
+    property set.
+    </p></li>
+<li class="listitem"><p>
+    The user creating the meeting has permission to create the
+    appointment in the resource user's Calendar.
+    </p></li>
+</ol></div>
+<p>
+If any of these criteria are not met, then it
+<span class="emphasis"><em>silently</em></span> falls back to normal mail-based
+scheduling. (Among other things, this allows you to set up a resource
+such that some users can book it directly, but if anyone else tries
+to, it will just send a meeting request to that account, which can
+then be accepted or rejected manually by a secretary.)
+</p>
+<p>
+If all the criteria are met, but the meeting must be rejected because
+of the settings of the
+<code class="literal">PR_DECLINE_RECURRING_MEETING_REQUESTS</code> or
+<code class="literal">PR_DECLINE_CONFLICTING_MEETING_REQUESTS</code> properties,
+then <span class="application">Outlook</span> will pop up an error dialog
+explaining the problem, and refuse to save/send the meeting request.
+</p>
+<p>
+If the resource can be booked, then <span class="application">Outlook</span>
+will update the meeting request to show that the resource has accepted
+it, save that meeting request in the resource's calendar, and then
+send that meeting request to all of the remaining users (but NOT the
+resource) by mail.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="Cancelation">
+<a name="id2575266"></a><h3>Cancelation</h3>
+<p>
+If you cancel a meeting that has a booked resource,
+<span class="application">Outlook</span> <span class="emphasis"><em>does not</em></span>
+remove the event from the resource's calendar. Instead, it prepends
+"Cancelled: " to the event's summary and changes its
+<code class="literal">TRANSP</code> property to <code class="literal">TRANSPARENT</code>
+so that it no longer shows up as busy. This leaves the original event
+in the calendar, for record-keeping purposes, but allows a new event
+to use the resource instead.
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.14</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ximian-connnector-booking.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GtkConstraintLayout: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="LayoutManagers.html" rel="up" title="Layout Managers"></link><link href="GtkCustomLayout.html" rel="prev" title="GtkCustomLayout"></link><link href="GtkConstraint.html" rel="next" title="GtkConstraint"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GtkConstraintLayout.html#container">Go to page content</a></li><li><a href="GtkConstraintLayout.html#top_bar">Go to main menu</a></li><li><a href="GtkConstraintLayout.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GtkConstraintLayout.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtkConstraintLayout.html#GtkConstraintLayout.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtkConstraintLayout.html#GtkConstraintLayout.object-hierarchy">Object Hierarchy</a></span><span id="nav_interfaces">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GtkConstraintLayout.html#GtkConstraintLayout.implemented-interfaces">Implemented Interfaces</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="LayoutManagers.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="GtkCustomLayout.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="GtkConstraint.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GtkConstraintLayout"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GtkConstraintLayout.top_of_page"></a>GtkConstraintLayout</span></h2>
+<p>GtkConstraintLayout — A layout manager using constraints</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_proto_type" width="150px"></col>
+<col class="functions_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="GtkLayoutManager.html#GtkLayoutManager-struct"><span class="returnvalue">GtkLayoutManager</span></a> *
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-new">gtk_constraint_layout_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-add-constraint">gtk_constraint_layout_add_constraint</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-remove-constraint">gtk_constraint_layout_remove_constraint</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-remove-all-constraints">gtk_constraint_layout_remove_all_constraints</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-add-guide">gtk_constraint_layout_add_guide</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-remove-guide">gtk_constraint_layout_remove_guide</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-add-constraints-from-description">gtk_constraint_layout_add_constraints_from_description</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GList</span> *
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-add-constraints-from-descriptionv">gtk_constraint_layout_add_constraints_from_descriptionv</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GListModel</span> *
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-observe-constraints">gtk_constraint_layout_observe_constraints</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">GListModel</span> *
+</td>
+<td class="function_name">
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-observe-guides">gtk_constraint_layout_observe_guides</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<a name="GtkConstraintLayoutChild"></a><div class="refsect1">
+<a name="GtkConstraintLayout.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="other_proto_type" width="150px"></col>
+<col class="other_proto_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct">GtkConstraintLayout</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a href="GtkConstraintLayout.html#GtkConstraintLayoutChild-struct">GtkConstraintLayoutChild</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a href="GtkConstraintLayout.html#GtkConstraintVflParserError">GtkConstraintVflParserError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    GObject
+    <span class="lineart">├──</span> <a href="GtkLayoutChild.html#GtkLayoutChild-struct">GtkLayoutChild</a>
+    <span class="lineart">│</span>   <span class="lineart">╰──</span> GtkConstraintLayoutChild
+    <span class="lineart">╰──</span> <a href="GtkLayoutManager.html#GtkLayoutManager-struct">GtkLayoutManager</a>
+        <span class="lineart">╰──</span> GtkConstraintLayout
+</pre>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+GtkConstraintLayout implements
+ <a href="GtkBuildable.html#GtkBuildable-struct">GtkBuildable</a>.</p>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;gtk/gtk.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.description"></a><h2>Description</h2>
+<p>GtkConstraintLayout is a layout manager that uses relations between
+widget attributes, expressed via <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> instances, to measure
+and allocate widgets.</p>
+<div class="refsect2">
+<a name="id-1.4.11.11.9.3"></a><h3>How do constraints work</h3>
+<p>Constraints are objects defining the relationship between attributes
+of a widget; you can read the description of the <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a>
+class to have a more in depth definition.</p>
+<p>By taking multiple constraints and applying them to the children of
+a widget using <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a>, it's possible to describe complex
+layout policies; each constraint applied to a child or to the parent
+widgets contributes to the full description of the layout, in terms of
+parameters for resolving the value of each attribute.</p>
+<p>It is important to note that a layout is defined by the totality of
+constraints; removing a child, or a constraint, from an existing layout
+without changing the remaining constraints may result in an unstable
+or unsolvable layout.</p>
+<p>Constraints have an implicit "reading order"; you should start describing
+each edge of each child, as well as their relationship with the parent
+container, from the top left (or top right, in RTL languages), horizontally
+first, and then vertically.</p>
+<p>A constraint-based layout with too few constraints can become "unstable",
+that is: have more than one solution. The behavior of an unstable layout
+is undefined.</p>
+<p>A constraint-based layout with conflicting constraints may be unsolvable,
+and lead to an unstable layout. You can use the <a href="GtkConstraint.html#GtkConstraint--strength"><span class="type">“strength”</span></a>
+property of <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> to "nudge" the layout towards a solution.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="id-1.4.11.11.9.4"></a><h3>GtkConstraintLayout as GtkBuildable</h3>
+<p>GtkConstraintLayout implements the <a href="GtkBuildable.html#GtkBuildable-struct"><span class="type">GtkBuildable</span></a> interface and has a
+custom "constraints" element which allows describing constraints in a
+GtkBuilder UI file.</p>
+<p>An example of a UI definition fragment specifying a constraint:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="o">&lt;</span><span class="n">object</span> <span class="n">class</span><span class="o">=</span><span class="s">"GtkConstraintLayout"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">constraints</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">constraint</span> <span class="n">target</span><span class="o">=</span><span class="s">"button"</span> <span class="n">target</span><span class="o">-</span><span class="n">attribute</span><span class="o">=</span><span class="s">"start"</span>
+                <span class="n">relation</span><span class="o">=</span><span class="s">"eq"</span>
+                <span class="n">source</span><span class="o">=</span><span class="s">"super"</span> <span class="n">source</span><span class="o">-</span><span class="n">attribute</span><span class="o">=</span><span class="s">"start"</span>
+                <span class="n">constant</span><span class="o">=</span><span class="s">"12"</span>
+                <span class="n">strength</span><span class="o">=</span><span class="s">"required"</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">constraint</span> <span class="n">target</span><span class="o">=</span><span class="s">"button"</span> <span class="n">target</span><span class="o">-</span><span class="n">attribute</span><span class="o">=</span><span class="s">"width"</span>
+                <span class="n">relation</span><span class="o">=</span><span class="s">"ge"</span>
+                <span class="n">constant</span><span class="o">=</span><span class="s">"250"</span>
+                <span class="n">strength</span><span class="o">=</span><span class="s">"strong"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;/</span><span class="n">constraints</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">object</span><span class="o">&gt;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>The definition above will add two constraints to the GtkConstraintLayout:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>a required constraint between the leading edge of "button" and
+the leading edge of the widget using the constraint layout, plus
+12 pixels</p></li>
+<li class="listitem"><p>a strong, constant constraint making the width of "button" greater
+than, or equal to 250 pixels</p></li>
+</ul></div>
+<p>The "target" and "target-attribute" attributes are required.</p>
+<p>The "source" and "source-attribute" attributes of the "constraint"
+element are optional; if they are not specified, the constraint is
+assumed to be a constant.</p>
+<p>The "relation" attribute is optional; if not specified, the constraint
+is assumed to be an equality.</p>
+<p>The "strength" attribute is optional; if not specified, the constraint
+is assumed to be required.</p>
+<p>The "source" and "target" attributes can be set to "super" to indicate
+that the constraint target is the widget using the GtkConstraintLayout.</p>
+<p>There can be "constant" and "multiplier" attributes.</p>
+<p>Additionally, the "constraints" element can also contain a description
+of the <span class="type">GtkConstraintGuides</span> used by the layout:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="o">&lt;</span><span class="n">constraints</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">guide</span> <span class="n">min</span><span class="o">-</span><span class="n">width</span><span class="o">=</span><span class="s">"100"</span> <span class="n">max</span><span class="o">-</span><span class="n">width</span><span class="o">=</span><span class="s">"500"</span> <span class="n">name</span><span class="o">=</span><span class="s">"hspace"</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">guide</span> <span class="n">min</span><span class="o">-</span><span class="n">height</span><span class="o">=</span><span class="s">"64"</span> <span class="n">nat</span><span class="o">-</span><span class="n">height</span><span class="o">=</span><span class="s">"128"</span> <span class="n">name</span><span class="o">=</span><span class="s">"vspace"</span> <span class="n">strength</span><span class="o">=</span><span class="s">"strong"</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">constraints</span><span class="o">&gt;</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>The "guide" element has the following optional attributes:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>"min-width", "nat-width", and "max-width", describe the minimum,
+natural, and maximum width of the guide, respectively</p></li>
+<li class="listitem"><p>"min-height", "nat-height", and "max-height", describe the minimum,
+natural, and maximum height of the guide, respectively</p></li>
+<li class="listitem"><p>"strength" describes the strength of the constraint on the natural
+size of the guide; if not specified, the constraint is assumed to
+have a medium strength</p></li>
+<li class="listitem"><p>"name" describes a name for the guide, useful when debugging</p></li>
+</ul></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="id-1.4.11.11.9.5"></a><h3>Using the Visual Format Language</h3>
+<p>Complex constraints can be described using a compact syntax called VFL,
+or *Visual Format Language*.</p>
+<p>The Visual Format Language describes all the constraints on a row or
+column, typically starting from the leading edge towards the trailing
+one. Each element of the layout is composed by "views", which identify
+a <a href="GtkConstraint.html#GtkConstraintTarget-struct"><span class="type">GtkConstraintTarget</span></a>.</p>
+<p>For instance:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="p">[</span><span class="n">button</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">textField</span><span class="p">]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>Describes a constraint that binds the trailing edge of "button" to the
+leading edge of "textField", leaving a default space between the two.</p>
+<p>Using VFL is also possible to specify predicates that describe constraints
+on attributes like width and height:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="c1">// Width must be greater than, or equal to 50</span>
+<span class="p">[</span><span class="n">button</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">50</span><span class="p">)]</span>
+
+<span class="c1">// Width of button1 must be equal to width of button2</span>
+<span class="p">[</span><span class="n">button1</span><span class="p">(</span><span class="o">==</span><span class="n">button2</span><span class="p">)]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>The default orientation for a VFL description is horizontal, unless
+otherwise specified:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="c1">// horizontal orientation, default attribute: width</span>
+<span class="nl">H</span><span class="p">:[</span><span class="n">button</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">150</span><span class="p">)]</span>
+
+<span class="c1">// vertical orientation, default attribute: height</span>
+<span class="nl">V</span><span class="p">:[</span><span class="n">button1</span><span class="p">(</span><span class="o">==</span><span class="n">button2</span><span class="p">)]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>It's also possible to specify multiple predicates, as well as their
+strength:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="c1">// minimum width of button must be 150</span>
+<span class="c1">// natural width of button can be 250</span>
+<span class="p">[</span><span class="n">button</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">150</span><span class="err">@</span><span class="n">required</span><span class="p">,</span> <span class="o">==</span><span class="mi">250</span><span class="err">@</span><span class="n">medium</span><span class="p">)]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>Finally, it's also possible to use simple arithmetic operators:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="c1">// width of button1 must be equal to width of button2</span>
+<span class="c1">// divided by 2 plus 12</span>
+<span class="p">[</span><span class="n">button1</span><span class="p">(</span><span class="n">button2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span><span class="p">)]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gtk-constraint-layout-new"></a><h3>gtk_constraint_layout_new ()</h3>
+<pre class="programlisting"><a href="GtkLayoutManager.html#GtkLayoutManager-struct"><span class="returnvalue">GtkLayoutManager</span></a> *
+gtk_constraint_layout_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Creates a new <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> layout manager.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-new.returns"></a><h4>Returns</h4>
+<p> the newly created <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-add-constraint"></a><h3>gtk_constraint_layout_add_constraint ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_constraint_layout_add_constraint (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                      <em class="parameter"><code><a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> *constraint</code></em>);</pre>
+<p>Adds a <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> to the layout manager.</p>
+<p>The <a href="GtkConstraint.html#GtkConstraint--source"><span class="type">“source”</span></a> and <a href="GtkConstraint.html#GtkConstraint--target"><span class="type">“target”</span></a>
+properties of <em class="parameter"><code>constraint</code></em>
+ can be:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>set to <code class="literal">NULL</code> to indicate that the constraint refers to the
+widget using <em class="parameter"><code>layout</code></em>
+</p></li>
+<li class="listitem"><p>set to the <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> using <em class="parameter"><code>layout</code></em>
+</p></li>
+<li class="listitem"><p>set to a child of the <a href="GtkWidget.html#GtkWidget-struct"><span class="type">GtkWidget</span></a> using <em class="parameter"><code>layout</code></em>
+</p></li>
+<li class="listitem"><p>set to a guide that is part of <em class="parameter"><code>layout</code></em>
+</p></li>
+</ul></div>
+<p>The <em class="parameter"><code>layout</code></em>
+ acquires the ownership of <em class="parameter"><code>constraint</code></em>
+ after calling
+this function.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-constraint.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>constraint</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-remove-constraint"></a><h3>gtk_constraint_layout_remove_constraint ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_constraint_layout_remove_constraint
+                               (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                <em class="parameter"><code><a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> *constraint</code></em>);</pre>
+<p>Removes <em class="parameter"><code>constraint</code></em>
+ from the layout manager,
+so that it no longer influences the layout.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-remove-constraint.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>constraint</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-remove-all-constraints"></a><h3>gtk_constraint_layout_remove_all_constraints ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_constraint_layout_remove_all_constraints
+                               (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>);</pre>
+<p>Removes all constraints from the layout manager.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-remove-all-constraints.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-add-guide"></a><h3>gtk_constraint_layout_add_guide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_constraint_layout_add_guide (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                 <em class="parameter"><code><a href="GtkConstraintGuide.html#GtkConstraintGuide-struct"><span class="type">GtkConstraintGuide</span></a> *guide</code></em>);</pre>
+<p>Adds a guide to <em class="parameter"><code>layout</code></em>
+. A guide can be used as
+the source or target of constraints, like a widget,
+but it is not visible.</p>
+<p>The <em class="parameter"><code>layout</code></em>
+ acquires the ownership of <em class="parameter"><code>guide</code></em>
+ after calling
+this function.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-guide.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>guide</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintGuide.html#GtkConstraintGuide-struct"><span class="type">GtkConstraintGuide</span></a> object. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-remove-guide"></a><h3>gtk_constraint_layout_remove_guide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gtk_constraint_layout_remove_guide (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                    <em class="parameter"><code><a href="GtkConstraintGuide.html#GtkConstraintGuide-struct"><span class="type">GtkConstraintGuide</span></a> *guide</code></em>);</pre>
+<p>Removes <em class="parameter"><code>guide</code></em>
+ from the layout manager,
+so that it no longer influences the layout.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-remove-guide.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>guide</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintGuide.html#GtkConstraintGuide-struct"><span class="type">GtkConstraintGuide</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-add-constraints-from-description"></a><h3>gtk_constraint_layout_add_constraints_from_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+gtk_constraint_layout_add_constraints_from_description
+                               (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                <em class="parameter"><code>const <span class="type">char</span> * const lines[]</code></em>,
+                                <em class="parameter"><code><span class="type">gsize</span> n_lines</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> hspacing</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> vspacing</code></em>,
+                                <em class="parameter"><code><span class="type">GError</span> **error</code></em>,
+                                <em class="parameter"><code>const <span class="type">char</span> *first_view</code></em>,
+                                <em class="parameter"><code>...</code></em>);</pre>
+<p>Creates a list of constraints they formal description using a compact
+description syntax called VFL, or "Visual Format Language".</p>
+<p>This function is a convenience wrapper around
+<a href="GtkConstraintLayout.html#gtk-constraint-layout-add-constraints-from-descriptionv"><code class="function">gtk_constraint_layout_add_constraints_from_descriptionv()</code></a>, using
+variadic arguments to populate the view/target map.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-constraints-from-description.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>lines</p></td>
+<td class="parameter_description"><p>an array of Visual Format Language lines
+defining a set of constraints. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_lines]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_lines</p></td>
+<td class="parameter_description"><p>the number of lines</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>hspacing</p></td>
+<td class="parameter_description"><p>default horizontal spacing value, or -1 for the fallback value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>vspacing</p></td>
+<td class="parameter_description"><p>default vertical spacing value, or -1 for the fallback value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>first_view</p></td>
+<td class="parameter_description"><p>the name of a view in the VFL description, followed by the
+<a href="GtkConstraint.html#GtkConstraintTarget-struct"><span class="type">GtkConstraintTarget</span></a> to which it maps</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>...</p></td>
+<td class="parameter_description"><p>a <code class="literal">NULL</code>-terminated list of view names and <a href="GtkConstraint.html#GtkConstraintTarget-struct"><span class="type">GtkConstraintTargets</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-constraints-from-description.returns"></a><h4>Returns</h4>
+<p>the list of
+<a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraints</span></a> that were added to the layout. </p>
+<p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkConstraint]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-add-constraints-from-descriptionv"></a><h3>gtk_constraint_layout_add_constraints_from_descriptionv ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *
+gtk_constraint_layout_add_constraints_from_descriptionv
+                               (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>,
+                                <em class="parameter"><code>const <span class="type">char</span> * const lines[]</code></em>,
+                                <em class="parameter"><code><span class="type">gsize</span> n_lines</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> hspacing</code></em>,
+                                <em class="parameter"><code><span class="type">int</span> vspacing</code></em>,
+                                <em class="parameter"><code><span class="type">GHashTable</span> *views</code></em>,
+                                <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>Creates a list of constraints from a formal description using a compact
+description syntax called VFL, or "Visual Format Language".</p>
+<p>The Visual Format Language is based on Apple's AutoLayout <a class="ulink" href="https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/VisualFormatLanguage.html" target="_top">VFL</a>.</p>
+<p>The <em class="parameter"><code>views</code></em>
+ dictionary is used to match <a href="GtkConstraint.html#GtkConstraintTarget-struct"><span class="type">GtkConstraintTargets</span></a> to the symbolic
+view name inside the VFL.</p>
+<p>The VFL grammar is:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="o">&lt;</span><span class="n">visualFormatString</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">orientation</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+                       <span class="p">(</span><span class="o">&lt;</span><span class="n">superview</span><span class="o">&gt;&lt;</span><span class="n">connection</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+                       <span class="o">&lt;</span><span class="n">view</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&lt;</span><span class="n">connection</span><span class="o">&gt;&lt;</span><span class="n">view</span><span class="o">&gt;</span><span class="p">)</span><span class="o">*</span>
+                       <span class="p">(</span><span class="o">&lt;</span><span class="n">connection</span><span class="o">&gt;&lt;</span><span class="n">superview</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+       <span class="o">&lt;</span><span class="n">orientation</span><span class="o">&gt;</span> <span class="o">=</span> <span class="sc">'H'</span> <span class="o">|</span> <span class="sc">'V'</span>
+         <span class="o">&lt;</span><span class="n">superview</span><span class="o">&gt;</span> <span class="o">=</span> <span class="sc">'|'</span>
+        <span class="o">&lt;</span><span class="n">connection</span><span class="o">&gt;</span> <span class="o">=</span> <span class="err">''</span> <span class="o">|</span> <span class="sc">'-'</span> <span class="o">&lt;</span><span class="n">predicateList</span><span class="o">&gt;</span> <span class="sc">'-'</span> <span class="o">|</span> <span class="sc">'-'</span>
+     <span class="o">&lt;</span><span class="n">predicateList</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">simplePredicate</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">predicateListWithParens</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">simplePredicate</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">metricName</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">positiveNumber</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">predicateListWithParens</span><span class="o">&gt;</span> <span class="o">=</span> <span class="sc">'('</span> <span class="o">&lt;</span><span class="n">predicate</span><span class="o">&gt;</span> <span class="p">(</span><span class="sc">','</span> <span class="o">&lt;</span><span class="n">predicate</span><span class="o">&gt;</span><span class="p">)</span><span class="o">*</span> <span class="sc">')'</span>
+         <span class="o">&lt;</span><span class="n">predicate</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">relation</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span> <span class="o">&lt;</span><span class="n">objectOfPredicate</span><span class="o">&gt;</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">operatorList</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span> <span class="p">(</span><span class="sc">'@'</span> <span class="o">&lt;</span><span class="n">priority</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+          <span class="o">&lt;</span><span class="n">relation</span><span class="o">&gt;</span> <span class="o">=</span> <span class="err">'</span><span class="o">==</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="o">&lt;=</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="o">&gt;=</span><span class="err">'</span>
+ <span class="o">&lt;</span><span class="n">objectOfPredicate</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span> <span class="o">|</span> <span class="o">&lt;</span><span class="n">viewName</span><span class="o">&gt;</span> <span class="o">|</span> <span class="p">(</span><span class="sc">'.'</span> <span class="o">&lt;</span><span class="n">attributeName</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+          <span class="o">&lt;</span><span class="n">priority</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">positiveNumber</span><span class="o">&gt;</span> <span class="o">|</span> <span class="err">'</span><span class="n">required</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">strong</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">medium</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">weak</span><span class="err">'</span>
+          <span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">operatorList</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">multiplyOperator</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">addOperator</span><span class="o">&gt;</span><span class="p">)</span><span class="o">?</span>
+  <span class="o">&lt;</span><span class="n">multiplyOperator</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="sc">'*'</span> <span class="o">|</span> <span class="sc">'/'</span> <span class="p">]</span> <span class="o">&lt;</span><span class="n">positiveNumber</span><span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">addOperator</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span> <span class="sc">'+'</span> <span class="o">|</span> <span class="sc">'-'</span> <span class="p">]</span> <span class="o">&lt;</span><span class="n">positiveNumber</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">viewName</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z_</span><span class="p">]([</span><span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z0</span><span class="o">-</span><span class="mi">9</span><span class="n">_</span><span class="p">]</span><span class="o">*</span><span class="p">)</span> <span class="c1">// A C identifier</span>
+        <span class="o">&lt;</span><span class="n">metricName</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z_</span><span class="p">]([</span><span class="n">A</span><span class="o">-</span><span class="n">Za</span><span class="o">-</span><span class="n">z0</span><span class="o">-</span><span class="mi">9</span><span class="n">_</span><span class="p">]</span><span class="o">*</span><span class="p">)</span> <span class="c1">// A C identifier</span>
+     <span class="o">&lt;</span><span class="n">attributeName</span><span class="o">&gt;</span> <span class="o">=</span> <span class="err">'</span><span class="n">top</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">bottom</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">left</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">right</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">width</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">height</span><span class="err">'</span> <span class="o">|</span>
+                       <span class="err">'</span><span class="n">start</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">end</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">centerX</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">centerY</span><span class="err">'</span> <span class="o">|</span> <span class="err">'</span><span class="n">baseline</span><span class="err">'</span>
+    <span class="o">&lt;</span><span class="n">positiveNumber</span><span class="o">&gt;</span> <span class="c1">// A positive real number parseable by g_ascii_strtod()</span>
+            <span class="o">&lt;</span><span class="n">number</span><span class="o">&gt;</span> <span class="c1">// A real number parseable by g_ascii_strtod()</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>**Note**: The VFL grammar used by GTK is slightly different than the one
+defined by Apple, as it can use symbolic values for the constraint's
+strength instead of numeric values; additionally, GTK allows adding
+simple arithmetic operations inside predicates.</p>
+<p>Examples of VFL descriptions are:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="c1">// Default spacing</span>
+<span class="p">[</span><span class="n">button</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">textField</span><span class="p">]</span>
+
+<span class="c1">// Width constraint</span>
+<span class="p">[</span><span class="n">button</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">50</span><span class="p">)]</span>
+
+<span class="c1">// Connection to super view</span>
+<span class="o">|-</span><span class="mi">50</span><span class="o">-</span><span class="p">[</span><span class="n">purpleBox</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="o">-|</span>
+
+<span class="c1">// Vertical layout</span>
+<span class="nl">V</span><span class="p">:[</span><span class="n">topField</span><span class="p">]</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="p">[</span><span class="n">bottomField</span><span class="p">]</span>
+
+<span class="c1">// Flush views</span>
+<span class="p">[</span><span class="n">maroonView</span><span class="p">][</span><span class="n">blueView</span><span class="p">]</span>
+
+<span class="c1">// Priority</span>
+<span class="p">[</span><span class="n">button</span><span class="p">(</span><span class="mi">100</span><span class="err">@</span><span class="n">strong</span><span class="p">)]</span>
+
+<span class="c1">// Equal widths</span>
+<span class="p">[</span><span class="n">button1</span><span class="p">(</span><span class="o">==</span><span class="n">button2</span><span class="p">)]</span>
+
+<span class="c1">// Multiple predicates</span>
+<span class="p">[</span><span class="n">flexibleButton</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">70</span><span class="p">,</span><span class="o">&lt;=</span><span class="mi">100</span><span class="p">)]</span>
+
+<span class="c1">// A complete line of layout</span>
+<span class="o">|-</span><span class="p">[</span><span class="n">find</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">findNext</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">findField</span><span class="p">(</span><span class="o">&gt;=</span><span class="mi">20</span><span class="p">)]</span><span class="o">-|</span>
+
+<span class="c1">// Operators</span>
+<span class="p">[</span><span class="n">button1</span><span class="p">(</span><span class="n">button2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)]</span>
+
+<span class="c1">// Named attributes</span>
+<span class="p">[</span><span class="n">button1</span><span class="p">(</span><span class="o">==</span><span class="n">button2</span><span class="p">.</span><span class="n">height</span><span class="p">)]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p><span class="annotation">[<acronym title="Rename the original symbol's name to SYMBOL."><span class="acronym">rename-to</span></acronym> gtk_constraint_layout_add_constraints_from_description]</span></p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-constraints-from-descriptionv.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>lines</p></td>
+<td class="parameter_description"><p>an array of Visual Format Language lines
+defining a set of constraints. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_lines]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>n_lines</p></td>
+<td class="parameter_description"><p>the number of lines</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>hspacing</p></td>
+<td class="parameter_description"><p>default horizontal spacing value, or -1 for the fallback value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>vspacing</p></td>
+<td class="parameter_description"><p>default vertical spacing value, or -1 for the fallback value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>views</p></td>
+<td class="parameter_description"><p>a dictionary of [ name, target ]
+pairs; the <code class="literal">name</code> keys map to the view names in the VFL lines, while
+the <code class="literal">target</code> values map to children of the widget using a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a>, or guides. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 Gtk.ConstraintTarget]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>return location for a <span class="type">GError</span></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-constraint-layout-add-constraints-from-descriptionv.returns"></a><h4>Returns</h4>
+<p>the list of
+<a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraints</span></a> that were added to the layout. </p>
+<p><span class="annotation">[<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GtkConstraint]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-observe-constraints"></a><h3>gtk_constraint_layout_observe_constraints ()</h3>
+<pre class="programlisting"><span class="returnvalue">GListModel</span> *
+gtk_constraint_layout_observe_constraints
+                               (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>);</pre>
+<p>Returns a <span class="type">GListModel</span> to track the constraints that are
+part of <em class="parameter"><code>layout</code></em>
+.</p>
+<p>Calling this function will enable extra internal bookkeeping
+to track constraints and emit signals on the returned listmodel.
+It may slow down operations a lot.</p>
+<p>Applications should try hard to avoid calling this function
+because of the slowdowns.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-observe-constraints.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-constraint-layout-observe-constraints.returns"></a><h4>Returns</h4>
+<p>a
+<span class="type">GListModel</span> tracking <em class="parameter"><code>layout</code></em>
+'s constraints. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Free-form key-value pairs."><span class="acronym">attributes</span></acronym> element-type=GtkConstraint]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gtk-constraint-layout-observe-guides"></a><h3>gtk_constraint_layout_observe_guides ()</h3>
+<pre class="programlisting"><span class="returnvalue">GListModel</span> *
+gtk_constraint_layout_observe_guides (<em class="parameter"><code><a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a> *layout</code></em>);</pre>
+<p>Returns a <span class="type">GListModel</span> to track the guides that are
+part of <em class="parameter"><code>layout</code></em>
+.</p>
+<p>Calling this function will enable extra internal bookkeeping
+to track guides and emit signals on the returned listmodel.
+It may slow down operations a lot.</p>
+<p>Applications should try hard to avoid calling this function
+because of the slowdowns.</p>
+<div class="refsect3">
+<a name="gtk-constraint-layout-observe-guides.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>layout</p></td>
+<td class="parameter_description"><p>a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gtk-constraint-layout-observe-guides.returns"></a><h4>Returns</h4>
+<p>a
+<span class="type">GListModel</span> tracking <em class="parameter"><code>layout</code></em>
+'s guides. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Free-form key-value pairs."><span class="acronym">attributes</span></acronym> element-type=GtkConstraintGuide]</span></p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GtkConstraintLayout.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GtkConstraintLayout-struct"></a><h3>GtkConstraintLayout</h3>
+<pre class="programlisting">typedef struct _GtkConstraintLayout GtkConstraintLayout;</pre>
+<p>A layout manager using <a href="GtkConstraint.html#GtkConstraint-struct"><span class="type">GtkConstraint</span></a> to describe
+relations between widgets.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtkConstraintLayoutChild-struct"></a><h3>GtkConstraintLayoutChild</h3>
+<pre class="programlisting">typedef struct _GtkConstraintLayoutChild GtkConstraintLayoutChild;</pre>
+<p>A <a href="GtkLayoutChild.html#GtkLayoutChild-struct"><span class="type">GtkLayoutChild</span></a> in a <a href="GtkConstraintLayout.html#GtkConstraintLayout-struct"><span class="type">GtkConstraintLayout</span></a>.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GtkConstraintVflParserError"></a><h3>enum GtkConstraintVflParserError</h3>
+<p>Domain for VFL parsing errors.</p>
+<div class="refsect3">
+<a name="GtkConstraintVflParserError.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-SYMBOL:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_SYMBOL</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown symbol</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-ATTRIBUTE:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_ATTRIBUTE</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown attribute</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-VIEW:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_VIEW</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown view</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-METRIC:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_METRIC</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown metric</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-PRIORITY:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_PRIORITY</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown priority</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="GTK-CONSTRAINT-VFL-PARSER-ERROR-INVALID-RELATION:CAPS"></a>GTK_CONSTRAINT_VFL_PARSER_ERROR_INVALID_RELATION</p></td>
+<td class="enum_member_description">
+<p>Invalid or unknown relation</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GtkConstraintLayout.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

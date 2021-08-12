@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EConfig</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch14.html" rel="up" title="Plugins (Legacy)"></link><link href="libeutil-EPluginUI.html" rel="prev" title="EPluginUI"></link><link href="EEvent.html" rel="next" title="EEvent"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EConfig.html#container">Go to page content</a></li><li><a href="EConfig.html#top_bar">Go to main menu</a></li><li><a href="EConfig.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="libeutil-EPluginUI.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch14.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="EEvent.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EConfig.html#EConfig.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EConfig.html#EConfig.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EConfig.html#EConfig.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EConfig.html#EConfig.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EConfig"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EConfig.top_of_page"></a>EConfig</span></h2>
+<p>EConfig</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EConfig.synopsis"></a><h2>Synopsis</h2>
+<a name="EConfigHook"></a><pre class="synopsis">struct              <a class="link" href="EConfig.html#EConfig-struct" title="struct EConfig">EConfig</a>;
+enum                <a class="link" href="EConfig.html#e-config-t" title="enum e_config_t">e_config_t</a>;
+struct              <a class="link" href="EConfig.html#EConfigItem" title="struct EConfigItem">EConfigItem</a>;
+                    <a class="link" href="EConfig.html#EConfigFactory" title="EConfigFactory">EConfigFactory</a>;
+struct              <a class="link" href="EConfig.html#EConfigTarget" title="struct EConfigTarget">EConfigTarget</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="EConfig.html#EConfigFactoryFunc" title="EConfigFactoryFunc ()">*EConfigFactoryFunc</a>)               (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">gboolean</span>            (<a class="link" href="EConfig.html#EConfigCheckFunc" title="EConfigCheckFunc ()">*EConfigCheckFunc</a>)                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EConfig.html#EConfigItemsFunc" title="EConfigItemsFunc ()">*EConfigItemsFunc</a>)                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *items</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">GtkWidget</span>           (<a class="link" href="EConfig.html#EConfigItemFactoryFunc" title="EConfigItemFactoryFunc ()">*EConfigItemFactoryFunc</a>)           (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigItem" title="struct EConfigItem"><span class="type">EConfigItem</span></a> *item</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *parent</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *old</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<a class="link" href="EConfig.html#EConfigFactory" title="EConfigFactory"><span class="returnvalue">EConfigFactory</span></a> *    <a class="link" href="EConfig.html#e-config-class-add-factory" title="e_config_class_add_factory ()">e_config_class_add_factory</a>          (<em class="parameter"><code><span class="type">EConfigClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigFactoryFunc" title="EConfigFactoryFunc ()"><span class="type">EConfigFactoryFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<a class="link" href="EConfig.html" title="EConfig"><span class="returnvalue">EConfig</span></a> *           <a class="link" href="EConfig.html#e-config-construct" title="e_config_construct ()">e_config_construct</a>                  (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-add-items" title="e_config_add_items ()">e_config_add_items</a>                  (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *items</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigItemsFunc" title="EConfigItemsFunc ()"><span class="type">EConfigItemsFunc</span></a> freefunc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-add-page-check" title="e_config_add_page_check ()">e_config_add_page_check</a>             (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigCheckFunc" title="EConfigCheckFunc ()"><span class="type">EConfigCheckFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-set-target" title="e_config_set_target ()">e_config_set_target</a>                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigTarget" title="struct EConfigTarget"><span class="type">EConfigTarget</span></a> *target</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EConfig.html#e-config-create-widget" title="e_config_create_widget ()">e_config_create_widget</a>              (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);
+enum                <a class="link" href="EConfig.html#e-config-target-change-t" title="enum e_config_target_change_t">e_config_target_change_t</a>;
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-target-changed" title="e_config_target_changed ()">e_config_target_changed</a>             (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#e-config-target-change-t" title="enum e_config_target_change_t"><span class="type">e_config_target_change_t</span></a> how</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EConfig.html#e-config-page-check" title="e_config_page_check ()">e_config_page_check</a>                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-abort" title="e_config_abort ()">e_config_abort</a>                      (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-commit" title="e_config_commit ()">e_config_commit</a>                     (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EConfig.html#e-config-target-new" title="e_config_target_new ()">e_config_target_new</a>                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-target-free" title="e_config_target_free ()">e_config_target_free</a>                (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> target</code></em>);
+struct              <a class="link" href="EConfig.html#EConfigHookGroup" title="struct EConfigHookGroup">EConfigHookGroup</a>;
+struct              <a class="link" href="EConfig.html#EConfigHook-struct" title="struct EConfigHook">EConfigHook</a>;
+typedef             <a class="link" href="EConfig.html#EConfigHookTargetMap" title="EConfigHookTargetMap">EConfigHookTargetMap</a>;
+typedef             <a class="link" href="EConfig.html#EConfigHookTargetMask" title="EConfigHookTargetMask">EConfigHookTargetMask</a>;
+struct              <a class="link" href="EConfig.html#EConfigHookItemFactoryData" title="struct EConfigHookItemFactoryData">EConfigHookItemFactoryData</a>;
+struct              <a class="link" href="EConfig.html#EConfigHookPageCheckData" title="struct EConfigHookPageCheckData">EConfigHookPageCheckData</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="EConfig.html#EConfigHookFunc" title="EConfigHookFunc ()">*EConfigHookFunc</a>)                  (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigTarget" title="struct EConfigTarget"><span class="type">EConfigTarget</span></a> *target</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="EConfig.html#EConfigHookItemFactoryFunc" title="EConfigHookItemFactoryFunc ()">*EConfigHookItemFactoryFunc</a>)       (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigHookItemFactoryData" title="struct EConfigHookItemFactoryData"><span class="type">EConfigHookItemFactoryData</span></a> *data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EConfig.html#e-config-hook-class-add-target-map" title="e_config_hook_class_add_target_map ()">e_config_hook_class_add_target_map</a>  (<em class="parameter"><code><span class="type">EConfigHookClass</span> *hook_class</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EConfig.html#EConfigHookTargetMap" title="EConfigHookTargetMap"><span class="type">EConfigHookTargetMap</span></a> *map</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EConfig.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EConfig
+</pre>
+<pre class="synopsis">  GObject
+   +----<a class="link" href="EPlugin.html#EPluginHook">EPluginHook</a>
+         +----EConfigHook
+</pre>
+</div>
+<div class="refsect1">
+<a name="EConfig.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="EConfig.html#EConfig-abort" title='The "abort" signal'>abort</a>"                                          : <code class="literal">Run Last</code>
+  "<a class="link" href="EConfig.html#EConfig-commit" title='The "commit" signal'>commit</a>"                                         : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EConfig.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EConfig.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EConfig-struct"></a><h3>struct EConfig</h3>
+<pre class="programlisting">struct EConfig;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-t"></a><h3>enum e_config_t</h3>
+<pre class="programlisting">enum e_config_t {
+	/* use one and only one of these for any given config-window id */
+	E_CONFIG_BOOK,
+
+	E_CONFIG_PAGE,
+	E_CONFIG_SECTION,
+	E_CONFIG_SECTION_TABLE,
+	E_CONFIG_ITEM,
+	E_CONFIG_ITEM_TABLE /* only allowed in table sections */
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigItem"></a><h3>struct EConfigItem</h3>
+<pre class="programlisting">struct EConfigItem {
+	enum _e_config_t type;
+	gchar *path;		/* absolute path, must sort
+				 * ascii-lexographically into the right spot */
+	gchar *label;
+	EConfigItemFactoryFunc factory;
+	gpointer user_data;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigFactory"></a><h3>EConfigFactory</h3>
+<pre class="programlisting">typedef struct _EConfigFactory EConfigFactory;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigTarget"></a><h3>struct EConfigTarget</h3>
+<pre class="programlisting">struct EConfigTarget {
+	struct _EConfig *config;
+	GtkWidget *widget; /* used if you need a parent toplevel, if available */
+
+	guint32 type;
+
+	/* implementation fields follow, depends on window type */
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigFactoryFunc"></a><h3>EConfigFactoryFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EConfigFactoryFunc)               (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigCheckFunc"></a><h3>EConfigCheckFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*EConfigCheckFunc)                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigItemsFunc"></a><h3>EConfigItemsFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EConfigItemsFunc)                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *items</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigItemFactoryFunc"></a><h3>EConfigItemFactoryFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span>           (*EConfigItemFactoryFunc)           (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigItem" title="struct EConfigItem"><span class="type">EConfigItem</span></a> *item</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *parent</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *old</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> position</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-class-add-factory"></a><h3>e_config_class_add_factory ()</h3>
+<pre class="programlisting"><a class="link" href="EConfig.html#EConfigFactory" title="EConfigFactory"><span class="returnvalue">EConfigFactory</span></a> *    e_config_class_add_factory          (<em class="parameter"><code><span class="type">EConfigClass</span> *klass</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigFactoryFunc" title="EConfigFactoryFunc ()"><span class="type">EConfigFactoryFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Add a config factory which will be called to <code class="function">add_items()</code> any
+extra items's if wants to, to the current Config window.
+</p>
+<p>
+TODO: Make the id a pattern?
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>klass</code></em> :</span></p></td>
+<td>Implementing class pointer.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the configuration window you're interested in.
+This may be NULL to be called for all windows.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>An EConfigFactoryFunc to call when the window <em class="parameter"><code>id</code></em> is being created.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>Callback data.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A handle to the factory.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-construct"></a><h3>e_config_construct ()</h3>
+<pre class="programlisting"><a class="link" href="EConfig.html" title="EConfig"><span class="returnvalue">EConfig</span></a> *           e_config_construct                  (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
+<p>
+Used by implementing classes to initialise base parameters.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>The instance to initialise.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the configuration window this manager drives.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<em class="parameter"><code>config</code></em> is returned.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-add-items"></a><h3>e_config_add_items ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_add_items                  (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *items</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigItemsFunc" title="EConfigItemsFunc ()"><span class="type">EConfigItemsFunc</span></a> freefunc</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Add new EConfigItems to the configuration window.  Nothing will be
+done with them until the widget is built.
+</p>
+<p>
+TODO: perhaps commit and abort should just be signals.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>An initialised implementing instance of EConfig.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>items</code></em> :</span></p></td>
+<td>A list of EConfigItem's to add to the configuration manager.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>freefunc</code></em> :</span></p></td>
+<td>If supplied, called to free the item list (and/or items)
+once they are no longer needed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Data for the callback methods.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-add-page-check"></a><h3>e_config_add_page_check ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_add_page_check             (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigCheckFunc" title="EConfigCheckFunc ()"><span class="type">EConfigCheckFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Add a page-checking function callback.  It will be called to validate the
+data in the given page or pages.  If <em class="parameter"><code>pageid</code></em> is NULL then it will be called
+to validate every page, or the whole configuration window.
+</p>
+<p>
+In the latter case, the pageid in the callback will be either the
+specific page being checked, or NULL when the whole config window
+is being checked.
+</p>
+<p>
+The page check function is used to validate input before allowing
+the assistant to continue or the notebook to close.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>Initialised implemeting instance of EConfig.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pageid</code></em> :</span></p></td>
+<td>pageid to check.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
+<td>checking callback.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>user-data for the callback.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-set-target"></a><h3>e_config_set_target ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_set_target                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigTarget" title="struct EConfigTarget"><span class="type">EConfigTarget</span></a> *target</code></em>);</pre>
+<p>
+Sets the target object for the config window.  Generally the target
+is set only once, and will supply its own "changed" signal which
+can be used to drive the modal.  This is a virtual method so that
+the implementing class can connect to the changed signal and
+initiate a <a class="link" href="EConfig.html#e-config-target-changed" title="e_config_target_changed ()"><code class="function">e_config_target_changed()</code></a> call where appropriate.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>An initialised EConfig.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>A target allocated from <em class="parameter"><code>config</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-create-widget"></a><h3>e_config_create_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_config_create_widget              (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);</pre>
+<p>
+Create the <span class="type">GtkNotebook</span> described by <em class="parameter"><code>config</code></em>.
+</p>
+<p>
+This object will be self-driving, but will not close itself once
+complete.
+</p>
+<p>
+Unless reffed otherwise, the management object <em class="parameter"><code>config</code></em> will be
+finalized when the widget is.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>An initialised EConfig object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The widget, also available in <em class="parameter"><code>config.widget</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-target-change-t"></a><h3>enum e_config_target_change_t</h3>
+<pre class="programlisting">enum e_config_target_change_t {
+	E_CONFIG_TARGET_CHANGED_STATE,
+	E_CONFIG_TARGET_CHANGED_REBUILD
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-target-changed"></a><h3>e_config_target_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_target_changed             (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#e-config-target-change-t" title="enum e_config_target_change_t"><span class="type">e_config_target_change_t</span></a> how</code></em>);</pre>
+<p>
+Indicate that the target has changed.  This may be called by the
+self-aware target itself, or by the driving code.  If <em class="parameter"><code>how</code></em> is
+<code class="literal">E_CONFIG_TARGET_CHANGED_REBUILD</code>, then the entire configuration
+widget may be recreated based on the changed target.
+</p>
+<p>
+This is used to sensitise Assistant next/back buttons and the Apply
+button for the Notebook mode.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>how</code></em> :</span></p></td>
+<td>an enum value indicating how the target has changed</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-page-check"></a><h3>e_config_page_check ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_config_page_check                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *pageid</code></em>);</pre>
+<p>
+Check that a given page is complete.  If <em class="parameter"><code>pageid</code></em> is NULL, then check
+the whole config.  No check is made that the page actually exists.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pageid</code></em> :</span></p></td>
+<td>the path of the page item</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>FALSE if the data is inconsistent/incomplete.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-abort"></a><h3>e_config_abort ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_abort                      (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);</pre>
+<p>
+Signify that the stateful configuration changes must be discarded
+to all listeners.  This is used by self-driven assistant or notebook, or
+may be used by code using the widget directly.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-commit"></a><h3>e_config_commit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_commit                     (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>);</pre>
+<p>
+Signify that the stateful configuration changes should be saved.
+This is used by the self-driven assistant or notebook, or may be used
+by code driving the widget directly.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-target-new"></a><h3>e_config_target_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_config_target_new                 (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gsize</span> size</code></em>);</pre>
+<p>
+Allocate a new config target suitable for this class.  Implementing
+classes will define the actual content of the target.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>type, up to implementor</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>size</code></em> :</span></p></td>
+<td>size of object to allocate</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-target-free"></a><h3>e_config_target_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_target_free                (<em class="parameter"><code><a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *config</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> target</code></em>);</pre>
+<p>
+Free a target.  The implementing class can override this method to
+free custom targets.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>config</code></em> :</span></p></td>
+<td>an <a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>the target to free</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookGroup"></a><h3>struct EConfigHookGroup</h3>
+<pre class="programlisting">struct EConfigHookGroup {
+	struct _EConfigHook *hook; /* parent pointer */
+	gchar *id;		/* target menu id for these config items */
+	gint target_type; /* target type of this group */
+	GSList *items;		/* items to add to group */
+	gchar *check;		/* validate handler, if set */
+	gchar *commit;		/* commit handler, if set */
+	gchar *abort;		/* abort handler, if set */
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHook-struct"></a><h3>struct EConfigHook</h3>
+<pre class="programlisting">struct EConfigHook;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookTargetMap"></a><h3>EConfigHookTargetMap</h3>
+<pre class="programlisting">typedef struct _EPluginHookTargetMap EConfigHookTargetMap;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookTargetMask"></a><h3>EConfigHookTargetMask</h3>
+<pre class="programlisting">typedef struct _EPluginHookTargetKey EConfigHookTargetMask;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookItemFactoryData"></a><h3>struct EConfigHookItemFactoryData</h3>
+<pre class="programlisting">struct EConfigHookItemFactoryData {
+	EConfig *config;
+	EConfigItem *item;
+	EConfigTarget *target;
+	GtkWidget *parent;
+	GtkWidget *old;
+	gint position;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookPageCheckData"></a><h3>struct EConfigHookPageCheckData</h3>
+<pre class="programlisting">struct EConfigHookPageCheckData {
+	EConfig *config;
+	EConfigTarget *target;
+	const gchar *pageid;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookFunc"></a><h3>EConfigHookFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EConfigHookFunc)                  (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigTarget" title="struct EConfigTarget"><span class="type">EConfigTarget</span></a> *target</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfigHookItemFactoryFunc"></a><h3>EConfigHookItemFactoryFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*EConfigHookItemFactoryFunc)       (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EConfig.html#EConfigHookItemFactoryData" title="struct EConfigHookItemFactoryData"><span class="type">EConfigHookItemFactoryData</span></a> *data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-config-hook-class-add-target-map"></a><h3>e_config_hook_class_add_target_map ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_config_hook_class_add_target_map  (<em class="parameter"><code><span class="type">EConfigHookClass</span> *hook_class</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EConfig.html#EConfigHookTargetMap" title="EConfigHookTargetMap"><span class="type">EConfigHookTargetMap</span></a> *map</code></em>);</pre>
+<p>
+<em class="parameter"><code>hook_class</code></em>: The dervied <a class="link" href="EConfig.html#EConfigHook"><span class="type">EConfigHook</span></a> class.
+<em class="parameter"><code>map</code></em>: A map used to describe a single EConfigTarget type for this class.
+</p>
+<p>
+Add a targe tmap to a concrete derived class of EConfig.  The
+target map enumates the target types available for the implenting
+class.
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EConfig.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EConfig-abort"></a><h3>The <code class="literal">"abort"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *econfig,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EConfig-commit"></a><h3>The <code class="literal">"commit"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EConfig.html" title="EConfig"><span class="type">EConfig</span></a> *econfig,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EConfig.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

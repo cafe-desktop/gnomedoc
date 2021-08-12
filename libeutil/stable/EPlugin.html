@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EPlugin</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch14.html" rel="up" title="Plugins (Legacy)"></link><link href="ch14.html" rel="prev" title="Plugins (Legacy)"></link><link href="libeutil-EPluginUI.html" rel="next" title="EPluginUI"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EPlugin.html#container">Go to page content</a></li><li><a href="EPlugin.html#top_bar">Go to main menu</a></li><li><a href="EPlugin.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch14.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch14.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="libeutil-EPluginUI.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EPlugin.html#EPlugin.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EPlugin.html#EPlugin.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EPlugin.html#EPlugin.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EPlugin.html#EPlugin.properties">Properties</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EPlugin.top_of_page"></a>EPlugin</span></h2>
+<p>EPlugin</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EPlugin.synopsis"></a><h2>Synopsis</h2>
+<a name="EPluginHook"></a><pre class="synopsis">#define             <a class="link" href="EPlugin.html#E-PLUGIN-CLASSID:CAPS" title="E_PLUGIN_CLASSID">E_PLUGIN_CLASSID</a>
+struct              <a class="link" href="EPlugin.html#EPluginAuthor" title="struct EPluginAuthor">EPluginAuthor</a>;
+enum                <a class="link" href="EPlugin.html#EPluginFlags" title="enum EPluginFlags">EPluginFlags</a>;
+struct              <a class="link" href="EPlugin.html#EPlugin-struct" title="struct EPlugin">EPlugin</a>;
+<span class="returnvalue">gint</span>                <a class="link" href="EPlugin.html#e-plugin-construct" title="e_plugin_construct ()">e_plugin_construct</a>                  (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="EPlugin.html#e-plugin-load-plugins" title="e_plugin_load_plugins ()">e_plugin_load_plugins</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="EPlugin.html#e-plugin-list-plugins" title="e_plugin_list_plugins ()">e_plugin_list_plugins</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EPlugin.html#e-plugin-get-symbol" title="e_plugin_get_symbol ()">e_plugin_get_symbol</a>                 (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="EPlugin.html#e-plugin-invoke" title="e_plugin_invoke ()">e_plugin_invoke</a>                     (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EPlugin.html#e-plugin-enable" title="e_plugin_enable ()">e_plugin_enable</a>                     (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EPlugin.html#e-plugin-get-configure-widget" title="e_plugin_get_configure_widget ()">e_plugin_get_configure_widget</a>       (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EPlugin.html#e-plugin-xml-prop" title="e_plugin_xml_prop ()">e_plugin_xml_prop</a>                   (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EPlugin.html#e-plugin-xml-prop-domain" title="e_plugin_xml_prop_domain ()">e_plugin_xml_prop_domain</a>            (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="EPlugin.html#e-plugin-xml-int" title="e_plugin_xml_int ()">e_plugin_xml_int</a>                    (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> def</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EPlugin.html#e-plugin-xml-content" title="e_plugin_xml_content ()">e_plugin_xml_content</a>                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EPlugin.html#e-plugin-xml-content-domain" title="e_plugin_xml_content_domain ()">e_plugin_xml_content_domain</a>         (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);
+struct              <a class="link" href="EPlugin.html#EPluginHook-struct" title="struct EPluginHook">EPluginHook</a>;
+struct              <a class="link" href="EPlugin.html#EPluginHookTargetMap" title="struct EPluginHookTargetMap">EPluginHookTargetMap</a>;
+struct              <a class="link" href="EPlugin.html#EPluginHookTargetKey" title="struct EPluginHookTargetKey">EPluginHookTargetKey</a>;
+<a class="link" href="EPlugin.html#EPluginHook"><span class="returnvalue">EPluginHook</span></a> *       <a class="link" href="EPlugin.html#e-plugin-hook-new" title="e_plugin_hook_new ()">e_plugin_hook_new</a>                   (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EPlugin.html#e-plugin-hook-enable" title="e_plugin_hook_enable ()">e_plugin_hook_enable</a>                (<em class="parameter"><code><a class="link" href="EPlugin.html#EPluginHook"><span class="type">EPluginHook</span></a> *plugin_hook</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="EPlugin.html#e-plugin-hook-mask" title="e_plugin_hook_mask ()">e_plugin_hook_mask</a>                  (<em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EPlugin.html#EPluginHookTargetKey" title="struct EPluginHookTargetKey"><span class="type">EPluginHookTargetKey</span></a> *map</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="EPlugin.html#e-plugin-hook-id" title="e_plugin_hook_id ()">e_plugin_hook_id</a>                    (<em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EPlugin.html#EPluginHookTargetKey" title="struct EPluginHookTargetKey"><span class="type">EPluginHookTargetKey</span></a> *map</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EPlugin.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----EPlugin
+</pre>
+<pre class="synopsis">  GObject
+   +----EPluginHook
+         +----<a class="link" href="EConfig.html#EConfigHook">EConfigHook</a>
+         +----<a class="link" href="EEvent.html#EEventHook">EEventHook</a>
+         +----<a class="link" href="EImport.html#EImportHook">EImportHook</a>
+         +----<a class="link" href="libeutil-EPluginUI.html#EPluginUIHook">EPluginUIHook</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EPlugin.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EPlugin.html#EPlugin--enabled" title='The "enabled" property'>enabled</a>"                  <span class="type">gboolean</span>              : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="EPlugin.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EPlugin.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="E-PLUGIN-CLASSID:CAPS"></a><h3>E_PLUGIN_CLASSID</h3>
+<pre class="programlisting">#define E_PLUGIN_CLASSID "org.gnome.evolution.plugin"
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPluginAuthor"></a><h3>struct EPluginAuthor</h3>
+<pre class="programlisting">struct EPluginAuthor {
+	gchar *name;
+	gchar *email;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPluginFlags"></a><h3>enum EPluginFlags</h3>
+<pre class="programlisting">typedef enum {
+	E_PLUGIN_FLAGS_SYSTEM_PLUGIN = 1 &lt;&lt; 0
+} EPluginFlags;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPlugin-struct"></a><h3>struct EPlugin</h3>
+<pre class="programlisting">struct EPlugin;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-construct"></a><h3>e_plugin_construct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_plugin_construct                  (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>);</pre>
+<p>
+Helper to invoke the construct virtual method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>an <a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>The XML root node of the sub-tree containing the plugin
+definition.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The return from the construct virtual method.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-load-plugins"></a><h3>e_plugin_load_plugins ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_plugin_load_plugins               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Scan the search path, looking for plugin definitions, and load them
+into memory.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Returns -1 if an error occurred.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-list-plugins"></a><h3>e_plugin_list_plugins ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            e_plugin_list_plugins               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-get-symbol"></a><h3>e_plugin_get_symbol ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_plugin_get_symbol                 (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Helper to fetch a symbol name from a plugin.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>an <a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name of the symbol to fetch. The format of this name
+will depend on the EPlugin type and its language conventions.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the symbol value, or <code class="literal">NULL</code> if not found</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-invoke"></a><h3>e_plugin_invoke ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_plugin_invoke                     (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+Helper to invoke the invoke virtual method.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>an <a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>The name of the function to invoke. The format of this name
+will depend on the EPlugin type and its language conventions.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>The argument to the function. Its actual type depends on
+the hook on which the function resides. It is up to the called
+function to get this right.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The return of the plugin invocation.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-enable"></a><h3>e_plugin_enable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_plugin_enable                     (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);</pre>
+<p>
+Set the enable state of a plugin.
+</p>
+<p>
+THIS IS NOT FULLY IMPLEMENTED YET
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>an <a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to enable, <code class="literal">FALSE</code> to disable</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-get-configure-widget"></a><h3>e_plugin_get_configure_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_plugin_get_configure_widget       (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>);</pre>
+<p>
+Plugin itself should have implemented "e_plugin_lib_get_configure_widget"
+function * of prototype EPluginLibGetConfigureWidgetFunc.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>an <a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Configure widget or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-xml-prop"></a><h3>e_plugin_xml_prop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_plugin_xml_prop                   (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>);</pre>
+<p>
+A static helper function to look up a property on an XML node, and
+ensure it is allocated in GLib system memory.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>An XML node.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the property to retrieve.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The property, allocated in GLib memory, or NULL if no
+such property exists.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-xml-prop-domain"></a><h3>e_plugin_xml_prop_domain ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_plugin_xml_prop_domain            (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);</pre>
+<p>
+A static helper function to look up a property on an XML node, and
+translate it based on <em class="parameter"><code>domain</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>An XML node.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the property to retrieve.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
+<td>The translation domain for this string.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The property, allocated in GLib memory, or NULL if no
+such property exists.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-xml-int"></a><h3>e_plugin_xml_int ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_plugin_xml_int                    (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> def</code></em>);</pre>
+<p>
+A static helper function to look up a property on an XML node as an
+integer.  If the property doesn't exist, then <em class="parameter"><code>def</code></em> is returned as a
+default value instead.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
+<td>An XML node.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>The name of the property to retrieve.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>def</code></em> :</span></p></td>
+<td>A default value if the property doesn't exist.  Can be used
+to determine if the property isn't set.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value if set, or <em class="parameter"><code>def</code></em> if not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-xml-content"></a><h3>e_plugin_xml_content ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_plugin_xml_content                (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>);</pre>
+<p>
+A static helper function to retrieve the entire textual content of
+an XML node, and ensure it is allocated in GLib system memory.  If
+GLib isn't using the system malloc them it must copy the content.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The node content, allocated in GLib memory.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-xml-content-domain"></a><h3>e_plugin_xml_content_domain ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_plugin_xml_content_domain         (<em class="parameter"><code><span class="type">xmlNodePtr</span> node</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>);</pre>
+<p>
+A static helper function to retrieve the entire textual content of
+an XML node, and ensure it is allocated in GLib system memory.  If
+GLib isn't using the system malloc them it must copy the content.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The node content, allocated in GLib memory.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPluginHook-struct"></a><h3>struct EPluginHook</h3>
+<pre class="programlisting">struct EPluginHook;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPluginHookTargetMap"></a><h3>struct EPluginHookTargetMap</h3>
+<pre class="programlisting">struct EPluginHookTargetMap {
+	const gchar *type;
+	gint id;
+	const EPluginHookTargetKey *mask_bits; /* null terminated array */
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EPluginHookTargetKey"></a><h3>struct EPluginHookTargetKey</h3>
+<pre class="programlisting">struct EPluginHookTargetKey {
+	const gchar *key;
+	guint32 value;
+};
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-hook-new"></a><h3>e_plugin_hook_new ()</h3>
+<pre class="programlisting"><a class="link" href="EPlugin.html#EPluginHook"><span class="returnvalue">EPluginHook</span></a> *       e_plugin_hook_new                   (<em class="parameter"><code><a class="link" href="EPlugin.html" title="EPlugin"><span class="type">EPlugin</span></a> *plugin</code></em>,
+                                                         <em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-hook-enable"></a><h3>e_plugin_hook_enable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_plugin_hook_enable                (<em class="parameter"><code><a class="link" href="EPlugin.html#EPluginHook"><span class="type">EPluginHook</span></a> *plugin_hook</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> state</code></em>);</pre>
+<p>
+Set the enabled state of the plugin hook.  This is called by the
+plugin code.
+</p>
+<p>
+THIS IS NOT FULY IMEPLEMENTED YET
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-hook-mask"></a><h3>e_plugin_hook_mask ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             e_plugin_hook_mask                  (<em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EPlugin.html#EPluginHookTargetKey" title="struct EPluginHookTargetKey"><span class="type">EPluginHookTargetKey</span></a> *map</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop</code></em>);</pre>
+<p>
+This is a static helper function which looks up a property <em class="parameter"><code>prop</code></em> on
+the XML node <em class="parameter"><code>root</code></em>, and then uses the <em class="parameter"><code>map</code></em> table to convert it into
+a bitmask.  The property value is a comma separated list of
+enumeration strings which are indexed into the <em class="parameter"><code>map</code></em> table.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>root</code></em> :</span></p></td>
+<td>An XML node.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map</code></em> :</span></p></td>
+<td>A zero-fill terminated array of EPluginHookTargeKeys used to
+map a string with a bit value.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop</code></em> :</span></p></td>
+<td>The property name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A bitmask representing the inclusive-or of all of the
+integer values of the corresponding string id's stored in the <em class="parameter"><code>map</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-plugin-hook-id"></a><h3>e_plugin_hook_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             e_plugin_hook_id                    (<em class="parameter"><code><span class="type">xmlNodePtr</span> root</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="EPlugin.html#EPluginHookTargetKey" title="struct EPluginHookTargetKey"><span class="type">EPluginHookTargetKey</span></a> *map</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *prop</code></em>);</pre>
+<p>
+This is a static helper function which looks up a property <em class="parameter"><code>prop</code></em> on
+the XML node <em class="parameter"><code>root</code></em>, and then uses the <em class="parameter"><code>map</code></em> table to convert it into
+an integer.
+</p>
+<p>
+This is used as a helper wherever you need to represent an
+enumerated value in the XML.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>If the <em class="parameter"><code>prop</code></em> value is in <em class="parameter"><code>map</code></em>, then the corresponding
+integer value, if not, then ~0.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="EPlugin.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EPlugin--enabled"></a><h3>The <code class="literal">"enabled"</code> property</h3>
+<pre class="programlisting">  "enabled"                  <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the plugin is enabled.</p>
+<p>Default value: TRUE</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EPlugin.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

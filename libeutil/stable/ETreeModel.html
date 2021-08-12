@@ -1,0 +1,743 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>ETreeModel</title><link href="index.html" rel="home" title="Evolution Utilities Reference Manual"></link><link href="ch10.html" rel="up" title="Tables and Trees"></link><link href="ETreeMemory.html" rel="prev" title="ETreeMemory"></link><link href="ETreeSelectionModel.html" rel="next" title="ETreeSelectionModel"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ETreeModel.html#container">Go to page content</a></li><li><a href="ETreeModel.html#top_bar">Go to main menu</a></li><li><a href="ETreeModel.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ETreeMemory.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch10.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Utilities Reference Manual</th>
+<td><a accesskey="n" href="ETreeSelectionModel.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="ETreeModel.html#ETreeModel.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="ETreeModel.html#ETreeModel.description">Description</a>
+                   | 
+                  <a class="shortcut" href="ETreeModel.html#ETreeModel.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="ETreeModel.html#ETreeModel.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="ETreeModel"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ETreeModel.top_of_page"></a>ETreeModel</span></h2>
+<p>ETreeModel</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="ETreeModel.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="ETreeModel.html#ETreeModel-struct" title="struct ETreeModel">ETreeModel</a>;
+<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="returnvalue">ETreeModel</span></a> *        <a class="link" href="ETreeModel.html#e-tree-model-new" title="e_tree_model_new ()">e_tree_model_new</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+typedef             <a class="link" href="ETreeModel.html#ETreePath" title="ETreePath">ETreePath</a>;
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-get-root" title="e_tree_model_get_root ()">e_tree_model_get_root</a>               (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-get-parent" title="e_tree_model_node_get_parent ()">e_tree_model_node_get_parent</a>        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-get-first-child" title="e_tree_model_node_get_first_child ()">e_tree_model_node_get_first_child</a>   (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-get-last-child" title="e_tree_model_node_get_last_child ()">e_tree_model_node_get_last_child</a>    (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-get-next" title="e_tree_model_node_get_next ()">e_tree_model_node_get_next</a>          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-get-prev" title="e_tree_model_node_get_prev ()">e_tree_model_node_get_prev</a>          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-node-is-root" title="e_tree_model_node_is_root ()">e_tree_model_node_is_root</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-node-is-expandable" title="e_tree_model_node_is_expandable ()">e_tree_model_node_is_expandable</a>     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="ETreeModel.html#e-tree-model-node-get-children" title="e_tree_model_node_get_children ()">e_tree_model_node_get_children</a>      (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> **paths</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="ETreeModel.html#e-tree-model-node-depth" title="e_tree_model_node_depth ()">e_tree_model_node_depth</a>             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">GdkPixbuf</span> *         <a class="link" href="ETreeModel.html#e-tree-model-icon-at" title="e_tree_model_icon_at ()">e_tree_model_icon_at</a>                (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-get-expanded-default" title="e_tree_model_get_expanded_default ()">e_tree_model_get_expanded_default</a>   (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="ETreeModel.html#e-tree-model-column-count" title="e_tree_model_column_count ()">e_tree_model_column_count</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-has-save-id" title="e_tree_model_has_save_id ()">e_tree_model_has_save_id</a>            (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ETreeModel.html#e-tree-model-get-save-id" title="e_tree_model_get_save_id ()">e_tree_model_get_save_id</a>            (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-has-get-node-by-id" title="e_tree_model_has_get_node_by_id ()">e_tree_model_has_get_node_by_id</a>     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-get-node-by-id" title="e_tree_model_get_node_by_id ()">e_tree_model_get_node_by_id</a>         (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *save_id</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-has-change-pending" title="e_tree_model_has_change_pending ()">e_tree_model_has_change_pending</a>     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="ETreeModel.html#e-tree-model-sort-value-at" title="e_tree_model_sort_value_at ()">e_tree_model_sort_value_at</a>          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="ETreeModel.html#e-tree-model-value-at" title="e_tree_model_value_at ()">e_tree_model_value_at</a>               (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-set-value-at" title="e_tree_model_set_value_at ()">e_tree_model_set_value_at</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> val</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-node-is-editable" title="e_tree_model_node_is_editable ()">e_tree_model_node_is_editable</a>       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="ETreeModel.html#e-tree-model-duplicate-value" title="e_tree_model_duplicate_value ()">e_tree_model_duplicate_value</a>        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-free-value" title="e_tree_model_free_value ()">e_tree_model_free_value</a>             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);
+<span class="returnvalue">gpointer</span>            <a class="link" href="ETreeModel.html#e-tree-model-initialize-value" title="e_tree_model_initialize_value ()">e_tree_model_initialize_value</a>       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ETreeModel.html#e-tree-model-value-is-empty" title="e_tree_model_value_is_empty ()">e_tree_model_value_is_empty</a>         (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="ETreeModel.html#e-tree-model-value-to-string" title="e_tree_model_value_to_string ()">e_tree_model_value_to_string</a>        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);
+<span class="returnvalue">gboolean</span>            (<a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()">*ETreePathFunc</a>)                    (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-traverse" title="e_tree_model_node_traverse ()">e_tree_model_node_traverse</a>          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-traverse-preorder" title="e_tree_model_node_traverse_preorder ()">e_tree_model_node_traverse_preorder</a> (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           <a class="link" href="ETreeModel.html#e-tree-model-node-find" title="e_tree_model_node_find ()">e_tree_model_node_find</a>              (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> end_path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> forward_direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-pre-change" title="e_tree_model_pre_change ()">e_tree_model_pre_change</a>             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-no-change" title="e_tree_model_no_change ()">e_tree_model_no_change</a>              (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-rebuilt" title="e_tree_model_rebuilt ()">e_tree_model_rebuilt</a>                (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-changed" title="e_tree_model_node_changed ()">e_tree_model_node_changed</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-data-changed" title="e_tree_model_node_data_changed ()">e_tree_model_node_data_changed</a>      (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-col-changed" title="e_tree_model_node_col_changed ()">e_tree_model_node_col_changed</a>       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-inserted" title="e_tree_model_node_inserted ()">e_tree_model_node_inserted</a>          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> parent_path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> inserted_path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-removed" title="e_tree_model_node_removed ()">e_tree_model_node_removed</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> parent_path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> removed_path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> old_position</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-deleted" title="e_tree_model_node_deleted ()">e_tree_model_node_deleted</a>           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> deleted_path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ETreeModel.html#e-tree-model-node-request-collapse" title="e_tree_model_node_request_collapse ()">e_tree_model_node_request_collapse</a>  (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> collapsed_path</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETreeModel.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----ETreeModel
+         +----<a class="link" href="ETreeMemory.html" title="ETreeMemory">ETreeMemory</a>
+         +----<a class="link" href="ETreeSorted.html" title="ETreeSorted">ETreeSorted</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETreeModel.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="ETreeModel.html#ETreeModel-no-change" title='The "no-change" signal'>no-change</a>"                                      : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-changed" title='The "node-changed" signal'>node-changed</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-col-changed" title='The "node-col-changed" signal'>node-col-changed</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-data-changed" title='The "node-data-changed" signal'>node-data-changed</a>"                              : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-deleted" title='The "node-deleted" signal'>node-deleted</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-inserted" title='The "node-inserted" signal'>node-inserted</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-removed" title='The "node-removed" signal'>node-removed</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-node-request-collapse" title='The "node-request-collapse" signal'>node-request-collapse</a>"                          : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-pre-change" title='The "pre-change" signal'>pre-change</a>"                                     : <code class="literal">Run Last</code>
+  "<a class="link" href="ETreeModel.html#ETreeModel-rebuilt" title='The "rebuilt" signal'>rebuilt</a>"                                        : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ETreeModel.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="ETreeModel.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ETreeModel-struct"></a><h3>struct ETreeModel</h3>
+<pre class="programlisting">struct ETreeModel;</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-new"></a><h3>e_tree_model_new ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="returnvalue">ETreeModel</span></a> *        e_tree_model_new                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: a newly constructed ETreeModel.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreePath"></a><h3>ETreePath</h3>
+<pre class="programlisting">typedef gpointer ETreePath;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-get-root"></a><h3>e_tree_model_get_root ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_get_root               (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+Accessor for the root node of <em class="parameter"><code>tree_model</code></em>.
+</p>
+<p>
+return values: the ETreePath corresponding to the root node.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>the ETreeModel of which we want the root node.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-parent"></a><h3>e_tree_model_node_get_parent ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_get_parent        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-first-child"></a><h3>e_tree_model_node_get_first_child ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_get_first_child   (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-last-child"></a><h3>e_tree_model_node_get_last_child ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_get_last_child    (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-next"></a><h3>e_tree_model_node_get_next ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_get_next          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-prev"></a><h3>e_tree_model_node_get_prev ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_get_prev          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-is-root"></a><h3>e_tree_model_node_is_root ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_node_is_root           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-is-expandable"></a><h3>e_tree_model_node_is_expandable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_node_is_expandable     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-get-children"></a><h3>e_tree_model_node_get_children ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e_tree_model_node_get_children      (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> **paths</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-depth"></a><h3>e_tree_model_node_depth ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e_tree_model_node_depth             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-icon-at"></a><h3>e_tree_model_icon_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkPixbuf</span> *         e_tree_model_icon_at                (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: the GdkPixbuf associated with this node.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The ETreePath to the node we're getting the icon of.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-get-expanded-default"></a><h3>e_tree_model_get_expanded_default ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_get_expanded_default   (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: Whether nodes should be expanded by default.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-column-count"></a><h3>e_tree_model_column_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e_tree_model_column_count           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: The number of columns
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-has-save-id"></a><h3>e_tree_model_has_save_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_has_save_id            (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: Whether this tree has valid save id data.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-get-save-id"></a><h3>e_tree_model_get_save_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_tree_model_get_save_id            (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: The save id for this path.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The ETreePath.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-has-get-node-by-id"></a><h3>e_tree_model_has_get_node_by_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_has_get_node_by_id     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: Whether this tree can quickly get a node from its save id.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-get-node-by-id"></a><h3>e_tree_model_get_node_by_id ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_get_node_by_id         (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *save_id</code></em>);</pre>
+<p>
+get_node_by_id(get_save_id(node)) should be the original node.
+Likewise if get_node_by_id is not NULL, then
+get_save_id(get_node_by_id(string)) should be a copy of the
+original string.
+</p>
+<p>
+return values: The path for this save id.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-has-change-pending"></a><h3>e_tree_model_has_change_pending ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_has_change_pending     (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+<p>
+XXX docs here.
+</p>
+<p>
+return values: Whether this tree has valid save id data.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-sort-value-at"></a><h3>e_tree_model_sort_value_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_tree_model_sort_value_at          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The ETreePath to the node we're getting the data from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>the column to retrieve data from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>This function returns the value that is stored by the
+<em class="parameter"><code>tree_model</code></em> in column <em class="parameter"><code>col</code></em> and node <em class="parameter"><code>path</code></em>.  The data returned can be a
+pointer or any data value that can be stored inside a pointer.
+The data returned is typically used by an sort renderer if it wants
+to proxy the data of cell value_at at a better sorting order.
+The data returned must be valid until the model sends a signal that
+affect that piece of data.  node_changed and node_deleted affect
+all data in tha t node and all nodes under that node.
+node_data_changed affects the data in that node.  node_col_changed
+affects the data in that node for that column.  node_inserted,
+node_removed, and no_change don't affect any data in this way.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-value-at"></a><h3>e_tree_model_value_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_tree_model_value_at               (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tree_model</code></em> :</span></p></td>
+<td>The ETreeModel.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The ETreePath to the node we're getting the data from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td>the column to retrieve data from</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>This function returns the value that is stored by the
+<em class="parameter"><code>tree_model</code></em> in column <em class="parameter"><code>col</code></em> and node <em class="parameter"><code>path</code></em>.  The data returned can be a
+pointer or any data value that can be stored inside a pointer.
+The data returned is typically used by an ECell renderer.
+The data returned must be valid until the model sends a signal that
+affect that piece of data.  node_changed and node_deleted affect
+all data in tha t node and all nodes under that node.
+node_data_changed affects the data in that node.  node_col_changed
+affects the data in that node for that column.  node_inserted,
+node_removed, and no_change don't affect any data in this way.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-set-value-at"></a><h3>e_tree_model_set_value_at ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_set_value_at           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> val</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-is-editable"></a><h3>e_tree_model_node_is_editable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_node_is_editable       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-duplicate-value"></a><h3>e_tree_model_duplicate_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_tree_model_duplicate_value        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-free-value"></a><h3>e_tree_model_free_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_free_value             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> value</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-initialize-value"></a><h3>e_tree_model_initialize_value ()</h3>
+<pre class="programlisting"><span class="returnvalue">gpointer</span>            e_tree_model_initialize_value       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-value-is-empty"></a><h3>e_tree_model_value_is_empty ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_tree_model_value_is_empty         (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-value-to-string"></a><h3>e_tree_model_value_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_tree_model_value_to_string        (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> value</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreePathFunc"></a><h3>ETreePathFunc ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            (*ETreePathFunc)                    (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-traverse"></a><h3>e_tree_model_node_traverse ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_traverse          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-traverse-preorder"></a><h3>e_tree_model_node_traverse_preorder ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_traverse_preorder (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-find"></a><h3>e_tree_model_node_find ()</h3>
+<pre class="programlisting"><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="returnvalue">ETreePath</span></a>           e_tree_model_node_find              (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> end_path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> forward_direction</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePathFunc" title="ETreePathFunc ()"><span class="type">ETreePathFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-pre-change"></a><h3>e_tree_model_pre_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_pre_change             (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-no-change"></a><h3>e_tree_model_no_change ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_no_change              (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-rebuilt"></a><h3>e_tree_model_rebuilt ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_rebuilt                (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-changed"></a><h3>e_tree_model_node_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_changed           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-data-changed"></a><h3>e_tree_model_node_data_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_data_changed      (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-col-changed"></a><h3>e_tree_model_node_col_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_col_changed       (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> col</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-inserted"></a><h3>e_tree_model_node_inserted ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_inserted          (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> parent_path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> inserted_path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-removed"></a><h3>e_tree_model_node_removed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_removed           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> parent_path</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> removed_path</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> old_position</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-deleted"></a><h3>e_tree_model_node_deleted ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_deleted           (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> deleted_path</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-tree-model-node-request-collapse"></a><h3>e_tree_model_node_request_collapse ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_tree_model_node_request_collapse  (<em class="parameter"><code><a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *tree_model</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ETreeModel.html#ETreePath" title="ETreePath"><span class="type">ETreePath</span></a> collapsed_path</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="ETreeModel.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ETreeModel-no-change"></a><h3>The <code class="literal">"no-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-changed"></a><h3>The <code class="literal">"node-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-col-changed"></a><h3>The <code class="literal">"node-col-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-data-changed"></a><h3>The <code class="literal">"node-data-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-deleted"></a><h3>The <code class="literal">"node-deleted"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-inserted"></a><h3>The <code class="literal">"node-inserted"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    arg2,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-removed"></a><h3>The <code class="literal">"node-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    arg2,
+                                                        <span class="type">gint</span>        arg3,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-node-request-collapse"></a><h3>The <code class="literal">"node-request-collapse"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    arg1,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-pre-change"></a><h3>The <code class="literal">"pre-change"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ETreeModel-rebuilt"></a><h3>The <code class="literal">"rebuilt"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ETreeModel.html" title="ETreeModel"><span class="type">ETreeModel</span></a> *etreemodel,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run Last</code></pre>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ETreeModel.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

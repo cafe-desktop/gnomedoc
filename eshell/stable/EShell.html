@@ -1,0 +1,1180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EShell</title><link href="index.html" rel="home" title="Evolution Shell Reference Manual"></link><link href="ch01.html" rel="up" title="The Shell"></link><link href="ch01.html" rel="prev" title="The Shell"></link><link href="EShellBackend.html" rel="next" title="EShellBackend"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EShell.html#container">Go to page content</a></li><li><a href="EShell.html#top_bar">Go to main menu</a></li><li><a href="EShell.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Shell Reference Manual</th>
+<td><a accesskey="n" href="EShellBackend.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EShell.html#EShell.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EShell.html#EShell.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EShell.html#EShell.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EShell.html#EShell.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="EShell.html#EShell.properties">Properties</a>
+                   | 
+                  <a class="shortcut" href="EShell.html#EShell.signals">Signals</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EShell"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EShell.top_of_page"></a>EShell</span></h2>
+<p>EShell — the backbone of Evolution</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EShell.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;shell/e-shell.h&gt;
+
+struct              <a class="link" href="EShell.html#EShell-struct" title="struct EShell">EShell</a>;
+<a class="link" href="EShell.html" title="EShell"><span class="returnvalue">EShell</span></a> *            <a class="link" href="EShell.html#e-shell-get-default" title="e_shell_get_default ()">e_shell_get_default</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-load-modules" title="e_shell_load_modules ()">e_shell_load_modules</a>                (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="EShell.html#e-shell-get-shell-backends" title="e_shell_get_shell_backends ()">e_shell_get_shell_backends</a>          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EShell.html#e-shell-get-canonical-name" title="e_shell_get_canonical_name ()">e_shell_get_canonical_name</a>          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="returnvalue">EShellBackend</span></a> *     <a class="link" href="EShell.html#e-shell-get-backend-by-name" title="e_shell_get_backend_by_name ()">e_shell_get_backend_by_name</a>         (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="returnvalue">EShellBackend</span></a> *     <a class="link" href="EShell.html#e-shell-get-backend-by-scheme" title="e_shell_get_backend_by_scheme ()">e_shell_get_backend_by_scheme</a>       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *scheme</code></em>);
+<a class="link" href="EShellSettings.html" title="EShellSettings"><span class="returnvalue">EShellSettings</span></a> *    <a class="link" href="EShell.html#e-shell-get-shell-settings" title="e_shell_get_shell_settings ()">e_shell_get_shell_settings</a>          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EShell.html#e-shell-create-shell-window" title="e_shell_create_shell_window ()">e_shell_create_shell_window</a>         (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view_name</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="EShell.html#e-shell-handle-uris" title="e_shell_handle_uris ()">e_shell_handle_uris</a>                 (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> * const *uris</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> do_import</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-submit-alert" title="e_shell_submit_alert ()">e_shell_submit_alert</a>                (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="eshell-User-Alert-Handling.html#EAlert" title="struct EAlert"><span class="type">EAlert</span></a> *alert</code></em>);
+<span class="returnvalue">GtkWindow</span> *         <a class="link" href="EShell.html#e-shell-get-active-window" title="e_shell_get_active_window ()">e_shell_get_active_window</a>           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-get-meego-mode" title="e_shell_get_meego_mode ()">e_shell_get_meego_mode</a>              (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-get-express-mode" title="e_shell_get_express_mode ()">e_shell_get_express_mode</a>            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-get-small-screen-mode" title="e_shell_get_small_screen_mode ()">e_shell_get_small_screen_mode</a>       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EShell.html#e-shell-get-module-directory" title="e_shell_get_module_directory ()">e_shell_get_module_directory</a>        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-get-network-available" title="e_shell_get_network_available ()">e_shell_get_network_available</a>       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-set-network-available" title="e_shell_set_network_available ()">e_shell_set_network_available</a>       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> network_available</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-lock-network-available" title="e_shell_lock_network_available ()">e_shell_lock_network_available</a>      (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-get-online" title="e_shell_get_online ()">e_shell_get_online</a>                  (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-set-online" title="e_shell_set_online ()">e_shell_set_online</a>                  (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> online</code></em>);
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="EShell.html#e-shell-get-preferences-window" title="e_shell_get_preferences_window ()">e_shell_get_preferences_window</a>      (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-event" title="e_shell_event ()">e_shell_event</a>                       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *event_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> event_data</code></em>);
+enum                <a class="link" href="EShell.html#EShellQuitReason" title="enum EShellQuitReason">EShellQuitReason</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-quit" title="e_shell_quit ()">e_shell_quit</a>                        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EShell.html#EShellQuitReason" title="enum EShellQuitReason"><span class="type">EShellQuitReason</span></a> reason</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-cancel-quit" title="e_shell_cancel_quit ()">e_shell_cancel_quit</a>                 (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-adapt-window-size" title="e_shell_adapt_window_size ()">e_shell_adapt_window_size</a>           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWindow</span> *window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-set-startup-view" title="e_shell_set_startup_view ()">e_shell_set_startup_view</a>            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EShell.html#e-shell-get-startup-view" title="e_shell_get_startup_view ()">e_shell_get_startup_view</a>            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+#define             <a class="link" href="EShell.html#E-SHELL-MIGRATE-ERROR:CAPS" title="E_SHELL_MIGRATE_ERROR">E_SHELL_MIGRATE_ERROR</a>
+enum                <a class="link" href="EShell.html#EShellMigrateError" title="enum EShellMigrateError">EShellMigrateError</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="EShell.html#e-shell-migrate-attempt" title="e_shell_migrate_attempt ()">e_shell_migrate_attempt</a>             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EShell.html#e-shell-detect-meego" title="e_shell_detect_meego ()">e_shell_detect_meego</a>                (<em class="parameter"><code><span class="type">gboolean</span> *is_meego</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *small_screen</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShell.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----GApplication
+         +----GtkApplication
+               +----EShell
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShell.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+EShell implements
+ GActionGroup,  GActionMap,  GInitable and  <a href="../../libebackend/stable/EExtensible.html">EExtensible</a>.</p>
+</div>
+<div class="refsect1">
+<a name="EShell.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EShell.html#EShell--express-mode" title='The "express-mode" property'>express-mode</a>"             <span class="type">gboolean</span>              : Read / Write / Construct Only
+  "<a class="link" href="EShell.html#EShell--geometry" title='The "geometry" property'>geometry</a>"                 <span class="type">gchar</span>*                : Write / Construct Only
+  "<a class="link" href="EShell.html#EShell--meego-mode" title='The "meego-mode" property'>meego-mode</a>"               <span class="type">gboolean</span>              : Read / Write / Construct Only
+  "<a class="link" href="EShell.html#EShell--module-directory" title='The "module-directory" property'>module-directory</a>"         <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="EShell.html#EShell--network-available" title='The "network-available" property'>network-available</a>"        <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EShell.html#EShell--online" title='The "online" property'>online</a>"                   <span class="type">gboolean</span>              : Read / Write / Construct
+  "<a class="link" href="EShell.html#EShell--registry" title='The "registry" property'>registry</a>"                 <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>*      : Read
+  "<a class="link" href="EShell.html#EShell--shell-settings" title='The "shell-settings" property'>shell-settings</a>"           <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>*       : Read
+  "<a class="link" href="EShell.html#EShell--small-screen-mode" title='The "small-screen-mode" property'>small-screen-mode</a>"        <span class="type">gboolean</span>              : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShell.signals"></a><h2>Signals</h2>
+<pre class="synopsis">  "<a class="link" href="EShell.html#EShell-event" title='The "event" signal'>event</a>"                                          : <code class="literal">Action</code>
+  "<a class="link" href="EShell.html#EShell-handle-uri" title='The "handle-uri" signal'>handle-uri</a>"                                     : <code class="literal">Action</code>
+  "<a class="link" href="EShell.html#EShell-prepare-for-offline" title='The "prepare-for-offline" signal'>prepare-for-offline</a>"                            : <code class="literal">Run First</code>
+  "<a class="link" href="EShell.html#EShell-prepare-for-online" title='The "prepare-for-online" signal'>prepare-for-online</a>"                             : <code class="literal">Run First</code>
+  "<a class="link" href="EShell.html#EShell-prepare-for-quit" title='The "prepare-for-quit" signal'>prepare-for-quit</a>"                               : <code class="literal">Run First</code>
+  "<a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'>quit-requested</a>"                                 : <code class="literal">Run First</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="EShell.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="EShell.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EShell-struct"></a><h3>struct EShell</h3>
+<pre class="programlisting">struct EShell;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-default"></a><h3>e_shell_get_default ()</h3>
+<pre class="programlisting"><a class="link" href="EShell.html" title="EShell"><span class="returnvalue">EShell</span></a> *            e_shell_get_default                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> created by <code class="function"><code class="function">main()</code></code>.
+</p>
+<p>
+Try to obtain the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> from elsewhere if you can.  This function
+is intended as a temporary workaround for when that proves difficult.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> singleton</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-load-modules"></a><h3>e_shell_load_modules ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_load_modules                (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Loads all installed modules and performs some internal bookkeeping.
+This function should be called after creating the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> instance
+but before initiating migration or starting the main loop.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-shell-backends"></a><h3>e_shell_get_shell_backends ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             e_shell_get_shell_backends          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns a list of loaded <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> instances.  The list is
+owned by <em class="parameter"><code>shell</code></em> and should not be modified or freed.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of loaded <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> instances</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-canonical-name"></a><h3>e_shell_get_canonical_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_shell_get_canonical_name          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Returns the canonical name for the <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> whose name or alias
+is <em class="parameter"><code>name</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name or alias of an <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the canonical <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> name</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-backend-by-name"></a><h3>e_shell_get_backend_by_name ()</h3>
+<pre class="programlisting"><a class="link" href="EShellBackend.html" title="EShellBackend"><span class="returnvalue">EShellBackend</span></a> *     e_shell_get_backend_by_name         (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+Returns the corresponding <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> for the given name or alias,
+or <code class="literal">NULL</code> if <em class="parameter"><code>name</code></em> is not recognized.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name or alias of an <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> named <em class="parameter"><code>name</code></em>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-backend-by-scheme"></a><h3>e_shell_get_backend_by_scheme ()</h3>
+<pre class="programlisting"><a class="link" href="EShellBackend.html" title="EShellBackend"><span class="returnvalue">EShellBackend</span></a> *     e_shell_get_backend_by_scheme       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *scheme</code></em>);</pre>
+<p>
+Returns the <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> that implements the given URI scheme,
+or <code class="literal">NULL</code> if <em class="parameter"><code>scheme</code></em> is not recognized.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scheme</code></em> :</span></p></td>
+<td>a URI scheme</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> that implements <em class="parameter"><code>scheme</code></em>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-shell-settings"></a><h3>e_shell_get_shell_settings ()</h3>
+<pre class="programlisting"><a class="link" href="EShellSettings.html" title="EShellSettings"><span class="returnvalue">EShellSettings</span></a> *    e_shell_get_shell_settings          (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns the <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> instance for <em class="parameter"><code>shell</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a> instance for <em class="parameter"><code>shell</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-create-shell-window"></a><h3>e_shell_create_shell_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_shell_create_shell_window         (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view_name</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="EShellWindow.html" title="EShellWindow"><span class="type">EShellWindow</span></a>.  Use this function instead of
+<a class="link" href="EShellWindow.html#e-shell-window-new" title="e_shell_window_new ()"><code class="function">e_shell_window_new()</code></a> so that <em class="parameter"><code>shell</code></em> can properly configure
+the window.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view_name</code></em> :</span></p></td>
+<td>name of the initial shell view, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="EShellWindow.html" title="EShellWindow"><span class="type">EShellWindow</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-handle-uris"></a><h3>e_shell_handle_uris ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e_shell_handle_uris                 (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> * const *uris</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> do_import</code></em>);</pre>
+<p>
+Emits the <a class="link" href="EShell.html#EShell-handle-uri" title='The "handle-uri" signal'><span class="type">"handle-uri"</span></a> signal for each URI.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uris</code></em> :</span></p></td>
+<td>
+<code class="literal">NULL</code>-terminated list of URIs</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>do_import</code></em> :</span></p></td>
+<td>request an import of the URIs</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the number of URIs successfully handled</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-submit-alert"></a><h3>e_shell_submit_alert ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_submit_alert                (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="eshell-User-Alert-Handling.html#EAlert" title="struct EAlert"><span class="type">EAlert</span></a> *alert</code></em>);</pre>
+<p>
+Broadcasts <em class="parameter"><code>alert</code></em> to all <a class="link" href="EShellWindow.html" title="EShellWindow"><span class="type">EShellWindow</span></a>s.  This should only
+be used for application-wide alerts such as a network outage.  Submit
+view-specific alerts to the appropriate <a class="link" href="EShellContent.html" title="EShellContent"><span class="type">EShellContent</span></a> instance.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alert</code></em> :</span></p></td>
+<td>an <a class="link" href="eshell-User-Alert-Handling.html#EAlert" title="struct EAlert"><span class="type">EAlert</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-active-window"></a><h3>e_shell_get_active_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWindow</span> *         e_shell_get_active_window           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns the most recently focused watched window, according to
+<code class="function">gtk_application_get_windows()</code>.  Convenient for finding a parent
+for a transient window.
+</p>
+<p>
+Note the returned window is not necessarily an <a class="link" href="EShellWindow.html" title="EShellWindow"><span class="type">EShellWindow</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> or <code class="literal">NULL</code> to use the default shell</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the most recently focused watched window</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-meego-mode"></a><h3>e_shell_get_meego_mode ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_get_meego_mode              (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if Evolution is in MeeGo mode.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if Evolution is in MeeGo mode</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-express-mode"></a><h3>e_shell_get_express_mode ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_get_express_mode            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if Evolution is in express mode.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if Evolution is in express mode</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-small-screen-mode"></a><h3>e_shell_get_small_screen_mode ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_get_small_screen_mode       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if Evolution is in small (netbook) screen mode.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if Evolution is in small screen mode</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-module-directory"></a><h3>e_shell_get_module_directory ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_shell_get_module_directory        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns the directory from which <a href="../../libebackend/stable/EModule.html"><span class="type">EModule</span></a>s were loaded.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a href="../../libebackend/stable/EModule.html"><span class="type">EModule</span></a> directory</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-network-available"></a><h3>e_shell_get_network_available ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_get_network_available       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if a network is available.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if a network is available</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-set-network-available"></a><h3>e_shell_set_network_available ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_set_network_available       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> network_available</code></em>);</pre>
+<p>
+Sets whether a network is available.  This is usually called in
+response to a status change signal from NetworkManager.  If the
+network becomes unavailable while <a class="link" href="EShell.html#EShell--online" title='The "online" property'><span class="type">"online"</span></a> is <code class="literal">TRUE</code>, the
+<em class="parameter"><code>shell</code></em> will force <a class="link" href="EShell.html#EShell--online" title='The "online" property'><span class="type">"online"</span></a> to <code class="literal">FALSE</code> until the network
+becomes available again.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>network_available</code></em> :</span></p></td>
+<td>whether a network is available</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-lock-network-available"></a><h3>e_shell_lock_network_available ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_lock_network_available      (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Locks the value of <a class="link" href="EShell.html#EShell--network-available" title='The "network-available" property'><span class="type">"network-available"</span></a> to <code class="literal">TRUE</code>.  Further
+attempts to set the property will be ignored.
+</p>
+<p>
+This is used for the --force-online command-line option, which is
+intended to override the network availability status as reported
+by NetworkManager or other network monitoring software.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-online"></a><h3>e_shell_get_online ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_get_online                  (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns <code class="literal">TRUE</code> if Evolution is online, <code class="literal">FALSE</code> if Evolution is offline.
+Evolution may be offline because the user elected to work offline, or
+because the network has become unavailable.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if Evolution is online</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-set-online"></a><h3>e_shell_set_online ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_set_online                  (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> online</code></em>);</pre>
+<p>
+Asynchronously places Evolution in online or offline mode.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>online</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to go online, <code class="literal">FALSE</code> to go offline</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-preferences-window"></a><h3>e_shell_get_preferences_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         e_shell_get_preferences_window      (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+Returns the Evolution Preferences window.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the preferences window</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-event"></a><h3>e_shell_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_event                       (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *event_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> event_data</code></em>);</pre>
+<p>
+The <a class="link" href="EShell.html#EShell-event" title='The "event" signal'><span class="type">"event"</span></a> signal acts as a cheap mechanism for broadcasting
+events to the rest of the application, such as new mail arriving.  The
+<em class="parameter"><code>event_name</code></em> is used as the signal detail, and <em class="parameter"><code>event_data</code></em> may point to
+an object or data structure associated with the event.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_name</code></em> :</span></p></td>
+<td>the name of the event</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_data</code></em> :</span></p></td>
+<td>data associated with the event</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShellQuitReason"></a><h3>enum EShellQuitReason</h3>
+<pre class="programlisting">typedef enum {
+	E_SHELL_QUIT_ACTION,
+	E_SHELL_QUIT_LAST_WINDOW,
+	E_SHELL_QUIT_OPTION,
+	E_SHELL_QUIT_REMOTE_REQUEST,
+	E_SHELL_QUIT_SESSION_REQUEST
+} EShellQuitReason;
+</pre>
+<p>
+<em class="parameter"><code>E_SHELL_QUIT_ACTION</code></em>:
+  <em class="parameter"><code>E_SHELL_WINDOW_ACTION_QUIT</code></em> was activated.
+<em class="parameter"><code>E_SHELL_QUIT_LAST_WINDOW</code></em>:
+  The last watched window has been destroyed.
+<em class="parameter"><code>E_SHELL_QUIT_OPTION</code></em>:
+  The program was invoked with --quit.  Extensions will never
+  see this value because they are not loaded when --quit is given.
+<em class="parameter"><code>E_SHELL_QUIT_REMOTE_REQUEST</code></em>:
+  Another Evolution process requested we quit.
+<em class="parameter"><code>E_SHELL_QUIT_SESSION_REQUEST</code></em>:
+  The desktop session requested we quit.
+</p>
+<p>
+These values are passed in the <a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'><span class="type">"quit-requested"</span></a> signal to
+indicate why the shell is requesting to shut down.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-quit"></a><h3>e_shell_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_quit                        (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EShell.html#EShellQuitReason" title="enum EShellQuitReason"><span class="type">EShellQuitReason</span></a> reason</code></em>);</pre>
+<p>
+Requests an application shutdown.  This happens in two phases: the
+first is synchronous, the second is asynchronous.
+</p>
+<p>
+In the first phase, the <em class="parameter"><code>shell</code></em> emits a <a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'><span class="type">"quit-requested"</span></a> signal
+to potentially give the user a chance to cancel shutdown.  If the user
+cancels shutdown, the function returns <code class="literal">FALSE</code>.  Otherwise it proceeds
+into the second phase.
+</p>
+<p>
+In the second phase, the <em class="parameter"><code>shell</code></em> emits a <a class="link" href="EShell.html#EShell-prepare-for-quit" title='The "prepare-for-quit" signal'><span class="type">"prepare-for-quit"</span></a>
+signal and immediately returns <code class="literal">TRUE</code>.  Signal handlers may delay the
+actual application shutdown while they clean up resources, but there
+is no way to cancel shutdown at this point.
+</p>
+<p>
+Consult the documentation for these two signals for details on how
+to handle them.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reason</code></em> :</span></p></td>
+<td>the reason for quitting</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if shutdown is underway, <code class="literal">FALSE</code> if it was cancelled</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-cancel-quit"></a><h3>e_shell_cancel_quit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_cancel_quit                 (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+<p>
+This function may only be called from <a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'><span class="type">"quit-requested"</span></a> signal
+handlers to prevent Evolution from quitting.  Calling this will stop
+further emission of the <a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'><span class="type">"quit-requested"</span></a> signal.
+</p>
+<p>
+Note: This function has no effect during a <a class="link" href="EShell.html#EShell-prepare-for-quit" title='The "prepare-for-quit" signal'><span class="type">"prepare-for-quit"</span></a>
+signal emission.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-adapt-window-size"></a><h3>e_shell_adapt_window_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_adapt_window_size           (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWindow</span> *window</code></em>);</pre>
+<p>
+This is used to adapt to window's size to be optimal for
+the platform. The shell settings are used to determine if
+a window should be set to full screen etc.
+</p>
+<p>
+This method is best called when the widget is realized on
+a given screen.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>an <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>window</code></em> :</span></p></td>
+<td>a <span class="type">GtkWindow</span> to adapt to full-screen</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-set-startup-view"></a><h3>e_shell_set_startup_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_set_startup_view            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *view</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-get-startup-view"></a><h3>e_shell_get_startup_view ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_shell_get_startup_view            (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="E-SHELL-MIGRATE-ERROR:CAPS"></a><h3>E_SHELL_MIGRATE_ERROR</h3>
+<pre class="programlisting">#define             E_SHELL_MIGRATE_ERROR</pre>
+<p>
+Error domain for migration operations.  Errors in this domain will be
+from the <a class="link" href="EShell.html#EShellMigrateError" title="enum EShellMigrateError"><span class="type">EShellMigrateError</span></a> enumeration.  See <span class="type">GError</span> for information
+on error domains.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShellMigrateError"></a><h3>enum EShellMigrateError</h3>
+<pre class="programlisting">typedef enum {
+	E_SHELL_MIGRATE_ERROR_FAILED
+} EShellMigrateError;
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-migrate-attempt"></a><h3>e_shell_migrate_attempt ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_shell_migrate_attempt             (<em class="parameter"><code><a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> *shell</code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-shell-detect-meego"></a><h3>e_shell_detect_meego ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_shell_detect_meego                (<em class="parameter"><code><span class="type">gboolean</span> *is_meego</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> *small_screen</code></em>);</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="EShell.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EShell--express-mode"></a><h3>The <code class="literal">"express-mode"</code> property</h3>
+<pre class="programlisting">  "express-mode"             <span class="type">gboolean</span>              : Read / Write / Construct Only</pre>
+<p>
+Express mode alters Evolution's user interface to be more
+usable on devices with small screens.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--geometry"></a><h3>The <code class="literal">"geometry"</code> property</h3>
+<pre class="programlisting">  "geometry"                 <span class="type">gchar</span>*                : Write / Construct Only</pre>
+<p>
+User-specified initial window geometry string to apply
+to the first <a class="link" href="EShellWindow.html" title="EShellWindow"><span class="type">EShellWindow</span></a> created.
+</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--meego-mode"></a><h3>The <code class="literal">"meego-mode"</code> property</h3>
+<pre class="programlisting">  "meego-mode"               <span class="type">gboolean</span>              : Read / Write / Construct Only</pre>
+<p>Whether meego mode is enabled.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--module-directory"></a><h3>The <code class="literal">"module-directory"</code> property</h3>
+<pre class="programlisting">  "module-directory"         <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>
+The directory from which to load <a href="../../libebackend/stable/EModule.html"><span class="type">EModule</span></a>s.
+</p>
+<p>Default value: NULL</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--network-available"></a><h3>The <code class="literal">"network-available"</code> property</h3>
+<pre class="programlisting">  "network-available"        <span class="type">gboolean</span>              : Read / Write</pre>
+<p>
+Whether the network is available.
+</p>
+<p>Default value: TRUE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--online"></a><h3>The <code class="literal">"online"</code> property</h3>
+<pre class="programlisting">  "online"                   <span class="type">gboolean</span>              : Read / Write / Construct</pre>
+<p>
+Whether the shell is online.
+</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--registry"></a><h3>The <code class="literal">"registry"</code> property</h3>
+<pre class="programlisting">  "registry"                 <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a>*      : Read</pre>
+<p>
+The <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> manages <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> instances.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--shell-settings"></a><h3>The <code class="literal">"shell-settings"</code> property</h3>
+<pre class="programlisting">  "shell-settings"           <a class="link" href="EShellSettings.html" title="EShellSettings"><span class="type">EShellSettings</span></a>*       : Read</pre>
+<p>Application-wide settings.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell--small-screen-mode"></a><h3>The <code class="literal">"small-screen-mode"</code> property</h3>
+<pre class="programlisting">  "small-screen-mode"        <span class="type">gboolean</span>              : Read / Write / Construct Only</pre>
+<p>Whether we run on a rather small screen.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EShell.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="EShell-event"></a><h3>The <code class="literal">"event"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>  *shell,
+                                                        <span class="type">gpointer</span> event_data,
+                                                        <span class="type">gpointer</span> user_data)       : <code class="literal">Action</code></pre>
+<p>
+This signal is used to broadcast custom events to the entire
+application.  The nature of <em class="parameter"><code>event_data</code></em> depends on the event
+being broadcast.  The signal's detail denotes the event.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event_data</code></em> :</span></p></td>
+<td>data associated with the event</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell-handle-uri"></a><h3>The <code class="literal">"handle-uri"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>  *shell,
+                                                        <span class="type">gchar</span>   *uri,
+                                                        <span class="type">gpointer</span> user_data)      : <code class="literal">Action</code></pre>
+<p>
+Emitted when <em class="parameter"><code>shell</code></em> receives a URI to be handled, usually by
+way of a command-line argument.  An <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> should listen
+for this signal and try to handle the URI, usually by opening an
+editor window for the identified resource.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>the URI to be handled</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the URI could be handled, <code class="literal">FALSE</code> otherwise</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell-prepare-for-offline"></a><h3>The <code class="literal">"prepare-for-offline"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>    *shell,
+                                                        <span class="type">EActivity</span> *activity,
+                                                        <span class="type">gpointer</span>   user_data)      : <code class="literal">Run First</code></pre>
+<p>
+Emitted when the user elects to work offline.  An <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>
+should listen for this signal and make preparations for working
+in offline mode.
+</p>
+<p>
+If preparations for working offline cannot immediately be
+completed (such as when synchronizing with a remote server),
+the <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> should reference the <em class="parameter"><code>activity</code></em> until
+preparations are complete, and then unreference the <em class="parameter"><code>activity</code></em>.
+This will delay Evolution from actually going to offline mode
+until all backends have unreferenced <em class="parameter"><code>activity</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>the <span class="type">EActivity</span> for offline preparations</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell-prepare-for-online"></a><h3>The <code class="literal">"prepare-for-online"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>    *shell,
+                                                        <span class="type">EActivity</span> *activity,
+                                                        <span class="type">gpointer</span>   user_data)      : <code class="literal">Run First</code></pre>
+<p>
+Emitted when the user elects to work online.  An <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>
+should listen for this signal and make preparations for working
+in online mode.
+</p>
+<p>
+If preparations for working online cannot immediately be
+completed (such as when re-connecting to a remote server), the
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> should reference the <em class="parameter"><code>activity</code></em> until preparations
+are complete, and then unreference the <em class="parameter"><code>activity</code></em>.  This will
+delay Evolution from actually going to online mode until all
+backends have unreferenced <em class="parameter"><code>activity</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>the <span class="type">EActivity</span> for offline preparations</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell-prepare-for-quit"></a><h3>The <code class="literal">"prepare-for-quit"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>    *shell,
+                                                        <span class="type">EActivity</span> *activity,
+                                                        <span class="type">gpointer</span>   user_data)      : <code class="literal">Run First</code></pre>
+<p>
+Emitted when the user elects to quit the application, after
+<a class="link" href="EShell.html#EShell-quit-requested" title='The "quit-requested" signal'><span class="type">"quit-requested"</span></a>.  An <a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> should listen for
+this signal and make preparations for shutting down.
+</p>
+<p>
+If preparations for shutting down cannot immediately be completed
+(such as when there are uncompleted network operations), the
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a> should reference the <em class="parameter"><code>activity</code></em> until preparations
+are complete, and then unreference the <em class="parameter"><code>activity</code></em>.  This will
+delay Evolution from actually shutting down until all backends
+have unreferenced <em class="parameter"><code>activity</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>activity</code></em> :</span></p></td>
+<td>the <span class="type">EActivity</span> for quit preparations</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EShell-quit-requested"></a><h3>The <code class="literal">"quit-requested"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a>          *shell,
+                                                        <a class="link" href="EShell.html#EShellQuitReason" title="enum EShellQuitReason"><span class="type">EShellQuitReason</span></a> reason,
+                                                        <span class="type">gpointer</span>         user_data)      : <code class="literal">Run First</code></pre>
+<p>
+Emitted when the user elects to quit the application, before
+<a class="link" href="EShell.html#EShell-prepare-for-quit" title='The "prepare-for-quit" signal'><span class="type">"prepare-for-quit"</span></a>.
+</p>
+<p>
+<a class="link" href="EShellBackend.html" title="EShellBackend"><span class="type">EShellBackend</span></a>s and editor windows can listen for
+this signal to prompt the user to save changes or finish
+scheduled operations immediately (such as sending mail in
+Outbox).  If the user elects to cancel, the signal handler
+should call <a class="link" href="EShell.html#e-shell-cancel-quit" title="e_shell_cancel_quit ()"><code class="function">e_shell_cancel_quit()</code></a> to abort the quit.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shell</code></em> :</span></p></td>
+<td>the <a class="link" href="EShell.html" title="EShell"><span class="type">EShell</span></a> which emitted the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reason</code></em> :</span></p></td>
+<td>the reason for quitting</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.18</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EShell.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

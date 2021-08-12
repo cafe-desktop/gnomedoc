@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>3. Fading an actor out of or into view</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="animations.html" rel="up" title="Chapter 5. Animations"></link><link href="animations-inversion.html" rel="prev" title="2. Inverting Animations"></link><link href="animations-rotating.html" rel="next" title="4. Rotating an actor"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="animations-fading.html#container">Go to page content</a></li><li><a href="animations-fading.html#top_bar">Go to main menu</a></li><li><a href="animations-fading.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">3. Fading an actor out of or into view</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="animations-inversion.html">Prev</a> </td><th align="center" width="60%">Chapter 5. Animations</th><td align="right" width="20%"> <a accesskey="n" href="animations-rotating.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="animations-fading"></a>3. Fading an actor out of or into view</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505844752"></a>3.1. Problem</h3></div></div></div><p>You want to animate an actor so that it fades out of or into
+      view.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505843440"></a>3.2. Solution</h3></div></div></div><p>Animate the actor's opacity property.</p><p>You can do this using any of the approaches provided
+      by the animation API. Here's how to fade out an actor (until it's
+      completely transparent) using implicit animations:</p><div class="informalexample"><pre class="programlisting">/* fade out actor over 4000 milliseconds */
+clutter_actor_animate (actor,
+                       CLUTTER_EASE_OUT_CUBIC,
+                       4000,
+                       "opacity", 0,
+                       NULL);</pre></div><p>Here's an example of a rectangle fading out using this
+      animation:</p><p><video controls="controls" src="videos/animations-fading-out.ogv"><a href="videos/animations-fading-out.ogv"></a></video></p><p><code class="constant">CLUTTER_EASE_OUT_CUBIC</code> is one of the
+      Clutter easing modes; see
+      <a class="link" href="animations.html#animations-introduction-alphas" title="1.2. Alphas">the introduction</a>
+      for more details about what these are and how to choose one.</p><p>Here's an example of the transitions you could use to
+      fade an actor in and out using <span class="type">ClutterState</span>:</p><div class="informalexample"><pre class="programlisting">ClutterState *transitions = clutter_state_new ();
+
+/* all transitions last for 2000 milliseconds */
+clutter_state_set_duration (transitions, NULL, NULL, 2000);
+
+/* transition from any state to "fade-out" state */
+clutter_state_set (transitions,
+                   NULL,        /* from state (NULL means "any") */
+                   "fade-out",  /* to state */
+                   actor, "opacity", CLUTTER_EASE_OUT_QUAD, 0,
+                   NULL);
+
+/* transition from any state to "fade-in" state */
+clutter_state_set (transitions, NULL, "fade-in",
+                   actor, "opacity", CLUTTER_EASE_OUT_QUAD, 255,
+                   NULL);
+
+/* put the actor into the "fade-out" state with no animation */
+clutter_state_warp_to_state (transitions, "fade-out");</pre></div><p>You would then trigger an animated state change as events
+      occur in the application (e.g. mouse button clicks):</p><div class="informalexample"><pre class="programlisting">clutter_state_set_state (transitions, "fade-in");</pre></div><p>Here's an example of this animation fading in then out again:</p><p><video controls="controls" src="videos/animations-fading-in-then-out.ogv"><a href="videos/animations-fading-in-then-out.ogv"></a></video></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p><span class="type">ClutterState</span> is most useful where you
+        need to animate an actor backwards and forwards between multiple
+        states (e.g. fade an actor in and out of view). Where you just
+        want to fade an actor in or out once,
+        <code class="function">clutter_actor_animate()</code> is adequate.</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790505826256"></a>3.3. Discussion</h3></div></div></div><p>Reducing an actor's transparency to zero does not make it
+      inactive: the actor will still be reactive even if it's not
+      visible (responding to key events, mouse clicks etc.).
+      To make it really "disappear", you could use
+      <code class="function">clutter_actor_hide()</code> once you'd made the actor
+      fully transparent.</p></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="animations-inversion.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="animations.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="animations-rotating.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">2. Inverting Animations </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 4. Rotating an actor</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="animations-fading.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

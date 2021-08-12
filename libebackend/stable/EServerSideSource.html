@@ -1,0 +1,965 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>EServerSideSource</title><link href="index.html" rel="home" title="Evolution-Data-Server Manual: Backend Utilities (libebackend)"></link><link href="ch02.html" rel="up" title="Registry Service Classes"></link><link href="EOAuth2Support.html" rel="prev" title="EOAuth2Support"></link><link href="ESourceRegistryServer.html" rel="next" title="ESourceRegistryServer"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="EServerSideSource.html#container">Go to page content</a></li><li><a href="EServerSideSource.html#top_bar">Go to main menu</a></li><li><a href="EServerSideSource.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="EOAuth2Support.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution-Data-Server Manual: Backend Utilities (libebackend)</th>
+<td><a accesskey="n" href="ESourceRegistryServer.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="EServerSideSource.html#EServerSideSource.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="EServerSideSource.html#EServerSideSource.description">Description</a>
+                   | 
+                  <a class="shortcut" href="EServerSideSource.html#EServerSideSource.object-hierarchy">Object Hierarchy</a>
+                   | 
+                  <a class="shortcut" href="EServerSideSource.html#EServerSideSource.implemented-interfaces">Implemented Interfaces</a>
+                   | 
+                  <a class="shortcut" href="EServerSideSource.html#EServerSideSource.properties">Properties</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="EServerSideSource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EServerSideSource.top_of_page"></a>EServerSideSource</span></h2>
+<p>EServerSideSource — A server-side data source</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="EServerSideSource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#include &lt;libebackend/libebackend.h&gt;
+
+struct              <a class="link" href="EServerSideSource.html#EServerSideSource-struct" title="struct EServerSideSource">EServerSideSource</a>;
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EServerSideSource.html#e-server-side-source-get-user-dir" title="e_server_side_source_get_user_dir ()">e_server_side_source_get_user_dir</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GFile</span> *             <a class="link" href="EServerSideSource.html#e-server-side-source-new-user-file" title="e_server_side_source_new_user_file ()">e_server_side_source_new_user_file</a>  (<em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="EServerSideSource.html#e-server-side-source-uid-from-file" title="e_server_side_source_uid_from_file ()">e_server_side_source_uid_from_file</a>  (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a href="../../libedataserver/stable/ESource.html"><span class="returnvalue">ESource</span></a> *           <a class="link" href="EServerSideSource.html#e-server-side-source-new" title="e_server_side_source_new ()">e_server_side_source_new</a>            (<em class="parameter"><code><a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a href="../../libedataserver/stable/ESource.html"><span class="returnvalue">ESource</span></a> *           <a class="link" href="EServerSideSource.html#e-server-side-source-new-memory-only" title="e_server_side_source_new_memory_only ()">e_server_side_source_new_memory_only</a>
+                                                        (<em class="parameter"><code><a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EServerSideSource.html#e-server-side-source-load" title="e_server_side_source_load ()">e_server_side_source_load</a>           (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GFile</span> *             <a class="link" href="EServerSideSource.html#e-server-side-source-get-file" title="e_server_side_source_get_file ()">e_server_side_source_get_file</a>       (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">GNode</span> *             <a class="link" href="EServerSideSource.html#e-server-side-source-get-node" title="e_server_side_source_get_node ()">e_server_side_source_get_node</a>       (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="returnvalue">ESourceRegistryServer</span></a> * <a class="link" href="EServerSideSource.html#e-server-side-source-get-server" title="e_server_side_source_get_server ()">e_server_side_source_get_server</a> (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EServerSideSource.html#e-server-side-source-get-allow-auth-prompt" title="e_server_side_source_get_allow_auth_prompt ()">e_server_side_source_get_allow_auth_prompt</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-allow-auth-prompt" title="e_server_side_source_set_allow_auth_prompt ()">e_server_side_source_set_allow_auth_prompt</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> allow_auth_prompt</code></em>);
+<span class="returnvalue">GType</span>               <a class="link" href="EServerSideSource.html#e-server-side-source-get-auth-session-type" title="e_server_side_source_get_auth_session_type ()">e_server_side_source_get_auth_session_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-auth-session-type" title="e_server_side_source_set_auth_session_type ()">e_server_side_source_set_auth_session_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> auth_session_type</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="EServerSideSource.html#e-server-side-source-get-exported" title="e_server_side_source_get_exported ()">e_server_side_source_get_exported</a>   (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="EServerSideSource.html#e-server-side-source-get-write-directory" title="e_server_side_source_get_write_directory ()">e_server_side_source_get_write_directory</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-write-directory" title="e_server_side_source_set_write_directory ()">e_server_side_source_set_write_directory</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *write_directory</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-removable" title="e_server_side_source_set_removable ()">e_server_side_source_set_removable</a>  (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> removable</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-writable" title="e_server_side_source_set_writable ()">e_server_side_source_set_writable</a>   (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> writable</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-remote-creatable" title="e_server_side_source_set_remote_creatable ()">e_server_side_source_set_remote_creatable</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remote_creatable</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-remote-deletable" title="e_server_side_source_set_remote_deletable ()">e_server_side_source_set_remote_deletable</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remote_deletable</code></em>);
+<a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="returnvalue">EOAuth2Support</span></a> *    <a class="link" href="EServerSideSource.html#e-server-side-source-ref-oauth2-support" title="e_server_side_source_ref_oauth2_support ()">e_server_side_source_ref_oauth2_support</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EServerSideSource.html#e-server-side-source-set-oauth2-support" title="e_server_side_source_set_oauth2_support ()">e_server_side_source_set_oauth2_support</a>
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a> *oauth2_support</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----<a href="../../libedataserver/stable/ESource.html">ESource</a>
+         +----EServerSideSource
+</pre>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+EServerSideSource implements
+ GInitable.</p>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.properties"></a><h2>Properties</h2>
+<pre class="synopsis">  "<a class="link" href="EServerSideSource.html#EServerSideSource--allow-auth-prompt" title='The "allow-auth-prompt" property'>allow-auth-prompt</a>"        <span class="type">gboolean</span>              : Read / Write / Construct
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--auth-session-type" title='The "auth-session-type" property'>auth-session-type</a>"        <span class="type">GType</span>*                : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--exported" title='The "exported" property'>exported</a>"                 <span class="type">gboolean</span>              : Read
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--file" title='The "file" property'>file</a>"                     <span class="type">GFile</span>*                : Read / Write / Construct Only
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--oauth2-support" title='The "oauth2-support" property'>oauth2-support</a>"           <a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a>*       : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--remote-creatable" title='The "remote-creatable" property'>remote-creatable</a>"         <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--remote-deletable" title='The "remote-deletable" property'>remote-deletable</a>"         <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--removable" title='The "removable" property'>removable</a>"                <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--server" title='The "server" property'>server</a>"                   <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a>*  : Read / Write / Construct Only
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--writable" title='The "writable" property'>writable</a>"                 <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="EServerSideSource.html#EServerSideSource--write-directory" title='The "write-directory" property'>write-directory</a>"          <span class="type">gchar</span>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.description"></a><h2>Description</h2>
+<p>
+An <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> is an <a href="../../libedataserver/stable/ESource.html"><span class="type">ESource</span></a> with some additional capabilities
+exclusive to the registry D-Bus service.
+</p>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EServerSideSource-struct"></a><h3>struct EServerSideSource</h3>
+<pre class="programlisting">struct EServerSideSource;</pre>
+<p>
+Contains only private data that should be read and manipulated using the
+functions below.
+</p>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-user-dir"></a><h3>e_server_side_source_get_user_dir ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_server_side_source_get_user_dir   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Returns the directory where user-specific data source files are stored.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the user-specific data source directory</td>
+</tr></tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-new-user-file"></a><h3>e_server_side_source_new_user_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">GFile</span> *             e_server_side_source_new_user_file  (<em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>);</pre>
+<p>
+Generates a unique file name for a new user-specific data source.
+If <em class="parameter"><code>uid</code></em> is non-<code class="literal">NULL</code> it will be used in the basename of the file,
+otherwise a unique basename will be generated using <a href="../../libedataserver/stable/libedataserver-e-uid.html#e-uid-new"><code class="function">e_uid_new()</code></a>.
+</p>
+<p>
+The returned <span class="type">GFile</span> can then be passed to <a class="link" href="EServerSideSource.html#e-server-side-source-new" title="e_server_side_source_new ()"><code class="function">e_server_side_source_new()</code></a>.
+Unreference the <span class="type">GFile</span> with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<p>
+Note the data source file itself is not created here, only its name.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>unique identifier for a data source, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GFile</span> for a new data source</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-uid-from-file"></a><h3>e_server_side_source_uid_from_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e_server_side_source_uid_from_file  (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Extracts a unique identity string from the base name of <em class="parameter"><code>file</code></em>.
+If the base name of <em class="parameter"><code>file</code></em> is missing a '.source' extension, the
+function sets <em class="parameter"><code>error</code></em> and returns <code class="literal">NULL</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a <span class="type">GFile</span> for a data source</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the unique identity string for <em class="parameter"><code>file</code></em>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-new"></a><h3>e_server_side_source_new ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/ESource.html"><span class="returnvalue">ESource</span></a> *           e_server_side_source_new            (<em class="parameter"><code><a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> which belongs to <em class="parameter"><code>server</code></em>.  If <em class="parameter"><code>file</code></em>
+is non-<code class="literal">NULL</code> and points to an existing file, the <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> is
+initialized from the file content.  If a read error occurs or the file
+contains syntax errors, the function sets <em class="parameter"><code>error</code></em> and returns <code class="literal">NULL</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>a <span class="type">GFile</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-new-memory-only"></a><h3>e_server_side_source_new_memory_only ()</h3>
+<pre class="programlisting"><a href="../../libedataserver/stable/ESource.html"><span class="returnvalue">ESource</span></a> *           e_server_side_source_new_memory_only
+                                                        (<em class="parameter"><code><a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *uid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Creates a memory-only <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> which belongs to <em class="parameter"><code>server</code></em>.
+No on-disk key file is created for this data source, so it will not
+be remembered across sessions.
+</p>
+<p>
+Data source collections are often populated with memory-only data
+sources to serve as proxies for resources discovered on a remote server.
+These data sources are usually neither <a class="link" href="EServerSideSource.html#EServerSideSource--writable" title='The "writable" property'><span class="type">"writable"</span></a> nor
+<a class="link" href="EServerSideSource.html#EServerSideSource--removable" title='The "removable" property'><span class="type">"removable"</span></a> by clients, at least not directly.
+</p>
+<p>
+If an error occurs while instantiating the <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>, the
+function sets <em class="parameter"><code>error</code></em> and returns <code class="literal">NULL</code>.  Although at this time there
+are no known error conditions for memory-only data sources.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>an <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uid</code></em> :</span></p></td>
+<td>a unique identifier, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new memory-only <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-load"></a><h3>e_server_side_source_load ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_server_side_source_load           (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GCancellable</span> *cancellable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Reloads data source content from the file pointed to by the
+<a class="link" href="EServerSideSource.html#EServerSideSource--file" title='The "file" property'><span class="type">"file"</span></a> property.
+</p>
+<p>
+If the <a class="link" href="EServerSideSource.html#EServerSideSource--file" title='The "file" property'><span class="type">"file"</span></a> property is <code class="literal">NULL</code> or the file it points
+to does not exist, the function does nothing and returns <code class="literal">TRUE</code>.
+</p>
+<p>
+If a read error occurs or the file contains syntax errors, the function
+sets <em class="parameter"><code>error</code></em> and returns <code class="literal">FALSE</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancellable</code></em> :</span></p></td>
+<td>optional <span class="type">GCancellable</span> object, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>return location for a <span class="type">GError</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> on failure</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-file"></a><h3>e_server_side_source_get_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">GFile</span> *             e_server_side_source_get_file       (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the <span class="type">GFile</span> from which data source content is loaded and to
+which changes are saved.  Note the <em class="parameter"><code>source</code></em> may not have a <span class="type">GFile</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GFile</span> for <em class="parameter"><code>source</code></em>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-node"></a><h3>e_server_side_source_get_node ()</h3>
+<pre class="programlisting"><span class="returnvalue">GNode</span> *             e_server_side_source_get_node       (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the <span class="type">GNode</span> representing the <em class="parameter"><code>source</code></em>'s hierarchical placement,
+or <code class="literal">NULL</code> if <em class="parameter"><code>source</code></em> has not been placed in the data source hierarchy.
+The data member of the <span class="type">GNode</span> points back to <em class="parameter"><code>source</code></em>.  This is an easy
+way to traverse ancestor and descendant data sources.
+</p>
+<p>
+Note that accessing other data sources this way is not thread-safe,
+and this therefore function may be replaced at some later date.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GNode</span>, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-server"></a><h3>e_server_side_source_get_server ()</h3>
+<pre class="programlisting"><a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="returnvalue">ESourceRegistryServer</span></a> * e_server_side_source_get_server (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> to which <em class="parameter"><code>source</code></em> belongs.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-allow-auth-prompt"></a><h3>e_server_side_source_get_allow_auth_prompt ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_server_side_source_get_allow_auth_prompt
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether an authentication prompt is allowed to be shown
+for <em class="parameter"><code>source</code></em>.  <a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a> will honor this setting by
+dismissing the session if it can't find a valid stored password.
+</p>
+<p>
+See <a class="link" href="EServerSideSource.html#e-server-side-source-set-allow-auth-prompt" title="e_server_side_source_set_allow_auth_prompt ()"><code class="function">e_server_side_source_set_allow_auth_prompt()</code></a> for further
+discussion.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether auth prompts are allowed for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-allow-auth-prompt"></a><h3>e_server_side_source_set_allow_auth_prompt ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_allow_auth_prompt
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> allow_auth_prompt</code></em>);</pre>
+<p>
+Sets whether an authentication prompt is allowed to be shown for <em class="parameter"><code>source</code></em>.
+<a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a> will honor this setting by dismissing the session
+if it can't find a valid stored password.
+</p>
+<p>
+If the user declines to provide a password for <em class="parameter"><code>source</code></em> when prompted
+by an <a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a>, the <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a> will set this
+property to <code class="literal">FALSE</code> to suppress any further prompting, which would likely
+annoy the user.  However when an <a href="../../libedataserver/stable/ESourceRegistry.html"><span class="type">ESourceRegistry</span></a> instance is created by
+a client application, the first thing it does is reset this property to
+<code class="literal">TRUE</code> for all registered data sources.  So suppressing authentication
+prompts is only ever temporary.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>allow_auth_prompt</code></em> :</span></p></td>
+<td>whether auth prompts are allowed for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-auth-session-type"></a><h3>e_server_side_source_get_auth_session_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               e_server_side_source_get_auth_session_type
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the type of authentication session to use for <em class="parameter"><code>source</code></em>,
+which will get passed to <a class="link" href="ESourceRegistryServer.html#e-source-registry-server-authenticate" title="e_source_registry_server_authenticate ()"><code class="function">e_source_registry_server_authenticate()</code></a>.
+</p>
+<p>
+This defaults to the <span class="type">GType</span> for <a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the type of authentication session to use for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-auth-session-type"></a><h3>e_server_side_source_set_auth_session_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_auth_session_type
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">GType</span> auth_session_type</code></em>);</pre>
+<p>
+Sets the type of authentication session to use for <em class="parameter"><code>source</code></em>, which will
+get passed to <a class="link" href="ESourceRegistryServer.html#e-source-registry-server-authenticate" title="e_source_registry_server_authenticate ()"><code class="function">e_source_registry_server_authenticate()</code></a>.
+</p>
+<p>
+<em class="parameter"><code>auth_session_type</code></em> must be derived from <a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a>, or else
+the function will reject the <span class="type">GType</span> with a runtime warning.
+</p>
+<p>
+This defaults to the <span class="type">GType</span> for <a class="link" href="EAuthenticationSession.html" title="EAuthenticationSession"><span class="type">EAuthenticationSession</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>auth_session_type</code></em> :</span></p></td>
+<td>the type of authentication session to use for <em class="parameter"><code>source</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-exported"></a><h3>e_server_side_source_get_exported ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e_server_side_source_get_exported   (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns whether <em class="parameter"><code>source</code></em> has been exported over D-Bus.
+</p>
+<p>
+The function returns <code class="literal">FALSE</code> after <em class="parameter"><code>source</code></em> is initially created, <code class="literal">TRUE</code>
+after passing <em class="parameter"><code>source</code></em> to <code class="function">e_source_registry_add_source()</code> (provided that
+<em class="parameter"><code>source</code></em>'s <a href="../../libedataserver/stable/ESource.html#ESource--parent"><span class="type">"parent"</span></a> is also exported), and <code class="literal">FALSE</code> after passing
+<em class="parameter"><code>source</code></em> to <code class="function">e_source_registry_remove_source()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>source</code></em> has been exported</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-get-write-directory"></a><h3>e_server_side_source_get_write_directory ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e_server_side_source_get_write_directory
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the local directory path where changes to <em class="parameter"><code>source</code></em> are written.
+</p>
+<p>
+By default, changes are written to the local directory path returned by
+<a class="link" href="EServerSideSource.html#e-server-side-source-get-user-dir" title="e_server_side_source_get_user_dir ()"><code class="function">e_server_side_source_get_user_dir()</code></a>, but an <a class="link" href="ECollectionBackend.html" title="ECollectionBackend"><span class="type">ECollectionBackend</span></a> may wish
+to override this to use its own private cache directory for data sources
+it creates automatically.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the directory where changes are written</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-write-directory"></a><h3>e_server_side_source_set_write_directory ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_write_directory
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *write_directory</code></em>);</pre>
+<p>
+Sets the local directory path where changes to <em class="parameter"><code>source</code></em> are to be written.
+</p>
+<p>
+By default, changes are written to the local directory path returned by
+<a class="link" href="EServerSideSource.html#e-server-side-source-get-user-dir" title="e_server_side_source_get_user_dir ()"><code class="function">e_server_side_source_get_user_dir()</code></a>, but an <a class="link" href="ECollectionBackend.html" title="ECollectionBackend"><span class="type">ECollectionBackend</span></a> may wish
+to override this to use its own private cache directory for data sources
+it creates automatically.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>write_directory</code></em> :</span></p></td>
+<td>the directory where changes are to be written</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-removable"></a><h3>e_server_side_source_set_removable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_removable  (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> removable</code></em>);</pre>
+<p>
+Sets whether to allow registry clients to remove <em class="parameter"><code>source</code></em> and its
+descendants.  If <code class="literal">TRUE</code>, the Removable D-Bus interface is exported at
+the object path for <em class="parameter"><code>source</code></em>.  If <code class="literal">FALSE</code>, the Removable D-Bus interface
+is unexported at the object path for <em class="parameter"><code>source</code></em>, and any attempt by clients
+to call <a href="../../libedataserver/stable/ESource.html#e-source-remove"><code class="function">e_source_remove()</code></a> will fail.
+</p>
+<p>
+Note this is only enforced for clients of the registry D-Bus service.
+The service itself may remove any data source at any time.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>removable</code></em> :</span></p></td>
+<td>whether to export the Removable interface</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-writable"></a><h3>e_server_side_source_set_writable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_writable   (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> writable</code></em>);</pre>
+<p>
+Sets whether to allow registry clients to alter the content of <em class="parameter"><code>source</code></em>.
+If <code class="literal">TRUE</code>, the Writable D-Bus interface is exported at the object path
+for <em class="parameter"><code>source</code></em>.  If <code class="literal">FALSE</code>, the Writable D-Bus interface is unexported at
+the object path for <em class="parameter"><code>source</code></em>, and any attempt by clients to call
+<a href="../../libedataserver/stable/ESource.html#e-source-write"><code class="function">e_source_write()</code></a> will fail.
+</p>
+<p>
+Note this is only enforced for clients of the registry D-Bus service.
+The service itself can write to any data source at any time.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>writable</code></em> :</span></p></td>
+<td>whether to export the Writable interface</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-remote-creatable"></a><h3>e_server_side_source_set_remote_creatable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_remote_creatable
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remote_creatable</code></em>);</pre>
+<p>
+Indicates whether <em class="parameter"><code>source</code></em> can be used to create resources on a remote
+server.  Typically this is only set to <code class="literal">TRUE</code> for collection sources.
+</p>
+<p>
+If <code class="literal">TRUE</code>, the RemoteCreatable D-Bus interface is exported at the object
+path for <em class="parameter"><code>source</code></em>.  If <code class="literal">FALSE</code>, the RemoteCreatable D-Bus interface is
+unexported at the object path for <em class="parameter"><code>source</code></em>, and any attempt by clients
+to call <a href="../../libedataserver/stable/ESource.html#e-source-remote-create"><code class="function">e_source_remote_create()</code></a> will fail.
+</p>
+<p>
+Unlike the <a href="../../libedataserver/stable/ESource.html#ESource--removable"><span class="type">"removable"</span></a> and <a href="../../libedataserver/stable/ESource.html#ESource--writable"><span class="type">"writable"</span></a> properties, this
+is enforced for both clients of the registry D-Bus service and within
+the registry D-Bus service itself.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>remote_creatable</code></em> :</span></p></td>
+<td>whether to export the RemoteCreatable interface</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-remote-deletable"></a><h3>e_server_side_source_set_remote_deletable ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_remote_deletable
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> remote_deletable</code></em>);</pre>
+<p>
+Indicates whether <em class="parameter"><code>source</code></em> can be used to delete resources on a remote
+server.  Typically this is only set to <code class="literal">TRUE</code> for sources created by an
+<a class="link" href="ECollectionBackend.html" title="ECollectionBackend"><span class="type">ECollectionBackend</span></a> to represent a remote resource.
+</p>
+<p>
+If <code class="literal">TRUE</code>, the RemoteDeletable D-Bus interface is exported at the object
+path for <em class="parameter"><code>source</code></em>.  If <code class="literal">FALSE</code>, the RemoteDeletable D-Bus interface is
+unexported at the object path for <em class="parameter"><code>source</code></em>, and any attempt by clients
+to call <a href="../../libedataserver/stable/ESource.html#e-source-remote-delete"><code class="function">e_source_remote_delete()</code></a> will fail.
+</p>
+<p>
+Unlike the <a href="../../libedataserver/stable/ESource.html#ESource--removable"><span class="type">"removable"</span></a> and <a href="../../libedataserver/stable/ESource.html#ESource--writable"><span class="type">"writable"</span></a> properties, this
+is enforced for both clients of the registry D-Bus server and within
+the registry D-Bus service itself.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>remote_deletable</code></em> :</span></p></td>
+<td>whether to export the RemoteDeletable interface</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.6</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-ref-oauth2-support"></a><h3>e_server_side_source_ref_oauth2_support ()</h3>
+<pre class="programlisting"><a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="returnvalue">EOAuth2Support</span></a> *    e_server_side_source_ref_oauth2_support
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>);</pre>
+<p>
+Returns the object implementing the <a class="link" href="EOAuth2Support.html#EOAuth2SupportInterface" title="struct EOAuth2SupportInterface"><span class="type">EOAuth2SupportInterface</span></a>,
+or <code class="literal">NULL</code> if <em class="parameter"><code>source</code></em> does not support OAuth 2.0 authentication.
+</p>
+<p>
+The returned <a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a> object is referenced for thread-safety.
+Unreference the object with <code class="function">g_object_unref()</code> when finished with it.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an <a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a> object, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="e-server-side-source-set-oauth2-support"></a><h3>e_server_side_source_set_oauth2_support ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                e_server_side_source_set_oauth2_support
+                                                        (<em class="parameter"><code><a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a> *oauth2_support</code></em>);</pre>
+<p>
+Indicates whether <em class="parameter"><code>source</code></em> supports OAuth 2.0 authentication.
+</p>
+<p>
+If <em class="parameter"><code>oauth2_support</code></em> is non-<code class="literal">NULL</code>, the OAuth2Support D-Bus interface is
+exported at the object path for <em class="parameter"><code>source</code></em>.  If <em class="parameter"><code>oauth2_support</code></em> is <code class="literal">NULL</code>,
+the OAuth2Support D-Bus interface is unexported at the object path for
+<em class="parameter"><code>source</code></em>, and any attempt by clients to call
+<a href="../../libedataserver/stable/ESource.html#e-source-get-oauth2-access-token"><code class="function">e_source_get_oauth2_access_token()</code></a> will fail.
+</p>
+<p>
+Requests for OAuth 2.0 access tokens are forwarded to <em class="parameter"><code>oauth2_support</code></em>,
+which implements the <a class="link" href="EOAuth2Support.html#EOAuth2SupportInterface" title="struct EOAuth2SupportInterface"><span class="type">EOAuth2SupportInterface</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>an <a class="link" href="EServerSideSource.html" title="EServerSideSource"><span class="type">EServerSideSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oauth2_support</code></em> :</span></p></td>
+<td>an <a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a> object, or <code class="literal">NULL</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 3.8</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EServerSideSource.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EServerSideSource--allow-auth-prompt"></a><h3>The <code class="literal">"allow-auth-prompt"</code> property</h3>
+<pre class="programlisting">  "allow-auth-prompt"        <span class="type">gboolean</span>              : Read / Write / Construct</pre>
+<p>Whether authentication sessions may interrupt the user for a password.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--auth-session-type"></a><h3>The <code class="literal">"auth-session-type"</code> property</h3>
+<pre class="programlisting">  "auth-session-type"        <span class="type">GType</span>*                : Read / Write</pre>
+<p>The type of authentication session to instantiate for this source.</p>
+<p>Allowed values: EAuthenticationSession</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--exported"></a><h3>The <code class="literal">"exported"</code> property</h3>
+<pre class="programlisting">  "exported"                 <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the source has been exported over D-Bus.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--file"></a><h3>The <code class="literal">"file"</code> property</h3>
+<pre class="programlisting">  "file"                     <span class="type">GFile</span>*                : Read / Write / Construct Only</pre>
+<p>The key file for the data source.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--oauth2-support"></a><h3>The <code class="literal">"oauth2-support"</code> property</h3>
+<pre class="programlisting">  "oauth2-support"           <a class="link" href="EOAuth2Support.html" title="EOAuth2Support"><span class="type">EOAuth2Support</span></a>*       : Read / Write</pre>
+<p>The object providing OAuth 2.0 support.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--remote-creatable"></a><h3>The <code class="literal">"remote-creatable"</code> property</h3>
+<pre class="programlisting">  "remote-creatable"         <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the data source can create remote resources.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--remote-deletable"></a><h3>The <code class="literal">"remote-deletable"</code> property</h3>
+<pre class="programlisting">  "remote-deletable"         <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the data source can delete remote resources.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--removable"></a><h3>The <code class="literal">"removable"</code> property</h3>
+<pre class="programlisting">  "removable"                <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the data source is removable.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--server"></a><h3>The <code class="literal">"server"</code> property</h3>
+<pre class="programlisting">  "server"                   <a class="link" href="ESourceRegistryServer.html" title="ESourceRegistryServer"><span class="type">ESourceRegistryServer</span></a>*  : Read / Write / Construct Only</pre>
+<p>The server to which the data source belongs.</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--writable"></a><h3>The <code class="literal">"writable"</code> property</h3>
+<pre class="programlisting">  "writable"                 <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the data source is writable.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="EServerSideSource--write-directory"></a><h3>The <code class="literal">"write-directory"</code> property</h3>
+<pre class="programlisting">  "write-directory"          <span class="type">gchar</span>*                : Read / Write</pre>
+<p>Directory in which to write changes to disk.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.19</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="EServerSideSource.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

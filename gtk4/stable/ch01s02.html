@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Hello, World: GTK 4 Reference Manual</title><link href="index.html" rel="home" title="GTK 4 Reference Manual"></link><link href="gtk-getting-started.html" rel="up" title="Getting Started with GTK"></link><link href="gtk-getting-started.html" rel="prev" title="Getting Started with GTK"></link><link href="ch01s03.html" rel="next" title="Packing"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ch01s02.html#container">Go to page content</a></li><li><a href="ch01s02.html#top_bar">Go to main menu</a></li><li><a href="ch01s02.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%"></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="gtk-getting-started.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="gtk-getting-started.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="ch01s03.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="sect1">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="id-1.2.3.6"></a>Hello, World</h2></div></div></div>
+<p>
+      In the long tradition of programming languages and libraries, this
+      example is called <span class="emphasis"><em>Hello, World</em></span>.
+    </p>
+<div class="figure">
+<a name="id-1.2.3.6.3"></a><p class="title"><b>Figure 2. Hello, world</b></p>
+<div class="figure-contents"><div class="mediaobject"><img alt="Hello, world" src="hello-world.png"></img></div></div>
+</div>
+<br class="figure-break"></br><div class="sect2">
+<div class="titlepage"><div><div><h3 class="title">
+<a name="gtk-getting-started-hello-world"></a>Hello World in C</h3></div></div></div>
+<p>
+        Create a new file with the following content named
+        <code class="literal">example-1.c</code>.
+      </p>
+<pre class="programlisting">#include &lt;gtk/gtk.h&gt;
+
+static void
+print_hello (GtkWidget *widget,
+             gpointer   data)
+{
+  g_print ("Hello World\n");
+}
+
+static void
+activate (GtkApplication *app,
+          gpointer        user_data)
+{
+  GtkWidget *window;
+  GtkWidget *button;
+  GtkWidget *box;
+
+  window = gtk_application_window_new (app);
+  gtk_window_set_title (GTK_WINDOW (window), "Window");
+  gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
+
+  box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_window_set_child (GTK_WINDOW (window), box);
+
+  button = gtk_button_new_with_label ("Hello World");
+  g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
+  g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_window_destroy), window);
+  gtk_box_append (GTK_BOX (box), button);
+
+  gtk_widget_show (window);
+}
+
+int
+main (int    argc,
+      char **argv)
+{
+  GtkApplication *app;
+  int status;
+
+  app = gtk_application_new ("org.gtk.example", G_APPLICATION_FLAGS_NONE);
+  g_signal_connect (app, "activate", G_CALLBACK (activate), NULL);
+  status = g_application_run (G_APPLICATION (app), argc, argv);
+  g_object_unref (app);
+
+  return status;
+}
+</pre>
+<p>
+        You can compile the program above with GCC using:
+      </p>
+<pre class="programlisting">gcc `pkg-config --cflags gtk4` -o example-1 example-1.c `pkg-config --libs gtk4`
+</pre>
+<p>
+        As seen above, example-1.c builds further upon example-0.c by
+        adding a button to our window, with the label <span class="quote">“<span class="quote">Hello
+        World</span>”</span>. Two new GtkWidget pointers are declared to
+        accomplish this, <code class="literal">button</code> and
+        <code class="literal">box</code>. The box variable is created to store a
+        GtkBox, which is GTK’s way of controlling the size and layout of
+        buttons.
+      </p>
+<p>
+        The GtkBox is created with <a href="GtkBox.html#gtk-box-new"><code class="function">gtk_box_new()</code></a> which takes a
+        GtkOrientation enum as parameter. The buttons which this box
+        will contain can either be laid out horizontally or vertically.
+        This does not matter in this particular case, as we are dealing
+        with only one button. After initializing box with the newly
+        created GtkBox, the code adds the box widget to the window
+        widget using <a href="GtkWindow.html#gtk-window-set-child"><code class="function">gtk_window_set_child()</code></a>.
+      </p>
+<p>
+        Next the <code class="literal">button</code> variable is initialized in
+        similar manner. <a href="GtkButton.html#gtk-button-new-with-label"><code class="function">gtk_button_new_with_label()</code></a> is called which
+        returns a GtkButton to be stored in <code class="literal">button</code>.
+        Afterwards <code class="literal">button</code> is added to our
+        <code class="literal">box</code>.
+      </p>
+<p>
+        Using <code class="function">g_signal_connect()</code>, the button is connected to a function
+        in our app called <code class="function">print_hello()</code>, so that when the button is
+        clicked, GTK will call this function. As the <code class="function">print_hello()</code>
+        function does not use any data as input, NULL is passed to it.
+        <code class="function">print_hello()</code> calls <code class="function">g_print()</code> with the string <span class="quote">“<span class="quote">Hello
+        World</span>”</span> which will print Hello World in a terminal if the
+        GTK application was started from one.
+      </p>
+<p>
+        After connecting <code class="function">print_hello()</code>, another signal is connected to
+        the <span class="quote">“<span class="quote">clicked</span>”</span> state of the button using
+        <code class="function">g_signal_connect_swapped()</code>. This functions is similar to a
+        <code class="function">g_signal_connect()</code> with the difference lying in how the callback
+        function is treated. <code class="function">g_signal_connect_swapped()</code> allows you to
+        specify what the callback function should take as parameter by
+        letting you pass it as data. In this case the function being
+        called back is <a href="GtkWindow.html#gtk-window-destroy"><code class="function">gtk_window_destroy()</code></a> and the
+        <code class="literal">window</code> pointer is passed to it. This has the
+        effect that when the button is clicked, the whole GTK window is
+        destroyed. In contrast if a normal <code class="function">g_signal_connect()</code> were used
+        to connect the <span class="quote">“<span class="quote">clicked</span>”</span> signal with
+        <a href="GtkWindow.html#gtk-window-destroy"><code class="function">gtk_window_destroy()</code></a>, then the function would be called on
+        <code class="literal">button</code> (which would not go well, since the
+        function expects a GtkWindow as argument).
+      </p>
+<p>
+        More information about creating buttons can be found
+        <a class="ulink" href="https://wiki.gnome.org/HowDoI/Buttons" target="_top">here</a>.
+      </p>
+<p>
+        The rest of the code in <code class="literal">example-1.c</code> is
+        identical to <code class="literal">example-0.c</code>. The next section
+        will elaborate further on how to add several GtkWidgets to your
+        GTK application.
+      </p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.33.0</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ch01s02.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Desktop files: putting your application in the desktop menus</title>
+<link rel="previous" href="desktop-files.html.en.html" title="Desktop files: putting your application in the desktop menus">
+<link rel="next" href="icons.html.en.html" title="Installing icons">
+<link rel="top" href="index.html.en.html" title="Integrating existing software with GNOME">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/integration-guide/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="desktop-files.html.en.html#container">Go to page content</a></li>
+<li><a href="desktop-files.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="desktop-files.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division section">
+<a name="desktop-files"><!--desktop-files--></a><div class="header"><h1 class="section title"><span class="title">Desktop files: putting your application in the desktop menus</span></h1></div>
+<ul class="linktrail">
+<li class="linktrail linktrail-first"><a class="linktrail" href="index.html.en.html" title="Integrating existing software with GNOME">Integrating existing software with GNOME</a></li>
+<li class="linktrail linktrail-last"><a class="linktrail" href="basic-integration.html.en.html" title="Basic Integration">Basic Integration</a></li>
+</ul>
+<p class="para block block-first">
+	To run applications from GNOME, users click on icons on their
+	desktops or they select the applications which they want to run
+	from a menu.  Therefore, the first step in integrating an
+	existing program with GNOME is to
+	<span class="firstterm">register</span> it with the set of applications
+	that users can run.
+      </p>
+<p class="para block">
+	Unlike in Windows or MacOS, in GNOME the users menus are
+	automatically constructed from the list of registered
+	applications. Each published application specifies a set of
+	categories to which it belongs, and the systems menu
+	configuration sorts and arranges them. This mechanism follows
+	the freedesktop.org desktop entry and menu standards.
+      </p>
+<div class="admonition block note block-indent"><div class="note-inner"><p class="para block block-first">
+	Though common in other desktops, creating your own
+	application-specific submenu is not recommended. Instead,
+	provide one menu item for each application you ship. Extra items
+	such as help files, READMEs or links to your web site should be
+	embedded into the application itself.
+      </p></div></div>
+<p class="para block">
+	In GNOME and other freedesktop.org-compliant desktops, an
+	application gets registered into the desktop's menus through a
+	<span class="firstterm">desktop entry</span>, which is a text file with 
+	<span class="filename" dir="ltr">.desktop</span> extension.  This desktop file
+	contains a listing of the configurations for your application.
+	The desktop takes the information in this file and uses it to:
+      </p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+	  <span class="para">
+	    put the application in the <span class="guimenu">Main Menu</span>. To find a list of
+            valid categories, take a look into FreeDesktop.org's
+	    <a class="ulink" href="http://standards.freedesktop.org/menu-spec/latest/" title="http://standards.freedesktop.org/menu-spec/latest/">Desktop
+	    Menu Specification</a>.
+	  </span>
+	</li>
+<li>
+	  <span class="para">list the application in the <span class="application">Run
+	      Application...</span> dialog</span>
+	</li>
+<li>
+	  <span class="para">create appropriate launchers in the menu or on the desktop.</span>
+	</li>
+<li>
+	  <span class="para">associate the name and description of the application.</span>
+	</li>
+<li>
+	  <span class="para">use the appropriate icon.</span>
+	</li>
+<li>
+	  <span class="para">recognize the MIME types it supports for opening files.</span>
+	</li>
+</ul></div>
+<p class="para block">
+	To add a menu entry for your application, create a desktop
+	file. It should have a unique filename, and there are no
+	length limits so avoid abbreviations and feel free to include
+	brand names. However, don't put spaces or international
+	characters in the file name. For instance,
+	"foocorp-painter-pro.desktop" would be a good filename to
+	choose but "fcpp.desktop" would be a bad name, as would
+	"FooCorp Painter Pro.desktop". The file should be UTF-8
+	encoded, and should resemble the following template:
+      </p>
+<div dir="ltr" class=" block programlisting block-indent"><pre class="programlisting">	[Desktop Entry]
+	Name=FooCorp Painter Pro
+	Exec=foocorp-painter-pro
+	Icon=foocorp-painter-pro
+	Type=Application
+	Categories=GTK;GNOME;Utility;
+	</pre></div>
+<p class="para block">
+	These desktop files contain metadata about your application,
+	and play a central role in integrating the program with the
+	GNOME and other standards compliant desktops. The template
+	presented here is the most basic possible. The file can be
+	linguistically translated so your applications name can appear
+	in the user's native language.
+      </p>
+<p class="para block">
+	Place this file in the
+	<span class="literal" dir="ltr">/usr/share/applications</span> directory so that
+	it is accessible by everyone, or in
+	<span class="literal" dir="ltr">~/.local/share/applications</span> if you only
+	wish to make it accessible to a single user.  Which is used
+	should depend on whether your application is installed
+	systemwide or into a user's home directory.  GNOME monitors
+	these directories for changes, so simply copying the file to
+	the right location is enough to register it with the
+	desktop. <a name="-noteref-idm140106055187536"></a><sup><a class="footnote" href="desktop-files.html.en.html#-note-idm140106055187536">1</a></sup>
+
+	
+      </p>
+<p class="para block">
+	Each working desktop file needs to follow the same format.  A
+	minimal example of a desktop file is shown in <a class="xref" href="desktop-files.html.en.html#ex-sample-desktop-file" title="Sample desktop file">Example 1-1</a>.  The file is split into
+	sections, each starting with the section descriptor in square
+	brackets.  In this example, only one section is shown as that
+	is the essential section to integrating your application to
+	the desktop.  Within each section, the part of each line
+	before the equal sign is the <span class="firstterm">key</span> while
+	the second half is the <span class="firstterm">value</span>.  An
+	explanation of each line is shown in <a class="xref" href="desktop-files.html.en.html#tb-desktop-file" title="Line by line explanation">Table 1-1</a>.
+      </p>
+<div class="admonition block note block-indent"><div class="note-inner">
+	<p class="para block block-first">
+	  Other than the first line identifying the desktop file, the
+	  order of the lines is not important.  In <a class="xref" href="desktop-files.html.en.html#ex-sample-desktop-file" title="Sample desktop file">Example 1-1</a>, the line
+	  <span class="command" dir="ltr">Type=Application</span> could be the second row,
+	  the fifth row, or the last row and the result would be the
+	  same.
+	</p>
+
+	<p class="para block">
+	  However, the keys are case sensitive.
+	  <span class="command" dir="ltr">Type=Application</span> is not the
+	  same as <span class="command" dir="ltr">type=Application</span> or
+	  <span class="command" dir="ltr">TYPE=Application</span>.
+	</p>
+      </div></div>
+<div class=" block example block-indent">
+<a name="ex-sample-desktop-file"><!--ex-sample-desktop-file--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 1-1</span> </span>Sample desktop file</span></div>
+<div class="example-inner">
+	
+<div dir="ltr" class=" block screen block-indent block-first"><pre class="screen">[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Sample Application Name
+Comment=A sample application
+Exec=application
+Icon=application.png
+Terminal=false
+</pre></div>
+      </div>
+</div>
+<div class="table block block-indent">
+<a name="tb-desktop-file"><!--tb-desktop-file--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 1-1</span> </span>Line by line explanation</span></div>
+<table summary="Line by line explanation" style="border: solid 1px;">
+<thead><tr>
+<th class="td-colsep">Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">[Desktop Entry]</span></td>
+<td>The first line of every desktop file and the section
+		header to identify the block of key value pairs associated
+		with the desktop.  Necessary for the desktop to recognize
+		the file correctly.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">Type=Application</span></td>
+<td>Tells the desktop that this desktop file pertains to
+		an application.  Other valid values for this key are
+		<span class="command" dir="ltr">Link</span> and
+		<span class="command" dir="ltr">Directory</span>.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">Encoding=UTF-8</span></td>
+<td>Describes the encoding of the entries in this desktop
+		file.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">Name=Sample Application Name</span></td>
+<td>Names of your application for the main menu and any launchers.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">Comment=A sample application</span></td>
+<td>Describes the application.  Used as a tooltip.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">Exec=application</span></td>
+<td>The command that starts this application from a
+		shell.  It can have arguments.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">Icon=application.png</span></td>
+<td>The icon name associated with this application.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">Terminal=false</span></td>
+<td>Describes whether application should run in a terminal.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="autotoc"><ul>
+<li>
+<span class="label">1.1.1. </span><a class="xref" href="desktop-files.html.en.html#commandline" title="Starting your application">Starting your application</a>
+</li>
+<li>
+<span class="label">1.1.2. </span><a class="xref" href="desktop-files.html.en.html#internationalization" title="Foreign languages">Foreign languages</a>
+</li>
+<li>
+<span class="label">1.1.3. </span><a class="xref" href="desktop-files.html.en.html#desktop-references" title="References">References</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="commandline"><!--commandline--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">1.1.1. </span>Starting your application</span></h2></div>
+<p class="para block block-first">
+	  If your application can take command line arguments, you can
+	  signify that by using the fields as shown in <a class="xref" href="desktop-files.html.en.html#tb-exec-params" title="Exec variables">Table 1-2</a>.
+	</p>
+<div class="table block block-indent">
+<a name="tb-exec-params"><!--tb-exec-params--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Table 1-2</span> </span>Exec variables</span></div>
+<table summary="Exec variables" style="border: solid 1px;">
+<thead><tr>
+<th class="td-colsep">Add...</th>
+<th>Accepts...</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">%f</span></td>
+<td>a single filename.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">%F</span></td>
+<td>multiple filenames.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">%u</span></td>
+<td>a single URL.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">%U</span></td>
+<td>multiple URLs.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">%d</span></td>
+<td>a single directory.  Used in conjunction with
+		  <span class="command" dir="ltr">%f</span> to locate a file.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">%D</span></td>
+<td>multiple directories.  Used in conjunction with
+		  <span class="command" dir="ltr">%F</span> to locate files.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">%n</span></td>
+<td>a single filename without a path.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">%N</span></td>
+<td>multiple filenames without paths.</td>
+</tr>
+<tr>
+<td class="td-colsep"><span class="command" dir="ltr">%k</span></td>
+<td>a URI or local filename of the location of the
+		  desktop file.</td>
+</tr>
+<tr class="tr-shade">
+<td class="td-colsep"><span class="command" dir="ltr">%v</span></td>
+<td>the name of the Device entry.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="division section">
+<a name="internationalization"><!--internationalization--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">1.1.2. </span>Foreign languages</span></h2></div>
+<p class="para block block-first">
+	  To create localized names and comments, additional lines for
+	  each locale need to be added.  For example, to add a Swedish
+	  version of the comment, add the following line:
+	</p>
+<p class="para block">
+	  <span class="command" dir="ltr">
+	    Comment[sv]=Exempelprogramnamn
+	  </span>
+	</p>
+<p class="para block">
+	  There is no limit to the number of translations in the file.
+	</p>
+<div class="admonition block tip block-indent"><div class="tip-inner">
+	  <p class="para block block-first">
+	    Since maintaining a long list of translations in a file is
+	    cumbersome, a better way to create these translations is to use
+	    the <span class="application">intltool</span> package.  See the man
+	    pages for <span class="application">intltool-extract</span> and
+	    <span class="application">intltool-merge</span> for more
+	    information.
+	  </p>
+	</div></div>
+</div>
+<div class="division section">
+<a name="desktop-references"><!--desktop-references--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">1.1.3. </span>References</span></h2></div>
+<p class="para block block-first">
+	  <a class="ulink" href="http://standards.freedesktop.org/desktop-entry-spec/latest/index.html" title="http://standards.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop
+	  Entry Specification</a> — Specifications for
+	  creating a desktop file.
+	</p>
+</div>
+<div class="footnotes"><div class="footnote">
+<a name="-note-idm140106055187536"></a><span class="footnote-number"><a class="footnote-ref" href="desktop-files.html.en.html#-noteref-idm140106055187536">1</a></span>
+	  <p class="para block block-first">
+	    Note that the
+	    <span class="literal" dir="ltr">~/.local/share/applications</span> location is
+	    not monitored by versions of GNOME prior to version 2.10
+	    or on Fedora Core Linux, prior to version 2.8.  These
+	    versions of GNOME follow the now-deprecated vfolder
+	    standard, and so desktop files must be installed to
+	    <span class="literal" dir="ltr">~/.gnome2/vfolders/applications</span>. This
+	    location is not supported by GNOME 2.8 on Fedora Core nor
+	    on upstream GNOME 2.10 so for maximum compatibility with
+	    deployed desktops, put the file in both locations.
+	  </p>
+
+	  <p class="para block">
+	    Note that the KDE Desktop requires one to run
+	    <span class="command" dir="ltr">kbuildsycoca</span> to force a refresh of the
+	    menus.
+	  </p>
+
+	
+	</div></div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="desktop-files.html.en.html" title="Desktop files: putting your application in the desktop menus">Desktop files: putting your application in the desktop menus</a></td>
+<td class="navbar-next"><a class="navbar-next" href="icons.html.en.html" title="Installing icons">Installing icons</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="Integrating existing software with GNOME">Integrating existing software with GNOME</a><div class="autotoc"><ul>
+<li><a class="xref" href="preface.html.en.html" title="Preface">Preface</a></li>
+<li>
+<a class="xref" href="basic-integration.html.en.html" title="Basic Integration">Basic Integration</a><div class="autotoc"><ul>
+<li>Desktop files: putting your application in the desktop menus</li>
+<li><a class="xref" href="icons.html.en.html" title="Installing icons">Installing icons</a></li>
+<li><a class="xref" href="mime.html.en.html" title="Adding MIME types">Adding MIME types</a></li>
+</ul></div>
+</li>
+<li><a class="xref" href="deeper-integration.html.en.html" title="Deeper Integration with the Desktop">Deeper Integration with the Desktop</a></li>
+<li><a class="xref" href="apx-integration-checklist.html.en.html" title="Integration Checklist">Integration Checklist</a></li>
+<li><a class="xref" href="apx-acknowledgments.html.en.html" title="Acknowledgments">Acknowledgments</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="desktop-files.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

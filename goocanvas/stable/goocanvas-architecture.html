@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Underlying Architecture</title><link href="index.html" rel="home" title="GooCanvas Reference Manual"></link><link href="ch01.html" rel="up" title="Introduction"></link><link href="goocanvas-model-view-canvas.html" rel="prev" title="Model/View Canvas Example"></link><link href="goocanvas-coordinates.html" rel="next" title="Coordinate Spaces and Limits"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="goocanvas-architecture.html#container">Go to page content</a></li><li><a href="goocanvas-architecture.html#top_bar">Go to main menu</a></li><li><a href="goocanvas-architecture.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="goocanvas-model-view-canvas.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GooCanvas Reference Manual</th>
+<td><a accesskey="n" href="goocanvas-coordinates.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="refentry" title="Underlying Architecture">
+<a name="goocanvas-architecture"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Underlying Architecture</span></h2>
+<p>Underlying Architecture — how the canvas fits together.</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1" title="Underlying Architecture">
+<a name="architecture"></a><h2>Underlying Architecture</h2>
+<div class="refsect2" title="The GooCanvas Widget">
+<a name="widget"></a><h3>The GooCanvas Widget</h3>
+<p>
+	<a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a> is a <span class="type">GtkWidget</span> (it is actually a subclass of
+	<span class="type">GtkContainer</span>), and so can be placed in an interface just like
+	any normal widget. Usually a <a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a> widget would be placed inside
+	a <span class="type">GtkScrolledWindow</span> in order to enable scrolling of the canvas.
+      </p>
+<p>
+	The size of the canvas can be set explicitly using
+	<a class="link" href="GooCanvas.html#goo-canvas-set-bounds" title="goo_canvas_set_bounds ()"><code class="function">goo_canvas_set_bounds()</code></a>, or if the <a class="link" href="GooCanvas.html#GooCanvas--automatic-bounds" title='The "automatic-bounds" property'><span class="type">"automatic-bounds"</span></a>
+	property is set to <code class="literal">TRUE</code> the bounds will be automatically calculated
+	to include all of the canvas items. The units used in the canvas can
+	be set with the <a class="link" href="GooCanvas.html#GooCanvas--units" title='The "units" property'><span class="type">"units"</span></a> property. The canvas units can be
+	pixels, points, inches or millimeters and apply to the canvas and
+	all items.
+      </p>
+</div>
+<hr></hr>
+<div class="refsect2" title="The Structure of the Simple Canvas">
+<a name="simple-structure"></a><h3>The Structure of the Simple Canvas</h3>
+<p>
+	The simple canvas consists of a hierarchy of canvas items.
+	The root item is automatically created by the canvas and can be
+	accessed using <a class="link" href="GooCanvas.html#goo-canvas-get-root-item" title="goo_canvas_get_root_item ()"><code class="function">goo_canvas_get_root_item()</code></a>. New items and groups can
+	then be created and added to the root item.
+      </p>
+<p>
+	Each item in the canvas keeps a <a class="link" href="goocanvas-GooCanvas-Types.html#GooCanvasBounds" title="GooCanvasBounds"><span class="type">GooCanvasBounds</span></a> structure which
+	stores the bounding rectangle of the item and all of its descendants.
+	This makes it easy to find out which items in the canvas need repainting
+	or which item the mouse is over. (The bounds are stored in the canvas
+	coordinate space, which is the coordinate space of the entire canvas,
+	after any item transformation matrices have been applied.)
+      </p>
+</div>
+<hr></hr>
+<div class="refsect2" title="The Structure of the Model/View Canvas">
+<a name="model-view-structure"></a><h3>The Structure of the Model/View Canvas</h3>
+<p>
+	The model/view canvas consists of a hierarchy of item models, and an
+	identical hierarchy of canvas items, with each canvas item
+	corresponding to one item model.
+      </p>
+<p>
+	The hierarchy of item models can be used in several <a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a>
+	widgets, to allow multiple views of the same model.
+	Though different canvas items will be used in each <a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a>.
+      </p>
+<p>
+	The root item model is set with <a class="link" href="GooCanvas.html#goo-canvas-set-root-item-model" title="goo_canvas_set_root_item_model ()"><code class="function">goo_canvas_set_root_item_model()</code></a>.
+	The canvas will automatically create canvas items to display
+	the hierarchy of item models, and will automatically add and
+	remove canvas items as the item model hierarchy is changed.
+      </p>
+</div>
+<hr></hr>
+<div class="refsect2" title="The Update Procedure">
+<a name="updates"></a><h3>The Update Procedure</h3>
+<p>
+	When items are added to the canvas or their properties are changed
+	they may need to recalculate their bounds. To do this they set an
+	internal flag such as <em class="parameter"><code>need_update</code></em>, and make a call to
+	<a class="link" href="GooCanvasItem.html#goo-canvas-item-request-update" title="goo_canvas_item_request_update ()"><code class="function">goo_canvas_item_request_update()</code></a>.
+      </p>
+<p>
+	<a class="link" href="GooCanvas.html" title="GooCanvas"><span class="type">GooCanvas</span></a> handles all the update requests at once, to avoid multiple
+	redraws of the same parts of the canvas. To do this it installs
+	an idle handler, <code class="function">goo_canvas_idle_handler()</code>, which is called as soon
+	as the application is idle (and before any part of the canvas is
+	redrawn). 
+      </p>
+<p>
+	The idle handler calls <a class="link" href="GooCanvasItem.html#goo-canvas-item-update" title="goo_canvas_item_update ()"><code class="function">goo_canvas_item_update()</code></a> on the root item,
+	which recursively calls <a class="link" href="GooCanvasItem.html#goo-canvas-item-update" title="goo_canvas_item_update ()"><code class="function">goo_canvas_item_update()</code></a> on any items as
+	necessary, recalculating their bounds and requesting redraws as
+	appropriate.
+      </p>
+<p>
+	If a container item (e.g. <a class="link" href="GooCanvasGroup.html" title="GooCanvasGroup"><span class="type">GooCanvasGroup</span></a>) is changed it needs to
+	ensure that all descendants recalculate their bounds so it
+	calls <a class="link" href="GooCanvasItem.html#goo-canvas-item-update" title="goo_canvas_item_update ()"><code class="function">goo_canvas_item_update()</code></a> for all of its children with the
+	<em class="parameter"><code>entire_tree</code></em> argument set to <code class="literal">TRUE</code>.
+      </p>
+</div>
+<hr></hr>
+<div class="refsect2" title="How Changes to Items are Handled">
+<a name="simple-updates"></a><h3>How Changes to Items are Handled</h3>
+<p>
+	When an item is changed (e.g. if the <a class="link" href="GooCanvasRect.html#GooCanvasRect--x" title='The "x" property'><span class="type">"x"</span></a> property of
+	a <a class="link" href="GooCanvasRect.html" title="GooCanvasRect"><span class="type">GooCanvasRect</span></a> is changed), the item calls
+	<a class="link" href="GooCanvasItemSimple.html#goo-canvas-item-simple-changed" title="goo_canvas_item_simple_changed ()"><code class="function">goo_canvas_item_simple_changed()</code></a> with a flag indicating if the
+	bounds of the item need	to be recalculated.
+      </p>
+<p>
+	If the bounds don't need to be recalculated, then
+	<a class="link" href="GooCanvas.html#goo-canvas-request-redraw" title="goo_canvas_request_redraw ()"><code class="function">goo_canvas_request_redraw()</code></a> is called to simply request that the
+	item is redrawn. This results in a call to <code class="function">gdk_window_invalidate_rect()</code>
+	and the redraw proceeds just like a normal <span class="type">GtkWidget</span>.
+      </p>
+<p>
+	However, if the bounds do need to be recalculated then
+	<a class="link" href="GooCanvasItem.html#goo-canvas-item-request-update" title="goo_canvas_item_request_update ()"><code class="function">goo_canvas_item_request_update()</code></a> is called to request that the item
+	be updated the next time the canvas performs an update.
+      </p>
+</div>
+<hr></hr>
+<div class="refsect2" title="How Changes are Handled in the Model/View Canvas">
+<a name="model-view-updates"></a><h3>How Changes are Handled in the Model/View Canvas</h3>
+<p>
+	In the Model/View canvas it is the underlying item models which are
+	initially changed. The item models emit "changed" signals which the
+	items respond to. For the standard canvas items the
+	<code class="function">goo_canvas_item_model_simple_changed()</code> signal handler is called,
+	which calls <a class="link" href="GooCanvasItemSimple.html#goo-canvas-item-simple-changed" title="goo_canvas_item_simple_changed ()"><code class="function">goo_canvas_item_simple_changed()</code></a> and the
+	procedure continues as in the simple canvas case above.
+      </p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.14</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="goocanvas-architecture.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

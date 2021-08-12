@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" href="../skin/moinmoin.css" type="text/css"></link><title>HowDoI/Gestures - GNOME Wiki!</title><link href="https://wiki.gnome.org/action/rss_rc/HowDoI/Gestures?diffs=1&amp;show_att=1&amp;action=rss_rc&amp;unique=0&amp;page=HowDoI%2FGestures&amp;ddiffs=1" rel="alternate" title="GNOME Wiki!: HowDoI/Gestures" type="application/rss+xml"></link><link href="https://wiki.gnome.org/Home" rel="Start"></link><link href="https://wiki.gnome.org/action/raw/HowDoI/Gestures?action=raw" rel="Alternate" title="Wiki Markup"></link><link href="https://wiki.gnome.org/action/print/HowDoI/Gestures?action=print" media="print" rel="Alternate" title="Print View"></link><link href="https://wiki.gnome.org/HowDoI" rel="Up"></link><link href="https://wiki.gnome.org/FindPage" rel="Search"></link><link href="https://wiki.gnome.org/TitleIndex" rel="Index"></link><link href="https://wiki.gnome.org/WordIndex" rel="Glossary"></link><link href="https://wiki.gnome.org/HelpOnFormatting" rel="Help"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../skin/960_24_col.css"></link><script type="text/javascript" src="../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="index.html#container">Go to page content</a></li><li><a href="index.html#top_bar">Go to main menu</a></li><li><a href="index.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/search"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form></div></div></div><div class="clearfix"></div><div id="container" class="content-id"><div class="content"><div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span><p class="line867">
+</p><h1 id="GtkGesture">GtkGesture</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><p class="line867">GtkGesture is the base class that simplifies the handling of pointer and touch events, each GtkGesture subclass focuses on recognizing very specific sequences within the stream of events received by the widget, emitting higher-level signals when this happens. The class hierarchy is: <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span></p><ul><li><p class="line891">GtkGesture - generic parent class <span class="anchor" id="line-6"></span></p><ul><li><p class="line891">GtkGestureRotate - detects rotation of 2 touchpoints <span class="anchor" id="line-7"></span></p></li><li><p class="line891">GtkGestureZoom - detects zoom/distance changes between 2 touchpoints <span class="anchor" id="line-8"></span></p></li><li><p class="line891">GtkGestureSingle - base class for pointer and single-touch event handling <span class="anchor" id="line-9"></span></p><ul><li><p class="line891">GtkGestureLongPress - detects a quasi-static long press <span class="anchor" id="line-10"></span></p></li><li><p class="line891">GtkGestureMultiPress - detects a number of presses [1..n] <span class="anchor" id="line-11"></span></p></li><li><p class="line891">GtkGestureDrag - detects press/motion/motion.../release sequences, reports deltas from initial dragging point <span class="anchor" id="line-12"></span></p></li><li><p class="line891">GtkGestureSwipe - detects press/motion/motion.../release sequences, reports residual velocity after it is finished. <span class="anchor" id="line-13"></span></p></li><li><p class="line891">GtkGesturePan - detects panning motions along the X or Y axes <span class="anchor" id="line-14"></span><span class="anchor" id="line-15"></span></p></li></ul></li></ul></li></ul><p class="line862">The most useful built-in features of GtkGesture are: <span class="anchor" id="line-16"></span></p><ul><li>Pointer and touch events are handled indistinctly, making your widgets/apps work on touchscreens out of the box <span class="anchor" id="line-17"></span></li><li><p class="line862">Handling of broken GTK+/GDK grabs is built-in, connect to GtkGesture::cancel or check through gtk_gesture_handles_sequence() on GtkGesture::end if there is anything that really needs undoing. <span class="anchor" id="line-18"></span></p></li><li><p class="line862">By default, events are fed into GtkGestures automatically. It is a viable replacement for GtkWidgetClass event handlers. <span class="anchor" id="line-19"></span></p></li><li><p class="line862">Negotiation on the ownership of pointer events and touch sequences is greatly simplified for users, these just need to set a proper accepted/denied state on the GtkGesture or the individual sequences constituting a gesture <span class="anchor" id="line-20"></span><span class="anchor" id="line-21"></span></p></li></ul><p class="line867">
+</p><h2 id="Using_GtkGesture">Using GtkGesture</h2>
+<span class="anchor" id="line-22"></span><span class="anchor" id="line-23"></span><p class="line874">Setting up gestures on a custom or stock widgets is pretty straightforward: <span class="anchor" id="line-24"></span><span class="anchor" id="line-25"></span></p><p class="line867"><span class="anchor" id="line-26"></span><span class="anchor" id="line-27"></span><span class="anchor" id="line-28"></span><span class="anchor" id="line-29"></span><span class="anchor" id="line-30"></span><span class="anchor" id="line-31"></span><span class="anchor" id="line-32"></span><span class="anchor" id="line-33"></span><span class="anchor" id="line-34"></span><span class="anchor" id="line-35"></span></p><pre><span class="anchor" id="line-1"></span>static void
+<span class="anchor" id="line-2"></span>my_widget_init (MyWidget *widget)
+<span class="anchor" id="line-3"></span>{
+<span class="anchor" id="line-4"></span>  MyWidgetPriv *priv;
+<span class="anchor" id="line-5"></span>
+<span class="anchor" id="line-6"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-7"></span>  priv-&gt;drag_gesture = gtk_gesture_drag_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-8"></span>  priv-&gt;press_gesture = gtk_gesture_multipress_gesture (GTK_WIDGET (widget));
+<span class="anchor" id="line-9"></span>}</pre><span class="anchor" id="line-36"></span><span class="anchor" id="line-37"></span><p class="line867"><span class="anchor" id="line-38"></span><span class="anchor" id="line-39"></span><span class="anchor" id="line-40"></span><span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span><span class="anchor" id="line-43"></span><span class="anchor" id="line-44"></span><span class="anchor" id="line-45"></span><span class="anchor" id="line-46"></span><span class="anchor" id="line-47"></span><span class="anchor" id="line-48"></span><span class="anchor" id="line-49"></span><span class="anchor" id="line-50"></span><span class="anchor" id="line-51"></span><span class="anchor" id="line-52"></span><span class="anchor" id="line-53"></span><span class="anchor" id="line-54"></span><span class="anchor" id="line-55"></span><span class="anchor" id="line-56"></span><span class="anchor" id="line-57"></span><span class="anchor" id="line-58"></span></p><pre><span class="anchor" id="line-1-1"></span>static GtkWidget *
+<span class="anchor" id="line-2-1"></span>create_touch_friendly_entry (void)
+<span class="anchor" id="line-3-1"></span>{
+<span class="anchor" id="line-4-1"></span>  GtkGesture *gesture;
+<span class="anchor" id="line-5-1"></span>  GtkWidget *entry;
+<span class="anchor" id="line-6-1"></span>
+<span class="anchor" id="line-7-1"></span>  entry = gtk_entry_new ();
+<span class="anchor" id="line-8-1"></span>  gesture = gtk_gesture_long_press_new (entry);
+<span class="anchor" id="line-9-1"></span>  gtk_gesture_single_set_touch_only (GTK_GESTURE_SINGLE (gesture), TRUE);
+<span class="anchor" id="line-10"></span>  gtk_event_controller_set_propagation_phase (GTK_EVENT_CONTROLLER (gesture),
+<span class="anchor" id="line-11"></span>                                              GTK_PHASE_TARGET);
+<span class="anchor" id="line-12"></span>  g_signal_connect (gesture, "pressed",
+<span class="anchor" id="line-13"></span>                    G_CALLBACK (entry_long_press_pressed_cb), entry);
+<span class="anchor" id="line-14"></span>
+<span class="anchor" id="line-15"></span>  /* Attach the gesture as widget data, or optionally unref when destroying the widget */
+<span class="anchor" id="line-16"></span>  g_object_set_data_full (G_OBJECT (entry), "foobar-custom-gesture",
+<span class="anchor" id="line-17"></span>                          gesture, g_object_unref);
+<span class="anchor" id="line-18"></span>
+<span class="anchor" id="line-19"></span>  return entry;
+<span class="anchor" id="line-20"></span>}</pre><span class="anchor" id="line-59"></span><span class="anchor" id="line-60"></span><p class="line867">
+</p><h2 id="Choosing_the_right_propagation_phase">Choosing the right propagation phase</h2>
+<span class="anchor" id="line-61"></span><span class="anchor" id="line-62"></span><p class="line874">Similarly to the DOM world, input events go through 3 different phases that gestures can hook to: <span class="anchor" id="line-63"></span><span class="anchor" id="line-64"></span></p><ul><li>capture: events run downwards, from the toplevel to the target widget. <span class="anchor" id="line-65"></span></li><li>target : the event is run exclusively on the target widget. <span class="anchor" id="line-66"></span></li><li>bubble: events run upwards, from the target widget to the toplevel. <span class="anchor" id="line-67"></span><span class="anchor" id="line-68"></span></li></ul><p class="line874">Choosing the right phase for your gesture depends on a few factors, a few rules of thumb are: <span class="anchor" id="line-69"></span><span class="anchor" id="line-70"></span></p><ul><li>If your widget is a container, and your gesture is meant to react even when interacting on top of child widgets, you should use GTK_PHASE_CAPTURE <span class="anchor" id="line-71"></span></li><li><p class="line862">If setting up gestures on a non-container, or replacing functionality previously done through GtkWidgetClass methods, the gesture should remain at its default GTK_PHASE_BUBBLE. <span class="anchor" id="line-72"></span></p></li><li><p class="line862">GTK_PHASE_TARGET is more scarcely useful, definitely never for GtkContainers <span class="anchor" id="line-73"></span></p></li><li>GTK_PHASE_NONE should be seldomly used, only useful if: <span class="anchor" id="line-74"></span><ul><li><p class="line862">Handling gestures through non-standard ::event signals, eg. GtkTextTag::event <span class="anchor" id="line-75"></span></p></li><li>It proved useful within GTK+ replacing code that used to run on g_signal_connect()ed handlers, as users in the wild may (and some do) rely on signal propagation ordering between these handlers and their own. This use case should remain exclusively useful to GTK+ though. <span class="anchor" id="line-76"></span><span class="anchor" id="line-77"></span></li></ul></li></ul><p class="line867">
+</p><h2 id="Gesture_grouping">Gesture grouping</h2>
+<span class="anchor" id="line-78"></span><span class="anchor" id="line-79"></span><p class="line867">GtkGesture implementations are individually fairly simple, although it is possible to combine those in order to create higher level or widget-specific behavior.  <span class="anchor" id="line-80"></span><span class="anchor" id="line-81"></span></p><p class="line874">Gestures can be grouped through gtk_gesture_group(). Grouped gestures will share the same state for all sequences being handled by these. This effectively means that an accepted sequence will be processed by all the gestures in the group, and denied sequences will be ignored in block too. In the first case, gestures in other groups that were tentatively handling the sequence will automatically deny the sequence, this will happen both within the widget claiming the sequence, and across other widgets in the propagation chain. <span class="anchor" id="line-82"></span><span class="anchor" id="line-83"></span></p><p class="line874">By default, each gesture starts out in its own isolated group; gestures can only be grouped with other gestures within the same widget. <span class="anchor" id="line-84"></span><span class="anchor" id="line-85"></span></p><p class="line867">
+</p><h3 id="Example:_combining_zoom.2Frotate">Example: combining zoom/rotate</h3>
+<span class="anchor" id="line-86"></span><span class="anchor" id="line-87"></span><p class="line874">This example groups zoom and rotate gestures, so both react simultaneously to the same 2 touchpoints: <span class="anchor" id="line-88"></span><span class="anchor" id="line-89"></span><span class="anchor" id="line-90"></span><span class="anchor" id="line-91"></span><span class="anchor" id="line-92"></span><span class="anchor" id="line-93"></span><span class="anchor" id="line-94"></span><span class="anchor" id="line-95"></span><span class="anchor" id="line-96"></span><span class="anchor" id="line-97"></span><span class="anchor" id="line-98"></span><span class="anchor" id="line-99"></span><span class="anchor" id="line-100"></span><span class="anchor" id="line-101"></span><span class="anchor" id="line-102"></span><span class="anchor" id="line-103"></span><span class="anchor" id="line-104"></span><span class="anchor" id="line-105"></span><span class="anchor" id="line-106"></span><span class="anchor" id="line-107"></span><span class="anchor" id="line-108"></span><span class="anchor" id="line-109"></span><span class="anchor" id="line-110"></span><span class="anchor" id="line-111"></span><span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span><span class="anchor" id="line-114"></span><span class="anchor" id="line-115"></span><span class="anchor" id="line-116"></span><span class="anchor" id="line-117"></span><span class="anchor" id="line-118"></span><span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span><span class="anchor" id="line-121"></span><span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span><span class="anchor" id="line-124"></span><span class="anchor" id="line-125"></span><span class="anchor" id="line-126"></span><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><span class="anchor" id="line-129"></span><span class="anchor" id="line-130"></span><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><span class="anchor" id="line-133"></span><span class="anchor" id="line-134"></span><span class="anchor" id="line-135"></span><span class="anchor" id="line-136"></span><span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span><span class="anchor" id="line-139"></span><span class="anchor" id="line-140"></span><span class="anchor" id="line-141"></span><span class="anchor" id="line-142"></span><span class="anchor" id="line-143"></span><span class="anchor" id="line-144"></span><span class="anchor" id="line-145"></span><span class="anchor" id="line-146"></span><span class="anchor" id="line-147"></span><span class="anchor" id="line-148"></span><span class="anchor" id="line-149"></span><span class="anchor" id="line-150"></span><span class="anchor" id="line-151"></span><span class="anchor" id="line-152"></span><span class="anchor" id="line-153"></span><span class="anchor" id="line-154"></span><span class="anchor" id="line-155"></span><span class="anchor" id="line-156"></span><span class="anchor" id="line-157"></span><span class="anchor" id="line-158"></span><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span><span class="anchor" id="line-161"></span><span class="anchor" id="line-162"></span><span class="anchor" id="line-163"></span><span class="anchor" id="line-164"></span><span class="anchor" id="line-165"></span><span class="anchor" id="line-166"></span><span class="anchor" id="line-167"></span><span class="anchor" id="line-168"></span><span class="anchor" id="line-169"></span><span class="anchor" id="line-170"></span><span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span><span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span><span class="anchor" id="line-175"></span><span class="anchor" id="line-176"></span><span class="anchor" id="line-177"></span><span class="anchor" id="line-178"></span><span class="anchor" id="line-179"></span><span class="anchor" id="line-180"></span><span class="anchor" id="line-181"></span><span class="anchor" id="line-182"></span><span class="anchor" id="line-183"></span><span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span><span class="anchor" id="line-186"></span><span class="anchor" id="line-187"></span><span class="anchor" id="line-188"></span><span class="anchor" id="line-189"></span><span class="anchor" id="line-190"></span><span class="anchor" id="line-191"></span><span class="anchor" id="line-192"></span><span class="anchor" id="line-193"></span><span class="anchor" id="line-194"></span><span class="anchor" id="line-195"></span></p><pre><span class="anchor" id="line-1-2"></span>typedef struct {
+<span class="anchor" id="line-2-2"></span>  GtkDrawingArea parent_instance;
+<span class="anchor" id="line-3-2"></span>  cairo_surface_t *surface;
+<span class="anchor" id="line-4-2"></span>  GtkGesture *zoom;
+<span class="anchor" id="line-5-2"></span>  GtkGesture *rotate;
+<span class="anchor" id="line-6-2"></span>  gdouble initial_angle;
+<span class="anchor" id="line-7-2"></span>  gdouble angle;
+<span class="anchor" id="line-8-2"></span>  gdouble initial_zoom;
+<span class="anchor" id="line-9-2"></span>  gdouble zoom;
+<span class="anchor" id="line-10-1"></span>} MyWidget;
+<span class="anchor" id="line-11-1"></span>
+<span class="anchor" id="line-12-1"></span>static void
+<span class="anchor" id="line-13-1"></span>zoom_begin_cb (GtkGesture       *gesture,
+<span class="anchor" id="line-14-1"></span>               GdkEventSequence *sequence,
+<span class="anchor" id="line-15-1"></span>               MyWidget         *widget)
+<span class="anchor" id="line-16-1"></span>{
+<span class="anchor" id="line-17-1"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-18-1"></span>
+<span class="anchor" id="line-19-1"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-20-1"></span>  priv-&gt;initial_zoom = priv-&gt;zoom;
+<span class="anchor" id="line-21"></span>}
+<span class="anchor" id="line-22"></span>
+<span class="anchor" id="line-23"></span>static void
+<span class="anchor" id="line-24"></span>zoom_scale_changed_cb (GtkGestureZoom *zoom,
+<span class="anchor" id="line-25"></span>                       gdouble         scale,
+<span class="anchor" id="line-26"></span>                       MyWidget       *widget)
+<span class="anchor" id="line-27"></span>{
+<span class="anchor" id="line-28"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-29"></span>
+<span class="anchor" id="line-30"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-31"></span>  priv-&gt;zoom = priv-&gt;initial_zoom * scale;
+<span class="anchor" id="line-32"></span>  gtk_widget_queue_draw (GTK_WIDGET (widget));
+<span class="anchor" id="line-33"></span>}
+<span class="anchor" id="line-34"></span>
+<span class="anchor" id="line-35"></span>static void
+<span class="anchor" id="line-36"></span>rotate_begin_cb (GtkGesture       *gesture,
+<span class="anchor" id="line-37"></span>                 GdkEventSequence *sequence,
+<span class="anchor" id="line-38"></span>                 MyWidget         *widget)
+<span class="anchor" id="line-39"></span>{
+<span class="anchor" id="line-40"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-41"></span>
+<span class="anchor" id="line-42"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-43"></span>  priv-&gt;initial_angle = priv-&gt;angle;
+<span class="anchor" id="line-44"></span>}
+<span class="anchor" id="line-45"></span>
+<span class="anchor" id="line-46"></span>static void
+<span class="anchor" id="line-47"></span>rotate_angle_changed_cb (GtkGestureZoom *zoom,
+<span class="anchor" id="line-48"></span>                         gdouble         angle,
+<span class="anchor" id="line-49"></span>                         MyWidget       *widget)
+<span class="anchor" id="line-50"></span>{
+<span class="anchor" id="line-51"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-52"></span>
+<span class="anchor" id="line-53"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-54"></span>  priv-&gt;angle = priv-&gt;initial_angle + angle;
+<span class="anchor" id="line-55"></span>  gtk_widget_queue_draw (GTK_WIDGET (widget));
+<span class="anchor" id="line-56"></span>}
+<span class="anchor" id="line-57"></span>
+<span class="anchor" id="line-58"></span>static gboolean
+<span class="anchor" id="line-59"></span>image_widget_draw (GtkWidget *widget,
+<span class="anchor" id="line-60"></span>                   cairo_t   *cr)
+<span class="anchor" id="line-61"></span>{
+<span class="anchor" id="line-62"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-63"></span>  GtkAllocation allocation;
+<span class="anchor" id="line-64"></span>
+<span class="anchor" id="line-65"></span>  priv = my_widget_get_instance_private (MY_WIDGET (widget));
+<span class="anchor" id="line-66"></span>  gtk_widget_get_allocation (widget, &amp;allocation);
+<span class="anchor" id="line-67"></span>
+<span class="anchor" id="line-68"></span>  cairo_save (cr);
+<span class="anchor" id="line-69"></span>  cairo_translate (cr, allocation.width / 2, allocation.height / 2);
+<span class="anchor" id="line-70"></span>  cairo_rotate (cr, priv-&gt;angle);
+<span class="anchor" id="line-71"></span>  cairo_scale (cr, priv-&gt;zoom, priv-&gt;zoom);
+<span class="anchor" id="line-72"></span>  cairo_translate (cr, - cairo_image_surface_get_width (priv-&gt;surface) / 2,
+<span class="anchor" id="line-73"></span>                   - cairo_image_surface_get_height (priv-&gt;surface) / 2);
+<span class="anchor" id="line-74"></span>
+<span class="anchor" id="line-75"></span>  cairo_set_source_surface (cr, priv-&gt;surface, 0, 0)
+<span class="anchor" id="line-76"></span>  cairo_paint (cr);
+<span class="anchor" id="line-77"></span>  cairo_restore (cr);
+<span class="anchor" id="line-78"></span>
+<span class="anchor" id="line-79"></span>  return TRUE;
+<span class="anchor" id="line-80"></span>}
+<span class="anchor" id="line-81"></span>
+<span class="anchor" id="line-82"></span>...
+<span class="anchor" id="line-83"></span>
+<span class="anchor" id="line-84"></span>static void
+<span class="anchor" id="line-85"></span>my_widget_init (MyWidget *widget)
+<span class="anchor" id="line-86"></span>{
+<span class="anchor" id="line-87"></span>  MyWidgetPrivate *priv;
+<span class="anchor" id="line-88"></span>
+<span class="anchor" id="line-89"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-90"></span>  priv-&gt;zoom = gtk_gesture_zoom_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-91"></span>  g_signal_connect (priv-&gt;zoom, "begin",
+<span class="anchor" id="line-92"></span>                    G_CALLBACK (zoom_begin_cb), widget);
+<span class="anchor" id="line-93"></span>  g_signal_connect (priv-&gt;zoom, "scale-changed",
+<span class="anchor" id="line-94"></span>                    G_CALLBACK (zoom_scale_changed_cb), widget);
+<span class="anchor" id="line-95"></span>
+<span class="anchor" id="line-96"></span>  priv-&gt;rotate = gtk_gesture_rotate_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-97"></span>  g_signal_connect (priv-&gt;rotate, "begin",
+<span class="anchor" id="line-98"></span>                    G_CALLBACK (rotate_begin_cb), widget);
+<span class="anchor" id="line-99"></span>  g_signal_connect (priv-&gt;rotate, "angle-changed",
+<span class="anchor" id="line-100"></span>                    G_CALLBACK (rotate_angle_changed_cb), widget);
+<span class="anchor" id="line-101"></span>
+<span class="anchor" id="line-102"></span>  gtk_gesture_group (priv-&gt;zoom, priv-&gt;rotate);
+<span class="anchor" id="line-103"></span>
+<span class="anchor" id="line-104"></span>  priv-&gt;angle = priv-&gt;initial_angle = 0;
+<span class="anchor" id="line-105"></span>  priv-&gt;zoom = priv-&gt;initial_zoom = 1;
+<span class="anchor" id="line-106"></span>}</pre><span class="anchor" id="line-196"></span><span class="anchor" id="line-197"></span><p class="line867">
+</p><h2 id="Handling_gesture_status">Handling gesture status</h2>
+<span class="anchor" id="line-198"></span><span class="anchor" id="line-199"></span><p class="line874">As mentioned briefly earlier, gestures can specify whether pointer/touchpoints are accepted or denied by it, either individually or for all interacting sequences at once. <span class="anchor" id="line-200"></span><span class="anchor" id="line-201"></span></p><p class="line862">By default, gestures neither claim nor reject ownership on mouse/touch input, so events would conceivably run unstopped from the toplevel to the target widget and back, although still triggering all gestures attached along the propagation chain. In practice, widgets using GtkGesture will either accept or deny the sequence more or less promptly, usually when the gesture is actually initiating an implementation-defined action (eg. moving past a threshold on DnD, showing a menu on long press, ...). <span class="anchor" id="line-202"></span><span class="anchor" id="line-203"></span></p><p class="line874">When a sequence is accepted by a gesture, that sequence will be cancelled and forgotten downwards the propagation chain (ie. towards the target widget), and event propagation will be stopped at this phase and widget for as long the sequence is active and accepted by the gesture group. In this stage, parent widgets can still capture and eventually accept themselves the sequence, resulting in it being cancelled downwards again. Only one gesture group can effectively accept a sequence at a given time. <span class="anchor" id="line-204"></span><span class="anchor" id="line-205"></span></p><p class="line874">Denying a sequence has the opposite effect, the gesture group will become no longer reactive to this sequence. Initially accepted sequences can also be eventually denied, allowing widgets towards the target widget to receive and possibly handle the sequence again. <span class="anchor" id="line-206"></span><span class="anchor" id="line-207"></span></p><p class="line862">State changes depend largely on the action you are implementing through GtkGesture, it is very rare that gestures trigger automatically state changes, two notable exceptions are: <span class="anchor" id="line-208"></span><span class="anchor" id="line-209"></span></p><ul><li><p class="line862">Any just started touchpoint that exceeds GtkGesture:n-points is rejected right away, the GtkGesture::end signal will also follow soon after. <span class="anchor" id="line-210"></span></p></li><li><p class="line891">GtkGesturePan self-denies the sequence when panning doesn't happen along the expected axis. <span class="anchor" id="line-211"></span><span class="anchor" id="line-212"></span></p></li></ul><p class="line867">
+</p><h3 id="Example:_cancelling_drag_after_a_long_press">Example: cancelling drag after a long press</h3>
+<span class="anchor" id="line-213"></span><span class="anchor" id="line-214"></span><p class="line867"><span class="anchor" id="line-215"></span><span class="anchor" id="line-216"></span><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span><span class="anchor" id="line-220"></span><span class="anchor" id="line-221"></span><span class="anchor" id="line-222"></span><span class="anchor" id="line-223"></span><span class="anchor" id="line-224"></span><span class="anchor" id="line-225"></span><span class="anchor" id="line-226"></span><span class="anchor" id="line-227"></span><span class="anchor" id="line-228"></span><span class="anchor" id="line-229"></span><span class="anchor" id="line-230"></span><span class="anchor" id="line-231"></span><span class="anchor" id="line-232"></span><span class="anchor" id="line-233"></span><span class="anchor" id="line-234"></span><span class="anchor" id="line-235"></span><span class="anchor" id="line-236"></span><span class="anchor" id="line-237"></span><span class="anchor" id="line-238"></span><span class="anchor" id="line-239"></span><span class="anchor" id="line-240"></span><span class="anchor" id="line-241"></span><span class="anchor" id="line-242"></span><span class="anchor" id="line-243"></span><span class="anchor" id="line-244"></span><span class="anchor" id="line-245"></span><span class="anchor" id="line-246"></span><span class="anchor" id="line-247"></span><span class="anchor" id="line-248"></span><span class="anchor" id="line-249"></span><span class="anchor" id="line-250"></span><span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span><span class="anchor" id="line-253"></span><span class="anchor" id="line-254"></span><span class="anchor" id="line-255"></span><span class="anchor" id="line-256"></span><span class="anchor" id="line-257"></span><span class="anchor" id="line-258"></span><span class="anchor" id="line-259"></span><span class="anchor" id="line-260"></span><span class="anchor" id="line-261"></span><span class="anchor" id="line-262"></span><span class="anchor" id="line-263"></span><span class="anchor" id="line-264"></span><span class="anchor" id="line-265"></span><span class="anchor" id="line-266"></span><span class="anchor" id="line-267"></span><span class="anchor" id="line-268"></span><span class="anchor" id="line-269"></span><span class="anchor" id="line-270"></span><span class="anchor" id="line-271"></span><span class="anchor" id="line-272"></span><span class="anchor" id="line-273"></span><span class="anchor" id="line-274"></span><span class="anchor" id="line-275"></span><span class="anchor" id="line-276"></span><span class="anchor" id="line-277"></span><span class="anchor" id="line-278"></span><span class="anchor" id="line-279"></span><span class="anchor" id="line-280"></span><span class="anchor" id="line-281"></span><span class="anchor" id="line-282"></span><span class="anchor" id="line-283"></span><span class="anchor" id="line-284"></span><span class="anchor" id="line-285"></span></p><pre><span class="anchor" id="line-1-3"></span>static void
+<span class="anchor" id="line-2-3"></span>long_press_pressed_cb (GtkGestureMultiPress *gesture,
+<span class="anchor" id="line-3-3"></span>                       gdouble               x,
+<span class="anchor" id="line-4-3"></span>                       gdouble               y,
+<span class="anchor" id="line-5-3"></span>                       MyWidget             *widget)
+<span class="anchor" id="line-6-3"></span>{
+<span class="anchor" id="line-7-3"></span>  /* Deny gesture, as both drag/long-press are grouped, both will be cancelled */
+<span class="anchor" id="line-8-3"></span>  gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_DENIED);
+<span class="anchor" id="line-9-3"></span>}
+<span class="anchor" id="line-10-2"></span>
+<span class="anchor" id="line-11-2"></span>static void
+<span class="anchor" id="line-12-2"></span>long_press_cancelled_cb (GtkGestureMultiPress *gesture,
+<span class="anchor" id="line-13-2"></span>                         MyWidget             *widget)
+<span class="anchor" id="line-14-2"></span>{
+<span class="anchor" id="line-15-2"></span>  /* The pointer/touchpoint moved past the threshold. accept the
+<span class="anchor" id="line-16-2"></span>   * gesture nonetheless to let the drag gesture take over.
+<span class="anchor" id="line-17-2"></span>   *
+<span class="anchor" id="line-18-2"></span>   * NB: This will also trigger when releasing too early, accepting
+<span class="anchor" id="line-19-2"></span>   * an ending sequence should have no effect though.
+<span class="anchor" id="line-20-2"></span>   */
+<span class="anchor" id="line-21-1"></span>  gtk_gesture_set_state (GTK_GESTURE (gesture), GTK_EVENT_SEQUENCE_CLAIMED);
+<span class="anchor" id="line-22-1"></span>}
+<span class="anchor" id="line-23-1"></span>
+<span class="anchor" id="line-24-1"></span>static void
+<span class="anchor" id="line-25-1"></span>drag_update_cb (GtkGestureDrag *gesture,
+<span class="anchor" id="line-26-1"></span>                gdouble         dx,
+<span class="anchor" id="line-27-1"></span>                gdouble         dy,
+<span class="anchor" id="line-28-1"></span>                MyWidget       *widget)
+<span class="anchor" id="line-29-1"></span>{
+<span class="anchor" id="line-30-1"></span>  GdkEventSequence *sequence;
+<span class="anchor" id="line-31-1"></span>
+<span class="anchor" id="line-32-1"></span>  sequence = gtk_gesture_get_last_updated_sequence (GTK_GESTURE (gesture));
+<span class="anchor" id="line-33-1"></span>
+<span class="anchor" id="line-34-1"></span>  if (gtk_gesture_get_sequence_state (GTK_GESTURE (gesture), sequence) == GTK_EVENT_SEQUENCE_CLAIMED)
+<span class="anchor" id="line-35-1"></span>    {
+<span class="anchor" id="line-36-1"></span>      /* Only trigger visible actions after the sequence is accepted */
+<span class="anchor" id="line-37-1"></span>      priv-&gt;dx = dx;
+<span class="anchor" id="line-38-1"></span>      priv-&gt;dy = dy;
+<span class="anchor" id="line-39-1"></span>
+<span class="anchor" id="line-40-1"></span>      ...
+<span class="anchor" id="line-41-1"></span>
+<span class="anchor" id="line-42-1"></span>      gtk_widget_queue_draw (GTK_WIDGET (widget));
+<span class="anchor" id="line-43-1"></span>    }
+<span class="anchor" id="line-44-1"></span>}
+<span class="anchor" id="line-45-1"></span>
+<span class="anchor" id="line-46-1"></span>static void
+<span class="anchor" id="line-47-1"></span>my_widget_init (MyWidget *widget)
+<span class="anchor" id="line-48-1"></span>{
+<span class="anchor" id="line-49-1"></span>  MyContainerPrivate *priv;
+<span class="anchor" id="line-50-1"></span>
+<span class="anchor" id="line-51-1"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-52-1"></span>
+<span class="anchor" id="line-53-1"></span>  /* This gesture triggers the user-visible drag action */
+<span class="anchor" id="line-54-1"></span>  priv-&gt;drag = gtk_gesture_drag_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-55-1"></span>  gtk_event_controller_set_propagation_phase (GTK_EVENT_CONTROLLER (priv-&gt;drag),
+<span class="anchor" id="line-56-1"></span>                                              GTK_PHASE_CAPTURE);
+<span class="anchor" id="line-57-1"></span>  g_signal_connect (priv-&gt;drag, "drag-update",
+<span class="anchor" id="line-58-1"></span>                    G_CALLBACK (drag_update_cb), widget);
+<span class="anchor" id="line-59-1"></span>
+<span class="anchor" id="line-60-1"></span>  /* This gesture basically controls the state of the drag gesture */
+<span class="anchor" id="line-61-1"></span>  priv-&gt;long_press = gtk_gesture_long_press_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-62-1"></span>  gtk_event_controller_set_propagation_phase (GTK_EVENT_CONTROLLER (priv-&gt;long_press),
+<span class="anchor" id="line-63-1"></span>                                              GTK_PHASE_CAPTURE);
+<span class="anchor" id="line-64-1"></span>  g_signal_connect (priv-&gt;long_press, "pressed",
+<span class="anchor" id="line-65-1"></span>                    G_CALLBACK (long_press_pressed_cb), widget);
+<span class="anchor" id="line-66-1"></span>  g_signal_connect (priv-&gt;long_press, "cancelled",
+<span class="anchor" id="line-67-1"></span>                    G_CALLBACK (long_press_cancelled_cb), widget);
+<span class="anchor" id="line-68-1"></span>
+<span class="anchor" id="line-69-1"></span>  gtk_gesture_group (priv-&gt;drag, priv-&gt;long_press);
+<span class="anchor" id="line-70-1"></span>}</pre><span class="anchor" id="line-286"></span><span class="anchor" id="line-287"></span><p class="line867">
+</p><h3 id="Example:_Allowing_only_horizontal_swipes">Example: Allowing only horizontal swipes</h3>
+<span class="anchor" id="line-288"></span><span class="anchor" id="line-289"></span><p class="line867"><span class="anchor" id="line-290"></span><span class="anchor" id="line-291"></span><span class="anchor" id="line-292"></span><span class="anchor" id="line-293"></span><span class="anchor" id="line-294"></span><span class="anchor" id="line-295"></span><span class="anchor" id="line-296"></span><span class="anchor" id="line-297"></span><span class="anchor" id="line-298"></span><span class="anchor" id="line-299"></span><span class="anchor" id="line-300"></span><span class="anchor" id="line-301"></span><span class="anchor" id="line-302"></span><span class="anchor" id="line-303"></span><span class="anchor" id="line-304"></span><span class="anchor" id="line-305"></span><span class="anchor" id="line-306"></span><span class="anchor" id="line-307"></span><span class="anchor" id="line-308"></span><span class="anchor" id="line-309"></span><span class="anchor" id="line-310"></span><span class="anchor" id="line-311"></span><span class="anchor" id="line-312"></span><span class="anchor" id="line-313"></span><span class="anchor" id="line-314"></span><span class="anchor" id="line-315"></span><span class="anchor" id="line-316"></span><span class="anchor" id="line-317"></span><span class="anchor" id="line-318"></span></p><pre><span class="anchor" id="line-1-4"></span>static void
+<span class="anchor" id="line-2-4"></span>swipe_cb (GtkGestureSwipe *gesture,
+<span class="anchor" id="line-3-4"></span>          gdouble          velocity_x,
+<span class="anchor" id="line-4-4"></span>          gdouble          velocity_y,
+<span class="anchor" id="line-5-4"></span>          MyWidget        *widget)
+<span class="anchor" id="line-6-4"></span>{
+<span class="anchor" id="line-7-4"></span>  my_widget_start_action (widget, velocity_x);
+<span class="anchor" id="line-8-4"></span>}
+<span class="anchor" id="line-9-4"></span>
+<span class="anchor" id="line-10-3"></span>static void
+<span class="anchor" id="line-11-3"></span>my_widget_init (MyWidget *widget)
+<span class="anchor" id="line-12-3"></span>{
+<span class="anchor" id="line-13-3"></span>  MyContainerPrivate *priv;
+<span class="anchor" id="line-14-3"></span>
+<span class="anchor" id="line-15-3"></span>  priv = my_widget_get_instance_private (widget);
+<span class="anchor" id="line-16-3"></span>
+<span class="anchor" id="line-17-3"></span>  priv-&gt;swipe = gtk_gesture_swipe_new (GTK_WIDGET (widget));
+<span class="anchor" id="line-18-3"></span>  g_signal_connect (priv-&gt;swipe, "swipe",
+<span class="anchor" id="line-19-3"></span>                    G_CALLBACK (swipe_cb), widget);
+<span class="anchor" id="line-20-3"></span>
+<span class="anchor" id="line-21-2"></span>  /* We rely on the pan gesture cancelling itself on non-horizontal panning, the
+<span class="anchor" id="line-22-2"></span>   * swipe gesture will also get to deny the sequence, so ::swipe will never happen.
+<span class="anchor" id="line-23-2"></span>   */
+<span class="anchor" id="line-24-2"></span>  priv-&gt;pan = gtk_gesture_pan_new (GTK_WIDGET (widget),
+<span class="anchor" id="line-25-2"></span>                                   GTK_ORIENTATION_HORIZONTAL);
+<span class="anchor" id="line-26-2"></span>
+<span class="anchor" id="line-27-2"></span>  gtk_gesture_group (priv-&gt;swipe, priv-&gt;pan);
+<span class="anchor" id="line-28-2"></span>}</pre><span class="anchor" id="line-319"></span><span class="anchor" id="bottom"></span></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="index.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

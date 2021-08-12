@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>6. Creating a reflection of a texture</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="textures.html" rel="up" title="Chapter 4. Textures"></link><link href="textures-sub-textures.html" rel="prev" title="5. Creating sub-textures from an existing texture"></link><link href="textures-crossfade.html" rel="next" title="7. Cross-fading between two images"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="textures-reflection.html#container">Go to page content</a></li><li><a href="textures-reflection.html#top_bar">Go to main menu</a></li><li><a href="textures-reflection.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">6. Creating a reflection of a texture</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="textures-sub-textures.html">Prev</a> </td><th align="center" width="60%">Chapter 4. Textures</th><td align="right" width="20%"> <a accesskey="n" href="textures-crossfade.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="textures-reflection"></a>6. Creating a reflection of a texture</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790510546608"></a>6.1. Problem</h3></div></div></div><p>You want to create the reflection of a texture.</p><p>The reflection is going to be positioned below the original
+      texture, and is going to fade out as if the original was placed on
+      a glassy surface.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790510544704"></a>6.2. Solution</h3></div></div></div><p>You can use a ClutterClone actor and override its paint
+      implementation with a custom one:</p><div class="informalexample"><pre class="programlisting">static void
+_clone_paint_cb (ClutterActor *actor)
+{
+  /* ... */
+
+  /* get the Cogl material of the source texture */
+  material = clutter_texture_get_cogl_material (CLUTTER_TEXTURE (source));
+
+  /* get the size of the actor, which will be used to size the reflection */
+  clutter_actor_get_allocation_box (actor, &amp;box);
+  clutter_actor_box_get_size (&amp;box, &amp;width, &amp;height);
+
+  /* get the composite opacity of the actor */
+  opacity = clutter_actor_get_paint_opacity (actor);
+
+  /* figure out the two colors for the reflection: the first is
+   * full color and the second is the same, but at 0 opacity
+   */
+  cogl_color_init_from_4f (&amp;color_1, 1.0, 1.0, 1.0, opacity / 255.);
+  cogl_color_premultiply (&amp;color_1);
+  cogl_color_init_from_4f (&amp;color_2, 1.0, 1.0, 1.0, 0.0);
+  cogl_color_premultiply (&amp;color_2);
+
+  /* describe the four vertices of the quad; since it has
+   * to be a reflection, we need to invert it as well
+   */
+  vertices[0].x = 0; vertices[0].y = 0; vertices[0].z = 0;
+  vertices[0].tx = 0.0; vertices[0].ty = 1.0;
+  vertices[0].color = color_1;
+
+  vertices[1].x = width; vertices[1].y = 0; vertices[1].z = 0;
+  vertices[1].tx = 1.0; vertices[1].ty = 1.0;
+  vertices[1].color = color_1;
+
+  vertices[2].x = width; vertices[2].y = height; vertices[2].z = 0;
+  vertices[2].tx = 1.0; vertices[2].ty = 0.0;
+  vertices[2].color = color_2;
+
+  vertices[3].x = 0; vertices[3].y = height; vertices[3].z = 0;
+  vertices[3].tx = 0.0; vertices[3].ty = 0.0;
+  vertices[3].color = color_2;
+
+  /* paint the same texture but with a different geometry */
+  cogl_set_source (material);
+  cogl_polygon (vertices, 4, TRUE);
+
+  /* ... */
+}
+
+int
+main (int argc, char *argv[])
+{
+  if (clutter_init (&amp;argc, &amp;argv) != CLUTTER_INIT_SUCCESS)
+    return 1;
+
+  /* ... get stage etc. */
+
+  ClutterActor *texture;
+  GError *error = NULL;
+
+  texture = clutter_texture_new ();
+
+  /* load the image from a file */
+  clutter_texture_set_from_file (CLUTTER_TEXTURE (texture),
+                                 image_path,
+                                 &amp;error);
+
+  ClutterActor *clone;
+
+  clone = clutter_clone_new (texture);
+
+  g_signal_connect (clone,
+                    "paint",
+                    G_CALLBACK (_clone_paint_cb),
+                    NULL);
+
+  /* ... clutter_main () etc. */
+}</pre></div><div class="screenshot"><div class="mediaobject"><img alt="A texture and its reflection below" src="images/textures-reflection.png"></img></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790510536736"></a>6.3. Discussion</h3></div></div></div><p>The essence of painting a reflection of a texture lies in reusing
+      the same material used by the original. This not only allows painting
+      always an up to date version of the original, but it also saves
+      resources.</p><p>In the code example above we take the <span class="type">CoglMaterial</span>
+      out of the source <span class="type">ClutterTexture</span> and we ask the Cogl
+      pipeline to paint it by using <code class="function">cogl_set_source()</code>. The
+      main difference between this code and the equivalent code inside the
+      <span class="type">ClutterTexture</span> <code class="function">paint()</code> implementation
+      is that we also specify the texture vertices and their color by using the
+      <span class="type">CoglTextureVertex</span> structure and the
+      <code class="function">cogl_polygon()</code> function.</p><p>The <span class="type">CoglTextureVertex</span> structure contains three fields
+      for the position of the vertex in 3D space:</p><div class="informalexample"><pre class="programlisting">typedef struct _CoglTextureVertex {
+  float x;
+  float y;
+  float z;
+  ...</pre></div><p>It also contains the normalized texture coordinate (also known as
+      texture element, or <span class="emphasis"><em>texel</em></span>):</p><div class="informalexample"><pre class="programlisting">  ...
+  float tx;
+  float ty;
+  ...</pre></div><p>And, finally, the color of the vertex, expressed as a
+      <span class="type">CoglColor</span>:</p><div class="informalexample"><pre class="programlisting">  ...
+  CoglColor color;
+} CoglTextureVertex;</pre></div><p>The example code sets the position of the vertices in clockwise
+    order starting from the top left corner, and sets the coordinate of the
+    texels in counter-clockwise order, starting with the bottom left corner.
+    This makes sure that the copy of the original texture appears as being
+    flipped vertically.</p><p>The gradual fading out to the background color is done by setting
+    the color of the top vertices to be fully opaque, and the color of the
+    bottom ones to be fully transparent; GL will then automatically create a
+    gradient that will be applied when painting the material.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>The color values must be pre-multiplied with their alpha
+    component, otherwise the bleding will not be correct. You can either
+    multiply the values by yourself when creating the color or, better yet,
+    use the <code class="function">cogl_color_premultiply()</code> that Cogl provides
+    for this operation.</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790510521584"></a>6.4. Full example</h3></div></div></div><div class="example"><a name="textures-reflection-example"></a><p class="title"><b>Example 4.3. Creating a glassy reflection of a texture</b></p><div class="example-contents"><pre class="programlisting">          #include &lt;stdlib.h&gt;
+#include &lt;clutter/clutter.h&gt;
+
+/* pixels between the source and its reflection */
+#define V_PADDING       4
+
+static void
+_clone_paint_cb (ClutterActor *actor)
+{
+  ClutterActor *source;
+  ClutterActorBox box;
+  CoglHandle material;
+  gfloat width, height;
+  guint8 opacity;
+  CoglColor color_1, color_2;
+  CoglTextureVertex vertices[4];
+
+  /* if we don't have a source actor, don't paint */
+  source = clutter_clone_get_source (CLUTTER_CLONE (actor));
+  if (source == NULL)
+    goto out;
+
+  /* if the source texture does not have any content, don't paint */
+  material = clutter_texture_get_cogl_material (CLUTTER_TEXTURE (source));
+  if (material == NULL)
+    goto out;
+
+  /* get the size of the reflection */
+  clutter_actor_get_allocation_box (actor, &amp;box);
+  clutter_actor_box_get_size (&amp;box, &amp;width, &amp;height);
+
+  /* get the composite opacity of the actor */
+  opacity = clutter_actor_get_paint_opacity (actor);
+
+  /* figure out the two colors for the reflection: the first is
+   * full color and the second is the same, but at 0 opacity
+   */
+  cogl_color_init_from_4f (&amp;color_1, 1.0, 1.0, 1.0, opacity / 255.);
+  cogl_color_premultiply (&amp;color_1);
+  cogl_color_init_from_4f (&amp;color_2, 1.0, 1.0, 1.0, 0.0);
+  cogl_color_premultiply (&amp;color_2);
+
+  /* now describe the four vertices of the quad; since it has
+   * to be a reflection, we need to invert it as well
+   */
+  vertices[0].x = 0; vertices[0].y = 0; vertices[0].z = 0;
+  vertices[0].tx = 0.0; vertices[0].ty = 1.0;
+  vertices[0].color = color_1;
+
+  vertices[1].x = width; vertices[1].y = 0; vertices[1].z = 0;
+  vertices[1].tx = 1.0; vertices[1].ty = 1.0;
+  vertices[1].color = color_1;
+
+  vertices[2].x = width; vertices[2].y = height; vertices[2].z = 0;
+  vertices[2].tx = 1.0; vertices[2].ty = 0.0;
+  vertices[2].color = color_2;
+
+  vertices[3].x = 0; vertices[3].y = height; vertices[3].z = 0;
+  vertices[3].tx = 0.0; vertices[3].ty = 0.0;
+  vertices[3].color = color_2;
+
+  /* paint the same texture but with a different geometry */
+  cogl_set_source (material);
+  cogl_polygon (vertices, 4, TRUE);
+
+out:
+  /* prevent the default clone handler from running */
+  g_signal_stop_emission_by_name (actor, "paint");
+}
+
+int
+main (int argc, char *argv[])
+{
+  ClutterActor *stage;
+  ClutterActor *texture;
+  GError *error = NULL;
+  ClutterActor *clone;
+  gfloat y_offset;
+
+  if (clutter_init (&amp;argc, &amp;argv) != CLUTTER_INIT_SUCCESS)
+    return 1;
+
+  stage = clutter_stage_new ();
+  clutter_stage_set_title (CLUTTER_STAGE (stage), "Reflection");
+  g_signal_connect (stage, "destroy", G_CALLBACK (clutter_main_quit), NULL);
+
+  texture = clutter_texture_new ();
+  clutter_texture_set_from_file (CLUTTER_TEXTURE (texture),
+                                 "redhand.png",
+                                 &amp;error);
+  clutter_actor_add_constraint (texture, clutter_align_constraint_new (stage, CLUTTER_ALIGN_X_AXIS, 0.5));
+  clutter_actor_add_constraint (texture, clutter_align_constraint_new (stage, CLUTTER_ALIGN_Y_AXIS, 0.2));
+
+  y_offset = clutter_actor_get_height (texture) + V_PADDING;
+
+  clone = clutter_clone_new (texture);
+  clutter_actor_add_constraint (clone, clutter_bind_constraint_new (texture, CLUTTER_BIND_X, 0.0));
+  clutter_actor_add_constraint (clone, clutter_bind_constraint_new (texture, CLUTTER_BIND_Y, y_offset));
+  g_signal_connect (clone,
+                    "paint",
+                    G_CALLBACK (_clone_paint_cb),
+                    NULL);
+
+  clutter_container_add (CLUTTER_CONTAINER (stage), texture, clone, NULL);
+
+  clutter_actor_show (stage);
+
+  clutter_main ();
+
+  return EXIT_SUCCESS;
+}
+</pre></div></div><br class="example-break"></br></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="textures-sub-textures.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="textures.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="textures-crossfade.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">5. Creating sub-textures from an existing texture </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 7. Cross-fading between two images</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="textures-reflection.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

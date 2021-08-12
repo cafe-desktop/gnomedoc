@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GdaBatch: GNU Data Access Reference Manual</title><link href="index.html" rel="home" title="GNU Data Access Reference Manual"></link><link href="ch01.html" rel="up" title="API Reference"></link><link href="libgda-6.0-Attributes-manager.html" rel="prev" title="Attributes manager"></link><link href="libgda-6.0-gda-binreloc.html" rel="next" title="gda-binreloc"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="GdaBatch.html#container">Go to page content</a></li><li><a href="GdaBatch.html#top_bar">Go to main menu</a></li><li><a href="GdaBatch.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="GdaBatch.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaBatch.html#GdaBatch.description">Description</a></span><span id="nav_hierarchy">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaBatch.html#GdaBatch.object-hierarchy">Object Hierarchy</a></span><span id="nav_signals">  <span class="dim">|</span> 
+                  <a class="shortcut" href="GdaBatch.html#GdaBatch.signals">Signals</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="libgda-6.0-Attributes-manager.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="libgda-6.0-gda-binreloc.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="GdaBatch"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GdaBatch.top_of_page"></a>GdaBatch</span></h2>
+<p>GdaBatch — Multiple SQL statements grouped together.</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="GdaBatch.stability-level"></a><h2>Stability Level</h2>
+<acronym title="The intention of a Stable interface is to enable arbitrary third parties to develop applications to these interfaces, release them, and have confidence that they will run on all minor releases of the product (after the one in which the interface was introduced, and within the same major release). Even at a major release, incompatible changes are expected to be rare, and to have strong justifications. "><span class="acronym">Stable</span></acronym>, unless otherwise indicated
+</div>
+<div class="refsect1">
+<a name="GdaBatch.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="functions_return" width="150px"></col>
+<col class="functions_name"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-error-quark" title="gda_batch_error_quark ()">gda_batch_error_quark</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaBatch.html" title="GdaBatch"><span class="returnvalue">GdaBatch</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-new" title="gda_batch_new ()">gda_batch_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="GdaBatch.html" title="GdaBatch"><span class="returnvalue">GdaBatch</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-copy" title="gda_batch_copy ()">gda_batch_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-add-statement" title="gda_batch_add_statement ()">gda_batch_add_statement</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">void</span>
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-remove-statement" title="gda_batch_remove_statement ()">gda_batch_remove_statement</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-serialize" title="gda_batch_serialize ()">gda_batch_serialize</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a href="../../glib/stable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-get-statements" title="gda_batch_get_statements ()">gda_batch_get_statements</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="GdaBatch.html#gda-batch-get-parameters" title="gda_batch_get_parameters ()">gda_batch_get_parameters</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.signals"></a><h2>Signals</h2>
+<div class="informaltable"><table border="0" class="informaltable">
+<colgroup>
+<col class="signals_return" width="150px"></col>
+<col class="signals_name" width="300px"></col>
+<col class="signals_flags" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="signal_type"><span class="returnvalue">void</span></td>
+<td class="signal_name"><a class="link" href="GdaBatch.html#GdaBatch-changed" title="The “changed” signal">changed</a></td>
+<td class="signal_flags"><a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="name" width="150px"></col>
+<col class="description"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="GdaBatch.html#GDA-BATCH-ERROR:CAPS" title="GDA_BATCH_ERROR">GDA_BATCH_ERROR</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="GdaBatch.html#GdaBatchError" title="enum GdaBatchError">GdaBatchError</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="screen">    <a href="../../gobject/stable/gobject-The-Base-Object-Type.html#GObject-struct">GObject</a>
+    <span class="lineart">╰──</span> GdaBatch
+</pre>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.description"></a><h2>Description</h2>
+<p>The <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object represents one or more SQL statements (as <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> objects) in a single object.</p>
+<p>A <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> can either be built "manually" by assembling together several <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> objects,
+or from an SQL string using a <a class="link" href="libgda-6.0-gda-decl.html#GdaSqlParser"><span class="type">GdaSqlParser</span></a> object.</p>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="gda-batch-error-quark"></a><h3>gda_batch_error_quark ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Quarks.html#GQuark"><span class="returnvalue">GQuark</span></a>
+gda_batch_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-new"></a><h3>gda_batch_new ()</h3>
+<pre class="programlisting"><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="returnvalue">GdaBatch</span></a> *
+gda_batch_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Creates a new <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p>
+<div class="refsect3">
+<a name="gda-batch-new.returns"></a><h4>Returns</h4>
+<p> the new object</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-copy"></a><h3>gda_batch_copy ()</h3>
+<pre class="programlisting"><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="returnvalue">GdaBatch</span></a> *
+gda_batch_copy (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *orig</code></em>);</pre>
+<p>Copy constructor</p>
+<div class="refsect3">
+<a name="gda-batch-copy.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>orig</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> to make a copy of</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-batch-copy.returns"></a><h4>Returns</h4>
+<p>a the new copy of <em class="parameter"><code>orig</code></em>
+. </p>
+<p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-add-statement"></a><h3>gda_batch_add_statement ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_batch_add_statement (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch</code></em>,
+                         <em class="parameter"><code><a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> *stmt</code></em>);</pre>
+<p>Add <em class="parameter"><code>stmt</code></em>
+ to the list of statements managed by <em class="parameter"><code>batch</code></em>
+. A <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> object can be
+added multiple times to a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object.</p>
+<div class="refsect3">
+<a name="gda-batch-add-statement.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>stmt</p></td>
+<td class="parameter_description"><p>a statement to add to <em class="parameter"><code>batch</code></em>
+'s statements list</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-remove-statement"></a><h3>gda_batch_remove_statement ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+gda_batch_remove_statement (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch</code></em>,
+                            <em class="parameter"><code><a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> *stmt</code></em>);</pre>
+<p>Removes <em class="parameter"><code>stmt</code></em>
+ from the list of statements managed by <em class="parameter"><code>batch</code></em>
+. If <em class="parameter"><code>stmt</code></em>
+ is present several
+times in <em class="parameter"><code>batch</code></em>
+'s statements' list, then only the first one is removed.</p>
+<div class="refsect3">
+<a name="gda-batch-remove-statement.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>stmt</p></td>
+<td class="parameter_description"><p>a statement to remove from <em class="parameter"><code>batch</code></em>
+'s statements list</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-serialize"></a><h3>gda_batch_serialize ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gchar"><span class="returnvalue">gchar</span></a> *
+gda_batch_serialize (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch</code></em>);</pre>
+<p>Creates a string representing the contents of <em class="parameter"><code>batch</code></em>
+.</p>
+<div class="refsect3">
+<a name="gda-batch-serialize.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-batch-serialize.returns"></a><h4>Returns</h4>
+<p> a string containing the serialized version of <em class="parameter"><code>batch</code></em>
+</p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-get-statements"></a><h3>gda_batch_get_statements ()</h3>
+<pre class="programlisting">const <a href="../../glib/stable/glib-Singly-Linked-Lists.html#GSList"><span class="returnvalue">GSList</span></a> *
+gda_batch_get_statements (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch</code></em>);</pre>
+<p>Get a list of the <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> objects contained in <em class="parameter"><code>batch</code></em>
+</p>
+<div class="refsect3">
+<a name="gda-batch-get-statements.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-batch-get-statements.returns"></a><h4>Returns</h4>
+<p>a list of <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> which should not be modified. </p>
+<p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> GdaStatement][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
+</div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gda-batch-get-parameters"></a><h3>gda_batch_get_parameters ()</h3>
+<pre class="programlisting"><a href="../../glib/stable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>
+gda_batch_get_parameters (<em class="parameter"><code><a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch</code></em>,
+                          <em class="parameter"><code><a class="link" href="libgda-6.0-gda-decl.html#GdaSet"><span class="type">GdaSet</span></a> **out_params</code></em>,
+                          <em class="parameter"><code><a href="../../glib/stable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **error</code></em>);</pre>
+<p>Get a new <a class="link" href="libgda-6.0-gda-decl.html#GdaSet"><span class="type">GdaSet</span></a> object which groups all the execution parameters
+which <em class="parameter"><code>batch</code></em>
+ needs for all the statements it includes.
+This new object is returned though <em class="parameter"><code>out_params</code></em>
+.</p>
+<p>Note that if <em class="parameter"><code>batch</code></em>
+ does not need any parameter, then <em class="parameter"><code>out_params</code></em>
+ is set to <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.</p>
+<div class="refsect3">
+<a name="gda-batch-get-parameters.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>a <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>out_params</p></td>
+<td class="parameter_description"><p>a place to store a new <a class="link" href="libgda-6.0-gda-decl.html#GdaSet"><span class="type">GdaSet</span></a> object, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is OK, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span></td>
+</tr>
+<tr>
+<td class="parameter_name"><p>error</p></td>
+<td class="parameter_description"><p>a place to store errors, or <a href="../../glib/stable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="gda-batch-get-parameters.returns"></a><h4>Returns</h4>
+<p> TRUE if no error occurred.</p>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="GDA-BATCH-ERROR:CAPS"></a><h3>GDA_BATCH_ERROR</h3>
+<pre class="programlisting">#define GDA_BATCH_ERROR gda_batch_error_quark ()
+</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="GdaBatchError"></a><h3>enum GdaBatchError</h3>
+<div class="refsect3">
+<a name="GdaBatchError.members"></a><h4>Members</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="enum_members_name" width="300px"></col>
+<col class="enum_members_description"></col>
+<col class="enum_members_annotations" width="200px"></col>
+</colgroup>
+<tbody><tr>
+<td class="enum_member_name"><p><a name="GDA-BATCH-CONFLICTING-PARAMETER-ERROR:CAPS"></a>GDA_BATCH_CONFLICTING_PARAMETER_ERROR</p></td>
+<td> </td>
+<td> </td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GdaBatch-changed"></a><h3>The <code class="literal">“changed”</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>
+user_function (<a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> *batch,
+               <a href="../../gobject/stable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>  *changed_stmt,
+               <a href="../../glib/stable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>  user_data)</pre>
+<p>Gets emitted whenever a <a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a> in the <em class="parameter"><code>batch</code></em>
+ object changes</p>
+<div class="refsect3">
+<a name="GdaBatch-changed.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table border="0" class="informaltable" width="100%">
+<colgroup>
+<col class="parameters_name" width="150px"></col>
+<col class="parameters_description"></col>
+<col class="parameters_annotations" width="200px"></col>
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>batch</p></td>
+<td class="parameter_description"><p>the <a class="link" href="GdaBatch.html" title="GdaBatch"><span class="type">GdaBatch</span></a> object</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>changed_stmt</p></td>
+<td class="parameter_description"><p>the statement which has been changed</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Flags: <a href="../../gobject/stable/gobject-Signals.html#G-SIGNAL-RUN-FIRST:CAPS">Run First</a></p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GdaBatch.see-also"></a><h2>See Also</h2>
+<p><a class="link" href="libgda-6.0-gda-decl.html#GdaStatement"><span class="type">GdaStatement</span></a></p>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.27</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="GdaBatch.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

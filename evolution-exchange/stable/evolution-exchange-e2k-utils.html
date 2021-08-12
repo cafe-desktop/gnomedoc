@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>e2k-utils</title><link href="index.html" rel="home" title="Evolution Connector for Microsoft Exchange Programmer’s Reference Manual"></link><link href="ch03.html" rel="up" title="libexchange public API reference"></link><link href="evolution-exchange-e2k-kerberos.html" rel="prev" title="e2k-kerberos"></link><link href="evolution-exchange-e2k-xml-utils.html" rel="next" title="e2k-xml-utils"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="evolution-exchange-e2k-utils.html#container">Go to page content</a></li><li><a href="evolution-exchange-e2k-utils.html#top_bar">Go to main menu</a></li><li><a href="evolution-exchange-e2k-utils.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="evolution-exchange-e2k-kerberos.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch03.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Connector for Microsoft Exchange Programmer’s Reference Manual</th>
+<td><a accesskey="n" href="evolution-exchange-e2k-xml-utils.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="evolution-exchange-e2k-utils.html#evolution-exchange-e2k-utils.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="evolution-exchange-e2k-utils.html#evolution-exchange-e2k-utils.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry" title="e2k-utils">
+<a name="evolution-exchange-e2k-utils"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="evolution-exchange-e2k-utils.top_of_page"></a>e2k-utils</span></h2>
+<p>e2k-utils — Random utility functions</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="evolution-exchange-e2k-utils.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">time_t</span>              <a class="link" href="evolution-exchange-e2k-utils.html#e2k-parse-timestamp" title="e2k_parse_timestamp ()">e2k_parse_timestamp</a>                 (<em class="parameter"><code>const <span class="type">gchar</span> *timestamp</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-make-timestamp" title="e2k_make_timestamp ()">e2k_make_timestamp</a>                  (<em class="parameter"><code><span class="type">time_t</span> when</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-make-timestamp-rfc822" title="e2k_make_timestamp_rfc822 ()">e2k_make_timestamp_rfc822</a>           (<em class="parameter"><code><span class="type">time_t</span> when</code></em>);
+
+<span class="returnvalue">time_t</span>              <a class="link" href="evolution-exchange-e2k-utils.html#e2k-systime-to-time-t" title="e2k_systime_to_time_t ()">e2k_systime_to_time_t</a>               (<em class="parameter"><code><span class="type">guint32</span> systime</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-systime-from-time-t" title="e2k_systime_from_time_t ()">e2k_systime_from_time_t</a>             (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>);
+<span class="returnvalue">time_t</span>              <a class="link" href="evolution-exchange-e2k-utils.html#e2k-filetime-to-time-t" title="e2k_filetime_to_time_t ()">e2k_filetime_to_time_t</a>              (<em class="parameter"><code><span class="type">guint64</span> filetime</code></em>);
+<span class="returnvalue">guint64</span>             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-filetime-from-time-t" title="e2k_filetime_from_time_t ()">e2k_filetime_from_time_t</a>            (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>);
+
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-lf-to-crlf" title="e2k_lf_to_crlf ()">e2k_lf_to_crlf</a>                      (<em class="parameter"><code>const <span class="type">gchar</span> *in</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-crlf-to-lf" title="e2k_crlf_to_lf ()">e2k_crlf_to_lf</a>                      (<em class="parameter"><code>const <span class="type">gchar</span> *in</code></em>);
+
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-strdup-with-trailing-slash" title="e2k_strdup_with_trailing_slash ()">e2k_strdup_with_trailing_slash</a>      (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);
+
+const <span class="returnvalue">gchar</span> *       <a class="link" href="evolution-exchange-e2k-utils.html#e2k-entryid-to-dn" title="e2k_entryid_to_dn ()">e2k_entryid_to_dn</a>                   (<em class="parameter"><code><span class="type">GByteArray</span> *entryid</code></em>);
+
+<span class="returnvalue">gint</span>                <a class="link" href="evolution-exchange-e2k-utils.html#e2k-ascii-strcase-equal" title="e2k_ascii_strcase_equal ()">e2k_ascii_strcase_equal</a>             (<em class="parameter"><code><span class="type">gconstpointer</span> v</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> v2</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="evolution-exchange-e2k-utils.html#e2k-ascii-strcase-hash" title="e2k_ascii_strcase_hash ()">e2k_ascii_strcase_hash</a>              (<em class="parameter"><code><span class="type">gconstpointer</span> v</code></em>);
+
+<span class="returnvalue">gboolean</span>            <a class="link" href="evolution-exchange-e2k-utils.html#e2k-restriction-folders-only" title="e2k_restriction_folders_only ()">e2k_restriction_folders_only</a>        (<em class="parameter"><code><a class="link" href="evolution-exchange-e2k-restriction.html#E2kRestriction" title="struct E2kRestriction"><span class="type">E2kRestriction</span></a> *rn</code></em>);
+
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="evolution-exchange-e2k-utils.html#e2k-entryid-generate-oneoff" title="e2k_entryid_generate_oneoff ()">e2k_entryid_generate_oneoff</a>         (<em class="parameter"><code>const <span class="type">gchar</span> *display_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *email</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unicode</code></em>);
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="evolution-exchange-e2k-utils.html#e2k-entryid-generate-local" title="e2k_entryid_generate_local ()">e2k_entryid_generate_local</a>          (<em class="parameter"><code>const <span class="type">gchar</span> *exchange_dn</code></em>);
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="evolution-exchange-e2k-utils.html#e2k-entryid-generate-contact" title="e2k_entryid_generate_contact ()">e2k_entryid_generate_contact</a>        (<em class="parameter"><code><span class="type">GByteArray</span> *contact_entryid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> nth_address</code></em>);
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="evolution-exchange-e2k-utils.html#e2k-search-key-generate" title="e2k_search_key_generate ()">e2k_search_key_generate</a>             (<em class="parameter"><code>const <span class="type">gchar</span> *addrtype</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);
+
+<span class="returnvalue">gchar</span> *             <a class="link" href="evolution-exchange-e2k-utils.html#e2k-entryid-to-permanenturl" title="e2k_entryid_to_permanenturl ()">e2k_entryid_to_permanenturl</a>         (<em class="parameter"><code><span class="type">GByteArray</span> *entryid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *base_uri</code></em>);
+<span class="returnvalue">GByteArray</span> *        <a class="link" href="evolution-exchange-e2k-utils.html#e2k-permanenturl-to-entryid" title="e2k_permanenturl_to_entryid ()">e2k_permanenturl_to_entryid</a>         (<em class="parameter"><code>const <span class="type">gchar</span> *permanenturl</code></em>);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="evolution-exchange-e2k-utils.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="evolution-exchange-e2k-utils.details"></a><h2>Details</h2>
+<div class="refsect2" title="e2k_parse_timestamp ()">
+<a name="e2k-parse-timestamp"></a><h3>e2k_parse_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">time_t</span>              e2k_parse_timestamp                 (<em class="parameter"><code>const <span class="type">gchar</span> *timestamp</code></em>);</pre>
+<p>
+Converts <em class="parameter"><code>timestamp</code></em> to a <code class="literal">time_t</code> value. <em class="parameter"><code>timestamp</code></em> must be in one
+of the two ISO8601 variants used by Exchange.
+</p>
+<p>
+Note that the timestamps used (in most contexts) by Exchange have
+millisecond resolution, so converting them to <code class="literal">time_t</code> loses
+resolution. Since ISO8601 timestamps can be compared using
+<code class="function">strcmp()</code>, it is often best to keep them as strings.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>an ISO8601 timestamp returned by the Exchange server
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the <code class="literal">time_t</code> corresponding to <em class="parameter"><code>timestamp</code></em>, or -1 on
+error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_make_timestamp ()">
+<a name="e2k-make-timestamp"></a><h3>e2k_make_timestamp ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_make_timestamp                  (<em class="parameter"><code><span class="type">time_t</span> when</code></em>);</pre>
+<p>
+Creates an ISO8601 timestamp (in an format acceptable to Exchange)
+corresponding to <em class="parameter"><code>when</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>when</code></em> :</span></p></td>
+<td>the <code class="literal">time_t</code> to convert to an ISO8601 timestamp
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the timestamp, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_make_timestamp_rfc822 ()">
+<a name="e2k-make-timestamp-rfc822"></a><h3>e2k_make_timestamp_rfc822 ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_make_timestamp_rfc822           (<em class="parameter"><code><span class="type">time_t</span> when</code></em>);</pre>
+<p>
+Creates an RFC822 Date header value corresponding to <em class="parameter"><code>when</code></em>, in the
+locale timezone.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>when</code></em> :</span></p></td>
+<td>the <code class="literal">time_t</code> to convert to an RFC822 timestamp
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the timestamp, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_systime_to_time_t ()">
+<a name="e2k-systime-to-time-t"></a><h3>e2k_systime_to_time_t ()</h3>
+<pre class="programlisting"><span class="returnvalue">time_t</span>              e2k_systime_to_time_t               (<em class="parameter"><code><span class="type">guint32</span> systime</code></em>);</pre>
+<p>
+Converts the MAPI PT_SYSTIME value <em class="parameter"><code>systime</code></em> to a corresponding
+<code class="literal">time_t</code> value (assuming it is within the valid range of a <code class="literal">time_t</code>).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>systime</code></em> :</span></p></td>
+<td>a MAPI PT_SYSTIME value (minutes since Windows epoch)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <code class="literal">time_t</code> corresponding to <em class="parameter"><code>systime</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_systime_from_time_t ()">
+<a name="e2k-systime-from-time-t"></a><h3>e2k_systime_from_time_t ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             e2k_systime_from_time_t             (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>);</pre>
+<p>
+Converts the <code class="literal">time_t</code> value <em class="parameter"><code>tt</code></em> to a corresponding MAPI PT_SYSTIME
+value, losing some precision if <em class="parameter"><code>tt</code></em> does not fall on a minute
+boundary.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tt</code></em> :</span></p></td>
+<td>a <code class="literal">time_t</code> value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the Windows systime value corresponding to <em class="parameter"><code>tt</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_filetime_to_time_t ()">
+<a name="e2k-filetime-to-time-t"></a><h3>e2k_filetime_to_time_t ()</h3>
+<pre class="programlisting"><span class="returnvalue">time_t</span>              e2k_filetime_to_time_t              (<em class="parameter"><code><span class="type">guint64</span> filetime</code></em>);</pre>
+<p>
+Converts the Windows FILETIME value <em class="parameter"><code>filetime</code></em> to a corresponding
+<code class="literal">time_t</code> value (assuming it is within the valid range of a <code class="literal">time_t</code>),
+truncating to a second boundary.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filetime</code></em> :</span></p></td>
+<td>a Windows FILETIME value (100ns intervals since
+Windows epoch)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <code class="literal">time_t</code> corresponding to <em class="parameter"><code>filetime</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_filetime_from_time_t ()">
+<a name="e2k-filetime-from-time-t"></a><h3>e2k_filetime_from_time_t ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint64</span>             e2k_filetime_from_time_t            (<em class="parameter"><code><span class="type">time_t</span> tt</code></em>);</pre>
+<p>
+Converts the <code class="literal">time_t</code> value <em class="parameter"><code>tt</code></em> to a corresponding Windows FILETIME
+value.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tt</code></em> :</span></p></td>
+<td>a <code class="literal">time_t</code> value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the Windows FILETIME value corresponding to <em class="parameter"><code>tt</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_lf_to_crlf ()">
+<a name="e2k-lf-to-crlf"></a><h3>e2k_lf_to_crlf ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_lf_to_crlf                      (<em class="parameter"><code>const <span class="type">gchar</span> *in</code></em>);</pre>
+<p>
+Creates a copy of <em class="parameter"><code>in</code></em> with all LFs converted to CRLFs.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>input text in UNIX ("\n") format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the converted text, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_crlf_to_lf ()">
+<a name="e2k-crlf-to-lf"></a><h3>e2k_crlf_to_lf ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_crlf_to_lf                      (<em class="parameter"><code>const <span class="type">gchar</span> *in</code></em>);</pre>
+<p>
+Creates a copy of <em class="parameter"><code>in</code></em> with all CRLFs converted to LFs. (Actually,
+it just strips CRs, so any raw CRs will be removed.)
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>input text in network ("\r\n") format
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the converted text, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_strdup_with_trailing_slash ()">
+<a name="e2k-strdup-with-trailing-slash"></a><h3>e2k_strdup_with_trailing_slash ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_strdup_with_trailing_slash      (<em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+<p>
+Copies <em class="parameter"><code>path</code></em>, appending a "/" to it if and only if it did not
+already end in "/".
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>a URI or path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the path, which the caller must free
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_entryid_to_dn ()">
+<a name="e2k-entryid-to-dn"></a><h3>e2k_entryid_to_dn ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       e2k_entryid_to_dn                   (<em class="parameter"><code><span class="type">GByteArray</span> *entryid</code></em>);</pre>
+<p>
+Finds an Exchange 5.5 DN inside a binary entryid property (such as
+<span class="type">PR_STORE_ENTRYID</span> or an element of <span class="type">PR_DELEGATES_ENTRYIDS</span>).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>entryid</code></em> :</span></p></td>
+<td>an Exchange entryid
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the entryid, which is a pointer into <em class="parameter"><code>entryid</code></em>'s data.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_ascii_strcase_equal ()">
+<a name="e2k-ascii-strcase-equal"></a><h3>e2k_ascii_strcase_equal ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                e2k_ascii_strcase_equal             (<em class="parameter"><code><span class="type">gconstpointer</span> v</code></em>,
+                                                         <em class="parameter"><code><span class="type">gconstpointer</span> v2</code></em>);</pre>
+<p>
+ASCII-case-insensitive comparison function for use with <span class="type">GHashTable</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
+<td>a string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v2</code></em> :</span></p></td>
+<td>another string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> if <em class="parameter"><code>v</code></em> and <em class="parameter"><code>v2</code></em> are ASCII-case-insensitively
+equal, <code class="literal">FALSE</code> if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_ascii_strcase_hash ()">
+<a name="e2k-ascii-strcase-hash"></a><h3>e2k_ascii_strcase_hash ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               e2k_ascii_strcase_hash              (<em class="parameter"><code><span class="type">gconstpointer</span> v</code></em>);</pre>
+<p>
+ASCII-case-insensitive hash function for use with <span class="type">GHashTable</span>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v</code></em> :</span></p></td>
+<td>a string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An ASCII-case-insensitive hashing of <em class="parameter"><code>v</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_restriction_folders_only ()">
+<a name="e2k-restriction-folders-only"></a><h3>e2k_restriction_folders_only ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            e2k_restriction_folders_only        (<em class="parameter"><code><a class="link" href="evolution-exchange-e2k-restriction.html#E2kRestriction" title="struct E2kRestriction"><span class="type">E2kRestriction</span></a> *rn</code></em>);</pre>
+<p>
+Examines <em class="parameter"><code>rn</code></em>, and determines if it can only return folders
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rn</code></em> :</span></p></td>
+<td>a restriction
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <code class="literal">TRUE</code> if <em class="parameter"><code>rn</code></em> will cause only folders to be returned
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_entryid_generate_oneoff ()">
+<a name="e2k-entryid-generate-oneoff"></a><h3>e2k_entryid_generate_oneoff ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        e2k_entryid_generate_oneoff         (<em class="parameter"><code>const <span class="type">gchar</span> *display_name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *email</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> unicode</code></em>);</pre>
+<p>
+Constructs a "one-off" ENTRYID value that can be used as a MAPI
+recipient (eg, for a message forwarding server-side rule),
+corresponding to <em class="parameter"><code>display_name</code></em> and <em class="parameter"><code>email</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display_name</code></em> :</span></p></td>
+<td>the display name of the user
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>email</code></em> :</span></p></td>
+<td>the email address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>unicode</code></em> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> to generate a Unicode ENTRYID (in which case
+<em class="parameter"><code>display_name</code></em> should be UTF-8), <code class="literal">FALSE</code> for an ASCII ENTRYID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the recipient ENTRYID
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_entryid_generate_local ()">
+<a name="e2k-entryid-generate-local"></a><h3>e2k_entryid_generate_local ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        e2k_entryid_generate_local          (<em class="parameter"><code>const <span class="type">gchar</span> *exchange_dn</code></em>);</pre>
+<p>
+Constructs an ENTRYID value that can be used as a MAPI
+recipient (eg, for a message forwarding server-side rule),
+corresponding to the local user identified by <em class="parameter"><code>exchange_dn</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>exchange_dn</code></em> :</span></p></td>
+<td>the Exchange 5.5-style DN of the local user
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the recipient ENTRYID
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_entryid_generate_contact ()">
+<a name="e2k-entryid-generate-contact"></a><h3>e2k_entryid_generate_contact ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        e2k_entryid_generate_contact        (<em class="parameter"><code><span class="type">GByteArray</span> *contact_entryid</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> nth_address</code></em>);</pre>
+<p>
+Constructs an ENTRYID value that can be used as a MAPI recipient
+(eg, for a message forwarding server-side rule), corresponding to
+the Contacts folder entry identified by <em class="parameter"><code>contact_entryid</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>contact_entryid</code></em> :</span></p></td>
+<td>the <span class="type">PR_ENTRYID</span> of an item in the user's Contacts
+folder.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nth_address</code></em> :</span></p></td>
+<td>which of the contact's email addresses to use.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the recipient ENTRYID
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_search_key_generate ()">
+<a name="e2k-search-key-generate"></a><h3>e2k_search_key_generate ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        e2k_search_key_generate             (<em class="parameter"><code>const <span class="type">gchar</span> *addrtype</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *address</code></em>);</pre>
+<p>
+Constructs a PR_SEARCH_KEY value for <em class="parameter"><code>address</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addrtype</code></em> :</span></p></td>
+<td>the type of <em class="parameter"><code>address</code></em> (usually "SMTP" or "EX")
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
+<td>the address data
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the search key
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_entryid_to_permanenturl ()">
+<a name="e2k-entryid-to-permanenturl"></a><h3>e2k_entryid_to_permanenturl ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             e2k_entryid_to_permanenturl         (<em class="parameter"><code><span class="type">GByteArray</span> *entryid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *base_uri</code></em>);</pre>
+<p>
+Creates a permanenturl based on <em class="parameter"><code>entryid</code></em> and <em class="parameter"><code>base_uri</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>entryid</code></em> :</span></p></td>
+<td>an ENTRYID (specifically, a PR_SOURCE_KEY)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>base_uri</code></em> :</span></p></td>
+<td>base URI of the store containing <em class="parameter"><code>entryid</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the permanenturl, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2" title="e2k_permanenturl_to_entryid ()">
+<a name="e2k-permanenturl-to-entryid"></a><h3>e2k_permanenturl_to_entryid ()</h3>
+<pre class="programlisting"><span class="returnvalue">GByteArray</span> *        e2k_permanenturl_to_entryid         (<em class="parameter"><code>const <span class="type">gchar</span> *permanenturl</code></em>);</pre>
+<p>
+Creates an ENTRYID (specifically, a PR_SOURCE_KEY) based on
+<em class="parameter"><code>permanenturl</code></em>
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>permanenturl</code></em> :</span></p></td>
+<td>an Exchange permanenturl
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the entryid
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.14</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="evolution-exchange-e2k-utils.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

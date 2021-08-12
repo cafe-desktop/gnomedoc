@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>gimpprotocol</title><link href="index.html" rel="HOME" title="GIMP Library Reference Manual"></link><link href="libgimp.html" rel="UP" title="GIMP Library"></link><link href="libgimp-gimpproceduraldb.html" rel="PREVIOUS" title="gimpproceduraldb"></link><link href="libgimp-gimpselection.html" rel="NEXT" title="gimpselection"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libgimp-gimpprotocol.html#container">Go to page content</a></li><li><a href="libgimp-gimpprotocol.html#top_bar">Go to main menu</a></li><li><a href="libgimp-gimpprotocol.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><div class="NAVHEADER"><table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="100%"><tbody><tr><th align="center" colspan="4"><font color="#FFFFFF" size="5">GIMP Library Reference Manual</font></th></tr><tr><td align="left" bgcolor="#C00000" width="25%"><a href="libgimp-gimpproceduraldb.html"><font color="#FFFFFF" size="3"><b>&lt;&lt;&lt; Previous Page</b></font></a></td><td align="center" bgcolor="#0000C0" width="25%"><font color="#FFFFFF" size="3"><b><a href="index.html"><font color="#FFFFFF" size="3"><b>Home</b></font></a></b></font></td><td align="center" bgcolor="#00C000" width="25%"><font color="#FFFFFF" size="3"><b><a href="libgimp.html"><font color="#FFFFFF" size="3"><b>Up</b></font></a></b></font></td><td align="right" bgcolor="#C00000" width="25%"><a href="libgimp-gimpselection.html"><font color="#FFFFFF" size="3"><b>Next Page &gt;&gt;&gt;</b></font></a></td></tr></tbody></table></div><h1><a name="LIBGIMP-GIMPPROTOCOL">gimpprotocol</a></h1><div class="REFNAMEDIV"><a name="AEN12148"></a><h2>Name</h2>gimpprotocol -- The communication protocol between GIMP and it's plug-ins.</div><div class="REFSYNOPSISDIV"><a name="AEN12151"></a><h2>Synopsis</h2><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="SYNOPSIS">
+
+#define     <a href="libgimp-gimpprotocol.html#GP-VERSION-CAPS">GP_VERSION</a>
+struct      <a href="libgimp-gimpprotocol.html#GPCONFIG">GPConfig</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPTILEREQ">GPTileReq</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPTILEACK">GPTileAck</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPTILEDATA">GPTileData</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPARAM">GPParam</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPARAMDEF">GPParamDef</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPROCRUN">GPProcRun</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPROCRETURN">GPProcReturn</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPROCINSTALL">GPProcInstall</a>;
+struct      <a href="libgimp-gimpprotocol.html#GPPROCUNINSTALL">GPProcUninstall</a>;
+void        <a href="libgimp-gimpprotocol.html#GP-INIT">gp_init</a>                         (void);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-QUIT-WRITE">gp_quit_write</a>                   (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-CONFIG-WRITE">gp_config_write</a>                 (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPCONFIG">GPConfig</a> *config);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-TILE-REQ-WRITE">gp_tile_req_write</a>               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPTILEREQ">GPTileReq</a> *tile_req);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-TILE-ACK-WRITE">gp_tile_ack_write</a>               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-TILE-DATA-WRITE">gp_tile_data_write</a>              (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPTILEDATA">GPTileData</a> *tile_data);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-PROC-RUN-WRITE">gp_proc_run_write</a>               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRUN">GPProcRun</a> *proc_run);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-PROC-RETURN-WRITE">gp_proc_return_write</a>            (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRETURN">GPProcReturn</a> *proc_return);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-TEMP-PROC-RUN-WRITE">gp_temp_proc_run_write</a>          (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRUN">GPProcRun</a> *proc_run);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-TEMP-PROC-RETURN-WRITE">gp_temp_proc_return_write</a>       (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRETURN">GPProcReturn</a> *proc_return);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-PROC-INSTALL-WRITE">gp_proc_install_write</a>           (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCINSTALL">GPProcInstall</a> *proc_install);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-PROC-UNINSTALL-WRITE">gp_proc_uninstall_write</a>         (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCUNINSTALL">GPProcUninstall</a> *proc_uninstall);
+<gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    <a href="libgimp-gimpprotocol.html#GP-EXTENSION-ACK-WRITE">gp_extension_ack_write</a>          (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);</pre></td></tr></tbody></table></div><div class="REFSECT1"><a name="AEN12211"></a><h2>Description</h2><p>The communication protocol between GIMP and it's plug-ins.
+</p></div><div class="REFSECT1"><a name="AEN12214"></a><h2>Details</h2><div class="REFSECT2"><a name="AEN12216"></a><h3><a name="GP-VERSION-CAPS"></a>GP_VERSION</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">#define GP_VERSION 0x0004</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12221"></a><h3><a name="GPCONFIG"></a>struct GPConfig</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPConfig
+{
+  guint32 version;
+  guint32 tile_width;
+  guint32 tile_height;
+  gint32  shm_ID;
+  gdouble gamma;
+  gint8   install_cmap;
+  gint8   use_xshm;
+  gint32  min_colors;
+  gint32  gdisp_ID;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12226"></a><h3><a name="GPTILEREQ"></a>struct GPTileReq</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPTileReq
+{
+  gint32  drawable_ID;
+  guint32 tile_num;
+  guint32 shadow;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12231"></a><h3><a name="GPTILEACK"></a>struct GPTileAck</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPTileAck;</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12236"></a><h3><a name="GPTILEDATA"></a>struct GPTileData</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPTileData
+{
+  gint32   drawable_ID;
+  guint32  tile_num;
+  guint32  shadow;
+  guint32  bpp;
+  guint32  width;
+  guint32  height;
+  guint32  use_shm;
+  guchar  *data;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12241"></a><h3><a name="GPPARAM"></a>struct GPParam</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPParam
+{
+  guint32 type;
+
+  union
+  {
+    gint32    d_int32;
+    gint16    d_int16;
+    gint8     d_int8;
+    gdouble   d_float;
+    gchar    *d_string;
+    gint32   *d_int32array;
+    gint16   *d_int16array;
+    gint8    *d_int8array;
+    gdouble  *d_floatarray;
+    gchar   **d_stringarray;
+    struct
+    {
+      guint8 red;
+      guint8 green;
+      guint8 blue;
+    } d_color;
+    struct
+    {
+      gint32 x;
+      gint32 y;
+      gint32 width;
+      gint32 height;
+    } d_region;
+    gint32 d_display;
+    gint32 d_image;
+    gint32 d_layer;
+    gint32 d_channel;
+    gint32 d_drawable;
+    gint32 d_selection;
+    gint32 d_boundary;
+    gint32 d_path;
+    struct
+    {
+      gchar    *name;
+      guint32   flags;
+      guint32   size;
+      gpointer  data;
+    } d_parasite;
+    gint32 d_status;
+  } data;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12246"></a><h3><a name="GPPARAMDEF"></a>struct GPParamDef</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPParamDef
+{
+  guint32  type;
+  gchar   *name;
+  gchar   *description;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12251"></a><h3><a name="GPPROCRUN"></a>struct GPProcRun</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPProcRun
+{
+  gchar   *name;
+  guint32  nparams;
+  GPParam *params;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12256"></a><h3><a name="GPPROCRETURN"></a>struct GPProcReturn</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPProcReturn
+{
+  gchar   *name;
+  guint32  nparams;
+  GPParam *params;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12261"></a><h3><a name="GPPROCINSTALL"></a>struct GPProcInstall</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPProcInstall
+{
+  gchar      *name;
+  gchar      *blurb;
+  gchar      *help;
+  gchar      *author;
+  gchar      *copyright;
+  gchar      *date;
+  gchar      *menu_path;
+  gchar      *image_types;
+  guint32     type;
+  guint32     nparams;
+  guint32     nreturn_vals;
+  GPParamDef *params;
+  GPParamDef *return_vals;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12266"></a><h3><a name="GPPROCUNINSTALL"></a>struct GPProcUninstall</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">struct GPProcUninstall
+{
+  gchar *name;
+};</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12271"></a><h3><a name="GP-INIT"></a>gp_init ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING">void        gp_init                         (void);</pre></td></tr></tbody></table><p></p></div><hr></hr><div class="REFSECT2"><a name="AEN12276"></a><h3><a name="GP-QUIT-WRITE"></a>gp_quit_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_quit_write                   (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12283"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12296"></a><h3><a name="GP-CONFIG-WRITE"></a>gp_config_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_config_write                 (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPCONFIG">GPConfig</a> *config);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12304"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>config</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12321"></a><h3><a name="GP-TILE-REQ-WRITE"></a>gp_tile_req_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_tile_req_write               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPTILEREQ">GPTileReq</a> *tile_req);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12329"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>tile_req</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12346"></a><h3><a name="GP-TILE-ACK-WRITE"></a>gp_tile_ack_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_tile_ack_write               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12353"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12366"></a><h3><a name="GP-TILE-DATA-WRITE"></a>gp_tile_data_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_tile_data_write              (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPTILEDATA">GPTileData</a> *tile_data);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12374"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>tile_data</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12391"></a><h3><a name="GP-PROC-RUN-WRITE"></a>gp_proc_run_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_proc_run_write               (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRUN">GPProcRun</a> *proc_run);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12399"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_run</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12416"></a><h3><a name="GP-PROC-RETURN-WRITE"></a>gp_proc_return_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_proc_return_write            (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRETURN">GPProcReturn</a> *proc_return);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12424"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_return</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12441"></a><h3><a name="GP-TEMP-PROC-RUN-WRITE"></a>gp_temp_proc_run_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_temp_proc_run_write          (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRUN">GPProcRun</a> *proc_run);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12449"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_run</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12466"></a><h3><a name="GP-TEMP-PROC-RETURN-WRITE"></a>gp_temp_proc_return_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_temp_proc_return_write       (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCRETURN">GPProcReturn</a> *proc_return);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12474"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_return</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12491"></a><h3><a name="GP-PROC-INSTALL-WRITE"></a>gp_proc_install_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_proc_install_write           (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCINSTALL">GPProcInstall</a> *proc_install);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12499"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_install</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12516"></a><h3><a name="GP-PROC-UNINSTALL-WRITE"></a>gp_proc_uninstall_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_proc_uninstall_write         (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel,
+                                             <a href="libgimp-gimpprotocol.html#GPPROCUNINSTALL">GPProcUninstall</a> *proc_uninstall);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12524"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>proc_uninstall</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div><hr></hr><div class="REFSECT2"><a name="AEN12541"></a><h3><a name="GP-EXTENSION-ACK-WRITE"></a>gp_extension_ack_write ()</h3><table bgcolor="#D6E8FF" border="0" cellpadding="6" width="100%"><tbody><tr><td><pre class="PROGRAMLISTING"><gtkdoclink href="GBOOLEAN">gboolean</gtkdoclink>    gp_extension_ack_write          (<gtkdoclink href="GIOCHANNEL">GIOChannel</gtkdoclink> *channel);</pre></td></tr></tbody></table><p></p><div class="INFORMALTABLE"><a name="AEN12548"></a><p></p><table bgcolor="#FFD0D0" border="0" cellpadding="4" cellspacing="0" class="CALSTABLE" width="100%"><tbody><tr><td align="RIGHT" valign="TOP" width="20%"><tt class="PARAMETER"><i>channel</i></tt> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr><tr><td align="RIGHT" valign="TOP" width="20%"><i class="EMPHASIS">Returns</i> :</td><td align="LEFT" valign="TOP" width="80%"> </td></tr></tbody></table><p></p></div></div></div><div class="REFSECT1"><a name="AEN12561"></a><h2>See Also</h2><p><a href="libgimp-gimpwire.html">libgimp-gimpwire</a></p></div><div class="NAVFOOTER"><br clear="all"></br><br></br><table bgcolor="#000000" border="0" cellpadding="1" cellspacing="0" width="100%"><tbody><tr><td align="left" bgcolor="#C00000" width="25%"><a href="libgimp-gimpproceduraldb.html"><font color="#FFFFFF" size="3"><b>&lt;&lt;&lt; Previous Page</b></font></a></td><td align="center" bgcolor="#0000C0" width="25%"><font color="#FFFFFF" size="3"><b><a href="index.html"><font color="#FFFFFF" size="3"><b>Home</b></font></a></b></font></td><td align="center" bgcolor="#00C000" width="25%"><font color="#FFFFFF" size="3"><b><a href="libgimp.html"><font color="#FFFFFF" size="3"><b>Up</b></font></a></b></font></td><td align="right" bgcolor="#C00000" width="25%"><a href="libgimp-gimpselection.html"><font color="#FFFFFF" size="3"><b>Next Page &gt;&gt;&gt;</b></font></a></td></tr><tr><td align="left" colspan="2"><font color="#FFFFFF" size="3"><b>gimpproceduraldb</b></font></td><td align="right" colspan="2"><font color="#FFFFFF" size="3"><b>gimpselection</b></font></td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libgimp-gimpprotocol.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

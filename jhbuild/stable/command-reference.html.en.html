@@ -1,0 +1,1265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:set="http://exslt.org/sets" xmlns:str="http://exslt.org/strings">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Command Reference</title>
+<link rel="previous" href="jhbuild-and-gnome.html.en.html" title="JHBuild and GNOME">
+<link rel="next" href="config-reference.html.en.html" title="Configuration File Reference">
+<link rel="top" href="index.html.en.html" title="JHBuild Manual">
+<style type="text/css">
+
+html { height: 100%; }
+body {
+  margin: 0px; padding: 12px;
+  background-color: #f9f9f6;
+  min-height: 100%;
+  direction: ltr;
+}
+div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
+table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+tr.tr-shade {
+  background-color: #f9f9f6;
+}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.body-sidebar {
+  margin-right: 13em;
+}
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: #3f3f3f;
+  border-bottom: solid 1px #e0e0df;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0; padding: 0;
+  color: #3f3f3f;
+}
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  margin-left left: 1.72em;
+  margin-: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
+div.title-formal .label { font-weight: normal; }
+a {
+  color: #1f609f;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited { color: #9f1f6f; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  margin-left: 2.4em;
+  padding: 0;
+}
+li.li-first { margin-top: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
+dd {
+  margin-left: 1.72em;
+  margin-top: 0.5em;
+}
+dl.dl-compact dt { margin-top: 0; }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; margin: 0; padding: 0; }
+
+li.linktrail::before {
+  content: '  /  ';
+  color: #3f3f3f;
+}
+
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
+td.navbar-next {
+  text-align: right;
+}
+a.navbar-prev::before {
+  
+  content: '◀  ';
+  color: #3f3f3f;
+}
+a.navbar-next::after {
+  
+  content: '  ▶';
+  color: #3f3f3f;
+}
+
+
+div.sidebar {
+  float: right;
+  padding: 0; margin: 0; width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0 1em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.sidenav div.autotoc {
+  background-color: #ffffff;
+  border: none; padding: 0; margin: 0;
+}
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+
+div.autotoc {
+  
+  display: table;
+  margin-top: 1em;
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #f0f9ff;
+  border: solid 1px #c0c9ff;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
+
+
+span.bibliolabel {
+  color: #3f3f3f;
+}
+
+
+div.admonition {
+  padding: 0.5em 6px 0.5em 6px;
+  border: solid 1px #e0e0df;
+  background-color: #fffff0;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
+  padding-left: 60px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  min-height: 48px;
+}
+div.caution-inner { background-image: url("../../skin/admon-caution.png"); }
+div.important-inner { background-image: url("../../skin/admon-important.png"); }
+div.note-inner { background-image: url("../../skin/admon-note.png"); }
+div.note-bug div.note-inner { background-image: url("../../skin/admon-bug.png"); }
+div.tip-inner { background-image: url("../../skin/admon-tip.png"); }
+div.warning-inner { background-image: url("../../skin/admon-warning.png"); }
+div.blockquote {
+  
+  background-image: url('https://developer-old.gnome.org/jhbuild/stable/watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: #3f3f3f;
+}
+div.attribution::before {
+  
+  content: '― ';
+}
+div.epigraph {
+  text-align: right;
+  margin-left: 20%;
+  margin-right: 0;
+  color: #3f3f3f;
+}
+div.figure, div.informalfigure {
+  
+  display: table;
+  padding: 0.5em;
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
+  background-color: #ffffff;
+  border: solid 1px #e0e0df;
+}
+div.caption { margin-top: 0.5em; }
+div.programlisting {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border: solid 1px #e0e0df;
+}
+div.screen .prompt {
+  color: #3f3f3f;
+}
+div.screen .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+div.programlisting .userinput {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+pre.linenumbering {
+  color: #3f3f3f;
+  margin: 0;
+  padding-right: 1em;
+  float: left;
+  text-align: right;
+}
+
+
+
+dl.index dt { margin-top: 0; }
+dl.index dd { margin-top: 0; margin-bottom: 0; }
+dl.indexdiv dt { margin-top: 0; }
+dl.indexdiv dd { margin-top: 0; margin-bottom: 0; }
+dl.setindex dt { margin-top: 0; }
+dl.setindex dd { margin-top: 0; margin-bottom: 0; }
+div.list div.title-formal span.title {
+  border-bottom: solid 1px #e0e0df;
+}
+div.simplelist {
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px #e0e0df;
+}
+div.simplelist td.td-first {
+  padding-left: 0;
+  border-left: 0;
+}
+div.synopsis {
+  padding: 0.5em;
+  
+  background-color: #f9f9f6;
+  border-top: solid 2px #c0c9ff;
+  border-bottom: solid 2px #c0c9ff;
+}
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
+}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+div.cmdsynopsis { font-family: monospace; }
+
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px #e0e0df;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+
+dt.glossterm span.glossterm { font-style: normal; }
+
+
+span.glossterm { font-style: italic; }
+
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.keycap {
+  font-weight: bold;
+  color: #3f3f3f;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
+span.package { font-family: monospace; }
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
+
+
+
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+
+span.co {
+  margin-left: 0.2em; margin-right: 0.2em;
+  padding-left: 0.4em; padding-right: 0.4em;
+  border: solid 1px #000000;
+  -moz-border-radius: 8px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-size: 8px;
+}
+span.co:hover {
+  border-color: #333333;
+  background-color: #333333;
+  color: #FFFFFF;
+}
+span.co a { text-decoration: none; }
+span.co a:hover { text-decoration: none; }
+
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</style>
+<link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css">
+<link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css">
+<link rel="icon" type="image/png" href="../../skin/gnome-16.png">
+<link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png">
+<link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search">
+<link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css">
+<script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><script type="text/javascript" src="../../js/jquery.js"></script>
+</head>
+<body>
+<div id="accessibility_access"><ul>
+<li><a href="command-reference.html.en.html#container">Go to page content</a></li>
+<li><a href="command-reference.html.en.html#top_bar">Go to main menu</a></li>
+<li><a href="command-reference.html.en.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li>
+</ul></div>
+<div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div>
+<div id="header" class="container_12">
+<div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></a></div>
+<div id="top_bar" class="grid_9">
+<div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu">
+<li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li>
+<li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li>
+</ul></div></div>
+<div class="right">
+<form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div>
+<label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search">
+</div></form>
+<script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="container" class="two_columns">
+<div class="content">
+<div class="division section">
+<a name="command-reference"><!--command-reference--></a><div class="header"><h1 class="section title"><span class="title">Command Reference</span></h1></div>
+<ul class="linktrail"><li class="linktrail linktrail-only"><a class="linktrail" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a></li></ul>
+<p class="para block block-first">JHBuild uses a command line syntax similar to tools like CVS:</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild</span> <span class="arg-punc">[<span class="arg"><span class="replaceable">global-options</span></span>]</span> <span class="arg-punc"><span class="arg"><span class="replaceable">command</span></span></span> <span class="arg-punc">[<span class="arg"><span class="replaceable">command-arguments</span></span>]</span></pre></div>
+<p class="para block">The global JHBuild options are:</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+<a name="option-file"><!--option-file--></a>
+          <span class="option" dir="ltr">-f</span>, <span class="option" dir="ltr">--file</span>
+          <span class="replaceable">config</span>
+        </dt>
+<dd>
+          <p class="simpara block block-first">Use an alternative configuration file instead of the
+            default <span class="filename" dir="ltr">~/.config/jhbuildrc</span>.</p>
+        </dd>
+<dt class="term">
+          <span class="option" dir="ltr">-m</span>, <span class="option" dir="ltr">--moduleset</span>
+          <span class="replaceable">moduleset</span>
+        </dt>
+<dd>
+          <p class="simpara block block-first">Use a module set other than the module set listed in the
+            configuration file. This option can be a relative path if the module
+            set is located in the JHBuild moduleset folder, or an absolute path
+            if located elsewhere.</p>
+        </dd>
+<dt class="term">
+          <span class="option" dir="ltr">--no-interact</span>
+        </dt>
+<dd>
+          <p class="simpara block block-first">Do not prompt the user for any input. This option is useful
+            if leaving a build unattended, in order to ensure the build is not
+            interrupted.</p>
+        </dd>
+<dt class="term">
+          <span class="option" dir="ltr">--exit-on-error</span>
+        </dt>
+<dd>
+          <p class="simpara block block-first">Exit immediately if a module fails to build. This option is
+            primarily useful in noninteractive mode, in order to ensure jhbuild
+            does not continue to build any additional modules.</p>
+        </dd>
+<dt class="term">
+          <span class="option" dir="ltr">--conditions</span>
+        </dt>
+<dd>
+          <p class="simpara block block-first">Modify the condition flags to be different than those determined on the basis of the OS and
+            those specified in jhbuildrc.  Modifications are specified like <span class="literal" dir="ltr">-wayland</span> or
+            <span class="literal" dir="ltr">+docs</span> in order to remove or add conditions.  Multiple modifications can be
+            separated by a comma like <span class="command" dir="ltr">--conditions=+docs,-wayland</span> or you can split them
+            across multiple <span class="command" dir="ltr">--conditions</span> arguments.</p>
+        </dd>
+</dl></div>
+<p class="para block">Additionally, JHBuild checks the presence, and value, of the
+      following environment variables:</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first"><span class="envar" dir="ltr">JHBUILD_RUN_AS_ROOT</span></dt>
+<dd>
+          <p class="simpara block block-first">By default, JHBuild does not run when using the root user,
+            to avoid destructive operations that may affect the whole system.
+            In certain cases, though, it's acceptable to run JHBuild as root;
+            for instance, inside a container, or in a continuous integration
+            environment. Exporting the <span class="envar" dir="ltr">JHBUILD_RUN_AS_ROOT</span> will
+            disable the user id check at startup.</p>
+        </dd>
+</dl></div>
+<p class="para block">Command specific options are listed below.</p>
+<div class="autotoc"><ul>
+<li>
+<span class="label">4.1. </span><a class="xref" href="command-reference.html.en.html#command-reference-autobuild" title="autobuild">autobuild</a>
+</li>
+<li>
+<span class="label">4.2. </span><a class="xref" href="command-reference.html.en.html#command-reference-bootstrap" title="bootstrap">bootstrap</a>
+</li>
+<li>
+<span class="label">4.3. </span><a class="xref" href="command-reference.html.en.html#command-reference-build" title="build">build</a>
+</li>
+<li>
+<span class="label">4.4. </span><a class="xref" href="command-reference.html.en.html#command-reference-make" title="make">make</a>
+</li>
+<li>
+<span class="label">4.5. </span><a class="xref" href="command-reference.html.en.html#command-reference-buildone" title="buildone">buildone</a>
+</li>
+<li>
+<span class="label">4.6. </span><a class="xref" href="command-reference.html.en.html#command-reference-checkbranches" title="checkbranches">checkbranches</a>
+</li>
+<li>
+<span class="label">4.7. </span><a class="xref" href="command-reference.html.en.html#command-reference-clean" title="clean">clean</a>
+</li>
+<li>
+<span class="label">4.8. </span><a class="xref" href="command-reference.html.en.html#command-reference-dot" title="dot">dot</a>
+</li>
+<li>
+<span class="label">4.9. </span><a class="xref" href="command-reference.html.en.html#command-reference-gui" title="gui">gui</a>
+</li>
+<li>
+<span class="label">4.10. </span><a class="xref" href="command-reference.html.en.html#command-reference-info" title="info">info</a>
+</li>
+<li>
+<span class="label">4.11. </span><a class="xref" href="command-reference.html.en.html#command-reference-list" title="list">list</a>
+</li>
+<li>
+<span class="label">4.12. </span><a class="xref" href="command-reference.html.en.html#command-reference-rdepends" title="rdepends">rdepends</a>
+</li>
+<li>
+<span class="label">4.13. </span><a class="xref" href="command-reference.html.en.html#command-reference-run" title="run">run</a>
+</li>
+<li>
+<span class="label">4.14. </span><a class="xref" href="command-reference.html.en.html#command-reference-sanitycheck" title="sanitycheck">sanitycheck</a>
+</li>
+<li>
+<span class="label">4.15. </span><a class="xref" href="command-reference.html.en.html#command-reference-shell" title="shell">shell</a>
+</li>
+<li>
+<span class="label">4.16. </span><a class="xref" href="command-reference.html.en.html#command-reference-sysdeps" title="sysdeps">sysdeps</a>
+</li>
+<li>
+<span class="label">4.17. </span><a class="xref" href="command-reference.html.en.html#command-reference-tinderbox" title="tinderbox">tinderbox</a>
+</li>
+<li>
+<span class="label">4.18. </span><a class="xref" href="command-reference.html.en.html#command-reference-uninstall" title="uninstall">uninstall</a>
+</li>
+<li>
+<span class="label">4.19. </span><a class="xref" href="command-reference.html.en.html#command-reference-update" title="update">update</a>
+</li>
+<li>
+<span class="label">4.20. </span><a class="xref" href="command-reference.html.en.html#command-reference-updateone" title="updateone">updateone</a>
+</li>
+</ul></div>
+<div class="division section">
+<a name="command-reference-autobuild"><!--command-reference-autobuild--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.1. </span>autobuild</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">autobuild</span> command automatically builds the
+        modules as specified in the configuration file, and then upload the
+        results to JhAutobuild.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild autobuild</span> <span class="arg-punc">[<span class="arg">--autogen</span>]</span> <span class="arg-punc">[<span class="arg">--clean</span>]</span> <span class="arg-punc">[<span class="arg">--distcheck</span>]</span> <span class="arg-punc">[<span class="arg">--skip=<span class="replaceable">module</span></span>...]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span> <span class="arg-punc">[<span class="arg">--report-url=<span class="replaceable">reporturl</span></span>]</span> <span class="arg-punc">[<span class="arg">--verbose</span>]</span></pre></div>
+<p class="para block">The <span class="option" dir="ltr">--autogen</span>, <span class="option" dir="ltr">--clean</span>,
+        <span class="option" dir="ltr">--distcheck</span>, <span class="option" dir="ltr">--skip</span> and
+        <span class="option" dir="ltr">--start-at</span> options are processed as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--report-url=<span class="replaceable">reporturl</span></span>,
+            <span class="option" dir="ltr">-r <span class="replaceable">reporturl</span></span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">This option specifies the JhAutobuild URL to report to.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--verbose</span>, <span class="option" dir="ltr">-v</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">If specified, JHBuild's output will be more verbose.
+            </p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-bootstrap"><!--command-reference-bootstrap--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.2. </span>bootstrap</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">bootstrap</span> command installs a set of build
+        utilities. The build utilities include
+        <span class="application">autoconf</span>, <span class="application">automake</span>
+        and similar utilities. The recommended method to install the build
+        utilities is via your distribution's package management system. The
+        <span class="command" dir="ltr">bootstrap</span> should only be used if the build utilities
+        are not provided by your distribution's package management system, for
+        example on <span class="systemitem" dir="ltr">Mac OS</span>.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild bootstrap</span></pre></div>
+<p class="para block">The <span class="command" dir="ltr">bootstrap</span> command builds modules using the
+        same method as the <span class="command" dir="ltr">build</span> command, but uses the
+        <span class="filename" dir="ltr">bootstrap.modules</span> moduleset.</p>
+<p class="para block">See the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command documentation for available options.</p>
+</div>
+<div class="division section">
+<a name="command-reference-build"><!--command-reference-build--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.3. </span>build</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">build</span> command builds one or more packages,
+        including their dependencies.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild build</span> <span class="arg-punc">[<span class="arg">--autogen</span>]</span> <span class="arg-punc">[<span class="arg">--clean</span>]</span> <span class="arg-punc">[<span class="arg">--check</span>]</span> <span class="arg-punc">[<span class="arg">--dist</span>]</span> <span class="arg-punc">[<span class="arg">--distcheck</span>]</span> <span class="arg-punc">[<span class="arg">--distclean</span>]</span> <span class="arg-punc">[<span class="arg">--ignore-suggests</span>]</span> <span class="arg-punc">[<span class="arg">--no-network</span>]</span> <span class="arg-punc">[<span class="arg">--skip=<span class="replaceable">module</span></span>...]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span> <span class="arg-punc">[<span class="arg">--tags=<span class="replaceable">tags</span></span>]</span> <span class="arg-punc">[<span class="arg">-D <span class="replaceable">date</span></span>]</span> <span class="arg-punc">[<span class="arg">--no-xvfb</span>]</span> <span class="arg-punc">[<span class="arg">--try-checkout</span>]</span> <span class="arg-punc">[<span class="arg">--no-poison</span>]</span> <span class="arg-punc">[<span class="arg">--force</span>]</span> <span class="arg-punc">[<span class="arg">--build-optional-modules</span>]</span> <span class="arg-punc">[<span class="arg">--min-age=<span class="replaceable">time</span></span>]</span> <span class="arg-punc">[<span class="arg">--nodeps</span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">If no module names are provided on the command line, the
+        <a class="link" href="config-reference.html.en.html#cfg-modules" title="">modules</a> list from the configuration
+        file will be used.</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">-a</span>, <span class="option" dir="ltr">--autogen</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Always run <span class="command" dir="ltr">autogen.sh</span> before building
+              modules.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-c</span>, <span class="option" dir="ltr">--clean</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run <span class="command" dir="ltr">make clean</span> before building
+              modules.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--check</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run <span class="command" dir="ltr">make check</span> after building modules.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-d</span>, <span class="option" dir="ltr">--dist</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run <span class="command" dir="ltr">make dist</span> after building modules.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--distcheck</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run <span class="command" dir="ltr">make distcheck</span> after building
+              modules.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--distclean</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">For git modules, run <span class="command" dir="ltr">git clean -dfx</span>
+              before building modules. For other modules, run <span class="command" dir="ltr">make
+              distclean</span> before building modules.</p>
+
+            <div class="admonition block note block-indent"><div class="note-inner">
+              <p class="simpara block block-first">This option will delete any uncommitted changes.
+              </p>
+            </div></div>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--ignore-suggests</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Do not build soft dependencies.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-n</span>, <span class="option" dir="ltr">--no-network</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Do not access the network when building modules. This
+              will skip download or update stages in a build. If a module can't
+              be built without network access, the module build will fail.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-s</span>,
+            <span class="option" dir="ltr">--skip</span>=<span class="replaceable">module,...</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Do not build the listed modules. Used to skip the
+              building of specified dependencies.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--tags</span>=<span class="replaceable">tag,...</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Ignore modules that do not match
+              <span class="replaceable">tag</span>. Modules are automatically
+              attributed a tag matching the name of the module's module set.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-t</span>,
+            <span class="option" dir="ltr">--start-at</span>=<span class="replaceable">module</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Start at the named module rather than at the beginning of
+              the list. This option is useful if the build was interrupted.
+            </p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-D</span> <span class="replaceable">date</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">If supported by the underlying version control system,
+              update the source tree to the specified date before building. An
+              ISO date format is required, e.g. <span class="literal" dir="ltr">"2009-09-18
+              02:32Z"</span>.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-x</span>, <span class="option" dir="ltr">--no-xvfb</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run graphical tests on the actual X server rather than in
+              a simulated Xvfb.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-C</span>, <span class="option" dir="ltr">--try-checkout</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">If the build fails, and if supported by the version
+              control system, force a checkout and run
+              <span class="command" dir="ltr">autogen.sh</span> before retrying the build.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-N</span>, <span class="option" dir="ltr">--no-poison</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">If one or more of a module's dependencies failed, this
+              option forces JHBuild to try to build the module anyway.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-f</span>, <span class="option" dir="ltr">--force</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Build the modules even if policy states it is not
+              required.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--build-optional-modules</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Modules listed as optional dependencies, may not be
+              required to build the module. This option forces JHBuild to build
+              optional dependencies.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--min-age</span>=<span class="replaceable">time</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Skip modules installed more recently than the specified
+              relative time. The <span class="replaceable">time</span> string format
+              is a number followed by a unit. The following units are supported:
+              seconds (s), minutes (m), hours (h) and days (d). For example,
+              <span class="option" dir="ltr">--min-age=2h</span> will skip modules built less than
+              two hours ago.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--nodeps</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Ignore missing system dependencies. To ignore a single
+              system dependency add the module to
+              <a class="link" href="config-reference.html.en.html#cfg-skip" title=""><span class="varname" dir="ltr">skip</span></a>.</p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-make"><!--command-reference-make--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.4. </span>make</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">make</span> command is for actively developing on
+        a particular module. It requires the current directory be a source
+        checkout, and does the equivalent of <span class="command" dir="ltr">buildone -nf $(basename
+        $(pwd))</span>.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild make</span> <span class="arg-punc">[<span class="arg">--clean</span>]</span> <span class="arg-punc">[<span class="arg">--check</span>]</span> <span class="arg-punc">[<span class="arg">--distcheck</span>]</span> <span class="arg-punc">[<span class="arg">--quiet</span>]</span></pre></div>
+<p class="para block">The options are the same as those available for the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">buildone</span></a>
+        command.</p>
+</div>
+<div class="division section">
+<a name="command-reference-buildone"><!--command-reference-buildone--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.5. </span>buildone</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">buildone</span> command is similar to
+        <span class="command" dir="ltr">build</span>, but it does not build the dependent modules.
+        It is useful for rebuilding one or more modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild buildone</span> <span class="arg-punc">[<span class="arg">--autogen</span>]</span> <span class="arg-punc">[<span class="arg">--clean</span>]</span> <span class="arg-punc">[<span class="arg">--check</span>]</span> <span class="arg-punc">[<span class="arg">--distcheck</span>]</span> <span class="arg-punc">[<span class="arg">--distclean</span>]</span> <span class="arg-punc">[<span class="arg">--no-network</span>]</span> <span class="arg-punc">[<span class="arg">-D <span class="replaceable">date</span></span>]</span> <span class="arg-punc">[<span class="arg">--no-xvfb</span>]</span> <span class="arg-punc">[<span class="arg">--force</span>]</span> <span class="arg-punc">[<span class="arg">--min-age=<span class="replaceable">time</span></span>]</span> <span class="arg-punc">[<span class="arg">--nodeps</span>]</span> <span class="arg-punc"><span class="arg">module</span>...</span></pre></div>
+<p class="para block">The <span class="option" dir="ltr">--autogen</span>, <span class="option" dir="ltr">--check</span>,
+        <span class="option" dir="ltr">--clean</span>, <span class="option" dir="ltr">-d</span>,
+        <span class="option" dir="ltr">--distcheck</span>, <span class="option" dir="ltr">--distclean</span>,
+        <span class="option" dir="ltr">--no-network</span>, <span class="option" dir="ltr">-D</span>, <span class="option" dir="ltr">-x</span>
+        and <span class="option" dir="ltr">--nodeps</span> options are processed as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+<p class="para block">At least one module must be listed on the command line.</p>
+</div>
+<div class="division section">
+<a name="command-reference-checkbranches"><!--command-reference-checkbranches--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.6. </span>checkbranches</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">checkbranches</span> checks the module's branches
+        are defined correctly within the version control system and the branches
+        are consistent with the module set.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild checkbranches</span> <span class="arg-punc">[<span class="arg">--branch=<span class="replaceable">branch</span></span>...]</span></pre></div>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--branch</span>=<span class="replaceable">branch</span>,
+            <span class="option" dir="ltr">-b</span> <span class="replaceable">branch</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">The branch to check.</p>
+          </dd>
+</dl></div>
+<div dir="ltr" class=" block screen block-indent"><pre class="screen"><span class="prompt" dir="ltr">$</span> <span class="userinput" dir="ltr">jhbuild -m gnome-2.20 checkbranches</span>
+libgnomecanvas is missing branch definition for gnome-2-20
+<span class="prompt" dir="ltr">$</span></pre></div>
+</div>
+<div class="division section">
+<a name="command-reference-clean"><!--command-reference-clean--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.7. </span>clean</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">clean</span> command cleans the build directories
+        of one or more modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild clean</span> <span class="arg-punc">[<span class="arg">--skip=<span class="replaceable">module</span></span>...]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span></pre></div>
+<p class="para block">If no module names are provided on the command line, the
+        <a class="link" href="config-reference.html.en.html#cfg-modules" title="">modules</a> list from the configuration
+        file will be used.</p>
+<p class="para block">See the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command documentation for a description of available options.</p>
+</div>
+<div class="division section">
+<a name="command-reference-dot"><!--command-reference-dot--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.8. </span>dot</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">dot</span> command generates a file describing the
+        directed graph formed by the dependencies between a set of modules. This
+        file can then be processed using the
+        <a class="ulink" href="http://www.graphviz.org/" title="http://www.graphviz.org/">GraphViz</a> software to
+        produce a diagram.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild dot</span> <span class="arg-punc">[<span class="arg">--soft-deps</span>]</span> <span class="arg-punc">[<span class="arg">--clusters</span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">If no module names are provided on the command line, the
+        <a class="link" href="config-reference.html.en.html#cfg-modules" title="">modules</a> list from the configuration
+        file will be used.</p>
+<p class="para block">The <span class="option" dir="ltr">--soft-deps</span> option adds dotted lines from the
+        modules to the soft dependencies. The <span class="option" dir="ltr">--clusters</span> option
+        groups modules from
+        <a class="link" href="moduleset-syntax.html.en.html#moduleset-syntax-defs-metamodule" title="metamodule">metamodules</a>
+        together.</p>
+<p class="para block">The output of the dot command can be piped to the dot utility to
+        generate a PostScript file:</p>
+<div dir="ltr" class=" block screen block-indent"><pre class="screen"><span class="prompt" dir="ltr">$</span> <span class="userinput" dir="ltr">jhbuild dot <span class="replaceable">modules</span> | dot -Tps &gt; dependencies.ps</span></pre></div>
+<p class="para block">Or a PNG image:</p>
+<div dir="ltr" class=" block screen block-indent"><pre class="screen"><span class="prompt" dir="ltr">$</span> <span class="userinput" dir="ltr">jhbuild dot <span class="replaceable">modules</span> | dot -Tpng &gt; dependencies.png</span></pre></div>
+<div class=" block figure block-indent">
+<a name="sample-dot-output"><!--sample-dot-output--></a><div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Figure 1</span> </span>Sample JHBuild dot output</span></div>
+<div class="figure-inner">
+        
+        <div class=" block screenshot block-first">
+          <div class="mediaobject"><img src="figures/jhbuild_sample_dot_output.png.en"></div>
+        </div>
+      </div>
+</div>
+</div>
+<div class="division section">
+<a name="command-reference-gui"><!--command-reference-gui--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.9. </span>gui</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">gui</span> command starts a graphical interface to
+        JHBuild which can be used to select modules to build and change some
+        options.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild gui</span></pre></div>
+<p class="para block">The graphical interface is rendered using GTK, so extra support
+        libraries are required.</p>
+</div>
+<div class="division section">
+<a name="command-reference-info"><!--command-reference-info--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.10. </span>info</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">info</span> command displays information about one
+        or more modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild info</span> <span class="arg-punc">[<span class="arg">--installed</span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">The command displays the module name, type, dependencies,
+        dependent packages, the source directory, and the time it was last
+        installed with JHBuild. If available, information specific to the module
+        type such as the CVS repository or download URL will also be displayed.
+      </p>
+<p class="para block">If there is no module specified the command will display
+        information about all the modules defined in the module set.</p>
+<p class="para block">If the <span class="option" dir="ltr">--installed</span> option is specified, the output will
+        be filtered to include only installed packages. This resulting output only
+        contains modules that were actually built and installed by jhbuild. The output
+        does not include system dependencies.
+      </p>
+<div class="admonition block note block-indent"><div class="note-inner">
+        <p class="simpara block block-first">
+          If the <span class="option" dir="ltr">--installed</span> option is specified together with one or more module names,
+          then only the installed modules (not including system dependencies) are printed out.
+          If at least one module is not installed, then the command will exit with a return value of 1.
+        </p>
+      </div></div>
+</div>
+<div class="division section">
+<a name="command-reference-list"><!--command-reference-list--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.11. </span>list</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">list</span> command displays the expanded list of
+        modules the <span class="command" dir="ltr">build</span> command would build.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild list</span> <span class="arg-punc">[<span class="arg">-a</span>]</span> <span class="arg-punc">[<span class="arg">-r</span>]</span> <span class="arg-punc">[<span class="arg">-s</span>]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span> <span class="arg-punc">[<span class="arg">--tags=<span class="replaceable">tags</span></span>]</span> <span class="arg-punc">[<span class="arg">--ignore-suggests</span>]</span> <span class="arg-punc">[<span class="arg">--list-optional-modules</span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">If no module names are provided on the command line, the
+        <a class="link" href="config-reference.html.en.html#cfg-modules" title="">modules</a> list from the configuration
+        file will be used.</p>
+<p class="para block">The <span class="option" dir="ltr">--skip</span>, <span class="option" dir="ltr">--start-at</span>,
+        <span class="option" dir="ltr">--tags</span>, and <span class="option" dir="ltr">--ignore-suggests</span> options
+        are processed as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">-a</span>, <span class="option" dir="ltr">--all-modules</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">List all the modules from the module set regardless of
+              the build dependencies.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">-r</span>, <span class="option" dir="ltr">--show-revision</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">If a module is set to a branch, show the branch name with
+              the module name.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--list-optional-modules</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">This option forces JHBuild to list optional dependencies.
+            </p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-rdepends"><!--command-reference-rdepends--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.12. </span>rdepends</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">rdepends</span> command displays the reverse
+        dependencies of a module.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild rdepends</span> <span class="arg-punc">[<span class="arg">module</span>]</span></pre></div>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--dependencies</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Show dependency path next to modules.</p>
+          </dd>
+<dt class="term">
+            <span class="option" dir="ltr">--direct</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Limit display to modules directly depending on specified
+              module.</p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-run"><!--command-reference-run--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.13. </span>run</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">run</span> command runs the specified command
+        using the same environment that JHBuild uses when building modules.
+      </p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild run</span> <span class="arg-punc">[<span class="arg">--in-builddir</span>]</span> <span class="arg-punc">[<span class="arg">--in-checkoutdir</span>]</span> <span class="arg-punc"><span class="arg"><span class="replaceable">program</span></span></span> <span class="arg-punc">[<span class="arg"><span class="replaceable">argument</span></span>...]</span></pre></div>
+<p class="para block">If using JHBuild to build GNOME, this command can be useful in X
+        startup scripts.</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--in-builddir</span>=<span class="replaceable">module</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run the command in the build directory of the specified
+              module.</p>
+          </dd>
+</dl></div>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--in-checkoutdir</span>=<span class="replaceable">module</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">Run the command in the source directory of the specified
+              module.</p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-sanitycheck"><!--command-reference-sanitycheck--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.14. </span>sanitycheck</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">sanitycheck</span> command performs a number of
+        checks to verify the build environment is okay.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild sanitycheck</span></pre></div>
+<p class="para block">Some of the checks include:</p>
+<div class="block list itemizedlist"><ul class="itemizedlist">
+<li class="li-first">
+          <p class="simpara block block-first">The checkout and install prefixes are writable.</p>
+        </li>
+<li>
+          <p class="simpara block block-first">The required build tools are installed.</p>
+        </li>
+<li>
+          <p class="simpara block block-first">Some commonly used macros are available in the search paths
+            of the <span class="command" dir="ltr">aclocal</span> commands associated with the
+            various versions of <span class="command" dir="ltr">automake</span>.</p>
+        </li>
+<li>
+          <p class="simpara block block-first">The XML catalog contains the DocBook DTD and stylesheets.
+          </p>
+        </li>
+</ul></div>
+</div>
+<div class="division section">
+<a name="command-reference-shell"><!--command-reference-shell--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.15. </span>shell</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">shell</span> command starts the user's shell with
+        the same environment as JHBuild uses when building modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild shell</span></pre></div>
+<p class="para block">This command is equivalent to the following:</p>
+<div dir="ltr" class=" block screen block-indent"><pre class="screen"><span class="prompt" dir="ltr">$</span> <span class="userinput" dir="ltr">jhbuild run $SHELL</span></pre></div>
+<p class="para block">The <span class="envar" dir="ltr">UNDER_JHBUILD</span> environment variable will be set
+        to "true" when this shell is active. You can use the presence of that
+        variable to customize your shell's prompt to indicate that you indeed
+        are under a jhbuild-controlled shell. For example, you may want to put
+        this in your <span class="filename" dir="ltr">.bashrc</span>:</p>
+<div dir="ltr" class=" block screen block-indent"><pre class="screen">	if [ -n "$UNDER_JHBUILD" ]; then
+	    PS1="[jhbuild] $PS1"
+	fi
+      </pre></div>
+<p class="para block">This will make your bash shell display
+        <span class="literal" dir="ltr">[jhbuild]</span> before your normal prompt, making it easier
+        to see which shells are under a jhbuild environment.</p>
+</div>
+<div class="division section">
+<a name="command-reference-sysdeps"><!--command-reference-sysdeps--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.16. </span>sysdeps</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">sysdeps</span> command displays:</p>
+<div class="block list orderedlist"><ol class="orderedlist">
+<li class="li-first">
+          <p class="simpara block block-first">a list of installed system packages which will be used
+            during the build. JHBuild will not build these modules and opt to
+            use the system package instead.</p>
+        </li>
+<li>
+          <p class="simpara block block-first">a list of required packages. To begin a build the packages
+            must be provided by your system.</p>
+        </li>
+<li>
+          <p class="simpara block block-first">a list of optional packages. The corresponding system
+            package was not found or too old. JHBuild will build the module.
+            Optional packages will not be displayed if
+            <a class="link" href="config-reference.html.en.html#cfg-partial-build" title=""><span class="varname" dir="ltr">partial_build</span></a>
+            is <span class="constant" dir="ltr">False</span>.</p>
+        </li>
+</ol></div>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild sysdeps</span> <span class="arg-punc">[<span class="arg">--install</span>]</span></pre></div>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">--install</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">This option installs system packages which are
+              dependencies of the moduleset. The installation method depends on
+              your distribution. System packages are installed using
+              <span class="application">PackageKit</span>, if available. For
+              distributions using <span class="application">APT</span> such as
+              <span class="systemitem" dir="ltr">Debian</span> and
+              <span class="systemitem" dir="ltr">Ubuntu</span>, this option
+              requires <span class="application">apt-file</span> to be installed.
+            </p>
+          </dd>
+</dl></div>
+<div class=" block example block-indent">
+<div class="block block-first title title-formal"><span class="title"><span class="label"><span style="font-style: italic; ">Example 1</span> </span><span class="command" dir="ltr">sysdeps</span> example</span></div>
+<div class="example-inner">
+        
+<div dir="ltr" class=" block screen block-indent block-first"><pre class="screen"><span class="prompt" dir="ltr">$</span> <span class="userinput" dir="ltr">jhbuild sysdeps</span>
+System installed packages which are new enough:
+  speex (speex.pc required=1.2rc1, installed=1.2rc1)
+  lcms2 (lcms2.pc required=2.2, installed=2.2)
+...
+Required packages:
+  System installed packages which are too old:
+    (none)
+  No matching system package installed:
+    zlib (zlib.pc required=1.2)
+Optional packages: (JHBuild will build the missing packages)
+  System installed packages which are too old:
+    WebKit (webkitgtk-3.0.pc required=1.5.1, installed=1.4.0)
+    ...
+  No matching system package installed:
+    pulseaudio (libpulse.pc required=2.0)
+    ...</pre></div>
+      </div>
+</div>
+</div>
+<div class="division section">
+<a name="command-reference-tinderbox"><!--command-reference-tinderbox--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.17. </span>tinderbox</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">tinderbox</span> command is similar to
+        <span class="command" dir="ltr">build</span>, but writes all terminal output to HTML files
+        suitable for publishing on a website. It can be used to set up systems
+        similar to Mozilla's Tinderbox, or Debian's Buildd.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild tinderbox</span> <span class="arg-punc">[<span class="arg">--autogen</span>]</span> <span class="arg-punc">[<span class="arg">--clean</span>]</span> <span class="arg-punc">[<span class="arg">--distclean</span>]</span> <span class="arg-punc">[<span class="arg">--no-network</span>]</span> <span class="arg-punc">[<span class="arg">--output=<span class="replaceable">directory</span></span>]</span> <span class="arg-punc">[<span class="arg">--skip=<span class="replaceable">module</span></span>...]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span> <span class="arg-punc">[<span class="arg">-D <span class="replaceable">date</span></span>]</span> <span class="arg-punc">[<span class="arg">-C</span>]</span> <span class="arg-punc">[<span class="arg">-N</span>]</span> <span class="arg-punc">[<span class="arg">-f</span>]</span> <span class="arg-punc">[<span class="arg">--nodeps</span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">The <span class="option" dir="ltr">--autogen</span>, <span class="option" dir="ltr">--clean</span>,
+        <span class="option" dir="ltr">--distclean</span>, <span class="option" dir="ltr">--no-network</span>,
+        <span class="option" dir="ltr">--skip</span>, <span class="option" dir="ltr">--start-at</span>,
+        <span class="option" dir="ltr">-D</span>, <span class="option" dir="ltr">-C</span>, <span class="option" dir="ltr">-N</span>,
+        <span class="option" dir="ltr">-f</span> and <span class="option" dir="ltr">--nodeps</span> options are processed
+        as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+<div class="block list variablelist"><dl class="variablelist">
+<dt class="term dt-first">
+            <span class="option" dir="ltr">-o</span>,
+            <span class="option" dir="ltr">--output</span>=<span class="replaceable">directory</span>
+          </dt>
+<dd>
+            <p class="simpara block block-first">The directory to write the HTML files. JHBuild will
+              create an index (<span class="filename" dir="ltr">index.html</span>) and a HTML file
+              for each module.</p>
+          </dd>
+</dl></div>
+</div>
+<div class="division section">
+<a name="command-reference-uninstall"><!--command-reference-uninstall--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.18. </span>uninstall</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">uninstall</span> command uninstalls one or more
+        modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild uninstall</span> <span class="arg-punc"><span class="arg">module</span>...</span></pre></div>
+</div>
+<div class="division section">
+<a name="command-reference-update"><!--command-reference-update--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.19. </span>update</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">update</span> command is similar to
+        <span class="command" dir="ltr">build</span>, but only performs the download or update stage
+        for modules without building them.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild update</span> <span class="arg-punc">[<span class="arg">--skip=<span class="replaceable">module</span></span>...]</span> <span class="arg-punc">[<span class="arg">--start-at=<span class="replaceable">module</span></span>]</span> <span class="arg-punc">[<span class="arg">--tags=<span class="replaceable">tags</span></span>]</span> <span class="arg-punc">[<span class="arg">--ignore-suggests</span>]</span> <span class="arg-punc">[<span class="arg">-D <span class="replaceable">date</span></span>]</span> <span class="arg-punc">[<span class="arg">module</span>...]</span></pre></div>
+<p class="para block">The <span class="option" dir="ltr">--skip</span>, <span class="option" dir="ltr">--start-at</span>,
+        <span class="option" dir="ltr">--tags</span>, <span class="option" dir="ltr">--ignore-suggests</span> and
+        <span class="option" dir="ltr">-D</span> options are processed as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+</div>
+<div class="division section">
+<a name="command-reference-updateone"><!--command-reference-updateone--></a><div class="header"><h2 class="section title"><span class="title"><span class="label">4.20. </span>updateone</span></h2></div>
+<p class="para block block-first">The <span class="command" dir="ltr">updateone</span> command is similar to
+        <span class="command" dir="ltr">update</span>, but it does not update the dependent modules.
+        It is useful for updating one or more modules.</p>
+<div dir="ltr" class="synopsis cmdsynopsis block"><pre class="cmdsynopsis"><span class="command" dir="ltr">jhbuild updateone</span> <span class="arg-punc">[<span class="arg">-D <span class="replaceable">date</span></span>]</span> <span class="arg-punc"><span class="arg">module</span>...</span></pre></div>
+<p class="para block">The <span class="option" dir="ltr">-D</span> option is processed as per the
+        <a class="link" href="command-reference.html.en.html#command-reference-build" title="build"><span class="command" dir="ltr">build</span></a>
+        command.</p>
+<p class="para block">At least one module must be listed on the command line.</p>
+</div>
+</div>
+<div class="navbar navbar-bottom"><table class="navbar"><tr>
+<td class="navbar-prev"><a class="navbar-prev" href="jhbuild-and-gnome.html.en.html" title="JHBuild and GNOME">JHBuild and GNOME</a></td>
+<td class="navbar-next"><a class="navbar-next" href="config-reference.html.en.html" title="Configuration File Reference">Configuration File Reference</a></td>
+</tr></table></div>
+<div class="docbook-legal-stuff">
+<h3 onclick="$(this).next().toggle()">About</h3>
+<div style="display: none;"><div class="division">
+<h2 class="title copyright">Copyright</h2>
+<div class="block block-first"><dl class="dl-compact"><dt class="copyright">Copyright © <span class="year">2004, 2008</span>  <span class="holder">James Henstridge</span>
+</dt></dl></div>
+</div></div>
+</div>
+</div>
+<div class="sidebar"><div class="sidenav"><div class="autotoc"><ul>
+<li><a href="index-info.html.en.html" title="About This Document">About This Document</a></li>
+<li>
+<a class="xref" href="index.html.en.html" title="JHBuild Manual">JHBuild Manual</a><div class="autotoc"><ul>
+<li><a class="xref" href="introduction.html.en.html" title="Introduction">Introduction</a></li>
+<li><a class="xref" href="getting-started.html.en.html" title="Getting Started">Getting Started</a></li>
+<li><a class="xref" href="jhbuild-and-gnome.html.en.html" title="JHBuild and GNOME">JHBuild and GNOME</a></li>
+<li>Command Reference</li>
+<li><a class="xref" href="config-reference.html.en.html" title="Configuration File Reference">Configuration File Reference</a></li>
+<li><a class="xref" href="moduleset-syntax.html.en.html" title="Module Set File Syntax">Module Set File Syntax</a></li>
+</ul></div>
+</li>
+</ul></div></div></div>
+<div id="footer_art" class="default"> </div>
+</div>
+<div class="clearfix"></div>
+<div id="footer_grass">   </div>
+<div id="footer"><div class="container_12">
+<div class="links grid_9">
+<div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88">
+<a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu">
+<li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li>
+<li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li>
+<li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li>
+<li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li>
+<li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li>
+<li><a href="https://www.gnome.org/contact/">Contact</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99">
+<a href="command-reference.html.en.html#">Resources</a><ul class="sub-menu">
+<li><a href="https://help.gnome.org">Documentation</a></li>
+<li><a href="https://wiki.gnome.org">Wiki</a></li>
+<li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li>
+<li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li>
+<li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li>
+<li><a href="https://gitlab.gnome.org/">Development Code</a></li>
+<li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li>
+</ul>
+</li></ul></div>
+<div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104">
+<a href="http://www.gnome.org/news/">News</a><ul class="sub-menu">
+<li><a href="https://www.gnome.org/start/stable">Latest Release</a></li>
+<li><a href="https://planet.gnome.org">Planet GNOME</a></li>
+<li><a href="https://news.gnome.org">Development News</a></li>
+<li><a href="https://twitter.com/gnome">Twitter</a></li>
+</ul>
+</li></ul></div>
+</div>
+<div class="links grid_3 right"><div>
+<ul class="menu available_languages"><li>
+<strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul>
+</li></ul>
+<script type="text/javascript" src="../../js/language.js"></script>
+</div></div>
+<div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small>
+</div>
+<div class="clear"></div>
+</div></div>
+<script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>X Window System Interaction: GtkGLExt Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GtkGLExt Reference Manual">
+<link rel="up" href="GdkGLExt-API.html" title="Part II. GdkGLExt API Reference">
+<link rel="prev" href="gtkglext-gdkgltokens.html" title="Tokens">
+<link rel="next" href="gtkglext-gdkglversion.html" title="Version Information">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="part" href="Overview.html" title="Part I. GtkGLExt Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="part" href="GdkGLExt-API.html" title="Part II. GdkGLExt API Reference"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="part" href="GtkGLExt-API.html" title="Part III. GtkGLExt API Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gtkglext-gdkglx.html#container">Go to page content</a></li><li><a href="gtkglext-gdkglx.html#top_bar">Go to main menu</a></li><li><a href="gtkglext-gdkglx.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="GdkGLExt-API.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gtkglext-gdkgltokens.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gtkglext-gdkglversion.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gtkglext-gdkglx"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">X Window System Interaction</span></h2>
+<p>X Window System Interaction — Internal X-related functions</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gdk/x11/gdkglx.h&gt;
+
+
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-query-glx-extension">gdk_x11_gl_query_glx_extension</a>  (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig,
+                                             const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *extension);
+<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a>* <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-new-from-visualid">gdk_x11_gl_config_new_from_visualid</a>
+                                            (<GTKDOCLINK HREF="VisualID">VisualID</GTKDOCLINK> xvisualid);
+<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a>* <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-new-from-visualid-for-screen">gdk_x11_gl_config_new_from_visualid_for_screen</a>
+                                            (<GTKDOCLINK HREF="GdkScreen">GdkScreen</GTKDOCLINK> *screen,
+                                             <GTKDOCLINK HREF="VisualID">VisualID</GTKDOCLINK> xvisualid);
+<GTKDOCLINK HREF="Display">Display</GTKDOCLINK>*    <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-get-xdisplay">gdk_x11_gl_config_get_xdisplay</a>  (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);
+<GTKDOCLINK HREF="int">int</GTKDOCLINK>         <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-get-screen-number">gdk_x11_gl_config_get_screen_number</a>
+                                            (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);
+<GTKDOCLINK HREF="XVisualInfo">XVisualInfo</GTKDOCLINK>* <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-get-xvinfo">gdk_x11_gl_config_get_xvinfo</a>   (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-config-is-mesa-glx">gdk_x11_gl_config_is_mesa_glx</a>   (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);
+<a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a>* <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-context-foreign-new">gdk_x11_gl_context_foreign_new</a>
+                                            (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig,
+                                             <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a> *share_list,
+                                             <GTKDOCLINK HREF="GLXContext">GLXContext</GTKDOCLINK> glxcontext);
+<GTKDOCLINK HREF="GLXContext">GLXContext</GTKDOCLINK>  <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-context-get-glxcontext">gdk_x11_gl_context_get_glxcontext</a>
+                                            (<a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a> *glcontext);
+<GTKDOCLINK HREF="GLXPixmap">GLXPixmap</GTKDOCLINK>   <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-pixmap-get-glxpixmap">gdk_x11_gl_pixmap_get_glxpixmap</a> (<a class="link" href="gtkglext-gdkglpixmap.html#GdkGLPixmap">GdkGLPixmap</a> *glpixmap);
+<GTKDOCLINK HREF="Window">Window</GTKDOCLINK>      <a class="link" href="gtkglext-gdkglx.html#gdk-x11-gl-window-get-glxwindow">gdk_x11_gl_window_get_glxwindow</a> (<a class="link" href="gtkglext-gdkglwindow.html#GdkGLWindow">GdkGLWindow</a> *glwindow);
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-CONFIG-XDISPLAY:CAPS">GDK_GL_CONFIG_XDISPLAY</a>          (glconfig)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-CONFIG-SCREEN-XNUMBER:CAPS">GDK_GL_CONFIG_SCREEN_XNUMBER</a>    (glconfig)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-CONFIG-XVINFO:CAPS">GDK_GL_CONFIG_XVINFO</a>            (glconfig)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-CONFIG-XCOLORMAP:CAPS">GDK_GL_CONFIG_XCOLORMAP</a>         (glconfig)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-CONTEXT-GLXCONTEXT:CAPS">GDK_GL_CONTEXT_GLXCONTEXT</a>       (glcontext)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-PIXMAP-GLXPIXMAP:CAPS">GDK_GL_PIXMAP_GLXPIXMAP</a>         (glpixmap)
+#define     <a class="link" href="gtkglext-gdkglx.html#GDK-GL-WINDOW-GLXWINDOW:CAPS">GDK_GL_WINDOW_GLXWINDOW</a>         (glwindow)
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.3.12.4"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.3.12.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.3.12.5.2"></a><h3>
+<a name="gdk-x11-gl-query-glx-extension"></a>gdk_x11_gl_query_glx_extension ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gdk_x11_gl_query_glx_extension  (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig,
+                                             const <GTKDOCLINK HREF="char">char</GTKDOCLINK> *extension);</pre>
+<p>
+Determines whether a given GLX extension is supported.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>extension</code></em> :</span></p></td>
+<td> name of GLX extension.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the GLX extension is supported, FALSE if not
+              supported.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.3"></a><h3>
+<a name="gdk-x11-gl-config-new-from-visualid"></a>gdk_x11_gl_config_new_from_visualid ()</h3>
+<pre class="programlisting"><a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a>* gdk_x11_gl_config_new_from_visualid
+                                            (<GTKDOCLINK HREF="VisualID">VisualID</GTKDOCLINK> xvisualid);</pre>
+<p>
+Creates <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a> from given visual ID that specifies the OpenGL-capable
+visual.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xvisualid</code></em> :</span></p></td>
+<td> visual ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the new <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.4"></a><h3>
+<a name="gdk-x11-gl-config-new-from-visualid-for-screen"></a>gdk_x11_gl_config_new_from_visualid_for_screen ()</h3>
+<pre class="programlisting"><a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a>* gdk_x11_gl_config_new_from_visualid_for_screen
+                                            (<GTKDOCLINK HREF="GdkScreen">GdkScreen</GTKDOCLINK> *screen,
+                                             <GTKDOCLINK HREF="VisualID">VisualID</GTKDOCLINK> xvisualid);</pre>
+<p>
+Creates <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a> from given visual ID that specifies the OpenGL-capable
+visual.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td> target screen.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xvisualid</code></em> :</span></p></td>
+<td> visual ID.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the new <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.5"></a><h3>
+<a name="gdk-x11-gl-config-get-xdisplay"></a>gdk_x11_gl_config_get_xdisplay ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="Display">Display</GTKDOCLINK>*    gdk_x11_gl_config_get_xdisplay  (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);</pre>
+<p>
+Gets X Display.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> pointer to the Display.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.6"></a><h3>
+<a name="gdk-x11-gl-config-get-screen-number"></a>gdk_x11_gl_config_get_screen_number ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="int">int</GTKDOCLINK>         gdk_x11_gl_config_get_screen_number
+                                            (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);</pre>
+<p>
+Gets X screen number.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the screen number.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.7"></a><h3>
+<a name="gdk-x11-gl-config-get-xvinfo"></a>gdk_x11_gl_config_get_xvinfo ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="XVisualInfo">XVisualInfo</GTKDOCLINK>* gdk_x11_gl_config_get_xvinfo   (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);</pre>
+<p>
+Gets XVisualInfo data.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> pointer to the XVisualInfo data.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.8"></a><h3>
+<a name="gdk-x11-gl-config-is-mesa-glx"></a>gdk_x11_gl_config_is_mesa_glx ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>    gdk_x11_gl_config_is_mesa_glx   (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig);</pre>
+<p>
+Returns whether the server's GLX entension is Mesa.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if Mesa GLX, FALSE otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.9"></a><h3>
+<a name="gdk-x11-gl-context-foreign-new"></a>gdk_x11_gl_context_foreign_new ()</h3>
+<pre class="programlisting"><a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a>* gdk_x11_gl_context_foreign_new
+                                            (<a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig">GdkGLConfig</a> *glconfig,
+                                             <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a> *share_list,
+                                             <GTKDOCLINK HREF="GLXContext">GLXContext</GTKDOCLINK> glxcontext);</pre>
+<p>
+Creates <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext"><span class="type">GdkGLContext</span></a> from existing GLXContext.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td> <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a> that represents the visual the GLXContext uses.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>share_list</code></em> :</span></p></td>
+<td> the <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext"><span class="type">GdkGLContext</span></a> which shares display lists with the
+             GLXContext, or NULL.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glxcontext</code></em> :</span></p></td>
+<td> exsisting GLXContext.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the newly-created <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext"><span class="type">GdkGLContext</span></a> wrapper.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.10"></a><h3>
+<a name="gdk-x11-gl-context-get-glxcontext"></a>gdk_x11_gl_context_get_glxcontext ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="GLXContext">GLXContext</GTKDOCLINK>  gdk_x11_gl_context_get_glxcontext
+                                            (<a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext">GdkGLContext</a> *glcontext);</pre>
+<p>
+Gets GLXContext.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glcontext</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext"><span class="type">GdkGLContext</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the GLXContext.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.11"></a><h3>
+<a name="gdk-x11-gl-pixmap-get-glxpixmap"></a>gdk_x11_gl_pixmap_get_glxpixmap ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="GLXPixmap">GLXPixmap</GTKDOCLINK>   gdk_x11_gl_pixmap_get_glxpixmap (<a class="link" href="gtkglext-gdkglpixmap.html#GdkGLPixmap">GdkGLPixmap</a> *glpixmap);</pre>
+<p>
+Gets GLXPixmap.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glpixmap</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglpixmap.html#GdkGLPixmap"><span class="type">GdkGLPixmap</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the GLXPixmap.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.12"></a><h3>
+<a name="gdk-x11-gl-window-get-glxwindow"></a>gdk_x11_gl_window_get_glxwindow ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="Window">Window</GTKDOCLINK>      gdk_x11_gl_window_get_glxwindow (<a class="link" href="gtkglext-gdkglwindow.html#GdkGLWindow">GdkGLWindow</a> *glwindow);</pre>
+<p>
+Gets X Window.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glwindow</code></em> :</span></p></td>
+<td> a <a class="link" href="gtkglext-gdkglwindow.html#GdkGLWindow"><span class="type">GdkGLWindow</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the Window.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.13"></a><h3>
+<a name="GDK-GL-CONFIG-XDISPLAY:CAPS"></a>GDK_GL_CONFIG_XDISPLAY()</h3>
+<pre class="programlisting">#define     GDK_GL_CONFIG_XDISPLAY(glconfig)</pre>
+<p>
+Gets X Display.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>pointer to the Display.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.14"></a><h3>
+<a name="GDK-GL-CONFIG-SCREEN-XNUMBER:CAPS"></a>GDK_GL_CONFIG_SCREEN_XNUMBER()</h3>
+<pre class="programlisting">#define     GDK_GL_CONFIG_SCREEN_XNUMBER(glconfig)</pre>
+<p>
+Gets X screen number.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the screen number.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.15"></a><h3>
+<a name="GDK-GL-CONFIG-XVINFO:CAPS"></a>GDK_GL_CONFIG_XVINFO()</h3>
+<pre class="programlisting">#define     GDK_GL_CONFIG_XVINFO(glconfig)</pre>
+<p>
+Gets XVisualInfo data.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>pointer to the XVisualInfo data.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.16"></a><h3>
+<a name="GDK-GL-CONFIG-XCOLORMAP:CAPS"></a>GDK_GL_CONFIG_XCOLORMAP()</h3>
+<pre class="programlisting">#define     GDK_GL_CONFIG_XCOLORMAP(glconfig)</pre>
+<p>
+Gets X Colormap.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glconfig</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglconfig.html#GdkGLConfig"><span class="type">GdkGLConfig</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the Colormap.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.17"></a><h3>
+<a name="GDK-GL-CONTEXT-GLXCONTEXT:CAPS"></a>GDK_GL_CONTEXT_GLXCONTEXT()</h3>
+<pre class="programlisting">#define     GDK_GL_CONTEXT_GLXCONTEXT(glcontext)</pre>
+<p>
+Gets GLXContext.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glcontext</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglcontext.html#GdkGLContext"><span class="type">GdkGLContext</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the GLXContext.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.18"></a><h3>
+<a name="GDK-GL-PIXMAP-GLXPIXMAP:CAPS"></a>GDK_GL_PIXMAP_GLXPIXMAP()</h3>
+<pre class="programlisting">#define     GDK_GL_PIXMAP_GLXPIXMAP(glpixmap)</pre>
+<p>
+Gets GLXPixmap.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glpixmap</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglpixmap.html#GdkGLPixmap"><span class="type">GdkGLPixmap</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the GLXPixmap.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.3.12.5.19"></a><h3>
+<a name="GDK-GL-WINDOW-GLXWINDOW:CAPS"></a>GDK_GL_WINDOW_GLXWINDOW()</h3>
+<pre class="programlisting">#define     GDK_GL_WINDOW_GLXWINDOW(glwindow)</pre>
+<p>
+Gets X Window.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>glwindow</code></em> :</span></p></td>
+<td>a <a class="link" href="gtkglext-gdkglwindow.html#GdkGLWindow"><span class="type">GdkGLWindow</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the Window.
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gtkglext-gdkglx.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

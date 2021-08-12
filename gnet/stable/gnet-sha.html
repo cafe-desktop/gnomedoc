@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml"><head xmlns="">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SHA: GNet Network Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="GNet Network Library Reference Manual">
+<link rel="up" href="libgnet-reference.html" title="GNet Library Reference">
+<link rel="prev" href="gnet-md5.html" title="MD5">
+<link rel="next" href="gnet-unix.html" title="Unix">
+<meta xmlns="http://www.w3.org/1999/xhtml" name="generator" content='GTK-Doc V"(~lgo)" (XML mode)'></meta><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.js"></script><script xmlns="http://www.w3.org/1999/xhtml" type="text/javascript" src="../../js/jquery.autocomplete.js"></script><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-overview.html" title="GNet Overview"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-developers.html" title="GNet for developers"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="gnet-examples.html" title="GNet Examples"></link><link xmlns="http://www.w3.org/1999/xhtml" rel="chapter" href="libgnet-reference.html" title="GNet Library Reference"></link>
+</head>
+<body><div id="accessibility_access"><ul><li><a href="gnet-sha.html#container">Go to page content</a></li><li><a href="gnet-sha.html#top_bar">Go to main menu</a></li><li><a href="gnet-sha.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container"><table xmlns="" class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="gnet-sha.html#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="gnet-sha.html#gnet-sha.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="libgnet-reference.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="gnet-md5.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="gnet-unix.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div xmlns="" class="refentry">
+<a name="gnet-sha"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle">SHA</span></h2>
+<p>SHA — SHA hash</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+#include &lt;gnet.h&gt;
+
+
+                    <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>;
+#define             <a class="link" href="gnet-sha.html#GNET-SHA-HASH-LENGTH:CAPS">GNET_SHA_HASH_LENGTH</a>
+<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               <a class="link" href="gnet-sha.html#gnet-sha-new">gnet_sha_new</a>                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> length);
+<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               <a class="link" href="gnet-sha.html#gnet-sha-new-string">gnet_sha_new_string</a>                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *str);
+<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               <a class="link" href="gnet-sha.html#gnet-sha-clone">gnet_sha_clone</a>                      (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-sha.html#gnet-sha-delete">gnet_sha_delete</a>                     (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);
+<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               <a class="link" href="gnet-sha.html#gnet-sha-new-incremental">gnet_sha_new_incremental</a>            (void);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-sha.html#gnet-sha-update">gnet_sha_update</a>                     (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> length);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-sha.html#gnet-sha-final">gnet_sha_final</a>                      (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);
+<GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            <a class="link" href="gnet-sha.html#gnet-sha-equal">gnet_sha_equal</a>                      (<GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p1,
+                                                         <GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p2);
+<GTKDOCLINK HREF="guint">guint</GTKDOCLINK>               <a class="link" href="gnet-sha.html#gnet-sha-hash">gnet_sha_hash</a>                       (<GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p);
+<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              <a class="link" href="gnet-sha.html#gnet-sha-get-digest">gnet_sha_get_digest</a>                 (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);
+<GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              <a class="link" href="gnet-sha.html#gnet-sha-get-string">gnet_sha_get_string</a>                 (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);
+<GTKDOCLINK HREF="void">void</GTKDOCLINK>                <a class="link" href="gnet-sha.html#gnet-sha-copy-string">gnet_sha_copy_string</a>                (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer);
+</pre>
+</div>
+<div class="refsect1">
+<a name="id-1.5.16.4"></a><h2>Description</h2>
+<p>
+The SHA module provide support for computing and manipulating SHA
+hashes.  SHA is a hash function with a very low probability of
+collision.  SHA is considered stronger than MD5.
+</p>
+<p>
+A SHA can be calculated at one time or incrementally.  To create a SHA
+at one time, call <a class="link" href="gnet-sha.html#gnet-sha-new"><code class="function">gnet_sha_new()</code></a> with the data.  To create a SHA
+incrementally, call <a class="link" href="gnet-sha.html#gnet-sha-new-incremental"><code class="function">gnet_sha_new_incremental()</code></a> to create the SHA
+object, then <a class="link" href="gnet-sha.html#gnet-sha-update"><code class="function">gnet_sha_update()</code></a> one or more times with data to hash,
+and finally call <a class="link" href="gnet-sha.html#gnet-sha-final"><code class="function">gnet_sha_final()</code></a>.
+</p>
+<p>
+To get the digest, or hash value, call <a class="link" href="gnet-sha.html#gnet-sha-get-digest"><code class="function">gnet_sha_get_digest()</code></a>.  This
+returns the raw digest as an array of <a class="link" href="gnet-sha.html#GNET-SHA-HASH-LENGTH:CAPS"><code class="literal">GNET_SHA_HASH_LENGTH</code></a> bytes.  To
+get the digest as a human-readable string, call <a class="link" href="gnet-sha.html#gnet-sha-get-string"><code class="function">gnet_sha_get_string()</code></a>
+or <a class="link" href="gnet-sha.html#gnet-sha-copy-string"><code class="function">gnet_sha_copy_string()</code></a>.
+</p>
+<p>
+</p>
+<div class="informalexample"><pre class="programlisting">
+gchar buffer[] = "Hello world!";
+gchar buffer2[] = "Second line";
+GSHA*  sha;
+gchar* sha_str;
+
+/* Compute an SHA at one time */
+sha = gnet_sha_new (buffer, strlen(buffer));
+
+sha_str = gnet_sha_get_string (sha);
+g_print ("The SHA of %s is %s\n", buffer, sha_str);
+
+/* Use SHA... */
+
+g_free (sha_str);
+gnet_sha_delete (sha);
+
+/* Compute an SHA incrementally */
+sha = gnet_sha_new_incremental ();
+gnet_sha_update (sha, buffer, strlen(buffer));
+gnet_sha_update (sha, buffer2, strlen(buffer2));
+gnet_sha_final (sha);
+
+/* Use SHA... */
+
+gnet_sha_delete (sha);
+</pre></div>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="id-1.5.16.5"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="id-1.5.16.5.2"></a><h3>
+<a name="GSHA:CAPS"></a>GSHA</h3>
+<pre class="programlisting">typedef struct _GSHA GSHA;</pre>
+<p>
+GSHA is a SHA hash.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.3"></a><h3>
+<a name="GNET-SHA-HASH-LENGTH:CAPS"></a>GNET_SHA_HASH_LENGTH</h3>
+<pre class="programlisting">#define GNET_SHA_HASH_LENGTH	20
+</pre>
+<p>
+Length of the SHA hash in bytes.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.4"></a><h3>
+<a name="gnet-sha-new"></a>gnet_sha_new ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               gnet_sha_new                        (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> length);</pre>
+<p>
+Creates a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a> from <em class="parameter"><code>buffer</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to hash
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.5"></a><h3>
+<a name="gnet-sha-new-string"></a>gnet_sha_new_string ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               gnet_sha_new_string                 (const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *str);</pre>
+<p>
+Createss a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a> from <em class="parameter"><code>str</code></em>.  <em class="parameter"><code>str</code></em> is a hexidecimal string
+ representing the digest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td> hexidecimal string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.6"></a><h3>
+<a name="gnet-sha-clone"></a>gnet_sha_clone ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               gnet_sha_clone                      (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);</pre>
+<p>
+Copies a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a copy of <em class="parameter"><code>sha</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.7"></a><h3>
+<a name="gnet-sha-delete"></a>gnet_sha_delete ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_sha_delete                     (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);</pre>
+<p>
+Deletes a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.8"></a><h3>
+<a name="gnet-sha-new-incremental"></a>gnet_sha_new_incremental ()</h3>
+<pre class="programlisting"><a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a>*               gnet_sha_new_incremental            (void);</pre>
+<p>
+Creates a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a> incrementally.  After creating a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>, call
+ <a class="link" href="gnet-sha.html#gnet-sha-update"><code class="function">gnet_sha_update()</code></a> one or more times to hash data.  Finally, call
+ <a class="link" href="gnet-sha.html#gnet-sha-final"><code class="function">gnet_sha_final()</code></a> to compute the final hash value.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a new <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.9"></a><h3>
+<a name="gnet-sha-update"></a>gnet_sha_update ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_sha_update                     (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha,
+                                                         const <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer,
+                                                         <GTKDOCLINK HREF="guint">guint</GTKDOCLINK> length);</pre>
+<p>
+Updates the hash with <em class="parameter"><code>buffer</code></em>.  This may be called several times
+ on a hash created by <a class="link" href="gnet-sha.html#gnet-sha-new-incremental"><code class="function">gnet_sha_new_incremental()</code></a> before being
+ finalized by calling <a class="link" href="gnet-sha.html#gnet-sha-final"><code class="function">gnet_sha_final()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer to add
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>length</code></em> :</span></p></td>
+<td> length of <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.10"></a><h3>
+<a name="gnet-sha-final"></a>gnet_sha_final ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_sha_final                      (<a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);</pre>
+<p>
+Calcuates the final hash value of a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.  This should only be
+ called on a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a> created by <a class="link" href="gnet-sha.html#gnet-sha-new-incremental"><code class="function">gnet_sha_new_incremental()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.11"></a><h3>
+<a name="gnet-sha-equal"></a>gnet_sha_equal ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gboolean">gboolean</GTKDOCLINK>            gnet_sha_equal                      (<GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p1,
+                                                         <GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p2);</pre>
+<p>
+Compares two <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>'s for equality.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p1</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p2</code></em> :</span></p></td>
+<td> another <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if they are equal; FALSE otherwise.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.12"></a><h3>
+<a name="gnet-sha-hash"></a>gnet_sha_hash ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="guint">guint</GTKDOCLINK>               gnet_sha_hash                       (<GTKDOCLINK HREF="gconstpointer">gconstpointer</GTKDOCLINK> p);</pre>
+<p>
+Creates a hash code for a <a class="link" href="gnet-md5.html#GMD5:CAPS"><span class="type">GMD5</span></a> for use with GHashTable.  This
+ hash value is not the same as the MD5 digest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the hash code for <em class="parameter"><code>p</code></em>.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.13"></a><h3>
+<a name="gnet-sha-get-digest"></a>gnet_sha_get_digest ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              gnet_sha_get_digest                 (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);</pre>
+<p>
+Gets the raw SHA digest.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a callee-owned buffer containing the SHA hash digest.
+ The buffer is <a class="link" href="gnet-sha.html#GNET-SHA-HASH-LENGTH:CAPS"><code class="literal">GNET_SHA_HASH_LENGTH</code></a> bytes long.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.14"></a><h3>
+<a name="gnet-sha-get-string"></a>gnet_sha_get_string ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK>*              gnet_sha_get_string                 (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha);</pre>
+<p>
+Get the digest represented a human-readable string.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a hexadecimal string representing the digest.  The string
+ is 2 * <a class="link" href="gnet-sha.html#GNET-SHA-HASH-LENGTH:CAPS"><code class="literal">GNET_SHA_HASH_LENGTH</code></a> bytes long and NULL terminated.  The
+ string is caller owned.
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="id-1.5.16.5.15"></a><h3>
+<a name="gnet-sha-copy-string"></a>gnet_sha_copy_string ()</h3>
+<pre class="programlisting"><GTKDOCLINK HREF="void">void</GTKDOCLINK>                gnet_sha_copy_string                (const <a class="link" href="gnet-sha.html#GSHA:CAPS">GSHA</a> *sha,
+                                                         <GTKDOCLINK HREF="gchar">gchar</GTKDOCLINK> *buffer);</pre>
+<p>
+Copies the digest, represented as a string, into <em class="parameter"><code>buffer</code></em>.  The
+string is not NULL terminated.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sha</code></em> :</span></p></td>
+<td> a <a class="link" href="gnet-sha.html#GSHA:CAPS"><span class="type">GSHA</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em> :</span></p></td>
+<td> buffer at least 2 * <a class="link" href="gnet-sha.html#GNET-SHA-HASH-LENGTH:CAPS"><code class="literal">GNET_SHA_HASH_LENGTH</code></a> bytes long
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gnet-sha.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

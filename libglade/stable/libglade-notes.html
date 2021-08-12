@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Libglade Programming Notes</title><link href="index.html" rel="home" title="Libglade - Graphical Interface Description Loader API"></link><link href="index.html" rel="up" title="Libglade - Graphical Interface Description Loader API"></link><link href="index.html" rel="prev" title="Libglade - Graphical Interface Description Loader API"></link><link href="libglade-modules.html" rel="next" title="Libglade Modules"></link><link href="libglade-notes.html" rel="chapter" title="Libglade Programming Notes"></link><link href="libglade-dtd.html" rel="chapter" title="Glade 2.0 File Format"></link><link href="libglade-lib.html" rel="part" title="Part I. Libglade Library Reference"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="libglade-notes.html#container">Go to page content</a></li><li><a href="libglade-notes.html#top_bar">Go to main menu</a></li><li><a href="libglade-notes.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc two_columns"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="index.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td> </td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Libglade - Graphical Interface Description Loader API</th>
+<td><a accesskey="n" href="libglade-modules.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="chapter" lang="en">
+<div class="titlepage"><div><div><h2 class="title">
+<a name="libglade-notes"></a>Libglade Programming Notes</h2></div></div></div>
+<div class="toc"><dl>
+<dt><span class="sect1"><a href="libglade-notes.html#libglade-basics">Libglade Programming Basics</a></span></dt>
+<dt><span class="sect1"><a href="libglade-modules.html">Libglade Modules</a></span></dt>
+<dt><span class="sect1"><a href="libglade-i18n.html">Internationalisation with Libglade</a></span></dt>
+<dt><span class="sect1"><a href="libglade-extending.html">Extending Libglade</a></span></dt>
+<dt><span class="sect1"><a href="libglade-embedding.html">Embedding Libglade Interfaces</a></span></dt>
+</dl></div>
+<p>Libglade is an alternative to using Glade's code generation.
+    Instead of generating code from the XML interface description,
+    libglade loads and parses the description at runtime.  It also
+    provides functions that can be used to connect signal handlers to
+    parts of the interface.</p>
+<p>In this way, it allows you to separate your program code
+    from the interface code.  In fact, if you use the
+    glade_xml_signal_autoconnect() function, the GUI code could be as
+    simple as the <code class="filename">test-libglade.c</code> example that
+    comes with libglade.  Of course, you would also add your own
+    signal handlers to the code.  Note that the signals are connected
+    the same way as if you had hand coded the interface.  There is no
+    extra overhead to user interfaces constructed by libglade (after
+    the initial generating of course, and this is not much of an
+    overhead) when compared to a hand crafted interface.</p>
+<div class="sect1" lang="en">
+<div class="titlepage"><div><div><h2 class="title" style="clear: both">
+<a name="libglade-basics"></a>Libglade Programming Basics</h2></div></div></div>
+<p>Your basic libglade program will look something like this:</p>
+<pre class="programlisting">#include &lt;gtk/gtk.h&gt;
+#include &lt;glade/glade.h&gt;
+
+void some_signal_handler_func(GtkWidget *widget, gpointer user_data) {
+  /* do something useful here */
+}
+
+int main(int argc, char *argv[]) {
+    GladeXML *xml;
+
+    gtk_init(&amp;argc, &amp;argv);
+
+    /* load the interface */
+    xml = glade_xml_new("filename.glade", NULL, NULL);
+
+    /* connect the signals in the interface */
+    glade_xml_signal_autoconnect(xml);
+
+    /* start the event loop */
+    gtk_main();
+
+    return 0;
+}
+</pre>
+<p>This will create the interface from the file
+      <code class="filename">filename.glade</code>, then connect all the
+      signals in the interface.  The automatic signal connection is
+      done by looking up function names in the global symbol table
+      using gmodule.  This means that the interface file can use
+      standard GTK functions such as
+      <code class="function">gtk_widget_show</code>, or
+      <code class="function">gtk_main_quit</code>, or others in the interface
+      and not have to write any code to connect the signals.</p>
+<p>The <code class="function">some_signal_handler_func</code> function
+      is not referenced anywhere in the program explicitely, but if
+      any signals are defined in the interface description that use
+      "some_signal_handler_func" as the handler name, then this
+      function will automatically be connected.  Note that the
+      function can not be static, since we require it to apear in the
+      symbol table.  Here is an example of the XML that would cause
+      <code class="function">some_signal_handler_func</code> to be
+      connected:</p>
+<pre class="programlisting">&lt;widget class="GtkWindow" id="MainWindow"&gt;
+  &lt;property name="visible"&gt;yes&lt;/property&gt;
+  &lt;signal name="destroy" handler="some_signal_handler_func" /&gt;
+  ...
+&lt;/widget&gt;
+</pre>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>If you wish to autoconnect handlers defined in the main
+	executable (not a shared library), you will need to pass a
+	linker flag to export the executable's symbols for dynamic
+	linking.  This flag is platform specific, but libtool can take
+	care of this for you.  Just add
+	<em class="parameter"><code>-export-dynamic</code></em> argument to your link
+	flags, and libtool will convert it to the correct
+	format.</p>
+<p>The easiest way to get the correct extra flags is to check 
+	for gmodule-export-2.0 with pkg-config.</p>
+</div>
+<p>To compile the program, we would use the following:</p>
+<pre class="programlisting">cc -o testprogram testprogram.c `pkg-config --cflags --libs libglade-2.0`
+</pre>
+<p>The <span class="command"><strong>pkg-config</strong></span> program is used to
+      deduce the compiler and link flags necessary to compile various
+      modules.  If you are using automake or autoconf, you probably
+      want to use the PKG_CHECK_MODULES macro.  This can be used to
+      check for the presence of a collection of a number of packages,
+      and set some shell variables:</p>
+<pre class="programlisting">PKG_CHECK_MODULES(MYPROG, libglade-2.0 libgnomeui-2.0 &gt;= 1.110.0)
+AC_SUBST(MYPROG_CFLAGS)
+AC_SUBST(MYPROG_LIBS)
+</pre>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.12</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="libglade-notes.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

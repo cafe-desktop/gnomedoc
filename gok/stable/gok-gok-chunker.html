@@ -1,0 +1,1277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>gok-chunker</title><link href="index.html" rel="home" title="GOK - Gnome Onscreen Keyboard"></link><link href="ch01.html" rel="up" title="GOK Internal API"></link><link href="gok-gok-button.html" rel="prev" title="GokButton"></link><link href="gok-gok-control.html" rel="next" title="gok-control"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gok-gok-chunker.html#container">Go to page content</a></li><li><a href="gok-gok-chunker.html#top_bar">Go to main menu</a></li><li><a href="gok-gok-chunker.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="gok-gok-button.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GOK - Gnome Onscreen Keyboard</th>
+<td><a accesskey="n" href="gok-gok-control.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="gok-gok-chunker.html#gok-gok-chunker.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="gok-gok-chunker.html#gok-gok-chunker.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="gok-gok-chunker"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gok-gok-chunker.top_of_page"></a>gok-chunker</span></h2>
+<p>gok-chunker</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="gok-gok-chunker.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="gok-gok-chunker.html#ChunkTypes" title="enum ChunkTypes">ChunkTypes</a>;
+enum                <a class="link" href="gok-gok-chunker.html#ChunkOrder" title="enum ChunkOrder">ChunkOrder</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-chunk-all" title="gok_chunker_chunk_all ()">gok_chunker_chunk_all</a>               (<em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkTypes" title="enum ChunkTypes"><span class="type">ChunkTypes</span></a> TypeChunks</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkOrder" title="enum ChunkOrder"><span class="type">ChunkOrder</span></a> chunkOrder</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-init-chunk" title="gok_chunker_init_chunk ()">gok_chunker_init_chunk</a>              (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-delete-chunks" title="gok_chunker_delete_chunks ()">gok_chunker_delete_chunks</a>           (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bAlsoNext</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-reset" title="gok_chunker_reset ()">gok_chunker_reset</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-next-chunk" title="gok_chunker_next_chunk ()">gok_chunker_next_chunk</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-previous-chunk" title="gok_chunker_previous_chunk ()">gok_chunker_previous_chunk</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-next-key" title="gok_chunker_next_key ()">gok_chunker_next_key</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-previous-key" title="gok_chunker_previous_key ()">gok_chunker_previous_key</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-keyup" title="gok_chunker_keyup ()">gok_chunker_keyup</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-keydown" title="gok_chunker_keydown ()">gok_chunker_keydown</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-keyleft" title="gok_chunker_keyleft ()">gok_chunker_keyleft</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-keyright" title="gok_chunker_keyright ()">gok_chunker_keyright</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-keyhighlight" title="gok_chunker_keyhighlight ()">gok_chunker_keyhighlight</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptofirstchunk" title="gok_chunker_wraptofirstchunk ()">gok_chunker_wraptofirstchunk</a>        (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptolastchunk" title="gok_chunker_wraptolastchunk ()">gok_chunker_wraptolastchunk</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptofirstkey" title="gok_chunker_wraptofirstkey ()">gok_chunker_wraptofirstkey</a>          (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptolastkey" title="gok_chunker_wraptolastkey ()">gok_chunker_wraptolastkey</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptoleft" title="gok_chunker_wraptoleft ()">gok_chunker_wraptoleft</a>              (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-wraptoright" title="gok_chunker_wraptoright ()">gok_chunker_wraptoright</a>             (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-move-leftright" title="gok_chunker_move_leftright ()">gok_chunker_move_leftright</a>          (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-move-topbottom" title="gok_chunker_move_topbottom ()">gok_chunker_move_topbottom</a>          (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-next-chunk" title="gok_chunker_if_next_chunk ()">gok_chunker_if_next_chunk</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-previous-chunk" title="gok_chunker_if_previous_chunk ()">gok_chunker_if_previous_chunk</a>       (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-next-key" title="gok_chunker_if_next_key ()">gok_chunker_if_next_key</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-previous-key" title="gok_chunker_if_previous_key ()">gok_chunker_if_previous_key</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-top" title="gok_chunker_if_top ()">gok_chunker_if_top</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-bottom" title="gok_chunker_if_bottom ()">gok_chunker_if_bottom</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-left" title="gok_chunker_if_left ()">gok_chunker_if_left</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-right" title="gok_chunker_if_right ()">gok_chunker_if_right</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-if-key-selected" title="gok_chunker_if_key_selected ()">gok_chunker_if_key_selected</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-is-left" title="gok_chunker_is_left ()">gok_chunker_is_left</a>                 (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-is-right" title="gok_chunker_is_right ()">gok_chunker_is_right</a>                (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-is-top" title="gok_chunker_is_top ()">gok_chunker_is_top</a>                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-is-bottom" title="gok_chunker_is_bottom ()">gok_chunker_is_bottom</a>               (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-counter-set" title="gok_chunker_counter_set ()">gok_chunker_counter_set</a>             (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> CounterValue</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-counter-increment" title="gok_chunker_counter_increment ()">gok_chunker_counter_increment</a>       (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-counter-decrement" title="gok_chunker_counter_decrement ()">gok_chunker_counter_decrement</a>       (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-state-restart" title="gok_chunker_state_restart ()">gok_chunker_state_restart</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-state-next" title="gok_chunker_state_next ()">gok_chunker_state_next</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-state-jump" title="gok_chunker_state_jump ()">gok_chunker_state_jump</a>              (<em class="parameter"><code><span class="type">gchar</span> *NameState</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-select-chunk" title="gok_chunker_select_chunk ()">gok_chunker_select_chunk</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-chunk" title="gok_chunker_highlight_chunk ()">gok_chunker_highlight_chunk</a>         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-unhighlight-chunk" title="gok_chunker_unhighlight_chunk ()">gok_chunker_unhighlight_chunk</a>       (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-center-key" title="gok_chunker_highlight_center_key ()">gok_chunker_highlight_center_key</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-first-chunk" title="gok_chunker_highlight_first_chunk ()">gok_chunker_highlight_first_chunk</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-first-key" title="gok_chunker_highlight_first_key ()">gok_chunker_highlight_first_key</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-insert-item-row-ltr" title="gok_chunker_insert_item_row_ltr ()">gok_chunker_insert_item_row_ltr</a>     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-insert-item-row-rtl" title="gok_chunker_insert_item_row_rtl ()">gok_chunker_insert_item_row_rtl</a>     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-insert-item-col-ttb" title="gok_chunker_insert_item_col_ttb ()">gok_chunker_insert_item_col_ttb</a>     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-chunker.html#gok-chunker-insert-item-col-btt" title="gok_chunker_insert_item_col_btt ()">gok_chunker_insert_item_col_btt</a>     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-dump-chunks" title="gok_chunker_dump_chunks ()">gok_chunker_dump_chunks</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-dump-chunk" title="gok_chunker_dump_chunk ()">gok_chunker_dump_chunk</a>              (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">GokChunk</span> *          <a class="link" href="gok-gok-chunker.html#gok-chunker-chunk-group" title="gok_chunker_chunk_group ()">gok_chunker_chunk_group</a>             (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> NumberGroups</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkOrder" title="enum ChunkOrder"><span class="type">ChunkOrder</span></a> Order</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bCanReorder</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-add-chunkitem" title="gok_chunker_add_chunkitem ()">gok_chunker_add_chunkitem</a>           (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-count-chunkitems" title="gok_chunker_count_chunkitems ()">gok_chunker_count_chunkitems</a>        (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">GokChunk</span> *          <a class="link" href="gok-gok-chunker.html#gok-chunker-make-2-vertical" title="gok_chunker_make_2_vertical ()">gok_chunker_make_2_vertical</a>         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">GokChunk</span> *          <a class="link" href="gok-gok-chunker.html#gok-chunker-make-2-horizontal" title="gok_chunker_make_2_horizontal ()">gok_chunker_make_2_horizontal</a>       (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">GokChunk</span> *          <a class="link" href="gok-gok-chunker.html#gok-chunker-make-4" title="gok_chunker_make_4 ()">gok_chunker_make_4</a>                  (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-chunk-number" title="gok_chunker_highlight_chunk_number ()">gok_chunker_highlight_chunk_number</a>  (<em class="parameter"><code><span class="type">gint</span> Number</code></em>);
+<span class="returnvalue">GokChunk</span> *          <a class="link" href="gok-gok-chunker.html#gok-chunker-get-chunk" title="gok_chunker_get_chunk ()">gok_chunker_get_chunk</a>               (<em class="parameter"><code><span class="type">gint</span> Number</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-highlight-all-keys" title="gok_chunker_highlight_all_keys ()">gok_chunker_highlight_all_keys</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-unhighlight-all-keys" title="gok_chunker_unhighlight_all_keys ()">gok_chunker_unhighlight_all_keys</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-chunker.html#gok-chunker-resolve-overlap" title="gok_chunker_resolve_overlap ()">gok_chunker_resolve_overlap</a>         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gok-gok-chunker.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gok-gok-chunker.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ChunkTypes"></a><h3>enum ChunkTypes</h3>
+<pre class="programlisting">typedef enum {
+CHUNKER_RESET,
+CHUNKER_NOCHUNKS,
+CHUNKER_KEYS,
+CHUNKER_ROWS,
+CHUNKER_COLUMNS,
+CHUNKER_RECURSIVE,
+CHUNKER_2GROUPS,
+CHUNKER_3GROUPS,
+CHUNKER_4GROUPS,
+CHUNKER_5GROUPS,
+CHUNKER_6GROUPS
+} ChunkTypes;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="ChunkOrder"></a><h3>enum ChunkOrder</h3>
+<pre class="programlisting">typedef enum {
+CHUNKER_TOPTOBOTTOM_LEFTTORIGHT,
+CHUNKER_TOPTOBOTTOM_RIGHTTOLEFT,
+CHUNKER_BOTTOMTOTOP_LEFTTORIGHT,
+CHUNKER_BOTTOMTOTOP_RIGHTTOLEFT,
+CHUNKER_LEFTTORIGHT_TOPTOBOTTOM,
+CHUNKER_LEFTTORIGHT_BOTTOMTOTOP,
+CHUNKER_RIGHTTOLEFT_TOPTOBOTTOM,
+CHUNKER_RIGHTTOLEFT_BOTTOMTOTOP
+} ChunkOrder;
+</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-chunk-all"></a><h3>gok_chunker_chunk_all ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_chunk_all               (<em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkTypes" title="enum ChunkTypes"><span class="type">ChunkTypes</span></a> TypeChunks</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkOrder" title="enum ChunkOrder"><span class="type">ChunkOrder</span></a> chunkOrder</code></em>);</pre>
+<p>
+Breaks all the keyboards into chunks.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>TypeChunks</code></em> :</span></p></td>
+<td>The type of chunks required e.g. rows or columns. 
+			(See the enum 'ChunkTypes' for possible values.)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chunkOrder</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if everything went OK, FALSE if there was any problem.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-init-chunk"></a><h3>gok_chunker_init_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_init_chunk              (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Initializes a GOK chunk. This must be called after creating any chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that will be initialized.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-delete-chunks"></a><h3>gok_chunker_delete_chunks ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_delete_chunks           (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bAlsoNext</code></em>);</pre>
+<p>
+Deletes a chunk and, optionally, any following chunks.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first chunk in the list of chunks that gets deleted.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bAlsoNext</code></em> :</span></p></td>
+<td>If TRUE then all chunks following the one given will be deleted.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-reset"></a><h3>gok_chunker_reset ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_reset                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-next-chunk"></a><h3>gok_chunker_next_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_next_chunk              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the next chunk.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-previous-chunk"></a><h3>gok_chunker_previous_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_previous_chunk          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the previous chunk.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-next-key"></a><h3>gok_chunker_next_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_next_key                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the next key in the chunk.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-previous-key"></a><h3>gok_chunker_previous_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_previous_key            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the previous key in the selected chunk.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-keyup"></a><h3>gok_chunker_keyup ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_keyup                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights and selects the key to the top of the currently highlighted key.
+This does NOT wrap to the bottom side of the keyboard (call gok_chunker_wraptobottom).
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-keydown"></a><h3>gok_chunker_keydown ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_keydown                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights and selects the right to the bottom of the currently highlighted key.
+This does NOT wrap to the top side of the keyboard (call gok_chunker_wraptotop).
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-keyleft"></a><h3>gok_chunker_keyleft ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_keyleft                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights and selects the key to the left of the currently highlighted key.
+This does NOT wrap to the right side of the keyboard (call gok_chunker_wraptoright).
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-keyright"></a><h3>gok_chunker_keyright ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_keyright                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights and selects the right to the right of the currently highlighted key.
+This does NOT wrap to the left side of the keyboard (call gok_chunker_wraptoleft).
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-keyhighlight"></a><h3>gok_chunker_keyhighlight ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_keyhighlight            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights the given key.
+</p>
+<p>
+NOT USED  (deprecate?)
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptofirstchunk"></a><h3>gok_chunker_wraptofirstchunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptofirstchunk        (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights the first chunk in the list of chunks
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptolastchunk"></a><h3>gok_chunker_wraptolastchunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptolastchunk         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights the last chunk in the list of chunks
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptofirstkey"></a><h3>gok_chunker_wraptofirstkey ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptofirstkey          (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights the first key in the list of keys.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptolastkey"></a><h3>gok_chunker_wraptolastkey ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptolastkey           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlights the last key in the list of keys.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptoleft"></a><h3>gok_chunker_wraptoleft ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptoleft              (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);</pre>
+<p>
+Highlights the leftmost key that is on the same row as the currently selected key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>TrueFalse</code></em> :</span></p></td>
+<td>unused.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-wraptoright"></a><h3>gok_chunker_wraptoright ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_wraptoright             (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);</pre>
+<p>
+Highlights the rightmost key that is on the same row as the currently selected key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>TrueFalse</code></em> :</span></p></td>
+<td>unused
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if successful, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-move-leftright"></a><h3>gok_chunker_move_leftright ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_move_leftright          (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);</pre>
+<p>
+Not implemented yet.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>TrueFalse</code></em> :</span></p></td>
+<td>unused
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-move-topbottom"></a><h3>gok_chunker_move_topbottom ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_move_topbottom          (<em class="parameter"><code><span class="type">gint</span> TrueFalse</code></em>);</pre>
+<p>
+Not implemented yet.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>TrueFalse</code></em> :</span></p></td>
+<td>unused
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-next-chunk"></a><h3>gok_chunker_if_next_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_next_chunk           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is another chunk after the current chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a next chunk, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-previous-chunk"></a><h3>gok_chunker_if_previous_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_previous_chunk       (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is another chunk before the current chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a previous chunk, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-next-key"></a><h3>gok_chunker_if_next_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_next_key             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is another key after the current key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a next key, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-previous-key"></a><h3>gok_chunker_if_previous_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_previous_key         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is another key before the current key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a key chunk, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-top"></a><h3>gok_chunker_if_top ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_top                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is a key to the top of the currently highlighted key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a key to the top, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-bottom"></a><h3>gok_chunker_if_bottom ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_bottom               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is a key to the bottom of the currently highlighted key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a key to the bottom, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-left"></a><h3>gok_chunker_if_left ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_left                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is a key to the left of the currently highlighted key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a key to the left, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-right"></a><h3>gok_chunker_if_right ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_right                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Tests if there is a key to the right of the currently highlighted key.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if there is a key to the right, FALSE if not.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-if-key-selected"></a><h3>gok_chunker_if_key_selected ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_if_key_selected         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Alwasy 0.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-is-left"></a><h3>gok_chunker_is_left ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_is_left                 (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);</pre>
+<p>
+Tests if a key is left of another key. This does NOT test if the keys are on the same row.
+This should be called when traversing a row from right to left.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey1</code></em> :</span></p></td>
+<td>Key you want to test.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey2</code></em> :</span></p></td>
+<td>Key you want to compare against.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if pKey1 is left of pKey2, FALSE if pKey2 is left of pKey1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-is-right"></a><h3>gok_chunker_is_right ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_is_right                (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);</pre>
+<p>
+Tests if a key is right of another key. This does NOT test if the keys are on the same row.
+This should be called when traversing a row from left to right.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey1</code></em> :</span></p></td>
+<td>Key you want to test.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey2</code></em> :</span></p></td>
+<td>Key you want to compare against.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if pKey1 is right of pKey2, FALSE if pKey2 is left of pKey1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-is-top"></a><h3>gok_chunker_is_top ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_is_top                  (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);</pre>
+<p>
+Tests if a key is top of another key. This does NOT test if the keys are on the same column.
+This should be called when traversing a column from bottom to top.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey1</code></em> :</span></p></td>
+<td>Key you want to test.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey2</code></em> :</span></p></td>
+<td>Key you want to compare against.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if pKey1 is higher than pKey2, FALSE if pKey2 is higher than pKey1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-is-bottom"></a><h3>gok_chunker_is_bottom ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_is_bottom               (<em class="parameter"><code><span class="type">GokKey</span> *pKey1</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokKey</span> *pKey2</code></em>);</pre>
+<p>
+Tests if a key is bottom of another key. This does NOT test if the keys are on the same column.
+This should be called when traversing a column from top to bottom.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey1</code></em> :</span></p></td>
+<td>Key you want to test.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKey2</code></em> :</span></p></td>
+<td>Key you want to compare against.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if pKey1 is bottom of pKey2, FALSE if pKey2 is bottom of pKey1.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-counter-set"></a><h3>gok_chunker_counter_set ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_counter_set             (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> CounterValue</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>CounterId</code></em> :</span></p></td>
+<td>Counter you want to set.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>CounterValue</code></em> :</span></p></td>
+<td>Value you want the counter set to.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-counter-increment"></a><h3>gok_chunker_counter_increment ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_counter_increment       (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>CounterId</code></em> :</span></p></td>
+<td>Counter you want to increment.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-counter-decrement"></a><h3>gok_chunker_counter_decrement ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_counter_decrement       (<em class="parameter"><code><span class="type">gint</span> CounterId</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>CounterId</code></em> :</span></p></td>
+<td>Counter you want to decrement.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-state-restart"></a><h3>gok_chunker_state_restart ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_state_restart           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Move to the first state.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-state-next"></a><h3>gok_chunker_state_next ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_state_next              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Move to the next state. Move to the first state if at the last state.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-state-jump"></a><h3>gok_chunker_state_jump ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_state_jump              (<em class="parameter"><code><span class="type">gchar</span> *NameState</code></em>);</pre>
+<p>
+Change state to the given state.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>NameState</code></em> :</span></p></td>
+<td>Name of the state you want to jump to.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-select-chunk"></a><h3>gok_chunker_select_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_select_chunk            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Sets the current chunk as the selected chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The number of keys in the selected chunk.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-chunk"></a><h3>gok_chunker_highlight_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_chunk         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Highlightes the given chunk.
+Updates m_pChunkHighlighted with the chunk given.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that will be highlighted.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-unhighlight-chunk"></a><h3>gok_chunker_unhighlight_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_unhighlight_chunk       (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Unhighlightes the given chunk.
+Updates m_pChunkHighlighted.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that will be unhighlighed (made normal).
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-center-key"></a><h3>gok_chunker_highlight_center_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_center_key    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the center key on the current keyboard.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-first-chunk"></a><h3>gok_chunker_highlight_first_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_first_chunk   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the first chunk on the current keyboard.
+Updates m_pChunkHighlighted.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-first-key"></a><h3>gok_chunker_highlight_first_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_first_key     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes the first key in the selected chunk.
+Updates m_pChunkitemHighlighted.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-insert-item-row-ltr"></a><h3>gok_chunker_insert_item_row_ltr ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_insert_item_row_ltr     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);</pre>
+<p>
+Adds a chunkitem (key) to a chunk (row). The new chunkitem will be added in the
+sequence left to right (the leftmost key is the first key in the sequence).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first chunk that will contain the new chunkitem.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunkitem</code></em> :</span></p></td>
+<td>Pointer to the chunkitem that gets added to the chunk.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the chunkitem was added to the chunk, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-insert-item-row-rtl"></a><h3>gok_chunker_insert_item_row_rtl ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_insert_item_row_rtl     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);</pre>
+<p>
+Adds a chunkitem (key) to a chunk (row). The new chunkitem will be added in the
+sequence right to left (the rightmost key is the first key in the sequence).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first chunk that will contain the new chunkitem.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunkitem</code></em> :</span></p></td>
+<td>Pointer to the chunkitem that gets added to the chunk.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the chunkitem was added to the chunk, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-insert-item-col-ttb"></a><h3>gok_chunker_insert_item_col_ttb ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_insert_item_col_ttb     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);</pre>
+<p>
+Adds a chunkitem (key) to a chunk (column). The new chunkitem will be added in the
+sequence top to bottom (the topmost key is the first key in the sequence).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first chunk that will contain the new chunkitem.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunkitem</code></em> :</span></p></td>
+<td>Pointer to the chunkitem that gets added to the chunk.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the chunkitem was added to the chunk, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-insert-item-col-btt"></a><h3>gok_chunker_insert_item_col_btt ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_chunker_insert_item_col_btt     (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);</pre>
+<p>
+Adds a chunkitem (key) to a chunk (column). The new chunkitem will be added in the
+sequence bottom to top (the bottommost key is the first key in the sequence).
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first chunk that will contain the new chunkitem.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunkitem</code></em> :</span></p></td>
+<td>Pointer to the chunkitem that gets added to the chunk.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the chunkitem was added to the chunk, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-dump-chunks"></a><h3>gok_chunker_dump_chunks ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_dump_chunks             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Diagnostic function that prints all the chunks to stdout.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-dump-chunk"></a><h3>gok_chunker_dump_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_dump_chunk              (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Diagnostic function that prints the chunk to stdout.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that gets the dump.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-chunk-group"></a><h3>gok_chunker_chunk_group ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokChunk</span> *          gok_chunker_chunk_group             (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> NumberGroups</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gok-gok-chunker.html#ChunkOrder" title="enum ChunkOrder"><span class="type">ChunkOrder</span></a> Order</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bCanReorder</code></em>);</pre>
+<p>
+Breaks the given list of chunks into 2 or more groups.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the list of chunks that will be broken into groups.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>NumberGroups</code></em> :</span></p></td>
+<td>Number of groups the chunks should be broken into.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Order</code></em> :</span></p></td>
+<td>The order in which the chunks should be created. (see enum ChunkOrder)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bCanReorder</code></em> :</span></p></td>
+<td>TRUE if the chunks can be reordered.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the first chunk in the list of chunks. Returns
+NULL if the given chunk can't be divided into chunks.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-add-chunkitem"></a><h3>gok_chunker_add_chunkitem ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_add_chunkitem           (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokChunkitem</span> *pChunkitem</code></em>);</pre>
+<p>
+Adds a chunkitem (key) to a chunk (group). The new chunkitem will be added
+as the last chunkitem in the list.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that will contain the new chunkitem.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunkitem</code></em> :</span></p></td>
+<td>Pointer to the chunkitem that gets added to the chunk.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-count-chunkitems"></a><h3>gok_chunker_count_chunkitems ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                gok_chunker_count_chunkitems        (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Counts the number of items in the given chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the Chunk that will be counted.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> The number of items in the chunk.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-make-2-vertical"></a><h3>gok_chunker_make_2_vertical ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokChunk</span> *          gok_chunker_make_2_vertical         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Creates 2 chunks that split the given chunk vertically.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunk that will be split.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the first chunk, NULL if it couldn't be created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-make-2-horizontal"></a><h3>gok_chunker_make_2_horizontal ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokChunk</span> *          gok_chunker_make_2_horizontal       (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Create 2 chunks that split the given chunk horizontally.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the chunks that will be split.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the first chunk, NULL if none could be created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-make-4"></a><h3>gok_chunker_make_4 ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokChunk</span> *          gok_chunker_make_4                  (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+Create 4 chunks from the given chunk. The 4 chunks are ordered like:
+1 2
+3 4
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the first in a list of chunks that will be split.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the first chunk, NULL if none could be created.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-chunk-number"></a><h3>gok_chunker_highlight_chunk_number ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_chunk_number  (<em class="parameter"><code><span class="type">gint</span> Number</code></em>);</pre>
+<p>
+Highlight the chunk identified by a number.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>Number</code></em> :</span></p></td>
+<td>Id number of the chunk you want highlighted.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-get-chunk"></a><h3>gok_chunker_get_chunk ()</h3>
+<pre class="programlisting"><span class="returnvalue">GokChunk</span> *          gok_chunker_get_chunk               (<em class="parameter"><code><span class="type">gint</span> Number</code></em>);</pre>
+<p>
+Finds a child chunk of the currently highlighted chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Number</code></em> :</span></p></td>
+<td>Number of the chunk you are looking for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A pointer to the chunk, NULL if not found.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-highlight-all-keys"></a><h3>gok_chunker_highlight_all_keys ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_highlight_all_keys      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Highlightes all keys on the current keyboard.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-unhighlight-all-keys"></a><h3>gok_chunker_unhighlight_all_keys ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_unhighlight_all_keys    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Unhighlightes all keys on the current keyboard.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-chunker-resolve-overlap"></a><h3>gok_chunker_resolve_overlap ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_chunker_resolve_overlap         (<em class="parameter"><code><span class="type">GokChunk</span> *pChunk</code></em>);</pre>
+<p>
+If one of the chunks has more than one item, move an item to another chunk.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pChunk</code></em> :</span></p></td>
+<td>Pointer to the list of chunke sthat need to be resolved.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gok-gok-chunker.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

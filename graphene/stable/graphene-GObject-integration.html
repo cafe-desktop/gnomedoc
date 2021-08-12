@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>GObject integration: Graphene Reference Manual</title><link href="index.html" rel="home" title="Graphene Reference Manual"></link><link href="ch01.html" rel="up" title="Graphene"></link><link href="graphene-Versioning-information.html" rel="prev" title="Versioning information"></link><link href="object-tree.html" rel="next" title="Object Hierarchy"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="graphene-GObject-integration.html#container">Go to page content</a></li><li><a href="graphene-GObject-integration.html#top_bar">Go to main menu</a></li><li><a href="graphene-GObject-integration.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="5" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td align="left" class="shortcuts" width="100%">
+<a class="shortcut" href="graphene-GObject-integration.html#">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a class="shortcut" href="graphene-GObject-integration.html#graphene-GObject-integration.description">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="16" src="home.png" width="16"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="16" src="up.png" width="16"></img></a></td>
+<td><a accesskey="p" href="graphene-Versioning-information.html"><img alt="Prev" border="0" height="16" src="left.png" width="16"></img></a></td>
+<td><a accesskey="n" href="object-tree.html"><img alt="Next" border="0" height="16" src="right.png" width="16"></img></a></td>
+</tr></tbody></table><div class="refentry">
+<a name="graphene-GObject-integration"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="graphene-GObject-integration.top_of_page"></a>GObject integration</span></h2>
+<p>GObject integration — Types for GObject properties and signals</p>
+</td>
+<td align="right" class="gallery_image" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1">
+<a name="graphene-GObject-integration.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;graphene-gobject.h&gt;
+</pre>
+</div>
+<div class="refsect1">
+<a name="graphene-GObject-integration.description"></a><h2>Description</h2>
+<p>Graphene optionally provides information for using its own types with
+GObject properties and signals.</p>
+<div class="refsect3">
+<a name="id-1.2.21.4.3"></a><h4>Using Graphene with GObject</h4>
+<p>In order to discover at compile time if Graphene exposes type information
+for the GType type system, you need to check if the <code class="literal">graphene-gobject-1.0</code>
+pkg-config file exists. In build systems using autotools, you can use
+the <code class="literal">PKG_CHECK_EXISTS</code> m4 macro, for instance:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function">PKG_CHECK_EXISTS</span><span class="symbol">([</span><span class="normal">graphene</span><span class="symbol">-</span><span class="normal">gobject</span><span class="symbol">-</span><span class="number">1.0</span><span class="symbol">],</span>
+<span class="normal">                 </span><span class="symbol">[</span><span class="normal">action</span><span class="symbol">-</span><span class="keyword">if</span><span class="symbol">-</span><span class="normal">found</span><span class="symbol">],</span>
+<span class="normal">                 </span><span class="symbol">[</span><span class="normal">action</span><span class="symbol">-</span><span class="keyword">if</span><span class="symbol">-</span><span class="normal">not</span><span class="symbol">-</span><span class="normal">found</span><span class="symbol">]</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>All the types provided by Graphene are boxed types, which means you
+will have to use the <a href="../../gobject/unstable/gobject-Boxed-Types.html"><span class="type">GBoxed</span></a> API when dealing with <a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>, <a href="../../gobject/unstable/gobject-GParamSpec.html#GParamSpec"><span class="type">GParamSpec</span></a>,
+and signal marshallers. For instance, to install a property in a <a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#GObject-struct"><span class="type">GObject</span></a>
+class that uses <a class="link" href="graphene-Rectangle.html#graphene-rect-t" title="graphene_rect_t"><span class="type">graphene_rect_t</span></a>, you can use:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="function"><a href="../../gobject/unstable/gobject-The-Base-Object-Type.html#g-object-class-install-property">g_object_class_install_property</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object_class</span><span class="symbol">,</span><span class="normal"> PROP_BOUNDS</span><span class="symbol">,</span>
+<span class="normal">  </span><span class="function"><a href="../../gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-param-spec-boxed">g_param_spec_boxed</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"bounds"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Bounds"</span><span class="symbol">,</span><span class="normal"> </span><span class="string">"Bounds of an object"</span><span class="symbol">,</span>
+<span class="normal">                      GRAPHENE_TYPE_RECT</span><span class="symbol">,</span>
+<span class="normal">                      <a href="../../gobject/unstable/gobject-GParamSpec.html#G-PARAM-READWRITE:CAPS">G_PARAM_READWRITE</a> </span><span class="symbol">|</span><span class="normal"> <a href="../../gobject/unstable/gobject-GParamSpec.html#G-PARAM-STATIC-STRINGS:CAPS">G_PARAM_STATIC_STRINGS</a></span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+<p>You'll then need to use <a href="../../gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-set-boxed"><code class="function">g_value_set_boxed()</code></a> and <a href="../../gobject/unstable/gobject-Standard-Parameter-and-Value-Types.html#g-value-get-boxed"><code class="function">g_value_get_boxed()</code></a>
+in order to access the <a class="link" href="graphene-Rectangle.html#graphene-rect-t" title="graphene_rect_t"><span class="type">graphene_rect_t</span></a> pointer from the <a href="../../gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> data
+structure.</p>
+<p>Whereas for creating a new signal that has a <a class="link" href="graphene-Point.html#graphene-point-t" title="graphene_point_t"><span class="type">graphene_point_t</span></a> parameter
+you can use:</p>
+<div class="informalexample">
+  <table border="0" cellpadding="0" cellspacing="0" class="listing_frame">
+    <tbody>
+      <tr>
+        <td align="right" class="listing_lines"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="normal">signals</span><span class="symbol">[</span><span class="normal">HIT_TEST</span><span class="symbol">]</span><span class="normal"> </span><span class="symbol">=</span>
+<span class="normal">  </span><span class="function"><a href="../../gobject/unstable/gobject-Signals.html#g-signal-new">g_signal_new</a></span><span class="normal"> </span><span class="symbol">(</span><span class="string">"hit-test"</span><span class="symbol">,</span>
+<span class="normal">                </span><span class="function"><a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-FROM-CLASS:CAPS">G_TYPE_FROM_CLASS</a></span><span class="normal"> </span><span class="symbol">(</span><span class="normal">object_class</span><span class="symbol">),</span>
+<span class="normal">                <a href="../../gobject/unstable/gobject-Signals.html#G-SIGNAL-RUN-LAST:CAPS">G_SIGNAL_RUN_LAST</a></span><span class="symbol">,</span>
+<span class="normal">                </span><span class="number">0</span><span class="symbol">,</span>
+<span class="normal">                <a href="../../gobject/unstable/gobject-Signals.html#g-signal-accumulator-true-handled">g_signal_accumulator_true_handled</a></span><span class="symbol">,</span><span class="normal"> <a href="../../glib/unstable/glib-Standard-Macros.html#NULL:CAPS">NULL</a></span><span class="symbol">,</span>
+<span class="normal">                marshal_BOOLEAN__BOXED</span><span class="symbol">,</span>
+<span class="normal">                <a href="../../gobject/unstable/gobject-Type-Information.html#G-TYPE-BOOLEAN:CAPS">G_TYPE_BOOLEAN</a></span><span class="symbol">,</span><span class="normal"> </span><span class="number">1</span><span class="symbol">,</span>
+<span class="normal">                GRAPHENE_TYPE_POINT</span><span class="symbol">);</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p></p>
+</div>
+<div class="refsect3">
+<a name="id-1.2.21.4.4"></a><h4>Using Graphene via GObject introspection</h4>
+<p>When using Graphene with another language than C, the GObject Introspection
+bindings change the type names to the CamelCase version of the C name, minus
+the <code class="literal">_t</code> suffix; for instance:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p><a class="link" href="graphene-Point.html#graphene-point-t" title="graphene_point_t"><span class="type">graphene_point_t</span></a> becomes <code class="literal">GraphenePoint</code></p></li>
+<li class="listitem"><p><a class="link" href="graphene-Point3D.html#graphene-point3d-t" title="graphene_point3d_t"><span class="type">graphene_point3d_t</span></a> becomes <code class="literal">GraphenePoint3D</code></p></li>
+<li class="listitem"><p><a class="link" href="graphene-Rectangle.html#graphene-rect-t" title="graphene_rect_t"><span class="type">graphene_rect_t</span></a> becomes <code class="literal">GrapheneRect</code></p></li>
+<li class="listitem"><p><a class="link" href="graphene-Matrix.html#graphene-matrix-t" title="graphene_matrix_t"><span class="type">graphene_matrix_t</span></a> becomes <code class="literal">GrapheneMatrix</code></p></li>
+</ul></div>
+<p>There is no direct access for the low level <a class="link" href="graphene-SIMD-vector.html#graphene-simd4f-t" title="graphene_simd4f_t"><span class="type">graphene_simd4f_t</span></a> and
+<a class="link" href="graphene-SIMD-matrix.html#graphene-simd4x4f-t" title="graphene_simd4x4f_t"><span class="type">graphene_simd4x4f_t</span></a> SIMD types.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="graphene-GObject-integration.functions_details"></a><h2>Functions</h2>
+<p></p>
+</div>
+<div class="refsect1">
+<a name="graphene-GObject-integration.other_details"></a><h2>Types and Values</h2>
+</div>
+</div><div class="footer">
+<hr></hr>Generated by GTK-Doc V1.25</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="graphene-GObject-integration.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

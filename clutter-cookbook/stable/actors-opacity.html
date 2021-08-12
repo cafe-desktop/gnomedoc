@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>5. Making an actor transparent by changing its opacity</title><link href="index.html" rel="home" title="The Clutter Cookbook"></link><link href="actors.html" rel="up" title="Chapter 2. Actors"></link><link href="actors-paint-wrappers.html" rel="prev" title="4. Overriding the paint sequence"></link><link href="actors-non-rectangular.html" rel="next" title="6. Creating an actor with a non-rectangular shape"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="actors-opacity.html#container">Go to page content</a></li><li><a href="actors-opacity.html#top_bar">Go to main menu</a></li><li><a href="actors-opacity.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="body"><div class="content"><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th align="center" colspan="3">5. Making an actor transparent by changing its opacity</th></tr><tr><td align="left" width="20%"><a accesskey="p" href="actors-paint-wrappers.html">Prev</a> </td><th align="center" width="60%">Chapter 2. Actors</th><td align="right" width="20%"> <a accesskey="n" href="actors-non-rectangular.html">Next</a></td></tr></tbody></table><hr></hr></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="actors-opacity"></a>5. Making an actor transparent by changing its opacity</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511252976"></a>5.1. Problem</h3></div></div></div><p>You want an actor to be transparent so that other
+      actors are visible through it.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511251568"></a>5.2. Solution</h3></div></div></div><p>Change the actor's <span class="emphasis"><em>opacity</em></span> so that
+      it is partially (or even fully) transparent:</p><div class="informalexample"><pre class="programlisting">/* 25% transparency */
+clutter_actor_set_opacity (actor, 191);
+
+/* 50% transparency */
+clutter_actor_set_opacity (actor, 122);
+
+/* completely transparent */
+clutter_actor_set_opacity (actor, 0);</pre></div><p>Any actor covered or overlapped by the transparent actor
+      should be visible through it; the Discussion section gives
+      some examples of how visible you can expect the covered or
+      overlapped actor to be.</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="idm47790511247712"></a>5.3. Discussion</h3></div></div></div><p>Opacity is a property of every <span class="type">ClutterActor</span>.
+      It is a float on a scale from 0 (invisible) to 255 (completely
+      opaque). Actors with <code class="code">0 &lt; opacity &lt; 255</code> will
+      have a varying amount of solidity on the stage, so other actors
+      may be visible through them.</p><p>For example, below are 4 yellow rectangles overlapping
+      a white rectangle on a blue stage:</p><div class="screenshot"><div class="mediaobject"><img alt="The effect of different opacities levels on an actor's appearance" src="images/actors-opacity.png"></img></div></div><p>The rectangles have the following opacities:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>top-left: <code class="code">255</code> (0% transparency)</p></li><li class="listitem"><p>top-right: <code class="code">191</code> (25% transparency)</p></li><li class="listitem"><p>bottom-right: <code class="code">122</code> (50% transparency)</p></li><li class="listitem"><p>bottom-left: <code class="code">61</code> (75% transparency)</p></li></ul></div><p>Notice how both the stage and the white rectangle are
+      visible through the yellow rectangles.</p><p>As opacity is a property of every actor, it can
+      be animated like any other GObject property, using any of
+      the approaches in the animation API.</p><p>The following sections cover some other considerations
+      when working with actor opacity.</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790511233872"></a>5.3.1. Container and color opacity</h4></div></div></div><p>If a container has its opacity set, any children of the
+        container have their opacity combined with their parent's opacity.
+        For example, if a parent has an opacity of <code class="code">122</code>
+        (50% transparent) and the child also has an opacity of
+        <code class="code">122</code>, the child's <span class="emphasis"><em>effective</em></span>
+        opacity is 25% (<code class="code">opacity = 61</code>, and it is
+        75% transparent).</p><p>To demonstrate the visual effect of this, here are
+        three rectangles with the same color but different opacity settings,
+        inside parents which also have different opacity settings:</p><div class="screenshot"><div class="mediaobject"><img alt="How a container's opacity affects the opacity of its children" src="images/actors-opacity-container-affects-opacity.png"></img></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The left-hand rectangle has <code class="code">opacity = 255</code>
+            and is in a <span class="type">ClutterGroup</span> with
+            <code class="code">opacity = 255</code>. This means it is fully opaque.</p></li><li class="listitem"><p>The middle rectangle has <code class="code">opacity = 255</code>
+            and is in a <span class="type">ClutterGroup</span> with
+            <code class="code">opacity = 122</code>. Notice that the parent opacity
+            makes the rectangle appear darker, as the stage colour is showing
+            through from behind.</p></li><li class="listitem"><p>The right-hand rectangle has <code class="code">opacity = 122</code>
+            and is in a <span class="type">ClutterGroup</span> with
+            <code class="code">opacity = 122</code>. Notice that the rectangle appears
+            to be even darker, as the stage colour is showing
+            through both the rectangle and its parent.</p></li></ul></div><p>Similarly, <span class="type">ClutterColor</span> also contains an
+        <code class="varname">alpha</code> property which governs the transparency
+        of the color. Where an actor can have a color set (e.g.
+        <span class="type">ClutterRectangle</span>) the alpha value of the color also
+        affects the transparency of the actor, for example:</p><div class="informalexample"><pre class="programlisting">/* color with 50% transparency */
+ClutterColor half_transparent_color = { 255, 0, 0, 122 };
+
+ClutterRectangle *actor = clutter_rectangle_new ();
+
+/* set actor's transparency to 50% */
+clutter_actor_set_opacity (actor, 122);
+
+/* rectangle will be 25% opaque/75% transparent */
+clutter_rectangle_set_color (CLUTTER_RECTANGLE (actor),
+                           &amp;half_transparent_color);</pre></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a name="idm47790511215648"></a>5.3.2. Depth and depth order</h4></div></div></div><p>Each actor has two more aspects which affect its
+        apparent opacity:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>An actor's <span class="emphasis"><em>depth</em></span> can have an
+            effect if the stage has fog (a depth cueing effect) turned on.
+            As an actor's depth increases, the actor apparently "recedes" from
+            view and gradually blends into the colour of the stage. This
+            produces an effect similar to making the actor transparent.
+            See the <span class="type">ClutterStage</span> documentation for
+            more details about fog.</p><p>Depth also needs to be considered if you want
+            one actor to be visible through another: the actor you want
+            to see through a transparent actor must be "deeper" than (or at
+            the same depth as) the transparent actor.</p></li><li class="listitem"><p>The <span class="emphasis"><em>depth order</em></span> governs how
+            actors within a <span class="type">ClutterContainer</span> implementation
+            are placed with respect to each other.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Depth ordering is not the same thing as depth: depth
+              ordering records relationships between actors at the same
+              depth.</p></div><p>If you have two overlapping actors <code class="code">actorA</code> and
+            <code class="code">actorB</code> in a container, and you want <code class="code">actorA</code>
+            (opaque) to be visible through <code class="code">actorB</code> (transparent),
+            you should ensure that <code class="code">actorB</code> is "above" <code class="code">actorA</code>
+            in the depth ordering. You could do this as follows:</p><div class="informalexample"><pre class="programlisting">/*
+* raise actorB so it is above actorA in the depth order;
+* NB actorA and actorB both need to be in the same container
+* for this to work
+*/
+clutter_actor_raise (actorB, actorA);</pre></div><p><code class="function">clutter_actor_set_child_above_sibling()</code>,
+            <code class="function">clutter_actor_set_child_below_sibling()</code> and related
+            <span class="type">ClutterActor</span> functions set
+            depth ordering on actors.</p></li></ul></div></div></div></div><div class="navfooter"><hr></hr><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" width="40%"><a accesskey="p" href="actors-paint-wrappers.html">Prev</a> </td><td align="center" width="20%"><a accesskey="u" href="actors.html">Up</a></td><td align="right" width="40%"> <a accesskey="n" href="actors-non-rectangular.html">Next</a></td></tr><tr><td align="left" valign="top" width="40%">4. Overriding the paint sequence </td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td align="right" valign="top" width="40%"> 6. Creating an actor with a non-rectangular shape</td></tr></tbody></table></div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="actors-opacity.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

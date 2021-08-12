@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>Free/Busy Searches</title><link href="index.html" rel="home" title="Evolution Connector for Microsoft Exchange Programmer’s Reference Manual"></link><link href="ch02.html" rel="up" title="Implementation of Connector Features"></link><link href="ximian-connector-fba.html" rel="prev" title="Exchange 2003 Forms-Based Authentication"></link><link href="ximian-connector-oof.html" rel="next" title="Out of Office"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ximian-connector-freebusy.html#container">Go to page content</a></li><li><a href="ximian-connector-freebusy.html#top_bar">Go to main menu</a></li><li><a href="ximian-connector-freebusy.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="ximian-connector-fba.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch02.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Connector for Microsoft Exchange Programmer’s Reference Manual</th>
+<td><a accesskey="n" href="ximian-connector-oof.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="refentry" title="Free/Busy Searches">
+<a name="ximian-connector-freebusy"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle">Free/Busy Searches</span></h2>
+<p></p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsect1" title="The OWA XML Free/Busy interface">
+<a name="id2584108"></a><h2>The <span class="application">OWA</span> XML Free/Busy interface</h2>
+<p>
+In Connector versions up to and including 2.0, we get free/busy data
+by using the XML interface to <span class="application">OWA</span>. The
+request URL looks like:
+</p>
+<div class="informalexample"><pre class="programlisting">	/public/?Cmd=freebusy
+		&amp;start=2002-10-23T04:00:00Z
+		&amp;end=2002-11-27T05:00:00Z
+		&amp;interval=30
+		&amp;u=SMTP:danw@xcs.ximian.com
+		&amp;u=SMTP:eleanor@xcs.ximian.com
+</pre></div>
+<p>
+(Line breaks inserted for clarity. The actual URL would all be on one
+line of course.) This must be sent with a proper
+<code class="literal">User-Agent</code> header to make it believe you are
+<span class="application">IE</span> (or you'll get the HTML form instead.)
+You can add as many users as you like.
+</p>
+<p>
+The response (with a status of <code class="literal"><span class="errorcode">200</span>
+<span class="errorname">OK</span></code>) looks like:
+</p>
+<div class="informalexample"><pre class="programlisting">	&lt;a:response xmlns:a="WM"&gt;
+	  &lt;a:recipients&gt;
+	    &lt;a:item&gt;
+	      &lt;a:displayname&gt;All Attendees&lt;/a:displayname&gt;
+	      &lt;a:type&gt;1&lt;/a:type&gt;
+	      &lt;a:fbdata&gt;00000022220000000000000001221000222222...&lt;/a:fbdata&gt;
+	    &lt;/a:item&gt;
+	    &lt;a:item&gt;
+	      &lt;a:displayname&gt;Dan Winship&lt;/a:displayname&gt;
+	      &lt;a:email type="SMTP"&gt;danw@xcs.ximian.com&lt;/a:email&gt;
+	      &lt;a:type&gt;1&lt;/a:type&gt;
+	      &lt;a:fbdata&gt;00000000000000000000000000220000222222...&lt;/a:fbdata&gt;
+	    &lt;/a:item&gt;
+	    &lt;a:item&gt;
+	      &lt;a:displayname&gt;Eleanor Garcia&lt;/a:displayname&gt;
+	      &lt;a:email type="SMTP"&gt;eleanor@xcs.ximian.com&lt;/a:email&gt;
+	      &lt;a:type&gt;1&lt;/a:type&gt;
+	      &lt;a:fbdata&gt;00000022220000000000000001111000000000...&lt;/a:fbdata&gt;
+	    &lt;/a:item&gt;
+	  &lt;/a:recipients&gt;  
+	&lt;/a:response&gt;
+</pre></div>
+<p>
+Each character in the <code class="literal">fbdata</code> section represents a
+length of "<code class="literal">interval</code>" minutes (the interval
+specified in the request URL), with the following mapping:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><code class="constant">0</code></span></p></td>
+<td><p>Free</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">1</code></span></p></td>
+<td><p>Tentative</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">2</code></span></p></td>
+<td><p>Busy</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">3</code></span></p></td>
+<td><p>Out of Office</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1" title="The Lower-level Free/Busy Interface">
+<a name="id2602204"></a><h2>The Lower-level Free/Busy Interface</h2>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note">
+<h3 class="title">Note</h3>
+<p>There is some code in
+<code class="filename">e2k-freebusy.c</code>
+that works with these interfaces, but it is not very heavily tested
+and is not currently used by Connector.
+</p>
+</div>
+<div class="refsect2" title="Public Free/Busy file">
+<a name="id2602226"></a><h3>Public Free/Busy file</h3>
+<p>
+<span class="application">OWA</span>'s free/busy data is generated from the
+data in <code class="uri">/public/NON_IPM_SUBTREE/SCHEDULE%2B%20FREE%20BUSY/</code>.
+Under that directory, there is a directory for each
+<span class="application">Exchange</span> organization. Eg:
+</p>
+<div class="informalexample"><p>
+<code class="uri">EX:_xF8FF_o=Ximian%20XCS_xF8FF_ou=XCS</code>
+</p></div>
+<p>
+In that directory is a file for each user, eg:
+</p>
+<div class="informalexample"><p>
+<code class="uri">USER-_xF8FF_CN=RECIPIENTS_xF8FF_CN=DANW.EML</code>
+</p></div>
+<p>
+So, given that my <em class="structfield"><code>legacyExchangeDN</code></em> is
+</p>
+<div class="informalexample"><p>
+<code class="uri">/o=Ximian XCS/ou=XCS/cn=Recipients/cn=danw</code>
+</p></div>
+<p>
+you can find my public free/busy file. ("<code class="literal">_xF8FF_</code>" is
+the URI-encoded form of '<code class="literal">/</code>' when it's not a path
+separator. <a class="link" href="evolution-exchange-e2k-uri.html#e2k-uri-encode" title="e2k_uri_encode ()"><code class="function">e2k_uri_encode</code></a>
+handles this.). The <em class="structfield"><code>legacyExchangeDN</code></em> is
+also stored as the <code class="literal">PR_FREEBUSY_EMAIL_ADDRESS</code>
+property on the message, so we can also just search for that.
+</p>
+<p>
+The <code class="literal">PR_FREEBUSY_START_RANGE</code> and
+<code class="literal">PR_FREEBUSY_END_RANGE</code> properties on this message
+give the start and end times of the published range, in systime
+(minutes since <code class="literal">16010101T00000000Z</code>) format. These
+always fall on month boundaries. (The start time is always the
+beginning of the current month, and the end time is determined by the
+<code class="literal">PR_FREEBUSY_NUM_MONTHS</code> property on the private
+free/busy file (described below).)
+</p>
+<p>
+Four pairs of multivalued properties give the actual free/busy data.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><code class="literal">PR_FREEBUSY_ALL_MONTHS</code> / <code class="literal">PR_FREEBUSY_ALL_EVENTS</code></span></p></td>
+<td><p>all events</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="literal">PR_FREEBUSY_TENTATIVE_MONTHS</code> / <code class="literal">PR_FREEBUSY_TENTATIVE_EVENTS</code></span></p></td>
+<td><p>tentative events</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="literal">PR_FREEBUSY_BUSY_MONTHS</code> / <code class="literal">PR_FREEBUSY_BUSY_EVENTS</code></span></p></td>
+<td><p>busy events</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="literal">PR_FREEBUSY_OOF_MONTHS</code> / <code class="literal">PR_FREEBUSY_OOF_EVENTS</code></span></p></td>
+<td><p>out-of-office events</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+The <code class="literal">_MONTHS</code> properties are arrays of
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+	guint month:4;	/* 1 = January */
+	guint year :28;
+};
+</pre></div>
+<p>
+Each element of this array has a corresponding element in the
+<code class="literal">_EVENTS</code> array containing the events in that month
+and year as an array of:
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+	guint16 start;	/* minutes since start of month */
+	guint16 end;	/* minutes since start of month */
+};
+</pre></div>
+<p>
+If there are no events of a given type in the given interval, then
+<span class="application">Outlook</span> leaves the two properties for that
+type unset. (If there are no events at all, then all 8 properties will
+be unset.) But when <span class="application">Exchange</span> regenerates
+them itself, it just creates them empty instead.
+</p>
+<p>
+Additionally, several other properties are used:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><code class="literal">PR_FREEBUSY_LAST_MODIFIED</code></span></p></td>
+<td><p>the last modtime</p></td>
+</tr>
+<tr>
+<td><p><span class="term">MAPI proptag <code class="constant">0x68410003</code></span></p></td>
+<td><p>Unknown. (Usually
+	<code class="constant">0</code>)</p></td>
+</tr>
+<tr>
+<td><p><span class="term">MAPI proptag <code class="constant">0x6846000b</code></span></p></td>
+<td><p>Unknown. (Usually
+	<code class="constant">1</code>)</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+There is also one more property,
+<code class="uri">http://schemas.microsoft.com/mapi/string/{8CDA1CAE-AFDB-11D2-9379-00C04FA357AA}/microsoft.cdo.calendar.fbhistory</code>,
+of type <code class="literal">PT_MV_BINARY</code>, which seems to always contain
+3 24-byte items. The first two bytes of each are a month-year like the
+<code class="literal">_MONTHS</code> properties (and for an up-to-date free/busy
+file, the 3 items will be this month, next month, and the month
+after). There are then 6 0 bytes, followed by 8 bytes of data that are
+almost always the same in each of the 3 items, followed by 8 0 bytes.
+The purpose of this data is currently unknown. The middle chunk of
+data seems to get changed every time the free/busy data is updated. It
+may be a timestamp of some unknown sort?
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="Personal Free/Busy file">
+<a name="id2580441"></a><h3>Personal Free/Busy file</h3>
+<p>
+Each user also has a personal free/busy message, at:
+</p>
+<div class="informalexample"><p>
+<code class="uri">/exchange/<em class="replaceable"><code>username</code></em>/NON_IPM_SUBTREE/Freebusy%20Data/LocalFreebusy.EML</code>
+</p></div>
+<p>
+This is known to be used for at least three things:
+</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>
+    The user's free/busy information is stored on it (in a completely
+    different format from the public free/busy file), as described
+    below.
+    </p></li>
+<li class="listitem"><p>
+    The user's list of delegates and their "see private items"
+    permissions are stored on it, as described in "Delegates".
+    </p></li>
+<li class="listitem"><p>
+    Certain preferences that allow the account to be used as a
+    "resource" are stored here, as described in "Direct Booking".
+    </p></li>
+</ol></div>
+<p>
+When you create an event via WebDAV, the server will eventually update
+the free/busy file with that data, but this is subject to various
+delays and exceptions that we don't understand. Among other things,
+<span class="application">Outlook</span> uses the free/busy file to decide
+what dates to make bold in the minicalendar, which is why
+Connector-created appointments don't always show up there right away
+even when <span class="application">Outlook</span> does display the event
+itself.
+</p>
+<p>
+The free/busy data is stored in the
+<code class="literal">PR_PERSONAL_FREEBUSY</code> property as follows:
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+	guint32 magic;		/* 0xdeadbeef */
+	guint32 header_len;	/* 0x00000040 */
+	guint32 unknown_1;	/* 0x00010000 */
+	guint32 unknown_2;	/* 0x00000000 */
+
+	guint32 num_groups;	/* number of free/busy groups */
+	guint32 num_events;	/* total number of free/busy objects */
+	guint32 unknown_3;	/* 0x00000008 */
+	guint32 unknown_4;	/* 0x00000004 */
+
+	guint64 first_event;	/* Windows filetime of start of first event */
+	guint64 last_event;	/* Windows filetime of end of last event */
+	guint64 start_valid;	/* Windows filetime of start of range */
+	guint64 end_valid;	/* Windows filetime of end of range */
+
+	struct {
+		guint32 index;	/* Index of first event belonging to this group */
+		guint32 count;	/* Number of events in this group */
+	} groups[num_groups];
+
+	struct {
+		guint32 offset;	/* Offset in minutes of event from start of group */
+		guint len:13;	/* Length of event in minutes */
+		guint status:3;	/* Status (1 = tentative, 2 = busy, 3 = oof) */
+	} events[num_events];
+};
+</pre></div>
+<p>
+The first group starts at the time indicated by
+<em class="structfield"><code>start_valid</code></em>, so an event in group
+<code class="constant">0</code> with an <em class="structfield"><code>offset</code></em> of
+<code class="constant">0</code> starts at
+<em class="structfield"><code>start_valid</code></em>. Group
+<em class="replaceable"><code>N</code></em> starts at time
+<code class="code">(<em class="structfield"><code>start_valid</code></em> +
+<em class="replaceable"><code>N</code></em> * <code class="constant">0x10000</code>)</code>.
+If there are no events in the timeframe of a group, its
+<em class="structfield"><code>index</code></em> and <em class="structfield"><code>count</code></em>
+will both be <code class="constant">0</code>.
+</p>
+<p>
+There is no particular correlation between free/busy events and events
+on the calendar: two adjacent calendar events can be stored as a
+single free/busy event, and a given calendar event may be split across
+two or more free/busy groups.
+</p>
+<p>
+The number of months covered by the free/busy data is in
+<code class="literal">PR_FREEBUSY_NUM_MONTHS</code>.
+</p>
+<p>
+A posting on the <a class="ulink" href="http://peach.ease.lsoft.com/archives/mapi-l.html" target="_top">MAPI-L</a>
+list claimed that setting <code class="literal">PR_DISABLE_FULL_FIDELITY</code>
+to <code class="literal">0</code> on the free/busy message will force
+<span class="application">Outlook</span> to regenerate it, but I haven't
+tested this.
+</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.14</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ximian-connector-freebusy.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

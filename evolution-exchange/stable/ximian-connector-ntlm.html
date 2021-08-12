@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>NTLM Authentication Overview</title><link href="index.html" rel="home" title="Evolution Connector for Microsoft Exchange Programmer’s Reference Manual"></link><link href="ch01.html" rel="up" title="Exchange Architectural Notes"></link><link href="ximian-connector-mail.html" rel="prev" title="Mail Architecture"></link><link href="ch02.html" rel="next" title="Implementation of Connector Features"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="ximian-connector-ntlm.html#container">Go to page content</a></li><li><a href="ximian-connector-ntlm.html#top_bar">Go to main menu</a></li><li><a href="ximian-connector-ntlm.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%"><tbody><tr valign="middle">
+<td><a accesskey="p" href="ximian-connector-mail.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Evolution Connector for Microsoft Exchange Programmer’s Reference Manual</th>
+<td><a accesskey="n" href="ch02.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr></tbody></table><div class="refentry" title="NTLM Authentication Overview">
+<a name="ximian-connector-ntlm"></a><div class="titlepage"></div>
+<div class="refsect1" title="Basic NTLM Protocol">
+<a name="id2572162"></a><h2>Basic NTLM Protocol</h2>
+<p>
+NTLM auth takes three steps:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term">Client → Server:</span></p></td>
+<td><p>Negotiate message</p></td>
+</tr>
+<tr>
+<td><p><span class="term">Server → Client:</span></p></td>
+<td><p>Challenge message</p></td>
+</tr>
+<tr>
+<td><p><span class="term">Client → Server:</span></p></td>
+<td><p>Authenticate message</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+The message header is the same in each step. The packet starts with
+<code class="literal">"NTLMSSP\0"</code>, followed by the 4-byte message type
+(of which only the first byte is significant: 1 for Negotiate, 2 for
+Challenge, 3 for Authenticate).
+</p>
+<p>
+The structure definitions below assume x86 conventions: all fields are
+little-endian. Also, the "<em class="structfield"><code>max_len</code></em>" fields
+<span class="emphasis"><em>always</em></span> contain the same values as their
+corresponding "<em class="structfield"><code>len</code></em>" fields. The distinction
+is presumably historical.
+</p>
+<div class="refsect2" title="The Negotiate message">
+<a name="id2581305"></a><h3>The Negotiate message</h3>
+<p>
+In <span class="application">Samba</span>, this looks like this:
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+        char    protocol[8];     // 'N', 'T', 'L', 'M', 'S', 'S', 'P', '\0'
+        guint32 type;            // 0x00000001
+        guint32 flags;           // 0x0000b203
+
+        guint16 dom_len;         // NT domain name length
+        guint16 dom_max_len;     // NT domain name max length
+        guint32 dom_off;         // NT domain name offset
+
+        guint16 host_len;        // local workstation name length
+        guint16 host_max_len;    // local workstation name max length
+        guint32 host_off;        // local workstation offset
+
+        char    host[];          // local workstation name (ASCII)
+        char    domain[];        // NT domain name (ASCII)
+};
+</pre></div>
+<p>
+The request <a class="link" href="evolution-exchange-xntlm.html#xntlm-negotiate" title="xntlm_negotiate ()"><code class="function">xntlm_negotiate()</code></a>
+creates is slightly different from this: we pass
+<code class="constant">0x00008206</code> for the flags, <code class="constant">0</code>
+for all of the domain and hostname lengths and offsets, and two more
+"<em class="structfield"><code>len</code></em>, <em class="structfield"><code>max_len</code></em>,
+<em class="structfield"><code>offset</code></em>" pairs (with lengths
+<code class="constant">0</code> and offset <code class="constant">0x30</code>). I don't
+know exactly what that all means.
+</p>
+<p>
+The meanings of the flags, from
+<a class="ulink" href="http://www.opengroup.org/comsource/techref2/NCH1222X.HTM" target="_top">http://www.opengroup.org/comsource/techref2/NCH1222X.HTM:</a>:
+</p>
+<div class="informalexample"><pre class="programlisting">#define NTLMSSP_NEGOTIATE_UNICODE     0x0001  // Text strings are in unicode
+#define NTLMSSP_NEGOTIATE_OEM         0x0002  // Text strings are in OEM
+#define NTLMSSP_REQUEST_TARGET        0x0004  // Server return its auth realm
+#define NTLMSSP_NEGOTIATE_SIGN        0x0010  // Request signature capability  
+#define NTLMSSP_NEGOTIATE_SEAL        0x0020  // Request confidentiality
+#define NTLMSSP_NEGOTIATE_LM_KEY      0x0080  // Generate session key
+#define NTLMSSP_NEGOTIATE_NTLM        0x0200  // NTLM authentication
+#define NTLMSSP_NEGOTIATE_LOCAL_CALL  0x4000  // client/server on same machine
+#define NTLMSSP_NEGOTIATE_ALWAYS_SIGN 0x8000  // Sign for all security levels
+</pre></div>
+<p>
+<code class="literal">NTLMSSP_NEGOTIATE_LOCAL_CALL</code> is a no-op if the
+client sets it (which <span class="application">Samba</span> does). If it's
+set in the server's response it means that the client and server are
+on the same machine. The <code class="constant">0x06</code> at the end of the
+flags says we only support 8-bit ("OEM") encoding (which means we
+don't have to gratuitously convert the username to UTF-16), and we
+want the server to tell us its auth realm, which is very useful to us
+because otherwise we generally don't know it.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="The Challenge message">
+<a name="id2564441"></a><h3>The Challenge message</h3>
+<p>
+The server's response to the negotiate packet looks like:
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+        char    protocol[8];     // 'N', 'T', 'L', 'M', 'S', 'S', 'P', '\0'
+        guint32 type;            // 0x00000002
+
+	guint16 dom_len;         // NT domain name length
+	guint16 dom_max_len;     // NT domain name max length
+        guint32 dom_off;         // NT domain name offset (always 0x0030)
+
+        guint32 flags;
+
+        char    nonce[8];        // nonce
+        char    zero[8];
+
+	guint16 data_len;        // length of data following domain
+	guint16 data_max_len;    // length of data following domain
+        guint32 data_off;        // offset of data following domain
+
+	char    domain[];        // NT domain name
+
+        // The following piece occurs multiple times
+	guint16 type;            // Type of this data item
+	guint16 length;          // Length in bytes of this data item
+	char    data[];          // Data
+	...
+};
+</pre></div>
+<p>
+The flags basically echo the request flags, but may also contain:
+</p>
+<div class="informalexample"><pre class="programlisting">#define NTLMSSP_TARGET_TYPE_DOMAIN  0x10000 // Server is a DC/AD
+#define NTLMSSP_TARGET_TYPE_SERVER  0x20000 // Server is just a server
+</pre></div>
+<p>
+Our server returns <code class="constant">0x00818206</code>. I'm not sure what
+the <code class="constant">0x008000000</code> means.
+</p>
+<p>
+<a class="link" href="evolution-exchange-xntlm.html#xntlm-parse-challenge" title="xntlm_parse_challenge ()"><code class="function">xntlm_parse_challenge()</code></a>
+extracts the <em class="structfield"><code>nonce</code></em>, to be used as described
+below. The <em class="structfield"><code>domain</code></em> field contains the NT
+domain name of the server, which is also needed for the response
+packet.
+</p>
+<p>
+The additional data item types are:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><code class="constant">0x01</code></span></p></td>
+<td><p>WINS name of server (eg, <code class="literal">SHREWDNESS</code>)</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">0x02</code></span></p></td>
+<td><p>NT domain name (eg, <code class="literal">XCS</code>)</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">0x03</code></span></p></td>
+<td><p>DNS name of server (eg, <code class="literal">shrewdness.xcs.ximian.com</code>)</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><code class="constant">0x04</code></span></p></td>
+<td><p>Windows 2000 domain name (eg, <code class="literal">xcs.ximian.com</code>)</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>
+However, they may occur in any order. Note that they're returned in
+Unicode (UTF-16LE) even though we said we don't speak Unicode. The
+packet is terminated by an item with type and length
+<code class="constant">0</code>.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2" title="The Authenticate message">
+<a name="id2561139"></a><h3>The Authenticate message</h3>
+<p>
+The final message, generated by
+<a class="link" href="evolution-exchange-xntlm.html#xntlm-authenticate" title="xntlm_authenticate ()"><code class="function">xntlm_authenticate()</code></a>
+looks like:
+</p>
+<div class="informalexample"><pre class="programlisting">struct {
+        char    protocol[8];     // 'N', 'T', 'L', 'M', 'S', 'S', 'P', '\0'
+        guint32 type;            // 0x00000003
+
+        guint16 lm_resp_len;     // LanManager response length (always 0x18)
+        guint16 lm_resp_max_len; // LanManager response max length
+        guint32 lm_resp_off;     // LanManager response offset
+
+        guint16 nt_resp_len;     // NT response length (always 0x18)
+        guint16 nt_resp_max_len; // NT response max length
+        guint32 nt_resp_off;     // NT response offset
+
+        guint16 dom_len;         // NT domain name length
+        guint16 dom_max_len;     // NT domain name max length
+        guint32 dom_off;         // NT domain name offset (always 0x0040)
+
+        guint16 user_len;        // username length
+        guint16 user_max_len;    // username max length
+        guint32 user_off;        // username offset
+
+        guint16 host_len;        // local workstation name length
+        guint16 host_max_len;    // local workstation name max length
+        guint32 host_off;        // local workstation name offset
+
+        guint16 session_len;     // session key length
+        guint16 session_max_len; // session key max length
+        guint32 session_off;     // session key offset
+
+        guint32 flags;           // 0x00008201
+
+        char    domain[];        // NT domain name (UCS-16LE)
+        char    user[];          // username (UCS-16LE)
+        char    host[];          // local workstation name (UCS-16LE)
+        char    lm_resp[];       // LanManager response
+        char    nt_resp[];       // NT response
+};
+</pre></div>
+<p>
+It seems to always be acceptable to leave
+"<em class="structfield"><code>host</code></em>" blank.
+</p>
+<p>
+The LanManager and NT responses are computed from the user's password
+and the <em class="structfield"><code>nonce</code></em> from the Challenge message
+using an arcane series of computations too dull to get into here.
+UTSL.
+</p>
+</div>
+</div>
+<div class="refsect1" title="NTLM over HTTP">
+<a name="ximian-connector-ntlm-http"></a><h2>NTLM over HTTP</h2>
+<p>
+<span class="application">IIS</span> abuses the HTTP auth mechanism slightly
+for NTLM. The important bits are:
+</p>
+<div class="orderedlist"><ol class="orderedlist" type="1">
+<li class="listitem"><p>
+	The HTTP connection must be kept open during the auth
+	exchange.
+    </p></li>
+<li class="listitem"><p>
+	If the connection is closed, you have to start over. You
+	can't just present the reponse packet again.
+    </p></li>
+<li class="listitem"><p>
+	Once you've successfully authenticated, the connection remains
+	authenticated until it's closed, without you needing to keep
+	sending the <code class="literal">Authorization</code> header.
+	(Normally, you authenticate only single requests, not entire
+	connections.)
+    </p></li>
+</ol></div>
+<p>
+Certain HTTP proxies will break NTLM authentication, presumably by not
+allowing persistent connections. In these cases, the user will have to
+use "Plaintext Password" authentication (which uses the HTTP Basic
+auth mechanism).
+</p>
+<p>
+<span class="application">IIS</span> also supports a third auth mechanism,
+"Negotiate", which is based on <a class="ulink" href="ximian-connector-ntlm.html" target="_top">RFC 2478</a>. It's basically
+SASL inside GSSAPI. It presumably allows you to use GSSAPI-based
+Kerberos 5 authentication. Since this is standards-based, we could
+theoretically support it. However, GSS is a big mess of ASN1 encoded
+gunk, so it would probably really suck a lot.
+</p>
+<p>
+Each of the three auth mechanisms can be turned on and off
+independently on the server (on a per-user basis even). We know that
+there are sites that don't allow Basic, and sites that only allow
+Basic.
+</p>
+<p>
+It is possible for <code class="literal">/exchange</code> and
+<code class="literal">/public</code> to have different settings. (It's
+theoretically possible for one to allow only Basic and the other to
+allow only NTLM, which Connector would not like very much.)
+</p>
+<p>
+There are a handful of methods for which IIS does not return a 401
+when it should:
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><span class="command"><strong>POLL</strong></span></span></p></td>
+<td><p><span class="errorcode">207</span>
+	<span class="errorname">Multi-Status</span> with a
+	<span class="errorcode">409</span> <span class="errorname">Conflict</span>
+	inside</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="command"><strong>BPROPPATCH</strong></span></span></p></td>
+<td><p><span class="errorcode">207</span>
+	<span class="errorname">Multi-Status</span> with a
+	<span class="errorcode">401</span> <span class="errorname">Unauthorized</span>
+	inside</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="command"><strong>PUT</strong></span> to <code class="literal">sendmsg</code> URI</span></p></td>
+<td><p><span class="errorcode">404</span> <span class="errorname">Not
+	Found</span></p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1" title="NTLM over LDAP">
+<a name="ximian-connector-ntlm-ldap"></a><h2>NTLM over LDAP</h2>
+<p>
+Meanwhile, <span class="application">Active Directory</span> (and presumably
+<span class="application">Exchange 5.5</span> as well) abuses LDAP auth
+somewhat to support NTLM. <a class="ulink" href="ximian-connector-ntlm.html" target="_top">RFC 2251</a> says:
+</p>
+<div class="informalexample"><pre class="programlisting">        BindRequest ::= [APPLICATION 0] SEQUENCE {
+                version                 INTEGER (1 .. 127),
+                name                    LDAPDN,
+                authentication          AuthenticationChoice }
+
+        AuthenticationChoice ::= CHOICE {
+                simple                  [0] OCTET STRING,
+                                         -- 1 and 2 reserved
+                sasl                    [3] SaslCredentials }
+
+        BindResponse ::= [APPLICATION 1] SEQUENCE {
+             COMPONENTS OF LDAPResult,
+             serverSaslCreds    [7] OCTET STRING OPTIONAL }
+
+        LDAPResult ::= SEQUENCE {
+                resultCode      ENUMERATED {
+                             success                      (0),
+                             ...
+                             other                        (80) },
+                matchedDN       LDAPDN,
+                errorMessage    LDAPString,
+                referral        [3] Referral OPTIONAL }
+</pre></div>
+<p>
+First, the client sends a <code class="literal">BindRequest</code> with
+"<code class="literal">NTLM</code>" for the name and an
+<code class="literal">AuthenticationChoice</code> with a tag value of
+<code class="constant">10</code> followed by the NTLM request packet in an
+<code class="literal">OCTET STRING</code>. The server responds with a
+<code class="literal">BindResponse</code> containing the challenge packet in the
+<code class="literal">matchedDN</code> field. The client then sends another
+<code class="literal">BindRequest</code> with no name and an
+<code class="literal">AuthenticationChoice</code> of <code class="constant">11</code>
+followed by the response packet, and the server (hopefully) responds
+with a successful <code class="literal">BindResponse</code>.
+</p>
+<p>
+This is implemented in Connector by <a class="link" href="E2kGlobalCatalog.html" title="E2kGlobalCatalog"><code class="classname">E2kGlobalCatalog</code></a>.
+</p>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.14</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="ximian-connector-ntlm.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

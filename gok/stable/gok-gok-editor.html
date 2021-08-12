@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>gok-editor</title><link href="index.html" rel="home" title="GOK - Gnome Onscreen Keyboard"></link><link href="ch01.html" rel="up" title="GOK Internal API"></link><link href="gok-gok-data.html" rel="prev" title="gok-data"></link><link href="gok-gok-feedback.html" rel="next" title="gok-feedback"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="gok-gok-editor.html#container">Go to page content</a></li><li><a href="gok-gok-editor.html#top_bar">Go to main menu</a></li><li><a href="gok-gok-editor.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="gok-gok-data.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="ch01.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">GOK - Gnome Onscreen Keyboard</th>
+<td><a accesskey="n" href="gok-gok-feedback.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="gok-gok-editor.html#gok-gok-editor.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="gok-gok-editor.html#gok-gok-editor.description">Description</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="gok-gok-editor"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="gok-gok-editor.top_of_page"></a>gok-editor</span></h2>
+<p>gok-editor</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="gok-gok-editor.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-run" title="gok_editor_run ()">gok_editor_run</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-close" title="gok_editor_close ()">gok_editor_close</a>                    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-on-exit" title="gok_editor_on_exit ()">gok_editor_on_exit</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-new" title="gok_editor_new ()">gok_editor_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-open-file" title="gok_editor_open_file ()">gok_editor_open_file</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-new-file" title="gok_editor_new_file ()">gok_editor_new_file</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-touch-file" title="gok_editor_touch_file ()">gok_editor_touch_file</a>               (<em class="parameter"><code><span class="type">gboolean</span> modified</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-show-parameters" title="gok_editor_show_parameters ()">gok_editor_show_parameters</a>          (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-next-key" title="gok_editor_next_key ()">gok_editor_next_key</a>                 (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-previous-key" title="gok_editor_previous_key ()">gok_editor_previous_key</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-add-key" title="gok_editor_add_key ()">gok_editor_add_key</a>                  (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-delete-key" title="gok_editor_delete_key ()">gok_editor_delete_key</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-duplicate-key" title="gok_editor_duplicate_key ()">gok_editor_duplicate_key</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-update-key" title="gok_editor_update_key ()">gok_editor_update_key</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-update-keyboard" title="gok_editor_update_keyboard ()">gok_editor_update_keyboard</a>          (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#on-editor-keyboard-delete-event" title="on_editor_keyboard_delete_event ()">on_editor_keyboard_delete_event</a>     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-keyboard-key-press" title="gok_editor_keyboard_key_press ()">gok_editor_keyboard_key_press</a>       (<em class="parameter"><code><span class="type">GtkWidget</span> *pWidget</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#gok-editor-save-current-keyboard" title="gok_editor_save_current_keyboard ()">gok_editor_save_current_keyboard</a>    (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#gok-editor-save-current-keyboard-as" title="gok_editor_save_current_keyboard_as ()">gok_editor_save_current_keyboard_as</a> (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#gok-editor-save-keyboard" title="gok_editor_save_keyboard ()">gok_editor_save_keyboard</a>            (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#gok-editor-print-outputs" title="gok_editor_print_outputs ()">gok_editor_print_outputs</a>            (<em class="parameter"><code><span class="type">FILE</span> *pFile</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokOutput</span> *pOutput</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bWrapper</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="gok-gok-editor.html#gok-editor-validate-keyboard" title="gok_editor_validate_keyboard ()">gok_editor_validate_keyboard</a>        (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-message-filename-bad" title="gok_editor_message_filename_bad ()">gok_editor_message_filename_bad</a>     (<em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gok-gok-editor.html#gok-editor-update-title" title="gok_editor_update_title ()">gok_editor_update_title</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="gok-gok-editor.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="gok-gok-editor.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="gok-editor-run"></a><h3>gok_editor_run ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_run                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Runs the GOK keyboard editor.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-close"></a><h3>gok_editor_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_close                    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Closes the GOK keyboard editor.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-on-exit"></a><h3>gok_editor_on_exit ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_on_exit                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+The menu item to close the program has been selected so close it.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-new"></a><h3>gok_editor_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-open-file"></a><h3>gok_editor_open_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_open_file                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Opens an existing keyboard file for editing.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-new-file"></a><h3>gok_editor_new_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_new_file                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new GOK keyboard file.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-touch-file"></a><h3>gok_editor_touch_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_touch_file               (<em class="parameter"><code><span class="type">gboolean</span> modified</code></em>);</pre>
+<p>
+Marks the file as having modifications (or not)
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>modified</code></em> :</span></p></td>
+<td>should the file be marked as modified?
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-show-parameters"></a><h3>gok_editor_show_parameters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_show_parameters          (<em class="parameter"><code><span class="type">GokKey</span> *pKey</code></em>);</pre>
+<p>
+Displays the parameters for the given key on the editor dialog.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKey</code></em> :</span></p></td>
+<td>Pointer to the key that will be edited.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-next-key"></a><h3>gok_editor_next_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_next_key                 (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Display parameters for the next key on the keyboard.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-previous-key"></a><h3>gok_editor_previous_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_previous_key             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Select the previous key properties
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-add-key"></a><h3>gok_editor_add_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_add_key                  (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Add a default key to the keyboard.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-delete-key"></a><h3>gok_editor_delete_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_delete_key               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Delete the currently selected key..
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-duplicate-key"></a><h3>gok_editor_duplicate_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_duplicate_key            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Add a copy of the currently selected key.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-update-key"></a><h3>gok_editor_update_key ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_update_key               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Call this if a key property changes.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-update-keyboard"></a><h3>gok_editor_update_keyboard ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_update_keyboard          (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>);</pre>
+<p>
+update the display of the keyboard and recalculate rows and columns
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pKeyboard</code></em> :</span></p></td>
+<td>Pointer to the keyboard that will be updated.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="on-editor-keyboard-delete-event"></a><h3>on_editor_keyboard_delete_event ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            on_editor_keyboard_delete_event     (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkEvent</span> *event</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Prevents the keyboard window from closing.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE so the keyboard window will NOT close.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-keyboard-key-press"></a><h3>gok_editor_keyboard_key_press ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_keyboard_key_press       (<em class="parameter"><code><span class="type">GtkWidget</span> *pWidget</code></em>);</pre>
+<p>
+The user has just pressed a key on the keyboard.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>pWidget</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-save-current-keyboard"></a><h3>gok_editor_save_current_keyboard ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_editor_save_current_keyboard    (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Saves the current keyboard back to its original file.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the keyboard was saved, FALSE if keyboard was not saved.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-save-current-keyboard-as"></a><h3>gok_editor_save_current_keyboard_as ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_editor_save_current_keyboard_as (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Saves the current keyboard under a new filename.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the keyboard was saved, FALSE if keyboard was not saved.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-save-keyboard"></a><h3>gok_editor_save_keyboard ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_editor_save_keyboard            (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);</pre>
+<p>
+Saves the given keyboard to the given file.
+</p>
+<p>
+<em class="parameter"><code>pKeyboard</code></em>: Pointer to the keyboard that will be saved to disk.
+<em class="parameter"><code>Filename</code></em>: Name of the file where the keyboard will be saved.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKeyboard</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Filename</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the keyboard was saved, FALSE if keyboard was not saved.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-print-outputs"></a><h3>gok_editor_print_outputs ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_editor_print_outputs            (<em class="parameter"><code><span class="type">FILE</span> *pFile</code></em>,
+                                                         <em class="parameter"><code><span class="type">GokOutput</span> *pOutput</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> bWrapper</code></em>);</pre>
+<p>
+Prints the outputs in XML format to the given file.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pFile</code></em> :</span></p></td>
+<td>Pointer to the XML file that gets the outputs.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pOutput</code></em> :</span></p></td>
+<td>Pointer to the first output that gets written.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bWrapper</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the outputs were written, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-validate-keyboard"></a><h3>gok_editor_validate_keyboard ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            gok_editor_validate_keyboard        (<em class="parameter"><code><span class="type">GokKeyboard</span> *pKeyboard</code></em>);</pre>
+<p>
+Validates the current keyboard to make sure it is OK.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pKeyboard</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE if the keyboard is OK, FALSE if not.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-message-filename-bad"></a><h3>gok_editor_message_filename_bad ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_message_filename_bad     (<em class="parameter"><code><span class="type">gchar</span> *Filename</code></em>);</pre>
+<p>
+Inform the user that the selected file name is not a valid 
+GOK keyboard file name.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>Filename</code></em> :</span></p></td>
+<td>Pointer to the file name.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="gok-editor-update-title"></a><h3>gok_editor_update_title ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                gok_editor_update_title             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Displays the filename and modification status in the titlebar.
+</p>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.15.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="gok-gok-editor.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>

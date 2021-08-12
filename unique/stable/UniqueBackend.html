@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="../../skin/gtkdoc.css" type="text/css"></link><link rel="stylesheet" type="text/css" media="all" href="https://static.gnome.org/css/grass-theme-style.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/lgo2010.css"></link><link rel="icon" type="image/png" href="../../skin/gnome-16.png"></link><link rel="SHORTCUT ICON" type="image/png" href="../../skin/gnome-16.png"></link><link rel="search" type="application/opensearchdescription+xml" href="../../gnome-library-search.xml" title="GNOME Library Search"></link><link rel="stylesheet" type="text/css" href="../../skin/jquery.autocomplete.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script><title>UniqueBackend</title><link href="index.html" rel="home" title="Unique 3.0.2 Reference Manual"></link><link href="unique-overview.html" rel="up" title="Unique Overview"></link><link href="unique-Message-Data.html" rel="prev" title="Message Data"></link><link href="unique-Versioning-Information.html" rel="next" title="Versioning Information"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/jquery.autocomplete.css"></link><link rel="stylesheet" type="text/css" media="all" href="../../skin/960_24_col.css"></link><script type="text/javascript" src="../../js/jquery.js"></script><script type="text/javascript" src="https://developer-old.gnome.org/js/jquery.jcarousel.min.js"></script><script type="text/javascript" src="../../js/jquery.autocomplete.js"></script></head><body><div id="accessibility_access"><ul><li><a href="UniqueBackend.html#container">Go to page content</a></li><li><a href="UniqueBackend.html#top_bar">Go to main menu</a></li><li><a href="UniqueBackend.html#s" onclick="$('#s').focus(); return false;">Go to the search field</a></li></ul></div><div id="global_domain_bar"><div class="maxwidth"><div class="tab"><a class="root" href="https://www.gnome.org/">GNOME.org</a></div></div></div><div id="header" class="container_12"><div id="logo" class="grid_3"><a title="Go to home page" href="../../index.html"><img alt="GNOME: The Free Software Desktop Project" src="../../skin/gnome-logo-devcenter.png"></img></a></div><div id="top_bar" class="grid_9"><div class="left"><div class="menu-globalnav-container"><ul id="menu-globalnav" class="menu"><li class="menu-item menu-item-type-post_type menu-item-6"><a href="../../about/index.html">About</a></li><li class="menu-item menu-item-type-post_type menu-item-23"><a href="https://help.gnome.org/users/">Users</a></li><li class="menu-item menu-item-type-post_type menu-item-40"><a href="https://help.gnome.org/admin/">Administrators</a></li><li class="current-menu-item"><a href="https://developer.gnome.org/">Developers</a></li></ul></div></div><div class="right"><form role="search" method="get" id="searchform" action="https://developer-old.gnome.org/symbols/"><div><label class="hidden" for="q">Search:
+                        </label><input type="text" value="" name="q" id="s" placeholder="Search"></input></div></form><script type="text/javascript">
+$('#s').autocomplete('/symbols/lookup/',
+        { minChars:3, matchSubset:1, matchContains:1, cacheLength:10,
+          selectOnly:1, rowsLimit:25 });
+              </script></div></div></div><div class="clearfix"></div><div id="container" class="gtk-doc"><div class="content"><table cellpadding="2" cellspacing="2" class="navigation" id="top" summary="Navigation header" width="100%">
+<tbody><tr valign="middle">
+<td><a accesskey="p" href="unique-Message-Data.html"><img alt="Prev" border="0" height="24" src="left.png" width="24"></img></a></td>
+<td><a accesskey="u" href="unique-overview.html"><img alt="Up" border="0" height="24" src="up.png" width="24"></img></a></td>
+<td><a accesskey="h" href="index.html"><img alt="Home" border="0" height="24" src="home.png" width="24"></img></a></td>
+<th align="center" width="100%">Unique 3.0.2
+ Reference Manual</th>
+<td><a accesskey="n" href="unique-Versioning-Information.html"><img alt="Next" border="0" height="24" src="right.png" width="24"></img></a></td>
+</tr>
+<tr><td class="shortcuts" colspan="5">
+<a class="shortcut" href="UniqueBackend.html#UniqueBackend.synopsis">Top</a>
+                   | 
+                  <a class="shortcut" href="UniqueBackend.html#UniqueBackend.description">Description</a>
+                   | 
+                  <a class="shortcut" href="UniqueBackend.html#UniqueBackend.object-hierarchy">Object Hierarchy</a>
+</td></tr>
+</tbody></table><div class="refentry">
+<a name="UniqueBackend"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tbody><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="UniqueBackend.top_of_page"></a>UniqueBackend</span></h2>
+<p>UniqueBackend — Backend abstraction</p>
+</td>
+<td align="right" valign="top"></td>
+</tr></tbody></table></div>
+<div class="refsynopsisdiv">
+<a name="UniqueBackend.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="UniqueBackend.html#UniqueBackend-struct" title="struct UniqueBackend">UniqueBackend</a>;
+struct              <a class="link" href="UniqueBackend.html#UniqueBackendClass" title="struct UniqueBackendClass">UniqueBackendClass</a>;
+<a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="returnvalue">UniqueBackend</span></a> *        <a class="link" href="UniqueBackend.html#unique-backend-create" title="unique_backend_create ()">unique_backend_create</a>            (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <span class="returnvalue">gchar</span> *          <a class="link" href="UniqueBackend.html#unique-backend-get-name" title="unique_backend_get_name ()">unique_backend_get_name</a>          (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="UniqueBackend.html#unique-backend-set-name" title="unique_backend_set_name ()">unique_backend_set_name</a>             (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+const <span class="returnvalue">gchar</span> *          <a class="link" href="UniqueBackend.html#unique-backend-get-startup-id" title="unique_backend_get_startup_id ()">unique_backend_get_startup_id</a>    (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="UniqueBackend.html#unique-backend-set-startup-id" title="unique_backend_set_startup_id ()">unique_backend_set_startup_id</a>       (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_id</code></em>);
+<span class="returnvalue">GdkScreen</span> *            <a class="link" href="UniqueBackend.html#unique-backend-get-screen" title="unique_backend_get_screen ()">unique_backend_get_screen</a>        (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="UniqueBackend.html#unique-backend-set-screen" title="unique_backend_set_screen ()">unique_backend_set_screen</a>           (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkScreen</span> *screen</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="UniqueBackend.html#unique-backend-get-workspace" title="unique_backend_get_workspace ()">unique_backend_get_workspace</a>        (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="UniqueBackend.html#unique-backend-request-name" title="unique_backend_request_name ()">unique_backend_request_name</a>         (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);
+<a class="link" href="UniqueApp.html#UniqueResponse" title="enum UniqueResponse"><span class="returnvalue">UniqueResponse</span></a>      <a class="link" href="UniqueBackend.html#unique-backend-send-message" title="unique_backend_send_message ()">unique_backend_send_message</a>         (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> command_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="unique-Message-Data.html#UniqueMessageData" title="UniqueMessageData"><span class="type">UniqueMessageData</span></a> *message_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> time_</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="UniqueBackend.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">  GObject
+   +----UniqueBackend
+</pre>
+</div>
+<div class="refsect1">
+<a name="UniqueBackend.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> is the base, abstract class implemented by the different
+IPC mechanisms used by Unique. Each <a class="link" href="UniqueApp.html" title="UniqueApp"><span class="type">UniqueApp</span></a> instance creates a
+<a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> to request the name or to send messages.
+</p>
+</div>
+<div class="refsect1">
+<a name="UniqueBackend.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="UniqueBackend-struct"></a><h3>struct UniqueBackend</h3>
+<pre class="programlisting">struct UniqueBackend;</pre>
+<p>
+The <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> structure contains only private data and should only
+be accessed using the provided functions.
+</p>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="UniqueBackendClass"></a><h3>struct UniqueBackendClass</h3>
+<pre class="programlisting">struct UniqueBackendClass {
+  /* vtable, not signals */
+  gboolean       (* request_name) (UniqueBackend     *backend);
+  UniqueResponse (* send_message) (UniqueBackend     *backend,
+                                   gint               command_id,
+                                   UniqueMessageData *message_data,
+                                   guint              time_);
+};
+</pre>
+<p>
+The class that should be implemented by every backend for <a class="link" href="UniqueApp.html" title="UniqueApp"><span class="type">UniqueApp</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="UniqueBackendClass.request-name"></a>request_name</code></em> ()</span></p></td>
+<td>This method should be used to request the name for the
+instance set using <a class="link" href="UniqueBackend.html#unique-backend-set-name" title="unique_backend_set_name ()"><code class="function">unique_backend_set_name()</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="UniqueBackendClass.send-message"></a>send_message</code></em> ()</span></p></td>
+<td>This method should be used to send a message to a running
+instance</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-create"></a><h3>unique_backend_create ()</h3>
+<pre class="programlisting"><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="returnvalue">UniqueBackend</span></a> *        unique_backend_create            (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> using the default backend defined at
+compile time. You can override the default backend by setting the
+<code class="literal">UNIQUE_BACKEND</code> environment variable with the
+name of the desired backend.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the newly created <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> instance. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-get-name"></a><h3>unique_backend_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *          unique_backend_get_name          (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>FIXME</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-set-name"></a><h3>unique_backend_set_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unique_backend_set_name             (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-get-startup-id"></a><h3>unique_backend_get_startup_id ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *          unique_backend_get_startup_id    (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>FIXME</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-set-startup-id"></a><h3>unique_backend_set_startup_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unique_backend_set_startup_id       (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *startup_id</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>startup_id</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-get-screen"></a><h3>unique_backend_get_screen ()</h3>
+<pre class="programlisting"><span class="returnvalue">GdkScreen</span> *            unique_backend_get_screen        (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>FIXME. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-set-screen"></a><h3>unique_backend_set_screen ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unique_backend_set_screen           (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">GdkScreen</span> *screen</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>screen</code></em> :</span></p></td>
+<td>FIXME</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-get-workspace"></a><h3>unique_backend_get_workspace ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               unique_backend_get_workspace        (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);</pre>
+<p>
+Retrieves the current workspace.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>a <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a workspace number</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-request-name"></a><h3>unique_backend_request_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unique_backend_request_name         (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>);</pre>
+<p>
+Requests the name set using <a class="link" href="UniqueBackend.html#unique-backend-set-name" title="unique_backend_set_name ()"><code class="function">unique_backend_set_name()</code></a> using <em class="parameter"><code>backend</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>a <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the name was assigned to us, <code class="literal">FALSE</code> if there
+already is a registered name</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr></hr>
+<div class="refsect2">
+<a name="unique-backend-send-message"></a><h3>unique_backend_send_message ()</h3>
+<pre class="programlisting"><a class="link" href="UniqueApp.html#UniqueResponse" title="enum UniqueResponse"><span class="returnvalue">UniqueResponse</span></a>      unique_backend_send_message         (<em class="parameter"><code><a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a> *backend</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> command_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="unique-Message-Data.html#UniqueMessageData" title="UniqueMessageData"><span class="type">UniqueMessageData</span></a> *message_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> time_</code></em>);</pre>
+<p>
+Sends <em class="parameter"><code>command_id</code></em>, and optionally <em class="parameter"><code>message_data</code></em>, to a running instance
+using <em class="parameter"><code>backend</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<colgroup><col align="left" valign="top"></col>
+</colgroup><tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>backend</code></em> :</span></p></td>
+<td>a <a class="link" href="UniqueBackend.html" title="UniqueBackend"><span class="type">UniqueBackend</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>command_id</code></em> :</span></p></td>
+<td>command to send</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message_data</code></em> :</span></p></td>
+<td>message to send, or <code class="literal">NULL</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time_</code></em> :</span></p></td>
+<td>time of the command emission, or 0 for the current time</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <a class="link" href="UniqueApp.html#UniqueResponse" title="enum UniqueResponse"><span class="type">UniqueResponse</span></a> value sent by the running instance</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div><div class="footer">
+<hr></hr>
+          Generated by GTK-Doc V1.16.1</div></div><div id="footer_art" class="default"> </div></div><div class="clearfix"></div><div id="footer_grass">   </div><div id="footer"><div class="container_12"><div class="links grid_9"><div class="menu-footer-1-container"><ul id="menu-footer-1" class="menu"><li id="menu-item-88" class="menu-item menu-item-type-custom menu-item-home menu-item-88"><a href="https://www.gnome.org/">The GNOME Project</a><ul class="sub-menu"><li id="menu-item-89" class="menu-item menu-item-type-post_type menu-item-89"><a href="https://www.gnome.org/about/">About Us</a></li><li id="menu-item-90" class="menu-item menu-item-type-custom menu-item-90"><a href="https://www.gnome.org/get-involved/">Get Involved</a></li><li id="menu-item-91" class="menu-item menu-item-type-custom menu-item-91"><a href="https://www.gnome.org/teams/">Teams</a></li><li id="menu-item-92" class="menu-item menu-item-type-custom menu-item-92"><a href="https://foundation.gnome.org">The GNOME Foundation</a></li><li><a href="https://www.gnome.org/support-gnome/">Support GNOME</a></li><li><a href="https://www.gnome.org/contact/">Contact</a></li></ul></li></ul></div><div class="menu-footer-2-container"><ul id="menu-footer-2" class="menu"><li id="menu-item-99" class="menu-item menu-item-type-post_type current-menu-item page_item page-item-20 current_page_item menu-item-99"><a href="UniqueBackend.html#">Resources</a><ul class="sub-menu"><li><a href="https://help.gnome.org">Documentation</a></li><li><a href="https://wiki.gnome.org">Wiki</a></li><li><a href="https://mail.gnome.org/mailman/listinfo">Mailing Lists</a></li><li><a href="https://wiki.gnome.org/GnomeIrcChannels">IRC Channels</a></li><li><a href="https://gitlab.gnome.org/">Bug Tracker</a></li><li><a href="https://gitlab.gnome.org/">Development Code</a></li><li><a href="https://wiki.gnome.org/Jhbuild">Build Tool</a></li></ul></li></ul></div><div class="menu-footer-4-container"><ul id="menu-footer-4" class="menu"><li id="menu-item-104" class="menu-item menu-item-type-custom menu-item-104"><a href="http://www.gnome.org/news/">News</a><ul class="sub-menu"><li><a href="https://www.gnome.org/start/stable">Latest Release</a></li><li><a href="https://planet.gnome.org">Planet GNOME</a></li><li><a href="https://news.gnome.org">Development News</a></li><li><a href="https://twitter.com/gnome">Twitter</a></li></ul></li></ul></div></div><div class="links grid_3 right"><div><ul class="menu available_languages"><li><strong>This website is available in many languages</strong><ul class="sub-menu"><li><a href="../../languages.html" title="Switching Language">Switch Language</a></li></ul></li></ul><script type="text/javascript" src="../../js/language.js"></script></div></div><div id="footnotes" class="grid_9">
+                Copyright © 2005‒2014 <strong class="gnome_logo">The GNOME Project</strong><br></br><small>Optimised for standards. Hosted by <a href="http://redhat.com">Red Hat</a>.</small></div><div class="clear"></div></div></div><script type="text/javascript">
+$(document).ready(function() {
+    // Get browser
+    $.each($.browser, function(i) {
+        $('body').addClass(i);
+        return false;
+    });
+
+    // Get OS and add it as class to body tag, this then allows forcing some
+    // customisation in the CSS rules.
+    var match = navigator.userAgent.toLowerCase().match(/(win|mac|linux)/);
+    if (match) {
+        $('body').addClass(match[0]);
+    }
+});
+</script><script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['disableCookies']);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+
+      (function() {
+        var u=(("https:" == document.location.protocol) ? "https" : "http") + "://webstats.gnome.org/";
+        _paq.push(["setTrackerUrl", u+"piwik.php"]);
+        _paq.push(["setSiteId", "6"]);
+        var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+        g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+      })();
+    </script></body></html>
